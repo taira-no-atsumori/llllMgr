@@ -9,7 +9,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/llll_mgr',
+      path: '/',
       name: 'Home',
       component: Home
     },
@@ -24,7 +24,7 @@ const router = createRouter({
       component: CardList
     }, */
     {
-      path: '/llll_mgr/musicList',
+      path: '/musicList',
       name: 'MusicList',
       component: MusicList
     }
