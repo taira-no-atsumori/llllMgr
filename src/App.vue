@@ -6,10 +6,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
       <v-toolbar-title>リンクラ管理ツール</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('/llll_mgr/')">Home</v-btn>
+      <v-btn class="d-none d-sm-block" text @click="pageMove('/')">Home</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('formation')" disabled>Formation</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('cardlist')" disabled>Card List</v-btn>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist/llll_mgr')">Music List</v-btn>
+      <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist')">Music List</v-btn>
       <v-btn class="d-none d-sm-block" text disabled>Item List</v-btn>
       <!--<v-icon @click="store.showModalEvent('settings');" style="margin-right: 10px;">mdi-cog</v-icon>-->
     </v-app-bar>
