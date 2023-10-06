@@ -25,7 +25,7 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item @click="pageMove('/llll_mgr/')">
+          <v-list-item @click="pageMove('/')">
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
@@ -37,7 +37,7 @@
             <v-list-item-title>Card List</v-list-item-title>
           </v-list-item>-->
 
-          <v-list-item @click="pageMove('llll_mgr/musiclist')">
+          <v-list-item @click="pageMove('musiclist')">
             <v-list-item-title>Music List</v-list-item-title>
           </v-list-item>
 
