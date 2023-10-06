@@ -6,7 +6,7 @@ import Home from '../components/Home.vue'
 import MusicList from '../components/MusicList.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
