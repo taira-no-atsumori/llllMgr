@@ -11,6 +11,7 @@
       <v-btn class="d-none d-sm-block" text @click="pageMove('cardlist')" disabled>Card List</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist')">Music List</v-btn>
       <v-btn class="d-none d-sm-block" text disabled>Item List</v-btn>
+      <v-icon @click="pageMove('/llllMgr/')" class="hidden-sm-and-up" style="margin-right: 10px;">mdi-home</v-icon>
       <!--<v-icon @click="store.showModalEvent('settings');" style="margin-right: 10px;">mdi-cog</v-icon>-->
     </v-app-bar>
     <v-navigation-drawer
@@ -25,11 +26,11 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item @click="pageMove('/')">
+          <!--<v-list-item @click="pageMove('/')">
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
-          <!--<v-list-item>
+          <v-list-item>
             <v-list-item-title>Formation</v-list-item-title>
           </v-list-item>
 
@@ -48,9 +49,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-main>
-      <div style="padding-top: 10px;">
-        <router-view/>
-      </div>
+      <router-view/>
     </v-main>
     <Modal/>
   </v-app>
@@ -143,7 +142,7 @@ h1 {
 main,
 footer {
   width: 1600px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto;
 }
 
 select,
