@@ -7,7 +7,7 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
     <script>
-      (function(){
+      /*(function(){
         // 保存しておいたURLを取り出す
         var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
@@ -15,7 +15,12 @@
           // historyを書き換える。これで正常にページ遷移を行ったときの表示となる。
           history.replaceState(null, null, redirect);
         }
-      })();
+      })();*/
+      (function (l) {
+        if (l.hash) {
+          window.history.replaceState(null, null, l.hash.slice(1));
+        }
+      })(window.location);
     </script>
   </head>
   <body>
