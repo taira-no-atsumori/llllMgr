@@ -10,7 +10,7 @@
       <v-btn class="d-none d-sm-block" text @click="pageMove('formation')" disabled>Formation</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('cardlist')" disabled>Card List</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist')">Music List</v-btn>
-      <v-btn class="d-none d-sm-block" text disabled>Item List</v-btn>
+      <v-btn class="d-none d-sm-block" text @click="pageMove('itemlist')">Item List</v-btn>
       <v-icon @click="pageMove('/llllMgr/')" class="hidden-sm-and-up" style="margin-right: 10px;">mdi-home</v-icon>
       <!--<v-icon @click="store.showModalEvent('settings');" style="margin-right: 10px;">mdi-cog</v-icon>-->
     </v-app-bar>
@@ -42,9 +42,9 @@
             <v-list-item-title>Music List</v-list-item-title>
           </v-list-item>
 
-          <!--<v-list-item>
+          <v-list-item @click="pageMove('itemlist')">
             <v-list-item-title>Item List</v-list-item-title>
-          </v-list-item>-->
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>

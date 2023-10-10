@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <h1>Link！Like！ラブライブ！ 管理ツール</h1>
-        Ver.α(アーリーアクセス)
+        Ver.β(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row>
@@ -22,7 +22,7 @@
         <v-btn tile block @click="pageMove('musiclist')">Music List</v-btn>
       </v-col>
       <v-col>
-        <v-btn tile block disabled>Item List</v-btn>
+        <v-btn tile block @click="pageMove('itemlist')">Item List</v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -72,8 +72,9 @@
         <br>
         3. ITEM LIST(アイテム一覧)<br>
         Quest Liveの各ステージで獲得できるアイテムの一覧と検索ができるようになる予定です。<br>
+        →<b>仮対応ですが公開しました!</b><br>
         <br>
-        ITEM LISTのリリースをもって正式版となる予定です。<br>
+        FORMATIONのリリースをもって正式版となる予定です。<br>
         その後は各機能の拡充・調整・バグ修正を行っていきます。<br>
         ※リリース時期は未定です。<br>
         ※リリース順は前後する可能性があります。<br>

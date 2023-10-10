@@ -211,6 +211,28 @@ export const useStoreCounter = defineStore('store', {
           'メンタルを最大値の',
           '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'
         ],
+        'クイックフォーム': [
+          'このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+',
+          '%する。'
+        ],
+        'ボルテックスアトラクション': [
+          'ビートハート12回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
+          '%する。さらにボルテージPt.を+',
+          'する。'
+        ],
+        'ボルテックスシフト': [
+          'このステージ中、ボルテージPt.を獲得する効果が発動した時、代わりに獲得するボルテージPt.の',
+          'の個数のスキルハートを獲得する。'
+        ],
+        'オールマイトヒーリング': [
+          'このステージ中、メンタルが回復した時、回復量の',
+          '%の個数のスキルハートを獲得する。'
+        ],
+        'アグレッシブアトラクト': [
+          'このステージ中、獲得するLOVEを+',
+          '%する。さらにメンタルを最大値の',
+          '%減少させる。'
+        ],
       },
       SR: {
         'ハートキャプチャ': [
@@ -1249,6 +1271,49 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          '奇跡の舞踏会': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 1,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3030,
+              pure: 1330,
+              cool: 1130,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'クイックフォーム',
+              AP: 5,
+              level: 1,
+              detail: [
+                [48, 52.8, 57.6, 62.4, 67.2, 72, 76.8, 81.6, 86.4, 96, '??', '??', '??', 35]
+              ],
+              type: ['boltexShift']
+            },
+            skill: {
+              name: 'ボルテックスアトラクション',
+              AP: 7,
+              level: 1,
+              detail: [
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, '??', '??', '??', 4.8],
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, '??', '??', '??', 9]
+              ],
+              type: ['vortex', 'atraction']
+            },
+            characteristic: {
+              name: 'オーバーセクション : リシャッフル',
+              detail: '手札にある状態でセクションが変わるたび、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+              type: ['overSection', 'reShuffle']
+            }
+          },
           'はじける☆メロンソーダ': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -1537,6 +1602,48 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          '革命の舞踏会': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 1,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 830,
+              pure: 1530,
+              cool: 3230,
+              mental: 173,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'ボルテックスシフト',
+              AP: 3,
+              level: 1,
+              detail: [
+                [48, 52.8, 57.6, 62.4, 67.2, 72, 76.8, 81.6, 86.4, 96, '??', '??', '??', 120]
+              ],
+              type: ['boltexShift']
+            },
+            skill: {
+              name: 'ボルテージゲイン',
+              AP: 7,
+              level: 1,
+              detail: [
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, '??', '??', '??', 73]
+              ],
+              type: ['voltageGain']
+            },
+            characteristic: {
+              name: 'APレデュース : ボルテージ',
+              detail: '現在のボルテージLvに応じてスキルの消費APダウン',
+              type: ['APreduce', 'voltage']
+            }
+          },
           'はじける☆スイカソーダ': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -1826,6 +1933,49 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          '約束の舞踏会': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 1,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1630,
+              pure: 2930,
+              cool: 230,
+              mental: 253,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'オールマイトヒーリング',
+              AP: 8,
+              level: 1,
+              detail: [
+                [48, 52.8, 57.6, 62.4, 67.2, 72, 76.8, 81.6, 86.4, 96, '??', '??', '??', 75]
+              ],
+              type: ['allMight', 'healing']
+            },
+            skill: {
+              name: 'アグレッシブアトラクト',
+              AP: 3,
+              level: 1,
+              detail: [
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, '??', '??', '??', 10],
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, '??', '??', '??', 25]
+              ],
+              type: ['aggressive', 'attract']
+            },
+            characteristic: {
+              name: 'ドロー : メンタルリカバー & アンコール',
+              detail: 'ドローした時、メンタルを最大値の5%回復させる。さらにスキル使用時、山札に戻る。',
+              type: ['draw', 'mentalRecover', 'encore']
+            }
+          },
           '夏めきペイン': {
             styleType: 'cheerLeader',
             mood: 'happy',
