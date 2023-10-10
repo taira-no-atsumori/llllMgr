@@ -4,6 +4,7 @@ import Home from '../components/Home.vue'
 // import Formation from '../components/FormationArea.vue'
 // import CardList from '../components/CardList.vue'
 import MusicList from '../components/MusicList.vue'
+import ItemList from '../components/ItemList.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/llllMgr/musicList',
       name: 'MusicList',
       component: MusicList
+    },
+    {
+      path: '/llllMgr/itemList',
+      name: 'ItemList',
+      component: ItemList
     }
   ]
 });
