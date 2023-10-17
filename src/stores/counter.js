@@ -2330,7 +2330,7 @@ export const useStoreCounter = defineStore('store', {
         level: 0,
         term: 103,
         center: 'kaho',
-        bonusSkill: 'メンタルリカバー',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue']
       },
       '素顔のピクセル': {
@@ -2510,7 +2510,7 @@ export const useStoreCounter = defineStore('store', {
         level: 0,
         term: 103,
         center: 'tsuzuri',
-        bonusSkill: 'LOVEボーナス',
+        bonusSkill: 'ビートハートアップ',
         singingMembers: ['sayaka', 'tsuzuri']
       },
       'Take It Over': {
