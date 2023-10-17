@@ -2582,7 +2582,7 @@ export const useStoreCounter = defineStore('store', {
         level: 0,
         term: 103,
         center: 'rurino',
-        bonusSkill: 'ボルテージアップ',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi']
       },
       'アイデンティティ': {
@@ -2713,7 +2713,7 @@ export const useStoreCounter = defineStore('store', {
       },
       'Preserved Roses': {
         musicData: {
-          singer: 'みらくらぱーく！',
+          singer: 'スリーズブーケ',
           releaseDate: {
             year: 2023,
             month: 3,
@@ -2767,7 +2767,7 @@ export const useStoreCounter = defineStore('store', {
       },
       '名前のない怪物': {
         musicData: {
-          singer: '村野 さやか',
+          singer: 'DOLLCHESTRA',
           releaseDate: {
             year: 2023,
             month: 3,
@@ -2781,7 +2781,7 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka']
+        singingMembers: ['sayaka', 'tsuzuri']
       },
       '狙いうち': {
         musicData: {
