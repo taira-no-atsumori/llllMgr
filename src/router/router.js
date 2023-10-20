@@ -5,6 +5,7 @@ import Home from '../components/Home.vue'
 // import CardList from '../components/CardList.vue'
 import MusicList from '../components/MusicList.vue'
 import ItemList from '../components/ItemList.vue'
+import License from '../components/License.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/llllMgr/itemList',
       name: 'ItemList',
       component: ItemList
+    },
+    {
+      path: '/llllMgr/license',
+      name: 'License',
+      component: License
     }
   ]
 });
