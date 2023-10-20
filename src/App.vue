@@ -67,7 +67,7 @@
           class="mt-2 mb-3 text-center"
           cols="12"
         >
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('/llll_mgr_dev/')">HOME</a>
+          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('/llllMgr/')">HOME</a>
           <!--<a href="javascript:void(0)" class="mx-3 mb-2 footer-link" disabled>FORMATION</a>-->
           <span class="mx-3 mb-2">FORMATION</span>
           <!--<a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('cardlist')">CARD LIST</a>-->
