@@ -2180,7 +2180,7 @@ export const useStoreCounter = defineStore('store', {
             date: 20
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
-          BPM: '???',
+          BPM: 160,
           cover: false
         },
         level: 0,
