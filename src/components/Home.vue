@@ -133,15 +133,6 @@ export default {
   data() {
     return {
       eventList: {
-        'liveGP_103_10_circle': {
-          title: 'ライブグランプリ「103期10月度サークル対抗戦」',
-          firstDay: [2023, 10, 21, 10, 0],
-          lastDay: [2023, 10, 28, 4, 0],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-10-19-20-9lxr0lugpu',
-          text: '',
-          type: 'gp',
-          img: '103期10月度サークル対抗戦_logo.jpg'
-        },
         '1stLive_tokyo': {
           title: '「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 1st Live Tour ～RUN！CAN！FUN！～」',
           text: '東京公演',
@@ -159,6 +150,24 @@ export default {
           lastDay: [2023, 11, 26, 0, 0],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=RCF',
           img: 'RUN_CAN_FUN_logo.png'
+        },
+        'ijigenFes': {
+          title: '異次元フェス アイドルマスター★♥︎ラブライブ！歌合戦',
+          firstDay: [2023, 12, 9, 0, 0],
+          lastDay: [2023, 12, 10, 0, 0],
+          url: 'https://ijigen-fes.jp/utagassen/',
+          text: '',
+          type: 'live',
+          img: 'ijigenFes_logo.png'
+        },
+        'unitKoushien': {
+          title: 'LoveLive! Series Presents ユニット甲子園 2024',
+          firstDay: [2024, 3, 9, 0, 0],
+          lastDay: [2024, 3, 10, 0, 0],
+          url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=unitlive2024',
+          text: '',
+          type: 'live',
+          img: 'unitKoushien_logo.png'
         }
       }
     }
