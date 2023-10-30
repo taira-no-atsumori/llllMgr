@@ -2189,6 +2189,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
+      'Trick & Cute': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 1,
+            date: 17
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
+          BPM: 244,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
       '水彩世界': {
         musicData: {
           singer: 'スリーズブーケ',
@@ -2360,13 +2378,31 @@ export const useStoreCounter = defineStore('store', {
             date: 15
           },
           numbering: 'スリーズブーケ 3rdシングル',
-          BPM: -1,
+          BPM: 138,
           cover: false
         },
         level: 0,
         term: 103,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'kozue']
+      },
+      '千変万華': {
+        musicData: {
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 15
+          },
+          numbering: 'スリーズブーケ 3rdシングル',
+          BPM: 140,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue']
       },
       'AWOKE': {
@@ -2540,13 +2576,31 @@ export const useStoreCounter = defineStore('store', {
             date: 22
           },
           numbering: 'DOLLCHESTRA 3rdシングル',
-          BPM: -1,
+          BPM: 150,
           cover: false
         },
         level: 0,
         term: 103,
         center: 'sayaka',
         bonusSkill: 'メンタルリカバー',
+        singingMembers: ['sayaka', 'tsuzuri']
+      },
+      'KNOT': {
+        musicData: {
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 22
+          },
+          numbering: 'DOLLCHESTRA 3rdシングル',
+          BPM: 175,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri']
       },
       'ド！ド！ド！': {
@@ -2620,6 +2674,42 @@ export const useStoreCounter = defineStore('store', {
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi']
+      },
+      'ノンフィクションヒーローショー': {
+        musicData: {
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 29
+          },
+          numbering: 'みらくらぱーく！ 1stシングル',
+          BPM: 180,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'megumi',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'megumi']
+      },
+      'Runway': {
+        musicData: {
+          singer: '村野さやか',
+          releaseDate: {
+            year: 2000,
+            month: 1,
+            date: 1
+          },
+          numbering: '???',
+          BPM: 74,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'sayaka',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['sayaka']
       },
       '僕らのLIVE 君とのLIFE': {
         musicData: {
