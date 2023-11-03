@@ -5,7 +5,7 @@
     :max-width="maxWidth[store.showModalName]"
   >
     <v-sheet>
-      <div id="modalArea">
+      <div id="modalArea" class="pa-4">
         <div v-if="store.showModalName === 'selectCard'">
           <SelectCard />
         </div>
@@ -14,6 +14,9 @@
         </div>
         <div v-else-if="store.showModalName === 'possessionCardSetting'">
           <CardList />
+        </div>
+        <div v-else-if="store.showModalName === 'CardListFilter'">
+          <CardListFilter />
         </div>
         <div v-else-if="store.showModalName === 'setLeaningLevel'">
           <SetLeaningLevel />
@@ -33,6 +36,7 @@
 // import CardSetting from './PossettionCardList.vue'
 import SetCardData from './SetCardData.vue'
 import CardList from './CardList.vue'
+import CardListFilter from './CardListFilter.vue'
 import SelectCard from './SelectCard.vue'
 import SetLeaningLevel from './SetLeaningLevel.vue'
 import Settings from './Settings.vue'
@@ -42,6 +46,7 @@ export default {
   components: {
     SetCardData,
     CardList,
+    CardListFilter,
     SetLeaningLevel,
     Settings
   },
@@ -50,7 +55,7 @@ export default {
     return {
       maxWidth: {
         selectCard: 1600,
-        setCardData: 1600,
+        setCardData: 900,
         possessionCardSetting: 'auto',
         setLeaningLevel: 600,
         settings: 600
@@ -71,7 +76,6 @@ export default {
 <style lang="scss" scoped>
   #modalArea {
     background: #fff;
-    padding: 10px;
     margin: auto;
   }
 
