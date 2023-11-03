@@ -51,7 +51,7 @@
         <v-btn tile block @click="pageMove('formation')" disabled>Formation</v-btn>
       </v-col>
       <v-col>
-        <v-btn tile block @click="pageMove('cardlist')" disabled>Card List</v-btn>
+        <v-btn tile block @click="pageMove('cardlist')">Card List</v-btn>
       </v-col>
       <v-col>
         <v-btn tile block @click="pageMove('musiclist')">Music List</v-btn>
