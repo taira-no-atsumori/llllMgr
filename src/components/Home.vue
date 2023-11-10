@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <h1>Link！Like！ラブライブ！ 管理ツール</h1>
-        Ver.δ(アーリーアクセス)
+        Ver.ε(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row v-if="this.eventCheck()">
@@ -48,7 +48,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-btn tile block @click="pageMove('formation')" disabled>Formation</v-btn>
+        <v-btn tile block @click="pageMove('simulation')">Simulation</v-btn>
       </v-col>
       <v-col>
         <v-btn tile block @click="pageMove('cardlist')">Card List</v-btn>
@@ -104,8 +104,9 @@
         リンクラ内に実装されているカードの一覧と、カードごとのカードレベル、スペシャルアピールレベル、スキルレベルが設定できる予定です。<br>
         →<b>仮対応ですが公開しました！</b><br>
         <br>
-        2. FORMATION(編成ページ)<br>
-        簡単な編成シミュレーションと編成情報の保存ができる予定です。<br>
+        2. SIMULATION(獲得グランプリPt.計算ツール)<br>
+        <del>簡単な編成シミュレーションと編成情報の保存ができる予定です。</del><br>
+        →<b>獲得グランプリPt.計算ツールとして公開しました！</b><br>
         <br>
         3. ITEM LIST(アイテム一覧)<br>
         Quest Liveの各ステージで獲得できるアイテムの一覧と検索ができるようになる予定です。<br>

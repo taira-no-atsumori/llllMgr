@@ -7,7 +7,7 @@
       <v-toolbar-title>リンクラ管理ツール</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn class="d-none d-sm-block" text @click="pageMove('/llllMgr/')">Home</v-btn>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('formation')" disabled>Formation</v-btn>
+      <v-btn class="d-none d-sm-block" text @click="pageMove('simulation')">Simulation</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('cardlist')">Card List</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist')">Music List</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('itemlist')">Item List</v-btn>
@@ -28,11 +28,11 @@
         >
           <!--<v-list-item @click="pageMove('/')">
             <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item @click="pageMove('formation')">
-            <v-list-item-title>Formation</v-list-item-title>
           </v-list-item>-->
+
+          <v-list-item @click="pageMove('simulation')">
+            <v-list-item-title>Simulation</v-list-item-title>
+          </v-list-item>
 
           <v-list-item @click="pageMove('cardlist')">
             <v-list-item-title>Card List</v-list-item-title>
@@ -68,8 +68,7 @@
           cols="12"
         >
           <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('/llllMgr/')">HOME</a>
-          <!--<a href="javascript:void(0)" class="mx-3 mb-2 footer-link" disabled>FORMATION</a>-->
-          FORMATION
+          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('simulation')">SIMULATION</a>
           <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('cardlist')">CARD LIST</a>
           <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('musiclist')">MUSIC LIST</a>
           <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('itemlist')">ITEM LIST</a>

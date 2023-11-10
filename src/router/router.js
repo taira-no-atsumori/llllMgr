@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // import { createRouter } from 'vue-router'
 import Home from '../components/Home.vue'
-// import Formation from '../components/FormationArea.vue'
+import Simulation from '../components/Simulation.vue'
 import CardList from '../components/CardList.vue'
 import MusicList from '../components/MusicList.vue'
 import ItemList from '../components/ItemList.vue'
@@ -15,11 +15,11 @@ const router = createRouter({
       name: 'Home',
       component: Home
     },
-    /* {
-      path: '/formation',
-      name: 'Formation',
-      component: Formation
-    }, */
+    {
+      path: '/llllMgr/simulation',
+      name: 'Simulation',
+      component: Simulation
+    },
     {
       path: '/llllMgr/cardlist',
       name: 'CardList',
@@ -44,29 +44,3 @@ const router = createRouter({
 });
 
 export default router
-
-
-
-/* import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '../components/Home.vue'
-import Routing from '../components/Rounting.vue'
-
-Vue.use(Router)
-
-export default new Router({
-  mode: 'history',                  
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/routing',
-      name: 'routing',
-      component: Routing 
-    }
-  ]
-}) */
