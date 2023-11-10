@@ -191,7 +191,8 @@ export const useStoreCounter = defineStore('store', {
     localStorageData: {
       musicData: {
         musicLevel: {}
-      }
+      },
+      cardList: {}
     },
     saveBonusSkill: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス'],
     skillList: {
@@ -416,11 +417,13 @@ export const useStoreCounter = defineStore('store', {
           '%する。'
         ],
         SR: [
-          'このセクション中、獲得するLOVEを+',
+          'この',
+          '中、獲得するLOVEを+',
           '%する。'
         ],
         R: [
-          'このセクション中、獲得するLOVEを+',
+          'この',
+          '中、獲得するLOVEを+',
           '%する。'
         ]
       },
@@ -500,7 +503,7 @@ export const useStoreCounter = defineStore('store', {
         ],
         UR: [
           'このセクション中、獲得するLOVEを+',
-          'する。さらにボルテージPt.を+',
+          '%する。さらにボルテージPt.を+',
           'する。'
         ]
       },
@@ -632,7 +635,6 @@ export const useStoreCounter = defineStore('store', {
             styleType: '',
             mood: '',
             fluctuationStatus: {
-              possession: false,
               cardLevel: 0,
               trainingLevel: 0,
               SALevel: 1,
@@ -728,7 +730,7 @@ export const useStoreCounter = defineStore('store', {
               level: 1,
               detail: [
                 [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20.5, 22, 23.5, 25]
+                [10, '11?', '12?', '13?', '14?', 15, '16?', '17?', '18?', '20?', '21?', '22?', '23?', 25]
               ],
               type: ['heartAttraction', 'heartChaptha', 'loveAttract']
             },
@@ -738,7 +740,7 @@ export const useStoreCounter = defineStore('store', {
               level: 1,
               detail: [
                 [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.9, 7.5, 8, 8.5, 9, 9.5, 10]
+                [4, '4.4?', '4.8?', '5.2?', '5.6?', '6?', 6.4, '6.8?', '7.2?', 8, '8.4?', '8.8?', '9.2?', 10]
               ],
               type: ['heartAttraction', 'heartChaptha', 'loveAttract']
             },
@@ -815,16 +817,16 @@ export const useStoreCounter = defineStore('store', {
               AP: 6,
               level: 1,
               detail: [
-                [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.7, 37.8, 39.9, 42]
+                [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, '37.8?', '39.9?', 42]
               ],
-              type: ['mentalRecovery', 'APRecovery']
+              type: ['cheerful', 'recover']
             },
             skill: {
               name: 'ハートブースト',
               AP: 5,
               level: 1,
               detail: [
-                [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 102.5, 110, 118.5, 125]
+                [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, '?', '?', 125]
               ],
               type: ['heartBoost']
             },
@@ -838,7 +840,6 @@ export const useStoreCounter = defineStore('store', {
             styleType: 'performer',
             mood: 'happy',
             fluctuationStatus: {
-              possession: true,
               cardLevel: 0,
               trainingLevel: 0,
               SALevel: 1,
@@ -4044,7 +4045,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 2,
               level: 1,
               detail: [
-                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.8, 10.56, 11.04, 12]
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]
               ],
               type: ['mental', 'recover']
             },
@@ -4468,7 +4469,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 3,
               level: 1,
               detail: [
-                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.8, 10.56, 11.04, 12]
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]
               ],
               type: ['mental', 'recover']
             },
@@ -5040,8 +5041,8 @@ export const useStoreCounter = defineStore('store', {
               AP: 7,
               level: 1,
               detail: [
-                [38, '?', '?', '?', '?', '?', '?', '?', '?', '76?', '?', '?', '?', 96],
-                [4.8, '?', '?', '?', '?', '?', '?', '?', '?', '9.6?', '?', '?', '?', 12],
+                [38, '?', '?', '?', '?', '57?', '?', '?', '?', '76?', '?', '?', '?', 96],
+                [4.8, '5.28?', '5.76?', '6.24?', '6.72?', '7.2?', '7.68?', '8.16?', '8.64?', '9.6?', '10.08?', '10.56?', '11.04?', 12]
               ],
               type: ['invocation']
             },
@@ -6249,8 +6250,8 @@ export const useStoreCounter = defineStore('store', {
               AP: 3,
               level: 1,
               detail: [
-                ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', 8],
-                ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', 3.2],
+                ['3.2?', '3.5?', '3.8?', '4.2?', '4.5?', '4.8?', '5.1?', '5.4?', '5.8?', '6.4?', '6.7?', '7?', '7.4?', 8],
+                ['1.3?', '1.4?', '1.6?', '1.7?', '1.8?', '2', '2.1?', '2.2?', '2.3?', '2.6?', '2.7?', '2.9?', '3?', 3.2],
                 ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', 5]
               ],
               type: ['protect', 'feel']
@@ -6260,8 +6261,8 @@ export const useStoreCounter = defineStore('store', {
               AP: 4,
               level: 1,
               detail: [
-                ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', 40],
-                ['?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', 10]
+                ['16?', '18?', '19?', '21?', '22?', '24?', '26?', '27?', '29?', '32?', '34?', '35?', '37?', 40],
+                ['4?', '4.4?', '4.8?', '5.2?', '5.6?', '6?', '6.4?', '6.8?', '7.2?', '8?', '8.4?', '8.8?', '9.2?', 10]
               ],
               type: ['endurance']
             },
@@ -6812,7 +6813,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 4,
               level: 1,
               detail: [
-                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.8, 10.56, 11.04, 12]
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]
               ],
               type: ['mental', 'recover']
             }
@@ -7846,6 +7847,24 @@ export const useStoreCounter = defineStore('store', {
         center: 'rurino',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi']
+      },
+      'ダンスロボットダンス': {
+        musicData: {
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2000,
+            month: 1,
+            date: 1
+          },
+          numbering: '',
+          BPM: 190,
+          cover: true
+        },
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi']
       }
     },
   }),
@@ -7942,8 +7961,9 @@ export const useStoreCounter = defineStore('store', {
       }
       this.getLocalStorage();
     },
-    setLocalStorage(setLocalStorageName) {
-      localStorage[setLocalStorageName] = '';
+    setLocalStorage(setLocalStorageName, value) {
+      localStorage[setLocalStorageName] = JSON.stringify(value);
+      console.log(localStorage[setLocalStorageName]);
     },
     getLocalStorage() {
       if (localStorage.llllMgr_musicData === undefined) {
@@ -8077,6 +8097,10 @@ export const useStoreCounter = defineStore('store', {
       const list = {};
 
       for (const key in this.musicList) {
+        if (typeof this.musicList[key].level !== 'number') {
+          this.musicList[key].level = 0;
+        }
+
         for (const iterator of this.saveBonusSkill) {
           if (this.musicList[key].bonusSkill === iterator) {
             list[key] = this.musicList[key];
@@ -8086,14 +8110,22 @@ export const useStoreCounter = defineStore('store', {
 
       return list;
     },
-    tst(style) {
+    cardParam(style) {
       const selectCard = this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
       return selectCard.uniqueStatus[style] + (selectCard.fluctuationStatus.cardLevel - 1) * (this.settingCard.rare === 'R' ? 25 : 30);
     },
-    mentalCul() {},
+    mentalCul() {
+      const selectCard = this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
+
+      if (this.settingCard.rare !== 'R') {
+        return selectCard.uniqueStatus.mental + (selectCard.fluctuationStatus.cardLevel - 1) * 3;
+      }
+
+      return selectCard.uniqueStatus.mental + Math.ceil((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 2  + Math.floor((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 3;
+    },
     setOutputCardList() {
       let result = [];
-      
+
       for (const memberName in this.card) {
         if (memberName !== 'default') {
           for (const rare in this.card[memberName]) {

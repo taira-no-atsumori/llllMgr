@@ -133,6 +133,7 @@ $melow: #A1BAFA;
   .cardName {
     width: 188px;
     font-weight: bold;
+    font-size: 15px;
   }
 
   img {
@@ -195,6 +196,9 @@ $melow: #A1BAFA;
   #cardListArea {
     .card {
       width: calc(50% - 8px);
+    }
+    .cardName {
+      width: 100%;
     }
 
     img {

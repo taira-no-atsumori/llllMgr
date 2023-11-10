@@ -2,7 +2,8 @@
   <v-container fluid class="pa-0">
     <v-row no-gutters class="mb-2 text-center">
       <v-col class="pa-0">
-        <h2>{{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}</h2>
+        <h2 class="hidden-xs">{{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}</h2>
+        <h3 class="hidden-sm-and-up">{{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}</h3>
       </v-col>
     </v-row>
     <v-row no-gutters class="mb-5">
@@ -69,10 +70,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{ store.tst('smile') }}</td>
-              <td>{{ store.tst('pure') }}</td>
-              <td>{{ store.tst('cool') }}</td>
-              <td>{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].uniqueStatus.mental + (store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel - 1) * (store.settingCard.rare === 'R' && store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel % 2 === 1 ? 2 : 3) }}</td>
+              <td>{{ store.cardParam('smile') }}</td>
+              <td>{{ store.cardParam('pure') }}</td>
+              <td>{{ store.cardParam('cool') }}</td>
+              <td>{{ store.mentalCul() }}</td>
               <td>{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].uniqueStatus.BP }}</td>
             </tr>
           </tbody>

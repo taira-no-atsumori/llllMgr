@@ -3,7 +3,7 @@
     <v-row>
       <v-col>
         <h1>Link！Like！ラブライブ！ 管理ツール</h1>
-        Ver.γ(アーリーアクセス)
+        Ver.δ(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row v-if="this.eventCheck()">
@@ -83,7 +83,8 @@
         バックアップ機能の対応を正式リリース後に予定しています。<br>
         <br>
         完全個人制作のため、一部デザインが崩れていたり、動かない場合があります。<br>
-        順次対応していきますので、大目に見てください…
+        順次対応していきますので、大目に見てください…<br>
+        (あと、教えてもらえると助かります…)
       </v-col>
     </v-row>
     <!--<v-row>
@@ -101,6 +102,7 @@
         <br>
         1. CARD LIST(カード一覧)<br>
         リンクラ内に実装されているカードの一覧と、カードごとのカードレベル、スペシャルアピールレベル、スキルレベルが設定できる予定です。<br>
+        →<b>仮対応ですが公開しました！</b><br>
         <br>
         2. FORMATION(編成ページ)<br>
         簡単な編成シミュレーションと編成情報の保存ができる予定です。<br>
@@ -133,6 +135,15 @@ export default {
   data() {
     return {
       eventList: {
+        'liveGP5_person': {
+          title: 'ライブグランプリ「103期第5回個人戦」',
+          text: '',
+          type: 'event',
+          firstDay: [2023, 11, 10, 10, 0],
+          lastDay: [2023, 11, 15, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-11-08-10-r86h1l23m0',
+          img: 'liveGP5_person.png'
+        },
         '1stLive_tokyo': {
           title: '「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 1st Live Tour ～RUN！CAN！FUN！～」',
           text: '東京公演',
