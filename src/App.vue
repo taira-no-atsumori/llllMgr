@@ -7,6 +7,14 @@
       <v-toolbar-title>リンクラ管理ツール</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn class="d-none d-sm-block" text @click="pageMove('/llllMgr/')">Home</v-btn>
+      <a
+        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+        class="twitter-share-button"
+        data-url="https://onl.sc/W6WLB1Y"
+        data-show-count="false"
+      >
+        Share
+      </a>
       <v-btn class="d-none d-sm-block" text @click="pageMove('simulation')">Simulation</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('cardlist')">Card List</v-btn>
       <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist')">Music List</v-btn>
