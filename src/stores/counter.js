@@ -14,7 +14,6 @@ export const useStoreCounter = defineStore('store', {
     selectCharactor: '',
     selectMusicTitle: undefined,
     rarity: ['DR', 'UR', 'SR', 'R'],
-    favorite: ['♥', '●', '▲', '■', '◆', '★'],
     search: {
       cardList: {
         rare: ['DR', 'UR', 'SR', 'R'],
