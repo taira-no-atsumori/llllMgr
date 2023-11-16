@@ -327,6 +327,11 @@ export const useStoreCounter = defineStore('store', {
         UR: [
           'ビートハート',
           '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'
+        ],
+        SR: [
+          'ビートハート',
+          '回分のスキルハートを獲得する。さらにメンタルが50%以上のとき、ビートハート',
+          '回分のスキルハートを獲得する。'
         ]
       },
       'チアフルボルテージ': {
@@ -334,6 +339,11 @@ export const useStoreCounter = defineStore('store', {
           'ボルテージPt.を+',
           'する。さらにメンタルが75%以上のとき、ビートハート',
           '個分のスキルハートを獲得する。'
+        ],
+        SR: [
+          'ボルテージPt.を+',
+          'する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
+          'する。'
         ]
       },
       'チアフルプロテクト': {
@@ -347,6 +357,11 @@ export const useStoreCounter = defineStore('store', {
         UR: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにメンタルが75%以上のとき、APを1回復する。'
+        ],
+        SR: [
+          'このステージ中、獲得するLOVEを+',
+          '%する。さらにメンタルが50%以上のとき、このステージ中、獲得するLOVEを+',
+          '%する。'
         ]
       },
       'チアフルエンデュランス': {
@@ -364,9 +379,27 @@ export const useStoreCounter = defineStore('store', {
         ]
       },
       'チアフルファッシネイト': {
+        UR: [
+          'このステージ中、獲得するLOVEを+',
+          '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
+          'する。'
+        ],
         SR: [
           'このセクション中、獲得するLOVEを+',
           '%する。さらにメンタルが75%以上のとき、ボルテージPt.を+',
+          'する。'
+        ]
+      },
+      'チアフルブースト': {
+        UR: [
+          '次に使用するスキルハート獲得効果による獲得数を+',
+          '%する。さらにメンタルが50%以上のとき、次に使用するスキルハート獲得効果による獲得数を+',
+          '%する。'
+        ]
+      },
+      'チアフルリゲイン': {
+        SR: [
+          '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルが50%以上のとき、ボルテージPt.を+',
           'する。'
         ]
       },
@@ -555,8 +588,8 @@ export const useStoreCounter = defineStore('store', {
       'サポーテッドフィール': {
         UR: [
           'メンタルを最大値の',
-          '％回復させる。さらにこのステージ中、獲得するLOVEを+',
-          '％する。'
+          '%回復させる。さらにこのステージ中、獲得するLOVEを+',
+          '%する。'
         ],
         SR: [
           'メンタルを最大値の',
@@ -606,6 +639,11 @@ export const useStoreCounter = defineStore('store', {
           'ボルテージPt.を+',
           'する。さらにこのステージ中、メンタルの最大値の',
           '%分のメンタルダメージを無効にする。'
+        ],
+        SR: [
+          'ボルテージPt.を+',
+          'する。さらにこのステージ中、メンタルの最大値の',
+          '%分のメンタルダメージを無効にする。'
         ]
       },
       'アグレッシブハート': {
@@ -627,6 +665,12 @@ export const useStoreCounter = defineStore('store', {
           '回分のスキルハートを獲得する。さらにボルテージPt.を-20する。'
         ]
       },
+      'エクステプロテクト': {
+        UR: [
+          'このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の',
+          '%分のメンタルダメージを無効にする。'
+        ]
+      }
     },
     card: {
       'default': {
@@ -752,6 +796,46 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          '喫茶ハスノソラ': {
+            styleType: 'performer',
+            mood: 'happy',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2330,
+              pure: 2230,
+              cool: 1230,
+              mental: 153,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'リフレッシュハート',
+              AP: 6,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', '12?']
+              ],
+              type: ['reflesh', 'heart']
+            },
+            skill: {
+              name: 'チアフルハート',
+              AP: 4,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
+                [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, '?', '?', '?', '?']
+              ],
+              type: ['cheerful', 'heart']
+            },
+            characteristic: {
+              name: 'インタープリテーション & チェイン：梢',
+              detail: 'このスキルのムードによる効果増加量を上昇させる。さらに梢のスキルを使用した後、ドローされる確率が増加する。',
+              type: ['interPretation', 'chain', 'kozue']
+            }
+          },
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
@@ -1961,6 +2045,46 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          '喫茶ハスノソラ': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2530,
+              pure: 1130,
+              cool: 2030,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'エクステプロテクト',
+              AP: 6,
+              detail: [
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, '15.12?', '15.84?', '16.56?', 18]
+              ],
+              type: ['extensions', 'protect']
+            },
+            skill: {
+              name: 'チアフルファッシネイト',
+              AP: 2,
+              detail: [
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 12]
+              ],
+              type: ['cheerful', 'fascinate']
+            },
+            characteristic: {
+              name: 'インタープリテーション & チェイン：慈',
+              detail: 'このスキルのムードによる効果増加量を上昇させる。さらに慈のスキルを使用した後、ドローされる確率が増加する。',
+              type: ['interPretation', 'chain', 'megumi']
+            }
+          },
           '宇宙警察★うさぴょん': {
             styleType: 'trickStar',
             mood: 'neutral',
@@ -3433,6 +3557,45 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          '喫茶ハスノソラ': {
+            styleType: 'trickStar',
+            mood: 'happy',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2430,
+              pure: 1930,
+              cool: 1430,
+              mental: 153,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'ハートキャプチャ',
+              AP: 4,
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
+              ],
+              type: ['heartChaptcha']
+            },
+            skill: {
+              name: 'チアフルリゲイン',
+              AP: 4,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24]
+              ],
+              type: ['cheerful', 'regain']
+            },
+            characteristic: {
+              name: 'ドロー：ハートキャプチャ',
+              detail: 'ドローした時、ビートハート3回分のスキルハートを獲得する。',
+              type: ['draw', 'heartChaptcha']
+            }
+          },
           'Au Bord du Lac': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -4353,6 +4516,46 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          '喫茶ハスノソラ': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2530,
+              pure: 1130,
+              cool: 2030,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'リゲインアトラクト',
+              AP: 6,
+              detail: [
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, '7?', '7.4?', '8?']
+              ],
+              type: ['regain', 'attract']
+            },
+            skill: {
+              name: 'チアフルアトラクト',
+              AP: 3,
+              detail: [
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
+                [0.6, 0.7, 0.7, 0.8, 0.8, 0.9, 1, 1, 1.1, 1.2, '?', '?', '?', '?']
+              ],
+              type: ['cheerful', 'attract']
+            },
+            characteristic: {
+              name: 'インタープリテーション & チェイン：花帆',
+              detail: 'このスキルのムードによる効果増加量を上昇させる。さらに花帆のスキルを使用した後、ドローされる確率が増加する。',
+              type: ['interPretation', 'chain', 'kaho']
+            }
+          },
           'Trick & Cute': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -4934,7 +5137,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 4,
               level: 1,
               detail: [
-                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.8, 10.56, 11.04, 12]
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]
               ],
               type: ['mental', 'recover']
             }
@@ -5614,6 +5817,47 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          '喫茶ハスノソラ': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2230,
+              pure: 1530,
+              cool: 2030,
+              mental: 153,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'イニシアチブ',
+              AP: 4,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 26],
+                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, '3.36?', '3.48?', '3.64?', 4]
+              ],
+              type: ['initiative']
+            },
+            skill: {
+              name: 'チアフルボルテージ',
+              AP: 3,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
+              ],
+              type: ['cheerful', 'voltage']
+            },
+            characteristic: {
+              name: 'ドロー：ラブアトラクト',
+              detail: 'ドローした時、このセクション中、獲得するLOVEを+7.5%する。',
+              type: ['draw', 'loveAttract']
+            }
+          },
           '夏めきペイン': {
             styleType: 'performer',
             mood: 'happy',
@@ -6274,6 +6518,47 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          '喫茶ハスノソラ': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2430,
+              pure: 2130,
+              cool: 1130,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              name: 'サポーテッドフィール',
+              AP: 4,
+              detail: [
+                [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, '13.44?', '14.08?', '14.72?', 16],
+                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, '2.7?', '2.9?', '3?', 3.2]
+              ],
+              type: ['supported', 'feel']
+            },
+            skill: {
+              name: 'チアフルブースト',
+              AP: 2,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, '?', '?', '?', 100],
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 22.8, '25.2?', '26.4?', '27.6?', 30]
+              ],
+              type: ['cheerful', 'boost']
+            },
+            characteristic: {
+              name: 'インタープリテーション & チェイン：さやか',
+              detail: 'このスキルのムードによる効果増加量を上昇させる。さらにさやかのスキルを使用した後、ドローされる確率が増加する。',
+              type: ['interPretation', 'chain', 'sayaka']
+            }
+          },
           '約束の舞踏会': {
             styleType: 'cheerLeader',
             mood: 'neutral',
@@ -6687,7 +6972,7 @@ export const useStoreCounter = defineStore('store', {
               level: 1,
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, '29?', '30?', 32],
-                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, '3.48', '3.64', 4]
+                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, '3.48?', '3.64?', 4]
               ],
               type: ['cheerful', 'initiate']
             },
