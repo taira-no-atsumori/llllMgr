@@ -136,15 +136,6 @@ export default {
   data() {
     return {
       eventList: {
-        'liveGP5_person': {
-          title: 'ライブグランプリ「103期第5回個人戦」',
-          text: '',
-          type: 'event',
-          firstDay: [2023, 11, 10, 10, 0],
-          lastDay: [2023, 11, 15, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-11-08-10-r86h1l23m0',
-          img: 'liveGP5_person.png'
-        },
         '1stLive_tokyo': {
           title: '「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 1st Live Tour ～RUN！CAN！FUN！～」',
           text: '東京公演',
