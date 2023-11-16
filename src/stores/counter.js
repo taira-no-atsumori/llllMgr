@@ -816,6 +816,7 @@ export const useStoreCounter = defineStore('store', {
             specialAppeal: {
               name: 'リフレッシュハート',
               AP: 6,
+              level: 1,
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', '12?']
               ],
@@ -824,6 +825,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               name: 'チアフルハート',
               AP: 4,
+              level: 1,
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
                 [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, '?', '?', '?', '?']
@@ -2065,6 +2067,7 @@ export const useStoreCounter = defineStore('store', {
             specialAppeal: {
               name: 'エクステプロテクト',
               AP: 6,
+              level: 1,
               detail: [
                 [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, '15.12?', '15.84?', '16.56?', 18]
               ],
@@ -2073,6 +2076,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               name: 'チアフルファッシネイト',
               AP: 2,
+              level: 1,
               detail: [
                 [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 12]
@@ -3577,6 +3581,7 @@ export const useStoreCounter = defineStore('store', {
             specialAppeal: {
               name: 'ハートキャプチャ',
               AP: 4,
+              level: 1,
               detail: [
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
               ],
@@ -3585,6 +3590,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               name: 'チアフルリゲイン',
               AP: 4,
+              level: 1,
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24]
               ],
@@ -4536,6 +4542,7 @@ export const useStoreCounter = defineStore('store', {
             specialAppeal: {
               name: 'リゲインアトラクト',
               AP: 6,
+              level: 1,
               detail: [
                 [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, '7?', '7.4?', '8?']
               ],
@@ -4544,6 +4551,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               name: 'チアフルアトラクト',
               AP: 3,
+              level: 1,
               detail: [
                 [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
                 [0.6, 0.7, 0.7, 0.8, 0.8, 0.9, 1, 1, 1.1, 1.2, '?', '?', '?', '?']
@@ -5837,6 +5845,7 @@ export const useStoreCounter = defineStore('store', {
             specialAppeal: {
               name: 'イニシアチブ',
               AP: 4,
+              level: 1,
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 26],
                 [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, '3.36?', '3.48?', '3.64?', 4]
@@ -5846,6 +5855,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               name: 'チアフルボルテージ',
               AP: 3,
+              level: 1,
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
@@ -6538,6 +6548,7 @@ export const useStoreCounter = defineStore('store', {
             specialAppeal: {
               name: 'サポーテッドフィール',
               AP: 4,
+              level: 1,
               detail: [
                 [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, '13.44?', '14.08?', '14.72?', 16],
                 [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, '2.7?', '2.9?', '3?', 3.2]
@@ -6547,6 +6558,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               name: 'チアフルブースト',
               AP: 2,
+              level: 1,
               detail: [
                 [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, '?', '?', '?', 100],
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 22.8, '25.2?', '26.4?', '27.6?', 30]
