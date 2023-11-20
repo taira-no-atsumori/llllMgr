@@ -45,7 +45,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム(技能書系)"
+          label="獲得可能アイテム1"
           multiple
           clearable
           dense
@@ -58,7 +58,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム(ピース系)"
+          label="獲得可能アイテム2"
           multiple
           clearable
           dense
@@ -71,7 +71,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム(チャーム系)"
+          label="獲得可能アイテム3"
           multiple
           clearable
           dense
