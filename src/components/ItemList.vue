@@ -45,7 +45,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム1"
+          label="獲得可能アイテム(技能書系)"
           multiple
           clearable
           dense
@@ -58,7 +58,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム2"
+          label="獲得可能アイテム(ピース系)"
           multiple
           clearable
           dense
@@ -71,7 +71,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム3"
+          label="獲得可能アイテム(チャーム系)"
           multiple
           clearable
           dense
@@ -176,12 +176,12 @@ export default {
       selectSeasonValue: ['103期Spring', '103期Summer', '103期Autumn'],
       selectAreaItem: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
       selectAreaValue: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
-      selectItem1: ['技能書(初等)'],
-      selectItemValue1: ['技能書(初等)'],
-      selectItem2: ['ガーネットピース(R1)', 'ガーネットピース(R2)'],
-      selectItemValue2: ['ガーネットピース(R1)'],
-      selectItem3: ['ステラチャーム(R3)'],
-      selectItemValue3: ['ステラチャーム(R3)'],
+      selectItem1: [],
+      selectItemValue1: [],
+      selectItem2: [],
+      selectItemValue2: [],
+      selectItem3: [],
+      selectItemValue3: [],
       filterItem: [],
       headers: [
         {
@@ -191,9 +191,9 @@ export default {
         },
         { text: 'エリア', value: 'area' },
         { text: 'ステージ', value: 'stage' },
-        { text: '獲得可能アイテム1', value: '獲得可能アイテム1' },
-        { text: '獲得可能アイテム2', value: '獲得可能アイテム2' },
-        { text: '獲得可能アイテム3', value: '獲得可能アイテム3' },
+        { text: '獲得可能アイテム(技能書系)', value: '獲得可能アイテム(技能書系)' },
+        { text: '獲得可能アイテム(ピース系)', value: '獲得可能アイテム(ピース系)' },
+        { text: '獲得可能アイテム(チャーム系)', value: '獲得可能アイテム(チャーム系)' },
         //{ text: '低確率獲得可能アイテム', value: '低確率獲得可能アイテム' },
       ],
       list: {
@@ -2265,13 +2265,11 @@ export default {
           Area4: [],
           Area5: []
         }
-      }
+      },
+      allItemList: []
     }
   },
   computed: {
-    tst() {
-      return false;
-    },
     /* filterItems() {
       let obj = {};
       
@@ -2290,70 +2288,30 @@ export default {
         this.select['item' + i].value = getSelectItemList['item' + i];
       }
     }
+
+    for (const season in this.list) {
+      for (const area in this.list[season]) {
+        this.allItemList = this.allItemList.concat(this.list[season][area]);
+      }
+    }
   },
   methods: {
     changeItem() {
-      let obj = [];
-      let obj2 = [];
-      let obj3 = [];
-      let obj4 = [];
+      const _this = this;
+      this.filterItem = this.allItemList;
 
-      for (const season in this.list) {
-        for (const area in this.list[season]) {
-          obj = obj.concat(this.list[season][area]);
-        }
+      for (let i = 1; i <= 3; i++) {
+        this.filterItem = ((i) => {
+          if (_this.select['item' + i].value.length > 0 && _this.select['item' + i].value.length < _this.select['item' + i].item.length) {
+            const regex = new RegExp(_this.select['item' + i].value.join('|').replace(/\(/g, '\\(').replace(/\)/g, '\\)'))
+            return _this.filterItem.filter(arr => regex.test(arr['獲得可能アイテム' + i]));
+          } else {
+            return _this.filterItem;
+          }
+        })(i);
       }
 
-      /*for (let i = 0; i < obj.length; i++) {
-        if (this.select.item1.value.length > 0 && this.select.item1.value.length < this.select.item1.item.length) {
-          for (const selectItem1 of this.select.item1.value) {
-            for (let i = 0; i < obj.length; i++) {
-              if (obj[i]['獲得可能アイテム1'] === selectItem1) {
-                obj2.push(obj[i]);
-              }
-            }
-          }
-        }
-        
-      }*/
-
-      if (this.select.item1.value.length === 0 || this.select.item1.value.length === this.select.item1.item.length) {
-        obj2 = obj;
-      } else {
-        for (const selectItem1 of this.select.item1.value) {
-          for (let i = 0; i < obj.length; i++) {
-            if (obj[i]['獲得可能アイテム1'] === selectItem1) {
-              obj2.push(obj[i]);
-            }
-          }
-        }
-      }
-
-      if (this.select.item2.value.length === 0 || this.select.item2.value.length === this.select.item2.item.length) {
-        obj3 = obj2;
-      } else {
-        for (const selectItem2 of this.select.item2.value) {
-          for (let i = 0; i < obj2.length; i++) {
-            if (obj2[i]['獲得可能アイテム2'] === selectItem2) {
-              obj3.push(obj2[i]);
-            }
-          }
-        }
-      }
-
-      if (this.select.item3.value.length === 0 || this.select.item3.value.length === this.select.item3.item.length) {
-        obj4 = obj3;
-      } else {
-        for (const selectItem3 of this.select.item3.value) {
-          for (let i = 0; i < obj3.length; i++) {
-            if (obj3[i]['獲得可能アイテム3'] === selectItem3) {
-              obj4.push(obj3[i]);
-            }
-          }
-        }
-      }
-
-      /*obj4.sort((a, b) => {
+      /*this.filterItem.sort((a, b) => {
         return a.area < b.area ? -1: 1;
       });
       
@@ -2366,7 +2324,6 @@ export default {
         obj = obj.concat(this.list[this.select.item1.value[i]]);
       }*/
 
-      this.filterItem = obj4;
       this.setLocalStrage();
     },
     setLocalStrage() {
