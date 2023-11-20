@@ -136,14 +136,14 @@ export default {
   data() {
     return {
       eventList: {
-        '1stLive_tokyo': {
-          title: '「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 1st Live Tour ～RUN！CAN！FUN！～」',
-          text: '東京公演',
-          type: 'live',
-          firstDay: [2023, 11, 18, 0, 0],
-          lastDay: [2023, 11, 19, 0, 0],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=RCF',
-          img: 'RUN_CAN_FUN_logo.png'
+        'liveGP': {
+          title: '103期11月度サークル対抗戦',
+          text: '',
+          type: 'liveGP',
+          firstDay: [2023, 11, 20, 10, 0],
+          lastDay: [2023, 11, 27, 4, 0],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-11-20-30-blt2fqd1hq',
+          img: '103期11月度サークル対抗戦_logo.jpg'
         },
         '1stLive_aichi': {
           title: '「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 1st Live Tour ～RUN！CAN！FUN！～」',
