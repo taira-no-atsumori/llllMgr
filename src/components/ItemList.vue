@@ -2281,17 +2281,17 @@ export default {
     } */
   },
   created() {
+    for (const season in this.list) {
+      for (const area in this.list[season]) {
+        this.allItemList = this.allItemList.concat(this.list[season][area]);
+      }
+    }
+
     if (localStorage.llllMgr_selectItemList !== undefined) {
       const getSelectItemList = JSON.parse(localStorage.llllMgr_selectItemList);
 
       for (let i = 1; i <= 3; i++) {
         this.select['item' + i].value = getSelectItemList['item' + i];
-      }
-    }
-
-    for (const season in this.list) {
-      for (const area in this.list[season]) {
-        this.allItemList = this.allItemList.concat(this.list[season][area]);
       }
     }
   },
