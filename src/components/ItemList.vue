@@ -45,7 +45,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム1"
+          label="獲得可能アイテム(技能書系)"
           multiple
           clearable
           dense
@@ -58,7 +58,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム2"
+          label="獲得可能アイテム(ピース系)"
           multiple
           clearable
           dense
@@ -71,7 +71,7 @@
           :change="changeItem()"
           attach
           chips
-          label="獲得可能アイテム3"
+          label="獲得可能アイテム(チャーム系)"
           multiple
           clearable
           dense
@@ -191,9 +191,9 @@ export default {
         },
         { text: 'エリア', value: 'area' },
         { text: 'ステージ', value: 'stage' },
-        { text: '獲得可能アイテム1', value: '獲得可能アイテム1' },
-        { text: '獲得可能アイテム2', value: '獲得可能アイテム2' },
-        { text: '獲得可能アイテム3', value: '獲得可能アイテム3' },
+        { text: '獲得可能アイテム(技能書系)', value: '獲得可能アイテム(技能書系)' },
+        { text: '獲得可能アイテム(ピース系)', value: '獲得可能アイテム(ピース系)' },
+        { text: '獲得可能アイテム(チャーム系)', value: '獲得可能アイテム(チャーム系)' },
         //{ text: '低確率獲得可能アイテム', value: '低確率獲得可能アイテム' },
       ],
       list: {
