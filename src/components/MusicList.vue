@@ -10,14 +10,38 @@
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>
-  <div>
-    <h3>絞り込み</h3>
-    <label v-for="skillName in ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス']" :key="skillName" :for="skillName">
-      <input type="checkbox" :id="skillName" :name="skillName" @change="store.setSaveBonusSkill(skillName)" checked>
-      <img :src="require(`@/assets/${skillName}.png`)" :alt="skillName" style="width: 50px">
-    </label>
-  </div>
-  <v-container fluid>
+  <v-container fluid class="px-1">
+    <v-row no-gutters>
+      <v-col cols="12">
+        <h3>絞り込み</h3>
+      </v-col>
+      <v-col
+        v-for="skillName in bonusSkillList"
+        :key="skillName"
+        :for="skillName"
+        cols="3"
+        sm="2"
+        md="1"
+        lg="1"
+        xl="1"
+      >
+        <v-checkbox
+          v-model="selectBonusSkillList"
+          :value="skillName"
+          color="pink"
+          hide-details
+          :click="store.makeMusicList(selectBonusSkillList)"
+        >
+          <template v-slot:label>
+            <v-img
+              :src="require(`@/assets/${skillName}.png`)"
+              :alt="skillName"
+              style="width: 50px"
+            ></v-img>
+          </template>
+        </v-checkbox>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col
         v-for="(arr, memberName) in store.charactorName"
@@ -27,18 +51,19 @@
         md="4"
         lg="2"
         xl="2"
-        style="padding: 0px;"
+        style="pa-0"
       >
         <v-sheet>
           <img
             :src="require(`@/assets/member_icon/icon_SD_${memberName}.png`)"
-            style="width: 35px; margin-right: 5px;"
-          >合計マスタリーLv. {{ store.setTotalMastaryLv(memberName) }}
+            class="mr-1"
+            style="width: 35px;"
+          >合計マスタリーLv. {{ store.makeTotalMastaryLv(memberName) }}
           <p>
             <span
-              v-for="skillName in ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス']"
+              v-for="skillName in bonusSkillList"
               :key="skillName"
-              style="margin-right: 5px;"
+              class="mr-1"
             >
               <img
                 :src="require(`@/assets/${skillName}.png`)"
@@ -50,14 +75,18 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-divider class="mb10"></v-divider>
+  <v-divider class="mb-2"></v-divider>
   <dl>
-    <div v-for="(ary, songTitle) in store.makeMusicList()" :key="ary" @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)">
+    <div
+      v-for="(ary, songTitle) in store.makeMusicList(selectBonusSkillList)"
+      :key="ary"
+      @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
+    >
       <p><img :src="require(`@/assets/CD_jacket/${songTitle}.jpg`)" :alt="songTitle" class="songJacket"></p>
-      <dt class="mb10">{{ songTitle }}</dt>
+      <dt class="mb-2">{{ songTitle }}</dt>
       <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill"></dd>
     </div>
-    <div v-if="store.saveBonusSkill.length === 0">見つかりませんでした…</div>
+    <div v-if="selectBonusSkillList.length === 0">見つかりませんでした…</div>
   </dl>
 </template>
 
@@ -66,7 +95,13 @@ export default {
   name: 'MusicList',
   components: {},
   data() {
-    return {}
+    return {
+      bonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス'],
+      selectBonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス']
+    }
+  },
+  created() {
+
   },
   methods: {}
 }
