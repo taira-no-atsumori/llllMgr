@@ -194,12 +194,6 @@ main {
   margin: 0 auto;
 }
 
-select,
-input {
-  border: 1px solid #000;
-  border-radius: 5px;
-}
-
 .charactorArea {
   border: 3px solid;
 
