@@ -715,7 +715,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'フェイバリット : フィーバー',
               detail: 'フィーバーセクションでドローされる確率が大幅に増加する。',
-              type: ['favorite', 'fever']
+              type: ['favorite']
             }
           }
         },
@@ -787,7 +787,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', '12?']
               ],
-              type: ['refresh', 'heart']
+              type: ['refresh', 'heartCaptcha']
             },
             skill: {
               ID: 'cheerfulHeart_heartCaptcha',
@@ -797,7 +797,7 @@ export const useStoreCounter = defineStore('store', {
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
                 [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, '?', '?', '?', '?']
               ],
-              type: ['cheerful', 'heart']
+              type: ['cheerful', 'heartCaptcha']
             },
             characteristic: {
               name: 'インタープリテーション & チェイン：梢',
@@ -829,7 +829,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, '?', '?', '?', 60]
               ],
-              type: ['extensions', 'voltage']
+              type: ['extensions', 'voltageGain']
             },
             skill: {
               ID: 'heartAttraction',
@@ -871,7 +871,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, '37.8?', '39.9?', 42]
               ],
-              type: ['cheerful', 'recover']
+              type: ['cheerful', 'mentalRecover']
             },
             skill: {
               ID: 'heartBoost',
@@ -913,7 +913,7 @@ export const useStoreCounter = defineStore('store', {
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 12, 13, 14],
                 [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 11.4, 12, 12.6, 13.2, 13.8]
               ],
-              type: ['voltage']
+              type: ['heartCaptcha', 'loveAttract']
             },
             skill: {
               ID: 'heartCaptcha',
@@ -927,7 +927,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'オーバーセクション : ラブアトラクト',
               detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+15%する。',
-              type: ['overSection', 'heartCaptcha']
+              type: ['overSection', 'loveAttract']
             }
           },
           'SPLASH!!!!': {
@@ -955,7 +955,7 @@ export const useStoreCounter = defineStore('store', {
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '?', '?', '?', 12]
               ],
-              type: ['heartAttraction']
+              type: ['heartCaptcha', 'loveAttract']
             },
             skill: {
               ID: 'heartCaptcha',
@@ -1037,7 +1037,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 8, 9, 10, 11, 12, 13, 14]
               ],
-              type: ['voltage']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'heartCaptcha',
@@ -1079,7 +1079,7 @@ export const useStoreCounter = defineStore('store', {
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '?', 12],
                 [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, '13.8?', 15]
               ],
-              type: ['heartAttraction']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             skill: {
               ID: 'loveAttract_section',
@@ -1298,7 +1298,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'フェイバリット：フィーバー',
               detail: 'フィーバーセクションでドローされる確率が増加する。',
-              type: ['favorite', 'fever']
+              type: ['favorite']
             }
           },
         },
@@ -1552,7 +1552,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'フェイバリット：フィーバー',
               detail: 'フィーバーセクションでドローされる確率が増加する。',
-              type: ['favorite', 'fever']
+              type: ['favorite']
             }
           },
           'DEEPNESS': {
@@ -1635,7 +1635,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'フェイバリット：フィーバー',
               detail: 'フィーバーセクションでドローされる確率が増加する。',
-              type: ['favorite', 'fever']
+              type: ['favorite']
             }
           },
           'アメアガリストリート': {
@@ -1758,7 +1758,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'ドロー：ボルテージゲイン',
               detail: 'ドローした時、ボルテージ値を+12する。',
-              type: ['draw', 'voltage', 'gain']
+              type: ['draw', 'voltageGain']
             }
           },
           'Reflection in the mirror': {
@@ -1996,7 +1996,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'APレデュース：ボルテージ',
               detail: '現在のボルテージLvに応じてスキルの消費APダウン',
-              type: ['APreduce', 'voltage']
+              type: ['APreduce', 'voltageGain']
             }
           }
         },
@@ -2067,7 +2067,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['regain', 'voltage']
+              type: ['regain', 'voltageGain']
             },
             skill: {
               ID: 'extensionsVoltage_section',
@@ -2076,7 +2076,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24]
               ],
-              type: ['extensions', 'voltage']
+              type: ['extensions', 'voltageGain']
             },
             characteristic: {
               name: 'チェイン : 瑠璃乃',
@@ -2285,7 +2285,7 @@ export const useStoreCounter = defineStore('store', {
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '10?', 11],
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', 12]
               ],
-              type: ['heartAttraction']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             characteristic: {
               name: 'ドロー : APレデュース',
@@ -2327,12 +2327,12 @@ export const useStoreCounter = defineStore('store', {
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
                 [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
               ],
-              type: ['heart', 'attraction']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             characteristic: {
               name: 'フェイバリット：フィーバー',
               detail: 'フィーバーセクションでドローされる確率が増加する。',
-              type: ['favorite', 'fever']
+              type: ['favorite']
             }
           },
           'ツキマカセ': {
@@ -2732,7 +2732,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32]
               ],
-              type: ['regain', 'voltage']
+              type: ['regain', 'voltageGain']
             },
             skill: {
               ID: 'loveAttract_section',
@@ -3104,7 +3104,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -3113,7 +3113,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             }
           },
           '華紺青': {
@@ -3140,7 +3140,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -3149,7 +3149,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             }
           }
         }
@@ -3438,7 +3438,7 @@ export const useStoreCounter = defineStore('store', {
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', 10],
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', '12?']
               ],
-              type: ['heartAttraction']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             characteristic: {
               name: 'インタープリテーション',
@@ -3720,7 +3720,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '?', '?', '?', 32]
               ],
-              type: ['regain', 'voltage']
+              type: ['regain', 'voltageGain']
             },
             skill: {
               ID: 'regainAttract_section',
@@ -4337,7 +4337,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'loveAttract_stage',
@@ -4387,7 +4387,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'ドロー：メンタルリカバー',
@@ -4469,7 +4469,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'フェイバリット：スタート',
@@ -4554,7 +4554,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '27?', '29?', '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'オーバーセクション：アグレッシブ',
@@ -4997,7 +4997,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '27?', '29?', '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'loveAttract_stage',
@@ -5290,12 +5290,12 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, 61, 64, 67, 72]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'APレデュース：ボルテージ',
               detail: '現在のボルテージLvに応じてスキルの消費APダウン',
-              type: ['APreduce', 'voltage']
+              type: ['APreduce', 'voltageGain']
             }
           },
           'Take It Over': {
@@ -5322,7 +5322,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'cheerfulVoltage_heartCaptcha',
@@ -5332,7 +5332,7 @@ export const useStoreCounter = defineStore('store', {
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', 5]
               ],
-              type: ['cheerful', 'voltage']
+              type: ['cheerful', 'voltageGain']
             },
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト',
@@ -5405,19 +5405,19 @@ export const useStoreCounter = defineStore('store', {
               name: 'ボルテージハート',
               AP: 7,
               detail: [
-                [23, 25, 28, 30, 32, 35, 37, 39, 41, 46, '?', '?', '?', 58],
+                [23, 25, 28, 30, 32, 35, 37, 39, 41, 46, '48?', '51?', '53?', 58],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
               ],
-              type: ['voltage', 'heart']
+              type: ['voltageGain', 'heartCaptcha']
             },
             skill: {
               ID: 'voltageGain',
               name: 'ボルテージゲイン',
               AP: 6,
               detail: [
-                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, '?', '?', '?', 60]
+                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, '50?', '53?', '55?', 60]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'オーバーセクション：ハートキャプチャ',
@@ -5449,7 +5449,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -5458,7 +5458,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'ドロー：ボルテージゲイン',
@@ -5490,7 +5490,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, '?', '?', 60]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'fascination_section',
@@ -5533,7 +5533,7 @@ export const useStoreCounter = defineStore('store', {
                 [19, 21, 23, 25, 27, 29, 30, 32, 34, 38, '?', '?', '?', 48],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, '4?', '4?', '5?', 6]
               ],
-              type: ['voltage', 'heart']
+              type: ['voltageGain', 'heartCaptcha']
             },
             skill: {
               ID: 'voltageGain',
@@ -5542,7 +5542,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト',
@@ -5584,7 +5584,7 @@ export const useStoreCounter = defineStore('store', {
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24],
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
               ],
-              type: ['heart', 'attraction']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             characteristic: {
               name: 'APレデュース：梢',
@@ -5668,7 +5668,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'フェイバリット：1',
@@ -5698,7 +5698,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'イニシアチブ',
               AP: 7,
               detail: [
-                [22, 24, 26, 29, 31, 33, 35, 37, 40, 44, '?', '?', '?', 54],
+                [22, 24, 26, 29, 31, 33, 35, 37, 40, 44, '46?', '48?', '51?', 54],
                 [3.6, 3.96, 4.32, 4.68, 5.04, 5.4, 5.76, 6.12, 6.48, 7.2, '7.56?', '7.92?', '8.28?', 9]
               ],
               type: ['initiative']
@@ -5743,7 +5743,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, '23?', 24]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageHeart',
@@ -5753,7 +5753,7 @@ export const useStoreCounter = defineStore('store', {
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
               ],
-              type: ['voltage', 'heart']
+              type: ['voltageGain', 'heartCaptcha']
             },
             characteristic: {
               name: 'アキューミュレイト',
@@ -5787,7 +5787,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'initiative',
@@ -5840,7 +5840,7 @@ export const useStoreCounter = defineStore('store', {
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
               ],
-              type: ['cheerful', 'voltage']
+              type: ['cheerful', 'voltageGain']
             },
             characteristic: {
               name: 'ドロー：ラブアトラクト',
@@ -5873,7 +5873,7 @@ export const useStoreCounter = defineStore('store', {
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', 6]
               ],
-              type: ['voltage', 'heart']
+              type: ['voltageGain', 'heartCaptcha']
             },
             skill: {
               ID: 'heartCaptcha',
@@ -5914,7 +5914,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageHeart',
@@ -5924,7 +5924,7 @@ export const useStoreCounter = defineStore('store', {
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
-              type: ['voltage', 'heart']
+              type: ['voltageGain', 'heartCaptcha']
             },
             characteristic: {
               name: 'APレデュース：さやか',
@@ -5956,7 +5956,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'loveAttract_section',
@@ -5997,7 +5997,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'loveAttract_stage',
@@ -6038,7 +6038,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -6047,7 +6047,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'フェイバリット：スタート',
@@ -6079,7 +6079,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '27?', '29?', '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -6088,7 +6088,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 25]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'チェイン：綴理',
@@ -6120,7 +6120,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', 40]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'loveAttract_stage',
@@ -6161,7 +6161,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -6170,7 +6170,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'ドロー：APレデュース',
@@ -6243,7 +6243,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -6252,7 +6252,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '27?', '29?', '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             characteristic: {
               name: 'フェイバリット：1',
@@ -6325,7 +6325,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '27?', '29?', '30?', 32]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'heartCaptcha',
@@ -6368,7 +6368,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             },
             skill: {
               ID: 'voltageGain',
@@ -6377,7 +6377,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
-              type: ['voltage', 'gain']
+              type: ['voltageGain']
             }
           },
           '華紺青': {
@@ -6580,7 +6580,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
-              type: ['aggressive', 'attract']
+              type: ['aggressive', 'loveAttract']
             },
             characteristic: {
               name: 'ドロー：メンタルリカバー & アンコール',
@@ -6612,7 +6612,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.3?', 8]
               ],
-              type: ['regain', 'attract']
+              type: ['regain', 'loveAttract']
             },
             skill: {
               ID: 'cheerfulHeart_APreduce',
@@ -6621,7 +6621,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 10]
               ],
-              type: ['cheerful', 'heart']
+              type: ['cheerful', 'heartCaptcha']
             },
             characteristic: {
               name: 'オーバーセクション：マチュレーション',
@@ -6823,7 +6823,7 @@ export const useStoreCounter = defineStore('store', {
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
                 [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '?', 4]
               ],
-              type: ['heartAttraction']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             skill: {
               ID: 'calmHeart',
@@ -6873,7 +6873,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, '2.7?', '2.8?', '3?', 3.2]
               ],
-              type: ['extensions', 'attract']
+              type: ['extensions', 'loveAttract']
             },
             characteristic: {
               name: 'チェイン：花帆',
