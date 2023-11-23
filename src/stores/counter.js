@@ -434,7 +434,7 @@ export const useStoreCounter = defineStore('store', {
         ],
         endurance_mentalVoltage: [
           'メンタルを最大値の',
-          '%回復させる。さらにボルテージPt.を',
+          '%回復させる。さらにボルテージPt.を+',
           'する。'
         ],
         endurance_voltageMental: [
