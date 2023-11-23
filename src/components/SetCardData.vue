@@ -7,7 +7,11 @@
             {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}
           </a>
         </h2>
-        <h3 class="hidden-sm-and-up">{{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}</h3>
+        <h3 class="hidden-sm-and-up">
+          <a :href="makeWikiLink(store.settingCard.card, store.charactorName[store.settingCard.name].first + store.charactorName[store.settingCard.name].last)" target="_blank" style="color: #000;">
+            {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}
+          </a>
+        </h3>
       </v-col>
     </v-row>
     <v-row no-gutters class="mb-5">
