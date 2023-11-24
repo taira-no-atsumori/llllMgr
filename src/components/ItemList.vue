@@ -176,12 +176,12 @@ export default {
       selectSeasonValue: ['103期Spring', '103期Summer', '103期Autumn'],
       selectAreaItem: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
       selectAreaValue: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
-      selectItem1: ['技能書(初等)'],
-      selectItemValue1: ['技能書(初等)'],
-      selectItem2: ['ガーネットピース(R1)', 'ガーネットピース(R2)'],
-      selectItemValue2: ['ガーネットピース(R1)'],
-      selectItem3: ['ステラチャーム(R3)'],
-      selectItemValue3: ['ステラチャーム(R3)'],
+      selectItem1: [],
+      selectItemValue1: [],
+      selectItem2: [],
+      selectItemValue2: [],
+      selectItem3: [],
+      selectItemValue3: [],
       filterItem: [],
       headers: [
         {
@@ -1365,7 +1365,7 @@ export default {
               area: 4,
               stage: 8,
               '獲得可能アイテム1': '技能書(高等)',
-              '獲得可能アイテム2': 'ガーネットピース(R3)',
+              '獲得可能アイテム2': 'カーネリアンピース(R3)',
               '獲得可能アイテム3': 'ステラチャーム(R3)',
               //'低確率獲得可能アイテム': '技能書(初等)',
             },
@@ -1401,7 +1401,7 @@ export default {
               area: 4,
               stage: 12,
               '獲得可能アイテム1': '技能書(高等)',
-              '獲得可能アイテム2': 'ガーネットピース(R3)',
+              '獲得可能アイテム2': 'カーネリアンピース(R3)',
               '獲得可能アイテム3': 'ルナチャーム(R3)',
               //'低確率獲得可能アイテム': '技能書(初等)',
             },
@@ -1897,7 +1897,7 @@ export default {
               area: 3,
               stage: 6,
               '獲得可能アイテム1': '技能書(高等)',
-              '獲得可能アイテム2': 'サファイアピース(R1)',
+              '獲得可能アイテム2': 'サファイアピース(R2)',
               '獲得可能アイテム3': 'ソルチャーム(R3)',
               //'低確率獲得可能アイテム': '技能書(初等)',
             },
@@ -2153,7 +2153,7 @@ export default {
               area: 5,
               stage: 4,
               '獲得可能アイテム1': '技能書(中等)',
-              '獲得可能アイテム2': 'カーネリアンピース(R4)',
+              '獲得可能アイテム2': 'カーネリアンピース(R3)',
               '獲得可能アイテム3': 'ステラチャーム(R4)',
               //'低確率獲得可能アイテム': '技能書(初等)',
             },
@@ -2269,9 +2269,6 @@ export default {
     }
   },
   computed: {
-    tst() {
-      return false;
-    },
     /* filterItems() {
       let obj = {};
       
