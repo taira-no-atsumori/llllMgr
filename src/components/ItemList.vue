@@ -48,6 +48,8 @@
           label="獲得可能アイテム(技能書系)"
           multiple
           clearable
+          color="pink"
+          base-color="pink"
           dense
         ></v-select>
       </v-col>
@@ -61,6 +63,8 @@
           label="獲得可能アイテム(ピース系)"
           multiple
           clearable
+          color="pink"
+          base-color="pink"
           dense
         ></v-select>
       </v-col>
@@ -74,6 +78,8 @@
           label="獲得可能アイテム(チャーム系)"
           multiple
           clearable
+          color="pink"
+          base-color="pink"
           dense
         ></v-select>
       </v-col>
