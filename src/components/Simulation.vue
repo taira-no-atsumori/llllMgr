@@ -1,10 +1,10 @@
 <template>
-  <v-container fluid>
-    <v-row no-gutters>
-      <v-col cols="12" class="mb-3">
+  <v-container fluid class="pa-2">
+    <v-row>
+      <v-col cols="12" class="pb-3">
         <h1>SIMULATION ～ 獲得グランプリPt.計算ツール ～</h1>
       </v-col>
-      <v-col cols="12" class="mb-5">
+      <v-col cols="12" class="pt-0 pb-3">
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>

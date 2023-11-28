@@ -2,60 +2,49 @@
   <v-app>
     <v-app-bar
       color="pink"
+      density="comfortable"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
       <v-toolbar-title>リンクラ管理ツール</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('/llllMgr/')">Home</v-btn>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('simulation')">Simulation</v-btn>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('cardlist')">Card List</v-btn>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('musiclist')">Music List</v-btn>
-      <v-btn class="d-none d-sm-block" text @click="pageMove('itemlist')">Item List</v-btn>
-      <v-icon @click="pageMove('/llllMgr/')" class="hidden-sm-and-up" style="margin-right: 10px;">mdi-home</v-icon>
+      <a
+        v-if="false"
+        href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+        class="twitter-share-button"
+        data-url="x.gd/VR5u2"
+        data-hashtags="リンマネ"
+        data-show-count="false"
+      >
+        Share
+      </a>
+      <span class="ml-3"></span>
+      <v-btn
+        v-for="(arr, pageTitle) of pageList"
+        :key="arr"
+        class="d-none d-sm-block"
+        text
+        @click="pageMove(arr.url)"
+      >{{ pageTitle }}</v-btn>
       <!--<v-icon @click="store.showModalEvent('settings');" style="margin-right: 10px;">mdi-cog</v-icon>-->
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
       temporary
+      class="pa-3"
+      active-class="deep-purple--text text--accent-4"
     >
       <v-list
-        nav
-        dense
-      >
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <!--<v-list-item @click="pageMove('/')">
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item>-->
-
-          <v-list-item @click="pageMove('simulation')">
-            <v-list-item-title>Simulation</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item @click="pageMove('cardlist')">
-            <v-list-item-title>Card List</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item @click="pageMove('musiclist')">
-            <v-list-item-title>Music List</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item @click="pageMove('itemlist')">
-            <v-list-item-title>Item List</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item @click="pageMove('license')">
-            <v-list-item-title>License</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
+        v-for="(arr, pageTitle) of pageList"
+        :key="arr"
+        @click="pageMove(arr.url)"
+      >{{ pageTitle }}</v-list>
     </v-navigation-drawer>
     <v-main>
       <router-view/>
     </v-main>
+
     <Modal/>
+
     <v-footer
       color="pink"
     >
@@ -67,12 +56,13 @@
           class="mt-2 mb-3 text-center"
           cols="12"
         >
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('/llllMgr/')">HOME</a>
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('simulation')">SIMULATION</a>
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('cardlist')">CARD LIST</a>
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('musiclist')">MUSIC LIST</a>
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('itemlist')">ITEM LIST</a>
-          <a href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove('license')">LICENSE</a>
+          <a
+            v-for="(arr, pageTitle) of pageList"
+            :key="arr"
+            href="javascript:void(0)"
+            class="mx-3 mb-2 footer-link"
+            @click="pageMove(arr.url)"
+          >{{ pageTitle.toUpperCase() }}</a>
         </v-col>
         <v-col
           class="text-center"
@@ -97,19 +87,33 @@ export default {
   data() {
     return {
       drawer: false,
-      group: null,
+      pageList: {
+        'Home': {
+          url: '/llllMgr/'
+        },
+        'Simulation': {
+          url: 'simulation'
+        },
+        'Card List': {
+          url: 'cardlist'
+        },
+        'Music List': {
+          url: 'musiclist',
+        },
+        'Item List': {
+          url: 'Itemlist'
+        },
+        'License': {
+          url: 'license'
+        }
+      }
     }
   },
   methods: {
     pageMove(movePageName) {
       this.$router.replace(movePageName);
     }
-  },
-  watch: {
-    group () {
-      this.drawer = false;
-    },
-  },
+  }
 }
 </script>
 
