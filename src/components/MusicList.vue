@@ -1,17 +1,23 @@
 <template>
-  <h1>MUSIC LIST ～ 楽曲一覧 / 楽曲マスタリーレベル設定 ～</h1>
-  <v-expansion-panels class="mb10">
-    <v-expansion-panel>
-      <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
-      <v-expansion-panel-text>
-        リンクラに実装されている楽曲一覧です。<br>
-        各ジャケットをクリックすると、楽曲の詳細が見られます。<br>
-        詳細画面に設定した楽曲マスタリーLv.は、絞り込みの下に表示されます。
-      </v-expansion-panel-text>
-    </v-expansion-panel>
-  </v-expansion-panels>
-  <v-container fluid class="px-1">
+  <v-container fluid class="pa-2">
     <v-row no-gutters>
+      <v-col cols="12" class="mb-2">
+        <h1>MUSIC LIST ～ 楽曲一覧 / 楽曲マスタリーレベル設定 ～</h1>
+      </v-col>
+      <v-col cols="12" class="mb-2">
+        <v-expansion-panels class="mb10">
+          <v-expansion-panel>
+            <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
+            <v-expansion-panel-text>
+              リンクラに実装されている楽曲一覧です。<br>
+              各ジャケットをクリックすると、楽曲の詳細が見られます。<br>
+              詳細画面に設定した楽曲マスタリーLv.は、絞り込みの下に表示されます。
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
+      </v-col>
+    </v-row>
+    <v-row no-gutters class="mb-2">
       <v-col cols="12">
         <h3>絞り込み</h3>
       </v-col>
@@ -42,7 +48,7 @@
         </v-checkbox>
       </v-col>
     </v-row>
-    <v-row>
+    <v-row no-gutters>
       <v-col
         v-for="(arr, memberName) in store.charactorName"
         :key="memberName"
@@ -51,7 +57,7 @@
         md="4"
         lg="2"
         xl="2"
-        style="pa-0"
+        class="text-center"
       >
         <v-sheet>
           <img
@@ -100,9 +106,7 @@ export default {
       selectBonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス']
     }
   },
-  created() {
-
-  },
+  created() {},
   methods: {}
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="pa-2">
     <h1 class="mb-3">CARD LIST ～カード一覧 / 所持カード設定～</h1>
     <v-expansion-panels class="mb-3">
       <v-expansion-panel>
@@ -21,6 +21,7 @@
       color="pink"
     ><v-icon class="mr-2">mdi-filter</v-icon>絞り込み</v-btn>
     絞り込み結果：{{ store.outputCardList.length }}枚
+
     <hr class="my-3">
 
     <div id="cardListArea">
@@ -131,13 +132,13 @@ $melow: #A1BAFA;
   }
 
   .cardName {
-    width: 188px;
+    width: 190px;
     font-weight: bold;
     font-size: 15px;
   }
 
   img {
-    width: 188px;
+    width: 190px;
     border-radius: 5px 5px 0 0;
   }
 }

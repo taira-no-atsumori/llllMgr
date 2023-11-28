@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid class="pa-2">
     <h1 class="mb10">ITEM LIST ～スキルアップ素材獲得ステージリスト～</h1>
     <v-row>
       <v-col cols="12">
