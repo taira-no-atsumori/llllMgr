@@ -5,10 +5,10 @@
       density="comfortable"
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
-      <v-toolbar-title>リンクラ管理ツール</v-toolbar-title>
+      <v-toolbar-title class="d-none d-sm-block">リンクラ マネージャー！</v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-up">リンマネ！</v-toolbar-title>
       <v-spacer></v-spacer>
       <a
-        v-if="false"
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
         class="twitter-share-button"
         data-url="x.gd/VR5u2"
@@ -150,10 +150,6 @@ $hasunosora: #ffc0cb;
 
 h1 {
   font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
 }
 
 a {
