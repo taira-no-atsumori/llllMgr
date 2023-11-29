@@ -237,7 +237,12 @@ export const useStoreCounter = defineStore('store', {
         highVoltage: [
           'ボルテージPt.を+',
           'する。使用時のボルテージLv.が6以上だった場合、さらにAPを1回復する。'
-        ]
+        ],
+        highVoltage_heartCaptcha: [
+          'ボルテージPt.を+',
+          'する。使用時のボルテージLv.が6以上の時、ビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
       },
       'ヒーリングハート': {
         healingHeart: [
@@ -273,9 +278,14 @@ export const useStoreCounter = defineStore('store', {
         ]
       },
       'チアフルサポート': {
-        cheerfulSupport_over75: [
+        cheerfulSupport_over75_stage: [
           'メンタルを最大値の',
           '%回復する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+',
+          '%する。'
+        ],
+        cheerfulSupport_over75_section: [
+          'メンタルを最大値の',
+          '%回復する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+',
           '%する。'
         ]
       },
@@ -596,6 +606,14 @@ export const useStoreCounter = defineStore('store', {
           'このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の',
           '%分のメンタルダメージを無効にする。'
         ]
+      },
+      'リカバーアトラクション' :{
+        recoverAttraction_section: [
+          'メンタルを最大値の',
+          '%回復させる。さらに、ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。'
+        ]
       }
     },
     card: {
@@ -701,7 +719,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [10, '11?', '12?', '13?', '14?', 15, '16?', '17?', '18?', '20?', '21?', '22?', '23?', 25]
               ],
-              type: ['heartAttraction', 'heartChaptha', 'loveAttract']
+              type: ['heartChaptha', 'loveAttract']
             },
             skill: {
               ID: 'heartAttraction_50',
@@ -710,7 +728,7 @@ export const useStoreCounter = defineStore('store', {
               detail: [
                 [4, '4.4?', '4.8?', '5.2?', '5.6?', '6?', 6.4, '6.8?', '7.2?', 8, '8.4?', '8.8?', '9.2?', 10]
               ],
-              type: ['heartAttraction', 'heartChaptha', 'loveAttract']
+              type: ['heartChaptha', 'loveAttract']
             },
             characteristic: {
               name: 'フェイバリット : フィーバー',
@@ -742,7 +760,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ヒーリングハート',
               AP: 6,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24],
+                [10, '11?', '12?', '13?', '14?', '15?', '16?', '17?', '18?', '20?', '21?', '22?', '23?', 24],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
               type: ['mentalRecover', 'heartCaptcha']
@@ -752,8 +770,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'ファッシネイション',
               AP: 6,
               detail: [
-                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, '25.2?', '26.4?', '27.6', 30],
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24]
+                [12, '13.2?', '14.4?', '15.6?', '16.8?', '18?', '19.2?', '20.4?', '21.6?', '24?', '25.2?', '26.4?', '27.6', 30],
+                [10, '11?', '12?', '13?', '14?', '15?', '16?', '17?', '18?', '20?', '21?', '22?', '23?', 24]
               ],
               type: ['loveAttract', 'voltageGain']
             },
@@ -785,7 +803,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'リフレッシュハート',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', '12?']
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '10?', '11?', '11?', '12?']
               ],
               type: ['refresh', 'heartCaptcha']
             },
@@ -794,8 +812,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'チアフルハート',
               AP: 4,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
-                [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, '?', '?', '?', '?']
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', '10?'],
+                [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, '2?', '2?', '2?', '3?']
               ],
               type: ['cheerful', 'heartCaptcha']
             },
@@ -827,7 +845,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'エクステボルテージ',
               AP: 7,
               detail: [
-                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, '?', '?', '?', 60]
+                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, '50?', '53?', '55?', 60]
               ],
               type: ['extensions', 'voltageGain']
             },
@@ -836,7 +854,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートアトラクション',
               AP: 10,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '20?', '21?', '22?', 24],
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, '25.2?', '26.4?', '27.6', 30]
               ],
               type: ['heartChaptha', 'loveAttract']
@@ -869,7 +887,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'チアフルリカバー',
               AP: 6,
               detail: [
-                [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, '37.8?', '39.9?', 42]
+                [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, '36.96?', '38.64?', 42]
               ],
               type: ['cheerful', 'mentalRecover']
             },
@@ -910,8 +928,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 12, 13, 14],
-                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 11.4, 12, 12.6, 13.2, 13.8]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, '12?', '13?', '14?'],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, '13.2?', '13.8?', '15?']
               ],
               type: ['heartCaptcha', 'loveAttract']
             },
@@ -920,7 +938,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 8, 9, 10, 11, 12, 13, 14]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, '11?', '12?', '13?']
               ],
               type: ['heartCaptcha']
             },
@@ -953,7 +971,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 5,
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '?', '?', '?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.08?', '10.56?', '11.04?', 12]
               ],
               type: ['heartCaptcha', 'loveAttract']
             },
@@ -962,7 +980,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, '16?', '17?', 18]
+                [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, '15?', '16?', 18]
               ],
               type: ['heartCaptcha']
             },
@@ -1003,7 +1021,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
               ],
               type: ['heartCaptcha']
             },
@@ -1076,7 +1094,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '?', 12],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '12?', 12],
                 [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, '13.8?', 15]
               ],
               type: ['heartCaptcha', 'loveAttraction']
@@ -1168,7 +1186,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 4,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '?', 10]
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 10]
               ],
               type: ['heartCaptcha']
             },
@@ -1209,7 +1227,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '?', 10]
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', 10]
               ],
               type: ['heartCaptcha']
             },
@@ -1250,7 +1268,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 4,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '?', '?', 10]
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', 10]
               ],
               type: ['heartCaptcha']
             },
@@ -1282,7 +1300,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
               ],
               type: ['heartCaptcha']
             },
@@ -1291,7 +1309,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 3,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '?', '?', '?', 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 13]
               ],
               type: ['heartCaptcha']
             },
@@ -1303,6 +1321,48 @@ export const useStoreCounter = defineStore('store', {
           },
         },
         SR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1930,
+              pure: 2430,
+              cool: 930,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 4,
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
+              ],
+              type: ['heartCaptcha']
+            },
+            skill: {
+              ID: 'highVoltage_heartCaptcha',
+              name: 'ハイボルテージ',
+              AP: 10,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 7],
+              ],
+              type: ['high',' voltage', 'hartCaptcha']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
+              type: ['APreduce', 'mental']
+            }
+          },
           '宇宙演舞☆うさぴょん': {
             styleType: 'cheerLeader',
             mood: 'neutral',
@@ -1325,7 +1385,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 4,
               detail: [
-                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '?', '?', '?', 8]
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
               ],
               type: ['heartCaptcha']
             },
@@ -1378,7 +1438,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 5,
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, '18.4?', 20],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '?', 5]
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', 5]
               ],
               type: ['cheerful', 'healing']
             },
@@ -1453,7 +1513,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
               ],
               type: ['heartCaptcha']
             },
@@ -1462,7 +1522,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '?', '?', '?', 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 13]
               ],
               type: ['heartCaptcha']
             },
@@ -1587,7 +1647,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, '?', '?', '?', '3.2?']
+                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, '2.7?', '2.9?', '3?', '3.3?']
               ],
               type: ['loveAttract']
             },
@@ -1660,7 +1720,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '?', '?']
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '12?', '13?']
               ],
               type: ['heartCaptcha']
             },
@@ -1742,7 +1802,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, '?', '?', '15?']
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, '13?', '14?', '15?']
               ],
               type: ['heartCaptcha']
             },
@@ -1783,7 +1843,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, '25.2?', '26.4?', '27.8?', '30?']
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, '25.2?', '26.4?', '27.6?', '30?']
               ],
               type: ['loveAttract']
             },
@@ -1824,7 +1884,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', '15?']
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', '15?']
               ],
               type: ['heartCaptcha']
             },
@@ -2189,7 +2249,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ファッシネイション',
               AP: 6,
               detail: [
-                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, '?', '30?'],
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, '27.6?', '30?'],
                 [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 29]
               ],
               type: ['loveAttract', 'voltageGain']
@@ -2542,6 +2602,48 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1930,
+              pure: 2430,
+              cool: 930,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'loveAttract_section',
+              name: 'ラブアトラクト',
+              AP: 4,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, '16.8?', '17.6?', '18.4?', '20?']
+              ],
+              type: ['loveAttract']
+            },
+            skill: {
+              ID: 'cheerfulSupport_over75_section',
+              name: 'チアフルサポート',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 25],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, '12.6?', '13.2?', '13.8?', 15]
+              ],
+              type: ['cheerful','support', 'loveAttract']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
+              type: ['APreduce', 'mental']
+            }
+          },
           'Trick & Cute': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -3059,7 +3161,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ボルテージゲイン',
               AP: 6,
               detail: [
-                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, '?', '?', '30?']
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, '26?', '28?', '30?']
               ],
               type: ['voltageGain']
             },
@@ -3718,7 +3820,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'リゲインボルテージ',
               AP: 6,
               detail: [
-                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '?', '?', '?', 32]
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, '27?', '29?', '30?', 32]
               ],
               type: ['regain', 'voltageGain']
             },
@@ -3759,7 +3861,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'リフレッシュハート',
               AP: 6,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '?', '9?', '10?']
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', '10?']
               ],
               type: ['refresh', 'heart']
             },
@@ -3980,6 +4082,48 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1530,
+              pure: 2530,
+              cool: 1530,
+              mental: 173,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 4,
+              detail: [
+                ['8?', '8.8?', '9.6?', '10.4?', '11.2?', '12?', '12.8?', '13.6?', '14.4?', '16?', '16.8?', '17.6?', '18.4?', 20]
+              ],
+              type: ['mentalRecover']
+            },
+            skill: {
+              ID: 'protectFeel_loveAttract',
+              name: 'プロテクトフィール',
+              AP: 8,
+              detail: [
+                ['6.8?', '7.48?', '8.16?', '8.84?', '9.52?', '10.2?', '10.88?', '11.56?', '12.24?', '13.6?', '14.28?', '14.96?', '15.64?', 17],
+                ['3.2?', '3.5?', '3.8?', '4.2?', '4.5?', '4.8?', '5.1?', '5.4?', '5.8?', '6.4?', '6.7?', '7?', '7.4?', 8]
+              ],
+              type: ['protect', 'feel']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-6)',
+              type: ['APreduce', 'mental']
+            }
+          },
           '奇跡の舞踏会': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -4041,7 +4185,7 @@ export const useStoreCounter = defineStore('store', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'cheerfulSupport_over75',
+              ID: 'cheerfulSupport_over75_stage',
               name: 'チアフルサポート',
               AP: 6,
               detail: [
@@ -4088,7 +4232,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
               ],
               type: ['loveAttract']
             },
@@ -4129,7 +4273,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ファッシネイション',
               AP: 7,
               detail: [
-                [23, 25, 28, 30, 32, 35, 37, 39, 41, 46, '?', '?', '?', 58],
+                [23, 25, 28, 30, 32, 35, 37, 39, 41, 46, '48?', '51?', '53?', 58],
                 [2.4, 2.6, 2.9, 3.1, 3.4, 3.6, 3.8, 4.1, 4.3, 4.8, '5?', '5.3?', '5.5?', 6]
               ],
               type: ['loveAttract', 'voltageGain']
@@ -4511,7 +4655,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 3,
               detail: [
                 [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
-                [0.6, 0.7, 0.7, 0.8, 0.8, 0.9, 1, 1, 1.1, 1.2, '?', '?', '?', '?']
+                [0.6, 0.7, 0.7, 0.8, 0.8, 0.9, 1, 1, 1.1, 1.2, '1.3?', '1.3?', '1.4?', '1.5?']
               ],
               type: ['cheerful', 'attract']
             },
@@ -4594,7 +4738,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 5,
               detail: [
                 [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, '9.2?', 10],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, '?', 4]
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, '3.7?', 4]
               ],
               type: ['cheerful', 'protect']
             },
@@ -5204,9 +5348,9 @@ export const useStoreCounter = defineStore('store', {
               AP: 2,
               detail: [
                 [10, '11?', '12?', '13?', '14?', '15?', '16?', '17?', '18?', 20, '21?', '22?', '23?', 26],
-                [2, '?', '?', '?', '?', '?', '?', '?', '?', 4, '?', '?', '?', 5],
+                [2, '2?', '2?', '3?', '3?', '3?', '3?', '3?', '4?', 4, '4?', '4?', '5?', 5],
               ],
-              type: ['voltageHeart']
+              type: ['voltageGain', 'heartCaptcha']
             },
             characteristic: {
               name: 'アキューミュレイト',
@@ -5216,6 +5360,49 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 530,
+              pure: 2630,
+              cool: 2330,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 4,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ],
+              type: ['voltageGain']
+            },
+            skill: {
+              ID: 'recoverAttraction_section',
+              name: 'リカバーアトラクション',
+              AP: 10,
+              detail: [
+                [19.2, 21.12, 23.04, 24.96, 26.88, 28.8, 30.72, 32.64, 34.56, 38.4, '40.32?', '42.24?', '44.16?', 48],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 12],
+                [4.5, 5, 5.4, 5.9, 6.3, 6.8, 7.2, 7.7, 8.1, 9, '9.5?', '9.9?', '10.4?', 11.3]
+              ],
+              type: ['mentalRecover', 'heartCaptcha', 'loveAttract']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-8)',
+              type: ['APreduce', 'mental']
+            }
+          },
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
@@ -5295,7 +5482,7 @@ export const useStoreCounter = defineStore('store', {
             characteristic: {
               name: 'APレデュース：ボルテージ',
               detail: '現在のボルテージLvに応じてスキルの消費APダウン',
-              type: ['APreduce', 'voltageGain']
+              type: ['APreduce', 'voltage']
             }
           },
           'Take It Over': {
@@ -5362,7 +5549,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'チアフルアトラクション',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', 15],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15],
                 [7.5, 8.3, 9, 9.8, 10.5, 11.3, 12, 12.8, 13.5, 15, '15.8?', '16.5?', '17.3?', 18.8]
               ],
               type: ['cheerful', 'attraction']
@@ -5372,7 +5559,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'チアフルハート',
               AP: 4,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '?', '?', '?', 15],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
               ],
               type: ['cheerful', 'heart']
@@ -5488,7 +5675,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ボルテージゲイン',
               AP: 6,
               detail: [
-                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, '?', '?', 60]
+                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, '53?', '55?', 60]
               ],
               type: ['voltageGain']
             },
@@ -5497,8 +5684,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'ファッシネイション',
               AP: 6,
               detail: [
-                [9.6, 10.6, 11.5, 12.5, 13.4, 14.4, 15.4, 16.3, 17.3, 19.2, 20.2, '?', '?', 24],
-                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, '?', '?', 20]
+                [9.6, 10.6, 11.5, 12.5, 13.4, 14.4, 15.4, 16.3, 17.3, 19.2, 20.2, '21.1?', '22.1?', 24],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, '18?', '18?', 20]
               ],
               type: ['loveAttract', 'voltageGain']
             },
@@ -5530,7 +5717,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ボルテージハート',
               AP: 6,
               detail: [
-                [19, 21, 23, 25, 27, 29, 30, 32, 34, 38, '?', '?', '?', 48],
+                [19, 21, 23, 25, 27, 29, 30, 32, 34, 38, '40?', '42?', '44?', 48],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, '4?', '4?', '5?', 6]
               ],
               type: ['voltageGain', 'heartCaptcha']
@@ -6745,7 +6932,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 5,
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '?', 4]
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '3.7?', 4]
               ],
               type: ['supported', 'feel']
             },
@@ -6821,7 +7008,7 @@ export const useStoreCounter = defineStore('store', {
               AP: 6,
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '?', 4]
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '3.7?', 4]
               ],
               type: ['heartCaptcha', 'loveAttraction']
             },
@@ -6830,7 +7017,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'カームハート',
               AP: 3,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 10]
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 10]
               ],
               type: ['calmHeart']
             },
@@ -7329,6 +7516,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
+      'Yup! Yup! Yup!': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 170,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'megumi',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
       '明日の空の僕たちへ': {
         musicData: {
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -7345,6 +7550,24 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
+      'ツバサ・ラ・リベルテ': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 1,
+            date: 17
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
+          BPM: 177,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
       '水彩世界': {
@@ -7401,7 +7624,7 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue']
       },
-      'Mix shake！！': {
+      'Mix shake!!': {
         musicData: {
           singer: 'スリーズブーケ',
           releaseDate: {
@@ -7499,7 +7722,7 @@ export const useStoreCounter = defineStore('store', {
             month: 9,
             date: 20
           },
-          numbering: '1stアルバム',
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: 118,
           cover: false
         },
@@ -7543,6 +7766,24 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'kozue']
+      },
+      'Dear my future': {
+        musicData: {
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 90,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue']
       },
       'AWOKE': {
@@ -8212,14 +8453,49 @@ export const useStoreCounter = defineStore('store', {
         singingMembers: ['rurino', 'megumi']
       }
     },
+    defaultCardList: []
   }),
   getters: {
+    makeCardList(store) {
+      let result = [];
+
+      for (const memberName in store.card) {
+        if (memberName !== 'default') {
+          for (const rare in store.card[memberName]) {
+            for (const cardName in store.card[memberName][rare]) {
+              if (cardName !== 'default') {
+                store.card[memberName][rare][cardName].cardName = cardName;
+                store.card[memberName][rare][cardName].rare = rare;
+                store.card[memberName][rare][cardName].memberName = memberName;
+                result.push(store.card[memberName][rare][cardName]);
+              }
+            }
+          }
+        }
+      }
+
+      return result;
+    },
+    specialAppealNameList(store) {
+      return store.makeSkillFilterList('specialAppeal');
+    },
+    skillNameList(store) {
+      return store.makeSkillFilterList('skill');
+    },
+    cardSeriesList(store) {
+      const result = [];
+
+      for (const key of store.makeCardList) {
+        if (result.indexOf(key.series) === -1) {
+          result.push(key.series);
+        }
+      }
+
+      return result;
+    },
     setSelectCard() {
       console.log(this.card[this.abc.name][this.abc.style])
     },
-    /*makeCardIllust(store) {
-      return (cardName) => {};
-    }, */
     makeSkillText() {
       return (target) => {
         let result = '';
@@ -8443,21 +8719,9 @@ export const useStoreCounter = defineStore('store', {
       return selectCard.uniqueStatus.mental + Math.ceil((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 2  + Math.floor((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 3;
     },
     setOutputCardList() {
-      let result = [];
-
-      for (const memberName in this.card) {
-        if (memberName !== 'default') {
-          for (const rare in this.card[memberName]) {
-            for (const cardName in this.card[memberName][rare]) {
-              if (cardName !== 'default') {
-                this.card[memberName][rare][cardName].cardName = cardName;
-                this.card[memberName][rare][cardName].rare = rare;
-                this.card[memberName][rare][cardName].memberName = memberName;
-                result.push(this.card[memberName][rare][cardName]);
-              }
-            }
-          }
-        }
+      let result = this.makeCardList;
+      for (const key of result) {
+        key.series = key.cardName;
       }
 
       for (const searchKey in this.search.cardList) {
@@ -8494,8 +8758,21 @@ export const useStoreCounter = defineStore('store', {
           });
         }
       }
+      
+      this.setLocalStorage('llllMgr_cardListFilter', this.search.cardList);
 
       this.outputCardList = result;
+    },
+    makeSkillFilterList(target) {
+      const result = [];
+
+      for (const key of this.makeCardList) {
+        if (result.indexOf(key[target].name) === -1) {
+          result.push(key[target].name);
+        }
+      }
+
+      return result;
     }
   }
 });

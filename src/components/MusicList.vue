@@ -43,7 +43,12 @@
               :src="require(`@/assets/${skillName}.png`)"
               :alt="skillName"
               style="width: 50px"
-            ></v-img>
+            >
+              <v-tooltip
+                activator="parent"
+                location="top"
+              >{{ skillName }}</v-tooltip>
+            </v-img>
           </template>
         </v-checkbox>
       </v-col>
@@ -88,7 +93,7 @@
       :key="ary"
       @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
     >
-      <p><img :src="require(`@/assets/CD_jacket/${songTitle}.jpg`)" :alt="songTitle" class="songJacket"></p>
+      <p><img :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.jpg`)" :alt="songTitle" class="songJacket"></p>
       <dt class="mb-2">{{ songTitle }}</dt>
       <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill"></dd>
     </div>
