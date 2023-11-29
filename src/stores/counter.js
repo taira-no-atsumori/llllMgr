@@ -7329,6 +7329,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
+      'Yup! Yup! Yup!': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 170,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'megumi',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
       '明日の空の僕たちへ': {
         musicData: {
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -7347,7 +7365,7 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
-      /*'ツバサ・ラ・リベルテ': {
+      'ツバサ・ラ・リベルテ': {
         musicData: {
           singer: '蓮ノ空女学院スクールアイドルクラブ',
           releaseDate: {
@@ -7355,16 +7373,16 @@ export const useStoreCounter = defineStore('store', {
             month: 1,
             date: 17
           },
-          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: 177,
           cover: false
         },
         level: 0,
         term: 103,
         center: 'tsuzuri',
-        bonusSkill: 'ビートハートアップ',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
-      },*/
+      },
       '水彩世界': {
         musicData: {
           singer: 'スリーズブーケ',
@@ -7517,7 +7535,7 @@ export const useStoreCounter = defineStore('store', {
             month: 9,
             date: 20
           },
-          numbering: '1stアルバム',
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: 118,
           cover: false
         },
@@ -7561,6 +7579,24 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'kozue']
+      },
+      'Dear my future': {
+        musicData: {
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 90,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue']
       },
       'AWOKE': {
