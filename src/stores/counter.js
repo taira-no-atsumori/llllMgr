@@ -7347,6 +7347,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
+      /*'ツバサ・ラ・リベルテ': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 1,
+            date: 17
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 177,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },*/
       '水彩世界': {
         musicData: {
           singer: 'スリーズブーケ',
