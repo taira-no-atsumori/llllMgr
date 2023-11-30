@@ -1,8 +1,10 @@
 <template>
   <v-container fluid class="pa-2">
-    <h1 class="mb10">ITEM LIST ～スキルアップ素材獲得ステージリスト～</h1>
-    <v-row>
-      <v-col cols="12">
+    <v-row no-gutters>
+      <v-col cols="12" class="mb-2">
+        <h1>ITEM LIST ～スキルアップ素材獲得ステージリスト～</h1>
+      </v-col>
+      <v-col cols="12" class="mb-5">
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
@@ -14,11 +16,30 @@
         </v-expansion-panels>
       </v-col>
     </v-row>
-    <v-row>
+    <!--<v-row
+      no-gutters
+      v-for="arr in [{id:1,label:'技能書'}, {id:2,label:'ピース'}, {id:3,label:'チャーム'}]"
+      :key="arr"
+    >
+      <v-col cols="12" class="mb-5">
+        <v-select
+          v-model="select['item' + arr.id].value"
+          :items="select['item' + arr.id].item"
+          chips
+          :label="`獲得可能アイテム(${arr.label}系)`"
+          multiple
+          clearable
+          color="pink"
+          base-color="pink"
+          :hint="`絞り込みたい${arr.label}系アイテムを選んでください`"
+          persistent-hint
+        ></v-select>
+      </v-col>
+    </v-row>-->
+    <v-row no-gutters>
       <!--<v-col cols="6">
         <v-select
           v-model="select.season.value"
-          :change="changeItem()"
           :items="select.season.item"
           attach
           chips
@@ -38,77 +59,70 @@
           clearable
         ></v-select>
       </v-col>-->
-      <v-col cols="12">
+      <v-col cols="12" class="mb-5">
         <v-select
           v-model="select.item1.value"
           :items="select.item1.item"
-          :change="changeItem()"
           attach
           chips
           label="獲得可能アイテム(技能書系)"
           multiple
           clearable
-          dense
+          color="pink"
+          base-color="pink"
+          hint="絞り込みたい技能書系アイテムを選んでください"
+          persistent-hint
         ></v-select>
       </v-col>
-      <v-col cols="12">
+      <v-col cols="12" class="mb-5">
         <v-select
           v-model="select.item2.value"
           :items="select.item2.item"
-          :change="changeItem()"
           attach
           chips
           label="獲得可能アイテム(ピース系)"
           multiple
           clearable
-          dense
+          color="pink"
+          base-color="pink"
+          hint="絞り込みたいピース系アイテムを選んでください"
+          persistent-hint
         ></v-select>
       </v-col>
-      <v-col cols="12">
+      <v-col cols="12" class="mb-5">
         <v-select
           v-model="select.item3.value"
           :items="select.item3.item"
-          :change="changeItem()"
           attach
           chips
           label="獲得可能アイテム(チャーム系)"
           multiple
           clearable
-          dense
+          color="pink"
+          base-color="pink"
+          hint="絞り込みたいチャーム系アイテムを選んでください"
+          persistent-hint
         ></v-select>
       </v-col>
     </v-row>
-    <!--<v-data-table
+    <v-data-table
       :headers="headers"
-      :items="filterItem"
-      :items-per-page="15"
-      class="elevation-1"
-    ></v-data-table>-->
-    <v-table>
-      <thead>
-        <tr>
-          <th
-            v-for="item in this.headers"
-            :key="item.value"
-          >
-            {{ item.text }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="items in this.filterItem"
-          :key="items"
-        >
-          <td
-            v-for="item in items"
-            :key="item"
-          >
-            {{ item }}
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
+      :items="filterItems"
+      item-key="name"
+      density="comfortable"
+      items-per-page="75"
+      items-per-page-text="1ページあたりの最大表示数"
+      :items-per-page-options="[
+        {value: 15, title: '15'},
+        {value: 30, title: '30'},
+        {value: 45, title: '45'},
+        {value: 60, title: '60'},
+        {value: 75, title: '75'},
+        {value: -1, title: '$vuetify.dataFooter.itemsPerPageAll'}
+      ]"
+      multi-sort
+      no-data-text="見つからなかったよ😢"
+    ></v-data-table>
   </v-container>
 </template>
 
@@ -120,11 +134,11 @@ export default {
       select: {
         season: {
           item: ['103期Spring', '103期Summer', '103期Autumn', '103期Winter'],
-          value: ['103期Spring', '103期Summer', '103期Autumn', '103期Winter']
+          value: []
         },
         area: {
           item: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
-          value: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5']
+          value: []
         },
         item1: {
           item: ['技能書(初等)', '技能書(中等)', '技能書(高等)'],
@@ -168,7 +182,7 @@ export default {
           value: []
         },
         item3: {
-          item: ['-', 'エメラルドピース(R3)', 'ペリドットピース(R3)', 'ソルチャーム(R3)', 'ルナチャーム(R3)', 'ステラチャーム(R3)', 'ソルチャーム(R4)', 'ルナチャーム(R4)', 'ステラチャーム(R4)'],
+          item: ['-', 'エメラルドピース(R3)', 'ペリドットピース(R3)', 'ソルチャーム(R3)', 'ソルチャーム(R4)', 'ルナチャーム(R3)', 'ルナチャーム(R4)', 'ステラチャーム(R3)', 'ステラチャーム(R4)'],
           value: []
         }
       },
@@ -176,25 +190,29 @@ export default {
       selectSeasonValue: ['103期Spring', '103期Summer', '103期Autumn'],
       selectAreaItem: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
       selectAreaValue: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
-      selectItem1: ['技能書(初等)'],
-      selectItemValue1: ['技能書(初等)'],
-      selectItem2: ['ガーネットピース(R1)', 'ガーネットピース(R2)'],
-      selectItemValue2: ['ガーネットピース(R1)'],
-      selectItem3: ['ステラチャーム(R3)'],
-      selectItemValue3: ['ステラチャーム(R3)'],
+      selectItem1: [],
+      selectItemValue1: [],
+      selectItem2: [],
+      selectItemValue2: [],
+      selectItem3: [],
+      selectItemValue3: [],
       filterItem: [],
       headers: [
-        {
-          text: '期/季節',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'エリア', value: 'area' },
-        { text: 'ステージ', value: 'stage' },
-        { text: '獲得可能アイテム(技能書系)', value: '獲得可能アイテム(技能書系)' },
-        { text: '獲得可能アイテム(ピース系)', value: '獲得可能アイテム(ピース系)' },
-        { text: '獲得可能アイテム(チャーム系)', value: '獲得可能アイテム(チャーム系)' },
-        //{ text: '低確率獲得可能アイテム', value: '低確率獲得可能アイテム' },
+        { title: '期/季節', sortable: false, value: 'name' },
+        { title: 'エリア', value: 'area' },
+        { title: 'ステージ', value: 'stage' },
+        { title: '獲得可能アイテム(技能書系)', value: '獲得可能アイテム1' },
+        { title: '獲得可能アイテム(ピース系)', value: '獲得可能アイテム2' },
+        { title: '獲得可能アイテム(チャーム系)', value: '獲得可能アイテム3' },
+        /*{
+          title: '獲得可能アイテム',
+          children: [
+            { title: '技能書系', value: '獲得可能アイテム1' },
+            { title: 'ピース系', value: '獲得可能アイテム2' },
+            { title: 'チャーム系', value: '獲得可能アイテム3' }
+          ]
+        },*/
+        //{ title: '低確率獲得可能アイテム', value: '低確率獲得可能アイテム' },
       ],
       list: {
         '103期Spring': {
@@ -2265,24 +2283,37 @@ export default {
           Area4: [],
           Area5: []
         }
-      }
+      },
+      allItemList: []
     }
   },
   computed: {
-    tst() {
-      return false;
-    },
-    /* filterItems() {
-      let obj = {};
-      
-      for (let i = 0; i < this.value.length; i++) {
-        obj = Object.assign(obj, this.value[i]);
+    filterItems() {
+      const _this = this;
+      let result = _this.allItemList;
+
+      for (let i = 1; i <= 3; i++) {
+        result = ((i) => {
+          if (_this.select['item' + i].value.length > 0 && _this.select['item' + i].value.length < _this.select['item' + i].item.length) {
+            const regex = new RegExp(_this.select['item' + i].value.join('|').replace(/\(/g, '\\(').replace(/\)/g, '\\)'))
+            return result.filter(arr => regex.test(arr['獲得可能アイテム' + i]));
+          } else {
+            return result;
+          }
+        })(i);
       }
 
-      return [obj];
-    } */
+      _this.setLocalStrage();
+      return result;
+    }
   },
   created() {
+    for (const season in this.list) {
+      for (const area in this.list[season]) {
+        this.allItemList = this.allItemList.concat(this.list[season][area]);
+      }
+    }
+
     if (localStorage.llllMgr_selectItemList !== undefined) {
       const getSelectItemList = JSON.parse(localStorage.llllMgr_selectItemList);
 
@@ -2292,83 +2323,6 @@ export default {
     }
   },
   methods: {
-    changeItem() {
-      let obj = [];
-      let obj2 = [];
-      let obj3 = [];
-      let obj4 = [];
-
-      for (const season in this.list) {
-        for (const area in this.list[season]) {
-          obj = obj.concat(this.list[season][area]);
-        }
-      }
-
-      /*for (let i = 0; i < obj.length; i++) {
-        if (this.select.item1.value.length > 0 && this.select.item1.value.length < this.select.item1.item.length) {
-          for (const selectItem1 of this.select.item1.value) {
-            for (let i = 0; i < obj.length; i++) {
-              if (obj[i]['獲得可能アイテム1'] === selectItem1) {
-                obj2.push(obj[i]);
-              }
-            }
-          }
-        }
-        
-      }*/
-
-      if (this.select.item1.value.length === 0 || this.select.item1.value.length === this.select.item1.item.length) {
-        obj2 = obj;
-      } else {
-        for (const selectItem1 of this.select.item1.value) {
-          for (let i = 0; i < obj.length; i++) {
-            if (obj[i]['獲得可能アイテム1'] === selectItem1) {
-              obj2.push(obj[i]);
-            }
-          }
-        }
-      }
-
-      if (this.select.item2.value.length === 0 || this.select.item2.value.length === this.select.item2.item.length) {
-        obj3 = obj2;
-      } else {
-        for (const selectItem2 of this.select.item2.value) {
-          for (let i = 0; i < obj2.length; i++) {
-            if (obj2[i]['獲得可能アイテム2'] === selectItem2) {
-              obj3.push(obj2[i]);
-            }
-          }
-        }
-      }
-
-      if (this.select.item3.value.length === 0 || this.select.item3.value.length === this.select.item3.item.length) {
-        obj4 = obj3;
-      } else {
-        for (const selectItem3 of this.select.item3.value) {
-          for (let i = 0; i < obj3.length; i++) {
-            if (obj3[i]['獲得可能アイテム3'] === selectItem3) {
-              obj4.push(obj3[i]);
-            }
-          }
-        }
-      }
-
-      /*obj4.sort((a, b) => {
-        return a.area < b.area ? -1: 1;
-      });
-      
-      for (let i = 0; i < this.select.season.value.length; i++) {
-        //obj = Object.assign(obj, this.list[this.value[i]]);
-        obj = obj.concat(this.list[this.select.season.value[i]]);
-      }
-      
-      for (let i = 0; i < this.select.item1.value.length; i++) {
-        obj = obj.concat(this.list[this.select.item1.value[i]]);
-      }*/
-
-      this.filterItem = obj4;
-      this.setLocalStrage();
-    },
     setLocalStrage() {
       const setLocalStrageDataList = {
         item1: this.select.item1.value,

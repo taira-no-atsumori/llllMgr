@@ -3,11 +3,6 @@ import { defineStore } from 'pinia';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    count: 1,
-    count2: 2,
-    user: {
-      name: 'John Doe',
-    },
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -22,6 +17,8 @@ export const useStoreCounter = defineStore('store', {
         cardLevel: [0, 120],
         SALevel: [1, 14],
         SLevel: [1, 14],
+        SAAP: [0, 10],
+        SAP: [0, 10],
         releaseLevel: [1, 5],
         memberName: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi']
       },
@@ -29,7 +26,8 @@ export const useStoreCounter = defineStore('store', {
         specialAppeal: [],
         skill: [],
         //characteristic: []
-      }
+      },
+      cardSeries: []
     },
     outputCardList: {},
     styleHeadline: {
@@ -698,6 +696,7 @@ export const useStoreCounter = defineStore('store', {
           'Prism Echo': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'Prism Echo',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -741,6 +740,7 @@ export const useStoreCounter = defineStore('store', {
           'コットン=ユートピア': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'コットン=ユートピア',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -784,6 +784,7 @@ export const useStoreCounter = defineStore('store', {
           '喫茶ハスノソラ': {
             styleType: 'performer',
             mood: 'happy',
+            series: '喫茶ハスノソラ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -826,6 +827,7 @@ export const useStoreCounter = defineStore('store', {
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'Trick & Cute',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -868,6 +870,7 @@ export const useStoreCounter = defineStore('store', {
           'ゆのくにガールズ！': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'ゆのくにガールズ！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -909,6 +912,7 @@ export const useStoreCounter = defineStore('store', {
           '夏めきペイン': {
             styleType: 'performer',
             mood: 'happy',
+            series: '夏めきペイン',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -951,6 +955,7 @@ export const useStoreCounter = defineStore('store', {
           'SPLASH!!!!': {
             styleType: 'performer',
             mood: 'neutral',
+            series: 'SPLASH!!!!',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -993,6 +998,7 @@ export const useStoreCounter = defineStore('store', {
           '眩耀夜行': {
             styleType: 'performer',
             mood: 'happy',
+            series: '眩耀夜行',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1034,6 +1040,7 @@ export const useStoreCounter = defineStore('store', {
           'ペンギンアイス': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'ペンギンアイス',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1075,6 +1082,7 @@ export const useStoreCounter = defineStore('store', {
           'フォーチュンムービー': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'フォーチュンムービー',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1117,6 +1125,7 @@ export const useStoreCounter = defineStore('store', {
           'Holiday∞Holiday': {
             styleType: 'performer',
             mood: 'neutral',
+            series: 'Holiday∞Holiday',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1158,6 +1167,7 @@ export const useStoreCounter = defineStore('store', {
           'Rose Garden': {
             styleType: 'performer',
             mood: 'neutral',
+            series: 'Rose Garden',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1199,6 +1209,7 @@ export const useStoreCounter = defineStore('store', {
           '薫風の調べ': {
             styleType: 'performer',
             mood: 'happy',
+            series: '薫風の調べ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1240,6 +1251,7 @@ export const useStoreCounter = defineStore('store', {
           '春色ニューデイズ': {
             styleType: 'performer',
             mood: 'happy',
+            series: '春色ニューデイズ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1281,6 +1293,7 @@ export const useStoreCounter = defineStore('store', {
           'Dream Believers': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'Dream Believers',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1324,6 +1337,7 @@ export const useStoreCounter = defineStore('store', {
           'ツバサ・ラ・リベルテ': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'ツバサ・ラ・リベルテ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1350,7 +1364,7 @@ export const useStoreCounter = defineStore('store', {
             skill: {
               ID: 'highVoltage_heartCaptcha',
               name: 'ハイボルテージ',
-              AP: 10,
+              AP: 6,
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 7],
@@ -1366,6 +1380,7 @@ export const useStoreCounter = defineStore('store', {
           '宇宙演舞☆うさぴょん': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'うさぴょん',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1408,6 +1423,7 @@ export const useStoreCounter = defineStore('store', {
           '素顔のピクセル': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: '素顔のピクセル',
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -1451,6 +1467,7 @@ export const useStoreCounter = defineStore('store', {
           'ドルフィン〰ビーチ': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'ドルフィン〰ビーチ',
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -1493,6 +1510,7 @@ export const useStoreCounter = defineStore('store', {
           'はじける☆オレンジソーダ': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'はじける☆ソーダ',
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -1535,6 +1553,7 @@ export const useStoreCounter = defineStore('store', {
           '朝顔令嬢': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: '朝顔令嬢',
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -1577,6 +1596,7 @@ export const useStoreCounter = defineStore('store', {
           '金魚◎花火': {
             styleType: 'performer',
             mood: 'melow',
+            series: '金魚◎花火',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1618,6 +1638,7 @@ export const useStoreCounter = defineStore('store', {
           'DEEPNESS': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'DEEPNESS',
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -1660,6 +1681,7 @@ export const useStoreCounter = defineStore('store', {
           '雨と紫陽花に唄へば': {
             styleType: 'performer',
             mood: 'happy',
+            series: '雨と紫陽花に唄へば',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1701,6 +1723,7 @@ export const useStoreCounter = defineStore('store', {
           'アメアガリストリート': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'アメアガリストリート',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1742,6 +1765,7 @@ export const useStoreCounter = defineStore('store', {
           'チェリー♫ピクニック': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'チェリー♫ピクニック',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1783,6 +1807,7 @@ export const useStoreCounter = defineStore('store', {
           '謳歌爛漫': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: '謳歌爛漫',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1824,6 +1849,7 @@ export const useStoreCounter = defineStore('store', {
           'Reflection in the mirror': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'Reflection in the mirror',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1865,6 +1891,7 @@ export const useStoreCounter = defineStore('store', {
           '水彩世界': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '水彩世界',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1908,6 +1935,7 @@ export const useStoreCounter = defineStore('store', {
           'オーロラスカイ': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'オーロラスカイ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1944,6 +1972,7 @@ export const useStoreCounter = defineStore('store', {
           '華紺青': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '華紺青',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2021,6 +2050,7 @@ export const useStoreCounter = defineStore('store', {
           'Prism Echo': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Prism Echo',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2064,6 +2094,7 @@ export const useStoreCounter = defineStore('store', {
           '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '喫茶ハスノソラ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2106,6 +2137,7 @@ export const useStoreCounter = defineStore('store', {
           '宇宙警察★うさぴょん': {
             styleType: 'trickStar',
             mood: 'neutral',
+            series: 'うさぴょん',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2147,6 +2179,7 @@ export const useStoreCounter = defineStore('store', {
           'ゆのくにガールズ！': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'ゆのくにガールズ！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2188,6 +2221,7 @@ export const useStoreCounter = defineStore('store', {
           'SPLASH!!!!': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'SPLASH!!!!',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2230,6 +2264,7 @@ export const useStoreCounter = defineStore('store', {
           'ドルフィン〰ビーチ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'ドルフィン〰ビーチ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2272,6 +2307,7 @@ export const useStoreCounter = defineStore('store', {
           'Mirage Voyage': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'Mirage Voyage',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2314,6 +2350,7 @@ export const useStoreCounter = defineStore('store', {
           '朝顔令嬢': {
             styleType: 'performer',
             mood: 'neutral',
+            series: '朝顔令嬢',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2356,6 +2393,7 @@ export const useStoreCounter = defineStore('store', {
           '雨と紫陽花に唄へば': {
             styleType: 'performer',
             mood: 'happy',
+            series: '雨と紫陽花に唄へば',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2398,6 +2436,7 @@ export const useStoreCounter = defineStore('store', {
           'ツキマカセ': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'ツキマカセ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2439,6 +2478,7 @@ export const useStoreCounter = defineStore('store', {
           'Rose Garden': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Rose Garden',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2480,6 +2520,7 @@ export const useStoreCounter = defineStore('store', {
           '薫風の調べ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '薫風の調べ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2521,6 +2562,7 @@ export const useStoreCounter = defineStore('store', {
           'スケイプゴート': {
             styleType: 'performer',
             mood: 'neutral',
+            series: 'スケイプゴート',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2562,6 +2604,7 @@ export const useStoreCounter = defineStore('store', {
           'Dream Believers': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Dream Believers',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2605,6 +2648,7 @@ export const useStoreCounter = defineStore('store', {
           'ツバサ・ラ・リベルテ': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'ツバサ・ラ・リベルテ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2647,6 +2691,7 @@ export const useStoreCounter = defineStore('store', {
           'Trick & Cute': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Trick & Cute',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2688,6 +2733,7 @@ export const useStoreCounter = defineStore('store', {
           'Take It Over': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Take It Over',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2730,6 +2776,7 @@ export const useStoreCounter = defineStore('store', {
           '夏めきペイン': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: '夏めきペイン',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2772,6 +2819,7 @@ export const useStoreCounter = defineStore('store', {
           'はじける☆ブルーソーダ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'はじける☆ソーダ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2813,6 +2861,7 @@ export const useStoreCounter = defineStore('store', {
           '金魚◎花火': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '金魚◎花火',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2854,6 +2903,7 @@ export const useStoreCounter = defineStore('store', {
           'ペンギンアイス': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'ペンギンアイス',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2895,6 +2945,7 @@ export const useStoreCounter = defineStore('store', {
           'DEEPNESS': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'DEEPNESS',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2936,6 +2987,7 @@ export const useStoreCounter = defineStore('store', {
           'アメアガリストリート': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: 'アメアガリストリート',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2977,6 +3029,7 @@ export const useStoreCounter = defineStore('store', {
           'Tragic Drops': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Tragic Drops',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3018,6 +3071,7 @@ export const useStoreCounter = defineStore('store', {
           'チェリー♫ピクニック': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'チェリー♫ピクニック',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3059,6 +3113,7 @@ export const useStoreCounter = defineStore('store', {
           '春色ニューデイズ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '春色ニューデイズ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3101,6 +3156,7 @@ export const useStoreCounter = defineStore('store', {
           'AWOKE': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'AWOKE',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3142,6 +3198,7 @@ export const useStoreCounter = defineStore('store', {
           'Sparkly Spot': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Sparkly Spot',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3185,6 +3242,7 @@ export const useStoreCounter = defineStore('store', {
           'オーロラスカイ': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'オーロラスカイ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3221,6 +3279,7 @@ export const useStoreCounter = defineStore('store', {
           '華紺青': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '華紺青',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3299,6 +3358,7 @@ export const useStoreCounter = defineStore('store', {
           'Prism Echo': {
             styleType: 'trickStar',
             mood: 'neutral',
+            series: 'Prism Echo',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3342,6 +3402,7 @@ export const useStoreCounter = defineStore('store', {
           'コットン=ユートピア': {
             styleType: 'trickStar',
             mood: 'melow',
+            series: 'コットン=ユートピア',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3384,6 +3445,7 @@ export const useStoreCounter = defineStore('store', {
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'Trick & Cute',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3425,6 +3487,7 @@ export const useStoreCounter = defineStore('store', {
           '宇宙警察★うさぴょん': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'うさぴょん',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3467,6 +3530,7 @@ export const useStoreCounter = defineStore('store', {
           'アイデンティティ': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'アイデンティティ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3509,6 +3573,7 @@ export const useStoreCounter = defineStore('store', {
           'yours ever': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'yours ever',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3551,6 +3616,7 @@ export const useStoreCounter = defineStore('store', {
           '夏めきペイン': {
             styleType: 'trickStar',
             mood: 'happy',
+            series: '夏めきペイン',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3593,6 +3659,7 @@ export const useStoreCounter = defineStore('store', {
           'Dream Believers': {
             styleType: 'trickStar',
             mood: 'happy',
+            series: 'Dream Believers',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3633,9 +3700,53 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'ツバサ・ラ・リベルテ',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 930,
+              pure: 2530,
+              cool: 1930,
+              mental: 193,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'regainVoltage',
+              name: 'リゲインボルテージ',
+              AP: 6,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', '40?']
+              ],
+              type: ['regainVoltage']
+            },
+            skill: {
+              ID: 'cheerfulVoltage_voltageGain',
+              name: 'チアフルボルテージ',
+              AP: 4,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', '50?'],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', '24?']
+              ],
+              type: ['cheerful', 'voltageGain']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
+              type: ['APreduce', 'mental']
+            }
+          },
           '喫茶ハスノソラ': {
             styleType: 'trickStar',
             mood: 'happy',
+            series: '喫茶ハスノソラ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3677,6 +3788,7 @@ export const useStoreCounter = defineStore('store', {
           'Au Bord du Lac': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'Au Bord du Lac',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3718,6 +3830,7 @@ export const useStoreCounter = defineStore('store', {
           'ゆのくにガールズ！': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'ゆのくにガールズ！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3759,6 +3872,7 @@ export const useStoreCounter = defineStore('store', {
           '世界中を夢中に': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: '世界中を夢中に',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3801,6 +3915,7 @@ export const useStoreCounter = defineStore('store', {
           'にゅーかまー！': {
             styleType: 'trickStar',
             mood: 'happy',
+            series: 'にゅーかまー！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3842,6 +3957,7 @@ export const useStoreCounter = defineStore('store', {
           '@いっつぁどりーみんわーるど！': {
             styleType: 'trickStar',
             mood: 'neutral',
+            series: '@いっつぁどりーみんわーるど！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3883,6 +3999,7 @@ export const useStoreCounter = defineStore('store', {
           'R\'s One Day': {
             styleType: 'trickStar',
             mood: 'melow',
+            series: 'One Day',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3926,6 +4043,7 @@ export const useStoreCounter = defineStore('store', {
           'オーロラスカイ': {
             styleType: 'trickStar',
             mood: 'neutral',
+            series: 'オーロラスカイ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3962,6 +4080,7 @@ export const useStoreCounter = defineStore('store', {
           '華紺青': {
             styleType: 'performer',
             mood: 'happy',
+            series: '華紺青',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4040,6 +4159,7 @@ export const useStoreCounter = defineStore('store', {
           'Prism Echo': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'Prism Echo',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4085,6 +4205,7 @@ export const useStoreCounter = defineStore('store', {
           'ツバサ・ラ・リベルテ': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'ツバサ・ラ・リベルテ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4127,6 +4248,7 @@ export const useStoreCounter = defineStore('store', {
           '奇跡の舞踏会': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '舞踏会',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4170,6 +4292,7 @@ export const useStoreCounter = defineStore('store', {
           '秋色カントリーロード': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: '秋色カントリーロード',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4213,6 +4336,7 @@ export const useStoreCounter = defineStore('store', {
           'はじける☆メロンソーダ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'はじける☆ソーダ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4254,6 +4378,7 @@ export const useStoreCounter = defineStore('store', {
           'DEEPNESS': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'DEEPNESS',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4296,6 +4421,7 @@ export const useStoreCounter = defineStore('store', {
           '金魚◎花火': {
             styleType: 'cheerLeader',
             mood: 'melow',
+            series: '金魚◎花火',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4337,6 +4463,7 @@ export const useStoreCounter = defineStore('store', {
           'フォーチュンムービー': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: 'フォーチュンムービー',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4378,6 +4505,7 @@ export const useStoreCounter = defineStore('store', {
           '雨と紫陽花に唄へば': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '雨と紫陽花に唄へば',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4419,6 +4547,7 @@ export const useStoreCounter = defineStore('store', {
           'Holiday∞Holiday': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'Holiday∞Holiday',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4460,6 +4589,7 @@ export const useStoreCounter = defineStore('store', {
           'チェリー♫ピクニック': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'チェリー♫ピクニック',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4501,6 +4631,7 @@ export const useStoreCounter = defineStore('store', {
           'Reflection in the mirror': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'Reflection in the mirror',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4542,6 +4673,7 @@ export const useStoreCounter = defineStore('store', {
           '春色ニューデイズ': {
             styleType: 'performer',
             mood: 'happy',
+            series: '春色ニューデイズ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4583,6 +4715,7 @@ export const useStoreCounter = defineStore('store', {
           'Dream Believers': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'Dream Believers',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4626,6 +4759,7 @@ export const useStoreCounter = defineStore('store', {
           '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '喫茶ハスノソラ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4668,6 +4802,7 @@ export const useStoreCounter = defineStore('store', {
           'Trick & Cute': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Trick & Cute',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4709,6 +4844,7 @@ export const useStoreCounter = defineStore('store', {
           '素顔のピクセル': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '素顔のピクセル',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4751,6 +4887,7 @@ export const useStoreCounter = defineStore('store', {
           '夏めきペイン': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: '夏めきペイン',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4792,6 +4929,7 @@ export const useStoreCounter = defineStore('store', {
           'SPLASH!!!!': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'SPLASH!!!!',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4833,6 +4971,7 @@ export const useStoreCounter = defineStore('store', {
           '眩耀夜行': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '眩耀夜行',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4874,6 +5013,7 @@ export const useStoreCounter = defineStore('store', {
           '朝顔令嬢': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: '朝顔令嬢',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4915,6 +5055,7 @@ export const useStoreCounter = defineStore('store', {
           'ペンギンアイス': {
             styleType: 'performer',
             mood: 'happy',
+            series: 'ペンギンアイス',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4956,6 +5097,7 @@ export const useStoreCounter = defineStore('store', {
           'アメアガリストリート': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: 'アメアガリストリート',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4997,6 +5139,7 @@ export const useStoreCounter = defineStore('store', {
           'Rose Garden': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'Rose Garden',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5038,6 +5181,7 @@ export const useStoreCounter = defineStore('store', {
           '薫風の調べ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '薫風の調べ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5079,6 +5223,7 @@ export const useStoreCounter = defineStore('store', {
           '謳歌爛漫': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: '謳歌爛漫',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5120,6 +5265,7 @@ export const useStoreCounter = defineStore('store', {
           '水彩世界': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '水彩世界',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5161,6 +5307,7 @@ export const useStoreCounter = defineStore('store', {
           'Grace Phrase': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: 'Grace Phrase',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5204,6 +5351,7 @@ export const useStoreCounter = defineStore('store', {
           'オーロラスカイ': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: 'オーロラスカイ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5240,6 +5388,7 @@ export const useStoreCounter = defineStore('store', {
           '華紺青': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '華紺青',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5318,6 +5467,7 @@ export const useStoreCounter = defineStore('store', {
           'Prism Echo': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Prism Echo',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5363,6 +5513,7 @@ export const useStoreCounter = defineStore('store', {
           'ツバサ・ラ・リベルテ': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'ツバサ・ラ・リベルテ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5406,6 +5557,7 @@ export const useStoreCounter = defineStore('store', {
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'Trick & Cute',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5447,6 +5599,7 @@ export const useStoreCounter = defineStore('store', {
           '革命の舞踏会': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '舞踏会',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5488,6 +5641,7 @@ export const useStoreCounter = defineStore('store', {
           'Take It Over': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Take It Over',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5530,6 +5684,7 @@ export const useStoreCounter = defineStore('store', {
           '秋色カントリーロード': {
             styleType: 'performer',
             mood: 'neutral',
+            series: '秋色カントリーロード',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5573,6 +5728,7 @@ export const useStoreCounter = defineStore('store', {
           'はじける☆スイカソーダ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'はじける☆ソーダ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5615,6 +5771,7 @@ export const useStoreCounter = defineStore('store', {
           '金魚◎花火': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '金魚◎花火',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5656,6 +5813,7 @@ export const useStoreCounter = defineStore('store', {
           '朝顔令嬢': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: '朝顔令嬢',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5698,6 +5856,7 @@ export const useStoreCounter = defineStore('store', {
           'ペンギンアイス': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'ペンギンアイス',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5740,6 +5899,7 @@ export const useStoreCounter = defineStore('store', {
           'DEEPNESS': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'DEEPNESS',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5782,6 +5942,7 @@ export const useStoreCounter = defineStore('store', {
           'ツキマカセ': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'ツキマカセ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5825,6 +5986,7 @@ export const useStoreCounter = defineStore('store', {
           'チェリー♫ピクニック': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'チェリー♫ピクニック',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5866,6 +6028,7 @@ export const useStoreCounter = defineStore('store', {
           'スケイプゴート': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'スケイプゴート',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5909,6 +6072,7 @@ export const useStoreCounter = defineStore('store', {
           'Dream Believers': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Dream Believers',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5953,6 +6117,7 @@ export const useStoreCounter = defineStore('store', {
           'コットン=ユートピア': {
             styleType: 'trickStar',
             mood: 'melow',
+            series: 'コットン=ユートピア',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5995,6 +6160,7 @@ export const useStoreCounter = defineStore('store', {
           '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '喫茶ハスノソラ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6038,6 +6204,7 @@ export const useStoreCounter = defineStore('store', {
           '夏めきペイン': {
             styleType: 'performer',
             mood: 'happy',
+            series: '夏めきペイン',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6080,6 +6247,7 @@ export const useStoreCounter = defineStore('store', {
           'SPLASH!!!!': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'SPLASH!!!!',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6122,6 +6290,7 @@ export const useStoreCounter = defineStore('store', {
           'Mirage Voyage': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'Mirage Voyage',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6163,6 +6332,7 @@ export const useStoreCounter = defineStore('store', {
           'アメアガリストリート': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'アメアガリストリート',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6204,6 +6374,7 @@ export const useStoreCounter = defineStore('store', {
           '雨と紫陽花に唄へば': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: '雨と紫陽花に唄へば',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6245,6 +6416,7 @@ export const useStoreCounter = defineStore('store', {
           'Tragic Drops': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Tragic Drops',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6286,6 +6458,7 @@ export const useStoreCounter = defineStore('store', {
           'Rose Garden': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'Rose Garden',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6327,6 +6500,7 @@ export const useStoreCounter = defineStore('store', {
           '薫風の調べ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '薫風の調べ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6368,6 +6542,7 @@ export const useStoreCounter = defineStore('store', {
           'Sparkly Spot': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'Sparkly Spot',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6409,6 +6584,7 @@ export const useStoreCounter = defineStore('store', {
           '春色ニューデイズ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '春色ニューデイズ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6450,6 +6626,7 @@ export const useStoreCounter = defineStore('store', {
           'AWOKE': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'AWOKE',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6491,6 +6668,7 @@ export const useStoreCounter = defineStore('store', {
           'Vivid Phrase': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'Vivid Phrase',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6534,6 +6712,7 @@ export const useStoreCounter = defineStore('store', {
           'オーロラスカイ': {
             styleType: 'moodMaker',
             mood: 'melow',
+            series: 'オーロラスカイ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6570,6 +6749,7 @@ export const useStoreCounter = defineStore('store', {
           '華紺青': {
             styleType: 'performer',
             mood: 'melow',
+            series: '華紺青',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6648,6 +6828,7 @@ export const useStoreCounter = defineStore('store', {
           'Prism Echo': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'Prism Echo',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6690,9 +6871,52 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'ツバサ・ラ・リベルテ',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1030,
+              pure: 2630,
+              cool: 2030,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'loveAttract_stage',
+              name: 'ラブアトラクト',
+              AP: 4,
+              detail: [
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', '8?']
+              ],
+              type: ['loveAttract']
+            },
+            skill: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 6,
+              detail: [
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', '15?']
+              ],
+              type: ['heartCaptcha']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
+              type: ['APreduce', 'mental']
+            }
+          },
           '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: '喫茶ハスノソラ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6736,6 +6960,7 @@ export const useStoreCounter = defineStore('store', {
           '約束の舞踏会': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: '舞踏会',
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -6778,6 +7003,7 @@ export const useStoreCounter = defineStore('store', {
           'アイデンティティ': {
             styleType: 'performer',
             mood: 'neutral',
+            series: 'アイデンティティ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6819,6 +7045,7 @@ export const useStoreCounter = defineStore('store', {
           'Au Bord du Lac': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: 'Au Bord du Lac',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6861,6 +7088,7 @@ export const useStoreCounter = defineStore('store', {
           '夏めきペイン': {
             styleType: 'cheerLeader',
             mood: 'happy',
+            series: '夏めきペイン',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6903,6 +7131,7 @@ export const useStoreCounter = defineStore('store', {
           'Dream Believers': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'Dream Believers',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6947,6 +7176,7 @@ export const useStoreCounter = defineStore('store', {
           'コットン=ユートピア': {
             styleType: 'cheerLeader',
             mood: 'melow',
+            series: 'コットン=ユートピア',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6988,6 +7218,7 @@ export const useStoreCounter = defineStore('store', {
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
+            series: 'Trick & Cute',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7030,6 +7261,7 @@ export const useStoreCounter = defineStore('store', {
           '宇宙演舞☆うさぴょん': {
             styleType: 'trickStar',
             mood: 'neutral',
+            series: 'うさぴょん',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7071,6 +7303,7 @@ export const useStoreCounter = defineStore('store', {
           'ゆのくにガールズ！': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'ゆのくにガールズ！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7112,6 +7345,7 @@ export const useStoreCounter = defineStore('store', {
           'yours ever': {
             styleType: 'moodMaker',
             mood: 'happy',
+            series: 'yours ever',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7154,6 +7388,7 @@ export const useStoreCounter = defineStore('store', {
           '世界中を夢中に': {
             styleType: 'moodMaker',
             mood: 'neutral',
+            series: '世界中を夢中に',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7196,6 +7431,7 @@ export const useStoreCounter = defineStore('store', {
           '@いっつぁどりーみんわーるど！': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: '@いっつぁどりーみんわーるど！',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7238,6 +7474,7 @@ export const useStoreCounter = defineStore('store', {
           'M\'s One Day': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'One Day',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7281,6 +7518,7 @@ export const useStoreCounter = defineStore('store', {
           'オーロラスカイ': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: 'オーロラスカイ',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7317,6 +7555,7 @@ export const useStoreCounter = defineStore('store', {
           '華紺青': {
             styleType: 'cheerLeader',
             mood: 'neutral',
+            series: '華紺青',
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8456,25 +8695,8 @@ export const useStoreCounter = defineStore('store', {
     defaultCardList: []
   }),
   getters: {
-    makeCardList(store) {
-      let result = [];
-
-      for (const memberName in store.card) {
-        if (memberName !== 'default') {
-          for (const rare in store.card[memberName]) {
-            for (const cardName in store.card[memberName][rare]) {
-              if (cardName !== 'default') {
-                store.card[memberName][rare][cardName].cardName = cardName;
-                store.card[memberName][rare][cardName].rare = rare;
-                store.card[memberName][rare][cardName].memberName = memberName;
-                result.push(store.card[memberName][rare][cardName]);
-              }
-            }
-          }
-        }
-      }
-
-      return result;
+    cardList(store) {
+      return store.makeCardList();
     },
     specialAppealNameList(store) {
       return store.makeSkillFilterList('specialAppeal');
@@ -8483,15 +8705,7 @@ export const useStoreCounter = defineStore('store', {
       return store.makeSkillFilterList('skill');
     },
     cardSeriesList(store) {
-      const result = [];
-
-      for (const key of store.makeCardList) {
-        if (result.indexOf(key.series) === -1) {
-          result.push(key.series);
-        }
-      }
-
-      return result;
+      return store.makeSkillFilterList('series');
     },
     setSelectCard() {
       console.log(this.card[this.abc.name][this.abc.style])
@@ -8581,7 +8795,6 @@ export const useStoreCounter = defineStore('store', {
     },
     setLocalStorage(setLocalStorageName, value) {
       localStorage[setLocalStorageName] = JSON.stringify(value);
-      console.log(localStorage[setLocalStorageName]);
     },
     getLocalStorage() {
       if (localStorage.llllMgr_musicData === undefined) {
@@ -8719,20 +8932,24 @@ export const useStoreCounter = defineStore('store', {
       return selectCard.uniqueStatus.mental + Math.ceil((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 2  + Math.floor((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 3;
     },
     setOutputCardList() {
-      let result = this.makeCardList;
-      for (const key of result) {
-        key.series = key.cardName;
-      }
+      let result = this.makeCardList();
+      let filterList;
 
       for (const searchKey in this.search.cardList) {
         if (result.length === 0) {
           break;
         }
 
-        const filterList = this.search.cardList[searchKey];
+        filterList = this.search.cardList[searchKey];
         result = result.filter((cardData) => {
           if (/^cardLevel|SALevel|SLevel|releaseLevel$/.test(searchKey)) {
             return filterList[0] <= cardData.fluctuationStatus[searchKey] && cardData.fluctuationStatus[searchKey] <= filterList[1];
+          } else if (searchKey === 'SAAP') {
+            const AP = cardData.specialAppeal.AP - cardData.fluctuationStatus.trainingLevel;
+            return filterList[0] <= AP && AP <= filterList[1];
+          } else if (searchKey === 'SAP') {
+            const AP = cardData.skill.AP - cardData.fluctuationStatus.trainingLevel;
+            return filterList[0] <= AP && AP <= filterList[1];
           } else if (searchKey === 'favorite') {
             return true;
           } else {
@@ -8748,12 +8965,24 @@ export const useStoreCounter = defineStore('store', {
           break;
         }
 
-        const filterList = this.search.skillList[searchKey];
+        filterList = this.search.skillList[searchKey];
 
         if (filterList.length > 0) {
           result = result.filter((cardData) => {
             return filterList.some((val) => {
               return cardData[searchKey].name === val;
+            });
+          });
+        }
+      }
+
+      if (result.length > 0) {
+        filterList = this.search.cardSeries;
+
+        if (filterList.length > 0) {
+          result = result.filter((cardData) => {
+            return filterList.some((val) => {
+              return cardData.series === val;
             });
           });
         }
@@ -8766,13 +8995,36 @@ export const useStoreCounter = defineStore('store', {
     makeSkillFilterList(target) {
       const result = [];
 
-      for (const key of this.makeCardList) {
-        if (result.indexOf(key[target].name) === -1) {
-          result.push(key[target].name);
+      for (const key of this.makeCardList()) {
+        if (result.indexOf(target === 'series' ? key[target] : key[target].name) === -1) {
+          result.push(target === 'series' ? key[target] : key[target].name);
         }
       }
 
       return result;
+    },
+    makeCardList() {
+      let result = [];
+
+      for (const memberName in this.card) {
+        if (memberName !== 'default') {
+          for (const rare in this.card[memberName]) {
+            for (const cardName in this.card[memberName][rare]) {
+              if (cardName !== 'default') {
+                this.card[memberName][rare][cardName].cardName = cardName;
+                this.card[memberName][rare][cardName].rare = rare;
+                this.card[memberName][rare][cardName].memberName = memberName;
+                result.push(this.card[memberName][rare][cardName]);
+              }
+            }
+          }
+        }
+      }
+
+      return result;
+    },
+    fitst() {
+      console.log('OK');
     }
   }
 });
