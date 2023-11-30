@@ -237,7 +237,12 @@ export const useStoreCounter = defineStore('store', {
         highVoltage: [
           'ボルテージPt.を+',
           'する。使用時のボルテージLv.が6以上だった場合、さらにAPを1回復する。'
-        ]
+        ],
+        highVoltage_heartCaptcha: [
+          'ボルテージPt.を+',
+          'する。使用時のボルテージLv.が6以上の時、ビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
       },
       'ヒーリングハート': {
         healingHeart: [
@@ -273,9 +278,14 @@ export const useStoreCounter = defineStore('store', {
         ]
       },
       'チアフルサポート': {
-        cheerfulSupport_over75: [
+        cheerfulSupport_over75_stage: [
           'メンタルを最大値の',
           '%回復する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+',
+          '%する。'
+        ],
+        cheerfulSupport_over75_section: [
+          'メンタルを最大値の',
+          '%回復する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+',
           '%する。'
         ]
       },
@@ -595,6 +605,14 @@ export const useStoreCounter = defineStore('store', {
         extensionsProtect: [
           'このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の',
           '%分のメンタルダメージを無効にする。'
+        ]
+      },
+      'リカバーアトラクション' :{
+        recoverAttraction_section: [
+          'メンタルを最大値の',
+          '%回復させる。さらに、ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。'
         ]
       }
     },
@@ -1303,6 +1321,48 @@ export const useStoreCounter = defineStore('store', {
           },
         },
         SR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1930,
+              pure: 2430,
+              cool: 930,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 4,
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
+              ],
+              type: ['heartCaptcha']
+            },
+            skill: {
+              ID: 'highVoltage_heartCaptcha',
+              name: 'ハイボルテージ',
+              AP: 10,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 7],
+              ],
+              type: ['high',' voltage', 'hartCaptcha']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
+              type: ['APreduce', 'mental']
+            }
+          },
           '宇宙演舞☆うさぴょん': {
             styleType: 'cheerLeader',
             mood: 'neutral',
@@ -2542,6 +2602,48 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1930,
+              pure: 2430,
+              cool: 930,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'loveAttract_section',
+              name: 'ラブアトラクト',
+              AP: 4,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, '16.8?', '17.6?', '18.4?', '20?']
+              ],
+              type: ['loveAttract']
+            },
+            skill: {
+              ID: 'cheerfulSupport_over75_section',
+              name: 'チアフルサポート',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 25],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, '12.6?', '13.2?', '13.8?', 15]
+              ],
+              type: ['cheerful','support', 'loveAttract']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
+              type: ['APreduce', 'mental']
+            }
+          },
           'Trick & Cute': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -3980,6 +4082,48 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1530,
+              pure: 2530,
+              cool: 1530,
+              mental: 173,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 4,
+              detail: [
+                ['8?', '8.8?', '9.6?', '10.4?', '11.2?', '12?', '12.8?', '13.6?', '14.4?', '16?', '16.8?', '17.6?', '18.4?', 20]
+              ],
+              type: ['mentalRecover']
+            },
+            skill: {
+              ID: 'protectFeel_loveAttract',
+              name: 'プロテクトフィール',
+              AP: 8,
+              detail: [
+                ['6.8?', '7.48?', '8.16?', '8.84?', '9.52?', '10.2?', '10.88?', '11.56?', '12.24?', '13.6?', '14.28?', '14.96?', '15.64?', 17],
+                ['3.2?', '3.5?', '3.8?', '4.2?', '4.5?', '4.8?', '5.1?', '5.4?', '5.8?', '6.4?', '6.7?', '7?', '7.4?', 8]
+              ],
+              type: ['protect', 'feel']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-6)',
+              type: ['APreduce', 'mental']
+            }
+          },
           '奇跡の舞踏会': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -4041,7 +4185,7 @@ export const useStoreCounter = defineStore('store', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'cheerfulSupport_over75',
+              ID: 'cheerfulSupport_over75_stage',
               name: 'チアフルサポート',
               AP: 6,
               detail: [
@@ -5216,6 +5360,49 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'ツバサ・ラ・リベルテ': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 530,
+              pure: 2630,
+              cool: 2330,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 4,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ],
+              type: ['voltageGain']
+            },
+            skill: {
+              ID: 'recoverAttraction_section',
+              name: 'リカバーアトラクション',
+              AP: 10,
+              detail: [
+                [19.2, 21.12, 23.04, 24.96, 26.88, 28.8, 30.72, 32.64, 34.56, 38.4, '40.32?', '42.24?', '44.16?', 48],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 12],
+                [4.5, 5, 5.4, 5.9, 6.3, 6.8, 7.2, 7.7, 8.1, 9, '9.5?', '9.9?', '10.4?', 11.3]
+              ],
+              type: ['mentalRecover', 'heartCaptcha', 'loveAttract']
+            },
+            characteristic: {
+              name: 'APレデュース：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-8)',
+              type: ['APreduce', 'mental']
+            }
+          },
           'Trick & Cute': {
             styleType: 'performer',
             mood: 'melow',
@@ -7329,6 +7516,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
+      'Yup! Yup! Yup!': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 170,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'megumi',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
       '明日の空の僕たちへ': {
         musicData: {
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -7345,6 +7550,24 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
+      'ツバサ・ラ・リベルテ': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 1,
+            date: 17
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
+          BPM: 177,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
       '水彩世界': {
@@ -7499,7 +7722,7 @@ export const useStoreCounter = defineStore('store', {
             month: 9,
             date: 20
           },
-          numbering: '1stアルバム',
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: 118,
           cover: false
         },
@@ -7543,6 +7766,24 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'kozue']
+      },
+      'Dear my future': {
+        musicData: {
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: 90,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue']
       },
       'AWOKE': {

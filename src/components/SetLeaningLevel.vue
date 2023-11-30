@@ -1,15 +1,16 @@
 <template>
-  <v-container style="padding: 0px;">
-    <v-row no-gutters>
-      <v-col>
-        <h3 id="musicTitle" class="mb10">
-          {{ store.selectMusicTitle }}<br>{{ store.musicList[store.selectMusicTitle].musicData.singer }}
+  <v-container class="pa-0">
+    <v-row no-gutters class="mb-3">
+      <v-col cols="12">
+        <h3 class="text-center">
+          {{ store.selectMusicTitle }}<br>
+          {{ store.musicList[store.selectMusicTitle].musicData.singer }}
         </h3>
       </v-col>
     </v-row>
     <v-row no-gutters>
       <v-col class="left" cols="12" sm="6">
-        <img :src="require(`@/assets/CD_jacket/${store.selectMusicTitle}.jpg`)" :alt="store.selectMusicTitle">
+        <img :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.jpg`)" :alt="store.selectMusicTitle">
       </v-col>
       <v-col class="right">
         <div class="mb10">
@@ -112,10 +113,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#musicTitle {
-  text-align: center;
-}
-
 .member {
   padding-left: 0!important;
   margin: 0 10px 5px 0;
