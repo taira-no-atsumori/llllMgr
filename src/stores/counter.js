@@ -4225,7 +4225,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'メンタルリカバー',
               AP: 4,
               detail: [
-                ['8?', '8.8?', '9.6?', '10.4?', '11.2?', '12?', '12.8?', '13.6?', '14.4?', '16?', '16.8?', '17.6?', '18.4?', 20]
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, '16.8?', '17.6?', '18.4?', 20]
               ],
               type: ['mentalRecover']
             },
@@ -4234,8 +4234,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'プロテクトフィール',
               AP: 8,
               detail: [
-                ['6.8?', '7.48?', '8.16?', '8.84?', '9.52?', '10.2?', '10.88?', '11.56?', '12.24?', '13.6?', '14.28?', '14.96?', '15.64?', 17],
-                ['3.2?', '3.5?', '3.8?', '4.2?', '4.5?', '4.8?', '5.1?', '5.4?', '5.8?', '6.4?', '6.7?', '7?', '7.4?', 8]
+                [6.8, 7.48, 8.16, 8.84, 9.52, 10.2, 10.88, 11.56, 12.24, 13.6, '14.28?', '14.96?', '15.64?', 17],
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
               ],
               type: ['protect', 'feel']
             },
@@ -7608,7 +7608,7 @@ export const useStoreCounter = defineStore('store', {
         level: 0,
         term: 103,
         center: 'kaho',
-        bonusSkill: 'ビートハートアップ',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri']
       },
       '永遠のEuphoria(4人Ver.)': {
@@ -8695,17 +8695,17 @@ export const useStoreCounter = defineStore('store', {
     defaultCardList: []
   }),
   getters: {
-    cardList(store) {
-      return store.makeCardList();
+    cardList() {
+      return this.makeCardList();
     },
-    specialAppealNameList(store) {
-      return store.makeSkillFilterList('specialAppeal');
+    specialAppealNameList() {
+      return this.makeSkillFilterList('specialAppeal');
     },
-    skillNameList(store) {
-      return store.makeSkillFilterList('skill');
+    skillNameList() {
+      return this.makeSkillFilterList('skill');
     },
-    cardSeriesList(store) {
-      return store.makeSkillFilterList('series');
+    cardSeriesList() {
+      return this.makeSkillFilterList('series');
     },
     setSelectCard() {
       console.log(this.card[this.abc.name][this.abc.style])
@@ -8766,6 +8766,28 @@ export const useStoreCounter = defineStore('store', {
         return result;
       }
     },
+    /*makeMusicList() {
+      return (selectSkillList) => {
+        const list = {};
+        let targetMusicList;
+
+        for (const musicTitle in this.musicList) {
+          targetMusicList = this.musicList[musicTitle];
+
+          if (typeof targetMusicList.level !== 'number') {
+            targetMusicList.level = 0;
+          }
+
+          for (const skillName of selectSkillList) {
+            if (targetMusicList.bonusSkill === skillName) {
+              list[musicTitle] = targetMusicList;
+            }
+          }
+        }
+
+        return list;
+      }
+    },*/
   },
   actions: {
     makeTotalSkillLv(memberName) {
@@ -8899,25 +8921,6 @@ export const useStoreCounter = defineStore('store', {
     setTotalSkillLv(memberName) {
       return this.makeTotalSkillLv(memberName);
     },
-    makeMusicList(selectSkillList) {
-      const list = {};
-      let targetMusicList;
-
-      for (const musicTitle in this.musicList) {
-        targetMusicList = this.musicList[musicTitle];
-        if (typeof targetMusicList.level !== 'number') {
-          targetMusicList.level = 0;
-        }
-
-        for (const skillName of selectSkillList) {
-          if (targetMusicList.bonusSkill === skillName) {
-            list[musicTitle] = targetMusicList;
-          }
-        }
-      }
-
-      return list;
-    },
     cardParam(style) {
       const selectCard = this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
       return selectCard.uniqueStatus[style] + (selectCard.fluctuationStatus.cardLevel - 1) * (this.settingCard.rare === 'R' ? 25 : 30);
@@ -9004,7 +9007,13 @@ export const useStoreCounter = defineStore('store', {
       return result;
     },
     makeCardList() {
-      let result = [];
+      let result = {
+        DR: [],
+        UR: [],
+        SR: [],
+        R: []
+      };
+      let result2 = [];
 
       for (const memberName in this.card) {
         if (memberName !== 'default') {
@@ -9014,14 +9023,18 @@ export const useStoreCounter = defineStore('store', {
                 this.card[memberName][rare][cardName].cardName = cardName;
                 this.card[memberName][rare][cardName].rare = rare;
                 this.card[memberName][rare][cardName].memberName = memberName;
-                result.push(this.card[memberName][rare][cardName]);
+                result[rare].push(this.card[memberName][rare][cardName]);
               }
             }
           }
         }
       }
 
-      return result;
+      for (const rare in result) {
+        result2 = result2.concat(result[rare]);
+      }
+
+      return result2;
     },
     fitst() {
       console.log('OK');
