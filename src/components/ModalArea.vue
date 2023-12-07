@@ -5,7 +5,7 @@
     :max-width="maxWidth[store.showModalName]"
   >
     <v-sheet>
-      <div id="modalArea" class="pa-4">
+      <div id="modalArea" class="pa-3">
         <div v-if="store.showModalName === 'selectCard'">
           <SelectCard />
         </div>

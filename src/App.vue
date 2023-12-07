@@ -6,7 +6,7 @@
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
       <v-toolbar-title class="d-none d-sm-block">リンクラ マネージャー！</v-toolbar-title>
-      <v-toolbar-title class="hidden-sm-and-up">リンマネ！</v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
       <v-spacer></v-spacer>
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"

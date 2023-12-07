@@ -5,7 +5,7 @@
         <h1>MUSIC LIST ～ 楽曲一覧 / 楽曲マスタリーレベル設定 ～</h1>
       </v-col>
       <v-col cols="12" class="mb-2">
-        <v-expansion-panels class="mb10">
+        <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
             <v-expansion-panel-text>
@@ -16,43 +16,104 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </v-col>
-    </v-row>
-    <v-row no-gutters class="mb-2">
-      <v-col cols="12">
-        <h3>絞り込み</h3>
+      <v-col cols="12" class="mb-2">
+        <v-expansion-panels>
+          <v-expansion-panel>
+            <v-expansion-panel-title><v-icon class="mr-2">mdi-filter</v-icon>絞り込み</v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <v-row no-gutters>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="6"
+                  lg="6"
+                  xl="6"
+                >
+                  <h3 class="mb-2">獲得ボーナススキルで絞り込み</h3>
+
+                  <v-row no-gutters>
+                    <v-col
+                      v-for="skillName in bonusSkillList"
+                      :key="skillName"
+                      :for="skillName"
+                      cols="3"
+                      sm="2"
+                      md="2"
+                      lg="2"
+                      xl="2"
+                    >
+                      <v-checkbox
+                        v-model="selectBonusSkillList"
+                        :value="skillName"
+                        color="pink"
+                        hide-details
+                      >
+                        <template v-slot:label>
+                          <v-img
+                            :src="require(`@/assets/${skillName}.png`)"
+                            :alt="skillName"
+                            style="width: 50px"
+                          >
+                            <v-tooltip
+                              activator="parent"
+                              location="top"
+                            >{{ skillName }}</v-tooltip>
+                          </v-img>
+                        </template>
+                      </v-checkbox>
+                    </v-col>
+                  </v-row>
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="6"
+                  lg="6"
+                  xl="6"
+                >
+                  <h3 class="mb-2">センターで絞り込み</h3>
+
+                  <v-select
+                    v-model="center_ja"
+                    clearable
+                    label="センター"
+                    :items="memberNameList"
+                    variant="outlined"
+                    color="pink"
+                    hint="センターのメンバーを選んでください"
+                    persistent-hint
+                    @click:clear="selectCenter(store, null)"
+                  >
+                    <!--<template v-slot:chip="{ item, index }">
+                      <v-chip
+                        :color="store.memberColor[Object.keys(store.charactorName)[index]]"
+                      >
+                        <v-avatar left>
+                          <v-img :src="require(`@/assets/member_icon/icon_SD_${Object.keys(store.charactorName)[index]}.png`)"></v-img>
+                        </v-avatar>
+                        {{ item.title }}
+                      </v-chip>
+                    </template>-->
+                    <template v-slot:item="{ item }">
+                      <v-list-item :title="makeName(store, item.title)" @click="selectCenter(store, item.title)">
+                        <template v-slot:prepend>
+                          <v-img
+                            :src="require(`@/assets/member_icon/icon_SD_${item.title}.png`)"
+                            class="icon member"
+                          ></v-img>
+                        </template>
+                      </v-list-item>
+                    </template>
+                  </v-select>
+                </v-col>
+              </v-row>
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-col>
-      <v-col
-        v-for="skillName in bonusSkillList"
-        :key="skillName"
-        :for="skillName"
-        cols="3"
-        sm="2"
-        md="1"
-        lg="1"
-        xl="1"
-      >
-        <v-checkbox
-          v-model="selectBonusSkillList"
-          :value="skillName"
-          color="pink"
-          hide-details
-          :click="store.makeMusicList(selectBonusSkillList)"
-        >
-          <template v-slot:label>
-            <v-img
-              :src="require(`@/assets/${skillName}.png`)"
-              :alt="skillName"
-              style="width: 50px"
-            >
-              <v-tooltip
-                activator="parent"
-                location="top"
-              >{{ skillName }}</v-tooltip>
-            </v-img>
-          </template>
-        </v-checkbox>
-      </v-col>
     </v-row>
+
     <v-row no-gutters>
       <v-col
         v-for="(arr, memberName) in store.charactorName"
@@ -89,7 +150,7 @@
   <v-divider class="mb-2"></v-divider>
   <dl>
     <div
-      v-for="(ary, songTitle) in store.makeMusicList(selectBonusSkillList)"
+      v-for="(ary, songTitle) in makeMusicList(store)"
       :key="ary"
       @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
     >
@@ -97,9 +158,19 @@
       <dt class="mb-2">{{ songTitle }}</dt>
       <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill"></dd>
     </div>
-    <div v-if="selectBonusSkillList.length === 0">見つかりませんでした…</div>
+    <div v-if="Object.keys(makeMusicList(store)).length === 0">見つかりませんでした…</div>
   </dl>
 </template>
+
+<script setup>
+  import { useStoreCounter } from '../stores/counter';
+  const store = useStoreCounter();
+  const memberNameList = [];
+
+  for (const memberName in store.charactorName) {
+    memberNameList.push(memberName);
+  }
+</script>
 
 <script>
 export default {
@@ -107,18 +178,51 @@ export default {
   components: {},
   data() {
     return {
+      center_en: null,
+      center_ja: null,
       bonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス'],
       selectBonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス']
     }
   },
   created() {},
-  methods: {}
-}
-</script>
+  computed: {
+    makeMusicList() {
+      return (store) => {
+        const list = {};
+        let targetMusicList;
 
-<script setup>
-  import { useStoreCounter } from '../stores/counter';
-  const store = useStoreCounter();
+        for (const musicTitle in store.musicList) {
+          targetMusicList = store.musicList[musicTitle];
+
+          if (typeof targetMusicList.level !== 'number') {
+            targetMusicList.level = 0;
+          }
+
+          for (const skillName of this.selectBonusSkillList) {
+            if (this.center_en !== null && targetMusicList.center !== this.center_en) {
+              continue;
+            }
+
+            if (targetMusicList.bonusSkill === skillName) {
+              list[musicTitle] = targetMusicList;
+            }
+          }
+        }
+
+        return list;
+      }
+    }
+  },
+  methods: {
+    selectCenter(store, select) {
+      this.center_en = select;
+      this.center_ja = select === null ? null : this.makeName(store, select);
+    },
+    makeName(store, select) {
+      return `${store.charactorName[select].first} ${store.charactorName[select].last}`;
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -210,6 +314,14 @@ img {
   padding: 2px 10px 2px 5px;
   border-radius: 0 15px 15px 0;
   margin: 0 0 3px 0;
+}
+
+.icon {
+  margin-right: 5px;
+
+  &.member {
+    width: 35px;
+  }
 }
 
 @media screen and (max-width: 600px) {
