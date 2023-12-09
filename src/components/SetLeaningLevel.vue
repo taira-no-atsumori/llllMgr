@@ -8,27 +8,32 @@
         </h3>
       </v-col>
     </v-row>
+
     <v-row no-gutters>
-      <v-col class="left" cols="12" sm="6">
+      <v-col class="mb-3" cols="12" sm="6">
         <img :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.jpg`)" :alt="store.selectMusicTitle">
       </v-col>
+
       <v-col class="right">
-        <div class="mb10">
+        <div class="mb-3">
           <h4 class="subtitle">センター</h4>
           <div>
             <v-chip
               pill
-              style="padding-left: 0;"
+              class="pl-0"
               :color="store.memberColor[store.musicList[store.selectMusicTitle].center]"
             >
               <v-avatar left>
-                <v-img :src="require(`@/assets/member_icon/icon_SD_${store.musicList[store.selectMusicTitle].center}.png`)" width="30px"></v-img>
+                <v-img
+                  :src="require(`@/assets/member_icon/icon_SD_${store.musicList[store.selectMusicTitle].center}.png`)"
+                  width="30px"
+                ></v-img>
               </v-avatar>
-              <span style="margin-left: 5px;">{{ store.charactorName[store.musicList[store.selectMusicTitle].center].first }} {{ store.charactorName[store.musicList[store.selectMusicTitle].center].last }}</span>
+              <span class="ml-1">{{ store.charactorName[store.musicList[store.selectMusicTitle].center].first }} {{ store.charactorName[store.musicList[store.selectMusicTitle].center].last }}</span>
             </v-chip>
           </div>
         </div>
-        <div class="mb5">
+        <div class="mb-2">
           <h4 class="subtitle">歌唱メンバー</h4>
           <div>
             <v-chip
@@ -39,32 +44,36 @@
               :color="store.memberColor[charactorName]"
             >
               <v-avatar left>
-                <v-img :src="require(`@/assets/member_icon/icon_SD_${charactorName}.png`)" width="30px"></v-img>
+                <v-img
+                  :src="require(`@/assets/member_icon/icon_SD_${charactorName}.png`)"
+                  width="30px"
+                ></v-img>
               </v-avatar>
-              <span style="margin-left: 5px;">{{ store.charactorName[charactorName].first }} {{ store.charactorName[charactorName].last }}</span>
+              <span class="ml-1">{{ store.charactorName[charactorName].first }} {{ store.charactorName[charactorName].last }}</span>
             </v-chip>
           </div>
         </div>
-        <div class="mb10">
+        <div class="mb-3">
           <h4 class="subtitle">楽曲マスタリーLv.</h4>
-          <div class="sliderArea">
-            <div>
+          <v-row no-gutters>
+            <v-col cols="4" class="text-right">
+              <v-btn
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)"
+                :disabled="store.musicList[store.selectMusicTitle].level === 0"
+              >-1</v-btn>
+            </v-col>
+            <v-col cols="4" class="text-center align-self-center">
               {{ store.musicList[store.selectMusicTitle].level }}
-            </div>
-            <v-btn x-small @click="store.valueChange('musicLevel', 0)">MIN</v-btn>
-            <v-slider
-              v-model="store.musicList[store.selectMusicTitle].level"
-              class="sliderPadding"
-              hide-details
-              :min="0"
-              :max="30"
-              :step="1"
-              @change="store.setMusicLevel"
-            ></v-slider>
-            <v-btn x-small @click="store.valueChange('musicLevel', 30)">MAX</v-btn>
-          </div>
+            </v-col>
+            <v-col cols="4" class="text-left">
+              <v-btn
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)"
+                :disabled="store.musicList[store.selectMusicTitle].level === 30"
+              >+1</v-btn>
+            </v-col>
+          </v-row>
         </div>
-        <div class="mb10">
+        <div class="mb-3">
           <h4 class="subtitle">獲得ボーナススキル</h4>
           <div>
             {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
@@ -75,20 +84,26 @@
           <v-expansion-panel>
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
             <v-expansion-panel-text>
-              <dl>
-                <div class="mb5" v-if="!store.musicList[store.selectMusicTitle].musicData.cover">
-                  <dt>発売日</dt>
-                  <dd>{{ store.makeReleaseDate() }}</dd>
-                </div>
-                <div class="mb5" v-if="!store.musicList[store.selectMusicTitle].musicData.cover">
-                  <dt>収録CD</dt>
-                  <dd>{{ store.musicList[store.selectMusicTitle].musicData.numbering }}</dd>
-                </div>
-                <div>
-                  <dt>BPM</dt>
-                  <dd>{{ store.musicList[store.selectMusicTitle].musicData.BPM }}</dd>
-                </div>
-              </dl>
+              <v-row no-gutters>
+                <v-col cols="12" class="mb-1" v-if="!store.musicList[store.selectMusicTitle].musicData.cover">
+                  <v-row no-gutters>
+                    <v-col cols="12">発売日</v-col>
+                    <v-col cols="12">{{ store.makeReleaseDate }}</v-col>
+                  </v-row>
+                </v-col>
+                <v-col cols="12" class="mb-1" v-if="!store.musicList[store.selectMusicTitle].musicData.cover">
+                  <v-row no-gutters>
+                    <v-col cols="12">収録CD</v-col>
+                    <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.numbering }}</v-col>
+                  </v-row>
+                </v-col>
+                <v-col cols="12">
+                  <v-row no-gutters>
+                    <v-col cols="12">BPM</v-col>
+                    <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.BPM }}</v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -102,8 +117,9 @@ export default {
   data() {
     return {}
   },
-  methods: {
-  }
+  created() {},
+  computed: {},
+  methods: {}
 }
 </script>
 
@@ -118,12 +134,7 @@ export default {
   margin: 0 10px 5px 0;
 }
 
-.left {
-  width: 300px;
-}
-
 .right {
-  width: 300px;
   margin: 0 0 0 10px;
   font-size: 15px;
 }
@@ -138,7 +149,7 @@ img {
   background: #e5762c;
   padding: 2px 10px 2px 5px;
   border-radius: 0 15px 15px 0;
-  margin: 0 0 5px 0;
+  margin: 0 0 8px 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -148,11 +159,6 @@ img {
 
   .left {
     margin-bottom: 10px;
-  }
-
-  .right, 
-  .left {
-    width: 100%;
   }
 }
 </style>

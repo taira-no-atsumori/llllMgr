@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col cols="12">
         <h1>リンクラ マネージャー！</h1>
-        Ver.ε.05(アーリーアクセス)
+        Ver.ε.06(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row v-if="Object.keys(outputEventList).length > 0">
@@ -48,16 +48,16 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-btn tile block @click="pageMove('simulation')">Simulation</v-btn>
+        <v-btn block @click="pageMove('simulation')">Simulation</v-btn>
       </v-col>
       <v-col>
-        <v-btn tile block @click="pageMove('cardlist')">Card List</v-btn>
+        <v-btn block @click="pageMove('cardlist')">Card List</v-btn>
       </v-col>
       <v-col>
-        <v-btn tile block @click="pageMove('musiclist')">Music List</v-btn>
+        <v-btn block @click="pageMove('musiclist')">Music List</v-btn>
       </v-col>
       <v-col>
-        <v-btn tile block @click="pageMove('itemlist')">Item List</v-btn>
+        <v-btn block @click="pageMove('itemlist')">Item List</v-btn>
       </v-col>
     </v-row>
     <v-row>
@@ -124,15 +124,6 @@ export default {
   data() {
     return {
       eventList: {
-        /*'liveGP': {
-          title: '103期12月度サークル対抗戦',
-          text: '',
-          type: 'liveGP',
-          firstDay: [2023, 12, 20, 10, 0],
-          lastDay: [2023, 12, 27, 4, 0],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-11-20-30-blt2fqd1hq',
-          img: '103期12月度サークル対抗戦_logo.jpg'
-        },*/
         'ijigenFes': {
           title: '異次元フェス アイドルマスター★♥︎ラブライブ！歌合戦',
           firstDay: [2023, 12, 9, 0, 0],
@@ -141,6 +132,15 @@ export default {
           text: '',
           type: 'live',
           img: 'ijigenFes_logo.png'
+        },
+        'liveGP': {
+          title: 'ライブグランプリ 103期第6回個人戦',
+          text: '',
+          type: 'liveGP',
+          firstDay: [2023, 12, 10, 0, 0],
+          lastDay: [2023, 12, 15, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-12-08-20-m3zvdynhph',
+          img: '103期第6回個人戦_logo.png'
         },
         'unitKoushien': {
           title: 'LoveLive! Series Presents ユニット甲子園 2024',
