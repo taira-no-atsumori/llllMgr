@@ -3785,7 +3785,7 @@ export const useStoreCounter = defineStore('store', {
         },
         SR: {
           '冬のおくりもの': {
-            styleType: 'moodMaker',
+            styleType: 'trickStar',
             mood: 'neutral',
             series: '冬のおくりもの',
             fluctuationStatus: {
