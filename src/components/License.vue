@@ -27,11 +27,7 @@
         <h1 class="mb-2">LINK</h1>
         本サイトは、原則リンクフリーです。<br>
         SNSや動画などで紹介する場合の許可は不要です。<br>
-        ガンガン拡散してください！(必須ではありませんが、拡散したよ！って教えてくれると嬉しいです)<br>
-        ただし、HOME以外のURLから本サイトへ訪問する際、必ずHOMEへ遷移する仕様がございます。<br>
-        例えば、SNSにLICENSEページのURL(https://github.com/taira-no-atsumori/llllMgr/license)が貼り付けられていた場合、クリックするとHOMEページ(https://github.com/taira-no-atsumori/llllMgr/)が表示されます。<br>
-        これは、本サイトで使用しているVue Routerの影響によるものです。<br>
-        ご理解の上、ご利用くださいますようお願いいたします。<br>
+        ガンガン広めてください！(必須ではありませんが、広めたよ！って教えてくれると嬉しいです)<br>
       </v-col>
     </v-row>
   </v-container>
