@@ -113,6 +113,13 @@ export default {
       }
     }
   },
+  created() {
+    if (localStorage.inflow !== undefined) {
+      const pageName = localStorage.inflow;
+      localStorage.removeItem('inflow');
+      this.pageMove(`/llllMgr/${pageName}`);
+    }
+  },
   methods: {
     pageMove(movePageName) {
       this.$router.replace(movePageName);
