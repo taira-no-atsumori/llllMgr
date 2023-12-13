@@ -8967,13 +8967,6 @@ export const useStoreCounter = defineStore('store', {
     changeSkillLevel() {
       return this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card].fluctuationStatus.releaseLevel + 9;
     },
-    setMusicLevel() {
-      for (const musicTitle in this.musicList) {
-        this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
-      }
-
-      localStorage.llllMgr_musicData = JSON.stringify(this.localStorageData.musicData);
-    },
     makeTotalMastaryLv() {
       return (memberName) => {
         let result = 0;
@@ -9140,6 +9133,12 @@ export const useStoreCounter = defineStore('store', {
     valueChange(target, val) {
       if (target === 'musicLevel') {
         this.musicList[this.selectMusicTitle].level = val;
+
+        for (const musicTitle in this.musicList) {
+          this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
+        }
+
+        localStorage.llllMgr_musicData = JSON.stringify(this.localStorageData.musicData);
       } else {
         this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card].fluctuationStatus[target] = val;
       }
