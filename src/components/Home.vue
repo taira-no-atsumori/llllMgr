@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col cols="12">
         <h1>リンクラ マネージャー！</h1>
-        Ver.ε.06(アーリーアクセス)
+        Ver.ε.07(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row v-if="Object.keys(outputEventList).length > 0">
@@ -102,7 +102,7 @@
         なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。<br>
         <br>
         <b>CARD LIST(カード一覧)</b><br>
-        リンクラ内に実装されているカードの一覧と、カードの属性/スペシャルアピール/スキルレベルでの絞り込みができます。<br>
+        リンクラ内に実装されているカードの一覧と、カードの属性/スペシャルアピール/スキルレベル/カードシリーズでの絞り込みができます。<br>
         <br>
         <b>ITEM LIST(アイテム一覧)</b><br>
         Quest Liveの各ステージで獲得できるアイテムの一覧と検索ができます。<br>
@@ -127,16 +127,7 @@ export default {
   data() {
     return {
       eventList: {
-        'ijigenFes': {
-          title: '異次元フェス アイドルマスター★♥︎ラブライブ！歌合戦',
-          firstDay: [2023, 12, 9, 0, 0],
-          lastDay: [2023, 12, 10, 0, 0],
-          url: 'https://ijigen-fes.jp/utagassen/',
-          text: '',
-          type: 'live',
-          img: 'ijigenFes_logo.png'
-        },
-        'liveGP': {
+        /*'liveGP': {
           title: 'ライブグランプリ 103期第6回個人戦',
           text: '',
           type: 'liveGP',
@@ -144,7 +135,7 @@ export default {
           lastDay: [2023, 12, 15, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-12-08-20-m3zvdynhph',
           img: '103期第6回個人戦_logo.png'
-        },
+        },*/
         'unitKoushien': {
           title: 'LoveLive! Series Presents ユニット甲子園 2024',
           firstDay: [2024, 3, 9, 0, 0],
