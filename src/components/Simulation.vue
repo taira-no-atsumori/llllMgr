@@ -32,138 +32,145 @@
         :key="i"
         cols="12"
         sm="6"
-        md="6"
-        lg="6"
-        xl="6"
         :class="['py-2 prr-sm-2 pr-md-2 pr-lg-2 pr-xl-2', 'py-2 prl-sm-2 pl-md-2 pl-lg-2 pl-xl-2'][i - 1]"
       >
         <v-card elevation="2">
-          <v-card-title>比較{{ i }}</v-card-title>
+          <v-card-title>楽曲{{ i }}</v-card-title>
           <v-card-text>
-          <h2 class="mb-3">予想獲得グランプリPt. {{ GPpt[i - 1] }}</h2>
-          <v-row>
-            <v-col
-              cols="12"
-              sm="6"
-              md="6"
-              lg="6"
-              xl="6"
-            >
-              獲得スコア
-              <v-text-field
-                v-model="score[i - 1]"
-                :rules="rules"
-                :change="makeGPpt(i - 1)"
-              ></v-text-field></v-col>
+            <v-row>
+              <v-col cols="12">
+                <h2>予想獲得グランプリPt. {{ GPpt(i - 1) }}</h2>
+              </v-col>
+
               <v-col
                 cols="12"
                 sm="6"
-                md="6"
-                lg="6"
-                xl="6"
               >
-              クリアステージ
-              <v-select
-                v-model="clearStage[i - 1]"
-                :items="[1, 2, 3, 4]"
-                hint="クリアしたステージを選択してください"
-              ></v-select>
-            </v-col>
-          </v-row>
+                <v-text-field
+                  v-model="score[i - 1]"
+                  label="スコア"
+                  hint="スコアを入力してください"
+                  :rules="rules"
+                  persistent-hint
+                  color="pink"
+                  base-color="pink"
+                ></v-text-field>
+              </v-col>
 
-          <div
-            v-for="(arr, memberName) in store.charactorName"
-            :key="memberName"
-          >
-            <v-checkbox
-              v-model="performance[i - 1]"
-              :label="arr.last"
-              :value="memberName"
-              hide-details
-            ></v-checkbox>
-            <v-row no-gutters>
-              <v-col cols="2">レア度</v-col>
-              <v-col cols="5" class="text-center">Season Fan Lv.</v-col>
-              <v-col cols="5" class="text-center">解放Lv.</v-col>
-              <v-col cols="2">
+              <v-col
+                cols="12"
+                sm="6"
+                class="mb-5"
+              >
                 <v-select
-                  v-model="bonus.rare[i - 1][memberName]"
-                  :items="['UR', 'SR', 'R']"
-                  hint="メインスタイルに設定している花帆のカードのレア度を選択してください"
+                  v-model="clearStage[i - 1]"
+                  :items="[1, 2, 3, 4]"
+                  label="ステージ"
+                  hint="ステージを選択してください"
+                  persistent-hint
+                  color="pink"
+                  base-color="pink"
                 ></v-select>
               </v-col>
-              <v-col cols="5">
-                <v-row no-gutters>
-                  <v-spacer></v-spacer>
-                  <v-col
-                    align="center"
-                    justify="center"
-                    class="pa-0"
-                  >
-                    <v-btn
-                      x-small
-                      :disabled="bonus.seasonFan[i - 1][memberName] === 1"
-                      @click="setValue(['seasonFan', i - 1, memberName], bonus.seasonFan[i - 1][memberName] - 1)">-1
-                    </v-btn>
-                  </v-col>
-                  <v-col
-                    align="center"
-                    justify="center"
-                    class="px-0 pt-1 pb-0"
-                  >
-                    {{ bonus.seasonFan[i - 1][memberName] }}
-                  </v-col>
-                  <v-col
-                    align="center"
-                    justify="center"
-                    class="pa-0"
-                  >
-                    <v-btn
-                      x-small
-                      :disabled="bonus.seasonFan[i - 1][memberName] === 10"
-                      @click="setValue(['seasonFan', i - 1, memberName], bonus.seasonFan[i - 1][memberName] + 1)">+1
-                    </v-btn>
-                  </v-col>
-                </v-row>
-                <v-spacer></v-spacer>
-              </v-col>
-              <v-col cols="5">
-                <v-row no-gutters>
-                  <v-spacer></v-spacer>
-                  <v-col
-                    align="center"
-                    justify="center"
-                    class="pa-0"
-                  >
-                    <v-btn
-                      x-small
-                      :disabled="bonus.rare[i - 1][memberName] === undefined || bonus.release[i - 1][memberName] === 1"
-                      @click="setValue(['release', i - 1, memberName], bonus.release[i - 1][memberName] - 1)">-1
-                    </v-btn>
-                  </v-col>
-                  <v-col
-                    align="center"
-                    justify="center"
-                    class="px-0 pt-1 pb-0"
-                  >
-                    {{ bonus.release[i - 1][memberName] }}
-                  </v-col>
-                  <v-col
-                    align="center"
-                    justify="center"
-                    class="pa-0"
-                  >
-                    <v-btn
-                      x-small
-                      :disabled="bonus.rare[i - 1][memberName] === undefined || bonus.release[i - 1][memberName] === 5"
-                      @click="setValue(['release', i - 1, memberName], bonus.release[i - 1][memberName] + 1)">+1
-                    </v-btn>
-                  </v-col>
-                  <v-spacer></v-spacer>
-                </v-row>
-              </v-col>
             </v-row>
-          </div>
+
+            <div
+              v-for="(arr, memberName) in store.charactorName"
+              :key="memberName"
+            >
+              <v-checkbox
+                v-model="performance[i - 1]"
+                :label="arr.last"
+                :value="memberName"
+                hide-details
+                color="pink"
+              ></v-checkbox>
+
+              <v-row no-gutters>
+                <v-col cols="2">レア度</v-col>
+                <v-col cols="5" class="text-center">Season Fan Lv.</v-col>
+                <v-col cols="5" class="text-center">解放Lv.</v-col>
+                <v-col cols="2">
+                  <v-select
+                    v-model="bonus.rare[i - 1][memberName]"
+                    :items="['UR', 'SR', 'R']"
+                    :hint="`メインスタイルに設定している${arr.last}のカードのレア度を選択してください`"
+                    color="pink"
+                    base-color="pink"
+                  ></v-select>
+                </v-col>
+                <v-col cols="5">
+                  <v-row no-gutters>
+                    <v-spacer></v-spacer>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
+                      <v-btn
+                        x-small
+                        :disabled="bonus.seasonFan[i - 1][memberName] === 1"
+                        @click="setValue(['seasonFan', i - 1, memberName], bonus.seasonFan[i - 1][memberName] - 1)">-1
+                      </v-btn>
+                    </v-col>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="px-0 pt-1 pb-0"
+                    >
+                      {{ bonus.seasonFan[i - 1][memberName] }}
+                    </v-col>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
+                      <v-btn
+                        x-small
+                        :disabled="bonus.seasonFan[i - 1][memberName] === 10"
+                        @click="setValue(['seasonFan', i - 1, memberName], bonus.seasonFan[i - 1][memberName] + 1)">+1
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="5">
+                  <v-row no-gutters>
+                    <v-spacer></v-spacer>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
+                      <v-btn
+                        x-small
+                        :disabled="bonus.rare[i - 1][memberName] === undefined || bonus.release[i - 1][memberName] === 1"
+                        @click="setValue(['release', i - 1, memberName], bonus.release[i - 1][memberName] - 1)">-1
+                      </v-btn>
+                    </v-col>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="px-0 pt-1 pb-0"
+                    >
+                      {{ bonus.release[i - 1][memberName] }}
+                    </v-col>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
+                      <v-btn
+                        x-small
+                        :disabled="bonus.rare[i - 1][memberName] === undefined || bonus.release[i - 1][memberName] === 5"
+                        @click="setValue(['release', i - 1, memberName], bonus.release[i - 1][memberName] + 1)">+1
+                      </v-btn>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
@@ -304,7 +311,6 @@ export default {
   data() {
     return {
       score: [0, 0],
-      GPpt: [0, 0],
       clearStage: [1, 1],
       performance: [[], []],
       bonus: {
@@ -434,6 +440,24 @@ export default {
   computed: {
     setCard() {
       return this.updateData.selectCard;
+    },
+    GPpt() {
+      return (target) => {
+        let releaseLv = 0;
+        let seasonFanLv = 0;
+
+        for (const memberName in this.bonus.seasonFan[target]) {
+          if (this.performance[target].indexOf(memberName) >= 0) {
+            seasonFanLv += this.seasonFanLv[this.bonus.seasonFan[target][memberName] - 1];
+
+            if (this.bonus.rare[target][memberName] !== undefined) {
+              releaseLv += this.releaseLv[this.bonus.rare[target][memberName]][this.bonus.release[target][memberName] - 1];
+            }
+          }
+        }
+
+        return Math.ceil(this.score[target] * this.clearRank[this.clearStage[target] - 1] * (1 + releaseLv) * (1 + seasonFanLv)).toLocaleString();
+      }
     }
   },
   methods: {
@@ -448,26 +472,19 @@ export default {
     },
     setIcon(name_en) {
       return {
-        'background-image':'url(' + require(`@/assets/member_icon/icon_${name_en}.png`) + ')',
+        'background-image': `url(${require(`@/assets/member_icon/icon_${name_en}.png`)})`,
         'background-position': 'center'
       };
     },
     setValue(target, v) {
       this.bonus[target[0]][target[1]][target[2]] = v;
     },
-    makeGPpt(target) {
-      let releaseLv = 0;
-      let seasonFanLv = 0;
-
-      for (const memberName in this.bonus.seasonFan[target]) {
-        seasonFanLv += this.seasonFanLv[this.bonus.seasonFan[target][memberName] - 1];
-
-        if (this.bonus.rare[target][memberName] !== undefined) {
-          releaseLv += this.releaseLv[this.bonus.rare[target][memberName]][this.bonus.release[target][memberName] - 1];
-        }
+    changePerformance(i, musicDataList) {
+      if (this.selectMusic[i] === null) {
+        this.performance[i] = [];
+      } else {
+        this.performance[i] = musicDataList[this.selectMusic[i]].singingMembers;
       }
-
-      this.GPpt[target] = Math.ceil(this.score[target] * this.clearRank[this.clearStage[target] - 1] * (1 + releaseLv) * (1 + seasonFanLv)).toLocaleString();
     }
   },
   watch: {
