@@ -3483,6 +3483,48 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'プチパティシエール': {
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'プチパティシエール',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2430,
+              pure: 1930,
+              cool: 1330,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshMind',
+              name: 'リフレッシュマインド',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, '22?', '23?', '25?']
+              ],
+              type: ['reflesh', 'mentalRecover']
+            },
+            skill: {
+              ID: 'refreshHeart',
+              name: 'リフレッシュハート',
+              AP: 4,
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, '7?', '7?', '8?']
+              ],
+              type: ['reflesh', 'heartCaptcha']
+            },
+            characteristic: {
+              name: 'ドロー：ラブアトラクト',
+              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。',
+              type: ['drow', 'loveAttract_stage']
+            }
+          },
           'コットン=ユートピア': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -7385,6 +7427,50 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          'プチパティシエール': {
+            styleType: 'cheerLeader',
+            mood: 'happy',
+            series: 'プチパティシエール',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2130,
+              pure: 1930,
+              cool: 1030,
+              mental: 223,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'healingHeart',
+              name: 'ヒーリングハート',
+              AP: 6,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, '18.4?', '20?'],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', '6?']
+              ],
+              type: ['mentalRecover', 'heartCaptcha']
+            },
+            skill: {
+              ID: 'supportedFeel',
+              name: 'サポーテッドフィール',
+              AP: 4,
+              detail: [
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, '11.96?', '13?'],
+                [1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.5]
+              ],
+              type: ['mentalRecover', 'loveAttract']
+            },
+            characteristic: {
+              name: 'ドロー：メンタルリカバー',
+              detail: 'ドローした時、メンタルの最大値の6%回復させる。',
+              type: ['drow', 'mentalRecover']
+            }
+          },
           'コットン=ユートピア': {
             styleType: 'cheerLeader',
             mood: 'melow',
