@@ -628,6 +628,13 @@ export const useStoreCounter = defineStore('store', {
           '%する。'
         ]
       },
+      'チルボルテージ': {
+        chillVoltage: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
+          'する。'
+        ]
+      },
       'グルーヴィアトラクト': {
         groovyAttract_section: [
           'このステージ中、獲得するLOVEを+',
@@ -635,10 +642,31 @@ export const useStoreCounter = defineStore('store', {
           '%する。'
         ]
       },
+      'グルーヴィアトラクション': {
+        groovyAttraction_section: [
+          'このセクション中、獲得するLOVEを+',
+          '%する。さらにボルテージLv.が8以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
+        ]
+      },
       'グルーヴィハート': {
         groovyHeart8: [
           'ビートハート',
           '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時メンタルを最大値の',
+          '%回復させる。'
+        ]
+      },
+      'グルーヴィボルテージ': {
+        groovyVoltage: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が8以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
+        ]
+      },
+      'グルーヴィリカバー': {
+        groovyRecover: [
+          'メンタルを最大値の',
+          '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の',
           '%回復させる。'
         ]
       },
@@ -652,6 +680,13 @@ export const useStoreCounter = defineStore('store', {
         highAttract_stage: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が6以上の時APを1回復する。'
+        ]
+      },
+      'スイッチボルテージ': {
+        switchVoltage: [
+          'ボルテージLv.5以下の時ボルテージPt.を+',
+          'する。ボルテージLv.が6以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
         ]
       },
     },
@@ -2175,6 +2210,50 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'Secret Christmas': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Secret Christmas',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1930,
+              pure: 930,
+              cool: 2530,
+              mental: 193,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'chillVoltage',
+              name: 'チルボルテージ',
+              AP: 5,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [34, 37, 41, 44, 48, 51, 54, 58, 61, 68, 71, 74, 78, 84]
+              ],
+              type: ['chill', 'voltage']
+            },
+            skill: {
+              ID: 'groovyVoltage',
+              name: 'グルーヴィボルテージ',
+              AP: 4,
+              detail: [
+                [14, 16, 17, 19, 20, 22, 23, 24, 26, 29, 30, 32, 33, 36],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 9]
+              ],
+              type: ['groovy', 'voltage']
+            },
+            characteristic: {
+              name: 'チェイン：綴理 & ドロー：ボルテージゲイン',
+              detail: '綴理のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、ボルテージPt.を+18する。',
+              type: ['chain', 'tsuzuri', 'drow', 'voltageGain']
+            }
+          },
           '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -2752,7 +2831,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ラブアトラクト',
               AP: 4,
               detail: [
-                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, '16.8?', '17.6?', '18.4?', '20?']
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
               ],
               type: ['loveAttract']
             },
@@ -3826,6 +3905,49 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          'Secret Christmas': {
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'Secret Christmas',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2130,
+              pure: 930,
+              cool: 2230,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshHeart',
+              name: 'リフレッシュハート',
+              AP: 6,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
+              ],
+              type: ['refresh', 'heartCaptcha']
+            },
+            skill: {
+              ID: 'switchVoltage',
+              name: 'スイッチボルテージ',
+              AP: 3,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
+              ],
+              type: ['switch', 'voltage']
+            },
+            characteristic: {
+              name: 'チェイン：慈',
+              detail: '慈のスキルを使用した時、ドローされる確率が増加する。',
+              type: ['chain', 'megumi']
+            }
+          },
           '冬のおくりもの': {
             styleType: 'trickStar',
             mood: 'neutral',
@@ -3891,7 +4013,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'リゲインボルテージ',
               AP: 6,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', '40?']
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
               type: ['regainVoltage']
             },
@@ -3900,8 +4022,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'チアフルボルテージ',
               AP: 4,
               detail: [
-                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', '50?'],
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', '24?']
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
               type: ['cheerful', 'voltageGain']
             },
@@ -4445,8 +4567,8 @@ export const useStoreCounter = defineStore('store', {
               name: 'プロテクトフィール',
               AP: 8,
               detail: [
-                [6.8, 7.48, 8.16, 8.84, 9.52, 10.2, 10.88, 11.56, 12.24, 13.6, '14.28?', '14.96?', '15.64?', 17],
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [6.8, 7.48, 8.16, 8.84, 9.52, 10.2, 10.88, 11.56, 12.24, 13.6, 14.28, 14.96, 15.64, 17],
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['protect', 'feel']
             },
@@ -5753,9 +5875,9 @@ export const useStoreCounter = defineStore('store', {
               name: 'リカバーアトラクション',
               AP: 10,
               detail: [
-                [19.2, 21.12, 23.04, 24.96, 26.88, 28.8, 30.72, 32.64, 34.56, 38.4, '40.32?', '42.24?', '44.16?', 48],
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 12],
-                [4.5, 5, 5.4, 5.9, 6.3, 6.8, 7.2, 7.7, 8.1, 9, '9.5?', '9.9?', '10.4?', 11.3]
+                [19.2, 21.12, 23.04, 24.96, 26.88, 28.8, 30.72, 32.64, 34.56, 38.4, 40.32, 42.24, 44.16, 48],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+                [4.5, 5, 5.4, 5.9, 6.3, 6.8, 7.2, 7.7, 8.1, 9, 9.5, 9.9, 10.4, 11.3]
               ],
               type: ['mentalRecover', 'heartCaptcha', 'loveAttract']
             },
@@ -6325,6 +6447,50 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         SR: {
+          'Secret Christmas': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Secret Christmas',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2130,
+              pure: 1030,
+              cool: 2330,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'groovyAttraction_section',
+              name: 'グルーヴィアトラクション',
+              AP: 6,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 7]
+              ],
+              type: ['groovy', 'attraction']
+            },
+            skill: {
+              ID: 'groovyAttract_section',
+              name: 'グルーヴィアトラクト',
+              AP: 3,
+              detail: [
+                [5.4, 5.9, 6.5, 7, 7.6, 8.1, 8.6, 9.2, 9.7, 10.8, 11.3, 11.9, 12.4, 13.5],
+                [3.6, 4, 4.3, 4.7, 5, 5.4, 5.8, 6.1, 6.5, 7.2, 7.56, 7.9, 8.3, 9]
+              ],
+              type: ['groovy', 'attract']
+            },
+            characteristic: {
+              name: 'チェイン：さやか',
+              detail: 'さやかのスキルを使用した時、ドローされる確率が増加する。',
+              type: ['chain', 'sayaka']
+            }
+          },
           'コットン=ユートピア': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -7082,6 +7248,50 @@ export const useStoreCounter = defineStore('store', {
           }
         },
         UR: {
+          'Secret Christmas': {
+            styleType: 'cheerLeader',
+            mood: 'happy',
+            series: 'Secret Christmas',
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2030,
+              pure: 830,
+              cool: 2630,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'healingHeart',
+              name: 'ヒーリングハート',
+              AP: 7,
+              detail: [
+                [11.6, 12.76, 13.92, 15.08, 16.24, 17.4, 18.56, 19.72, 20.88, 23.2, 24.36, 25.52, 26.68, 29],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]
+              ],
+              type: ['healing', 'hartCaptcha']
+            },
+            skill: {
+              ID: 'groovyRecover',
+              name: 'グルーヴィリカバー',
+              AP: 4,
+              detail: [
+                [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, '13.44?', '14.08?', '14.72?', 16],
+                [9.6, 10.6, 11.5, 12.5, 13.4, 14.4, 15.4, 16.3, 17.3, 19.2, 20.2, '21.1?', '22.1?', 24]
+              ],
+              type: ['groovy', 'mentalRecover']
+            },
+            characteristic: {
+              name: 'チェイン：瑠璃乃 & ドロー：メンタルリカバー',
+              detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、メンタルを最大値の10%回復させる。',
+              type: ['chain', 'tsuzuri', 'drow', 'mentalRecover']
+            }
+          },
           '冬のおくりもの': {
             styleType: 'performer',
             mood: 'neutral',
@@ -7157,7 +7367,7 @@ export const useStoreCounter = defineStore('store', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', '15?']
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['heartCaptcha']
             },
@@ -8323,6 +8533,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue']
       },
+      'シュガーメルト': {
+        musicData: {
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 15
+          },
+          numbering: 'スリーズブーケ 3rdシングル',
+          BPM: 136,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'kozue']
+      },
       'AWOKE': {
         musicData: {
           singer: 'DOLLCHESTRA',
@@ -8539,6 +8767,24 @@ export const useStoreCounter = defineStore('store', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri']
       },
+      '飴色': {
+        musicData: {
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 22
+          },
+          numbering: 'DOLLCHESTRA 3rdシングル',
+          BPM: 126,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['sayaka', 'tsuzuri']
+      },
       'ド！ド！ド！': {
         musicData: {
           singer: 'みらくらぱーく！',
@@ -8627,6 +8873,24 @@ export const useStoreCounter = defineStore('store', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'megumi']
+      },
+      '天才なのかもしれない': {
+        musicData: {
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 29
+          },
+          numbering: 'みらくらぱーく！ 1stシングル',
+          BPM: 128,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'megumi',
+        bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi']
       },
       'Runway': {
