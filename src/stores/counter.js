@@ -9075,6 +9075,14 @@ export const useStoreCounter = defineStore('store', {
         return result;
       }
     },
+    makeReleaseDate() {
+      const date = {
+        year: this.musicList[this.selectMusicTitle].musicData.releaseDate.year,
+        month: this.musicList[this.selectMusicTitle].musicData.releaseDate.month,
+        date: this.musicList[this.selectMusicTitle].musicData.releaseDate.date
+      };
+      return `${date.year}年${date.month}月${date.date}日(${(['日', '月', '火', '水', '木', '金', '土'][new Date(date.year, date.month - 1, date.date).getDay()])})`;
+    },
     /*makeMusicList() {
       return (selectSkillList) => {
         const list = {};
@@ -9207,14 +9215,6 @@ export const useStoreCounter = defineStore('store', {
       this.showModalName = false;
       // this.cardSelect(false, false, false);
       // this.submitData = {};
-    },
-    makeReleaseDate() {
-      const date = {
-        year: this.musicList[this.selectMusicTitle].musicData.releaseDate.year,
-        month: this.musicList[this.selectMusicTitle].musicData.releaseDate.month,
-        date: this.musicList[this.selectMusicTitle].musicData.releaseDate.date
-      };
-      return date.year + '年' + date.month + '月' + date.date + '日(' + (['日', '月', '火', '水', '木', '金', '土'][new Date(date.year, date.month - 1, date.date).getDay()]) + ')';
     },
     valueChange(target, val) {
       if (target === 'musicLevel') {
