@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col cols="12">
         <h1>リンクラ マネージャー！</h1>
-        Ver.ε.07(アーリーアクセス)
+        Ver.ε.08(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row v-if="Object.keys(outputEventList).length > 0">
@@ -127,17 +127,17 @@ export default {
   data() {
     return {
       eventList: {
-        /*'liveGP': {
-          title: 'ライブグランプリ 103期第6回個人戦',
+        'liveGP': {
+          title: '「ライブグランプリ 103期12月度サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2023, 12, 10, 0, 0],
-          lastDay: [2023, 12, 15, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-12-08-20-m3zvdynhph',
-          img: '103期第6回個人戦_logo.png'
-        },*/
+          firstDay: [2023, 12, 20, 10, 0],
+          lastDay: [2023, 12, 26, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-12-18-20-ds0qd9bpqa',
+          img: '103期12月度サークル対抗戦_logo.png'
+        },
         'unitKoushien': {
-          title: 'LoveLive! Series Presents ユニット甲子園 2024',
+          title: '「LoveLive! Series Presents ユニット甲子園 2024」',
           firstDay: [2024, 3, 9, 0, 0],
           lastDay: [2024, 3, 10, 0, 0],
           url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=unitlive2024',
