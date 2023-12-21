@@ -24,7 +24,6 @@
               :value="rare"
               color="pink"
               hide-details
-              :click="store.setOutputCardList()"
             ></v-checkbox>
           </v-col>
         </v-row>
@@ -45,7 +44,6 @@
               :value="moodName_en"
               color="pink"
               hide-details
-              :click="store.setOutputCardList()"
             >
               <template v-slot:label>
                 <v-img
@@ -96,7 +94,6 @@
             sm="4"
             md="3"
             lg="2"
-            xl="2"
             v-for="(name_ja, name_en) in store.charactorName"
             :key="name_ja"
             class="pa-0"
@@ -218,7 +215,7 @@
               <v-col cols="12" class="px-1">
                 <v-range-slider
                   hide-details
-                  v-model="store.search.cardList['SAAP']"
+                  v-model="store.search.cardList.SAAP"
                   max="10"
                   min="0"
                   thumb-label="always"
@@ -241,14 +238,14 @@
               <v-col cols="12" class="px-1">
                 <v-range-slider
                   hide-details
-                  v-model="store.search.cardList['SAP']"
+                  v-model="store.search.cardList.SAP"
                   max="10"
                   min="0"
                   thumb-label="always"
                   step="1"
                   color="pink"
                   thumb-color="pink"
-                  class="px-2"
+                  class="px-2 pb-1"
                 ></v-range-slider>
               </v-col>
             </v-row>
@@ -283,7 +280,6 @@
           <v-select
             v-model="store.search.skillList.specialAppeal"
             :items="store.specialAppealNameList"
-            :change="store.setOutputCardList"
             label="スペシャルアピール"
             clearable
             color="pink"
@@ -300,7 +296,6 @@
           <v-select
             v-model="store.search.skillList.skill"
             :items="store.skillNameList"
-            :change="store.setOutputCardList"
             label="スキル"
             clearable
             color="pink"
@@ -356,7 +351,6 @@
           <v-select
             v-model="store.search.cardSeries"
             :items="store.cardSeriesList"
-            :change="store.setOutputCardList"
             label="カードシリーズ"
             clearable
             color="pink"
@@ -382,6 +376,7 @@ export default {
       tab: null
     }
   },
+  created() {},
   methods: {}
 }
 </script>

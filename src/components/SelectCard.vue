@@ -16,7 +16,7 @@
             :loading="loading"
           >
             <v-img
-              :src="require(`@/assets/card_illust/${store.setCardIllust()}.png`)"
+              :src="require(`@/assets/card_illust/${store.setCardIllust}.png`)"
             >
             <!--<v-img
               :src="require(`@/assets/card_illust/${store.setCardIllust(cardName)}.png`)"

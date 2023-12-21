@@ -29,7 +29,6 @@ export const useStoreCounter = defineStore('store', {
       },
       cardSeries: []
     },
-    outputCardList: {},
     styleHeadline: {
       main: 'MAIN STYLE',
       side1: 'SIDE STYLE 1',
@@ -195,7 +194,10 @@ export const useStoreCounter = defineStore('store', {
       musicData: {
         musicLevel: {}
       },
-      cardList: {}
+      cardList: {
+        card: {},
+        cardListFilter: {}
+      }
     },
     skillList: {
       'ハートキャプチャ': {
@@ -9276,7 +9278,95 @@ export const useStoreCounter = defineStore('store', {
   }),
   getters: {
     cardList() {
-      return this.makeCardList();
+      let result = {
+        DR: [],
+        UR: [],
+        SR: [],
+        R: []
+      };
+      let result2 = [];
+
+      for (const memberName in this.card) {
+        if (memberName !== 'default') {
+          for (const rare in this.card[memberName]) {
+            for (const cardName in this.card[memberName][rare]) {
+              if (cardName !== 'default') {
+                this.card[memberName][rare][cardName].cardName = cardName;
+                this.card[memberName][rare][cardName].rare = rare;
+                this.card[memberName][rare][cardName].memberName = memberName;
+                result[rare].push(this.card[memberName][rare][cardName]);
+              }
+            }
+          }
+        }
+      }
+
+      for (const rare in result) {
+        result2 = result2.concat(result[rare]);
+      }
+
+      return result2;
+    },
+    outputCardList() {
+      let result = this.cardList;
+      let filterList;
+
+      if (result.length > 0) {
+        for (const searchKey in this.search.cardList) {
+          filterList = this.search.cardList[searchKey];
+          result = result.filter((cardData) => {
+            if (/^cardLevel|SALevel|SLevel|releaseLevel$/.test(searchKey)) {
+              return filterList[0] <= cardData.fluctuationStatus[searchKey] && cardData.fluctuationStatus[searchKey] <= filterList[1];
+            } else if (searchKey === 'SAAP') {
+              const AP = cardData.specialAppeal.AP - cardData.fluctuationStatus.trainingLevel;
+              return filterList[0] <= AP && AP <= filterList[1];
+            } else if (searchKey === 'SAP') {
+              const AP = cardData.skill.AP - cardData.fluctuationStatus.trainingLevel;
+              return filterList[0] <= AP && AP <= filterList[1];
+            } else if (searchKey === 'favorite') {
+              return true;
+            } else {
+              return filterList.some((val) => {
+                return cardData[searchKey] === val;
+              });
+            }
+          });
+        }
+      }
+
+      if (result.length > 0) {
+        for (const searchKey in this.search.skillList) {
+          filterList = this.search.skillList[searchKey];
+
+          if (filterList.length > 0) {
+            result = result.filter((cardData) => {
+              return filterList.some((val) => {
+                return cardData[searchKey].name === val;
+              });
+            });
+          }
+        }
+      }
+
+      if (result.length > 0) {
+        filterList = this.search.cardSeries;
+
+        if (filterList.length > 0) {
+          result = result.filter((cardData) => {
+            return filterList.some((val) => {
+              return cardData.series === val;
+            });
+          });
+        }
+      }
+
+      this.setLocalStorage('llllMgr_cardListFilter', {
+        cardList: this.search.cardList,
+        skillList: this.search.skillList,
+        cardSeries: this.search.cardSeries
+      });
+
+      return result;
     },
     specialAppealNameList() {
       return this.makeSkillFilterList('specialAppeal');
@@ -9290,32 +9380,79 @@ export const useStoreCounter = defineStore('store', {
     setSelectCard() {
       console.log(this.card[this.abc.name][this.abc.style])
     },
+    makeFullName() {
+      return (name) => {
+        return `${this.charactorName[name].first} ${this.charactorName[name].last}`;
+      }
+    },
     makeSkillText() {
       return (target) => {
         let result = '';
-        const cardData = this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
-        const skillData = cardData[target];
+        const skillData = this.settingCardData[target];
         const skillTextList = this.skillList[skillData.name][skillData.ID];
 
         for (let i = 0; i < skillTextList.length; i++) {
           result += skillTextList[i];
           
           if (i < skillTextList.length - 1) {
-            result += skillData.detail[i][cardData.fluctuationStatus[target === 'specialAppeal' ? 'SALevel' : 'SLevel'] - 1];
+            result += skillData.detail[i][this.settingCardData.fluctuationStatus[target === 'specialAppeal' ? 'SALevel' : 'SLevel'] - 1];
           }
         }
 
         return result;
       }
     },
+    settingCardData() {
+      return this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
+    },
     setMaxTrainingLevel() {
       return this.settingCard.rare === 'DR' ? 1 : 2;
     },
     changeMaxCardLevel() {
-      return this.maxCardLevel[this.settingCard.rare][this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card].fluctuationStatus.trainingLevel];
+      return this.maxCardLevel[this.settingCard.rare][this.settingCardData.fluctuationStatus.trainingLevel];
+    },
+    changeMinCardLevel() {
+      if (this.settingCardData.fluctuationStatus.trainingLevel - 1 < 0) {
+        return this.maxCardLevel[this.settingCard.rare][0];
+      } else {
+        return this.maxCardLevel[this.settingCard.rare][this.settingCardData.fluctuationStatus.trainingLevel - 1];
+      }
     },
     changeSkillLevel() {
-      return this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card].fluctuationStatus.releaseLevel + 9;
+      return this.settingCardData.fluctuationStatus.releaseLevel + 9;
+    },
+    cardParam() {
+      return (style, target) => {
+        if (target === undefined) {
+          target = {
+            memberName: this.settingCard.name,
+            rare: this.settingCard.rare,
+            cardName: this.settingCard.card
+          }
+        }
+
+        const selectCard = this.card[target.memberName][target.rare][target.cardName];
+        return selectCard.uniqueStatus[style] + (selectCard.fluctuationStatus.cardLevel - 1) * (target.rare === 'R' ? 25 : 30);
+      }
+    },
+    mentalCul() {
+      return (target) => {
+        if (target === undefined) {
+          target = {
+            memberName: this.settingCard.name,
+            rare: this.settingCard.rare,
+            cardName: this.settingCard.card
+          }
+        }
+
+        const selectCard = this.card[target.memberName][target.rare][target.cardName];
+
+        if (this.settingCard.rare !== 'R') {
+          return selectCard.uniqueStatus.mental + (selectCard.fluctuationStatus.cardLevel - 1) * 3;
+        } else {
+          return selectCard.uniqueStatus.mental + Math.ceil((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 2  + Math.floor((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 3;
+        }
+      }
     },
     makeTotalMastaryLv() {
       return (memberName) => {
@@ -9345,7 +9482,11 @@ export const useStoreCounter = defineStore('store', {
         month: this.musicList[this.selectMusicTitle].musicData.releaseDate.month,
         date: this.musicList[this.selectMusicTitle].musicData.releaseDate.date
       };
+
       return `${date.year}年${date.month}月${date.date}日(${(['日', '月', '火', '水', '木', '金', '土'][new Date(date.year, date.month - 1, date.date).getDay()])})`;
+    },
+    setCardIllust() {
+      return `${this.settingCard.card}${this.charactorName[this.settingCard.name].last}_覚醒`;
     },
     /*makeMusicList() {
       return (selectSkillList) => {
@@ -9381,7 +9522,7 @@ export const useStoreCounter = defineStore('store', {
       return result;
     },
     init() {
-      for (const name in this.charactorName) {
+      /*for (const name in this.charactorName) {
         for (const rare of this.rarity) {
           for (const cardName in this.card[name][rare]) {
             this.card[name][rare][cardName].fluctuationStatus = {
@@ -9393,7 +9534,8 @@ export const useStoreCounter = defineStore('store', {
             };
           }
         }
-      }
+      }*/
+
       this.getLocalStorage();
     },
     setLocalStorage(setLocalStorageName, value) {
@@ -9402,20 +9544,47 @@ export const useStoreCounter = defineStore('store', {
     getLocalStorage() {
       if (localStorage.llllMgr_musicData === undefined) {
         for (const musicTitle in this.musicList) {
-          this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
+          this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
         }
-
-        localStorage.llllMgr_musicData = JSON.stringify(this.localStorageData.musicData);
       } else {
         this.localStorageData.musicData = JSON.parse(localStorage.llllMgr_musicData);
 
         for (const musicTitle in this.musicList) {
           this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
+          this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
         }
       }
-      
-      for (const musicTitle in this.musicList) {
-        this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
+
+      if (localStorage.llllMgr_card !== undefined) {
+        this.localStorageData.cardList.card = JSON.parse(localStorage.llllMgr_card);
+
+        for (const memberName in this.card) {
+          for (const rare in this.card[memberName]) {
+            for (const cardName in this.localStorageData.cardList.card[memberName][rare]) {
+              this.card[memberName][rare][cardName].fluctuationStatus = this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
+            }
+          }
+        }
+      }
+
+      if (localStorage.llllMgr_cardListFilter !== undefined) {
+        this.localStorageData.cardList.cardListFilter = JSON.parse(localStorage.llllMgr_cardListFilter);
+
+        if (this.localStorageData.cardList.cardListFilter.cardList === undefined) {
+          for (const filterName in this.search.cardList) {
+            this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter[filterName];
+          }
+        } else {
+          for (const filterName in this.search.cardList) {
+            this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter.cardList[filterName];
+          }
+
+          for (const filterName in this.search.skillList) {
+            this.search.skillList[filterName] = this.localStorageData.cardList.cardListFilter.skillList[filterName];
+          }
+
+          this.search.cardSeries = this.localStorageData.cardList.cardListFilter.cardSeries;
+        }
       }
     },
     showModalEvent(showModalName) {
@@ -9423,7 +9592,7 @@ export const useStoreCounter = defineStore('store', {
       this.showModalName = showModalName;
     },
     setLevel(a, e) {
-      this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card].fluctuationStatus[a] = e.target.value;
+      this.settingCardData.fluctuationStatus[a] = e.target.value;
     },
     cardSelect(charactorName, rare, selectedCard) {
       this.settingCard.rare = rare;
@@ -9451,6 +9620,7 @@ export const useStoreCounter = defineStore('store', {
     },
     searchRarity(charactorName, cardName) {
       let result = 'default';
+
       for (const rare of this.rarity) {
         if (cardName in this.card[charactorName][rare]) {
           result = rare;
@@ -9488,132 +9658,69 @@ export const useStoreCounter = defineStore('store', {
           this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
         }
 
-        localStorage.llllMgr_musicData = JSON.stringify(this.localStorageData.musicData);
+        this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
       } else {
-        this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card].fluctuationStatus[target] = val;
+        this.settingCardData.fluctuationStatus[target] = val;
+
+        if (target === 'trainingLevel') {
+          if (this.settingCardData.fluctuationStatus.cardLevel < this.changeMinCardLevel || this.settingCardData.fluctuationStatus.cardLevel > this.changeMaxCardLevel) {
+            this.settingCardData.fluctuationStatus.cardLevel = this.changeMinCardLevel;
+          }
+        } else if (target === 'releaseLevel') {
+          if (this.settingCardData.fluctuationStatus.SALevel > this.changeSkillLevel) {
+            this.settingCardData.fluctuationStatus.SALevel = this.changeSkillLevel;
+          }
+
+          if (this.settingCardData.fluctuationStatus.SLevel > this.changeSkillLevel) {
+            this.settingCardData.fluctuationStatus.SLevel = this.changeSkillLevel;
+          }
+        }
+
+        this.setLocalStorage('llllMgr_card', this.card);
       }
-    },
-    setCardIllust() {
-      //return this.makeCardIllust(cardName);
-      return this.settingCard.card + this.charactorName[this.settingCard.name].last + '_覚醒';
     },
     setTotalSkillLv(memberName) {
       return this.makeTotalSkillLv(memberName);
     },
-    cardParam(style) {
-      const selectCard = this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
-      return selectCard.uniqueStatus[style] + (selectCard.fluctuationStatus.cardLevel - 1) * (this.settingCard.rare === 'R' ? 25 : 30);
+    /*cardParam(style, target) {
+      if (target === undefined) {
+        target = {
+          memberName: this.settingCard.name,
+          rare: this.settingCard.rare,
+          card: this.settingCard.card
+        }
+      }
+
+      const selectCard = this.card[target.memberName][target.rare][target.card];
+      return selectCard.uniqueStatus[style] + (selectCard.fluctuationStatus.cardLevel - 1) * (target.rare === 'R' ? 25 : 30);
     },
-    mentalCul() {
-      const selectCard = this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
+    mentalCul(target) {
+      if (target === undefined) {
+        target = {
+          memberName: this.settingCard.name,
+          rare: this.settingCard.rare,
+          card: this.settingCard.card
+        }
+      }
+
+      const selectCard = this.card[target.name][target.rare][target.card];
 
       if (this.settingCard.rare !== 'R') {
         return selectCard.uniqueStatus.mental + (selectCard.fluctuationStatus.cardLevel - 1) * 3;
+      } else {
+        return selectCard.uniqueStatus.mental + Math.ceil((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 2  + Math.floor((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 3;
       }
-
-      return selectCard.uniqueStatus.mental + Math.ceil((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 2  + Math.floor((selectCard.fluctuationStatus.cardLevel - 1) / 2) * 3;
-    },
-    setOutputCardList() {
-      let result = this.makeCardList();
-      let filterList;
-
-      for (const searchKey in this.search.cardList) {
-        if (result.length === 0) {
-          break;
-        }
-
-        filterList = this.search.cardList[searchKey];
-        result = result.filter((cardData) => {
-          if (/^cardLevel|SALevel|SLevel|releaseLevel$/.test(searchKey)) {
-            return filterList[0] <= cardData.fluctuationStatus[searchKey] && cardData.fluctuationStatus[searchKey] <= filterList[1];
-          } else if (searchKey === 'SAAP') {
-            const AP = cardData.specialAppeal.AP - cardData.fluctuationStatus.trainingLevel;
-            return filterList[0] <= AP && AP <= filterList[1];
-          } else if (searchKey === 'SAP') {
-            const AP = cardData.skill.AP - cardData.fluctuationStatus.trainingLevel;
-            return filterList[0] <= AP && AP <= filterList[1];
-          } else if (searchKey === 'favorite') {
-            return true;
-          } else {
-            return filterList.some((val) => {
-              return cardData[searchKey] === val;
-            });
-          }
-        });
-      }
-
-      for (const searchKey in this.search.skillList) {
-        if (result.length === 0) {
-          break;
-        }
-
-        filterList = this.search.skillList[searchKey];
-
-        if (filterList.length > 0) {
-          result = result.filter((cardData) => {
-            return filterList.some((val) => {
-              return cardData[searchKey].name === val;
-            });
-          });
-        }
-      }
-
-      if (result.length > 0) {
-        filterList = this.search.cardSeries;
-
-        if (filterList.length > 0) {
-          result = result.filter((cardData) => {
-            return filterList.some((val) => {
-              return cardData.series === val;
-            });
-          });
-        }
-      }
-      
-      this.setLocalStorage('llllMgr_cardListFilter', this.search.cardList);
-
-      this.outputCardList = result;
-    },
+    },*/
     makeSkillFilterList(target) {
       const result = [];
 
-      for (const key of this.makeCardList()) {
+      for (const key of this.cardList) {
         if (result.indexOf(target === 'series' ? key[target] : key[target].name) === -1) {
           result.push(target === 'series' ? key[target] : key[target].name);
         }
       }
 
       return result;
-    },
-    makeCardList() {
-      let result = {
-        DR: [],
-        UR: [],
-        SR: [],
-        R: []
-      };
-      let result2 = [];
-
-      for (const memberName in this.card) {
-        if (memberName !== 'default') {
-          for (const rare in this.card[memberName]) {
-            for (const cardName in this.card[memberName][rare]) {
-              if (cardName !== 'default') {
-                this.card[memberName][rare][cardName].cardName = cardName;
-                this.card[memberName][rare][cardName].rare = rare;
-                this.card[memberName][rare][cardName].memberName = memberName;
-                result[rare].push(this.card[memberName][rare][cardName]);
-              }
-            }
-          }
-        }
-      }
-
-      for (const rare in result) {
-        result2 = result2.concat(result[rare]);
-      }
-
-      return result2;
     },
     fitst() {
       console.log('OK');

@@ -3,9 +3,14 @@
     <v-row no-gutters class="mb-2 text-center">
       <v-col class="pa-0">
         <h2 class="hidden-xs">
-          <a :href="makeWikiLink(store.settingCard.card, store.charactorName[store.settingCard.name].first + store.charactorName[store.settingCard.name].last)" target="_blank" style="color: #000;">
+          <v-tooltip location="bottom">
+            <template v-slot:activator="{ props }">
+              <a :href="makeWikiLink(store.settingCard.card, store.charactorName[store.settingCard.name].first + store.charactorName[store.settingCard.name].last)" target="_blank" style="color: #000;" v-bind="props">
             {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}
           </a>
+            </template>
+            Wikiを開く
+          </v-tooltip>
         </h2>
         <h3 class="hidden-sm-and-up">
           <a :href="makeWikiLink(store.settingCard.card, store.charactorName[store.settingCard.name].first + store.charactorName[store.settingCard.name].last)" target="_blank" style="color: #000;">
@@ -44,10 +49,10 @@
             <span class="left">タイプ</span>
             <span class="right">
               <v-img
-                :src="require(`@/assets/styleType_icon/icon_${store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].styleType}.png`)"
+                :src="require(`@/assets/styleType_icon/icon_${store.settingCardData.styleType}.png`)"
                 class="icon type"
                 v-if="false"
-              ></v-img>{{ store.styleType[store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].styleType] }}
+              ></v-img>{{ store.styleType[store.settingCardData.styleType] }}
             </span>
           </v-col>
           <v-col
@@ -56,13 +61,13 @@
             class="py-2"
           >
             <span class="left">ムード</span>
-            <span class="right" style="padding-left: 5px;">
+            <span class="right pl-1">
               <v-img
-                :src="require(`@/assets/mood_icon/icon_${store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].mood}.png`)"
+                :src="require(`@/assets/mood_icon/icon_${store.settingCardData.mood}.png`)"
                 class="icon mood"
                 v-if="false"
               ></v-img>
-            {{ store.mood[store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].mood] }}
+            {{ store.mood[store.settingCardData.mood] }}
           </span>
           </v-col>
         </v-row>
@@ -82,7 +87,7 @@
               <td>{{ store.cardParam('pure') }}</td>
               <td>{{ store.cardParam('cool') }}</td>
               <td>{{ store.mentalCul() }}</td>
-              <td>{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].uniqueStatus.BP }}</td>
+              <td>{{ store.settingCardData.uniqueStatus.BP }}</td>
             </tr>
           </tbody>
         </table>
@@ -101,9 +106,8 @@
             class="pa-0"
           >
             <v-btn
-              x-small
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.trainingLevel === 0"
-              @click="store.valueChange('trainingLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.trainingLevel - 1)">-1
+              :disabled="store.settingCardData.fluctuationStatus.trainingLevel === 0"
+              @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel - 1)">-1
             </v-btn>
           </v-col>
           <v-col
@@ -111,7 +115,7 @@
             justify="center"
             class="px-0 pt-1 pb-0"
           >
-            {{ ['none', '+', '++'][store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.trainingLevel] }}
+            {{ ['none', '+', '++'][store.settingCardData.fluctuationStatus.trainingLevel] }}
           </v-col>
           <v-col
             align="center"
@@ -119,9 +123,8 @@
             class="pa-0"
           >
             <v-btn
-              x-small
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.trainingLevel === store.setMaxTrainingLevel"
-              @click="store.valueChange('trainingLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.trainingLevel + 1)">+1
+              :disabled="store.settingCardData.fluctuationStatus.trainingLevel === store.setMaxTrainingLevel"
+              @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel + 1)">+1
             </v-btn>
           </v-col>
           <v-spacer></v-spacer>
@@ -135,9 +138,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel === 0"
-              x-small
-              @click="store.valueChange('cardLevel', 0)"
+              :disabled="store.settingCardData.fluctuationStatus.cardLevel === (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)"
+              @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)"
             >
               MIN
             </v-btn>
@@ -149,9 +151,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel === 0"
-              x-small
-              @click="store.valueChange('cardLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel - 1)"
+              :disabled="store.settingCardData.fluctuationStatus.cardLevel === (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)"
+              @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel - 1)"
             >
               -1
             </v-btn>
@@ -162,7 +163,7 @@
             justify="center"
             class="px-0 pt-2 pb-0"
           >
-            {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel }}
+            {{ store.settingCardData.fluctuationStatus.cardLevel }}
           </v-col>
           <v-spacer></v-spacer>
           <v-col
@@ -171,9 +172,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel === store.changeMaxCardLevel"
-              x-small
-              @click="store.valueChange('cardLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel + 1)"
+              :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
+              @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel + 1)"
             >
               +1
             </v-btn>
@@ -185,8 +185,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.cardLevel === store.changeMaxCardLevel"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
               @click="store.valueChange('cardLevel', store.changeMaxCardLevel)"
             >
               MAX
@@ -203,8 +202,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel === 1"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.SALevel === 1"
               @click="store.valueChange('SALevel', 1)"
             >
               MIN
@@ -217,9 +215,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel === 1"
-              x-small
-              @click="store.valueChange('SALevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel - 1)"
+              :disabled="store.settingCardData.fluctuationStatus.SALevel === 1"
+              @click="store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel - 1)"
             >
               -1
             </v-btn>
@@ -230,7 +227,7 @@
             justify="center"
             class="px-0 pt-2 pb-0"
           >
-            {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel }}
+            {{ store.settingCardData.fluctuationStatus.SALevel }}
           </v-col>
           <v-spacer></v-spacer>
           <v-col
@@ -239,9 +236,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel === store.changeSkillLevel"
-              x-small
-              @click="store.valueChange('SALevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel + 1)"
+              :disabled="store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel"
+              @click="store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel + 1)"
             >
               +1
             </v-btn>
@@ -253,8 +249,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel === store.changeSkillLevel"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel"
               @click="store.valueChange('SALevel', store.changeSkillLevel)"
             >
               MAX
@@ -271,8 +266,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel === 1"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
               @click="store.valueChange('SLevel', 1)"
             >
               MIN
@@ -285,9 +279,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel === 1"
-              x-small
-              @click="store.valueChange('SLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel - 1)"
+              :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
+              @click="store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel - 1)"
             >
               -1
             </v-btn>
@@ -298,7 +291,7 @@
             justify="center"
             class="px-0 pt-2 pb-0"
           >
-            {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel }}
+            {{ store.settingCardData.fluctuationStatus.SLevel }}
           </v-col>
           <v-spacer></v-spacer>
           <v-col
@@ -307,9 +300,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel === store.changeSkillLevel"
-              x-small
-              @click="store.valueChange('SLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel + 1)"
+              :disabled="store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel"
+              @click="store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel + 1)"
             >
               +1
             </v-btn>
@@ -321,8 +313,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel === store.changeSkillLevel"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel"
               @click="store.valueChange('SLevel', store.changeSkillLevel)"
             >
               MAX
@@ -339,8 +330,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel === 1"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
               @click="store.valueChange('releaseLevel', 1)"
             >
               MIN
@@ -353,9 +343,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel === 1"
-              x-small
-              @click="store.valueChange('releaseLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel - 1)"
+              :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
+              @click="store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel - 1)"
             >
               -1
             </v-btn>
@@ -366,7 +355,7 @@
             justify="center"
             class="px-0 pt-2 pb-0"
           >
-            {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel }}
+            {{ store.settingCardData.fluctuationStatus.releaseLevel }}
           </v-col>
           <v-spacer></v-spacer>
           <v-col
@@ -375,9 +364,8 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel === 5"
-              x-small
-              @click="store.valueChange('releaseLevel', store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel + 1)"
+              :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
+              @click="store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel + 1)"
             >
               +1
             </v-btn>
@@ -389,8 +377,7 @@
             class="pa-0"
           >
             <v-btn
-              :disabled="store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.releaseLevel === 5"
-              x-small
+              :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
               @click="store.valueChange('releaseLevel', 5)"
             >
               MAX
@@ -402,30 +389,30 @@
     </v-row>
     <v-row no-gutters>
       <v-col cols="12" class="px-0 pt-0 pb-1">
-        <span class="specialAppeal">スペシャルアピール</span>{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].specialAppeal.name }}
-        <span class="AP">AP{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].specialAppeal.AP - store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.trainingLevel }}</span>
+        <span class="specialAppeal">スペシャルアピール</span>{{ store.settingCardData.specialAppeal.name }}
+        <span class="AP">AP{{ store.settingCardData.specialAppeal.AP - store.settingCardData.fluctuationStatus.trainingLevel }}</span>
       </v-col>
       <v-col cols="12" class="pa-0 mb-3">
-        <span class="skillLevel">Lv {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SALevel }}</span>
+        <span class="skillLevel">Lv {{ store.settingCardData.fluctuationStatus.SALevel }}</span>
         {{ store.makeSkillText('specialAppeal') }}
       </v-col>
     </v-row>
     <v-row no-gutters>
       <v-col cols="12" class="px-0 pt-0 pb-1">
-        <span class="specialAppeal">スキル</span>{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].skill.name }}
-        <span class="AP">AP{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].skill.AP }}</span>
+        <span class="specialAppeal">スキル</span>{{ store.settingCardData.skill.name }}
+        <span class="AP">AP{{ store.settingCardData.skill.AP }}</span>
       </v-col>
       <v-col cols="12" class="pa-0 mb-3">
-        <span class="skillLevel">Lv {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].fluctuationStatus.SLevel }}</span>
+        <span class="skillLevel">Lv {{ store.settingCardData.fluctuationStatus.SLevel }}</span>
         {{ store.makeSkillText('skill') }}
       </v-col>
     </v-row>
     <v-row no-gutters v-if="store.settingCard.rare !== 'R'">
       <v-col cols="12" class="px-0 pt-0 pb-1">
-        <span class="specialAppeal">特性</span>{{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].characteristic.name }}
+        <span class="specialAppeal">特性</span>{{ store.settingCardData.characteristic.name }}
       </v-col>
       <v-col cols="12" class="pa-0">
-        {{ store.card[store.settingCard.name][store.settingCard.rare][store.settingCard.card].characteristic.detail }}
+        {{ store.settingCardData.characteristic.detail }}
       </v-col>
     </v-row>
   </v-container>
