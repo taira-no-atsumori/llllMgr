@@ -24,10 +24,11 @@
               :value="rare"
               color="pink"
               hide-details
+              density="comfortable"
             ></v-checkbox>
           </v-col>
         </v-row>
-        <hr class="mb-3">
+        <hr class="mb-2">
         <v-row no-gutters>
           <v-col cols="12" class="pa-0">
             ムード
@@ -44,6 +45,7 @@
               :value="moodName_en"
               color="pink"
               hide-details
+              density="comfortable"
             >
               <template v-slot:label>
                 <v-img
@@ -54,7 +56,7 @@
             </v-checkbox>
           </v-col>
         </v-row>
-        <hr class="mb-3">
+        <hr class="mb-2">
         <v-row no-gutters>
           <v-col cols="12" class="pa-0">
             タイプ
@@ -74,6 +76,7 @@
               :value="styleTypeName_en"
               color="pink"
               hide-details
+              density="comfortable"
             >
               <template v-slot:label>
                 <v-img
@@ -84,13 +87,13 @@
             </v-checkbox>
           </v-col>
         </v-row>
-        <hr class="mb-3">
+        <hr class="mb-2">
         <v-row no-gutters>
           <v-col cols="12" class="pa-0">
             メンバー
           </v-col>
           <v-col
-            cols="12"
+            cols="6"
             sm="4"
             md="3"
             lg="2"
@@ -103,6 +106,7 @@
               :value="name_en"
               color="pink"
               hide-details
+              density="comfortable"
             >
               <template v-slot:label>
                 <v-img
@@ -113,7 +117,34 @@
             </v-checkbox>
           </v-col>
         </v-row>
-        <hr class="mt-1 mb-3">
+        <hr class="mb-2">
+        <v-row no-gutters>
+          <v-col cols="12" class="pa-0">
+            お気に入り
+          </v-col>
+          <v-col
+            cols="4"
+            sm="1"
+            v-for="favorite in store.favorite"
+            :key="favorite"
+            class="pa-0"
+          >
+            <v-checkbox
+              v-model="store.search.cardList.favorite"
+              :value="favorite"
+              color="pink"
+              hide-details
+              density="comfortable"
+            >
+              <template v-slot:label>
+                <v-icon
+                  :icon="`mdi-${favorite}`"
+                ></v-icon>
+              </template>
+            </v-checkbox>
+          </v-col>
+        </v-row>
+        <hr class="mb-2">
         <v-row no-gutters>
           <v-col cols="12" sm="6" class="pr-sm-5 pr-md-5 pr-lg-5 pr-xl-5">
             <v-row no-gutters>
@@ -159,7 +190,7 @@
             </v-row>
           </v-col>
         </v-row>
-        <hr class="my-3">
+        <hr class="my-2">
         <v-row no-gutters>
           <v-col cols="12" sm="6" class="pr-sm-5 pr-md-5 pr-lg-5 pr-xl-5">
             <v-row no-gutters>
@@ -205,7 +236,7 @@
             </v-row>
           </v-col>
         </v-row>
-        <hr class="my-3">
+        <hr class="my-2">
         <v-row no-gutters>
           <v-col cols="12" sm="6" class="pr-sm-5 pr-md-5 pr-lg-5 pr-xl-5">
             <v-row no-gutters>
@@ -249,27 +280,6 @@
                 ></v-range-slider>
               </v-col>
             </v-row>
-          </v-col>
-        </v-row>
-        <hr class="mb-3" v-if="false">
-        <v-row no-gutters v-if="false">
-          <v-col cols="12" class="pa-0">
-            お気に入り
-          </v-col>
-          <v-col
-            cols="3"
-            sm="1"
-            v-for="favorite in store.favorite"
-            :key="favorite"
-            class="pa-0"
-          >
-            <v-checkbox
-              v-model="store.search.cardList.favorite"
-              :label="favorite"
-              :value="favorite"
-              color="pink"
-              hide-details
-            ></v-checkbox>
           </v-col>
         </v-row>
       </v-container>

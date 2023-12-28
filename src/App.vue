@@ -22,26 +22,33 @@
         v-for="(arr, pageTitle) of pageList"
         :key="arr"
       >
-        <v-btn
-          v-if="pageTitle !== 'License'"
-          class="d-none d-sm-block"
-          text
-          @click="pageMove(arr.url)"
-        >{{ pageTitle }}</v-btn>
+        <v-tooltip location="bottom">
+          <template v-slot:activator="{ props }">
+            <v-btn
+              v-bind="props"
+              v-if="pageTitle !== 'License'"
+              class="d-none d-sm-block"
+              text
+              @click="pageMove(arr.url)"
+            >{{ pageTitle }}</v-btn>
+          </template>
+          {{ arr.name }}
+        </v-tooltip>
       </span>
       <!--<v-icon @click="store.showModalEvent('settings');" style="margin-right: 10px;">mdi-cog</v-icon>-->
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
       temporary
-      class="pa-3"
+      class="py-2"
       active-class="deep-purple--text text--accent-4"
     >
-      <v-list
+      <div
         v-for="(arr, pageTitle) of pageList"
         :key="arr"
-        @click="pageMove(arr.url)"
-      >{{ pageTitle.toUpperCase() }}</v-list>
+      >
+        <v-list-item :title="pageTitle.toUpperCase()" :subtitle="arr.name" @click="pageMove(arr.url)"></v-list-item>
+      </div>
     </v-navigation-drawer>
     <v-main>
       <router-view/>
@@ -93,22 +100,28 @@ export default {
       drawer: false,
       pageList: {
         'Home': {
-          url: '/llllMgr/'
+          url: '/llllMgr/',
+          name: 'ホーム'
         },
         'Simulation': {
-          url: 'simulation'
+          url: 'simulation',
+          name: '獲得グランプリPt.計算ツール'
         },
         'Card List': {
-          url: 'cardlist'
+          url: 'cardlist',
+          name: 'カード一覧 / 所持カード設定'
         },
         'Music List': {
           url: 'musiclist',
+          name: '楽曲一覧 / 楽曲マスタリーレベル設定'
         },
         'Item List': {
-          url: 'Itemlist'
+          url: 'Itemlist',
+          name: 'スキルアップ素材獲得ステージリスト'
         },
         'License': {
-          url: 'license'
+          url: 'license',
+          name: 'ライセンス'
         }
       }
     }
@@ -131,7 +144,7 @@ export default {
 <script setup>
   import { useStoreCounter } from './stores/counter';
   const store = useStoreCounter();
-  store.getLocalStorage();
+  store.init();
 </script>
 
 <style lang="scss" scoped>

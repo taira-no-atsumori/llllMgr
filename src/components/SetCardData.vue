@@ -32,6 +32,7 @@
           show-arrows-on-hover
           :show-arrows="false"
           :hide-delimiters="store.settingCard.rare === 'DR'"
+          color="#e5762c"
         >
           <v-carousel-item
             v-for="kakusei in store.settingCard.rare === 'DR' ? ['後'] : ['前', '後']"
@@ -71,7 +72,7 @@
           </span>
           </v-col>
         </v-row>
-        <table no-gutters id="statusDisplayArea">
+        <table id="statusDisplayArea" class="mb-2">
           <thead>
             <tr>
               <th>スマイル</th>
@@ -91,6 +92,20 @@
             </tr>
           </tbody>
         </table>
+        <v-row no-gutters class="text-center">
+          <v-col cols="12" sm="10">
+            <v-row no-gutters class="mb-2">
+              <v-col cols="12" class="pb-1">初登場時期</v-col>
+              <v-col cols="12">{{ store.settingCardData.gacha.addSeason }}</v-col>
+            </v-row>
+          </v-col>
+          <v-col cols="12" sm="2">
+            <v-row no-gutters class="mb-2">
+              <v-col cols="12" class="pb-1">入手期間</v-col>
+              <v-col cols="12">{{ store.settingCardData.gacha.period }}</v-col>
+            </v-row>
+          </v-col>
+        </v-row>
       </v-col>
       <v-col
         cols="12"
@@ -321,8 +336,8 @@
           </v-col>
           <v-spacer></v-spacer>
         </v-row>
-        <h4 class="mb-3">解放Lv</h4>
-        <v-row class="mb-0">
+        <h4 class="mb-4">解放Lv</h4>
+        <v-row class="mb-5">
           <v-spacer></v-spacer>
           <v-col
             align="center"
@@ -385,6 +400,23 @@
           </v-col>
           <v-spacer></v-spacer>
         </v-row>
+        <h4>お気に入り</h4>
+        <v-row class="mb-0 text-center">
+          <v-col
+            cols="2"
+            v-for="favorite in store.favorite"
+            :key="favorite"
+          >
+            <v-btn
+              :icon="`mdi-${favorite}`"
+              variant="text"
+              density="comfortable"
+              size="small"
+              :color="store.settingCardData.favorite.some(v => v === favorite) ? 'pink' : ''"
+              @click="store.changeFav(favorite)"
+            ></v-btn>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
     <v-row no-gutters>
@@ -423,7 +455,7 @@ export default {
   name: 'CardSetting',
   methods: {
     makeWikiLink(cardName, memberName) {
-      return 'https://wikiwiki.jp/llll_wiki/スクステ/カード/［' + cardName.replaceAll('&', '＆') + '］' + memberName;
+      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${cardName.replaceAll('&', '＆')}］${memberName}`;
     }
   }
 }
