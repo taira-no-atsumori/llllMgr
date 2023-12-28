@@ -527,7 +527,9 @@ export const useStoreCounter = defineStore('store', {
           }
         } else {
           for (const filterName in this.search.cardList) {
-            this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter.cardList[filterName];
+            if (this.localStorageData.cardList.cardListFilter.cardList[filterName] !== undefined) {
+              this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter.cardList[filterName];
+            }
           }
 
           for (const filterName in this.search.skillList) {
