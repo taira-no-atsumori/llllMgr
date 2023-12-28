@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col cols="12">
         <h1>リンクラ マネージャー！</h1>
-        Ver.ε.10(アーリーアクセス)
+        Ver.ε.11(アーリーアクセス)
       </v-col>
     </v-row>
     <v-row v-if="Object.keys(outputEventList).length > 0">
