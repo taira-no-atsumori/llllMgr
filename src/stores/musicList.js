@@ -219,6 +219,24 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
       },
+      'Link to the FUTURE': {
+        musicData: {
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 1,
+            date: 17
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
+          BPM: 184,
+          cover: false
+        },
+        level: 0,
+        term: 103,
+        center: 'kaho',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+      },
       '水彩世界': {
         musicData: {
           singer: 'スリーズブーケ',

@@ -1,6 +1,6 @@
 <template>
   <v-container fluid class="pa-2">
-    <h1 class="mb-3">CARD LIST ～カード一覧 / 所持カード設定～</h1>
+    <h1 class="mb-3">CARD LIST ～ カード一覧 / 所持カード設定 ～</h1>
     <v-expansion-panels class="mb-3">
       <v-expansion-panel>
         <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>

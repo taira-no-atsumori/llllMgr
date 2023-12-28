@@ -2,7 +2,7 @@
   <v-container fluid class="pa-2">
     <v-row no-gutters>
       <v-col cols="12" class="mb-2">
-        <h1>ITEM LIST ～スキルアップ素材獲得ステージリスト～</h1>
+        <h1>ITEM LIST ～ スキルアップ素材獲得ステージリスト ～</h1>
       </v-col>
       <v-col cols="12" class="mb-5">
         <v-expansion-panels>

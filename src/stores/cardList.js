@@ -144,13 +144,63 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Link to the FUTURE': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'Link to the FUTURE',
+            kana: 'りんくとぅーざふゅーちゃー',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3230,
+              pure: 2530,
+              cool: 1130,
+              mental: 243,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'linklikeorder',
+              name: 'Link! Like! Order!',
+              AP: 8,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+              ],
+              type: ['heartCaptcha', 'loveAttract']
+            },
+            skill: {
+              ID: 'heartAttraction_stage',
+              name: 'ハートアトラクション',
+              AP: 5,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', 11],
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
+              ],
+              type: ['heartCaptcha', 'loveAttract']
+            },
+            characteristic: {
+              name: 'サーチ：綴理 & APゲイン',
+              detail: 'スキル使用後、綴理のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。',
+              type: ['search', 'tsuzuri', 'APgain']
+            }
+          },
           'コットン=ユートピア': {
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'コットン=ユートピア',
             kana: 'こっとんゆーとぴあ',
             gacha: {
-              addSeason: '2023 SPRING LIMITED COLLECTION Vol.7',
+              addSeason: '2023 AUTUMN LIMITED COLLECTION Vol.7',
               period: '恒常'
             },
             favorite: [],
@@ -225,7 +275,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, '11?', '12?', '13?']
               ],
-              type: ['refresh', 'heartCaptcha']
+              type: ['shuffle', 'heartCaptcha']
             },
             skill: {
               ID: 'cheerfulHeart_heartCaptcha',
@@ -277,7 +327,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['extensions', 'voltageGain']
             },
             skill: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 10,
               detail: [
@@ -365,7 +415,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
@@ -414,7 +464,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 5,
               detail: [
@@ -559,7 +609,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
@@ -2115,7 +2165,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['regain', 'loveAttract']
             },
             skill: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
@@ -2164,7 +2214,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['loveAttract']
             },
             skill: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
@@ -3283,6 +3333,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Link to the FUTURE': {
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'Link to the FUTURE',
+            kana: 'りんくとぅーざふゅーちゃー',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3030,
+              pure: 2530,
+              cool: 1230,
+              mental: 253,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'replayAttraction_section',
+              name: 'リプレイアトラクション',
+              AP: 7,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+              ],
+              type: ['shuffle', 'loveAttract']
+            },
+            skill: {
+              ID: 'extensionsAttract_section4',
+              name: 'エクステアトラクト',
+              AP: 5,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ],
+              type: ['extensions', 'loveAttract']
+            },
+            characteristic: {
+              name: 'サーチ：梢 & APゲイン',
+              detail: 'スキル使用後、梢のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。',
+              type: ['search', 'kozue', 'APgain']
+            }
+          },
           'プチパティシエール': {
             styleType: 'trickStar',
             mood: 'happy',
@@ -3372,7 +3471,7 @@ export const useCardStore = defineStore('cardList', {
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
                 [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, '3.36?', '3.48?', '3.64?', 4]
               ],
-              type: ['refresh', 'support']
+              type: ['shuffle', 'support']
             },
             characteristic: {
               name: 'オーバーセクション：APレデュース & マチュレーション',
@@ -3557,10 +3656,10 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', 10]
               ],
-              type: ['refresh', 'heart']
+              type: ['shuffle', 'heart']
             },
             skill: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 5,
               detail: [
@@ -3609,7 +3708,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha']
             },
             skill: {
-              ID: 'regainAttraction_section',
+              ID: 'replayAttraction_section',
               name: 'リプレイアトラクション',
               AP: 5,
               detail: [
@@ -3705,7 +3804,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
               ],
-              type: ['refresh', 'heartCaptcha']
+              type: ['shuffle', 'heartCaptcha']
             },
             skill: {
               ID: 'switchVoltage',
@@ -3899,7 +3998,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, '10?']
               ],
-              type: ['refresh', 'heart']
+              type: ['shuffle', 'heart']
             },
             skill: {
               ID: 'refreshMind',
@@ -3908,7 +4007,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, '10.8?', '10.56?', '11.04?', '12?']
               ],
-              type: ['refresh', 'mind']
+              type: ['shuffle', 'mentalRecover']
             },
             characteristic: {
               name: 'フェイバリット：1',
@@ -4092,7 +4191,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', '10?']
               ],
-              type: ['refresh', 'heart']
+              type: ['shuffle', 'heart']
             },
             skill: {
               ID: 'refreshHeart',
@@ -4101,7 +4200,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
-              type: ['refresh', 'heart']
+              type: ['shuffle', 'heart']
             },
             characteristic: {
               name: 'チェイン：慈',
@@ -4140,7 +4239,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, '16.8?', '17.6?', '18.4?', '20?'],
               ],
-              type: ['refresh', 'mind']
+              type: ['shuffle', 'mentalRecover']
             },
             skill: {
               ID: 'refreshMind',
@@ -4149,7 +4248,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', '12?']
               ],
-              type: ['refresh', 'mind']
+              type: ['shuffle', 'mentalRecover']
             },
             characteristic: {
               name: 'ドロー：メンタルリカバー',
@@ -4190,7 +4289,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]
               ],
-              type: ['refresh', 'heart']
+              type: ['shuffle', 'heart']
             },
             skill: {
               ID: 'heartCaptcha',
@@ -5026,6 +5125,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Link to the FUTURE': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Link to the FUTURE',
+            kana: 'りんくとぅーざふゅーちゃー',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2730,
+              pure: 2130,
+              cool: 1630,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'fascination_stage',
+              name: 'ファッシネイション',
+              AP: 6,
+              detail: [
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+              ],
+              type: ['loveAttract', 'voltageGain']
+            },
+            skill: {
+              ID: 'groovyAttract_stage',
+              name: 'グルーヴィアトラクト',
+              AP: 5,
+              detail: [
+                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4],
+                [2.2, 2.4, 2.6, 2.9, 3.1, 3.3, 3.5, 3.7, 4, 4.4, 4.6, 4.8, 5.1, 5.6]
+              ],
+              type: ['groovy', 'loveAttract']
+            },
+            characteristic: {
+              name: 'サーチ：花帆 & APゲイン',
+              detail: 'スキル使用後、花帆のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。',
+              type: ['search', 'kaho', 'APgain']
+            }
+          },
           '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -6362,7 +6511,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha']
             },
             skill: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 10,
               detail: [
@@ -7934,6 +8083,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Link to the FUTURE': {
+            styleType: 'cheerLeader',
+            mood: 'happy',
+            series: 'Link to the FUTURE',
+            kana: 'りんくとぅーざふゅーちゃー',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2680,
+              pure: 1930,
+              cool: 1780,
+              mental: 213,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ],
+              type: ['mentalRecover']
+            },
+            skill: {
+              ID: 'chillProtect_stage',
+              name: 'チルプロテクト',
+              AP: 5,
+              detail: [
+                [3.6, 3.96, 4.32, 4.68, 5.04, 5.4, 5.76, 6.12, 6.48, 7.2, 7.56, 7.92, 8.28, 9],
+                [4.4, 4.84, 5.28, 5.72, 6.16, 6.6, 7.04, 7.48, 7.92, 8.8, 9.24, 9.68, 10.12, 11]
+              ],
+              type: ['chill', 'protect']
+            },
+            characteristic: {
+              name: 'サーチ：瑠璃乃 & APゲイン',
+              detail: 'スキル使用後、瑠璃乃のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。',
+              type: ['search', 'rurino', 'APgain']
+            }
+          },
           'プチパティシエール': {
             styleType: 'cheerLeader',
             mood: 'happy',
@@ -8057,7 +8255,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'heartAttraction',
+              ID: 'heartAttraction_section',
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
@@ -8112,7 +8310,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, '16.8?', '17.6?', '18.4?', 20]
               ],
-              type: ['refresh', 'mind']
+              type: ['shuffle', 'mentalRecover']
             },
             skill: {
               ID: 'extensionsAttract_section2',
