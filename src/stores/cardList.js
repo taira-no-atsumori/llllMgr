@@ -3828,7 +3828,7 @@ export const useCardStore = defineStore('cardList', {
             series: '冬のおくりもの',
             kana: 'ふゆのおくりもの',
             gacha: {
-              addSeason: '2023 WINTER LIMITED COLLECTION vol.',
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.1',
               period: '冬限定'
             },
             favorite: [],
@@ -4069,7 +4069,7 @@ export const useCardStore = defineStore('cardList', {
             series: '世界中を夢中に',
             kana: 'せかいじゅうをむちゅうに',
             gacha: {
-              addSeason: '2023 AUTUMN LIMITED COLLECTION vol.',
+              addSeason: '2023 AUTUMN LIMITED COLLECTION vol.1',
               period: '恒常'
             },
             favorite: [],
@@ -6565,7 +6565,6 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 4,
               detail: [
-                ['セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション', 'セクション'],
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 24]
               ],
               type: ['loveAttract']
@@ -7734,8 +7733,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['groovy', 'heartCaptcha']
             },
             characteristic: {
-              name: 'フェイバリット：フィーバー&APレデュース：グルーヴィ',
-              detail: 'フィーバーセクションでどろーされる確率が増加する。さらにドローした時ボルテージLv.が8以上のとき、手札のこのスキルの消費AP-3。',
+              name: 'フェイバリット：フィーバー & APレデュース：グルーヴィ',
+              detail: 'フィーバーセクションでドローされる確率が増加する。さらにドローした時ボルテージLv.が8以上のとき、手札のこのスキルの消費AP-3。',
               type: ['favorite', 'mental']
             }
           },

@@ -262,8 +262,7 @@ export const useStoreCounter = defineStore('store', {
               const AP = cardData.specialAppeal.AP - cardData.fluctuationStatus.trainingLevel;
               return filterList[0] <= AP && AP <= filterList[1];
             } else if (searchKey === 'SAP') {
-              const AP = cardData.skill.AP - cardData.fluctuationStatus.trainingLevel;
-              return filterList[0] <= AP && AP <= filterList[1];
+              return filterList[0] <= cardData.skill.AP && cardData.skill.AP <= filterList[1];
             } else if (searchKey === 'favorite') {
               if (this.search.cardList.favorite.length === 0) {
                 return true;
