@@ -1789,6 +1789,57 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Link to the FUTURE': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Link to the FUTURE',
+            kana: 'りんくとぅーざふゅーちゃー',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期12月度 サークル対抗戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3030,
+              pure: 2330,
+              cool: 1330,
+              mental: 263,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'vortexAttraction_section',
+              name: 'ボルテックスアトラクション',
+              AP: 7,
+              detail: [
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+                [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
+              ],
+              type: ['heartCaptcha', 'loveAttract', 'voltageGain']
+            },
+            skill: {
+              ID: 'chillFascinate_stage',
+              name: 'チルファッシネイト',
+              AP: 5,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
+              ],
+              type: ['chill', 'voltageGain', 'loveAttract']
+            },
+            characteristic: {
+              name: 'サーチ：慈 & APゲイン',
+              detail: 'スキル使用後、慈のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。',
+              type: ['search', 'megumi', 'APgain']
+            }
+          },
           'Secret Christmas': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -1814,7 +1865,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'chillVoltage',
+              ID: 'chillVoltage3',
               name: 'チルボルテージ',
               AP: 5,
               detail: [
@@ -4576,7 +4627,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['quickForm']
             },
             skill: {
-              ID: 'vortexAttraction',
+              ID: 'vortexAttraction_stage',
               name: 'ボルテックスアトラクション',
               AP: 6,
               detail: [
@@ -6724,6 +6775,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Link to the FUTURE': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Link to the FUTURE',
+            kana: 'りんくとぅーざふゅーちゃー',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期12月度 サークル対抗戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2630,
+              pure: 2330,
+              cool: 1530,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'groovyAttraction_section2',
+              name: 'グルーヴィアトラクション',
+              AP: 6,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+                [10.8, 11.9, 13, 14, 15.1, 16.2, 17.3, 18.4, 19.4, 21.6, 22.7, 23.8, 24.8, 27]
+              ],
+              type: ['groovy', 'heartCaptcha', 'loveAttract']
+            },
+            skill: {
+              ID: 'chillVoltage5',
+              name: 'チルボルテージ',
+              AP: 5,
+              detail: [
+                [14, 15, 17, 18, 20, 21, 22, 24, 25, 28, 29, 31, 32, 35],
+                [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45]
+              ],
+              type: ['chill', 'voltageGain']
+            },
+            characteristic: {
+              name: 'サーチ：さやか & APゲイン',
+              detail: 'スキル使用後、さやかのカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。',
+              type: ['search', 'sayaka', 'APgain']
+            }
+          },
           'Secret Christmas': {
             styleType: 'moodMaker',
             mood: 'happy',

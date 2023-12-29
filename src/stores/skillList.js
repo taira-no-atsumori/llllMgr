@@ -198,7 +198,13 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'ボルテックスアトラクション': {
-        vortexAttraction: [
+        vortexAttraction_section: [
+          'ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。さらにボルテージPt.を+',
+          'する。'
+        ],
+        vortexAttraction_stage: [
           'ビートハート',
           '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージPt.を+',
@@ -443,9 +449,14 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'チルボルテージ': {
-        chillVoltage: [
+        chillVoltage3: [
           'ボルテージPt.を+',
           'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
+          'する。'
+        ],
+        chillVoltage5: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
           'する。'
         ]
       },
@@ -466,6 +477,11 @@ export const useSkillStore = defineStore('skillList', {
           'このセクション中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が8以上の時ビートハート',
           '回分のスキルハートを獲得する。'
+        ],
+        groovyAttraction_section2: [
+          'ビートハート',
+          '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
+          '%する。'
         ]
       },
       'グルーヴィハート': {
@@ -520,6 +536,13 @@ export const useSkillStore = defineStore('skillList', {
           'このステージ中、メンタルの最大値の',
           '%分のメンタルダメージを無効にする。さらにボルテージLv.が5以下の時このステージ中、メンタルの最大値の',
           '%分のメンタルダメージを無効にする。'
+        ]
+      },
+      'チルファッシネイト': {
+        chillFascinate_stage: [
+          'ボルテージPt.を+',
+          'し、このステージ中、獲得するLOVEを+',
+          '%する。さらにボルテージLv.が3以下の時APを3回復する。'
         ]
       }
     }
