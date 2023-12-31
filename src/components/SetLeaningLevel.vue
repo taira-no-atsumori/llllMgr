@@ -11,74 +11,7 @@
 
     <v-row no-gutters>
       <v-col class="mb-3" cols="12" sm="6">
-        <img :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.jpg`)" :alt="store.selectMusicTitle">
-      </v-col>
-
-      <v-col class="right">
-        <div class="mb-3">
-          <h4 class="subtitle">センター</h4>
-          <div>
-            <v-chip
-              pill
-              class="pl-0"
-              :color="store.memberColor[store.musicList[store.selectMusicTitle].center]"
-            >
-              <v-avatar left>
-                <v-img
-                  :src="require(`@/assets/member_icon/icon_SD_${store.musicList[store.selectMusicTitle].center}.png`)"
-                  width="30px"
-                ></v-img>
-              </v-avatar>
-              <span class="ml-1">{{ store.charactorName[store.musicList[store.selectMusicTitle].center].first }} {{ store.charactorName[store.musicList[store.selectMusicTitle].center].last }}</span>
-            </v-chip>
-          </div>
-        </div>
-        <div class="mb-2">
-          <h4 class="subtitle">歌唱メンバー</h4>
-          <div>
-            <v-chip
-              pill
-              v-for="charactorName in store.musicList[store.selectMusicTitle].singingMembers"
-              :key="charactorName"
-              class="member"
-              :color="store.memberColor[charactorName]"
-            >
-              <v-avatar left>
-                <v-img
-                  :src="require(`@/assets/member_icon/icon_SD_${charactorName}.png`)"
-                  width="30px"
-                ></v-img>
-              </v-avatar>
-              <span class="ml-1">{{ store.charactorName[charactorName].first }} {{ store.charactorName[charactorName].last }}</span>
-            </v-chip>
-          </div>
-        </div>
-        <div class="mb-3">
-          <h4 class="subtitle">楽曲マスタリーLv.</h4>
-          <v-row no-gutters>
-            <v-col cols="4" class="text-right">
-              <v-btn
-                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)"
-                :disabled="store.musicList[store.selectMusicTitle].level === 0"
-              >-1</v-btn>
-            </v-col>
-            <v-col cols="4" class="text-center align-self-center">
-              {{ store.musicList[store.selectMusicTitle].level }}
-            </v-col>
-            <v-col cols="4" class="text-left">
-              <v-btn
-                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)"
-                :disabled="store.musicList[store.selectMusicTitle].level === 30"
-              >+1</v-btn>
-            </v-col>
-          </v-row>
-        </div>
-        <div class="mb-3">
-          <h4 class="subtitle">獲得ボーナススキル</h4>
-          <div>
-            {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
-          </div>
-        </div>
+        <img :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.jpg`)" :alt="store.selectMusicTitle" class="mb-2">
 
         <v-expansion-panels>
           <v-expansion-panel>
@@ -107,6 +40,93 @@
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
+      </v-col>
+
+      <v-col class="right">
+        <div class="mb-3">
+          <h4 class="subtitle">センター</h4>
+          <div>
+            <v-chip
+              pill
+              class="pl-0"
+              :color="store.memberColor[store.musicList[store.selectMusicTitle].center]"
+            >
+              <v-avatar left>
+                <v-img
+                  :src="require(`@/assets/member_icon/icon_SD_${store.musicList[store.selectMusicTitle].center}.png`)"
+                  width="30px"
+                ></v-img>
+              </v-avatar>
+              <span class="ml-1">{{ store.makeFullName(store.musicList[store.selectMusicTitle].center) }}</span>
+            </v-chip>
+          </div>
+        </div>
+        <div class="mb-2">
+          <h4 class="subtitle">歌唱メンバー</h4>
+          <div>
+            <v-chip
+              pill
+              v-for="charactorName in store.musicList[store.selectMusicTitle].singingMembers"
+              :key="charactorName"
+              class="member"
+              :color="store.memberColor[charactorName]"
+            >
+              <v-avatar left>
+                <v-img
+                  :src="require(`@/assets/member_icon/icon_SD_${charactorName}.png`)"
+                  width="30px"
+                ></v-img>
+              </v-avatar>
+              <span class="ml-1">{{ store.makeFullName(charactorName) }}</span>
+            </v-chip>
+          </div>
+        </div>
+        <div class="mb-3">
+          <h4 class="subtitle">楽曲マスタリーLv.</h4>
+          <v-row no-gutters class="text-center">
+            <v-col>
+              <v-btn
+                size="small"
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level >= 10 ? store.musicList[store.selectMusicTitle].level - 10 : 0)"
+                :disabled="store.musicList[store.selectMusicTitle].level === 0"
+              >{{ store.musicList[store.selectMusicTitle].level >= 10 ? '-10' : store.musicList[store.selectMusicTitle].level === 0 ?  0 : `-${store.musicList[store.selectMusicTitle].level}` }}</v-btn>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col>
+              <v-btn
+                size="small"
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)"
+                :disabled="store.musicList[store.selectMusicTitle].level === 0"
+              >-1</v-btn>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col class="align-self-center">
+              {{ store.musicList[store.selectMusicTitle].level }}
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col>
+              <v-btn
+                size="small"
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)"
+                :disabled="store.musicList[store.selectMusicTitle].level === 30"
+              >+1</v-btn>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col>
+              <v-btn
+                size="small"
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level <= 20 ? store.musicList[store.selectMusicTitle].level + 10 : 30)"
+                :disabled="store.musicList[store.selectMusicTitle].level === 30"
+              >{{ store.musicList[store.selectMusicTitle].level  <= 20 ? '+10' : 30 - store.musicList[store.selectMusicTitle].level === 0 ? 0 : `+${30 - store.musicList[store.selectMusicTitle].level}`}}</v-btn>
+            </v-col>
+          </v-row>
+        </div>
+        <div>
+          <h4 class="subtitle">獲得ボーナススキル</h4>
+          <div>
+            {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
+          </div>
+        </div>
       </v-col>
     </v-row>
   </v-container>

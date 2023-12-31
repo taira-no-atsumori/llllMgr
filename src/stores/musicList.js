@@ -221,7 +221,7 @@ export const useMusicStore = defineStore('musicList', {
       },
       'Link to the FUTURE': {
         musicData: {
-          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          singer: 'スリーズブーケ & DOLLCHESTRA & みらくらぱーく！',
           releaseDate: {
             year: 2024,
             month: 1,

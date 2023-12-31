@@ -45,7 +45,7 @@
               <img
                 :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.png`)"
               >
-              <div class="px-2 pb-1 cardName">
+              <div class="px-2 pb-1 cardName hamidashi">
                 <v-img
                   :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
                   class="icon type"

@@ -19,7 +19,9 @@
       <v-col cols="12">
         <v-expansion-panels>
           <v-expansion-panel>
-            <v-expansion-panel-title><v-icon class="mr-2">mdi-filter</v-icon>絞り込み</v-expansion-panel-title>
+            <v-expansion-panel-title>
+              <v-icon class="mr-2">mdi-filter</v-icon>絞り込み
+            </v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
                 <v-col
@@ -35,7 +37,7 @@
                     :items="bonusSkillList"
                     variant="outlined"
                     color="pink"
-                    hint="獲得ボーナススキルを選んでください"
+                    hint="表示したい獲得ボーナススキルを選んでください"
                     persistent-hint
                     multiple
                   >
@@ -93,7 +95,7 @@
                     </template>-->
                     <template v-slot:item="{ item }">
                       <v-list-item
-                        :title="makeName(store, item.title)"
+                        :title="store.makeFullName(item.title)"
                         @click="selectCenter(store, item.title)"
                       >
                         <template v-slot:prepend>
@@ -112,7 +114,7 @@
                   sm="4"
                   class="pl-sm-2"
                 >
-                  <h3 class="mb-2">マスタリーレベルで絞り込み</h3>
+                  <h3>マスタリーレベルで絞り込み</h3>
                   <v-range-slider
                     v-model="masteryLv"
                     max="30"
@@ -121,8 +123,9 @@
                     step="1"
                     color="pink"
                     thumb-color="pink"
-                    hide-details
-                    class="px-2 mt-9"
+                    density="compact"
+                    class="px-2 mt-8"
+                    messages="表示したいマスタリーレベルの範囲を設定してください"
                   ></v-range-slider>
                 </v-col>
               </v-row>
@@ -140,7 +143,6 @@
         sm="6"
         md="4"
         lg="2"
-        xl="2"
         class="text-center"
       >
         <v-sheet>
@@ -172,8 +174,20 @@
       :key="ary"
       @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
     >
+      <v-tooltip
+        location="bottom"
+      >
+        <template v-slot:activator="{ props }">
+          <div v-bind="props">
       <p><img :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.jpg`)" :alt="songTitle" class="songJacket"></p>
-      <dt class="mb-2">{{ songTitle }}</dt>
+          </div>
+        </template>
+        <p class="mb-2">{{ songTitle }}</p>
+        センター：{{ store.makeFullName(ary.center) }}<br>
+        楽曲マスタリーLv.：{{ ary.level }}<br>
+        獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(ary.level / 10)}}
+      </v-tooltip>
+      <dt class="mb-2 hamidashi">{{ songTitle }}</dt>
       <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill"></dd>
     </div>
     <div v-if="Object.keys(makeMusicList(store)).length === 0">見つかりませんでした…</div>
@@ -239,7 +253,7 @@ export default {
   methods: {
     selectCenter(store, select) {
       this.center_en = select;
-      this.center_ja = select === null ? null : this.makeName(store, select);
+      this.center_ja = select === null ? null : store.makeFullName(select);
     },
     selectSkill(selector) {
       if (this.selectBonusSkillList.some((x) => x === selector)) {
@@ -255,9 +269,6 @@ export default {
       } else {
         this.selectBonusSkillList.push(selector);
       }
-    },
-    makeName(store, select) {
-      return `${store.charactorName[select].first} ${store.charactorName[select].last}`;
     }
   }
 }
@@ -269,10 +280,10 @@ dl {
   flex-wrap: wrap;
   font-size: 14px;
 
-  div {
+  >div {
     width: 150px;
     height: 100%;
-    margin: 0 5px 10px 5px;
+    margin: 0 5px 5px 5px;
     cursor: pointer;
 
     dt {
@@ -300,7 +311,7 @@ dl {
     div {
       width: 47%;
       height: 100%;
-      margin: 0 1.5% 10px 1.5%;
+      margin: 0 1.5% 5px 1.5%;
 
       dt {
         border: 2px solid #000;

@@ -3,7 +3,7 @@
     <v-row no-gutters>
       <v-col cols="12">
         <h1>リンクラ マネージャー！</h1>
-        Ver.ε.12(アーリーアクセス)
+        Ver. {{ store.version }}
       </v-col>
     </v-row>
     <v-row v-if="Object.keys(outputEventList).length > 0">
@@ -119,6 +119,11 @@
     </v-row>
   </v-container>
 </template>
+
+<script setup>
+  import { useStoreCounter } from '../stores/counter';
+  const store = useStoreCounter();
+</script>
 
 <script>
 export default {

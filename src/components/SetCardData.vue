@@ -6,8 +6,8 @@
           <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
               <a :href="makeWikiLink(store.settingCard.card, store.charactorName[store.settingCard.name].first + store.charactorName[store.settingCard.name].last)" target="_blank" style="color: #000;" v-bind="props">
-            {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}
-          </a>
+                {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.charactorName[store.settingCard.name].first }} {{ store.charactorName[store.settingCard.name].last }}
+              </a>
             </template>
             Wikiを開く
           </v-tooltip>
