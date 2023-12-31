@@ -308,7 +308,7 @@ dl {
 
 @media screen and (max-width: 600px) {
   dl {
-    div {
+    >div {
       width: 47%;
       height: 100%;
       margin: 0 1.5% 5px 1.5%;
