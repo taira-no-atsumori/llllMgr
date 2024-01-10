@@ -133,6 +133,15 @@ export default {
     return {
       eventList: {
         'liveGP': {
+          title: 'ライブグランプリ「103期第7回個人戦」',
+          text: '',
+          type: 'liveGP',
+          firstDay: [2024, 1, 10, 10, 0],
+          lastDay: [2024, 1, 16, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-01-10-20-vxoettcjoi',
+          img: '103期第7回個人戦_logo.png'
+        },
+        /*'liveGP': {
           title: 'ライブグランプリ「103期12月度サークル対抗戦」',
           text: '',
           type: 'liveGP',
@@ -140,7 +149,7 @@ export default {
           lastDay: [2023, 12, 26, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2023-12-18-20-ds0qd9bpqa',
           img: '103期12月度サークル対抗戦_logo.png'
-        },
+        },*/
         'unitKoushien': {
           title: 'ライブ「LoveLive! Series Presents ユニット甲子園 2024」',
           firstDay: [2024, 3, 9, 0, 0],
