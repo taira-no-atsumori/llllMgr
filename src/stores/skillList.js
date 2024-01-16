@@ -500,7 +500,7 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'グルーヴィハート': {
-        groovyHeart8_mental: [
+        groovyHeart8_heartCaptcha_mental: [
           'ビートハート',
           '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時メンタルを最大値の',
           '%回復させる。'
@@ -508,6 +508,11 @@ export const useSkillStore = defineStore('skillList', {
         groovyHeart8_heart: [
           'ビートハート',
           '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
+        groovyHeart8_mental_heartCaptcha: [
+          'メンタルを最大値の',
+          '%回復させる。さらにボルテージLv.が8以上の時ビートハート',
           '回分のスキルハートを獲得する。'
         ]
       },
@@ -559,10 +564,15 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'チルファッシネイト': {
-        chillFascinate_stage: [
+        chillFascinate_stage_APgain: [
           'ボルテージPt.を+',
           'し、このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が3以下の時APを3回復する。'
+        ],
+        chillFascinate_stage_voltage: [
+          'このステージ中、獲得するLOVEを+',
+          '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
+          'する。'
         ]
       },
       'チルエンデュランス': {

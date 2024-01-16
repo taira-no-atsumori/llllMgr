@@ -1875,7 +1875,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha', 'loveAttract', 'voltageGain']
             },
             skill: {
-              ID: 'chillFascinate_stage',
+              ID: 'chillFascinate_stage_APgain',
               name: 'チルファッシネイト',
               AP: 5,
               detail: [
@@ -3924,6 +3924,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          '迎春 -楽-': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '迎春',
+            kana: 'げいしゅん',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1530,
+              pure: 1830,
+              cool: 2130,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'groovyRecover',
+              name: 'グルーヴィリカバー',
+              AP: 4,
+              detail: [
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15],
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ],
+              type: ['groovy', 'mentalRecover']
+            },
+            skill: {
+              ID: 'chillFascinate_stage_voltage',
+              name: 'チルファッシネイト',
+              AP: 4,
+              detail: [
+                [2.3, 2.5, 2.8, 3, 3.2, 3.5, 3.7, 3.9, 4.1, 4.6, 4.8, 5.1, 5.3, 5.8],
+                [17, 19, 20, 22, 24, 26, 27, 29, 31, 34, 36, 37, 39, 42]
+              ],
+              type: ['chill', 'loveAttraction', 'voltageGain']
+            },
+            characteristic: {
+              name: 'オーバーセクション：ハートキャプチャ',
+              detail: '手札にある状態でセクションが変わるたび、ビートハート4回分のスキルハートを獲得する。',
+              type: ['overSection', 'heartCaptcha']
+            }
+          },
           'Secret Christmas': {
             styleType: 'trickStar',
             mood: 'happy',
@@ -7940,6 +7990,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '蓮ノ空歌留多': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '蓮ノ空歌留多',
+            kana: 'はすのそらかるた',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1480,
+              pure: 1780,
+              cool: 2130,
+              mental: 193,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'groovyHeart8_mental_heartCaptcha',
+              name: 'グルーヴィハート',
+              AP: 4,
+              detail: [
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, '15.84?', '16.56?', '18?'],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, '4?', '5?', '6?']
+              ],
+              type: ['groovy', 'mentalRecover', 'heartCaptcha']
+            },
+            skill: {
+              ID: 'voltageHeart',
+              name: 'ボルテージハート',
+              AP: 5,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, '4?', '5?', '6?']
+              ],
+              type: ['voltageGain', 'heartCaptcha']
+            },
+            characteristic: {
+              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
+              type: ['overSection', 'voltageGain', 'APreduce' ,'megumi']
+            }
+          },
           'Secret Christmas': {
             styleType: 'cheerLeader',
             mood: 'happy',
@@ -8024,7 +8124,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['extensions', 'heartCaptcha']
             },
             skill: {
-              ID: 'groovyHeart8_mental',
+              ID: 'groovyHeart8_heartCaptcha_mental',
               name: 'グルーヴィハート',
               AP: 5,
               detail: [
