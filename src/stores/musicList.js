@@ -1190,6 +1190,24 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi']
+      },
+      '祝福': {
+        musicData: {
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2022,
+            month: 10,
+            date: 1
+          },
+          numbering: '',
+          BPM: 170,
+          cover: true
+        },
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['sayaka', 'tsuzuri']
       }
     }
   }),

@@ -2572,6 +2572,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Eisprinzessin': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'Eisprinzessin / Eisritter',
+            kana: '',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
+              period: '恒常'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1330,
+              pure: 1430,
+              cool: 2530,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'chillFascinate_stage_voltage',
+              name: 'チルファッシネイト',
+              AP: 7,
+              detail: [
+                [4.3, 4.7, 5.2, 5.6, 6, 6.5, 6.9, 7.3, 7.7, 8.6, 9, 9.5, 9.9, 10.8],
+                [31, 34, 37, 40, 43, 47, 50, 53, 56, 62, 65, 68, 71, 78]
+              ],
+              type: ['chill', 'loveAttract', 'voltageGain']
+            },
+            skill: {
+              ID: 'calmAttract_section_minus30',
+              name: 'カームアトラクト',
+              AP: 3,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
+              ],
+              type: ['aggressive', 'heartCaptcha', 'loveAttract']
+            },
+            characteristic: {
+              name: 'インタープリテーション＆サーチ：綴理',
+              detail: 'このスキルのムードによる効果増加量を増加させる。さらにスキル使用後、綴理のカードをドローする確率大幅アップ。',
+              type: ['interPretation', 'search', 'tsuzuri']
+            }
+          },
           '迎春 -舞-': {
             styleType: 'performer',
             mood: 'neutral',
@@ -3484,6 +3533,54 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ハクチューアラモード': {
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'ハクチューアラモード',
+            kana: 'はくちゅーあらもーど',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
+              period: '恒常'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2630,
+              pure: 1530,
+              cool: 930,
+              mental: 223,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionsVoltage_stage',
+              name: 'エクステボルテージ',
+              AP: 6,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+              ],
+              type: ['extensions', 'voltageGain']
+            },
+            skill: {
+              ID: 'aggressiveRegain_stage',
+              name: 'アグレッシブリゲイン',
+              AP: 5,
+              detail: [
+                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]
+              ],
+              type: ['aggressive', 'regain', 'loveAttract']
+            },
+            characteristic: {
+              name: 'ドロー：ハートキャプチャ',
+              detail: 'ドローした時、ビートハート5回分のスキルハートを獲得する。',
+              type: ['draw', 'heartCaptcha']
+            }
+          },
           'Link to the FUTURE': {
             styleType: 'trickStar',
             mood: 'happy',
@@ -7025,6 +7122,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Eisritter': {
+            styleType: 'performer',
+            mood: 'melow',
+            series: 'Eisprinzessin / Eisritter',
+            kana: '',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
+              period: '恒常'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1430,
+              pure: 1530,
+              cool: 2530,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'chillAttract_stage',
+              name: 'チルアトラクト',
+              AP: 7,
+              detail: [
+                [4.3, 4.7, 5.2, 5.6, 6, 6.5, 6.9, 7.3, 7.7, 8.6, '9?', '9.5?', '9.9?', 10.8],
+                [6.2, 6.8, 7.4, 8.1, 8.7, 9.3, 9.9, 10.5, 11.2, 12.4, '13?', '13.6?', '14.3?', 15.6]
+              ],
+              type: ['chill', 'loveAttract', 'voltageGain']
+            },
+            skill: {
+              ID: 'calmAttraction_section_minus30',
+              name: 'カームアトラクション',
+              AP: 3,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 11],
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
+              ],
+              type: ['calm', 'heartCaptcha', 'loveAttract']
+            },
+            characteristic: {
+              name: 'インタープリテーション＆サーチ：さやか',
+              detail: 'このスキルのムードによる効果増加量を増加させる。さらにスキル使用後、さやかのカードをドローする確率大幅アップ。',
+              type: ['interPretation', 'search', 'sayaka']
+            }
+          },
           'Link to the FUTURE': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -7990,6 +8137,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ハクチューアラモード': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'ハクチューアラモード',
+            kana: 'はくちゅーあらもーど',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
+              period: '恒常'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2430,
+              pure: 1330,
+              cool: 1130,
+              mental: 243,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionsAttract_section1',
+              name: 'エクステアトラクト',
+              AP: 6,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ],
+              type: ['extentions', 'loveAttract']
+            },
+            skill: {
+              ID: 'aggressiveAttraction_section',
+              name: 'アグレッシブアトラクション',
+              AP: 3,
+              detail: [
+                [5, '6?', '6?', '7?', '7?', '8?', '8?', '9?', '9?', '10?', '11?', '11?', '12?', 12],
+                [6, '6.6?', '7.2?', '7.8?', '8.4?', '9?', '9.6?', '10.2?', '10.8?', '12?', '12.6?', '13.2?', '13.8?', 15]
+              ],
+              type: ['aggressive', 'heartCaptcha', 'loveAttract']
+            },
+            characteristic: {
+              name: 'ドロー：ラブアトラクト',
+              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。',
+              type: ['draw', 'loveAttract']
+            }
+          },
           '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',

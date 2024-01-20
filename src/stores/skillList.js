@@ -310,6 +310,10 @@ export const useSkillStore = defineStore('skillList', {
           'このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+',
           '%する。'
         ],
+        extensionsAttract_section1: [
+          'このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
+          '%する。'
+        ],
       },
       'ファッシネイション': {
         fascination_voltageGain: [
@@ -580,6 +584,32 @@ export const useSkillStore = defineStore('skillList', {
           'メンタルを最大値の',
           '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+',
           'する。'
+        ]
+      },
+      'アグレッシブリゲイン': {
+        aggressiveRegain_stage: [
+          '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+',
+          '%し、メンタルを最大値の10%減少させる。'
+        ]
+      },
+      'アグレッシブアトラクション': {
+        aggressiveAttraction_section: [
+          'ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。さらにメンタルを最大値の25%減少させる。'
+        ]
+      },
+      'カームアトラクト': {
+        calmAttract_section_minus30: [
+          'このセクション中、獲得するLOVEを+',
+          '%する。さらにボルテージPt.を-30する。'
+        ]
+      },
+      'カームアトラクション': {
+        calmAttraction_section_minus30: [
+          'ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。さらにボルテージPt.を-30する。'
         ]
       }
     }
