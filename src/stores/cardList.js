@@ -23,10 +23,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {
@@ -68,10 +68,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {
@@ -380,12 +380,12 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートブースト',
               AP: 5,
               detail: [
-                [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, '110?', 125]
+                [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 125]
               ],
               type: ['heartBoost']
             },
             characteristic: {
-              name: 'APレデュース : ラブアトラクト',
+              name: 'APレデュース：ラブアトラクト',
               detail: '手札にあるメイン効果に獲得LOVE増加効果を持つスキル1枚につき、手札のこのスキルの消費AP-2。',
               type: ['APReduce', 'loveActract']
             }
@@ -1763,10 +1763,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {
@@ -3457,10 +3457,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {
@@ -4664,10 +4664,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {
@@ -6307,10 +6307,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {
@@ -8059,10 +8059,10 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 1,
-              pure: 1,
-              cool: 1,
-              mental: 1,
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
               BP: 100
             },
             specialAppeal: {

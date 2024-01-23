@@ -15,6 +15,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 162,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -33,6 +34,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 162,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -51,6 +53,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 154,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -69,6 +72,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 136,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -87,6 +91,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 162,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -105,6 +110,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 188,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -123,6 +129,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 162,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -141,6 +148,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 160,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -159,6 +167,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 244,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -177,6 +186,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 170,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -195,6 +205,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 164,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -213,6 +224,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 177,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -231,6 +243,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 184,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -249,6 +262,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: '80～160',
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -267,6 +281,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 175,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -285,6 +300,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 220,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -303,6 +319,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 174,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -321,6 +338,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 104,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -339,6 +357,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 135,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -357,6 +376,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 158,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -375,6 +395,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 132,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -393,6 +414,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 118,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -411,6 +433,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 138,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -429,6 +452,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 140,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -447,6 +471,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 90,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -465,6 +490,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 136,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -483,6 +509,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 150,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -501,6 +528,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 176,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -519,6 +547,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 220,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -537,6 +566,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 131,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -555,6 +585,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 97,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -573,6 +604,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 110,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -591,6 +623,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 130,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -609,6 +642,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 102,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -627,6 +661,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 185,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -645,6 +680,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 150,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -663,6 +699,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 175,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -681,6 +718,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 176,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -699,6 +737,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 126,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -717,6 +756,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 197,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -735,6 +775,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 258,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -753,6 +794,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 160,
           cover: false
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -771,6 +813,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 157,
           cover: false
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -789,6 +832,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 180,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -807,6 +851,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 128,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -825,6 +870,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 74,
           cover: false
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -843,6 +889,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 210,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -861,6 +908,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 183,
           cover: true
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -879,6 +927,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 180,
           cover: true
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -897,6 +946,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 164,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -915,6 +965,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 148,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -933,6 +984,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 133,
           cover: true
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'kozue',
@@ -951,6 +1003,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 167,
           cover: true
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -969,6 +1022,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 170,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -987,6 +1041,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 162,
           cover: true
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -1005,6 +1060,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 180,
           cover: true
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -1023,6 +1079,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 143,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -1041,6 +1098,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 154,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -1059,6 +1117,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 145,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'megumi',
@@ -1077,6 +1136,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 127,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -1095,6 +1155,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 102,
           cover: true
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'sayaka',
@@ -1113,6 +1174,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 143,
           cover: true
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'kaho',
@@ -1131,6 +1193,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 130,
           cover: true
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -1149,6 +1212,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 153,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -1167,6 +1231,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 190,
           cover: true
         },
+        attribute: 'smile',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -1185,6 +1250,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 170,
           cover: true
         },
+        attribute: 'pure',
         level: 0,
         term: 103,
         center: 'rurino',
@@ -1203,6 +1269,7 @@ export const useMusicStore = defineStore('musicList', {
           BPM: 170,
           cover: true
         },
+        attribute: 'cool',
         level: 0,
         term: 103,
         center: 'tsuzuri',
