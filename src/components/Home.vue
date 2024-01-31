@@ -140,7 +140,7 @@ export default {
           lastDay: [2024, 1, 16, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-01-10-20-vxoettcjoi',
           img: '103期第7回個人戦_logo.png'
-        },*/
+        },
         'liveGP': {
           title: 'ライブグランプリ「サークル対抗戦 -Exhibition-」',
           text: '',
@@ -149,7 +149,7 @@ export default {
           lastDay: [2024, 1, 31, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-01-22-30-bn39wqn69c',
           img: 'サークル対抗戦 Exhibition_logo.png'
-        },
+        },*/
         'unitKoushien': {
           title: 'ライブ「LoveLive! Series Presents ユニット甲子園 2024」',
           firstDay: [2024, 3, 9, 0, 0],

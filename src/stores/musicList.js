@@ -497,6 +497,25 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'kozue']
       },
+      'Special Thanks': {
+        musicData: {
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2024,
+            month: 2,
+            date: 14
+          },
+          numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
+          BPM: 170,
+          cover: false
+        },
+        attribute: 'pure',
+        level: 0,
+        term: 103,
+        center: 'kaho',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'kozue']
+      },
       'AWOKE': {
         musicData: {
           singer: 'DOLLCHESTRA',
@@ -744,6 +763,25 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['sayaka', 'tsuzuri']
       },
+      '青とシャボン': {
+        musicData: {
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2024,
+            month: 2,
+            date: 14
+          },
+          numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
+          BPM: 127,
+          cover: false
+        },
+        attribute: 'cool',
+        level: 0,
+        term: 103,
+        center: 'tsuzuri',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['sayaka', 'tsuzuri']
+      },
       'ド！ド！ド！': {
         musicData: {
           singer: 'みらくらぱーく！',
@@ -856,6 +894,25 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi']
+      },
+      'ミルク': {
+        musicData: {
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 2,
+            date: 14
+          },
+          numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
+          BPM: 79,
+          cover: false
+        },
+        attribute: 'pure',
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi']
       },
       'Runway': {

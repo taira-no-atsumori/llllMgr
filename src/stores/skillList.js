@@ -453,6 +453,11 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'チルボルテージ': {
+        chillVoltage1: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が1以下の時ボルテージPt.を+',
+          'する。'
+        ],
         chillVoltage3: [
           'ボルテージPt.を+',
           'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
@@ -487,7 +492,12 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'グルーヴィアトラクション': {
-        groovyAttraction_section: [
+        groovyAttraction_section10: [
+          'このセクション中、獲得するLOVEを+',
+          '%する。さらにボルテージLv.が10以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
+        groovyAttraction_section8: [
           'このセクション中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が8以上の時ビートハート',
           '回分のスキルハートを獲得する。'
@@ -514,6 +524,11 @@ export const useSkillStore = defineStore('skillList', {
           '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時ビートハート',
           '回分のスキルハートを獲得する。'
         ],
+        groovyHeart10_voltageGain_heart: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が10以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
         groovyHeart8_mental_heartCaptcha: [
           'メンタルを最大値の',
           '%回復させる。さらにボルテージLv.が8以上の時ビートハート',
@@ -532,6 +547,13 @@ export const useSkillStore = defineStore('skillList', {
           'メンタルを最大値の',
           '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の',
           '%回復させる。'
+        ]
+      },
+      'グルーヴィブースト': {
+        groovyBoost_stage: [
+          'このステージ中、獲得するLOVEを+',
+          '%する。さらにボルテージLv.が10以上の時次に使用するスキルハート獲得効果による獲得数を+',
+          '%する。'
         ]
       },
       'エクステハート': {
