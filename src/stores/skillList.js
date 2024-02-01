@@ -373,7 +373,7 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'サポーテッドフィール': {
-        supportedFeel: [
+        supportedFeel_stage: [
           'メンタルを最大値の',
           '%回復させる。さらにこのステージ中、獲得するLOVEを+',
           '%する。'
@@ -575,6 +575,14 @@ export const useSkillStore = defineStore('skillList', {
           '回分のスキルハートを獲得する。'
         ]
       },
+      'スイッチアトラクション': {
+        switchAttraction_stage_heart_section_5: [
+          'ボルテージLv.5以下の時このステージ中、獲得するLOVEを+',
+          '%する。ボルテージLv.が6以上の時ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。'
+        ]
+      },
       'Link! Like! Order!': {
         linklikeorder: [
           'このステージ中、花帆/梢/さやか/綴理/瑠璃乃/慈のスキルを重複なく全員使用するたび、ビートハート',
@@ -606,6 +614,13 @@ export const useSkillStore = defineStore('skillList', {
           'メンタルを最大値の',
           '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+',
           'する。'
+        ]
+      },
+      'チルフィール': {
+        chillFeel_mental_stage_2: [
+          'メンタルを最大値の',
+          '%回復させる。さらにボルテージLv.が2以下の時このステージ中、獲得するLOVEを+',
+          '%する。'
         ]
       },
       'アグレッシブリゲイン': {

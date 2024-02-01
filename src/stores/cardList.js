@@ -3631,6 +3631,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ミルク': {
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'ミルク',
+            kana: 'みるく',
+            gacha: {
+              addSeason: 'サークル対抗戦 -Exhibition- (2024年1月度)',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1730,
+              pure: 2430,
+              cool: 1030,
+              mental: 213,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionsVoltage_section',
+              name: 'エクステボルテージ',
+              AP: 5,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ],
+              type: ['extensions', 'voltageGain']
+            },
+            skill: {
+              ID: 'switchAttraction_stage_heart_section_5',
+              name: 'スイッチアトラクション',
+              AP: 4,
+              detail: [
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ],
+              type: ['switch', 'loveAttract', 'heartCaptcha']
+            },
+            characteristic: {
+              name: 'APレデュース：慈 & メンタルリカバー：慈',
+              detail: '慈のスキルを使用するたび、手札のこのスキルの消費AP-1し、メンタルを最大値の6%回復させる。',
+              type: ['APreduce', 'mentalRecover', 'megumi']
+            }
+          },
           'ハクチューアラモード': {
             styleType: 'trickStar',
             mood: 'happy',
@@ -8875,6 +8925,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'ミルク': {
+            styleType: 'cheerLeader',
+            mood: 'happy',
+            series: 'ミルク',
+            kana: 'みるく',
+            gacha: {
+              addSeason: 'サークル対抗戦 -Exhibition- (2024年1月度)',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1730,
+              pure: 2230,
+              cool: 1130,
+              mental: 223,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'supportedFeel_stage',
+              name: 'サポーテッドフィール',
+              AP: 5,
+              detail: [
+                [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16],
+                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.9, 3, 3.2]
+              ],
+              type: ['supported', 'mentalRecover', 'loveAttract']
+            },
+            skill: {
+              ID: 'chillFeel_mental_stage_2',
+              name: 'チルフィール',
+              AP: 3,
+              detail: [
+                [4.4, 4.84, 5.28, 5.72, 6.16, 6.6, 7.04, 7.48, 7.92, 8.8, 9.24, 9.68, 10.12, 11],
+                [5.8, 6.4, 7, 7.5, 8.1, 8.7, 9.3, 9.9, 10.4, 11.6, 12.2, 12.8, 13.3, 14.5]
+              ],
+              type: ['chill', 'mentalRecover', 'loveAttract']
+            },
+            characteristic: {
+              name: 'APレデュース：瑠璃乃 & メンタルリカバー：瑠璃乃',
+              detail: '瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-1し、メンタルを最大値の4%回復させる。',
+              type: ['APreduce', 'mentalRecover', 'rurino']
+            }
+          },
           'Link to the FUTURE': {
             styleType: 'cheerLeader',
             mood: 'happy',
