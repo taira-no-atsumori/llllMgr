@@ -168,8 +168,8 @@
           合計マスタリーレベル {{ store.makeTotalMastaryLv(memberName) }}<br>
           (ハート回収時LOVE値が+{{ (Math.floor((store.makeTotalMastaryLv(memberName) * 0.05) * 100) / 100).toFixed(2) }}%)
         </div>
-        <p class="font-weight-bold mb-2 mx-5 subtitle">獲得ボーナススキル</p>
-        <v-row no-gutters class="px-10 px-sm-5">
+        <p class="font-weight-bold mb-2 mx-3 subtitle">獲得ボーナススキル</p>
+        <v-row no-gutters class="px-10 px-sm-1">
           <v-col
             cols="3"
               v-for="skillName in bonusSkillList"
@@ -180,7 +180,7 @@
                 :src="require(`@/assets/${skillName}.png`)"
                 style="width: 30px;"
             >
-            <span class="pt-1"><span style="padding: 0 2px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}</span>
+            <span class="pt-1" style="font-size: 15px;"><span style="padding: 0 2px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}</span>
           </v-col>
         </v-row>
       </v-col>
