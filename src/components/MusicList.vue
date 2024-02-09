@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-2">
+  <v-container fluid class="px-2 pt-2 pb-0">
     <v-row no-gutters class="mb-3">
       <v-col cols="12" class="mb-2">
         <h1>MUSIC LIST ～ 楽曲一覧 / 楽曲マスタリーレベル設定 ～</h1>
@@ -26,20 +26,20 @@
               <v-row no-gutters>
                 <v-col
                   cols="12"
-                  sm="4"
+                  sm="3"
                   class="pr-2 mb-3 mb-sm-0"
                 >
                   <h3 class="mb-2">獲得ボーナススキルで絞り込み</h3>
                   <v-select
                     v-model="selectBonusSkillList"
-                    clearable
-                    label="獲得ボーナススキル"
                     :items="bonusSkillList"
-                    variant="outlined"
+                    clearable
                     color="pink"
-                    hint="表示したい獲得ボーナススキルを選んでください"
-                    persistent-hint
+                    hint="絞り込みたい獲得ボーナススキルを選んでください"
+                    label="獲得ボーナススキル"
                     multiple
+                    persistent-hint
+                    variant="outlined"
                   >
                     <template v-slot:selection="{ item }">
                       <v-img
@@ -53,6 +53,10 @@
                         @click="selectSkill(item.title)"
                       >
                         <template v-slot:prepend>
+                          <v-checkbox-btn
+                            color="pink"
+                            :model-value="selectBonusSkillList.some((elm) => elm === item.title)"
+                          ></v-checkbox-btn>
                           <v-img
                             :src="require(`@/assets/${item.title}.png`)"
                             :alt="item.title"
@@ -67,7 +71,7 @@
 
                 <v-col
                   cols="12"
-                  sm="4"
+                  sm="3"
                   class="px-sm-2 mb-3 mb-sm-0"
                 >
                   <h3 class="mb-2">センターで絞り込み</h3>
@@ -78,21 +82,10 @@
                     :items="memberNameList"
                     variant="outlined"
                     color="pink"
-                    hint="センターのメンバーを選んでください"
+                    hint="絞り込みたいセンターメンバーを選んでください"
                     persistent-hint
                     @click:clear="selectCenter(store, null)"
                   >
-                    <!--<template v-slot:selection="{ item, index }">
-                      <v-chip
-                        :color="store.memberColor[Object.keys(store.charactorName)[index]]"
-                        class="pl-0"
-                      >
-                        <v-avatar left class="pr-2">
-                          <v-img :src="require(`@/assets/member_icon/icon_SD_${Object.keys(store.charactorName)[index]}.png`)"></v-img>
-                        </v-avatar>
-                        {{ item.title }}
-                      </v-chip>
-                    </template>-->
                     <template v-slot:item="{ item }">
                       <v-list-item
                         :title="store.makeFullName(item.title)"
@@ -111,10 +104,10 @@
 
                 <v-col
                   cols="12"
-                  sm="4"
-                  class="pl-sm-2"
+                  sm="3"
+                  class="px-sm-2 mb-3 mb-sm-0"
                 >
-                  <h3>マスタリーレベルで絞り込み</h3>
+                  <h3>マスタリーLv.で絞り込み</h3>
                   <v-range-slider
                     v-model="masteryLv"
                     max="30"
@@ -125,8 +118,24 @@
                     thumb-color="pink"
                     density="compact"
                     class="px-2 mt-8"
-                    messages="表示したいマスタリーレベルの範囲を設定してください"
+                    messages="絞り込みたいマスタリーLv.の範囲を設定してください"
                   ></v-range-slider>
+                </v-col>
+
+                <v-col
+                  cols="12"
+                  sm="3"
+                  class="pl-sm-2"
+                >
+                  <h3 class="mb-2">曲名で絞り込み</h3>
+                  <v-text-field
+                    v-model="inputMusicTitle"
+                    clearable
+                    color="pink"
+                    label="曲名"
+                    messages="絞り込みたい曲をひらがなで入力してください"
+                    variant="outlined"
+                  ></v-text-field>
                 </v-col>
               </v-row>
             </v-expansion-panel-text>
@@ -136,6 +145,9 @@
     </v-row>
 
     <v-row no-gutters>
+      <v-col cols="12">
+        <h3 class="mb-1">各メンバーのボーナス</h3>
+      </v-col>
       <v-col
         v-for="(arr, memberName) in store.charactorName"
         :key="memberName"
@@ -143,40 +155,48 @@
         sm="6"
         md="4"
         lg="2"
-        class="text-center"
+        class="text-center mb-3 mb-sm-1"
       >
-        <v-sheet>
+        <h4 class="d-flex flex-row justify-center align-center mb-1">
           <img
             :src="require(`@/assets/member_icon/icon_SD_${memberName}.png`)"
-            class="mr-1"
             style="width: 35px;"
-          >合計マスタリーLv. {{ store.makeTotalMastaryLv(memberName) }}
-          <p>
-            <span
+          >
+          <span class="pt-1 pl-1">{{ store.makeFullName(memberName) }}</span>
+        </h4>
+        <div class="mb-1" style="font-size: 14px;">
+          合計マスタリーレベル {{ store.makeTotalMastaryLv(memberName) }}<br>
+          (ハート回収時LOVE値が+{{ (Math.floor((store.makeTotalMastaryLv(memberName) * 0.05) * 100) / 100).toFixed(2) }}%)
+        </div>
+        <p class="font-weight-bold mb-2 mx-5 subtitle">獲得ボーナススキル</p>
+        <v-row no-gutters class="px-10 px-sm-5">
+          <v-col
+            cols="3"
               v-for="skillName in bonusSkillList"
               :key="skillName"
-              class="mr-1"
+            class="d-flex flex-row justify-center align-center mb-1"
             >
               <img
                 :src="require(`@/assets/${skillName}.png`)"
                 style="width: 30px;"
-              >×{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
-            </span>
-          </p>
-        </v-sheet>
+            >
+            <span class="pt-1"><span style="padding: 0 2px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}</span>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
+
   <v-divider class="mb-2"></v-divider>
-  <dl>
+
+  <dl id="CDJaketArea">
     <div
+      class="CDJaketInnerArea"
       v-for="(ary, songTitle) in makeMusicList(store)"
       :key="ary"
       @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
     >
-      <v-tooltip
-        location="bottom"
-      >
+      <v-tooltip location="bottom">
         <template v-slot:activator="{ props }">
           <div v-bind="props">
       <p><img :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.jpg`)" :alt="songTitle" class="songJacket"></p>
@@ -187,8 +207,8 @@
         楽曲マスタリーLv.：{{ ary.level }}<br>
         獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(ary.level / 10)}}
       </v-tooltip>
-      <dt class="mb-2 hamidashi">{{ songTitle }}</dt>
-      <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill"></dd>
+      <dt class="songTitle mb-2 hamidashi">{{ songTitle }}</dt>
+      <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill" class="skillIcon"></dd>
     </div>
     <div v-if="Object.keys(makeMusicList(store)).length === 0">見つかりませんでした…</div>
   </dl>
@@ -210,11 +230,12 @@ export default {
   components: {},
   data() {
     return {
+      inputMusicTitle: null,
       masteryLv: [0, 30],
       center_en: null,
       center_ja: null,
-      bonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス'],
-      selectBonusSkillList: ['ビートハートアップ', 'ボルテージアップ', 'メンタルリカバー', 'LOVEボーナス']
+      bonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
+      selectBonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス']
     }
   },
   created() {},
@@ -232,6 +253,10 @@ export default {
           }
 
           if (targetMusicList.level < this.masteryLv[0] || targetMusicList.level > this.masteryLv[1]) {
+            continue;
+          }
+
+          if (this.inputMusicTitle && !targetMusicList.musicData.kana.includes(this.inputMusicTitle)) {
             continue;
           }
 
@@ -275,18 +300,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-dl {
+#CDJaketArea {
   display: flex;
   flex-wrap: wrap;
   font-size: 14px;
+}
 
-  >div {
+.CDJaketInnerArea {
     width: 150px;
     height: 100%;
     margin: 0 5px 5px 5px;
     cursor: pointer;
+}
 
-    dt {
+.songTitle {
       border: 2px solid #000;
       border-radius: 5px;
       padding: 3px;
@@ -294,48 +321,12 @@ dl {
       text-align: center;
     }
 
-    dd {
-      img {
+.skillIcon {
         width: 35px;
       }
-    }
-  }
-}
 
 .songJacket {
   width: 150px;
-}
-
-@media screen and (max-width: 600px) {
-  dl {
-    >div {
-      width: 47%;
-      height: 100%;
-      margin: 0 1.5% 5px 1.5%;
-
-      dt {
-        border: 2px solid #000;
-        border-radius: 5px;
-        padding: 3px;
-        margin-bottom: 5px;
-        text-align: center;
-      }
-
-      dd {
-        img {
-          width: 35px;
-        }
-      }
-    }
-  }
-
-  .songJacket {
-    width: 100%;
-  }
-}
-
-#musicTitle {
-  text-align: center;
 }
 
 .member {
@@ -343,26 +334,8 @@ dl {
   margin-right: 10px;
 }
 
-.left {
-  width: 300px;
-}
-
-.right {
-  width: 300px;
-  margin: 0 0 0 10px;
-}
-
 img {
   width: 100%;
-}
-
-.subtitle {
-  display: inline-block;
-  color: #fff;
-  background: #e5762c;
-  padding: 2px 10px 2px 5px;
-  border-radius: 0 15px 15px 0;
-  margin: 0 0 3px 0;
 }
 
 .icon {
@@ -373,17 +346,33 @@ img {
   }
 }
 
+.subtitle {
+  color: #fff;
+  background: #e5762c;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 600px) {
-  .right {
-    margin: 0 0 5px 0;
+  .CDJaketInnerArea {
+    width: 47%;
+    height: 100%;
+    margin: 0 1.5% 5px 1.5%;
   }
 
-  .left {
-    margin-bottom: 10px;
+  .songTitle {
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 5px;
+    text-align: center;
   }
 
-  .right, 
-  .left {
+  .skillIcon {
+    width: 35px;
+  }
+
+  .songJacket {
     width: 100%;
   }
 }

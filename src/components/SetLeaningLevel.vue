@@ -18,13 +18,13 @@
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
-                <v-col cols="12" class="mb-1" v-if="!store.musicList[store.selectMusicTitle].musicData.cover">
+                <v-col cols="12" class="mb-1">
                   <v-row no-gutters>
-                    <v-col cols="12">発売日</v-col>
+                    <v-col cols="12">発売/発表日</v-col>
                     <v-col cols="12">{{ store.makeReleaseDate }}</v-col>
                   </v-row>
                 </v-col>
-                <v-col cols="12" class="mb-1" v-if="!store.musicList[store.selectMusicTitle].musicData.cover">
+                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.numbering">
                   <v-row no-gutters>
                     <v-col cols="12">収録CD</v-col>
                     <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.numbering }}</v-col>
@@ -33,7 +33,7 @@
                 <v-col cols="12">
                   <v-row no-gutters>
                     <v-col cols="12">BPM</v-col>
-                    <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.BPM }}</v-col>
+                    <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.BPM.original }}</v-col>
                   </v-row>
                 </v-col>
               </v-row>
@@ -42,7 +42,7 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col class="right">
+      <v-col cols="12" sm="6" class="pl-sm-3" style="font-size: 15px;">
         <div class="mb-3">
           <h4 class="subtitle">センター</h4>
           <div>
@@ -132,6 +132,11 @@
   </v-container>
 </template>
 
+<script setup>
+  import { useStoreCounter } from '../stores/counter';
+  const store = useStoreCounter();
+</script>
+
 <script>
 export default {
   data() {
@@ -143,20 +148,10 @@ export default {
 }
 </script>
 
-<script setup>
-  import { useStoreCounter } from '../stores/counter';
-  const store = useStoreCounter();
-</script>
-
 <style lang="scss" scoped>
 .member {
   padding-left: 0!important;
   margin: 0 10px 5px 0;
-}
-
-.right {
-  margin: 0 0 0 10px;
-  font-size: 15px;
 }
 
 img {
@@ -170,15 +165,5 @@ img {
   padding: 2px 10px 2px 5px;
   border-radius: 0 15px 15px 0;
   margin: 0 0 8px 0;
-}
-
-@media screen and (max-width: 600px) {
-  .right {
-    margin: 0 0 5px 0;
-  }
-
-  .left {
-    margin-bottom: 10px;
-  }
 }
 </style>
