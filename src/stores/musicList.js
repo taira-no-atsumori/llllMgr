@@ -113,7 +113,10 @@ export const useMusicStore = defineStore('musicList', {
             date: 29
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
-          BPM: 162,
+          BPM: {
+            original: 162,
+            inGame: 162
+          },
           time: 109.63,
           cover: false
         },
@@ -1749,6 +1752,31 @@ export const useMusicStore = defineStore('musicList', {
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri']
+      },
+      '御旗のもとに': {
+        musicData: {
+          kana: 'みはたのもとに',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2001,
+            month: 3,
+            date: 22
+          },
+          numbering: 'ゲーム「サクラ大戦3～巴里は燃えているか～」 OPテーマ',
+          BPM: {
+            original: 147,
+            inGame: 147
+          },
+          time: 0,
+          cover: true
+        },
+        attribute: 'smile',
+        BHcount: 0,
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'kozue']
       }
     }
   }),

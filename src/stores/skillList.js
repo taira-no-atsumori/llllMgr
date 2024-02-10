@@ -57,10 +57,15 @@ export const useSkillStore = defineStore('skillList', {
         ],
       },
       'ヒーリングハート': {
-        healingHeart: [
+        healingHeart_recover_heart: [
           'メンタルを最大値の',
           '%回復させる。さらにビートハート',
           '個分のスキルハートを獲得する。'
+        ],
+        healingHeart_heart_recover: [
+          'ビートハート',
+          '回分のスキルハートを獲得する。さらにメンタルを最大値の',
+          '%回復させる。'
         ]
       },
       'メンタルリカバー': {
@@ -524,6 +529,11 @@ export const useSkillStore = defineStore('skillList', {
           '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時ビートハート',
           '回分のスキルハートを獲得する。'
         ],
+        groovyHeart8_voltageGain_heart: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が8以上の時ビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
         groovyHeart10_voltageGain_heart: [
           'ボルテージPt.を+',
           'する。さらにボルテージLv.が10以上の時ビートハート',
@@ -556,6 +566,13 @@ export const useSkillStore = defineStore('skillList', {
           '%する。'
         ]
       },
+      'グルーヴィイニシアチブ': {
+        groovyInitiative: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が8以上の時このステージ中、メンタルを最大値の',
+          '%分のメンタルダメージを無効にする。'
+        ]
+      },
       'エクステハート': {
         extensionsHeart_section3: [
           'このセクション中、手札の上限枚数を3枚増加する。さらにビートハート',
@@ -579,6 +596,12 @@ export const useSkillStore = defineStore('skillList', {
         switchAttraction_stage_heart_section_5: [
           'ボルテージLv.5以下の時このステージ中、獲得するLOVEを+',
           '%する。ボルテージLv.が6以上の時ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。'
+        ],
+        switchAttraction_voltage_heart_section_5: [
+          'ボルテージLv.5以下の時ボルテージPt.を+',
+          'する。ボルテージLv.が6以上の時ビートハート',
           '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
           '%する。'
         ]
@@ -640,6 +663,10 @@ export const useSkillStore = defineStore('skillList', {
         calmAttract_section_minus30: [
           'このセクション中、獲得するLOVEを+',
           '%する。さらにボルテージPt.を-30する。'
+        ],
+        calmAttract_section_minus20: [
+          'このセクション中、手札の上限枚数を2枚増加し、獲得するLOVEを+',
+          '%する。さらにボルテージPt.を-20する。'
         ]
       },
       'カームアトラクション': {
@@ -647,6 +674,12 @@ export const useSkillStore = defineStore('skillList', {
           'ビートハート',
           '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
           '%する。さらにボルテージPt.を-30する。'
+        ]
+      },
+      'カームブースト': {
+        calmBoost_minus20: [
+          '次に使用する拭きるハート獲得効果による獲得数を+',
+          '%する。さらにボルテージPt.を-20する。'
         ]
       }
     }

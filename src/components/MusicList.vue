@@ -155,21 +155,33 @@
         sm="6"
         md="4"
         lg="2"
-        class="text-center mb-3 mb-sm-1"
+        class="text-center mb-2"
       >
-        <h4 class="d-flex flex-row justify-center align-center mb-1">
+        <v-row no-gutters>
+          <v-col
+            cols="4"
+            sm="12"
+            :class="`d-flex flex-row align-center ${this.$vuetify.display.smAndUp ? 'justify-center mb-1' : ''}`"
+          >
+            <h4 class="d-flex flex-row align-center">
           <img
             :src="require(`@/assets/member_icon/icon_SD_${memberName}.png`)"
             style="width: 35px;"
           >
           <span class="pt-1 pl-1">{{ store.makeFullName(memberName) }}</span>
         </h4>
+          </v-col>
+          <v-col
+            cols="8"
+            sm="12"
+            class="pl-3 px-sm-2"
+          >
         <div class="mb-1" style="font-size: 14px;">
           合計マスタリーレベル {{ store.makeTotalMastaryLv(memberName) }}<br>
-          (ハート回収時LOVE値が+{{ (Math.floor((store.makeTotalMastaryLv(memberName) * 0.05) * 100) / 100).toFixed(2) }}%)
+              (ハート回収時、LOVE値+{{ (Math.floor((store.makeTotalMastaryLv(memberName) * 0.05) * 100) / 100).toFixed(2) }}%)
         </div>
-        <p class="font-weight-bold mb-2 mx-3 subtitle">獲得ボーナススキル</p>
-        <v-row no-gutters class="px-10 px-sm-1">
+            <p class="font-weight-bold mb-2 subtitle">獲得ボーナススキル</p>
+            <v-row no-gutters>
           <v-col
             cols="3"
               v-for="skillName in bonusSkillList"
@@ -180,14 +192,16 @@
                 :src="require(`@/assets/${skillName}.png`)"
                 style="width: 30px;"
             >
-            <span class="pt-1" style="font-size: 15px;"><span style="padding: 0 2px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}</span>
+                <span class="pt-1" style="font-size: 15px;"><span style="padding: 0 1px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}</span>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
+        
+        <v-divider class="mt-1"></v-divider>
+      </v-col>
+    </v-row>
   </v-container>
-
-  <v-divider class="mb-2"></v-divider>
 
   <dl id="CDJaketArea">
     <div
