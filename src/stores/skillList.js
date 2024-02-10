@@ -678,7 +678,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'カームブースト': {
         calmBoost_minus20: [
-          '次に使用する拭きるハート獲得効果による獲得数を+',
+          '次に使用するスキルハート獲得効果による獲得数を+',
           '%する。さらにボルテージPt.を-20する。'
         ]
       }
