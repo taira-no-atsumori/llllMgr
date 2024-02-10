@@ -159,44 +159,45 @@
       >
         <v-row no-gutters>
           <v-col
+            v-resize="onResize"
             cols="4"
             sm="12"
-            :class="`d-flex flex-row align-center ${this.$vuetify.display.smAndUp ? 'justify-center mb-1' : ''}`"
+            :class="`d-flex flex-row align-center ${windowSize.w > 600 ? 'justify-center mb-1' : ''}`"
           >
             <h4 class="d-flex flex-row align-center">
-          <img
-            :src="require(`@/assets/member_icon/icon_SD_${memberName}.png`)"
-            style="width: 35px;"
-          >
-          <span class="pt-1 pl-1">{{ store.makeFullName(memberName) }}</span>
-        </h4>
+              <img
+                :src="require(`@/assets/member_icon/icon_SD_${memberName}.png`)"
+                style="width: 35px;"
+              >
+              <span class="pt-1 pl-1">{{ store.makeFullName(memberName) }}</span>
+            </h4>
           </v-col>
           <v-col
             cols="8"
             sm="12"
             class="pl-3 px-sm-2"
           >
-        <div class="mb-1" style="font-size: 14px;">
-          合計マスタリーレベル {{ store.makeTotalMastaryLv(memberName) }}<br>
+            <div class="mb-1" style="font-size: 14px;">
+              合計マスタリーレベル {{ store.makeTotalMastaryLv(memberName) }}<br>
               (ハート回収時、LOVE値+{{ (Math.floor((store.makeTotalMastaryLv(memberName) * 0.05) * 100) / 100).toFixed(2) }}%)
-        </div>
+            </div>
             <p class="font-weight-bold mb-2 subtitle">獲得ボーナススキル</p>
             <v-row no-gutters>
-          <v-col
-            cols="3"
-              v-for="skillName in bonusSkillList"
-              :key="skillName"
-            class="d-flex flex-row justify-center align-center mb-1"
-            >
-              <img
-                :src="require(`@/assets/${skillName}.png`)"
-                style="width: 30px;"
-            >
+              <v-col
+                cols="3"
+                v-for="skillName in bonusSkillList"
+                :key="skillName"
+                class="d-flex flex-row justify-center align-center mb-1"
+              >
+                <img
+                  :src="require(`@/assets/${skillName}.png`)"
+                  style="width: 30px;"
+                >
                 <span class="pt-1" style="font-size: 15px;"><span style="padding: 0 1px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}</span>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
-      </v-col>
-    </v-row>
         
         <v-divider class="mt-1"></v-divider>
       </v-col>
@@ -213,7 +214,7 @@
       <v-tooltip location="bottom">
         <template v-slot:activator="{ props }">
           <div v-bind="props">
-      <p><img :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.jpg`)" :alt="songTitle" class="songJacket"></p>
+            <p><img :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.jpg`)" :alt="songTitle" class="songJacket"></p>
           </div>
         </template>
         <p class="mb-2">{{ songTitle }}</p>
@@ -244,6 +245,10 @@ export default {
   components: {},
   data() {
     return {
+      windowSize: {
+        w: 0,
+        h: 0,
+      },
       inputMusicTitle: null,
       masteryLv: [0, 30],
       center_en: null,
@@ -289,6 +294,9 @@ export default {
       }
     }
   },
+  mounted() {
+    this.onResize();
+  },
   methods: {
     selectCenter(store, select) {
       this.center_en = select;
@@ -308,6 +316,12 @@ export default {
       } else {
         this.selectBonusSkillList.push(selector);
       }
+    },
+    onResize() {
+      this.windowSize = {
+        w: window.innerWidth,
+        h: window.innerHeight
+      }
     }
   }
 }
@@ -321,23 +335,23 @@ export default {
 }
 
 .CDJaketInnerArea {
-    width: 150px;
-    height: 100%;
-    margin: 0 5px 5px 5px;
-    cursor: pointer;
+  width: 150px;
+  height: 100%;
+  margin: 0 5px 5px 5px;
+  cursor: pointer;
 }
 
 .songTitle {
-      border: 2px solid #000;
-      border-radius: 5px;
-      padding: 3px;
-      margin-bottom: 5px;
-      text-align: center;
-    }
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 3px;
+  margin-bottom: 5px;
+  text-align: center;
+}
 
 .skillIcon {
-        width: 35px;
-      }
+  width: 35px;
+}
 
 .songJacket {
   width: 150px;
