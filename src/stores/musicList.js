@@ -667,11 +667,11 @@ export const useMusicStore = defineStore('musicList', {
             original: 170,
             inGame: 170
           },
-          time: 1,
+          time: 0,
           cover: false
         },
         attribute: 'pure',
-        BHcount: 1,
+        BHcount: 64,
         level: 0,
         term: 103,
         center: 'kaho',
@@ -1017,11 +1017,11 @@ export const useMusicStore = defineStore('musicList', {
             original: 127,
             inGame: 127
           },
-          time: 1,
+          time: 0,
           cover: false
         },
         attribute: 'cool',
-        BHcount: 1,
+        BHcount: 48,
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -1196,7 +1196,7 @@ export const useMusicStore = defineStore('musicList', {
           cover: false
         },
         attribute: 'pure',
-        BHcount: 1,
+        BHcount: 42,
         level: 0,
         term: 103,
         center: 'rurino',
@@ -1746,7 +1746,7 @@ export const useMusicStore = defineStore('musicList', {
           cover: true
         },
         attribute: 'cool',
-        BHcount: 1,
+        BHcount: 0,
         level: 0,
         term: 103,
         center: 'tsuzuri',

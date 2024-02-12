@@ -19,22 +19,20 @@
             <v-expansion-panel-text>
               <v-row no-gutters>
                 <v-col cols="12" class="mb-1">
-                  <v-row no-gutters>
-                    <v-col cols="12">発売/発表日</v-col>
-                    <v-col cols="12">{{ store.makeReleaseDate }}</v-col>
-                  </v-row>
+                  <h4>発売 / 発表日</h4>
+                  {{ store.makeReleaseDate }}
                 </v-col>
                 <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.numbering">
-                  <v-row no-gutters>
-                    <v-col cols="12">収録CD</v-col>
-                    <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.numbering }}</v-col>
-                  </v-row>
+                  <h4>収録CD</h4>
+                  {{ store.musicList[store.selectMusicTitle].musicData.numbering }}
                 </v-col>
-                <v-col cols="12">
-                  <v-row no-gutters>
-                    <v-col cols="12">BPM</v-col>
-                    <v-col cols="12">{{ store.musicList[store.selectMusicTitle].musicData.BPM.original }}</v-col>
-                  </v-row>
+                <v-col cols="12" class="mb-1">
+                  <h4>原曲BPM</h4>
+                  {{ store.musicList[store.selectMusicTitle].musicData.BPM.original }}
+                </v-col>
+                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.time > 0">
+                  <h4>秒数</h4>
+                  {{ store.musicList[store.selectMusicTitle].musicData.time }}
                 </v-col>
               </v-row>
             </v-expansion-panel-text>
@@ -121,11 +119,42 @@
             </v-col>
           </v-row>
         </div>
-        <div>
+        <div class="mb-3">
           <h4 class="subtitle">獲得ボーナススキル</h4>
-          <div>
+          <div class="d-flex flex-row align-center">
+            <img
+              :src="require(`@/assets/${store.musicList[store.selectMusicTitle].bonusSkill}.png`)"
+              :alt="store.musicList[store.selectMusicTitle].bonusSkill"
+              class="mr-1"
+              style="width: 30px;"
+            >
             {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
           </div>
+        </div>
+        <div class="mb-3">
+          <h4 class="subtitle">属性</h4>
+          <div>
+            <v-chip
+              pill
+              class="member"
+              :color="attributeName[store.musicList[store.selectMusicTitle].attribute].color"
+            >
+              <v-avatar left>
+                <v-img
+                  :src="require(`@/assets/attribute_icon/icon_${store.musicList[store.selectMusicTitle].attribute}.png`)"
+                ></v-img>
+              </v-avatar>
+              <span class="ml-2">{{ attributeName[store.musicList[store.selectMusicTitle].attribute].name }}</span>
+            </v-chip>
+          </div>
+        </div>
+        <div class="mb-3">
+          <h4 class="subtitle">ゲーム内BPM</h4>
+          <div>{{ store.musicList[store.selectMusicTitle].musicData.BPM.inGame }}</div>
+        </div>
+        <div v-if="store.musicList[store.selectMusicTitle].BHcount > 0">
+          <h4 class="subtitle">ビートハート発生回数</h4>
+          <div>{{ store.musicList[store.selectMusicTitle].BHcount }}</div>
         </div>
       </v-col>
     </v-row>
@@ -140,7 +169,22 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      attributeName: {
+        smile: {
+          name: 'スマイル',
+          color: 'pink'
+        },
+        cool: {
+          name: 'クール',
+          color: 'blue'
+        },
+        pure: {
+          name: 'ピュア',
+          color: 'green'
+        }
+      }
+    }
   },
   created() {},
   computed: {},
