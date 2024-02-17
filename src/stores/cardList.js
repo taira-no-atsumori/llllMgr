@@ -144,6 +144,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '蓮ノ空歌留多': {
+            styleType: 'performer',
+            mood: 'neutral',
+            series: '蓮ノ空歌留多',
+            kana: 'はすのそらかるた',
+            gacha: {
+              addSeason: 'ライブグランプリ「第8回 個人戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 730,
+              pure: 2030,
+              cool: 2530,
+              mental: 203,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'groovyFascinate_section_over8',
+              name: 'グルーヴィファッシネイト',
+              AP: 4,
+              detail: [
+                [14, 15, 17, 18, 20, 21, 22, 24, 25, 28, 29, 31, 32, 35],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+              ],
+              type: ['groovy', 'voltageGain', 'fascinate']
+            },
+            skill: {
+              ID: 'heartAttraction_section',
+              name: 'ハートアトラクション',
+              AP: 5,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11, 12]
+              ],
+              type: ['heartCaptcha', 'loveAttraction']
+            },
+            characteristic: {
+              name: 'オーバーセクション：ボルテージゲイン & APレデュース：花帆',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに花帆のスキルを使用するたび、手札のこのスキルの消費AP-2。',
+              type: ['overSection', 'voltageGain', 'APreduce' ,'kaho']
+            }
+          },
           'Special Thanks': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -299,7 +349,7 @@ export const useCardStore = defineStore('cardList', {
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
-              addSeason: 'ライブグランプリ「第5回個人戦」報酬',
+              addSeason: 'ライブグランプリ「第5回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -1008,7 +1058,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['high', 'loveAttract']
             },
             skill: {
-              ID: 'groovyAttract_section',
+              ID: 'groovyAttract_stage_section_over8',
               name: 'グルーヴィアトラクト',
               AP: 3,
               detail: [
@@ -1177,7 +1227,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'ドルフィン〰ビーチ',
             kana: 'どるふぃんびーち',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第2回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第2回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -1324,7 +1374,7 @@ export const useCardStore = defineStore('cardList', {
             series: '金魚◎花火',
             kana: 'きんぎょはなび',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第1回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第1回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -2288,7 +2338,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'ドルフィン〰ビーチ',
             kana: 'どるふぃんびーち',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第2回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第2回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -2794,7 +2844,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'groovyAttract_section_section',
+              ID: 'groovyAttract_section_section_over6',
               name: 'グルーヴィアトラクト',
               AP: 4,
               detail: [
@@ -3884,7 +3934,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'プチパティシエール',
             kana: 'ぷちぱてぃしえーる',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第6回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第6回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -4127,7 +4177,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'yours ever',
             kana: 'ゆあーずえばー',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第3回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第3回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -4275,7 +4325,7 @@ export const useCardStore = defineStore('cardList', {
             series: '迎春',
             kana: 'げいしゅん',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第7回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -4519,7 +4569,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'Au Bord du Lac',
             kana: 'あうぼーどどぅらっく',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第4回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第4回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -5341,7 +5391,7 @@ export const useCardStore = defineStore('cardList', {
             series: '金魚◎花火',
             kana: 'きんぎょはなび',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第1回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第1回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -5721,6 +5771,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          '節分 -魅-': {
+            styleType: 'performer',
+            mood: 'neutral',
+            series: '節分',
+            kana: 'せつぶん',
+            gacha: {
+              addSeason: 'ライブグランプリ「第8回 個人戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1130,
+              pure: 1930,
+              cool: 2130,
+              mental: 213,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'groovyAttract_stage_section_over8',
+              name: 'グルーヴィアトラクト',
+              AP: 4,
+              detail: [
+                [2.3, 2.5, 2.8, 3, 3.2, 3.5, 3.7, 3.9, 4.1, 4.6, 4.8, 5.1, 5.3, 5.8],
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
+              ],
+              type: ['groovy', 'loveAttract']
+            },
+            skill: {
+              ID: 'calmAttraction_stage_minus20',
+              name: 'カームアトラクション',
+              AP: 4,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, '9?'],
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
+              ],
+              type: ['calm', 'heartCaption', 'loveAttraact']
+            },
+            characteristic: {
+              name: 'オーバーセクション：ラブアトラクト',
+              detail: '手札にある状態でセクションが変わるたび、このステージ中、獲得するLOVEを+3.2%する。',
+              type: ['overSection', 'loveAttract']
+            }
+          },
           'Special Thanks': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -5805,7 +5905,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['loveAttract', 'voltageGain']
             },
             skill: {
-              ID: 'groovyAttract_stage',
+              ID: 'groovyAttract_stage_stage_over6',
               name: 'グルーヴィアトラクト',
               AP: 5,
               detail: [
@@ -5826,7 +5926,7 @@ export const useCardStore = defineStore('cardList', {
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第5回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第5回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -5956,7 +6056,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 5,
               detail: [
                 [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, '9.2?', 10],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, '3.7?', 4]
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
               type: ['cheerful', 'protect']
             },
@@ -7652,7 +7752,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['groovy', 'loveAttract', 'heartCaptcha']
             },
             skill: {
-              ID: 'groovyAttract_section',
+              ID: 'groovyAttract_stage_section_over8',
               name: 'グルーヴィアトラクト',
               AP: 3,
               detail: [
@@ -8587,7 +8687,7 @@ export const useCardStore = defineStore('cardList', {
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第7回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -8931,7 +9031,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'Au Bord du Lac',
             kana: 'あうぼーどどぅらっく',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第4回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第4回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -9062,7 +9162,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 5,
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '3.7?', 4]
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
               type: ['supported', 'feel']
             },
@@ -9229,7 +9329,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'プチパティシエール',
             kana: 'ぷちぱてぃしえーる',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第6回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第6回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],
@@ -9351,7 +9451,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 6,
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, '3.4?', '3.5?', '3.7?', 4]
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
               type: ['heartCaptcha', 'loveAttraction']
             },
@@ -9472,7 +9572,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'yours ever',
             kana: 'ゆあーずえばー',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第3回個人戦」報酬',
+              addSeason: 'ライブグランプリ「103期 第3回 個人戦」報酬',
               period: '配布'
             },
             favorite: [],

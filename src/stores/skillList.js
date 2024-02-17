@@ -480,17 +480,17 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'グルーヴィアトラクト': {
-        groovyAttract_section: [
+        groovyAttract_stage_section_over8: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
           '%する。'
         ],
-        groovyAttract_stage: [
+        groovyAttract_stage_stage_over6: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が6以上の時このステージ中、獲得するLOVEを+',
           '%する。'
         ],
-        groovyAttract_section_section: [
+        groovyAttract_section_section_over6: [
           'このセクション中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が6以上の時このセクション中、獲得するLOVEを+',
           '%する。'
@@ -571,6 +571,13 @@ export const useSkillStore = defineStore('skillList', {
           'ボルテージPt.を+',
           'する。さらにボルテージLv.が8以上の時このステージ中、メンタルを最大値の',
           '%分のメンタルダメージを無効にする。'
+        ]
+      },
+      'グルーヴィファッシネイト': {
+        groovyFascinate_section_over8: [
+          'ボルテージPt.を+',
+          'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
+          'する。'
         ]
       },
       'エクステハート': {
@@ -670,6 +677,11 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'カームアトラクション': {
+        calmAttraction_stage_minus20: [
+          'ビートハート',
+          '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
+          '%する。さらにボルテージPt.を-20する。'
+        ],
         calmAttraction_section_minus30: [
           'ビートハート',
           '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
