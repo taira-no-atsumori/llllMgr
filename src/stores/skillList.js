@@ -480,17 +480,17 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'グルーヴィアトラクト': {
-        groovyAttract_stage_section_over8: [
+        groovyAttract_section: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
           '%する。'
         ],
-        groovyAttract_stage_stage_over6: [
+        groovyAttract_stage: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が6以上の時このステージ中、獲得するLOVEを+',
           '%する。'
         ],
-        groovyAttract_section_section_over6: [
+        groovyAttract_section_section: [
           'このセクション中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が6以上の時このセクション中、獲得するLOVEを+',
           '%する。'
@@ -515,6 +515,11 @@ export const useSkillStore = defineStore('skillList', {
         groovyAttraction_section2: [
           'ビートハート',
           '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
+          '%する。'
+        ],
+        groovyAttraction_section_upper10: [
+          'ビートハート',
+          '回分のスキルハートを獲得する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+',
           '%する。'
         ]
       },
@@ -633,7 +638,12 @@ export const useSkillStore = defineStore('skillList', {
           'し、このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が3以下の時APを3回復する。'
         ],
-        chillFascinate_stage_voltage: [
+        chillFascinate_stage_voltage_under2: [
+          'このステージ中、獲得するLOVEを+',
+          '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+',
+          'する。'
+        ],
+        chillFascinate_stage_voltage_under5: [
           'このステージ中、獲得するLOVEを+',
           '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
           'する。'
@@ -692,6 +702,21 @@ export const useSkillStore = defineStore('skillList', {
         calmBoost_minus20: [
           '次に使用するスキルハート獲得効果による獲得数を+',
           '%する。さらにボルテージPt.を-20する。'
+        ]
+      },
+      'トリオフライト': {
+        trioFlight_section: [
+          'ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'
+        ]
+      },
+      'トライアングルライト': {
+        triangleLight_stage: [
+          'このステージ中、獲得するLOVEを+',
+          '%し、ボルテージPt.を+',
+          'する。さらにこのステージ中、メンタルの最大値の',
+          '%分のメンタルダメージを無効にする。'
         ]
       }
     }

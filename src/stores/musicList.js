@@ -1746,7 +1746,7 @@ export const useMusicStore = defineStore('musicList', {
           cover: true
         },
         attribute: 'cool',
-        BHcount: 0,
+        BHcount: 63,
         level: 0,
         term: 103,
         center: 'tsuzuri',
@@ -1771,12 +1771,62 @@ export const useMusicStore = defineStore('musicList', {
           cover: true
         },
         attribute: 'smile',
-        BHcount: 0,
+        BHcount: 63,
         level: 0,
         term: 103,
         center: 'kozue',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue']
+      },
+      'ダイヤモンドハッピー': {
+        musicData: {
+          kana: 'だいやもんどはっぴー',
+          singer: '乙宗梢・夕霧綴理・藤島慈',
+          releaseDate: {
+            year: 2013,
+            month: 6,
+            date: 26
+          },
+          numbering: 'TVアニメ「アイカツ! -アイドルカツドウ!-」 1年目後期OPテーマ',
+          BPM: {
+            original: 233,
+            inGame: 233
+          },
+          time: 94.21,
+          cover: true
+        },
+        attribute: 'smile',
+        BHcount: 89,
+        level: 0,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kozue', 'tsuzuri', 'megumi']
+      },
+      'lucky train!': {
+        musicData: {
+          kana: 'らっきーとれいん',
+          singer: '日野下花帆・村野さやか・大沢瑠璃乃',
+          releaseDate: {
+            year: 2015,
+            month: 10,
+            date: 28
+          },
+          numbering: 'TVアニメ「アイカツ! -アイドルカツドウ!-」 4thシーズンEDテーマ',
+          BPM: {
+            original: 147,
+            inGame: 147
+          },
+          time: 93.45,
+          cover: true
+        },
+        attribute: 'cool',
+        BHcount: 48,
+        level: 0,
+        term: 103,
+        center: 'sayaka',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'rurino']
       }
     }
   }),

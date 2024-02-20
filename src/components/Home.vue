@@ -103,7 +103,13 @@
       </v-col>
       <v-col cols="12">
         <b>CARD LIST(カード一覧)</b><br>
-        リンクラ内に実装されているカードの一覧と、カードの属性/スペシャルアピール/スキルレベル/カードシリーズでの絞り込みができます。
+        リンクラ内に実装されているカードの一覧と、カードの属性/スペシャルアピール/スキルレベル/カードシリーズでの絞り込みができます。<br>
+        また、自分が所持しているカードのデータを入力して管理することもできます。
+      </v-col>
+      <v-col cols="12">
+        <b>MUSIC LIST(楽曲一覧)</b><br>
+        リンクラ内に実装されている楽曲の一覧と、獲得ボーナススキル/センター/マスタリーレベル/曲名で絞り込みができます。<br>
+        また、自分のアカウントの楽曲マスタリーレベルの設定ができます。
       </v-col>
       <v-col cols="12">
         <b>ITEM LIST(アイテム一覧)</b><br>
@@ -135,7 +141,7 @@ export default {
   data() {
     return {
       eventList: {
-        'liveGP': {
+        /*'liveGP': {
           title: 'ライブグランプリ「103期第8回個人戦」',
           text: '',
           type: 'liveGP',
@@ -143,16 +149,16 @@ export default {
           lastDay: [2024, 2, 16, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-02-08-10-r1h1jj6fmf',
           img: '103期第8回個人戦_logo.png'
-        },
-        /*'liveGP': {
-          title: 'ライブグランプリ「サークル対抗戦 -Exhibition-」',
+        },*/
+        'liveGP': {
+          title: 'ライブグランプリ「103期2月度サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 1, 24, 10, 0],
-          lastDay: [2024, 1, 31, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-01-22-30-bn39wqn69c',
-          img: 'サークル対抗戦 Exhibition_logo.png'
-        },*/
+          firstDay: [2024, 2, 20, 10, 0],
+          lastDay: [2024, 2, 27, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-02-18-10-ho5zop2fyv',
+          img: '103期2月度サークル対抗戦_logo.png'
+        },
         'unitKoushien': {
           title: 'ライブ「LoveLive! Series Presents ユニット甲子園 2024」',
           firstDay: [2024, 3, 9, 0, 0],

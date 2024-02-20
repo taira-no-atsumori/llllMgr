@@ -204,7 +204,7 @@
     </v-row>
   </v-container>
 
-  <dl id="CDJaketArea">
+  <div id="CDJaketArea">
     <div
       class="CDJaketInnerArea"
       v-for="(ary, songTitle) in makeMusicList(store)"
@@ -222,11 +222,14 @@
         楽曲マスタリーLv.：{{ ary.level }}<br>
         獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(ary.level / 10)}}
       </v-tooltip>
-      <dt class="songTitle mb-2 hamidashi">{{ songTitle }}</dt>
-      <dd>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill" class="skillIcon"></dd>
+      <p class="d-flex flex-row align-center songTitle mb-2">
+        <img :src="require(`@/assets/attribute_icon/icon_${ary.attribute}.png`)" :alt="ary.attribute" class="mr-1" style="width: 20px;">
+        <span class="hamidashi">{{ songTitle }}</span>
+      </p>
+      <div>獲得ボーナススキル:<img :src="require(`@/assets/${ary.bonusSkill}.png`)" :alt="ary.bonusSkill" class="skillIcon"></div>
     </div>
     <div v-if="Object.keys(makeMusicList(store)).length === 0">見つかりませんでした…</div>
-  </dl>
+  </div>
 </template>
 
 <script setup>
@@ -393,11 +396,6 @@ img {
     border-radius: 5px;
     padding: 3px;
     margin-bottom: 5px;
-    text-align: center;
-  }
-
-  .skillIcon {
-    width: 35px;
   }
 
   .songJacket {
