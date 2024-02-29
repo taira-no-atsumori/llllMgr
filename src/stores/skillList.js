@@ -371,7 +371,7 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'クラッチリカバー': {
-        klutchRecover: [
+        clutchRecover: [
           'メンタルが25%以上のとき、メンタルを最大値の',
           '%回復させる。メンタルが25%未満のとき、メンタルを最大値の',
           '%回復させる。'
@@ -437,7 +437,7 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'エクステプロテクト': {
-        extensionsProtect: [
+        extensionsProtect_stage1_stage: [
           'このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の',
           '%分のメンタルダメージを無効にする。'
         ]
@@ -588,6 +588,10 @@ export const useSkillStore = defineStore('skillList', {
       'エクステハート': {
         extensionsHeart_section3: [
           'このセクション中、手札の上限枚数を3枚増加する。さらにビートハート',
+          '回分のスキルハートを獲得する。'
+        ],
+        extensionsHeart_stage1: [
+          'このステージ中、手札の上限枚数を1枚増加する。さらにビートハート',
           '回分のスキルハートを獲得する。'
         ]
       },

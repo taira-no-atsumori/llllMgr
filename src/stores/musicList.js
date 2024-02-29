@@ -1203,6 +1203,106 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi']
       },
+      'BANG YOU グラビティ': {
+        musicData: {
+          kana: 'ばんゆうぐらびてぃ',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 27
+          },
+          numbering: 'みらくらぱーく！ 2ndシングル',
+          BPM: {
+            original: 180,
+            inGame: 180
+          },
+          time: 134.5,
+          cover: false
+        },
+        attribute: 'pure',
+        BHcount: 99,
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi']
+      },
+      'ハッピー至上主義！': {
+        musicData: {
+          kana: 'はっぴーしじょうしゅぎ',
+          singer: 'かほめぐ♡じぇらーと',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 20
+          },
+          numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+          BPM: {
+            original: 173,
+            inGame: 173
+          },
+          time: 113,
+          cover: false
+        },
+        attribute: 'smile',
+        BHcount: 79,
+        level: 0,
+        term: 103,
+        center: 'megumi',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'megumi']
+      },
+      'Pleasure Feather': {
+        musicData: {
+          kana: 'ぷれじゃーふぇざー',
+          singer: '蓮ノ休日',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 20
+          },
+          numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+          BPM: {
+            original: 130,
+            inGame: 130
+          },
+          time: 108.5,
+          cover: false
+        },
+        attribute: 'cool',
+        BHcount: 57,
+        level: 0,
+        term: 103,
+        center: 'sayaka',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['sayaka', 'kozue']
+      },
+      'Colorfulness': {
+        musicData: {
+          kana: 'からふるねす',
+          singer: 'るりのとゆかいなつづりたち',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 20
+          },
+          numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+          BPM: {
+            original: 76,
+            inGame: 76
+          },
+          time: 130.18,
+          cover: false
+        },
+        attribute: 'pure',
+        BHcount: 40,
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['rurino', 'tsuzuri']
+      },
       'Runway': {
         musicData: {
           kana: 'らんうぇい',

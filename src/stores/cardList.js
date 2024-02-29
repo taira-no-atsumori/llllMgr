@@ -123,21 +123,21 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートアトラクション',
               AP: 8,
               detail: [
-                [10, '11?', '12?', '13?', '14?', 15, '16?', '17?', '18?', '20?', '21?', '22?', '23?', 25]
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
-              type: ['heartChaptha', 'loveAttract']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             skill: {
               ID: 'heartAttraction_50',
               name: 'ハートアトラクション',
               AP: 5,
               detail: [
-                [4, '4.4?', '4.8?', '5.2?', '5.6?', '6?', 6.4, '6.8?', '7.2?', 8, '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
-              type: ['heartChaptha', 'loveAttract']
+              type: ['heartCaptcha', 'loveAttraction']
             },
             characteristic: {
-              name: 'フェイバリット : フィーバー',
+              name: 'フェイバリット：フィーバー',
               detail: 'フィーバーセクションでドローされる確率が大幅に増加する。',
               type: ['favorite']
             }
@@ -186,7 +186,7 @@ export const useCardStore = defineStore('cardList', {
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
                 [11.7, 12.9, 14, 15.2, 16.4, 17.6, 18.7, 19.9, 21.1, 23.4, 24.6, 25.7, 26.9, 29.6],
               ],
-              type: ['trio', 'heartCaptcha', 'loveAttract', 'resuffle']
+              type: ['trio', 'heartCaptcha', 'loveAttract', 'reshuffle']
             },
             characteristic: {
               name: 'APレデュース：花帆 & さやか & 瑠璃乃',
@@ -290,7 +290,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ハートアトラクション：梢',
               detail: '手札にある状態で梢のスキルを使用するたび、ビートハート4回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+8%する。',
-              type: ['heartCaptcha', 'loveActraction', 'kozue']
+              type: ['heartCaptcha', 'loveAttraction', 'kozue']
             }
           },
           'Link to the FUTURE': {
@@ -332,7 +332,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートアトラクション',
               AP: 5,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', 11],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '10?', 11],
                 [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
               type: ['heartCaptcha', 'loveAttract']
@@ -372,7 +372,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ヒーリングハート',
               AP: 6,
               detail: [
-                [10, '11?', '12?', '13?', '14?', '15?', '16?', '17?', '18?', '20?', '21?', '22?', '23?', 24],
+                [9.6, 10.56, 11.52, 12.48, 13.44, 14.4, 15.36, 16.32, 17.28, 19.2, 20.16, 21.12, 22.08, 24],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
               type: ['mentalRecover', 'heartCaptcha']
@@ -383,7 +383,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 6,
               detail: [
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
-                [10, '11?', '12?', '13?', '14?', '15?', '16?', '17?', '18?', '20?', '21?', '22?', '23?', 24]
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
               ],
               type: ['loveAttract', 'voltageGain']
             },
@@ -422,7 +422,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リフレッシュハート',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, '11?', '12?', '13?']
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, '13?']
               ],
               type: ['shuffle', 'heartCaptcha']
             },
@@ -480,10 +480,10 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートアトラクション',
               AP: 10,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '20?', '21?', '22?', 24],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 20, 21, 22, 24],
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
               ],
-              type: ['heartChaptha', 'loveAttract']
+              type: ['heartCaptcha', 'loveAttract']
             },
             characteristic: {
               name: 'オーバーセクション：APレデュース & アグレッシブ',
@@ -536,7 +536,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'APレデュース：ラブアトラクト',
               detail: '手札にあるメイン効果に獲得LOVE増加効果を持つスキル1枚につき、手札のこのスキルの消費AP-2。',
-              type: ['APReduce', 'loveActract']
+              type: ['APReduce', 'loveAttract']
             }
           },
           '夏めきペイン': {
@@ -578,7 +578,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, '11?', '12?', '13?']
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, '13?']
               ],
               type: ['heartCaptcha']
             },
@@ -617,7 +617,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートアトラクション',
               AP: 5,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 10, 11],
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11, 12]
               ],
               type: ['heartCaptcha', 'loveAttract']
@@ -811,7 +811,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, '31.5?', '33?', '34.5?', 37.5]
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -859,7 +859,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['heartCaptcha']
             },
@@ -907,7 +907,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, '14?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['heartCaptcha']
             },
@@ -916,7 +916,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', 10]
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
               ],
               type: ['heartCaptcha']
             },
@@ -955,7 +955,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, '33?', '34.5?', 37.5]
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -964,7 +964,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 4,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', 10]
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
               ],
               type: ['heartCaptcha']
             },
@@ -1003,7 +1003,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['heartCaptcha']
             },
@@ -1012,7 +1012,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 3,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
               ],
               type: ['heartCaptcha']
             },
@@ -1024,6 +1024,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'ハッピー至上主義！': {
+            styleType: 'cheerLeader',
+            mood: 'happy',
+            series: 'ハッピー至上主義！',
+            kana: 'はっぴーしじょうしゅぎ',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2430,
+              pure: 1730,
+              cool: 1330,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionsProtect_stage1_stage',
+              name: 'エクステプロテクト',
+              AP: 6,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ],
+              type: ['extensions', 'protect']
+            },
+            skill: {
+              ID: 'endurance_mentalVoltage',
+              name: 'エンデュランス',
+              AP: 2,
+              detail: [
+                [2.8, 3.08, 3.36, 3.64, 3.92, 4.2, 4.48, 4.76, 5.04, 5.6, 5.88, 6.16, 6.44, 7],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]
+              ],
+              type: ['mentalRecover', 'voltageGain']
+            },
+            characteristic: {
+              name: 'ドロー：メンタルリカバー',
+              detail: 'ドローした際、メンタルを最大値の6%回復させる。',
+              type: ['draw', 'mentalRecover']
+            }
+          },
           '迎春 -食-': {
             styleType: 'cheerLeader',
             mood: 'neutral',
@@ -1103,7 +1152,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハイアトラクト',
               AP: 4,
               detail: [
-                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, '5.5?', '5.7?', '6?', 6.4]
+                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]
               ],
               type: ['high', 'loveAttract']
             },
@@ -1112,8 +1161,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'グルーヴィアトラクト',
               AP: 3,
               detail: [
-                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
-                [3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 6, '6.3?', '6.6?', '6.9?', 7.5]
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8],
+                [3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 6, 6.3, 6.6, 6.9, 7.5]
               ],
               type: ['groovy', 'loveAttract']
             },
@@ -1161,10 +1210,10 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハイボルテージ',
               AP: 6,
               detail: [
-                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, '42?', '44?', '46?', 50],
-                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 7],
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 7],
               ],
-              type: ['high',' voltage', 'hartCaptcha']
+              type: ['high',' voltage', 'heartCaptcha']
             },
             characteristic: {
               name: 'APレデュース：メンタル',
@@ -1210,8 +1259,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'サポーテッドフィール',
               AP: 4,
               detail: [
-                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, '10.92?', '11.44?', '11.96?', 13],
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['supported', 'feel']
             },
@@ -1251,7 +1300,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, '34.5?', 37.5]
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -1261,7 +1310,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 5,
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, '18.4?', 20],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', 5]
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
               ],
               type: ['cheerful', 'healing']
             },
@@ -1350,7 +1399,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['heartCaptcha']
             },
@@ -1359,7 +1408,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
               ],
               type: ['heartCaptcha']
             },
@@ -1496,7 +1545,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', '15?']
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, '13?']
               ],
               type: ['heartCaptcha']
             },
@@ -1592,7 +1641,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '12?', '13?']
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, '13?']
               ],
               type: ['heartCaptcha']
             },
@@ -1688,7 +1737,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, '13?', '14?', '15?']
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, '15?']
               ],
               type: ['heartCaptcha']
             },
@@ -1784,7 +1833,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', '15?']
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, '15?']
               ],
               type: ['heartCaptcha']
             },
@@ -1967,7 +2016,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 1,
               detail: [
-                [30, 33, 36, 39, 42, 45, 48, 51, 54, 60, '63?', '66?', '69?', 75]
+                [30, 33, 36, 39, 42, 45, 48, 51, 54, 60, 63, 66, 69, 75]
               ],
               type: ['loveAttract']
             },
@@ -2185,7 +2234,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：綴理 & ドロー：ボルテージゲイン',
               detail: '綴理のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、ボルテージPt.を+18する。',
-              type: ['chain', 'tsuzuri', 'drow', 'voltageGain']
+              type: ['chain', 'tsuzuri', 'draw', 'voltageGain']
             }
           },
           '喫茶ハスノソラ': {
@@ -2213,7 +2262,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'extensionsProtect',
+              ID: 'extensionsProtect_stage1_stage',
               name: 'エクステプロテクト',
               AP: 6,
               detail: [
@@ -2226,8 +2275,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルファッシネイト',
               AP: 2,
               detail: [
-                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 12]
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12]
               ],
               type: ['cheerful', 'fascinate']
             },
@@ -2519,7 +2568,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 6,
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '10?', 11],
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['heartCaptcha', 'loveAttraction']
             },
@@ -2655,7 +2704,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['heartCaptcha']
             },
@@ -2703,7 +2752,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, '33?', '34.5?', 37.5]
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -2760,7 +2809,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 5,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, '11?', '11?', '12?', 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
               ],
               type: ['heartCaptcha']
             },
@@ -2799,7 +2848,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, '31.5?', '33?', '34.5?', 37.5],
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -3143,7 +3192,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, '31.5?', '33?', '34.5?', 37.5]
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -3760,7 +3809,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 1,
               detail: [
-                [1.9, '2.1?', '2.3?', '2.5?', '2.7?', '2.9?', '3?', '3.2?', '3.4?', '3.8?', '4?', '4.2?', '4.4?', 4.8]
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8]
               ],
               type: ['regainAttract']
             },
@@ -3769,7 +3818,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 6,
               detail: [
-                [4, '4.4?', '4.8?', '5.2?', '5.6?', '6?', '6.4?', '6.8?', '7.2?', '8?', '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['regainAttract']
             },
@@ -3781,6 +3830,57 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Colorfulness': {
+            styleType: 'cheerLeader',
+            mood: 'melow',
+            series: 'Colorfulness',
+            kana: 'からふるねす',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1330,
+              pure: 1830,
+              cool: 2680,
+              mental: 153,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'replayAttraction_section',
+              name: 'リプレイアトラクション',
+              AP: 7,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+              ],
+              type: ['replay', 'reshuffle', 'heartCaptcha', 'loveAttraction']
+            },
+            skill: {
+              ID: 'recoverAttraction_section',
+              name: 'リカバーアトラクション',
+              AP: 1,
+              detail: [
+                [19.2, 21.12, 23.04, 24.96, 26.88, 28.8, 30.72, 32.64, 34.56, 38.4, 40.32, 42.24, 44.16, 48],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+                [4.5, 5, 5.4, 5.9, 6.3, 6.8, 7.2, 7.7, 8.1, 9, 9.5, 9.9, 10.4, 11.3]
+              ],
+              type: ['mentalRecover', 'heartCaptcha', 'loveAttraction']
+            },
+            characteristic: {
+              name: 'APエスカレート：メンタル',
+              detail: '現在の残りメンタルが多いほどスキルの消費AP増加(最大+9 最小+1)',
+              type: ['APEscalate' ,'mental']
+            }
+          },
           '蓮ノ空歌留多': {
             styleType: 'performer',
             mood: 'neutral',
@@ -4009,7 +4109,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, '22?', '23?', '25?']
               ],
-              type: ['reflesh', 'mentalRecover']
+              type: ['refresh', 'mentalRecover']
             },
             skill: {
               ID: 'refreshHeart',
@@ -4018,12 +4118,12 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, '7?', '7?', '8?']
               ],
-              type: ['reflesh', 'heartCaptcha']
+              type: ['refresh', 'heartCaptcha']
             },
             characteristic: {
               name: 'ドロー：ラブアトラクト',
               detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。',
-              type: ['drow', 'loveAttract_stage']
+              type: ['draw', 'loveAttract_stage']
             }
           },
           'コットン=ユートピア': {
@@ -4055,7 +4155,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 6,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['regain', 'loveAttract']
             },
@@ -4104,7 +4204,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'エクステアトラクト',
               AP: 7,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['extensions', 'loveAttract']
             },
@@ -4113,7 +4213,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 10,
               detail: [
-                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8]
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8]
               ],
               type: ['regain', 'loveAttract']
             },
@@ -4157,14 +4257,14 @@ export const useCardStore = defineStore('cardList', {
               type: ['refreshMind']
             },
             skill: {
-              ID: 'klutchRecover',
+              ID: 'clutchRecover',
               name: 'クラッチリカバー',
               AP: 5,
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 25],
                 [15.2, 16.72, 18.24, 19.76, 21.28, 22.8, 24.32, 25.84, 27.36, 30.4, '31.92?', '33.44?', '34.96?', 38]
               ],
-              type: ['klutchRecover']
+              type: ['clutchRecover']
             },
             characteristic: {
               name: 'APレデュース：ハイメンタル',
@@ -4211,7 +4311,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルアトラクト',
               AP: 5,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['cheerful', 'loveAttract']
             },
@@ -4260,7 +4360,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 5,
               detail: [
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', 10],
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', '12?']
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['heartCaptcha', 'loveAttraction']
             },
@@ -4308,8 +4408,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'リプレイアトラクション',
               AP: 5,
               detail: [
-                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, '7?', 7],
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, '7.4?', 8]
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 7],
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['replayAttraction']
             },
@@ -4348,7 +4448,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 6,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['regainAttract']
             },
@@ -4651,7 +4751,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リフレッシュマインド',
               AP: 4,
               detail: [
-                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, '10.8?', '10.56?', '11.04?', '12?']
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]
               ],
               type: ['shuffle', 'mentalRecover']
             },
@@ -4690,7 +4790,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 6,
               detail: [
-                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, '5.5?', '5.7?', '6?', 6.4]
+                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]
               ],
               type: ['regain', 'loveAttract']
             },
@@ -4835,7 +4935,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リフレッシュハート',
               AP: 6,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, '9?', '9?', '10?']
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, '10?']
               ],
               type: ['shuffle', 'heart']
             },
@@ -4892,7 +4992,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リフレッシュマインド',
               AP: 4,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', '12?']
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['shuffle', 'mentalRecover']
             },
@@ -5067,8 +5167,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'ファッシネイション',
               AP: 1,
               detail: [
-                [2.6, '?', '?', '?', '?', 3.9, '?', '?', '?', '?', '?', '?', '?', 6.4],
-                [6, '?', '?', '?', '?', 9, '?', '?', '?', '?', '?', '?', '?', 16]
+                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 16]
               ],
               type: ['loveAttract', 'voltageGain']
             },
@@ -5170,8 +5270,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'グルーヴィアトラクション',
               AP: 4,
               detail: [
-                [2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.6, 4.9, 5.2, 5.8, '6.1?', '6.4?', '6.7?', 7.2],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, '4?', '4?', '5?', 6]
+                [2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.6, 4.9, 5.2, 5.8, 6.1, 6.4, 6.7, 7.2],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
               type: ['groovy', 'loveAttraction', 'heartCaptcha']
             },
@@ -5378,7 +5478,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', 12],
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12],
                 [2.4, 2.6, 2.9, 3.1, 3.4, 3.6, 3.8, 4.1, 4.3, 4.8, '5?', '5.3?', '5.5?', 6]
               ],
               type: ['cheerful', 'loveAttract']
@@ -5418,7 +5518,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15]
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]
               ],
               type: ['loveAttract']
             },
@@ -5427,7 +5527,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -5563,7 +5663,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -5611,7 +5711,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', '12?']
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -5620,7 +5720,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', '12?']
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -5668,7 +5768,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 3,
               detail: [
-                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, '5.7?', '6?', 6.4]
+                [2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]
               ],
               type: ['loveAttract']
             },
@@ -5716,7 +5816,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 4,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['loveAttract']
             },
@@ -5755,7 +5855,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -5812,7 +5912,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 4,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['loveAttract']
             },
@@ -5851,7 +5951,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 4,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['loveAttract']
             },
@@ -5872,6 +5972,54 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Pleasure Feather': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'Pleasure Feather',
+            kana: 'ぷれじゃーふぇざー',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1430,
+              pure: 2330,
+              cool: 1830,
+              mental: 173,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'regainVoltage',
+              name: 'リゲインボルテージ',
+              AP: 6,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ],
+              type: ['reshuffle', 'voltageGain']
+            },
+            skill: {
+              ID: 'loveAttract_section',
+              name: 'ラブアトラクト',
+              AP: 5,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ],
+              type: ['loveAttract']
+            },
+            characteristic: {
+              name: 'ドロー：APレデュース',
+              detail: 'ドローしたセクションの間、消費APを-3する。',
+              type: ['draw', 'APReduce']
+            }
+          },
           '節分 -魅-': {
             styleType: 'performer',
             mood: 'neutral',
@@ -5914,7 +6062,7 @@ export const useCardStore = defineStore('cardList', {
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, '9?'],
                 [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
-              type: ['calm', 'heartCaption', 'loveAttraact']
+              type: ['calm', 'heartCaption', 'loveAttract']
             },
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト',
@@ -6050,7 +6198,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 6,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, '7?', '7.4?', '8?']
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, '8?']
               ],
               type: ['regain', 'loveAttract']
             },
@@ -6059,7 +6207,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルアトラクト',
               AP: 3,
               detail: [
-                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, '4?', '4.2?', '4.4?', 4.8],
+                [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8],
                 [0.6, 0.7, 0.7, 0.8, 0.8, 0.9, 1, 1, 1.1, 1.2, '1.3?', '1.3?', '1.4?', '1.5?']
               ],
               type: ['cheerful', 'loveAttract']
@@ -6147,7 +6295,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -6156,7 +6304,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルプロテクト',
               AP: 5,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, '9.2?', 10],
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
                 [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
               type: ['cheerful', 'protect']
@@ -6292,7 +6440,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['loveAttract']
             },
@@ -6301,7 +6449,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['loveAttract']
             },
@@ -6436,7 +6584,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['loveAttract']
             },
@@ -6580,7 +6728,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, '10.6?', '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -6589,7 +6737,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 5,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['loveAttract']
             },
@@ -6637,7 +6785,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 5,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['loveAttract']
             },
@@ -6860,8 +7008,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'インヴォケーション',
               AP: 7,
               detail: [
-                [38, '?', '?', '?', '?', '57?', '?', '?', '?', '76?', '?', '?', '?', 96],
-                [4.8, '5.28?', '5.76?', '6.24?', '6.72?', '7.2?', '7.68?', '8.16?', '8.64?', '9.6?', '10.08?', '10.56?', '11.04?', 12]
+                [38, 42, 46, 49, 53, 57, 61, 65, 68, 76, 80, 84, 87, 96],
+                [4.8, '5.28?', '5.76?', '6.24?', '6.72?', 7.2, '7.68?', '8.16?', '8.64?', 9.6, '10.08?', '10.56?', '11.04?', 12]
               ],
               type: ['voltageGain', 'loveAttract']
             },
@@ -6870,8 +7018,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージハート',
               AP: 2,
               detail: [
-                [10, '11?', '12?', '13?', '14?', '15?', '16?', '17?', '18?', 20, '21?', '22?', '23?', 26],
-                [2, '2?', '2?', '3?', '3?', '3?', '3?', '3?', '4?', 4, '4?', '4?', '5?', 5],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
               ],
               type: ['voltageGain', 'heartCaptcha']
             },
@@ -6913,7 +7061,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 4,
               detail: [
                 [9, 9.9, 10.8, 11.7, 12.6, 13.5, 14.4, 15.3, 16.2, 18, 18.9, 19.8, 20.7, 22.5],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, '4?', '4?', '5?', 6]
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
               type: ['groovy', 'loveAttract', 'heartCaptcha']
             },
@@ -7108,7 +7256,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージゲイン',
               AP: 4,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
               type: ['voltageGain']
             },
@@ -7117,8 +7265,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルボルテージ',
               AP: 4,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', 5]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
               ],
               type: ['cheerful', 'voltageGain']
             },
@@ -7157,7 +7305,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルアトラクション',
               AP: 6,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
                 [7.5, 8.3, 9, 9.8, 10.5, 11.3, 12, 12.8, 13.5, 15, '15.8?', '16.5?', '17.3?', 18.8]
               ],
               type: ['cheerful', 'attraction']
@@ -7167,7 +7315,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'チアフルハート',
               AP: 4,
               detail: [
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, '13?', '13?', '14?', 15],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, '6?', '7?', '7?', 8]
               ],
               type: ['cheerful', 'heart']
@@ -7256,7 +7404,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージゲイン',
               AP: 4,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
               type: ['voltageGain']
             },
@@ -7353,8 +7501,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージハート',
               AP: 6,
               detail: [
-                [19, 21, 23, 25, 27, 29, 30, 32, 34, 38, '40?', '42?', '44?', 48],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, '4?', '4?', '5?', 6]
+                [19, 21, 23, 25, 27, 29, 30, 32, 34, 38, 40, 42, 44, 48],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
               type: ['voltageGain', 'heartCaptcha']
             },
@@ -7363,7 +7511,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージゲイン',
               AP: 5,
               detail: [
-                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, '46?', 50]
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
               ],
               type: ['voltageGain']
             },
@@ -7500,7 +7648,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, '10.1?', '10.6?', '11.1?', 12]
+                [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['loveAttract']
             },
@@ -7509,7 +7657,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージゲイン',
               AP: 4,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', 40]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
               type: ['voltageGain']
             },
@@ -7548,20 +7696,20 @@ export const useCardStore = defineStore('cardList', {
               name: 'イニシアチブ',
               AP: 7,
               detail: [
-                [22, 24, 26, 29, 31, 33, 35, 37, 40, 44, '46?', '48?', '51?', 54],
-                [3.6, 3.96, 4.32, 4.68, 5.04, 5.4, 5.76, 6.12, 6.48, 7.2, '7.56?', '7.92?', '8.28?', 9]
+                [22, 24, 26, 29, 31, 33, 35, 37, 40, 44, 46, 48, 51, 54],
+                [3.6, 3.96, 4.32, 4.68, 5.04, 5.4, 5.76, 6.12, 6.48, 7.2, 7.56, 7.92, 8.28, 9]
               ],
-              type: ['initiative']
+              type: ['voltageGain', 'protect']
             },
             skill: {
               ID: 'initiative',
               name: 'イニシアチブ',
               AP: 5,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', 40],
-                [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, '4.2?', '4.4?', '4.6?', 5]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, 4.2, 4.4, 4.6, 5]
               ],
-              type: ['initiative']
+              type: ['voltageGain', 'protect']
             },
             characteristic: {
               name: 'フェイバリット：1',
@@ -7598,7 +7746,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージゲイン',
               AP: 2,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, '23?', 24]
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
               ],
               type: ['voltageGain']
             },
@@ -7710,7 +7858,7 @@ export const useCardStore = defineStore('cardList', {
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
                 [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 16]
               ],
-              type: ['groovy', 'vontageGain', 'heartCaptcha']
+              type: ['groovy', 'voltageGain', 'heartCaptcha']
             },
             characteristic: {
               name: 'APレデュース：さやか & ボルテージゲイン：さやか',
@@ -7757,7 +7905,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'カームアトラクション',
               AP: 3,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 11],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '10?', 11],
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12]
               ],
               type: ['calm', 'heartCaptcha', 'loveAttract']
@@ -7906,10 +8054,10 @@ export const useCardStore = defineStore('cardList', {
               name: 'イニシアチブ',
               AP: 6,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', 40],
-                [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, '4.2?', '4.4?', '4.6?', 5]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, 4.2, 4.4, 4.6, 5]
               ],
-              type: ['initiative']
+              type: ['voltageGain', 'protect']
             },
             characteristic: {
               name: 'オーバーセクション：APレデュース & マチュレーション',
@@ -7949,7 +8097,7 @@ export const useCardStore = defineStore('cardList', {
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 26],
                 [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, '3.36?', '3.48?', '3.64?', 4]
               ],
-              type: ['initiative']
+              type: ['voltageGain', 'protect']
             },
             skill: {
               ID: 'cheerfulVoltage_voltageGain',
@@ -7996,8 +8144,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージハート',
               AP: 6,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, '37?', 40],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', 6]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
               ],
               type: ['voltageGain', 'heartCaptcha']
             },
@@ -8006,7 +8154,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートキャプチャ',
               AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, '12?', 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
               ],
               type: ['heartCaptcha']
             },
@@ -8286,7 +8434,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ボルテージゲイン',
               AP: 5,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, '34?', '35?', '37?', 40]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
               type: ['voltageGain']
             },
@@ -8295,7 +8443,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 5,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['loveAttract']
             },
@@ -8382,7 +8530,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 7,
               detail: [
-                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, '31.5?', '33?', '34.5?', 37.5]
+                [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]
               ],
               type: ['loveAttract']
             },
@@ -8398,7 +8546,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ボルテージゲイン',
               detail: 'ドローした時、ボルテージ値を+12する。',
-              type: ['draw', 'valtageGain']
+              type: ['draw', 'voltageGain']
             }
           },
           '春色ニューデイズ': {
@@ -8710,20 +8858,20 @@ export const useCardStore = defineStore('cardList', {
               name: 'プロテクトフィール',
               AP: 3,
               detail: [
-                [3.2, '3.5?', '3.8?', '4.2?', '4.5?', '4.8?', '5.1?', '5.4?', '5.8?', '6.4?', '6.7?', '7?', '7.4?', 8],
-                [1.3, '1.4?', '1.6?', '1.7?', '1.8?', '2', '2.1?', '2.2?', '2.3?', '2.6?', '2.7?', '2.9?', '3?', 3.2]
+                [3.2, '3.5?', '3.8?', '4.2?', '4.5?', 4.8, '5.1?', '5.4?', '5.8?', 6.4, '6.7?', '7?', '7.4?', 8],
+                [1.3, '1.4?', '1.6?', '1.7?', '1.8?', 2, '2.1?', '2.2?', '2.3?', 2.6, '2.7?', '2.9?', '3?', 3.2]
               ],
-              type: ['protect', 'feel']
+              type: ['protect', 'loveAttract', 'APReduce']
             },
             skill: {
               ID: 'endurance_APreduce',
               name: 'エンデュランス',
               AP: 4,
               detail: [
-                [16, '18?', '19?', '21?', '22?', '24?', '26?', '27?', '29?', '32?', '34?', '35?', '37?', 40],
-                [4, '4.4?', '4.8?', '5.2?', '5.6?', '6?', '6.4?', '6.8?', '7.2?', '8?', '8.4?', '8.8?', '9.2?', 10]
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
-              type: ['endurance']
+              type: ['voltageGain', 'mentalRecover', 'APReduce']
             },
             characteristic: {
               name: 'ドロー：プロテクト & APゲイン',
@@ -8733,6 +8881,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ハッピー至上主義！': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'ハッピー至上主義！',
+            kana: 'はっぴーしじょうしゅぎ',
+            gacha: {
+              addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
+              period: '冬限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 2930,
+              pure: 1830,
+              cool: 930,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionsHeart_stage1',
+              name: 'エクステハート',
+              AP: 6,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
+              ],
+              type: ['extensions', 'reshuffle', 'heartCaptcha']
+            },
+            skill: {
+              ID: 'heartAttraction_section',
+              name: 'ハートアトラクション',
+              AP: 7,
+              detail: [
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+                [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18]
+              ],
+              type: ['heartCaptcha', 'loveAttraction']
+            },
+            characteristic: {
+              name: 'APレデュース：ラブアトラクト',
+              detail: '手札にある状態メイン効果に獲得LOVE増加効果を持つスキル1枚につき、手札のこのスキルの消費AP-2。',
+              type: ['APreduce' ,'loveAttract']
+            }
+          },
           'ハクチューアラモード': {
             styleType: 'performer',
             mood: 'happy',
@@ -8764,7 +8961,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
-              type: ['extentions', 'loveAttract']
+              type: ['extensions', 'loveAttract']
             },
             skill: {
               ID: 'aggressiveAttraction_section',
@@ -8812,7 +9009,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 4,
               detail: [
                 [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, '15.84?', '16.56?', '18?'],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, '4?', '5?', '6?']
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, '6?']
               ],
               type: ['groovy', 'mentalRecover', 'heartCaptcha']
             },
@@ -8822,7 +9019,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 5,
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, '4?', '5?', '6?']
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, '6?']
               ],
               type: ['voltageGain', 'heartCaptcha']
             },
@@ -8864,7 +9061,7 @@ export const useCardStore = defineStore('cardList', {
                 [11.6, 12.76, 13.92, 15.08, 16.24, 17.4, 18.56, 19.72, 20.88, 23.2, 24.36, 25.52, 26.68, 29],
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]
               ],
-              type: ['healing', 'hartCaptcha']
+              type: ['healing', 'heartCaptcha']
             },
             skill: {
               ID: 'groovyRecover',
@@ -8879,7 +9076,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：瑠璃乃 & ドロー：メンタルリカバー',
               detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、メンタルを最大値の10%回復させる。',
-              type: ['chain', 'tsuzuri', 'drow', 'mentalRecover']
+              type: ['chain', 'tsuzuri', 'draw', 'mentalRecover']
             }
           },
           '冬のおくりもの': {
@@ -8960,7 +9157,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 4,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.4?', '8?']
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, '8?']
               ],
               type: ['loveAttract']
             },
@@ -9107,7 +9304,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'リゲインアトラクト',
               AP: 6,
               detail: [
-                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, '6.7?', '7?', '7.3?', 8]
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
               ],
               type: ['regain', 'loveAttract']
             },
@@ -9155,7 +9352,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 5,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, '8.8?', '9.2?', '10?']
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['loveAttract']
             },
@@ -9164,7 +9361,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'エンデュランス',
               AP: 5,
               detail: [
-                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, '11.44?', '11.96?', '13?'],
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],
                 [5, 6, 6, 7, 7, 8, 8, 8, 9, 10, 11, '12?', '13?', '15?']
               ],
               type: ['endurance']
@@ -9270,7 +9467,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'APレデュース：ローメンタル',
               detail: 'メンタルが30％以下の時にドローすると、消費APを-2する。',
-              type: ['APreduce', 'lowMeental']
+              type: ['APreduce', 'lowMental']
             }
           }
         },
@@ -9317,7 +9514,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
-              type: ['calm', 'extensions', 'loveAttraact']
+              type: ['calm', 'extensions', 'loveAttract']
             },
             characteristic: {
               name: 'オーバーセクション：ボルテージゲイン',
@@ -9454,7 +9651,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 6,
               detail: [
                 [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, '18.4?', '20?'],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, '5?', '6?']
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, '5?']
               ],
               type: ['mentalRecover', 'heartCaptcha']
             },
@@ -9463,7 +9660,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'サポーテッドフィール',
               AP: 4,
               detail: [
-                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, '11.96?', '13?'],
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],
                 [1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.5]
               ],
               type: ['mentalRecover', 'loveAttract']
@@ -9471,7 +9668,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：メンタルリカバー',
               detail: 'ドローした時、メンタルの最大値の6%回復させる。',
-              type: ['drow', 'mentalRecover']
+              type: ['draw', 'mentalRecover']
             }
           },
           'コットン=ユートピア': {
@@ -9551,7 +9748,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートアトラクション',
               AP: 6,
               detail: [
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '?', '?', '?', 11],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '10?', 11],
                 [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
               ],
               type: ['heartCaptcha', 'loveAttraction']
@@ -9648,7 +9845,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ラブアトラクト',
               AP: 6,
               detail: [
-                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, '8.4?', '8.8?', '9.2?', 10]
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ],
               type: ['loveAttract']
             },
@@ -9657,7 +9854,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'メンタルリカバー',
               AP: 6,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, '21?', '22?', '23?', 25]
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ],
               type: ['mentalRecover']
             },
@@ -9803,10 +10000,10 @@ export const useCardStore = defineStore('cardList', {
               name: 'メンタルプロテクト',
               AP: 4,
               detail: [
-                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, '10.8?', '10.56?', '11.04?', '12?'],
-                [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, '4.2?', '4.4?', '4.6?', '5?']
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
+                [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, 4.2, 4.4, 4.6, 5]
               ],
-              type: ['mental', 'protect']
+              type: ['mentalRecover', 'protect']
             },
             characteristic: {
               name: 'チェイン：瑠璃乃',

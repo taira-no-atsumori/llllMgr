@@ -39,18 +39,17 @@
           open-delay="250"
         >
           <template v-slot:activator="{ props }">
-            <div
-              v-bind="props"
-            >
+            <div v-bind="props">
               <img
                 :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.png`)"
               >
-              <div class="px-2 pb-1 cardName hamidashi">
-                <v-img
+                <div class="d-flex flex-row align-center px-1 pb-1 cardName">
+                <img
                   :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
-                  class="icon type"
-                ></v-img>
-                {{ key.cardName }}
+                  class="icon type mr-1"
+                  style="width: 20px;"
+                >
+                <span class="hamidashi" style="padding-top: 2px;">{{ key.cardName }}</span>
               </div>
             </div>
           </template>
