@@ -2869,6 +2869,54 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Pleasure Feather': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'Pleasure Feather',
+            kana: 'ぷれじゃーふぇざー',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期2月度 サークル対抗戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1530,
+              pure: 2230,
+              cool: 1730,
+              mental: 183,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'regainAttract_stage',
+              name: 'リゲインアトラクト',
+              AP: 6,
+              detail: [
+                [3.2, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ],
+              type: ['reshuffle', 'loveAttract']
+            },
+            skill: {
+              ID: 'loveAttract_stage',
+              name: 'ラブアトラクト',
+              AP: 5,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ],
+              type: ['loveAttract']
+            },
+            characteristic: {
+              name: 'ドロー：APレデュース',
+              detail: 'ドローしたセクションの間、消費APを-3する。',
+              type: ['draw', 'APReduce']
+            }
+          },
           'Eisprinzessin': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -7031,6 +7079,54 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Colorfulness': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'Colorfulness',
+            kana: 'からふるねす',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期2月度 サークル対抗戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1330,
+              pure: 2030,
+              cool: 2330,
+              mental: 163,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'regainVoltage',
+              name: 'リゲインボルテージ',
+              AP: 6,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+              ],
+              type: ['reshuffle', 'voltageGain']
+            },
+            skill: {
+              ID: 'extensionsVoltage_section',
+              name: 'エクステボルテージ',
+              AP: 1,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, '25?']
+              ],
+              type: ['extensions', 'voltageGain']
+            },
+            characteristic: {
+              name: 'アキューミュレイト',
+              detail: '使用する度に消費APが低下する。',
+              type: ['accumulate']
+            }
+          },
           '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
