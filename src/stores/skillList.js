@@ -293,7 +293,11 @@ export const useSkillStore = defineStore('skillList', {
         ]
       },
       'エクステボルテージ': {
-        extensionsVoltage_section: [
+        extensionsVoltage2_section: [
+          'このセクション中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
+          'する。'
+        ],
+        extensionsVoltage3_section: [
           'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージPt.を+',
           'する。'
         ],

@@ -204,17 +204,22 @@
     </v-row>
   </v-container>
 
-  <div id="CDJaketArea">
+  <div id="CDJacketArea">
     <div
-      class="CDJaketInnerArea"
+      class="CDJacketInnerArea"
       v-for="(ary, songTitle) in makeMusicList(store)"
       :key="ary"
       @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
     >
       <v-tooltip location="bottom">
         <template v-slot:activator="{ props }">
-          <div v-bind="props">
-            <p><img :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.jpg`)" :alt="songTitle" class="songJacket"></p>
+          <div v-bind="props" class="mb-2">
+            <v-img
+              :lazy-src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
+              :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
+              :alt="songTitle"
+              class="songJacket"
+            ></v-img>
           </div>
         </template>
         <p class="mb-2">{{ songTitle }}</p>
@@ -331,13 +336,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#CDJaketArea {
+#CDJacketArea {
   display: flex;
   flex-wrap: wrap;
   font-size: 14px;
 }
 
-.CDJaketInnerArea {
+.CDJacketInnerArea {
   width: 150px;
   height: 100%;
   margin: 0 5px 5px 5px;
@@ -385,7 +390,7 @@ img {
 }
 
 @media screen and (max-width: 600px) {
-  .CDJaketInnerArea {
+  .CDJacketInnerArea {
     width: 47%;
     height: 100%;
     margin: 0 1.5% 5px 1.5%;

@@ -2112,7 +2112,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'extensionsVoltage_section',
+              ID: 'extensionsVoltage3_section',
               name: 'エクステボルテージ',
               AP: 5,
               detail: [
@@ -2320,7 +2320,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['regain', 'voltageGain']
             },
             skill: {
-              ID: 'extensionsVoltage_section',
+              ID: 'extensionsVoltage3_section',
               name: 'エクステボルテージ',
               AP: 5,
               detail: [
@@ -4004,7 +4004,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'extensionsVoltage_section',
+              ID: 'extensionsVoltage3_section',
               name: 'エクステボルテージ',
               AP: 5,
               detail: [
@@ -7113,9 +7113,9 @@ export const useCardStore = defineStore('cardList', {
               type: ['reshuffle', 'voltageGain']
             },
             skill: {
-              ID: 'extensionsVoltage_section',
+              ID: 'extensionsVoltage2_section',
               name: 'エクステボルテージ',
-              AP: 1,
+              AP: 3,
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, '25?']
               ],

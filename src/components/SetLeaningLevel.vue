@@ -11,7 +11,12 @@
 
     <v-row no-gutters>
       <v-col class="mb-3" cols="12" sm="6">
-        <img :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.jpg`)" :alt="store.selectMusicTitle" class="mb-2">
+        <v-img
+          :lazy-src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.webp`)"
+          :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.webp`)"
+          :alt="store.selectMusicTitle"
+          class="mb-2"
+        ></v-img>
 
         <v-expansion-panels>
           <v-expansion-panel>
