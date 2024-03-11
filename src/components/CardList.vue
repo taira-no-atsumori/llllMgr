@@ -21,7 +21,7 @@
     ><v-icon class="mr-2">mdi-filter</v-icon>絞り込み</v-btn>
     絞り込み結果：{{ store.outputCardList.length }}枚
 
-    <hr class="my-3">
+    <v-divider class="my-3"></v-divider>
 
     <div id="cardListArea">
       <div v-if="store.outputCardList.length === 0">
@@ -40,10 +40,11 @@
         >
           <template v-slot:activator="{ props }">
             <div v-bind="props">
-              <img
-                :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.png`)"
-              >
-                <div class="d-flex flex-row align-center px-1 pb-1 cardName">
+              <v-img
+                :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.${key.rare === 'DR' || key.rare === 'R' ? 'webp' : 'png'}`)"
+                :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.${key.rare === 'DR' || key.rare === 'R' ? 'webp' : 'png'}`)"
+              ></v-img>
+              <div class="d-flex flex-row align-center pa-1 cardName">
                 <img
                   :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
                   class="icon type mr-1"

@@ -1,9 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      color="pink"
-      density="comfortable"
-    >
+    <v-app-bar density="comfortable" color="pink">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
       <v-toolbar-title class="d-none d-sm-block">リンクラ マネージャー！</v-toolbar-title>
       <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
@@ -14,7 +11,6 @@
         data-url="x.gd/VR5u2"
         data-hashtags="リンマネ"
         data-show-count="false"
-        v-if="false"
       >
         Share
       </a>
@@ -63,23 +59,16 @@
         @click="pageMove(arr.url)">
       </v-list-item>
     </v-navigation-drawer>
+
     <v-main>
       <router-view/>
     </v-main>
 
     <Modal/>
 
-    <v-footer
-      color="pink"
-    >
-      <v-row
-        justify="center"
-        no-gutters
-      >
-        <v-col
-          class="mt-2 mb-3 text-center"
-          cols="12"
-        >
+    <v-footer color="pink">
+      <v-row no-gutters justify="center">
+        <v-col cols="12" class="mt-2 mb-3 text-center">
           <a
             v-for="(arr, pageTitle) of pageList"
             :key="arr"
@@ -88,10 +77,7 @@
             @click="pageMove(arr.url)"
           >{{ pageTitle.toUpperCase() }}</a>
         </v-col>
-        <v-col
-          class="text-center"
-          cols="12"
-        >
+        <v-col cols="12" class="text-center">
           © 2023 - {{ new Date().getFullYear() }} <strong>taira no atsumori</strong>
         </v-col>
       </v-row>
@@ -140,6 +126,11 @@ export default {
     }
   },
   created() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
+      alert('本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。');
+    }
+
     if (localStorage.inflow !== undefined) {
       const pageName = localStorage.inflow;
       localStorage.removeItem('inflow');

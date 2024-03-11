@@ -3,7 +3,18 @@
     <v-row no-gutters class="mb-3">
       <v-col cols="12">
         <h3 class="text-center">
-          {{ store.selectMusicTitle }}<br>
+          <v-tooltip location="bottom" v-if="store.musicList[store.selectMusicTitle].musicData.link !== ''">
+            <template v-slot:activator="{ props }">
+              <a
+                :href="store.musicList[store.selectMusicTitle].musicData.link !== '' ? store.musicList[store.selectMusicTitle].musicData.link : 'javascript:void(0)'"
+                target="_blank"
+                style="color: black;"
+                v-bind="props"
+              >{{ store.selectMusicTitle }}</a>
+            </template>
+            YouTubeで試聴する
+          </v-tooltip>
+          <span v-else>{{ store.selectMusicTitle }}</span><br>
           {{ store.musicList[store.selectMusicTitle].musicData.singer }}
         </h3>
       </v-col>
@@ -24,7 +35,7 @@
             <v-expansion-panel-text>
               <v-row no-gutters>
                 <v-col cols="12" class="mb-1">
-                  <h4>発売 / 発表日</h4>
+                  <h4>発売(発表)日</h4>
                   {{ store.makeReleaseDate }}
                 </v-col>
                 <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.numbering">

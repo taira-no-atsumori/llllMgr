@@ -18,7 +18,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 162
           },
           time: 139.26,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/QUa6HMcRSnc?si=0OipC7BbXPRZoDAR'
         },
         attribute: 'smile',
         BHcount: 92,
@@ -43,7 +44,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 162
           },
           time: 109.63,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/rT3v54pmNXA?si=-6eg8PuAsUkwINYU&t=67'
         },
         attribute: 'smile',
         BHcount: 72,
@@ -68,7 +70,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 154
           },
           time: 96.62,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/x8QrjuoxJ-s?si=Xn91wzDfHxrhaRjI'
         },
         attribute: 'cool',
         BHcount: 60,
@@ -93,7 +96,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 136
           },
           time: 104.12,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/rFu_T2qZA-M?si=xa8doPhG2O2hCg8R'
         },
         attribute: 'cool',
         BHcount: 57,
@@ -118,7 +122,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 162
           },
           time: 109.63,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/sPORZ8XxsDA?si=sREECA9n1ZRdmB6o'
         },
         attribute: 'smile',
         BHcount: 68,
@@ -143,7 +148,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 188
           },
           time: 91.92,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/nF3s1RC_HDA?si=IDw5KgeLVLS6SeKw'
         },
         attribute: 'pure',
         BHcount: 66,
@@ -168,7 +174,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 162
           },
           time: 139.26,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/AGtF3sfx10o?si=zW00SJ_dZx1fjxBa'
         },
         attribute: 'smile',
         BHcount: 88,
@@ -193,7 +200,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 160
           },
           time: 148.51,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=6f2QdaWj5lYgTWP_&t=790'
         },
         attribute: 'smile',
         BHcount: 93,
@@ -218,7 +226,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 122
           },
           time: 86.56,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Jzg41mZGJRw?si=edZhXQbA2yBbp9AZ'
         },
         attribute: 'cool',
         BHcount: 42,
@@ -243,7 +252,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 170
           },
           time: 148.23,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=1ugEBdpa2bBX7CZ5&t=103'
         },
         attribute: 'smile',
         BHcount: 103,
@@ -268,7 +278,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 164
           },
           time: 122.93,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=MVogreQamGLHPwXx&t=707'
         },
         attribute: 'cool',
         BHcount: 82,
@@ -293,7 +304,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 177
           },
           time: 109.83,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/okQJ8QQRhaM?si=kcpavJGfMr4SlqUz'
         },
         attribute: 'pure',
         BHcount: 79,
@@ -318,7 +330,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 183
           },
           time: 140.33,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/y7CiaEUtqeI?si=yx8YEoAqbJ5IFF_C'
         },
         attribute: 'smile',
         BHcount: 105,
@@ -343,7 +356,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 160
           },
           time: 97.50,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/yu3-GPN5fVE?si=bhjSkSyQjS2kmHse'
         },
         attribute: 'cool',
         BHcount: 63,
@@ -368,7 +382,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 175
           },
           time: 98.74,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/a5PMdCUekvw?si=B8mXWg0nD02X_88X&t=12'
         },
         attribute: 'smile',
         BHcount: 70,
@@ -393,7 +408,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 220
           },
           time: 78.55,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/dFrbBRm_Ghw?si=UoxuVFfCu3aVugsN'
         },
         attribute: 'smile',
         BHcount: 70,
@@ -418,7 +434,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 174
           },
           time: 117.58,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/a5PMdCUekvw?si=4F_--5_bD_UAwHnM&t=170'
         },
         attribute: 'pure',
         BHcount: 83,
@@ -443,7 +460,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 104
           },
           time: 113.08,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/ScchwCmMN7k?si=81JRbsqUjcEKrZwp&t=13'
         },
         attribute: 'smile',
         BHcount: 47,
@@ -468,7 +486,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 135
           },
           time: 94.22,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/IHSUgM4rVQg?si=bGMQLsZZ4YtPA8DE'
         },
         attribute: 'pure',
         BHcount: 51,
@@ -493,7 +512,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 158
           },
           time: 97.21,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/XYKceXnAFpQ?si=yrwwcSdw09lsrWTz'
         },
         attribute: 'smile',
         BHcount: 62,
@@ -518,7 +538,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 132
           },
           time: 100,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/fv-oIfVdlIE?si=_OCSQWPJaTEHotf2&t=105'
         },
         attribute: 'smile',
         BHcount: 53,
@@ -543,7 +564,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 118
           },
           time: 91.53,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=7t7jhjitP-1o3O2A&t=268'
         },
         attribute: 'cool',
         BHcount: 39,
@@ -568,7 +590,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 112
           },
           time: 107.83,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=CfByaDK2YhAyhcwz&t=13'
         },
         attribute: 'pure',
         BHcount: 56,
@@ -593,7 +616,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 140
           },
           time: 108,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=CpiTZUTelhvpzthd&t=190'
         },
         attribute: 'smile',
         BHcount: 61,
@@ -618,7 +642,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 180
           },
           time: 101.34,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=8tJTK44nSCYYilQK&t=541'
         },
         attribute: 'cool',
         BHcount: 36,
@@ -643,7 +668,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 136
           },
           time: 104.56,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=JntFsn5GFracnRnu&t=104'
         },
         attribute: 'smile',
         BHcount: 58,
@@ -668,7 +694,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 170
           },
           time: 0,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/WU461Dk10EY?si=C_8005letoaSNPas'
         },
         attribute: 'pure',
         BHcount: 64,
@@ -693,7 +720,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 150
           },
           time: 126.40,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/KnnSr-kI5sk?si=XOmnKcPqfz0HUfZo'
         },
         attribute: 'cool',
         BHcount: 80,
@@ -718,7 +746,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 176
           },
           time: 94.09,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/QyQOyVTLPT0?si=dM9Glg5C3HGuK6vX&t=13'
         },
         attribute: 'cool',
         BHcount: 67,
@@ -743,7 +772,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 220
           },
           time: 103.64,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/02SNWF91ISA?si=RpFPD8G0ru-iilI4'
         },
         attribute: 'pure',
         BHcount: 93,
@@ -768,7 +798,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 131
           },
           time: 112.38,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/QyQOyVTLPT0?si=GYUfgXMVNGx6Ho7d&t=177'
         },
         attribute: 'cool',
         BHcount: 57,
@@ -793,7 +824,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 97
           },
           time: 123.71,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/69n4Ts5uDww?si=Af_0ISZMHyxzUJG2&t=14'
         },
         attribute: 'cool',
         BHcount: 48,
@@ -818,7 +850,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 110
           },
           time: 87.28,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/n8paMjvkKqw?si=wcdpzqQwSgBExJa0'
         },
         attribute: 'cool',
         BHcount: 38,
@@ -843,7 +876,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 130
           },
           time: 118.15,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/E1sncPMb8kw?si=nQuBLQtQZ41_Eu5z'
         },
         attribute: 'pure',
         BHcount: 62,
@@ -868,7 +902,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 102
           },
           time: 108.24,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/DQUOMsWk7NI?si=7ICFu27WOw5Nw7Qb&t=107'
         },
         attribute: 'smile',
         BHcount: 44,
@@ -893,7 +928,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 92
           },
           time: 117.39,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=wUNDXjbbjO7lLkeG&t=632'
         },
         attribute: 'smile',
         BHcount: 39,
@@ -918,7 +954,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 150
           },
           time: 89.6,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/1md2v9lToNE?si=tCEFP98iRkI4oYuY&t=11'
         },
         attribute: 'cool',
         BHcount: 50,
@@ -943,7 +980,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 174
           },
           time: 99.31,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/1md2v9lToNE?si=c9GihuYIGmzckTyY&t=169'
         },
         attribute: 'cool',
         BHcount: 70,
@@ -968,7 +1006,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 176
           },
           time: 120,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/Xlgsd61isEk?si=bzSdi3WqI_oMBQSx&t=345'
         },
         attribute: 'pure',
         BHcount: 86,
@@ -993,7 +1032,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 126
           },
           time: 133.33,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/1md2v9lToNE?si=agVO3PFMPkOdz5QP&t=100'
         },
         attribute: 'cool',
         BHcount: 68,
@@ -1018,7 +1058,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 127
           },
           time: 0,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/z_H1vYkJQAs?si=9yL3dXDhw3U-skba&t=89'
         },
         attribute: 'cool',
         BHcount: 48,
@@ -1043,7 +1084,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 197
           },
           time: 92.59,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/sLQEunI7p5s?si=qUp7UaRBLOMe4YKd'
         },
         attribute: 'pure',
         BHcount: 70,
@@ -1068,7 +1110,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 129
           },
           time: 89.3,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/vh_aOcsfBSE?si=aEMg-2KwfrwLxOoy'
         },
         attribute: 'smile',
         BHcount: 42,
@@ -1093,7 +1136,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 160
           },
           time: 91.5,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/4TloWORhdjg?si=UFtI--W04k-VevXL'
         },
         attribute: 'cool',
         BHcount: 55,
@@ -1118,7 +1162,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 157
           },
           time: 87.69,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/RD2C_UVLjQM?si=lPXSg7xKuPePxXHL'
         },
         attribute: 'smile',
         BHcount: 50,
@@ -1143,7 +1188,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 180
           },
           time: 142.67,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/BxYdciecJWA?si=TOcAbzLU58i5pyu8&t=179'
         },
         attribute: 'pure',
         BHcount: 104,
@@ -1168,7 +1214,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 128
           },
           time: 99.38,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/BxYdciecJWA?si=bbJ1Q63ihuezoOPD&t=95'
         },
         attribute: 'pure',
         BHcount: 51,
@@ -1193,7 +1240,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 79
           },
           time: 137.84,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/z_H1vYkJQAs?si=8X9jlbFa--ll80Sl&t=179'
         },
         attribute: 'pure',
         BHcount: 42,
@@ -1218,13 +1266,40 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 180
           },
           time: 134.5,
-          cover: false
+          cover: false,
+          link: ''
         },
         attribute: 'pure',
         BHcount: 99,
         level: 0,
         term: 103,
         center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi']
+      },
+      '以心☆電信': {
+        musicData: {
+          kana: 'いしんでんしん',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 27
+          },
+          numbering: 'みらくらぱーく！ 2ndシングル',
+          BPM: {
+            original: 152,
+            inGame: 152
+          },
+          time: 103.25,
+          cover: false,
+          link: ''
+        },
+        attribute: 'cool',
+        BHcount: 63,
+        level: 0,
+        term: 103,
+        center: 'megumi',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi']
       },
@@ -1243,7 +1318,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 173
           },
           time: 113,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/4WxZVeFi0ZQ?si=agdd4M0wM2dKX3de'
         },
         attribute: 'smile',
         BHcount: 79,
@@ -1268,7 +1344,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 130
           },
           time: 108.5,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/rqlkUrQ6YPo?si=Cy3iemgnZq-plE0t'
         },
         attribute: 'cool',
         BHcount: 57,
@@ -1293,7 +1370,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 76
           },
           time: 130.18,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/S-YvHYLPZ4k?si=4kdDben0embw6ZRI'
         },
         attribute: 'pure',
         BHcount: 40,
@@ -1318,7 +1396,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 74
           },
           time: 137.84,
-          cover: false
+          cover: false,
+          link: 'https://youtu.be/11Of9XcxMO4?si=zNdf3QNDdn7izmdD&t=4160'
         },
         attribute: 'pure',
         BHcount: 41,
@@ -1343,7 +1422,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 210
           },
           time: 145.14,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/58h9A4mtUWs?si=iJ3ZoO6RoOqt68KE'
         },
         attribute: 'pure',
         BHcount: 125,
@@ -1368,7 +1448,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 182
           },
           time: 117.36,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/Hzc80Bk6SyU?si=NGtk2un_I7h5IbLm'
         },
         attribute: 'smile',
         BHcount: 87,
@@ -1393,7 +1474,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 180
           },
           time: 94.67,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/V2tCGX7m5KE?si=k87Q4qhwsSj8s4h3'
         },
         attribute: 'smile',
         BHcount: 69,
@@ -1418,7 +1500,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 164
           },
           time: 117.08,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/zVBCveF77as?si=14Oj8PPU8K1mmjNB'
         },
         attribute: 'pure',
         BHcount: 78,
@@ -1443,7 +1526,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 148
           },
           time: 94.05,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'pure',
         BHcount: 56,
@@ -1468,7 +1552,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 133
           },
           time: 115.49,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'cool',
         BHcount: 63,
@@ -1493,7 +1578,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 167
           },
           time: 93.41,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'smile',
         BHcount: 63,
@@ -1518,7 +1604,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 170
           },
           time: 94.59,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'pure',
         BHcount: 65,
@@ -1543,7 +1630,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 162
           },
           time: 120,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'cool',
         BHcount: 79,
@@ -1568,7 +1656,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 180
           },
           time: 100,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'cool',
         BHcount: 73,
@@ -1593,7 +1682,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 142
           },
           time: 81.6,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'pure',
         BHcount: 49,
@@ -1618,7 +1708,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 154
           },
           time: 123.12,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'pure',
         BHcount: 77,
@@ -1643,7 +1734,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 145
           },
           time: 100.97,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/oaCnoiDmNzU?si=fLWLXI6-ClvteCl1'
         },
         attribute: 'pure',
         BHcount: 59,
@@ -1668,7 +1760,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 127
           },
           time: 92.6,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/x33KpPtOAjI?si=80SPUMebEUsbM0TY'
         },
         attribute: 'pure',
         BHcount: 47,
@@ -1693,7 +1786,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 102
           },
           time: 80,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/bOat3p4nUs8?si=O4zyE5-UFt62Fc1Q'
         },
         attribute: 'cool',
         BHcount: 32,
@@ -1718,7 +1812,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 143
           },
           time: 112.45,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'smile',
         BHcount: 95,
@@ -1743,7 +1838,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 130
           },
           time: 94.15,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'cool',
         BHcount: 45,
@@ -1768,7 +1864,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 135
           },
           time: 9.22,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'pure',
         BHcount: 47,
@@ -1793,7 +1890,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 190
           },
           time: 101.05,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'smile',
         BHcount: 78,
@@ -1818,7 +1916,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 170
           },
           time: 96,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/xHlRTA0-f2g?si=P5lzsOBrgE1sJSr5'
         },
         attribute: 'pure',
         BHcount: 66,
@@ -1843,7 +1942,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 170
           },
           time: 91.77,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'cool',
         BHcount: 63,
@@ -1868,7 +1968,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 147
           },
           time: 0,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'smile',
         BHcount: 63,
@@ -1893,7 +1994,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 233
           },
           time: 94.21,
-          cover: true
+          cover: true,
+          link: 'https://youtu.be/Gls1MQLv5o0?si=De24u5gdA_Cjmsqd'
         },
         attribute: 'smile',
         BHcount: 89,
@@ -1918,7 +2020,8 @@ export const useMusicStore = defineStore('musicList', {
             inGame: 147
           },
           time: 93.45,
-          cover: true
+          cover: true,
+          link: ''
         },
         attribute: 'cool',
         BHcount: 48,

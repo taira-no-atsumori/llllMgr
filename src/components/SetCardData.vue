@@ -19,6 +19,7 @@
         </h3>
       </v-col>
     </v-row>
+
     <v-row no-gutters class="mb-5">
       <v-col
         cols="12"
@@ -37,7 +38,7 @@
           <v-carousel-item
             v-for="kakusei in store.settingCard.rare === 'DR' ? ['後'] : ['前', '後']"
             :key="kakusei"
-            :src="require(`@/assets/card_illust/${store.conversion(store.settingCard.card)}_${store.charactorName[store.settingCard.name].last}_覚醒${kakusei}.png`)"
+            :src="require(`@/assets/card_illust/${store.conversion(store.settingCard.card)}_${store.charactorName[store.settingCard.name].last}_覚醒${kakusei}.${store.settingCard.rare === 'DR' || store.settingCard.rare === 'R' ? 'webp' : 'png'}`)"
           >
           </v-carousel-item>
         </v-carousel>
@@ -107,6 +108,7 @@
           </v-col>
         </v-row>
       </v-col>
+
       <v-col
         cols="12"
         sm="5"
@@ -419,26 +421,45 @@
         </v-row>
       </v-col>
     </v-row>
-    <v-row no-gutters>
-      <v-col cols="12" class="px-0 pt-0 pb-1">
+
+    <v-row no-gutters class="mb-3">
+      <v-col cols="12" class="pb-1">
         <span class="specialAppeal">スペシャルアピール</span>{{ store.settingCardData.specialAppeal.name }}
         <span class="AP">AP{{ store.settingCardData.specialAppeal.AP - store.settingCardData.fluctuationStatus.trainingLevel }}</span>
       </v-col>
-      <v-col cols="12" class="pa-0 mb-3">
+      <v-col cols="12">
         <span class="skillLevel">Lv {{ store.settingCardData.fluctuationStatus.SALevel }}</span>
         {{ store.makeSkillText('specialAppeal') }}
       </v-col>
+      <v-col cols="12">
+        <v-chip
+          v-for="(v, i) in store.skillList[store.settingCardData.specialAppeal.name][store.settingCardData.specialAppeal.ID].detail.type"
+          :key="v"
+          :color="store.skillColor[v].colorCode"
+          :class="`chipSize ${i < store.skillList[store.settingCardData.specialAppeal.name][store.settingCardData.specialAppeal.ID].detail.type.length ? 'mr-1' : ''}`"
+        >{{ store.skillColor[v].name }}</v-chip>
+      </v-col>
     </v-row>
-    <v-row no-gutters>
-      <v-col cols="12" class="px-0 pt-0 pb-1">
+
+    <v-row no-gutters class="mb-3">
+      <v-col cols="12" class="pb-1">
         <span class="specialAppeal">スキル</span>{{ store.settingCardData.skill.name }}
         <span class="AP">AP{{ store.settingCardData.skill.AP }}</span>
       </v-col>
-      <v-col cols="12" class="pa-0 mb-3">
+      <v-col cols="12">
         <span class="skillLevel">Lv {{ store.settingCardData.fluctuationStatus.SLevel }}</span>
         {{ store.makeSkillText('skill') }}
       </v-col>
+      <v-col cols="12">
+        <v-chip
+          v-for="(v, i) in store.skillList[store.settingCardData.skill.name][store.settingCardData.skill.ID].detail.type"
+          :key="v"
+          :color="store.skillColor[v].colorCode"
+          :class="`chipSize ${i < store.skillList[store.settingCardData.skill.name][store.settingCardData.skill.ID].detail.type.length ? 'mr-1' : ''}`"
+        >{{ store.skillColor[v].name }}</v-chip>
+      </v-col>
     </v-row>
+
     <v-row no-gutters v-if="store.settingCard.rare !== 'R'">
       <v-col cols="12" class="px-0 pt-0 pb-1">
         <span class="specialAppeal">特性</span>{{ store.settingCardData.characteristic.name }}
@@ -446,6 +467,7 @@
       <v-col cols="12" class="pa-0">
         {{ store.settingCardData.characteristic.detail }}
       </v-col>
+      <v-col cols="12" v-if="false"><v-chip class="mr-1" color="green">プロテクト</v-chip><v-chip class="mr-1" color="lime-darken-4">ラブアトラクション</v-chip><v-chip class="mr-1">APゲイン</v-chip></v-col>
     </v-row>
   </v-container>
 </template>
@@ -519,6 +541,7 @@ export default {
     border-radius: 0 15px 15px 0;
   }
 }
+
 .specialAppeal {
   color: #fff;
   font-weight: bold;
@@ -533,10 +556,7 @@ export default {
   display: inline-block;
   margin-right: 5px;
 
-  &.mood {
-    width: 20px;
-  }
-
+  &.mood,
   &.type {
     width: 20px;
   }
@@ -544,5 +564,9 @@ export default {
   &.member {
     width: 35px;
   }
+}
+
+.chipSize {
+  font-size: 12px;
 }
 </style>

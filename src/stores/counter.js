@@ -5,7 +5,7 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.26(アーリーアクセス)',
+    version: 'ε.27(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -215,6 +215,11 @@ export const useStoreCounter = defineStore('store', {
       const skillStore = useSkillStore();
       return skillStore.skillList;
     },
+    skillColor() {
+      const skillStore = useSkillStore();
+      console.log(skillStore.skillColor);
+      return skillStore.skillColor;
+    },
     musicList() {
       const musicStore = useMusicStore();
       return musicStore.musicList;
@@ -336,7 +341,7 @@ export const useStoreCounter = defineStore('store', {
       return (target) => {
         let result = '';
         const skillData = this.settingCardData[target];
-        const skillTextList = this.skillList[skillData.name][skillData.ID];
+        const skillTextList = this.skillList[skillData.name][skillData.ID].text;
 
         for (let i = 0; i < skillTextList.length; i++) {
           result += skillTextList[i];

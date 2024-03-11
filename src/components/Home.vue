@@ -70,12 +70,12 @@
     <v-row>
       <v-col cols="12">
         <h2>Attention</h2>
-        このサイトは、PCからの利用を想定しています。<br>
-        本格的なスマートフォン用対応は、メイン機能を一通り実装し終えた後の対応となります。
+        このサイトは、PC/スマホ両方からの利用に対応していますが、一部ページはスマホで利用する場合、表示崩れが起こる可能性があります。<br>
+        利用できないほどの重大なものでない限り、メイン機能を一通り実装し終えた後の対応となります。
       </v-col>
       <v-col cols="12">
         このサイトは、スクステをある程度理解している(ライブグランプリに参加するような)方に向けたサイトになります。<br>
-        「スクステってなに？」という方は、公式のチュートリアル動画やSNSなどで解説してくださっている方がいるので、そちらをご覧ください。
+        「スクステってなに？」という方は、<a href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C" target="_blank">公式のチュートリアル動画</a>やSNS/動画サイトで解説してくださっている方がいるので、そちらをご覧ください。
       </v-col>
       <v-col cols="12">
         バックアップや同期機能は現在ありませんので、別ブラウザ・別端末からアクセスする場合は一からデータ入力をやり直す必要があります。<br>
@@ -113,7 +113,7 @@
       </v-col>
       <v-col cols="12">
         <b>ITEM LIST(アイテム一覧)</b><br>
-        Quest Liveの各ステージで獲得できるアイテムの一覧と検索ができます。
+        Quest Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
       </v-col>
       <v-col cols="12">
         ※機能は変更になる可能性があります。
@@ -141,16 +141,16 @@ export default {
   data() {
     return {
       eventList: {
-        /*'liveGP': {
-          title: 'ライブグランプリ「103期第8回個人戦」',
+        'liveGP': {
+          title: 'ライブグランプリ「103期第9回個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 2, 10, 10, 0],
-          lastDay: [2024, 2, 16, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-02-08-10-r1h1jj6fmf',
-          img: '103期第8回個人戦_logo.png'
-        },*/
-        'liveGP': {
+          firstDay: [2024, 3, 10, 10, 0],
+          lastDay: [2024, 3, 16, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-03-08-20-r1h1jj6fmf',
+          img: '103期第9回個人戦_logo.webp'
+        },
+        /*'liveGP': {
           title: 'ライブグランプリ「103期2月度サークル対抗戦」',
           text: '',
           type: 'liveGP',
@@ -158,7 +158,7 @@ export default {
           lastDay: [2024, 2, 27, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-02-18-10-ho5zop2fyv',
           img: '103期2月度サークル対抗戦_logo.png'
-        },
+        },*/
         'unitKoushien': {
           title: 'ライブ「LoveLive! Series Presents ユニット甲子園 2024」',
           firstDay: [2024, 3, 9, 0, 0],

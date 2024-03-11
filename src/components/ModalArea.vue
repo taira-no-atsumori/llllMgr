@@ -4,29 +4,30 @@
     scrollable
     :max-width="maxWidth[store.showModalName]"
   >
-    <v-sheet>
-      <div class="pa-3 bg-white">
-        <div v-if="store.showModalName === 'selectCard'">
-          <SelectCard />
-        </div>
-        <div v-else-if="store.showModalName === 'setCardData'">
-          <SetCardData />
-        </div>
-        <div v-else-if="store.showModalName === 'possessionCardSetting'">
-          <CardList />
-        </div>
-        <div v-else-if="store.showModalName === 'CardListFilter'">
-          <CardListFilter />
-        </div>
-        <div v-else-if="store.showModalName === 'setLeaningLevel'">
-          <SetLeaningLevel />
-        </div>
-        <div v-else-if="store.showModalName === 'settings'">
-          <Settings />
-        </div>
-        <div class="mt-3 text-center">
-          <v-btn @click="store.switchDialog(false)">閉じる</v-btn>
-        </div>
+    <v-sheet class="pa-3 bg-white">
+      <div v-if="store.showModalName === 'selectCard'">
+        <SelectCard />
+      </div>
+      <div v-else-if="store.showModalName === 'setCardData'">
+        <SetCardData />
+      </div>
+      <div v-else-if="store.showModalName === 'possessionCardSetting'">
+        <CardList />
+      </div>
+      <div v-else-if="store.showModalName === 'CardListFilter'">
+        <CardListFilter />
+      </div>
+      <div v-else-if="store.showModalName === 'MusicListFilter'">
+        <MusicListFilter />
+      </div>
+      <div v-else-if="store.showModalName === 'setLeaningLevel'">
+        <SetLeaningLevel />
+      </div>
+      <div v-else-if="store.showModalName === 'settings'">
+        <Settings />
+      </div>
+      <div class="mt-3 text-center">
+        <v-btn @click="store.switchDialog(false)">閉じる</v-btn>
       </div>
     </v-sheet>
   </v-dialog>
@@ -50,6 +51,7 @@ export default {
   name: 'ModalArea',
   components: {
     SetCardData,
+    SelectCard,
     CardList,
     CardListFilter,
     SetLeaningLevel,
