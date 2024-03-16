@@ -141,7 +141,7 @@ export default {
   data() {
     return {
       eventList: {
-        'liveGP': {
+        /*'liveGP': {
           title: 'ライブグランプリ「103期第9回個人戦」',
           text: '',
           type: 'liveGP',
@@ -150,7 +150,7 @@ export default {
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-03-08-20-r1h1jj6fmf',
           img: '103期第9回個人戦_logo.webp'
         },
-        /*'liveGP': {
+        'liveGP': {
           title: 'ライブグランプリ「103期2月度サークル対抗戦」',
           text: '',
           type: 'liveGP',
@@ -159,15 +159,6 @@ export default {
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-02-18-10-ho5zop2fyv',
           img: '103期2月度サークル対抗戦_logo.png'
         },*/
-        'unitKoushien': {
-          title: 'ライブ「LoveLive! Series Presents ユニット甲子園 2024」',
-          firstDay: [2024, 3, 9, 0, 0],
-          lastDay: [2024, 3, 10, 0, 0],
-          url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=unitlive2024',
-          text: '',
-          type: 'live',
-          img: 'unitKoushien_logo.png'
-        },
         '2ndLive_chiba': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 2nd Live Tour ～Blooming with ◯◯◯～」',
           text: '千葉公演',
