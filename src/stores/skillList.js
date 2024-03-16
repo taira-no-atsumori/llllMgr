@@ -443,7 +443,17 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'アグレッシブハート': {
-        aggressiveHeart: {
+        aggressiveHeart_mentalReduce10: {
+          text: [
+            'ビートハート',
+            '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['heartCaptcha', 'mentalReduce']
+          }
+        },
+        aggressiveHeart_mentalReduce15: {
           text: [
             'ビートハート',
             '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。'

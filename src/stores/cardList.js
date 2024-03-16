@@ -5936,6 +5936,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'おしえて♡ティーチャー': {
+            styleType: 'performer',
+            mood: 'melow',
+            series: 'おしえて♡ティーチャー',
+            kana: 'おしえててぃーちゃー',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第9回個人戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1430,
+              pure: 1530,
+              cool: 2230,
+              mental: 213,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'loveAttract_stage',
+              name: 'ラブアトラクト',
+              AP: 6,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ]
+            },
+            skill: {
+              ID: 'aggressiveHeart_mentalReduce10',
+              name: 'アグレッシブハート',
+              AP: 2,
+              /*AP: {
+                max: 9,
+                min: 1
+              },*/
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, '6?']
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：メンタルリカバー',
+              detail: 'ドローした時、メンタルを最大値の6%回復させる。',
+              type: ['draw', 'mentalRecover']
+            }
+          },
           'Pleasure Feather': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -7178,7 +7228,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'aggressiveHeart',
+              ID: 'aggressiveHeart_mentalReduce15',
               name: 'アグレッシブハート',
               AP: 3,
               detail: [
@@ -8823,6 +8873,56 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'おしえて♡ティーチャー': {
+            styleType: 'cheerLeader',
+            mood: 'melow',
+            series: 'おしえて♡ティーチャー',
+            kana: 'おしえててぃーちゃー',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第9回個人戦」報酬',
+              period: '配布'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1130,
+              pure: 1430,
+              cool: 2530,
+              mental: 223,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 6,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
+              ]
+            },
+            skill: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 2,
+              /*AP: {
+                max: 9,
+                min: 1
+              },*/
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：アグレッシブ',
+              detail: 'ドローした時、メンタルを最大値の10%減少させる。',
+              type: ['draw', 'aggressive']
+            }
+          },
           'ハッピー至上主義！': {
             styleType: 'performer',
             mood: 'happy',

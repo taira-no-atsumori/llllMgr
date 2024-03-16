@@ -41,8 +41,8 @@
           <template v-slot:activator="{ props }">
             <div v-bind="props">
               <v-img
-                :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.${key.rare === 'DR' || key.rare === 'R' ? 'webp' : 'png'}`)"
-                :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.${key.rare === 'DR' || key.rare === 'R' ? 'webp' : 'png'}`)"
+                :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.webp`)"
+                :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.charactorName[key.memberName].last}_覚醒後.webp`)"
               ></v-img>
               <div class="d-flex flex-row align-center pa-1 cardName">
                 <img
