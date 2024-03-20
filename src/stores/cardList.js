@@ -138,6 +138,54 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '軌跡の舞踏会': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: '舞踏会',
+            kana: 'きせきのぶとうかい',
+            gacha: {
+              addSeason: '2023 PARTY! LIMITED COLLECTION',
+              period: '宴限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3430,
+              pure: 1830,
+              cool: 330,
+              mental: 173,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'bloomingHeart',
+              name: 'ブルーミングハート',
+              AP: 7,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+              ]
+            },
+            skill: {
+              ID: 'heartAttraction_section',
+              name: 'ハートアトラクション',
+              AP: 6,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+              ]
+            },
+            characteristic: {
+              name: 'オーバーセクション : APゲイン & リシャッフル',
+              detail: '手札にある状態でセクションが変わるたび、APを回復し、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+              type: ['overSection', 'APGain', 'reShuffle']
+            }
+          },
           'lucky train!': {
             styleType: 'performer',
             mood: 'melow',
@@ -2006,6 +2054,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '真実の舞踏会': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: '舞踏会',
+            kana: 'しんじつのぶとうかい',
+            gacha: {
+              addSeason: '2023 PARTY! LIMITED COLLECTION',
+              period: '宴限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1330,
+              pure: 430,
+              cool: 3630,
+              mental: 193,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'youthfulCaptcha',
+              name: 'ユースフルキャプチャ',
+              AP: 3,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
+              ]
+            },
+            skill: {
+              ID: 'duoAttract',
+              name: 'デュオアトラクト',
+              AP: 7,
+              detail: [
+                [3.6, 4, 4.3, 4.7, 5, 5.4, 5.8, 6.1, 6.5, 7.2, 7.56, 7.9, 8.3, 9],
+                [10.8, 11.9, 13, 14, 15.1, 16.2, 17.3, 18.4, 19.4, 21.6, 22.7, 23.8, 24.8, 27]
+              ]
+            },
+            characteristic: {
+              name: 'APレデュース : ラブアトラクト',
+              detail: '適用されているラブアトラクト効果量に応じて、手札のこのスキルの消費APダウン(最大-5)',
+              type: ['APReduce', 'loveAttract']
+            }
+          },
           '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -3826,6 +3921,51 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '悠久の舞踏会': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '舞踏会',
+            kana: 'ゆうきゅうのぶとうかい',
+            gacha: {
+              addSeason: '2023 PARTY! LIMITED COLLECTION',
+              period: '宴限定'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 1330,
+              pure: 430,
+              cool: 3630,
+              mental: 193,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'chowchowParty',
+              name: 'チャウチャウパーティ',
+              AP: 7,
+              detail: []
+            },
+            skill: {
+              ID: 'regainFascinate_stage',
+              name: 'リゲインファッシネイト',
+              AP: 1,
+              detail: [
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+              ]
+            },
+            characteristic: {
+              name: 'バッテリードレイン',
+              detail: '使用するたびに、手札のこのスキルの消費AP+1(最大+9)',
+              type: ['APUp']
+            }
+          },
           'Colorfulness': {
             styleType: 'cheerLeader',
             mood: 'melow',

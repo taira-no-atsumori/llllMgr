@@ -60,15 +60,15 @@
       </v-list-item>
     </v-navigation-drawer>
 
-    <v-main>
+    <v-main class="pb-2">
       <router-view/>
     </v-main>
 
     <Modal/>
 
-    <v-footer color="pink">
+    <v-footer color="pink" class="mb-10">
       <v-row no-gutters justify="center">
-        <v-col cols="12" class="mt-2 mb-3 text-center">
+        <v-col cols="12" class="mx-2 text-center">
           <a
             v-for="(arr, pageTitle) of pageList"
             :key="arr"
@@ -82,6 +82,10 @@
         </v-col>
       </v-row>
     </v-footer>
+
+    <v-bottom-navigation bg-color="pink" density="compact" class="d-flex flex-row align-center">
+      ご意見・ご要望・バグ報告は「<a href="https://odaibako.net/u/taira_no_atsumori" target="_blank" class="text-white font-weight-bold">お題箱</a>」まで
+    </v-bottom-navigation>
   </v-app>
 </template>
 
@@ -102,6 +106,10 @@ export default {
           url: '/llllMgr/',
           name: 'ホーム'
         },
+        /*'WithStar Mgr': {
+          url: 'withStarMgr',
+          name: '獲得WithStar計算ツール'
+        },*/
         'Simulation': {
           url: 'simulation',
           name: '獲得グランプリPt.計算ツール'

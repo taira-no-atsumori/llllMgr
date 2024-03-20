@@ -422,7 +422,7 @@
       </v-col>
     </v-row>
 
-    <v-row no-gutters class="mb-3">
+    <v-row no-gutters class="mb-2">
       <v-col cols="12" class="pb-1">
         <span class="specialAppeal">スペシャルアピール</span>{{ store.settingCardData.specialAppeal.name }}
         <span class="AP">AP{{ store.settingCardData.specialAppeal.AP - store.settingCardData.fluctuationStatus.trainingLevel }}</span>
@@ -436,12 +436,12 @@
           v-for="(v, i) in store.skillList[store.settingCardData.specialAppeal.name][store.settingCardData.specialAppeal.ID].detail.type"
           :key="v"
           :color="store.skillColor[v].colorCode"
-          :class="`chipSize ${i < store.skillList[store.settingCardData.specialAppeal.name][store.settingCardData.specialAppeal.ID].detail.type.length ? 'mr-1' : ''}`"
+          :class="`chipSize mb-1 ${i < store.skillList[store.settingCardData.specialAppeal.name][store.settingCardData.specialAppeal.ID].detail.type.length ? 'mr-1' : ''}`"
         >{{ store.skillColor[v].name }}</v-chip>
       </v-col>
     </v-row>
 
-    <v-row no-gutters class="mb-3">
+    <v-row no-gutters class="mb-2">
       <v-col cols="12" class="pb-1">
         <span class="specialAppeal">スキル</span>{{ store.settingCardData.skill.name }}
         <span class="AP">AP{{ store.settingCardData.skill.AP }}</span>
@@ -455,7 +455,7 @@
           v-for="(v, i) in store.skillList[store.settingCardData.skill.name][store.settingCardData.skill.ID].detail.type"
           :key="v"
           :color="store.skillColor[v].colorCode"
-          :class="`chipSize ${i < store.skillList[store.settingCardData.skill.name][store.settingCardData.skill.ID].detail.type.length ? 'mr-1' : ''}`"
+          :class="`chipSize mb-1 ${i < store.skillList[store.settingCardData.skill.name][store.settingCardData.skill.ID].detail.type.length ? 'mr-1' : ''}`"
         >{{ store.skillColor[v].name }}</v-chip>
       </v-col>
     </v-row>

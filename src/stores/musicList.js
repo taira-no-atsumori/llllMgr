@@ -1303,6 +1303,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi']
       },
+      'マハラジャンボリー': {
+        musicData: {
+          kana: 'まはらじゃんぼりー',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 27
+          },
+          numbering: 'みらくらぱーく！ 2ndシングル',
+          BPM: {
+            original: 152,
+            inGame: 152
+          },
+          time: 104.3,
+          cover: false,
+          link: ''
+        },
+        attribute: 'smile',
+        BHcount: 64,
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'megumi']
+      },
       'ハッピー至上主義！': {
         musicData: {
           kana: 'はっぴーしじょうしゅぎ',

@@ -50,6 +50,9 @@
       <v-col>
         <v-btn block @click="pageMove('simulation')">Simulation</v-btn>
       </v-col>
+      <v-col v-if="false">
+        <v-btn block @click="pageMove('withStarMgr')">WithStar Mgr</v-btn>
+      </v-col>
       <v-col>
         <v-btn block @click="pageMove('cardlist')">Card List</v-btn>
       </v-col>
@@ -75,7 +78,7 @@
       </v-col>
       <v-col cols="12">
         このサイトは、スクステをある程度理解している(ライブグランプリに参加するような)方に向けたサイトになります。<br>
-        「スクステってなに？」という方は、<a href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C" target="_blank">公式のチュートリアル動画</a>やSNS/動画サイトで解説してくださっている方がいるので、そちらをご覧ください。
+        「スクステってなに？」という方は、<a href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C" target="_blank">公式のチュートリアル動画</a>や<a href="https://wikiwiki.jp/llll_wiki/%E3%82%B9%E3%82%AF%E3%82%B9%E3%83%86/%E6%94%BB%E7%95%A5/%E3%82%B9%E3%82%AF%E3%82%B9%E3%83%86%E3%81%AE%E9%81%8A%E3%81%B3%E6%96%B9" target="_blank">Wiki</a>、SNS/動画サイトで解説してくださっている方がいるので、そちらをご覧ください。
       </v-col>
       <v-col cols="12">
         バックアップや同期機能は現在ありませんので、別ブラウザ・別端末からアクセスする場合は一からデータ入力をやり直す必要があります。<br>
@@ -149,33 +152,42 @@ export default {
           lastDay: [2024, 3, 16, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-03-08-20-r1h1jj6fmf',
           img: '103期第9回個人戦_logo.webp'
-        },
+        },*/
         'liveGP': {
-          title: 'ライブグランプリ「103期2月度サークル対抗戦」',
+          title: 'ライブグランプリ「103期3月度サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 2, 20, 10, 0],
-          lastDay: [2024, 2, 27, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-02-18-10-ho5zop2fyv',
-          img: '103期2月度サークル対抗戦_logo.png'
-        },*/
+          firstDay: [2024, 3, 20, 10, 0],
+          lastDay: [2024, 3, 26, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-03-18-40-t3xz8b31x1',
+          img: '103期3月度サークル対抗戦_logo.webp'
+        },
         '2ndLive_chiba': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 2nd Live Tour ～Blooming with ◯◯◯～」',
           text: '千葉公演',
           type: 'live',
           firstDay: [2024, 4, 20, 0, 0],
-          lastDay: [2024, 4, 21, 0, 0],
+          lastDay: [2024, 4, 21, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BLW',
-          img: '2ndLIVE_logo.png'
+          img: '2ndLIVE_logo.webp'
         },
         '2ndLive_hyougo': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 2nd Live Tour ～Blooming with ◯◯◯～」',
           text: '兵庫公演',
           type: 'live',
           firstDay: [2024, 5, 18, 0, 0],
-          lastDay: [2024, 5, 19, 0, 0],
+          lastDay: [2024, 5, 19, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BLW',
-          img: '2ndLIVE_logo.png'
+          img: '2ndLIVE_logo.webp'
+        },
+        'anisama': {
+          title: 'ライブ「Animelo Summer Live 2024 -Stargazer-」',
+          text: 'Day2(出演日)',
+          type: 'live',
+          firstDay: [2024, 8, 31, 0, 0],
+          lastDay: [2024, 8, 31, 23, 59],
+          url: 'https://anisama.tv/2024/liveinfo/',
+          img: 'anisama_logo.webp'
         }
       }
     }

@@ -5,7 +5,7 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.28(アーリーアクセス)',
+    version: 'ε.29(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -13,6 +13,14 @@ export const useStoreCounter = defineStore('store', {
     selectMusicTitle: undefined,
     rarity: ['DR', 'UR', 'SR', 'R'],
     favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
+    withStar: {
+      kaho: 1,
+      sayaka: 1,
+      rurino: 1,
+      kozue: 1,
+      tsuzuri: 1,
+      megumi: 1
+    },
     search: {
       cardList: {
         rare: ['DR', 'UR', 'SR', 'R'],

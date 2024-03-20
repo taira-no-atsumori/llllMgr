@@ -17,9 +17,9 @@
       <div v-else-if="store.showModalName === 'CardListFilter'">
         <CardListFilter />
       </div>
-      <div v-else-if="store.showModalName === 'MusicListFilter'">
+      <!--<div v-else-if="store.showModalName === 'MusicListFilter'">
         <MusicListFilter />
-      </div>
+      </div>-->
       <div v-else-if="store.showModalName === 'setLeaningLevel'">
         <SetLeaningLevel />
       </div>

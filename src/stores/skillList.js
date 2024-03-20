@@ -545,6 +545,19 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'リゲインファッシネイト': {
+        regainFascinate_stage: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにステージ中、獲得LOVEを+',
+            '%し、ボルテージPt.を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'voltageGain', 'loveAttract_stage']
+          }
+        }
+      },
       'エクステハート': {
         extensionsHeart_section3: {
           text: [
@@ -1513,17 +1526,99 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
-      'テストスキル': {
-        testSkill: {
+      'ブルーミングハート': {
+        bloomingHeart: {
           text: [
-            'このステージ中、獲得するLOVEを+',
-            '%し、ボルテージPt.を+',
-            'する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
+            'このステージ中、AP回復速度を-25し、スキルハート獲得効果による獲得数を+',
+            '%する。さらにハート数の上限を+',
+            'する。'
           ],
           detail: {
-            attr: 'cheerful',
-            type: ['loveAttract_stage', 'voltageGain', 'protect_stage']
+            attr: '',
+            type: ['heartLimitUp', 'APSlow']
+          }
+        }
+      },
+      'ユースフルキャプチャ': {
+        youthfulCaptcha: {
+          text: [
+            'このステージ中、ボルテージPt.が1秒ごとに25ptずつ減少し、スキル使用時にビートハート',
+            '回分のスキルハートを獲得する。消費APに応じて効果量が変化する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'voltageReduce']
+          }
+        }
+      },
+      'デュオアトラクト': {
+        duoAttract: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにこのセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract_stage', 'loveAttract_section']
+          }
+        }
+      },
+      'チャウチャウパーティ': {
+        chowchowParty: {
+          text: [
+            'チャウチャウカードを4種類(合計10枚)山札に追加する。さらにこのステージ中、手札の上限枚数を1枚減少する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['cardJamming', 'cardReduce']
+          }
+        }
+      },
+      'チャウチャウパフォーマンス': {
+        chowchowPerformance: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['cardJamming', 'cardReduce']
+          }
+        }
+      },
+      'チャウチャウムードメイク': {
+        chowchowMoodMake: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: '18',
+            type: ['cardJamming', 'cardReduce']
+          }
+        }
+      },
+      'チャウチャウチアリーディング': {
+        chowchowCheerLeading: {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: '14.4',
+            type: ['cardJamming', 'cardReduce']
+          }
+        }
+      },
+      'チャウチャウトリック': {
+        chowchowTrick: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。'
+          ],
+          detail: {
+            attr: '',
+            type: ['cardJamming', 'cardReduce']
           }
         }
       }
@@ -1601,6 +1696,18 @@ export const useSkillStore = defineStore('skillList', {
         name: 'AP回復速度上昇',
         colorCode: ''
       },
+      APSlow: {
+        name: 'AP回復速度低下',
+        colorCode: ''
+      },
+      heartLimitUp: {
+        name: 'ハート存在上限アップ',
+        colorCode: ''
+      },
+      cardJamming: {
+        name: 'カード追加',
+        colorCode: ''
+      }
     }
   }),
   getters: {},
