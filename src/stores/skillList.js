@@ -550,11 +550,11 @@ export const useSkillStore = defineStore('skillList', {
           text: [
             '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにステージ中、獲得LOVEを+',
             '%し、ボルテージPt.を+',
-            '%する。'
+            'する。'
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'voltageGain', 'loveAttract_stage']
+            type: ['reshuffle', 'loveAttract_stage', 'voltageGain']
           }
         }
       },
@@ -576,7 +576,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', '']
+            type: ['extensions_stage', 'heartCaptcha']
           }
         }
       },
@@ -1470,7 +1470,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['cardReduce', 'quick']
+            type: ['cardReduce', 'APQuick']
           }
         }
       },
@@ -1529,13 +1529,13 @@ export const useSkillStore = defineStore('skillList', {
       'ブルーミングハート': {
         bloomingHeart: {
           text: [
-            'このステージ中、AP回復速度を-25し、スキルハート獲得効果による獲得数を+',
+            'このステージ中、AP回復速度を-25%し、スキルハート獲得効果による獲得数を+',
             '%する。さらにハート数の上限を+',
             'する。'
           ],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'APSlow']
+            type: ['APSlow', 'boost', 'heartLimitUp']
           }
         }
       },
@@ -1571,7 +1571,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['cardJamming', 'cardReduce']
+            type: ['addCard', 'cardReduce']
           }
         }
       },
@@ -1583,7 +1583,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['cardJamming', 'cardReduce']
+            type: ['heartCaptcha']
           }
         }
       },
@@ -1595,7 +1595,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '18',
-            type: ['cardJamming', 'cardReduce']
+            type: ['loveAttract_section']
           }
         }
       },
@@ -1607,18 +1607,18 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '14.4',
-            type: ['cardJamming', 'cardReduce']
+            type: ['mentalRecover']
           }
         }
       },
       'チャウチャウトリック': {
         chowchowTrick: {
           text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。'
+            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。'
           ],
           detail: {
             attr: '',
-            type: ['cardJamming', 'cardReduce']
+            type: ['reshuffle']
           }
         }
       }
@@ -1626,87 +1626,108 @@ export const useSkillStore = defineStore('skillList', {
     skillColor: {
       heartCaptcha: {
         name: 'ハートキャプチャ',
-        colorCode: 'red'
+        colorCode: 'red',
+        description: 'ハートを獲得する。'
       },
       loveAttract: {
         name: 'ラブアトラクト',
-        colorCode: 'lime-darken-3'
+        colorCode: 'lime-darken-3',
+        description: '次回ハート回収時、獲得するLOVEが増加する。'
       },
       loveAttract_section: {
         name: 'ラブアトラクト(セクション)',
-        colorCode: 'lime-darken-3'
+        colorCode: 'lime-darken-3',
+        description: 'このセクション中、獲得するLOVEが増加する。'
       },
       loveAttract_stage: {
         name: 'ラブアトラクト(ステージ)',
-        colorCode: 'lime-darken-3'
+        colorCode: 'lime-darken-3',
+        description: 'このステージ中、獲得するLOVEが増加する。'
       },
       voltageGain: {
         name: 'ボルテージゲイン',
-        colorCode: 'lime-darken-4'
+        colorCode: 'lime-darken-4',
+        description: 'ボルテージPt.を獲得する。'
       },
       voltageReduce: {
         name: 'ボルテージレデュース',
-        colorCode: 'lime-darken-4'
+        colorCode: 'lime-darken-4',
+        description: 'ボルテージPt.を減らす。'
       },
       mentalRecover: {
         name: 'メンタルリカバー',
-        colorCode: 'green'
+        colorCode: 'green',
+        description: 'メンタルを回復する。'
       },
       mentalReduce: {
         name: 'メンタルレデュース',
-        colorCode: 'green'
+        colorCode: 'green',
+        description: 'メンタルを減らす。'
       },
       protect_section: {
         name: 'プロテクト(セクション)',
-        colorCode: 'green'
+        colorCode: 'green',
+        description: 'このセクション中、メンタル減少を一定量無効化する。'
       },
       protect_stage: {
         name: 'プロテクト(ステージ)',
-        colorCode: 'green'
+        colorCode: 'green',
+        description: 'このステージ中、メンタル減少を一定量無効化する。'
       },
       reshuffle: {
         name: 'リシャッフル',
-        colorCode: 'purple'
+        colorCode: 'purple',
+        description: '手札を全て捨てて、デッキから手札上限までスキルを引く。'
       },
       extensions_section: {
         name: 'エクステンション(セクション)',
-        colorCode: 'purple'
+        colorCode: 'purple',
+        description: 'このセクション中、手札の上限枚数が増加する(最大8枚)。'
       },
       extensions_stage: {
         name: 'エクステンション(ステージ)',
-        colorCode: 'purple'
-      },
-      boost: {
-        name: 'ブースト',
-        colorCode: 'red'
-      },
-      APGain: {
-        name: 'APゲイン',
-        colorCode: ''
-      },
-      APReduce: {
-        name: 'APレデュース',
-        colorCode: ''
+        colorCode: 'purple',
+        description: 'このステージ中、手札の上限枚数が増加する(最大8枚)。'
       },
       cardReduce: {
         name: '手札減少',
-        colorCode: 'red'
+        colorCode: 'purple',
+        description: 'このステージ中、手札の上限枚数が減少する。'
       },
-      quick: {
+      boost: {
+        name: 'ブースト',
+        colorCode: 'red',
+        description: '次に使用するスキルハート獲得効果による獲得数を増加させる。'
+      },
+      APGain: {
+        name: 'APゲイン',
+        colorCode: '',
+        description: 'APを増やす。'
+      },
+      APReduce: {
+        name: 'APレデュース',
+        colorCode: '',
+        description: 'APを減らす。'
+      },
+      APQuick: {
         name: 'AP回復速度上昇',
-        colorCode: ''
+        colorCode: '',
+        description: 'AP回復速度を上昇させる。'
       },
       APSlow: {
         name: 'AP回復速度低下',
-        colorCode: ''
+        colorCode: '',
+        description: 'AP回復速度を低下させる。'
       },
       heartLimitUp: {
-        name: 'ハート存在上限アップ',
-        colorCode: ''
+        name: 'ハート数上限アップ',
+        colorCode: '',
+        description: 'ハート数の上限を増加させる。'
       },
-      cardJamming: {
+      addCard: {
         name: 'カード追加',
-        colorCode: ''
+        colorCode: 'purple',
+        description: 'カードを山札に追加する。追加されるカードは以下の通り。'
       }
     }
   }),

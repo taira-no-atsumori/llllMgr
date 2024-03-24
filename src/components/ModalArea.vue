@@ -26,7 +26,7 @@
       <div v-else-if="store.showModalName === 'settings'">
         <Settings />
       </div>
-      <div class="mt-3 text-center">
+      <div class="mt-2 text-center">
         <v-btn @click="store.switchDialog(false)">閉じる</v-btn>
       </div>
     </v-sheet>

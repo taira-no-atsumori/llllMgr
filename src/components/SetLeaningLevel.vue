@@ -57,7 +57,7 @@
       </v-col>
 
       <v-col cols="12" sm="6" class="pl-sm-3" style="font-size: 15px;">
-        <div class="mb-3">
+        <div class="mb-2">
           <h4 class="subtitle">センター</h4>
           <div>
             <v-chip
@@ -75,7 +75,7 @@
             </v-chip>
           </div>
         </div>
-        <div class="mb-2">
+        <div class="mb-1">
           <h4 class="subtitle">歌唱メンバー</h4>
           <div>
             <v-chip
@@ -135,7 +135,7 @@
             </v-col>
           </v-row>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <h4 class="subtitle">獲得ボーナススキル</h4>
           <div class="d-flex flex-row align-center">
             <img
@@ -147,7 +147,7 @@
             {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
           </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
           <h4 class="subtitle">属性</h4>
           <div>
             <v-chip
@@ -164,7 +164,7 @@
             </v-chip>
           </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <h4 class="subtitle">ゲーム内BPM</h4>
           <div>{{ store.musicList[store.selectMusicTitle].musicData.BPM.inGame }}</div>
         </div>
@@ -224,6 +224,6 @@ img {
   background: #e5762c;
   padding: 2px 10px 2px 5px;
   border-radius: 0 15px 15px 0;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
 }
 </style>

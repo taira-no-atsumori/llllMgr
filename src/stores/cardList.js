@@ -182,7 +182,7 @@ export const useCardStore = defineStore('cardList', {
             },
             characteristic: {
               name: 'オーバーセクション : APゲイン & リシャッフル',
-              detail: '手札にある状態でセクションが変わるたび、APを回復し、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+              detail: '手札にある状態でセクションが変わるたび、APを7回復し、手札を全て捨てて、デッキから手札上限までスキルを引く。',
               type: ['overSection', 'APGain', 'reShuffle']
             }
           },
@@ -3949,7 +3949,41 @@ export const useCardStore = defineStore('cardList', {
               ID: 'chowchowParty',
               name: 'チャウチャウパーティ',
               AP: 7,
-              detail: []
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'chowchowPerformance',
+                  name: 'チャウチャウパフォーマンス',
+                  AP: 1,
+                  detail: [
+                    [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18]
+                  ]
+                },
+                {
+                  ID: 'chowchowMoodMake',
+                  name: 'チャウチャウムードメイク',
+                  AP: 1,
+                  detail: [
+                    [18, 19.8, 21.6, 23.4, 25.2, 27, 28.8, 30.6, 32.4, 36, 37.8, 39.6, 41.4, 45]
+                  ]
+                },
+                {
+                  ID: 'chowchowCheerLeading',
+                  name: 'チャウチャウチアリーディング',
+                  AP: 1,
+                  detail: [
+                    [14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36]
+                  ]
+                },
+                {
+                  ID: 'chowchowTrick',
+                  name: 'チャウチャウトリック',
+                  AP: 1,
+                  detail: [
+                    []
+                  ]
+                },
+              ]
             },
             skill: {
               ID: 'regainFascinate_stage',

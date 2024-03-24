@@ -5,7 +5,7 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.29(アーリーアクセス)',
+    version: 'ε.30(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -102,7 +102,10 @@ export const useStoreCounter = defineStore('store', {
       hasunosora: '蓮ノ空女学院スクールアイドルクラブ',
       CeriseBouquet: 'スリーズブーケ',
       DOLLCHESTRA: 'DOLLCHESTRA',
-      miraCraPark: 'みらくらぱーく！'
+      miraCraPark: 'みらくらぱーく！',
+      kahomeguGelato: 'かほめぐ♡じぇらーと',
+      hasunokyujitsu: '蓮ノ休日',
+      rurinoTsuzuri: 'るりのとゆかいなつづりたち'
     },
     memberData: {
       centerList: {
@@ -192,7 +195,7 @@ export const useStoreCounter = defineStore('store', {
         main: 'default',
         side1: 'default',
         side2: 'default'
-      },
+      }
     },
     settingCard: { // 何故か分からないがここを設定しないとエラーが出るため設定
       rare: 'DR',
@@ -210,6 +213,15 @@ export const useStoreCounter = defineStore('store', {
       cardList: {
         card: {},
         cardListFilter: {}
+      }
+    },
+    grandprixBonus: {
+      clearRank: [1, 1.1, 1.2, 1.3],
+      seasonFanLv: [0, 0.2, 0.275, 0.35, 0.425, 0.5, 0.55, 0.6, 0.65, 0.7],
+      releaseLv: {
+        UR: [0, 0.2, 0.3, 0.35, 0.4],
+        SR: [0, 0.15, 0.25, 0.3, 0.35],
+        R: [0, 0.1, 0.15, 0.2, 0.25]
       }
     },
     defaultCardList: []
@@ -346,16 +358,16 @@ export const useStoreCounter = defineStore('store', {
       }
     },
     makeSkillText() {
-      return (target) => {
+      return (target, option) => {
         let result = '';
-        const skillData = this.settingCardData[target];
+        const skillData = option !== undefined && option.addSkillNum !== undefined ? this.settingCardData[target].addSkill[option.addSkillNum] : this.settingCardData[target];
         const skillTextList = this.skillList[skillData.name][skillData.ID].text;
 
         for (let i = 0; i < skillTextList.length; i++) {
           result += skillTextList[i];
-          
+
           if (i < skillTextList.length - 1) {
-            result += skillData.detail[i][this.settingCardData.fluctuationStatus[target === 'specialAppeal' ? 'SALevel' : 'SLevel'] - 1];
+            result += skillData.detail[i][option !== undefined && option.targetSkillLv !== undefined ? option.targetSkillLv : this.settingCardData.fluctuationStatus[target === 'specialAppeal' ? 'SALevel' : 'SLevel'] - 1];
           }
         }
 
