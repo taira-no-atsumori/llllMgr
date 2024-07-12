@@ -1,0 +1,292 @@
+/* メンバーイメージカラー */
+$kaho: #F8B500;
+$sayaka: #5383C3;
+$rurino: #E7609E;
+$kozue: #68BE8D;
+$tsuzuri: #BA2636;
+$megumi: #C8C2C6;
+
+/* ムードカラー */
+$happy: #EF8DC8;
+$neutral: #A9FCC7;
+$melow: #A1BAFA;
+
+[data-charactorname="kaho"] > h2 {
+  background: $kaho;
+}
+
+[data-charactorname="sayaka"] > h2 {
+  background: $sayaka;
+}
+
+[data-charactorname="rurino"] > h2 {
+  background: $rurino;
+}
+
+[data-charactorname="kozue"] > h2 {
+  background: $kozue;
+}
+
+[data-charactorname="tsuzuri"] > h2 {
+  background: $tsuzuri;
+}
+
+[data-charactorname="megumi"] > h2 {
+  background: $megumi;
+}
+
+input,
+select {
+  background: #fff;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+header {
+  margin: 10px;
+}
+
+main,
+footer {
+  width: 1440px;
+  margin: 0 auto 30px auto;
+}
+
+#gridArea {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+select,
+input {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+input {
+  padding: 5px;
+}
+
+textarea {
+  height: 3em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.charactorArea {
+  border: 3px solid;
+
+  &[data-charactorname="kaho"] {
+    border-color: $kaho;
+  }
+
+  &[data-charactorname="sayaka"] {
+    border-color: $sayaka;
+  }
+  
+  &[data-charactorname="rurino"] {
+    border-color: $rurino;
+  }
+  
+  &[data-charactorname="kozue"] {
+    border-color: $kozue;
+  }
+  
+  &[data-charactorname="tsuzuri"] {
+    border-color: $tsuzuri;
+  }
+  
+  &[data-charactorname="megumi"] {
+    border-color: $megumi;
+  }
+}
+
+.charactorName {
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+
+  button {
+    cursor: pointer;
+    padding-bottom: 1px;
+    
+    &:hover {
+      opacity: 0.7;
+      padding-bottom: 0;
+      border-bottom: 1px solid #000;
+    }
+  }
+}
+
+.charactor_detail {
+  padding: 10px 10px 0 10px;
+
+  >div {
+    padding-bottom: 10px;
+
+    >div {
+      display: grid;
+      grid-template-columns: 50px 1fr 50px 35px 35px;
+      grid-template-rows: 1fr;
+      grid-column-gap: 5px;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.cardList {
+  width: 100%;
+}
+
+#otherArea {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 15px;
+}
+
+#textOutputArea label {
+  display: block;
+}
+
+#textOutput {
+  width: 100%;
+  height: 500px;
+}
+
+#possessionCard_header {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  li {
+    padding: 10px;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    cursor: pointer;
+
+    &:last-child {
+      border-right: 1px solid #000;
+    }
+
+    &:not([data-selected="true"]) {
+      background: #999;
+      border-bottom: 1px solid #000;
+    }
+  }
+}
+
+#possessionCard_container {
+  border: 1px solid #000;
+  border-top: none;
+
+  li {
+    padding: 10px 10px  0 10px;
+
+    &:not([data-selected="true"]) {
+      display: none;
+    }
+
+    label {
+      margin-right: 10px;
+
+      input {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  dl {
+    border-bottom: 1px dashed #000;
+    margin-bottom: 15px;
+
+    &:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  dt {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    border: 2px solid #000;
+    border-radius: 50px;
+    margin: 0 10px 10px 0;
+    
+    &[data-mood="happy"] {
+      border-color: $happy;
+    }
+    
+    &[data-mood="neutral"] {
+      border-color: $neutral;
+    }
+    
+    &[data-mood="melow"] {
+      border-color: $melow;
+    }
+  }
+}
+
+#modalArea {
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000, $alpha: 0.5);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+}
+
+#modal {
+  padding: 15px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  dt,
+  dd {
+    display: inline;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+}
+
+#cardSettingArea {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #000;
+  margin-bottom: 10px;
+  display: flex;
+
+  li {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.modalCloseButtonArea {
+  text-align: center;
+}

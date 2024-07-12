@@ -1,0 +1,253 @@
+@charset "UTF-8";
+/* メンバーイメージカラー */
+/* ムードカラー */
+[data-charactorname=kaho] > h2 {
+  background: #F8B500;
+}
+
+[data-charactorname=sayaka] > h2 {
+  background: #5383C3;
+}
+
+[data-charactorname=rurino] > h2 {
+  background: #E7609E;
+}
+
+[data-charactorname=kozue] > h2 {
+  background: #68BE8D;
+}
+
+[data-charactorname=tsuzuri] > h2 {
+  background: #BA2636;
+}
+
+[data-charactorname=megumi] > h2 {
+  background: #C8C2C6;
+}
+
+input,
+select {
+  background: #fff;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+header {
+  margin: 10px;
+}
+
+main,
+footer {
+  width: 1440px;
+  margin: 0 auto 30px auto;
+}
+
+#gridArea {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+}
+
+select,
+input {
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+input {
+  padding: 5px;
+}
+
+textarea {
+  height: 3em;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.charactorArea {
+  border: 3px solid;
+}
+.charactorArea[data-charactorname=kaho] {
+  border-color: #F8B500;
+}
+.charactorArea[data-charactorname=sayaka] {
+  border-color: #5383C3;
+}
+.charactorArea[data-charactorname=rurino] {
+  border-color: #E7609E;
+}
+.charactorArea[data-charactorname=kozue] {
+  border-color: #68BE8D;
+}
+.charactorArea[data-charactorname=tsuzuri] {
+  border-color: #BA2636;
+}
+.charactorArea[data-charactorname=megumi] {
+  border-color: #C8C2C6;
+}
+
+.charactorName {
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+}
+.charactorName button {
+  cursor: pointer;
+  padding-bottom: 1px;
+}
+.charactorName button:hover {
+  opacity: 0.7;
+  padding-bottom: 0;
+  border-bottom: 1px solid #000;
+}
+
+.charactor_detail {
+  padding: 10px 10px 0 10px;
+}
+.charactor_detail > div {
+  padding-bottom: 10px;
+}
+.charactor_detail > div > div {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px 35px 35px;
+  grid-template-rows: 1fr;
+  grid-column-gap: 5px;
+}
+.charactor_detail > div > div input {
+  width: 100%;
+}
+
+.cardList {
+  width: 100%;
+}
+
+#otherArea {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 15px;
+}
+
+#textOutputArea label {
+  display: block;
+}
+
+#textOutput {
+  width: 100%;
+  height: 500px;
+}
+
+#possessionCard_header {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+#possessionCard_header li {
+  padding: 10px;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+  cursor: pointer;
+}
+#possessionCard_header li:last-child {
+  border-right: 1px solid #000;
+}
+#possessionCard_header li:not([data-selected=true]) {
+  background: #999;
+  border-bottom: 1px solid #000;
+}
+
+#possessionCard_container {
+  border: 1px solid #000;
+  border-top: none;
+}
+#possessionCard_container li {
+  padding: 10px 10px 0 10px;
+}
+#possessionCard_container li:not([data-selected=true]) {
+  display: none;
+}
+#possessionCard_container li label {
+  margin-right: 10px;
+}
+#possessionCard_container li label input {
+  margin-right: 5px;
+}
+#possessionCard_container dl {
+  border-bottom: 1px dashed #000;
+  margin-bottom: 15px;
+}
+#possessionCard_container dl:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+#possessionCard_container dt {
+  margin-bottom: 5px;
+}
+#possessionCard_container button {
+  padding: 5px 10px;
+  border: 2px solid #000;
+  border-radius: 50px;
+  margin: 0 10px 10px 0;
+}
+#possessionCard_container button[data-mood=happy] {
+  border-color: #EF8DC8;
+}
+#possessionCard_container button[data-mood=neutral] {
+  border-color: #A9FCC7;
+}
+#possessionCard_container button[data-mood=melow] {
+  border-color: #A1BAFA;
+}
+
+#modalArea {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+}
+
+#modal {
+  padding: 15px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#modal dt,
+#modal dd {
+  display: inline;
+}
+#modal dt {
+  font-weight: bold;
+}
+
+#cardSettingArea {
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #000;
+  margin-bottom: 10px;
+  display: flex;
+}
+#cardSettingArea li {
+  margin-right: 10px;
+}
+#cardSettingArea li:last-child {
+  margin-right: 0;
+}
+
+.modalCloseButtonArea {
+  text-align: center;
+}/*# sourceMappingURL=base.css.map */
