@@ -119,6 +119,8 @@
     <router-view/>
   </v-main>
 
+  <v-fab v-if="false" icon="mdi-arrow-up" app location="bottom" class="mb-10" @click="$vuetify.goTo(0)"></v-fab>
+
   <Modal/>
 
   <v-footer color="pink" class="mb-10">
@@ -219,7 +221,7 @@ export default {
       window.scrollTo(0, 0);
     },
     goToTop() {
-      this.$vuetify.goTo();
+      this.$vuetify.goTo(0);
     }
   }
 }

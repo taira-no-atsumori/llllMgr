@@ -5,12 +5,12 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.55(アーリーアクセス)',
+    version: 'ε.56(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     isDarkMode: false,
-    sortType: 'ascending',
-    selectSortType: 'normal',
+    sortType: 'descending',
+    selectSortType: 'rare',
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
@@ -490,23 +490,13 @@ export const useStoreCounter = defineStore('store', {
       return result2;
     },
     outputCardList() {
-      let result = this.cardList;
+      let result = this.cardList.slice();
       let filterList;
 
       if (result.length > 0) {
         for (const searchKey in this.search.cardList) {
           filterList = this.search.cardList[searchKey];
           result = result.filter((cardData) => {
-            /*if (cardData.uniqueStatus.supportSkill !== undefined && cardData.fluctuationStatus.cardLevel > 0) {
-              for (const key in cardData.uniqueStatus.supportSkill) {
-                this.supportSkill[cardData.memberName][key] = cardData.uniqueStatus.supportSkill[key].initLevel;
-
-                if (cardData.fluctuationStatus.releaseLevel >= cardData.uniqueStatus.supportSkill[key].levelUp) {
-                  this.supportSkill[cardData.memberName][key] += cardData.uniqueStatus.supportSkill[key].upLevel;
-                }
-              }
-            }*/
-
             if (/^(card|SA|S|release|training)Level$/.test(searchKey)) {
               return filterList[0] <= cardData.fluctuationStatus[searchKey] && cardData.fluctuationStatus[searchKey] <= filterList[1];
             } else if (searchKey === 'SAAP') {
@@ -577,6 +567,30 @@ export const useStoreCounter = defineStore('store', {
             return filterList.some((val) => {
               return cardData.series === val;
             });
+          });
+        }
+      }
+
+      if (result.length > 0) {
+        if (this.selectSortType === 'rare') {
+          if (this.sortType === 'ascending') {
+            result.reverse();
+          }
+        } else {
+          result.sort((a, b) => {
+            if (/(card|SA|skill|release|training)Level|/.test(this.selectSortType)) {
+              if (this.sortType === 'ascending') {
+                return a.fluctuationStatus[this.selectSortType] < b.fluctuationStatus[this.selectSortType] ? -1 : a.fluctuationStatus[this.selectSortType] > b.fluctuationStatus[this.selectSortType] ? 1 : 0;
+              } else {
+                return a.fluctuationStatus[this.selectSortType] > b.fluctuationStatus[this.selectSortType] ? -1 : a.fluctuationStatus[this.selectSortType] < b.fluctuationStatus[this.selectSortType] ? 1 : 0;
+              }
+            } else {
+              if (this.sortType === 'ascending') {
+                return a[this.selectSortType] < b[this.selectSortType] ? -1 : a[this.selectSortType] > b[this.selectSortType] ? 1 : 0;
+              } else {
+                return a[this.selectSortType] > b[this.selectSortType] ? -1 : a[this.selectSortType] < b[this.selectSortType] ? 1 : 0;
+              }
+            }
           });
         }
       }
@@ -733,10 +747,10 @@ export const useStoreCounter = defineStore('store', {
     outputBonusSkillList() {
       const result = {};
 
-      for (const key in this.bonusSkillList) {
-        if (this.memberData.centerList[this.checkMasteryMember].bonusSkill[key] > 0) {
-          result[key] = this.bonusSkillList[key];
-          result[key].skillLevel = this.memberData.centerList[this.checkMasteryMember].bonusSkill[key];
+      for (const targetBonusSkill in this.bonusSkillList) {
+        if (this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] + this.supportSkill[this.checkMasteryMember][targetBonusSkill] > 0) {
+          result[targetBonusSkill] = this.bonusSkillList[targetBonusSkill];
+          result[targetBonusSkill].skillLevel = this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] + this.supportSkill[this.checkMasteryMember][targetBonusSkill];
         }
       }
 
@@ -766,34 +780,11 @@ export const useStoreCounter = defineStore('store', {
     },*/
   },
   actions: {
-    makeTotalSkillLv(memberName) {
-      let result = 0;
-      
-      for (const musicTitle of this.memberData.centerList[memberName].centerMusic) {
-        result += this.musicList[musicTitle].level;
-      }
-
-      return result;
-    },
     init() {
-      /*for (const name in this.memberName) {
-        for (const rare of this.rare) {
-          for (const cardName in this.card[name][rare]) {
-            this.card[name][rare][cardName].fluctuationStatus = {
-              cardLevel: 0,
-              trainingLevel: 0,
-              SALevel: 1,
-              SLevel: 1,
-              releaseLevel: 1
-            };
-          }
-        }
-      }*/
-
       this.search = structuredClone(this.defaultSearch);
       this.card = structuredClone(this.defaultCard);
       this.getLocalStorage();
-      //this.outputCardList;
+      this.setSupportSkillLevel();
     },
     setLocalStorage(setLocalStorageName, value) {
       localStorage[setLocalStorageName] = JSON.stringify(value);
@@ -1070,8 +1061,27 @@ export const useStoreCounter = defineStore('store', {
 
       this.setLocalStorage('llllMgr_card', this.makeExportCardData());
     },
-    setTotalSkillLv(memberName) {
-      return this.makeTotalSkillLv(memberName);
+    setSupportSkillLevel() {
+      const cardDataList = this.cardList.filter((targetCardData) => {
+        return targetCardData.uniqueStatus.supportSkill !== undefined
+      });
+
+      for (const cardData of cardDataList) {
+        for (const targetBonusSkill in this.supportSkill[cardData.memberName]) {
+          this.supportSkill[cardData.memberName][targetBonusSkill] = 0;
+
+          if (cardData.fluctuationStatus.cardLevel > 0) {
+            this.supportSkill[cardData.memberName][targetBonusSkill] = cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].initLevel;
+
+            if (cardData.fluctuationStatus.releaseLevel >= cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].levelUp) {
+              this.supportSkill[cardData.memberName][targetBonusSkill] += cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].upLevel;
+            }
+          }
+        }
+      }
+    },
+    setBonusSkillLevel(memberName, skillName) {
+      return this.memberData.centerList[memberName].bonusSkill[skillName] + this.supportSkill[memberName][skillName];
     },
     /*cardParam(style, target) {
       if (target === undefined) {

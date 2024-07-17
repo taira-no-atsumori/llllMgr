@@ -1,11 +1,11 @@
 <template>
-<v-row no-gutters>
-  <v-col>
-    <v-radio-group
-      v-model="store.selectSortType"
-      inline
-      density="compact"
-      hide-details="false"
+  <v-radio-group
+    v-model="store.selectSortType"
+    inline
+    density="compact"
+    hide-details="false"
+  >
+    <template
       v-for="(label, val) in sortTypeList"
       :key="val"
     >
@@ -13,10 +13,11 @@
         color="pink"
         :value="val"
         :label="label"
+        class="w-50 mb-1"
       ></v-radio>
-    </v-radio-group>
-  </v-col>
-</v-row>
+    </template>
+  </v-radio-group>
+  ※先行実装のため、再読込するとソート内容は解除されます
 </template>
 
 <script setup>
@@ -30,19 +31,20 @@ export default {
   data() {
     return {
       sortTypeList: {
-        normal: '通常',
-        all: '総合',
-        cardLevel: 'カードレベル',
-        specialAppealLevel: 'SAレベル',
-        skillLevel: 'スキルレベル',
-        releaseLevel: '解放レベル',
-        releaseBonus: '解放ボーナス',
+        rare: 'レア度(標準)',
+        //timeline: '時系列',
+        //all: '総合',
+        cardLevel: 'カード Lv.',
+        SALevel: 'SA Lv.',
+        SLevel: 'スキル Lv.',
+        releaseLevel: '解放 Lv.',
+        //releaseBonus: '解放ボーナス',
         trainingLevel: '特訓度',
-        smile: 'スマイル',
-        pure: 'ピュア',
-        cool: 'クール',
-        mental: 'メンタル',
-        japanese: '五十音'
+        //smile: 'スマイル',
+        //pure: 'ピュア',
+        //cool: 'クール',
+        //mental: 'メンタル',
+        //kana: '五十音'
       }
     }
   },

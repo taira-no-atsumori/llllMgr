@@ -1245,13 +1245,13 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
-          /*'織姫草紙': {
-            styleType: 'moodMaker',
+          '織姫草紙': {
+            styleType: 'trickStar',
             mood: 'melow',
             series: '織姫草紙',
             kana: 'おりひめそうし',
             gacha: {
-              addSeason: 'ライブグランプリ「104期1stTerm第4回個人戦」報酬',
+              addSeason: 'ライブグランプリ「104期 1stTerm 第4回個人戦」報酬',
               period: 'prize'
             },
             favorite: [],
@@ -1263,34 +1263,34 @@ export const useCardStore = defineStore('cardList', {
               releaseLevel: 1
             },
             uniqueStatus: {
-              smile: 3900,
-              pure: 4800,
-              cool: 5700,
-              mental: 480,
+              smile: 3500,
+              pure: 4100,
+              cool: 5000,
+              mental: 420,
               BP: 100
             },
             specialAppeal: {
-              ID: 'regainVoltage',
-              name: 'リゲインボルテージ',
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
               AP: 5,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
               ]
             },
             skill: {
-              ID: 'attractBoost',
-              name: 'アトラクトブースト',
-              AP: 15,
+              ID: 'refreshMind',
+              name: 'リフレッシュマインド',
+              AP: 4,
               detail: [
-                [46.5, 51.2, 55.8, 60.5, 65.1, 69.8, 74.4, 79.1, 83.7, 93, 97.7, 102.3, 107, 116.3]
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]
               ]
             },
             characteristic: {
-              name: 'ミッドドロー：2～4/APレデュース & アザードロー：ハートブースト',
-              detail: '2～4セクション目でドローした時、消費APを-10する。それ以外のセクションでドローした時、次に使用するスキルハート獲得効果による獲数を+50%する。',
-              type: ['midDrew', 'APReduce', 'otherDrew', 'boost_heartCaptcha']
+              name: 'ジャストドロー：1/APレデュース & アザードロー：リカバーブースト',
+              detail: '1セクション目にドローした時、APを5回復する。それ以外のセクションでドローした時、次に使用するメンタルリカバー効果を+50%する。',
+              type: ['justDrew', 'APReduce', 'otherDrew', 'boost_mentalRecover']
             }
-          },*/
+          },
           '抱きしめる花びら': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -11523,7 +11523,7 @@ export const useCardStore = defineStore('cardList', {
             series: 'hsct',
             kana: 'hsct',
             gacha: {
-              addSeason: 'ライブグランプリ「104期1stTerm第3回個人戦」報酬',
+              addSeason: 'ライブグランプリ「104期 1stTerm 第3回個人戦」報酬',
               period: 'prize'
             },
             favorite: [],
@@ -13082,7 +13082,7 @@ export const useCardStore = defineStore('cardList', {
             series: '青嵐の鯉流し',
             kana: 'あおあらしのこいながし',
             gacha: {
-              addSeason: 'ライブグランプリ「104期1stTerm第2回個人戦」報酬',
+              addSeason: 'ライブグランプリ「104期 1stTerm 第2回個人戦」報酬',
               period: 'prize'
             },
             favorite: [],

@@ -286,9 +286,6 @@
           cols="12"
           class="px-sm-2"
         >
-          <!--<div class="mb-1" style="font-size: 14px;">
-            合計マスタリーレベル <b>{{ store.makeTotalMasteryLv(memberName) }}</b>
-          </div>-->
           <p class="font-weight-bold mb-2 subtitle">獲得ボーナススキル</p>
           <v-row no-gutters>
             <v-col
@@ -315,7 +312,7 @@
                   style="font-size: 15px;"
                   :class="`d-flex align-center ${windowSize.w > 600 ? '' : 'justify-center'}`"
                 >
-                  <span style="padding: 0 1px;">×</span>{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
+                  <span style="padding: 0 1px;">×</span>{{ store.setBonusSkillLevel(memberName, skillName) }}
                 </v-col>
               </v-row>
             </v-col>
@@ -376,6 +373,7 @@
 <script setup>
   import { useStoreCounter } from '../stores/counter';
   const store = useStoreCounter();
+  store.setSupportSkillLevel();
   const memberNameList = [];
 
   for (const memberName in store.memberName) {

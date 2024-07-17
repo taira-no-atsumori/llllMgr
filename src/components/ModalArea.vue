@@ -4,7 +4,7 @@
     scrollable
     :max-width="maxWidth[store.showModalName]"
   >
-    <v-sheet class="pa-3 bg-white">
+    <v-sheet class="pa-3">
       <div v-if="store.showModalName === 'selectCard'">
         <SelectCard />
       </div>
@@ -39,7 +39,7 @@
         <Settings />
       </div>
       <div class="mt-2 text-center">
-        <v-btn @click="store.switchDialog(false)">閉じる</v-btn>
+        <v-btn :theme="store.isDarkMode ? 'dark' : 'light'" @click="store.switchDialog(false)">閉じる</v-btn>
       </div>
     </v-sheet>
   </v-dialog>
@@ -84,7 +84,7 @@ export default {
         setCardData: 900,
         possessionCardSetting: 'auto',
         CardListFilter: 1600,
-        CardListSort: 600,
+        CardListSort: 400,
         MusicListFilter: 1600,
         masteryLevel: 600,
         setLeaningLevel: 600,

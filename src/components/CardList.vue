@@ -26,7 +26,6 @@
   class="mb-1 mr-2 px-3"
   @click="store.showModalEvent('CardListSort')"
   color="blue"
-  v-if="false"
 ><v-icon class="mr-2">mdi-sort</v-icon>ソート</v-btn>
 
 <v-btn-toggle
@@ -36,15 +35,14 @@
   color="pink"
   class="mb-1 mr-2"
   mandatory
-  v-if="false"
 >
-  <v-btn value="ascending" class="px-0 px-sm-2">
-    <v-icon>mdi-sort-ascending</v-icon>
-    <span class="ml-2 hidden-sm-and-down">昇順</span>
-  </v-btn>
-  <v-btn value="descending" class="px-0 px-sm-2">
+  <v-btn v-model="store.sortType" value="descending" class="px-0 px-sm-2">
     <v-icon>mdi-sort-descending</v-icon>
     <span class="ml-2 hidden-sm-and-down">降順</span>
+  </v-btn>
+  <v-btn v-model="store.sortType" value="ascending" class="px-0 px-sm-2">
+    <v-icon>mdi-sort-ascending</v-icon>
+    <span class="ml-2 hidden-sm-and-down">昇順</span>
   </v-btn>
 </v-btn-toggle>
 
