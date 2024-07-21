@@ -1,13 +1,13 @@
 <template>
-<v-app :theme="store.isDarkMode ? 'dark' : 'light'">
-  <v-app-bar density="comfortable" color="pink">
+<v-app :theme="store.siteSettings.isDarkMode">
+  <v-app-bar :scroll-behavior="store.siteSettings.headerTracking" density="comfortable" color="pink">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer;" class="hidden-sm-and-up"></v-app-bar-nav-icon>
     <v-bottom-sheet v-model="drawer" v-if="false">
       <template v-slot:activator="{ props }">
         <v-icon v-bind="props" @click="drawer = true;" class="ml-3 hidden-sm-and-up">mdi-menu</v-icon>
       </template>
 
-      <v-sheet class="py-2 bg-white">
+      <v-sheet class="py-2">
         <v-list-item
           class="px-2 pt-0 pb-2"
           title="リンクラ マネージャー！"

@@ -785,6 +785,18 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'エクステハートブースト': {
+        extensions_section3_heartBoost_stage: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'boost_heartCaptcha']
+          }
+        }
+      },
       'エクステアトラクト': {
         extensions1_stageAttract_section: {
           text: [
@@ -2183,6 +2195,35 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ドレス《アオクハルカ》': {
+        dress_aokuharuka_kaho: {
+          text: [
+            'ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        },
+        dress_aokuharuka_kozue: {
+          text: [
+            'ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        },
+        dress_aokuharuka_ginko: {
+          text: [
+            'ドレスカード《アオクハルカ》を1種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        },
+      },
       'リブートエクステンド': {
         rebootExtend_stage1_stageAttract: {
           text: [
@@ -2446,6 +2487,16 @@ export const useSkillStore = defineStore('skillList', {
           text: [
             'このステージ中、ハート上限を+',
             'し、手札の上限枚数を1枚増加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartLimitUp', 'extendHand']
+          }
+        },
+        wideExtend_stage1_2: {
+          text: [
+            'このステージ中、手札の上限枚数を1枚増加し、ハート上限を+',
+            'する。'
           ],
           detail: {
             attr: '',

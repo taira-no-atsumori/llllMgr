@@ -322,7 +322,7 @@
   max-width="1600"
   scrollable
 >
-<v-sheet class="pa-3 bg-white">
+<v-sheet class="pa-3">
   <h2>Fan Lv.の複製</h2>
   <v-card
     v-for="(outputList, i) in sendGiftPtList"

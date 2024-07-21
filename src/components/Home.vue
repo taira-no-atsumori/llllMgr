@@ -146,23 +146,23 @@ export default {
     return {
       eventList: {
         /*'liveGP': {
-          title: 'ライブグランプリ「104期1stTerm第4回個人戦」',
+          title: 'ライブグランプリ「104期 1stTerm 第4回個人戦」',
           text: '',
           type: 'liveGP',
           firstDay: [2024, 7, 11, 12, 0],
           lastDay: [2024, 7, 17, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-07-09-20-acuk6bf4ej',
           img: '104期1stTerm第4回個人戦_logo'
-        },
+        },*/
         'liveGP': {
-          title: 'ライブグランプリ「104期 1stTerm 第3回サークル対抗戦」',
+          title: 'ライブグランプリ「104期 1stTerm 第4回サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 6, 22, 12, 0],
-          lastDay: [2024, 6, 28, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-04-19-30-la8hkbjnyy',
-          img: '104期 1stTerm 第3回サークル対抗戦_logo'
-        },*/
+          firstDay: [2024, 7, 21, 12, 0],
+          lastDay: [2024, 7, 26, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-07-19-10-ymfuvv9aj8',
+          img: '104期 1stTerm 第4回サークル対抗戦_logo'
+        },
         'anisama': {
           title: 'ライブ「Animelo Summer Live 2024 -Stargazer-」',
           text: 'Day2(出演日)',

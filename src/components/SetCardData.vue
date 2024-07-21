@@ -5,7 +5,7 @@
       <h2 class="hidden-xs">
         <v-tooltip location="bottom">
           <template v-slot:activator="{ props }">
-            <a :href="makeWikiLink(store.settingCard.card, store.memberName[store.settingCard.name].first + store.memberName[store.settingCard.name].last)" target="_blank" style="color: #000;" v-bind="props">
+            <a :href="makeWikiLink(store.settingCard.card, store.memberName[store.settingCard.name].first + store.memberName[store.settingCard.name].last)" target="_blank" :class="`text-${store.siteSettings.isDarkMode === 'light' ? 'black' : 'white'}`" v-bind="props">
               {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.makeFullName(store.settingCard.name) }}
             </a>
           </template>
@@ -13,7 +13,7 @@
         </v-tooltip>
       </h2>
       <h3 class="hidden-sm-and-up">
-        <a :href="makeWikiLink(store.settingCard.card, store.memberName[store.settingCard.name].first + store.memberName[store.settingCard.name].last)" target="_blank" style="color: #000;">
+        <a :href="makeWikiLink(store.settingCard.card, store.memberName[store.settingCard.name].first + store.memberName[store.settingCard.name].last)" target="_blank" :class="`text-${store.siteSettings.isDarkMode === 'light' ? 'black' : 'white'}`">
           {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.makeFullName(store.settingCard.name) }}
         </a>
       </h3>
@@ -433,7 +433,7 @@
   scrollable
   :max-width="dialogSize"
 >
-  <v-sheet class="pa-3 bg-white">
+  <v-sheet class="pa-3">
     <div v-if="openDialogName === 'skillList'">
       <h2 class="text-center mb-2">スキル効果量一覧</h2>
       <v-table density="compact">

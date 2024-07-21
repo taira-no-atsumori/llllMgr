@@ -39,7 +39,7 @@
         <Settings />
       </div>
       <div class="mt-2 text-center">
-        <v-btn :theme="store.isDarkMode ? 'dark' : 'light'" @click="store.switchDialog(false)">閉じる</v-btn>
+        <v-btn :theme="store.siteSettings.isDarkMode" @click="store.switchDialog(false)">閉じる</v-btn>
       </div>
     </v-sheet>
   </v-dialog>

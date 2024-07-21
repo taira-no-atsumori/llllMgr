@@ -5,12 +5,12 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.56(アーリーアクセス)',
+    version: 'ε.57(アーリーアクセス)',
     dialog: false,
     showModalName: false,
-    isDarkMode: false,
     sortType: 'descending',
     selectSortType: 'rare',
+    isShowDetail: 'false',
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
@@ -25,6 +25,10 @@ export const useStoreCounter = defineStore('store', {
       kozue: 1,
       tsuzuri: 1,
       megumi: 1
+    },
+    siteSettings: {
+      headerTracking: '',
+      isDarkMode: 'light'
     },
     defaultSearch: {
       cardList: {
@@ -375,8 +379,8 @@ export const useStoreCounter = defineStore('store', {
       clearRank: [1, 1.1, 1.2, 1.3],
       seasonFanLv: [0, 0.2, 0.275, 0.35, 0.425, 0.5, 0.55, 0.6, 0.65, 0.7],
       releaseLv: {
-        UR: [0, 0.2, 0.3, 0.35, 0.4],
         BR: [0, 0.2, 0.3, 0.35, 0.4],
+        UR: [0, 0.2, 0.3, 0.35, 0.4],
         SR: [0, 0.15, 0.25, 0.3, 0.35],
         R: [0, 0.1, 0.15, 0.2, 0.25]
       }
@@ -436,6 +440,22 @@ export const useStoreCounter = defineStore('store', {
         'メンタルリカバー': 0,
         'LOVEボーナス': 0
       }
+    },
+    sortTypeList: {
+      rare: 'レア度(標準)',
+      //timeline: '時系列',
+      //all: '総合',
+      cardLevel: 'カードLv.',
+      SALevel: 'SA Lv.',
+      SLevel: 'スキルLv.',
+      releaseLevel: '解放Lv.',
+      releaseBonus: '解放Lv.ボーナス',
+      trainingLevel: '特訓度',
+      //smile: 'スマイル',
+      //pure: 'ピュア',
+      //cool: 'クール',
+      //mental: 'メンタル',
+      //kana: '五十音'
     },
     defaultCardList: []
   }),
@@ -577,21 +597,55 @@ export const useStoreCounter = defineStore('store', {
             result.reverse();
           }
         } else {
-          result.sort((a, b) => {
-            if (/(card|SA|skill|release|training)Level|/.test(this.selectSortType)) {
-              if (this.sortType === 'ascending') {
-                return a.fluctuationStatus[this.selectSortType] < b.fluctuationStatus[this.selectSortType] ? -1 : a.fluctuationStatus[this.selectSortType] > b.fluctuationStatus[this.selectSortType] ? 1 : 0;
+          let aa;
+          let bb;
+          const mergeList = [];
+
+          if (this.selectSortType === 'releaseBonus') {
+            result = result.filter((cardData) => {
+              if (cardData.rare === 'DR' || cardData.specialAppeal === undefined) {
+                mergeList.push(cardData);
+                return false;
               } else {
-                return a.fluctuationStatus[this.selectSortType] > b.fluctuationStatus[this.selectSortType] ? -1 : a.fluctuationStatus[this.selectSortType] < b.fluctuationStatus[this.selectSortType] ? 1 : 0;
+                return true;
+              }
+            });
+          }
+
+          result.sort((a, b) => {
+            if (this.selectSortType === 'releaseBonus') {
+              aa = a.fluctuationStatus.releaseLevel - 1;
+              bb = b.fluctuationStatus.releaseLevel - 1;
+
+              if (this.sortType === 'ascending') {
+                return this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
+              } else {
+                return this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
+              }
+            } else if (/(card|SA|skill|release|training)Level/.test(this.selectSortType)) {
+              aa = a.fluctuationStatus[this.selectSortType];
+              bb = b.fluctuationStatus[this.selectSortType];
+              
+              if (this.sortType === 'ascending') {
+                return aa < bb ? -1 : aa > bb ? 1 : 0;
+              } else {
+                return aa > bb ? -1 : aa < bb ? 1 : 0;
               }
             } else {
+              aa = a[this.selectSortType];
+              bb = b[this.selectSortType];
+
               if (this.sortType === 'ascending') {
-                return a[this.selectSortType] < b[this.selectSortType] ? -1 : a[this.selectSortType] > b[this.selectSortType] ? 1 : 0;
+                return aa < bb ? -1 : aa > bb ? 1 : 0;
               } else {
-                return a[this.selectSortType] > b[this.selectSortType] ? -1 : a[this.selectSortType] < b[this.selectSortType] ? 1 : 0;
+                return aa > bb ? -1 : aa < bb ? 1 : 0;
               }
             }
           });
+
+          if (mergeList.length > 0) {
+            result = result.concat(mergeList);
+          }
         }
       }
 

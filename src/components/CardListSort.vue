@@ -6,7 +6,7 @@
     hide-details="false"
   >
     <template
-      v-for="(label, val) in sortTypeList"
+      v-for="(label, val) in store.sortTypeList"
       :key="val"
     >
       <v-radio
@@ -29,24 +29,7 @@
 export default {
   name: 'CardListSort',
   data() {
-    return {
-      sortTypeList: {
-        rare: 'レア度(標準)',
-        //timeline: '時系列',
-        //all: '総合',
-        cardLevel: 'カード Lv.',
-        SALevel: 'SA Lv.',
-        SLevel: 'スキル Lv.',
-        releaseLevel: '解放 Lv.',
-        //releaseBonus: '解放ボーナス',
-        trainingLevel: '特訓度',
-        //smile: 'スマイル',
-        //pure: 'ピュア',
-        //cool: 'クール',
-        //mental: 'メンタル',
-        //kana: '五十音'
-      }
-    }
+    return {}
   },
   created() {},
   computed: {},

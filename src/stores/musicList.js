@@ -2291,7 +2291,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue', 'ginko']
       },
-      /*'アオクハルカ': {
+      'アオクハルカ': {
         musicData: {
           kana: 'あおくはるか',
           singer: 'スリーズブーケ',
@@ -2305,18 +2305,18 @@ export const useMusicStore = defineStore('musicList', {
             original: 145,
             inGame: 145
           },
-          time: 0,
+          time: 142,
           cover: false,
-          link: 'https://youtu.be/Gi4-nA4o0o4?si=E7bQsS4Ah-mPPiTg&t=202'
+          link: 'https://youtu.be/dlXhfnJxc6w?si=wPWZZ5wlBbyLstQF'
         },
         attribute: 'pure',
-        BHcount: 1,
+        BHcount: 84,
         level: 0,
         term: 104,
-        center: 'ginko',
+        center: 'kaho',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue', 'ginko']
-      },*/
+      },
       'Sparkly Spot（104期NEW Ver.）': {
         musicData: {
           kana: 'すぱーくりーすぽっと',
@@ -2576,6 +2576,32 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue', 'ginko']
+      },
+      'Daydream Warrior': {
+        musicData: {
+          kana: 'でいどりーむうぉーりあー',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2016,
+            month: 12,
+            date: 22
+          },
+          numbering: 'ラブライブ！サンシャイン!! アニメ1期Blu-ray第4巻 特典曲',
+          BPM: {
+            original: 135,
+            inGame: 135
+          },
+          time: 109,
+          cover: true,
+          link: ''
+        },
+        attribute: 'cool',
+        BHcount: 59,
+        level: 0,
+        term: 104,
+        center: 'sayaka',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
       },
     }
   }),

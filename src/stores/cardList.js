@@ -261,6 +261,65 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'アオクハルカ': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'アオクハルカ',
+            kana: 'あおくはるか',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.5',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 5300,
+              cool: 4300,
+              mental: 520,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions_section3_heartBoost_stage',
+              name: 'エクステハートブースト',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ]
+            },
+            skill: {
+              ID: 'dress_aokuharuka_kaho',
+              name: 'ドレス《アオクハルカ》',
+              AP: 3,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'heartCaptcha',
+                  name: 'ハートキャプチャ',
+                  AP: 3,
+                  detail: [
+                    [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & ドロー：ワイドハート',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにドローした時、このステージ中、ハート上限を+12する。',
+                    type: ['exclusion', 'boost_heartCaptcha']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'ボルテージゲイン & ハートブースト：スリーズブーケ',
+              detail: '手札にある状態でスリーズブーケのスキルを使用するたび、ボルテージPt.を+5し、次に使用するスキルハート獲得効果による獲得数を+15%する。',
+              type: ['voltageGain', 'boost_heartCaptcha']
+            }
+          },
           'H.S.C.T.☆': {
             styleType: 'cheerLeader',
             mood: 'happy',
@@ -6475,6 +6534,65 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'アオクハルカ': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'アオクハルカ',
+            kana: 'あおくはるか',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.5',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 5500,
+              cool: 4200,
+              mental: 510,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'wideExtend_stage1_2',
+              name: 'ワイドエクステンド',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ]
+            },
+            skill: {
+              ID: 'dress_aokuharuka_kozue',
+              name: 'ドレス《アオクハルカ》',
+              AP: 3,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'loveAttract',
+                  name: 'ラブアトラクト',
+                  AP: 3,
+                  detail: [
+                    [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & ドロー：アトラクトブースト',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにドローした時、次に使用するラブアトラクト効果を+16%する。',
+                    type: ['exclusion', 'boost_loveAttract']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'ボルテージゲイン & ワイドハート：スリーズブーケ',
+              detail: '手札にある状態でスリーズブーケのスキルを使用するたび、ボルテージPt.を+5し、このステージ中、ハート上限を+4する。',
+              type: ['voltageGain', 'heartLimitUp']
+            }
+          },
           'H.S.C.T.☆': {
             styleType: 'cheerLeader',
             mood: 'happy',
@@ -12684,6 +12802,67 @@ export const useCardStore = defineStore('cardList', {
               name: 'アーリードロー：APレデュース',
               detail: '3セクション目までにドローした場合、消費APを-3する。',
               type: ['earlyDraw', 'APReduce']
+            }
+          }
+        },
+        SR: {
+          'アオクハルカ': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'アオクハルカ',
+            kana: 'あおくはるか',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.5',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3800,
+              pure: 4600,
+              cool: 3900,
+              mental: 450,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionsHeart_section3',
+              name: 'エクステハート',
+              AP: 6,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
+              ]
+            },
+            skill: {
+              ID: 'dress_aokuharuka_ginko',
+              name: 'ドレス《アオクハルカ》',
+              AP: 3,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'refreshHeart',
+                  name: 'リフレッシュハート',
+                  AP: 2,
+                  detail: [
+                    [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'ボルテージゲイン：スリーズブーケ',
+              detail: '手札にある状態でスリーズブーケのスキルを使用するたび、ボルテージPt.を+3する。',
+              type: ['voltageGain']
             }
           }
         },

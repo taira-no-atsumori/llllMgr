@@ -1,6 +1,23 @@
 <template>
 <h1>SITE SETTINGS</h1>
-<v-switch v-model="store.isDarkMode" color="pink" density="comfortable" hide-details label="Dark Mode"></v-switch>
+<v-switch
+  v-model="store.siteSettings.headerTracking"
+  color="pink"
+  density="comfortable"
+  false-value="hide"
+  true-value=""
+  label="ヘッダー追従"
+  hide-details
+></v-switch>
+<v-switch
+  v-model="store.siteSettings.isDarkMode"
+  color="pink"
+  density="comfortable"
+  false-value="light"
+  true-value="dark"
+  label="ダークモード"
+  hide-details
+></v-switch>
 お試し版のため、再読込するとダークモードは解除されます
 </template>
 
