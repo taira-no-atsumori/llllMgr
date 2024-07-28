@@ -7,7 +7,7 @@
           :href="store.musicList[store.selectMusicTitle].musicData.link !== '' ? store.musicList[store.selectMusicTitle].musicData.link : 'javascript:void(0)'"
           target="_blank"
           v-bind="props"
-          :class="`text-${store.siteSettings.isDarkMode === 'light' ? 'black' : 'white'}`"
+          :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
         >{{ store.selectMusicTitle }}</a>
       </template>
       YouTubeで試聴する

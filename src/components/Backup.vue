@@ -1,23 +1,31 @@
 <template>
 <h1>DATA BACKUP</h1>
-<v-tabs v-model="tab" grow slider-color="pink" density="compact">
-  <v-tab
-    v-for="val in ['export', 'import']"
-    :key="val"
-    :value="val"
-  >{{ val }}</v-tab>
+
+<v-tabs
+  v-model="tabName"
+  :items="tabs"
+  slider-color="pink"
+  density="compact"
+  grow
+>
+  <template v-slot:tab="{ item }">
+    <v-tab
+      :value="item.value"
+      :text="item.text"
+    ></v-tab>
+  </template>
 </v-tabs>
 
-<v-window v-model="tab" :touch="false">
-  <v-window-item value="export" class="my-2">
+<v-tabs-window v-model="tabName">
+  <v-tabs-window-item value="export" class="my-2">
     <v-alert :type="alertContent.export.type" variant="tonal" class="mb-2">
       {{ alertContent.export.text }}
     </v-alert>
 
     <v-btn block color="pink" prepend-icon="mdi-file-export" @click="makeBackup(store);">バックアップファイル生成</v-btn>
-  </v-window-item>
+  </v-tabs-window-item>
 
-  <v-window-item value="import" class="my-2">
+  <v-tabs-window-item value="import" class="my-2">
     <v-alert :type="alertContent.import.type" variant="tonal" class="mb-2">
       {{ alertContent.import.text }}
     </v-alert>
@@ -30,7 +38,7 @@
       color="pink"
       accept="application/json"
       @update:modelValue="readFile();"
-      :hide-details="true"
+      hide-details
     ></v-file-input>
 
     <h3>反映データ</h3>
@@ -38,7 +46,7 @@
     <v-row no-gutters class="mb-2">
       <v-col
         cols="6"
-        v-for="(name, value) in {card: 'カードデータ', cardListFilter: 'カード絞り込み条件', musicData: 'ラーニングレベル', selectItemList: 'アイテム絞り込み条件'}"
+        v-for="(name, value) in dataName"
         :key="value"
       >
         <v-checkbox
@@ -62,9 +70,9 @@
     </v-radio-group>
 
     <v-btn block color="pink" prepend-icon="mdi-file-import" @click="setBackupData(store);" :disabled="isFileImportError || !radios">反映</v-btn>
-  </v-window-item>
+  </v-tabs-window-item>
 
-  <v-window-item value="reset" class="my-2" v-if="false">
+  <v-tabs-window-item value="reset" class="my-2" v-if="false">
     <v-alert :type="alertContent.reset.type" variant="tonal">
       {{ alertContent.reset.text }}
     </v-alert>
@@ -72,7 +80,7 @@
       <v-row no-gutters>
         <v-col
           cols="6"
-          v-for="(name, value) in {card: 'カードデータ', cardListFilter: 'カード絞り込み条件', musicData: 'ラーニングレベル', selectItemList: 'アイテム絞り込み条件'}"
+          v-for="(name, value) in dataName"
           :key="value"
         >
           <v-checkbox
@@ -87,8 +95,8 @@
       </v-row>
     </v-container>
     <v-btn block color="pink" prepend-icon="mdi-cached" @click="resetAction(store);" :disabled="resetList.length === 0">リセット</v-btn>
-  </v-window-item>
-</v-window>
+  </v-tabs-window-item>
+</v-tabs-window>
 </template>
 
 <script setup>
@@ -105,21 +113,25 @@ export default {
       fileReader: null,
       backupData: null,
       disabled: true,
-      tab: null,
+      tabName: null,
+      tabs: [
+        {text: 'export', value: 'export'},
+        {text: 'import', value: 'import'}
+      ],
+      dataName: {
+        card: 'カードデータ',
+        cardListFilter: 'カード絞り込み条件',
+        musicData: 'ラーニングレベル',
+        selectItemList: 'アイテム絞り込み条件',
+        sortSettings_card: 'ソート設定(CARD LIST)',
+        //sortSettings_music: 'ソート設定(MUSIC LIST)',
+        siteSettings: 'サイト設定',
+      },
       radios: false,
       alertContent: {
-        export: {
-          type: null,
-          text: null
-        },
-        import: {
-          type: null,
-          text: null
-        },
-        reset: {
-          type: null,
-          text: null
-        }
+        export: {type: null, text: null},
+        import: {type: null, text: null},
+        reset: {type: null, text: null}
       },
       alertContentList: {
         export: [
@@ -167,11 +179,13 @@ export default {
           text: '正しいバックアップファイルをアップロードしてください。'
         }
       },
-      importData: ['card', 'cardListFilter', 'musicData', 'selectItemList'],
+      defaultImportData: ['card', 'cardListFilter', 'musicData', 'selectItemList', 'sortSettings_card', /*'sortSettings_music', */'siteSettings'],
+      importData: [],
       resetList: []
     }
   },
   created() {
+    this.importData = this.defaultImportData;
     this.alertContent.export = this.alertContentList.export[0];
     this.alertContent.import = this.alertContentList.import[0];
     this.alertContent.reset = this.alertContentList.reset[0];
@@ -218,15 +232,25 @@ export default {
     setBackupData(store) {
       const sendData = {};
 
-      for (const key of this.importData) {
+      for (let key of this.importData) {
         if (/^card|cardListFilter$/.test(key)) {
           if (sendData.cardList === undefined) {
             sendData.cardList = {};
           }
 
           sendData.cardList[key] = this.backupData.cardList[key];
-        } else if (/^musicData|selectItemList$/.test(key)) {
-          sendData[key] = this.backupData[key];
+        } else if (/^sortSettings_/.test(key)) {
+          key = key.split('_')[1];
+
+          if (sendData.sortSettings === undefined) {
+            sendData.sortSettings = {};
+          }
+
+          if (this.backupData.sortSettings !== undefined) {
+            sendData.sortSettings[`${key}List`] = this.backupData.sortSettings[`${key}List`];
+          }
+        } else if (/^musicData|selectItemList|siteSettings$/.test(key)) {
+          sendData[key] = this.backupData[key] === undefined ? {} : this.backupData[key];
         }
       }
 
@@ -236,7 +260,7 @@ export default {
       }
 
       store.getLocalStorage(sendData);
-      this.importData = ['card', 'cardListFilter', 'musicData', 'selectItemList'];
+      this.importData = this.defaultImportData;
       this.files = [];
       this.disabled = true;
       this.radios = false;

@@ -5,12 +5,9 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.57(アーリーアクセス)',
+    version: 'ε.58(アーリーアクセス)',
     dialog: false,
     showModalName: false,
-    sortType: 'descending',
-    selectSortType: 'rare',
-    isShowDetail: 'false',
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
@@ -27,8 +24,27 @@ export const useStoreCounter = defineStore('store', {
       megumi: 1
     },
     siteSettings: {
-      headerTracking: '',
-      isDarkMode: 'light'
+      all: {
+        headerTracking: '',
+        darkMode: 'light'
+      },
+      cardList: {
+        isShowDetail: 'false',
+        hover: 'true'
+      },
+      musicList: {
+        hover: 'true'
+      }
+    },
+    sortSettings: {
+      cardList: {
+        sortType: 'rare',
+        order: 'descending'
+      },
+      musicList: {
+        sortType: '',
+        order: 'descending'
+      }
     },
     defaultSearch: {
       cardList: {
@@ -373,6 +389,15 @@ export const useStoreCounter = defineStore('store', {
         item1: [],
         item2: [],
         item3: []
+      },
+      siteSettings: {
+        all: {},
+        cardList: {},
+        musicList: {}
+      },
+      sortSettings: {
+        cardList: {},
+        musicList: {}
       }
     },
     grandprixBonus: {
@@ -592,7 +617,7 @@ export const useStoreCounter = defineStore('store', {
       }
 
       if (result.length > 0) {
-        if (this.selectSortType === 'rare') {
+        if (this.sortSettings.cardList.sortType === 'rare') {
           if (this.sortType === 'ascending') {
             result.reverse();
           }
@@ -601,7 +626,7 @@ export const useStoreCounter = defineStore('store', {
           let bb;
           const mergeList = [];
 
-          if (this.selectSortType === 'releaseBonus') {
+          if (this.sortSettings.cardList.sortType === 'releaseBonus') {
             result = result.filter((cardData) => {
               if (cardData.rare === 'DR' || cardData.specialAppeal === undefined) {
                 mergeList.push(cardData);
@@ -613,29 +638,29 @@ export const useStoreCounter = defineStore('store', {
           }
 
           result.sort((a, b) => {
-            if (this.selectSortType === 'releaseBonus') {
+            if (this.sortSettings.cardList.sortType === 'releaseBonus') {
               aa = a.fluctuationStatus.releaseLevel - 1;
               bb = b.fluctuationStatus.releaseLevel - 1;
 
-              if (this.sortType === 'ascending') {
+              if (this.sortSettings.cardList.order === 'ascending') {
                 return this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
               } else {
                 return this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
               }
-            } else if (/(card|SA|skill|release|training)Level/.test(this.selectSortType)) {
-              aa = a.fluctuationStatus[this.selectSortType];
-              bb = b.fluctuationStatus[this.selectSortType];
+            } else if (/(card|SA|skill|release|training)Level/.test(this.sortSettings.cardList.sortType)) {
+              aa = a.fluctuationStatus[this.sortSettings.cardList.sortType];
+              bb = b.fluctuationStatus[this.sortSettings.cardList.sortType];
               
-              if (this.sortType === 'ascending') {
+              if (this.sortSettings.cardList.order === 'ascending') {
                 return aa < bb ? -1 : aa > bb ? 1 : 0;
               } else {
                 return aa > bb ? -1 : aa < bb ? 1 : 0;
               }
             } else {
-              aa = a[this.selectSortType];
-              bb = b[this.selectSortType];
+              aa = a[this.sortSettings.cardList.sortType];
+              bb = b[this.sortSettings.cardList.sortType];
 
-              if (this.sortType === 'ascending') {
+              if (this.sortSettings.cardList.order === 'ascending') {
                 return aa < bb ? -1 : aa > bb ? 1 : 0;
               } else {
                 return aa > bb ? -1 : aa < bb ? 1 : 0;
@@ -810,6 +835,9 @@ export const useStoreCounter = defineStore('store', {
 
       return result;
     },
+    isDarkMode() {
+      return this.siteSettings.all.darkMode === 'dark';
+    }
     /*makeMusicList() {
       return (selectSkillList) => {
         const list = {};
@@ -844,8 +872,10 @@ export const useStoreCounter = defineStore('store', {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },
     getLocalStorage(importData) {
-      if (localStorage.llllMgr_musicData !== undefined || (importData !== undefined && importData.musicData !== undefined)) {
-        if (importData === undefined) {
+      const isImportData = importData !== undefined;
+
+      if (localStorage.llllMgr_musicData !== undefined || (isImportData && importData.musicData !== undefined)) {
+        if (!isImportData) {
           this.localStorageData.musicData = JSON.parse(localStorage.llllMgr_musicData);
 
           for (const musicTitle in this.musicList) {
@@ -867,10 +897,10 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (localStorage.llllMgr_card !== undefined || (importData !== undefined && importData.cardList !== undefined && importData.cardList.card !== undefined)) {
+      if (localStorage.llllMgr_card !== undefined || (isImportData && importData.cardList !== undefined && importData.cardList.card !== undefined)) {
         let isRemakeCardData = false;
 
-        if (importData === undefined) {
+        if (!isImportData) {
           this.localStorageData.cardList.card = this.makeExportCardData(JSON.parse(localStorage.llllMgr_card));
           isRemakeCardData = true;
         } else if (importData.cardList !== undefined && importData.cardList.card !== undefined) {
@@ -896,10 +926,10 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (localStorage.llllMgr_cardListFilter !== undefined || (importData !== undefined && importData.cardList !== undefined && importData.cardList.cardListFilter !== undefined)) {
+      if (localStorage.llllMgr_cardListFilter !== undefined || (isImportData && importData.cardList !== undefined && importData.cardList.cardListFilter !== undefined)) {
         let isRemakeCardListFilter = false;
 
-        if (importData === undefined) {
+        if (!isImportData) {
           const localStorageData = JSON.parse(localStorage.llllMgr_cardListFilter);
 
           if (localStorageData.skillList.skillFilterType !== undefined) {
@@ -927,8 +957,9 @@ export const useStoreCounter = defineStore('store', {
           } else {
             this.localStorageData.cardList.cardListFilter.cardList = importData.cardList.cardListFilter.cardList;
             this.localStorageData.cardList.cardListFilter.cardSeries = importData.cardList.cardListFilter.cardSeries;
-            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType = 'skillName';
-            this.localStorageData.cardList.cardListFilter.skillList.skillName = importData.cardList.cardListFilter.skillList;
+            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType = importData.cardList.cardListFilter.skillList.skillFilterType;
+            this.localStorageData.cardList.cardListFilter.skillList.skillName = importData.cardList.cardListFilter.skillList.skillName;
+            this.localStorageData.cardList.cardListFilter.skillList.skillType = importData.cardList.cardListFilter.skillList.skillType;
           }
 
           this.setLocalStorage('llllMgr_cardListFilter', this.localStorageData.cardList.cardListFilter);
@@ -960,10 +991,10 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (localStorage.llllMgr_selectItemList !== undefined || (importData !== undefined && importData.selectItemList !== undefined)) {
+      if (localStorage.llllMgr_selectItemList !== undefined || (isImportData && importData.selectItemList !== undefined)) {
         let getSelectItemList = null;
 
-        if (importData === undefined) {
+        if (!isImportData) {
           getSelectItemList = JSON.parse(localStorage.llllMgr_selectItemList);
         } else if (importData.selectItemList !== undefined) {
           getSelectItemList = importData.selectItemList;
@@ -974,6 +1005,62 @@ export const useStoreCounter = defineStore('store', {
           for (let i = 1; i <= 3; i++) {
             this.localStorageData.selectItemList[`item${i}`] = getSelectItemList[`item${i}`];
           }
+        }
+      }
+
+      if (localStorage.llllMgr_siteSettings !== undefined || (isImportData && importData.siteSettings !== undefined)) {
+        let getSiteSettings = null;
+
+        if (!isImportData) {
+          getSiteSettings = JSON.parse(localStorage.llllMgr_siteSettings);
+        } else if (importData.siteSettings !== undefined) {
+          getSiteSettings = importData.siteSettings;
+
+          for (const key in this.siteSettings) {
+            if (getSiteSettings[key] === undefined) {
+              getSiteSettings[key] = this.siteSettings[key];
+            }
+          }
+
+          this.setLocalStorage('llllMgr_siteSettings', getSiteSettings);
+        }
+
+        if (getSiteSettings !== null) {
+          for (const siteSettingCategoryName in this.siteSettings) {
+            for (const settingName in this.siteSettings[siteSettingCategoryName]) {
+              this.localStorageData.siteSettings[siteSettingCategoryName][settingName] = getSiteSettings[siteSettingCategoryName][settingName];
+            }
+          }
+
+          this.siteSettings = this.localStorageData.siteSettings;
+        }
+      }
+
+      if (localStorage.llllMgr_sortSettings !== undefined || (isImportData && importData.sortSettings !== undefined)) {
+        let getSortSettings = null;
+
+        if (!isImportData) {
+          getSortSettings = JSON.parse(localStorage.llllMgr_sortSettings);
+        } else if (importData.sortSettings !== undefined) {
+          getSortSettings = importData.sortSettings;
+
+          for (const iterator of ['card', 'music']) {
+            if (getSortSettings[`${iterator}List`] === undefined) {
+              getSortSettings[`${iterator}List`] = this.sortSettings[`${iterator}List`];
+            }
+          }
+
+          this.setLocalStorage('llllMgr_sortSettings', getSortSettings);
+        }
+
+        if (getSortSettings !== null) {
+          for (const sortSettingCategoryName in this.sortSettings) {
+            for (const settingName in this.sortSettings[sortSettingCategoryName]) {
+              this.localStorageData.sortSettings[sortSettingCategoryName][settingName] = getSortSettings[sortSettingCategoryName][settingName];
+            }
+          }
+
+          this.sortSettings = this.localStorageData.sortSettings;
         }
       }
     },
@@ -1188,6 +1275,9 @@ export const useStoreCounter = defineStore('store', {
           this.search = structuredClone(this.defaultSearch);
         }
       }
+    },
+    changeSettings(setLocalStorageName) {
+      this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this[setLocalStorageName]);
     }
   }
 });

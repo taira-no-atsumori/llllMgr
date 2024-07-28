@@ -331,40 +331,80 @@
   >
     <v-btn @click="store.showModalEvent('masteryLevel');">詳細を見る</v-btn>
   </v-col>
+
+  <v-col
+    cols="6"
+    md="4"
+    lg="2"
+    align="center"
+    class="align-self-center"
+    v-if="false"
+  >
+    <v-btn color="blue" @click="store.showModalEvent('masteryLevel');">ソート</v-btn>
+  </v-col>
 </v-row>
       
 <v-divider class="mb-3"></v-divider>
 </v-container>
 
 <ul id="CDJacketArea">
+  <li v-if="Object.keys(makeMusicList(store)).length === 0" class="w-100">見つかりませんでした…</li>
   <li
+    v-else
     v-for="(ary, songTitle) in makeMusicList(store)"
     :key="ary"
-    @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle)"
   >
-    <v-tooltip location="bottom">
+    <v-card
+      v-if="store.siteSettings.musicList.hover === 'false' || windowSize.w <= 600"
+      :color="attributeColor[ary.attribute]"
+      @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle);"
+    >
+      <v-img
+        :lazy-src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
+        :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
+        :alt="songTitle"
+      ></v-img>
+      <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
+      <v-divider class="mb-1 border-opacity-25"></v-divider>
+      <v-card-text class="pt-0 px-1 pb-1">
+        <ul class="d-flex">
+          <li class="mr-1"><v-img :src="require(`@/assets/bonusSkill_icon/${ary.bonusSkill}.webp`)" :alt="ary.bonusSkill" class="skillIcon"></v-img></li>
+          <li class="mr-1"><v-img :src="require(`@/assets/attribute_icon/icon_${ary.attribute}.webp`)" :alt="ary.attribute" class="skillIcon"></v-img></li>
+          <li class="mr-1"><v-img :src="require(`@/assets/member_icon/icon_SD_${ary.center}.webp`)" :alt="ary.center" class="skillIcon"></v-img></li>
+          <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
+        </ul>
+      </v-card-text>
+    </v-card>
+
+    <v-tooltip location="bottom" v-else>
       <template v-slot:activator="{ props }">
-        <div v-bind="props" class="mb-1">
+        <v-card
+          :color="attributeColor[ary.attribute]"
+          v-bind="props"
+          @click="store.showModalEvent('setLeaningLevel'); store.selectMusic(songTitle);"
+        >
           <v-img
             :lazy-src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
             :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
             :alt="songTitle"
-            class="songJacket"
           ></v-img>
-        </div>
+          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
+          <v-divider class="mb-1 border-opacity-25"></v-divider>
+          <v-card-item class="pt-0 px-1 pb-1">
+            <ul class="d-flex">
+              <li class="mr-1"><v-img :src="require(`@/assets/bonusSkill_icon/${ary.bonusSkill}.webp`)" :alt="ary.bonusSkill" class="skillIcon"></v-img></li>
+              <li class="mr-1"><v-img :src="require(`@/assets/attribute_icon/icon_${ary.attribute}.webp`)" :alt="ary.attribute" class="skillIcon"></v-img></li>
+              <li class="mr-1"><v-img :src="require(`@/assets/member_icon/icon_SD_${ary.center}.webp`)" :alt="ary.center" class="skillIcon"></v-img></li>
+              <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
+            </ul>
+          </v-card-item>
+        </v-card>
       </template>
       <p class="mb-2">{{ songTitle }}</p>
       センター：{{ store.makeFullName(ary.center) }}<br>
       楽曲マスタリーLv.：{{ ary.level }}<br>
       獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(ary.level / 10)}}
     </v-tooltip>
-    <p class="songTitle hamidashi">{{ songTitle }}</p>
-    <ul class="d-flex mt-1" style="height: 28px;">
-      <li class="mr-1"><v-img :src="require(`@/assets/bonusSkill_icon/${ary.bonusSkill}.webp`)" :alt="ary.bonusSkill" class="skillIcon"></v-img></li>
-      <li class="mr-1"><v-img :src="require(`@/assets/attribute_icon/icon_${ary.attribute}.webp`)" :alt="ary.attribute" class="skillIcon"></v-img></li>
-      <li class="mr-1"><v-img :src="require(`@/assets/member_icon/icon_SD_${ary.center}.webp`)" :alt="ary.center" class="skillIcon"></v-img></li>
-      <li class="align-self-center">MLv.{{ store.musicList[songTitle].level }}</li>
-    </ul>
   </li>
   <li v-if="Object.keys(makeMusicList(store)).length === 0" class="w-100">見つかりませんでした…</li>
 </ul>
@@ -400,7 +440,12 @@ export default {
       bonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
       selectBonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
       attrList: ['smile', 'pure', 'cool'],
-      selectAttrList: ['smile', 'pure', 'cool']
+      selectAttrList: ['smile', 'pure', 'cool'],
+      attributeColor: {
+        smile: '#EF8DC8',
+        pure: '#A9FCC7',
+        cool: '#A1BAFA'
+      }
     }
   },
   created() {},
@@ -496,36 +541,20 @@ export default {
 #CDJacketArea {
   display: flex;
   flex-wrap: wrap;
-  font-size: 0.9rem;
 
   >li {
     width: 150px;
     margin: 0 5px 10px 5px;
-    cursor: pointer;
   }
-}
-
-.songTitle {
-  border: 1px solid #000;
-  padding: 1px 4px;
-  text-align: center;
 }
 
 .skillIcon {
   width: 28px;
 }
 
-.songJacket {
-  width: 150px;
-}
-
 .member {
   display: inline-block;
   margin-right: 10px;
-}
-
-img {
-  width: 100%;
 }
 
 .icon {
@@ -540,10 +569,6 @@ img {
   #CDJacketArea > li {
     width: 47%;
     margin: 0 1.5% 10px 1.5%;
-  }
-
-  .songJacket {
-    width: 100%;
   }
 }
 </style>

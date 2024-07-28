@@ -29,18 +29,18 @@
 ><v-icon class="mr-2">mdi-sort</v-icon>ソート</v-btn>
 
 <v-btn-toggle
-  v-model="store.sortType"
+  v-model="store.sortSettings.cardList.order"
   density="compact"
   variant="outlined"
   color="pink"
   class="mb-1 mr-2"
   mandatory
 >
-  <v-btn v-model="store.sortType" value="descending" class="px-0 px-sm-2">
+  <v-btn v-model="store.sortSettings.cardList.order" value="descending" class="px-0 px-sm-2">
     <v-icon>mdi-sort-descending</v-icon>
     <span class="ml-2 hidden-sm-and-down">降順</span>
   </v-btn>
-  <v-btn v-model="store.sortType" value="ascending" class="px-0 px-sm-2">
+  <v-btn v-model="store.sortSettings.cardList.order" value="ascending" class="px-0 px-sm-2">
     <v-icon>mdi-sort-ascending</v-icon>
     <span class="ml-2 hidden-sm-and-down">昇順</span>
   </v-btn>
@@ -51,19 +51,7 @@
 </div>
 
 <div class="d-inline-block">
-  現在のソート：{{ store.sortTypeList[store.selectSortType] }}
-</div>
-
-<div>
-  <v-switch
-    v-model="store.isShowDetail"
-    color="pink"
-    density="compact"
-    false-value="false"
-    true-value="true"
-    label="詳細表示"
-    hide-details
-  ></v-switch>
+  現在のソート：{{ store.sortTypeList[store.sortSettings.cardList.sortType] }}
 </div>
 
 <v-divider class="my-2"></v-divider>
@@ -75,34 +63,37 @@
 
 <v-window v-model="selectTab" :touch="false">
   <v-window-item value="single">
-  <div id="cardListArea" class="mt-2">
-    <div v-if="store.outputCardList.length === 0">
+  <ul id="cardListArea" class="mt-2">
+    <li v-if="store.outputCardList.length === 0">
       見つからなかったよ😢<br>
       絞り込み条件を変えてね
-    </div>
-    <div v-else
+    </li>
+    <li
+      v-else
       v-for="key in store.outputCardList"
       :key="key"
-      :class="`ma-1 card ${key.mood}`"
-      @click="store.showModalEvent('setCardData'); store.cardSelect(key.memberName, key.rare, key.cardName)"
+      class="ma-1 card"
     >
-      <div class="d-sm-none">
+      <v-card
+        v-if="store.siteSettings.cardList.hover === 'false' || windowSize.w <= 600"
+        :color="moodColor[key.mood]"
+        @click="store.showModalEvent('setCardData'); store.cardSelect(key.memberName, key.rare, key.cardName)"
+      >
         <v-img
           :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
           :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
-          style="border-radius: 5px 5px 0 0"
         ></v-img>
-        <div class="cardName">
-          <div class="d-flex flex-row align-center pa-1 font-weight-bold">
-            <img
-              :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
-              class="icon type mr-1"
-              style="width: 20px;"
-            >
-            <span class="hamidashi" style="padding-top: 2px;">{{ key.cardName }}</span>
-          </div>
-          <v-divider opacity="100" v-if="store.isShowDetail !== 'false'"></v-divider>
-          <v-row no-gutters class="pa-1" v-if="store.isShowDetail !== 'false'">
+        <v-card-title class="d-flex align-center text-subtitle-2 px-2 pt-1 hamidashi" style="padding-bottom: 2px;">
+          <img
+            :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
+            class="icon type mr-1"
+          ><span style="padding-top: 2px;" class="hamidashi">{{ key.cardName }}</span>
+        </v-card-title>
+
+        <v-card-text class="pa-0 cardName" v-if="store.siteSettings.cardList.isShowDetail !== 'false'">
+          <v-divider opacity="100"></v-divider>
+
+          <v-row no-gutters class="pa-1">
             <v-col cols="6" class="status">
               <span>特訓 </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.trainingLevel }}
             </v-col>
@@ -122,32 +113,34 @@
               <span>GP Pt. </span>{{ /^DR$/.test(store.card[key.memberName][key.rare][key.cardName].rare) || store.card[key.memberName][key.rare][key.cardName].specialAppeal === undefined ? '-' : `+${store.grandprixBonus.releaseLv[store.card[key.memberName][key.rare][key.cardName].rare][store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.releaseLevel - 1] * 100}%` }}
             </v-col>
           </v-row>
-        </div>
-      </div>
+        </v-card-text>
+      </v-card>
 
-      <template class="d-none d-sm-block">
+      <template v-else>
         <v-tooltip
           location="bottom"
           open-delay="250"
         >
           <template v-slot:activator="{ props }">
-            <div v-bind="props">
+            <v-card
+              v-bind="props"
+              :color="moodColor[key.mood]"
+              @click="store.showModalEvent('setCardData'); store.cardSelect(key.memberName, key.rare, key.cardName)"
+            >
               <v-img
                 :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
                 :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
-                style="border-radius: 5px 5px 0 0;"
               ></v-img>
-              <div class="cardName">
-                <div class="d-flex flex-row align-center pa-1 font-weight-bold">
-                  <img
-                    :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
-                    class="icon type mr-1"
-                    style="width: 20px;"
-                  >
-                  <span class="hamidashi text-black" style="padding-top: 2px;">{{ key.cardName }}</span>
-                </div>
-                <v-divider opacity="100" v-if="store.isShowDetail !== 'false'"></v-divider>
-                <v-row no-gutters class="pa-1" v-if="store.isShowDetail !== 'false'">
+              <v-card-title class="d-flex align-center text-subtitle-2 px-2 pt-1" style="padding-bottom: 2px;">
+                <img
+                  :src="require(`@/assets/styleType_icon/icon_${key.styleType}.png`)"
+                  class="icon type mr-1"
+                ><span style="padding-top: 2px;" class="hamidashi">{{ key.cardName }}</span>
+              </v-card-title>
+              <v-card-text class="pa-0 cardName" v-if="store.siteSettings.cardList.isShowDetail !== 'false'">
+                <v-divider opacity="100"></v-divider>
+
+                <v-row no-gutters class="pa-1">
                   <v-col cols="6" class="status"><span>特訓 </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.trainingLevel }}</v-col>
                   <v-col cols="6" class="status"><span>カードLv. </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.cardLevel }}</v-col>
                   <v-col cols="6" class="status"><span>SA Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal !== undefined ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel : '-' }}</v-col>
@@ -155,8 +148,8 @@
                   <v-col cols="6" class="status"><span>解放Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.releaseLevel }}</v-col>
                   <v-col cols="6" class="status"><span>GP Pt. </span>{{ /^DR$/.test(store.card[key.memberName][key.rare][key.cardName].rare) || store.card[key.memberName][key.rare][key.cardName].specialAppeal === undefined ? '-' : `+${store.grandprixBonus.releaseLv[store.card[key.memberName][key.rare][key.cardName].rare][store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.releaseLevel - 1] * 100}%` }}</v-col>
                 </v-row>
-              </div>
-            </div>
+              </v-card-text>
+            </v-card>
           </template>
 
           <div>
@@ -197,8 +190,8 @@
           </div>
         </v-tooltip>
       </template>
-    </div>
-  </div>
+    </li>
+  </ul>
   </v-window-item>
   <v-window-item value="multi">
     <v-btn class="my-2"></v-btn>
@@ -223,7 +216,13 @@
         {{ rare }}
       </dt>
       <dd>
-        <button v-for="(ary, cardName) in store.card[name_en][rare]" :key="ary" :data-mood="ary.mood" @click="store.showModalEvent('setCardData'); store.cardSelect(name_en, rare, cardName)">{{ cardName }}</button>
+        <v-btn
+          v-for="(ary, cardName) in store.card[name_en][rare]"
+          :key="ary"
+          :data-mood="ary.mood"
+          class="abc"
+          @click="store.showModalEvent('setCardData'); store.cardSelect(name_en, rare, cardName);"
+        >{{ cardName }}</v-btn>
       </dd>
     </dl>
   </li>
@@ -250,11 +249,22 @@ export default {
         {title: 'カードLv.', key: 'cardLevel'},
         {title: 'SALv.', key: 'SALevel'},
         {title: 'スキルLv.', key: 'SLevel'},
-      ]
+      ],
+      moodColor: {
+        happy: '#EF8DC8',
+        neutral: '#A9FCC7',
+        melow: '#A1BAFA'
+      },
+      windowSize: {
+        w: 0,
+        h: 0,
+      }
     }
   },
   created() {},
-  mounted() {},
+  mounted() {
+    this.onResize();
+  },
   computed: {},
   methods: {
     changeTab(selectCharacter) {
@@ -275,29 +285,18 @@ export default {
       }
 
       return list;
+    },
+    onResize() {
+      this.windowSize = {
+        w: window.innerWidth,
+        h: window.innerHeight
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-/* ムードカラー */
-$happy: #EF8DC8;
-$neutral: #A9FCC7;
-$melow: #A1BAFA;
-
-.happy {
-  background: $happy;
-}
-
-.neutral {
-  background: $neutral;
-}
-
-.melow {
-  background: $melow;
-}
-
 #cardListArea {
   display: flex;
   flex-wrap: wrap;
@@ -305,52 +304,40 @@ $melow: #A1BAFA;
   //justify-content: space-between;
 
   .card {
-    box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    cursor: pointer;
+    width: 190px;
   }
 
-  .cardName {
-    width: 190px;
-    font-size: 15px;
-    color: #000;
-
-    .status {
-      font-size: 14px;
-    }
-
-    .status:nth-child(odd) {
-      border-right: 1px solid #000;
-    }
-
-    .status:nth-child(even) {
-      padding-left: 4px;
-    }
-
-    .status:nth-child(1),
-    .status:nth-child(2) {
-      padding-bottom: 2px;
-      border-bottom: 1px solid #000;
-    }
-
-    .status:nth-child(3) {
-      padding: 1px 0;
-      border-bottom: 1px solid #000;
-    }
-
-    .status:nth-child(4) {
-      padding: 1px 0 1px 4px;
-      border-bottom: 1px solid #000;
-    }
-
-    .status:nth-child(5),
-    .status:nth-child(6) {
-      padding-top: 1px;
-    }
+  .status {
+    font-size: 14px;
   }
 
-  img {
-    width: 190px;
+  .status:nth-child(odd) {
+    border-right: 1px solid #000;
+  }
+
+  .status:nth-child(even) {
+    padding-left: 4px;
+  }
+
+  .status:nth-child(1),
+  .status:nth-child(2) {
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000;
+  }
+
+  .status:nth-child(3) {
+    padding: 1px 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .status:nth-child(4) {
+    padding: 1px 0 1px 4px;
+    border-bottom: 1px solid #000;
+  }
+
+  .status:nth-child(5),
+  .status:nth-child(6) {
+    padding-top: 1px;
   }
 }
 
@@ -384,23 +371,11 @@ $melow: #A1BAFA;
     margin-bottom: 5px;
   }
   
-  button {
+  .abc {
     padding: 5px 10px;
     border: 2px solid #000;
     border-radius: 50px;
     margin: 0 10px 10px 0;
-    
-    &[data-mood="happy"] {
-      border-color: $happy;
-    }
-    
-    &[data-mood="neutral"] {
-      border-color: $neutral;
-    }
-    
-    &[data-mood="melow"] {
-      border-color: $melow;
-    }
   }
 }
 
@@ -408,13 +383,6 @@ $melow: #A1BAFA;
   #cardListArea {
     .card {
       width: calc(50% - 8px);
-    }
-    .cardName {
-      width: 100%;
-    }
-
-    img {
-      width: 100%;
     }
   }
 }

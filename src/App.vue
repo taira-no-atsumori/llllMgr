@@ -1,6 +1,6 @@
 <template>
-<v-app :theme="store.siteSettings.isDarkMode">
-  <v-app-bar :scroll-behavior="store.siteSettings.headerTracking" density="comfortable" color="pink">
+<v-app :theme="store.siteSettings.all.darkMode">
+  <v-app-bar :scroll-behavior="store.siteSettings.all.headerTracking" density="comfortable" color="pink">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer;" class="hidden-sm-and-up"></v-app-bar-nav-icon>
     <v-bottom-sheet v-model="drawer" v-if="false">
       <template v-slot:activator="{ props }">
@@ -42,12 +42,9 @@
         v-for="(arr, pageTitle) of pageList"
         :key="arr"
       >
-        <v-tooltip location="bottom">
+        <v-tooltip location="bottom" v-if="pageTitle !== 'License'">
           <template v-slot:activator="{ props }">
-            <li
-              style="border-right: 1px solid;"
-              v-if="pageTitle !== 'License'"
-            >
+            <li style="border-right: 1px solid;">
               <v-btn
                 v-bind="props"
                 text
@@ -112,7 +109,11 @@
       :subtitle="arr.name"
       class="px-2"
       @click="pageMove(arr.url);"
-    ></v-list-item>
+    >
+      <template v-slot:prepend>
+        <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+      </template>
+    </v-list-item>
   </v-navigation-drawer>
 
   <v-main class="pb-2">
@@ -163,6 +164,7 @@ export default {
   data() {
     return {
       drawer: false,
+      siteName: 'リンクラ マネージャー！(リンマネ)',
       pageList: {
         'Home': {
           url: '/llllMgr/',
@@ -220,8 +222,16 @@ export default {
       this.$router.replace(movePageName);
       window.scrollTo(0, 0);
     },
+    pageTitle(to) {
+      document.title = `${to.meta.title}${this.siteName}`;
+    },
     goToTop() {
       this.$vuetify.goTo(0);
+    }
+  },
+  watch: {
+    '$route'(to) {
+      this.pageTitle(to);
     }
   }
 }

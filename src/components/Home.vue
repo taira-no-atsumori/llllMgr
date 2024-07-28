@@ -21,7 +21,7 @@
         :key="eventName"
         class="text-center"
       >
-        <v-card variant="flat">
+        <v-card variant="flat" rounded="0">
           <a :href="event.url" target="_blank" class="mainVisual">
             <v-img
               class="white--text align-end text-center"
@@ -153,7 +153,7 @@ export default {
           lastDay: [2024, 7, 17, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-07-09-20-acuk6bf4ej',
           img: '104期1stTerm第4回個人戦_logo'
-        },*/
+        },
         'liveGP': {
           title: 'ライブグランプリ「104期 1stTerm 第4回サークル対抗戦」',
           text: '',
@@ -162,7 +162,7 @@ export default {
           lastDay: [2024, 7, 26, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-07-19-10-ymfuvv9aj8',
           img: '104期 1stTerm 第4回サークル対抗戦_logo'
-        },
+        },*/
         'anisama': {
           title: 'ライブ「Animelo Summer Live 2024 -Stargazer-」',
           text: 'Day2(出演日)',

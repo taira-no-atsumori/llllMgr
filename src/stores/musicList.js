@@ -2593,7 +2593,7 @@ export const useMusicStore = defineStore('musicList', {
           },
           time: 109,
           cover: true,
-          link: ''
+          link: 'https://youtu.be/iVorAx5enqY?si=aCQUhLGl5JsjNVdD'
         },
         attribute: 'cool',
         BHcount: 59,
@@ -2602,6 +2602,32 @@ export const useMusicStore = defineStore('musicList', {
         center: 'sayaka',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+      },
+      'ミラクルショッピング ～ドン・キホーテのテーマ～': {
+        musicData: {
+          kana: 'みらくるしょっぴんぐ',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 7,
+            date: 27
+          },
+          numbering: 'ドン・キホーテのテーマ',
+          BPM: {
+            original: 167,
+            inGame: 167
+          },
+          time: 90,
+          cover: true,
+          link: 'https://youtu.be/r4QZzPCKbJM?si=1416AcrUKlg0FR4l'
+        },
+        attribute: 'smile',
+        BHcount: 61,
+        level: 0,
+        term: 104,
+        center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi', 'hime']
       },
     }
   }),

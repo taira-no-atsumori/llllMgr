@@ -1,6 +1,6 @@
 <template>
   <v-radio-group
-    v-model="store.selectSortType"
+    v-model="store.sortSettings.cardList.sortType"
     inline
     density="compact"
     hide-details="false"
@@ -14,10 +14,10 @@
         :value="val"
         :label="label"
         class="w-50 mb-1"
+        @change="store.changeSettings('sortSettings');"
       ></v-radio>
     </template>
   </v-radio-group>
-  ※先行実装のため、再読込するとソート内容は解除されます
 </template>
 
 <script setup>

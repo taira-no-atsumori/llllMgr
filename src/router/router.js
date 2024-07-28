@@ -14,37 +14,58 @@ const router = createRouter({
     {
       path: '/llllMgr/',
       name: 'Home',
-      component: Home
+      component: Home,
+      meta: {
+        title: 'HOME | '
+      }
     },
     {
       path: '/llllMgr/simulation',
       name: 'Simulation',
-      component: Simulation
+      component: Simulation,
+      meta: {
+        title: 'SIMULATION | '
+      }
     },
     {
       path: '/llllMgr/cardlist',
       name: 'CardList',
-      component: CardList
+      component: CardList,
+      meta: {
+        title: 'CARD LIST | '
+      }
     },
     {
       path: '/llllMgr/musicList',
       name: 'MusicList',
-      component: MusicList
+      component: MusicList,
+      meta: {
+        title: 'MUSIC LIST | '
+      }
     },
     {
       path: '/llllMgr/itemList',
       name: 'ItemList',
-      component: ItemList
+      component: ItemList,
+      meta: {
+        title: 'ITEM LIST | '
+      }
     },
     {
       path: '/llllMgr/withStarMgr',
       name: 'WithStarMgr',
-      component: WithStarMgr
+      component: WithStarMgr,
+      meta: {
+        title: 'WITHSTAR MGR | '
+      }
     },
     {
       path: '/llllMgr/license',
       name: 'License',
-      component: License
+      component: License,
+      meta: {
+        title: 'LICENSE | '
+      }
     }
   ]
 });

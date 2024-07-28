@@ -12616,7 +12616,7 @@ export const useCardStore = defineStore('cardList', {
             specialAppeal: {
               ID: 'heartGain_3',
               name: 'ハートゲイン',
-              AP: 6,
+              AP: 2,
               detail: [
                 [2, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
               ]
