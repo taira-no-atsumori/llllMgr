@@ -5,7 +5,7 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.58(アーリーアクセス)',
+    version: 'ε.59(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -1090,11 +1090,7 @@ export const useStoreCounter = defineStore('store', {
       this.settingCard.card = selectedCard;
     },
     conversion(name) {
-      if (/!/.test(name)) {
-        name = name.replace(/!/g, '！');
-      }
-
-      return name;
+      return /!/.test(name) ? name.replace(/!/g, '！') : /\//.test(name) ? name.replace(/\//g, '／') : name;
     },
     setOpenCard(name, style) {
       this.openCard.name = name;

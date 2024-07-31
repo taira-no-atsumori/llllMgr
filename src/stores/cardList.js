@@ -12517,6 +12517,91 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'アオクハルカ/華': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'アオクハルカ',
+            kana: 'あおくはるか',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.6',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3900,
+              pure: 4000,
+              cool: 6000,
+              mental: 530,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'wideGain_section',
+              name: 'ワイドゲイン',
+              AP: 4,
+              detail: [
+                ['29?', '32?', '35?', '38?', '41?', '44?', '46?', '49?', '52?', '58?', '61?', '64?', '67?', 72]
+              ]
+            },
+            skill: {
+              ID: 'remakeDress_hrm',
+              name: 'リメイクドレス《華・麗・雅》',
+              AP: 4,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'wideExtend_section4',
+                  name: 'ワイドエクステンド',
+                  AP: 2,
+                  detail: [
+                    ['14?', '15?', '17?', '18?', '20?', '21?', '22?', '24?', '25?', '28?', '29?', '31?', '32?', 36]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                },
+                {
+                  ID: 'aggressiveProtectBoost',
+                  name: 'アグレッシブプロテクトブースト',
+                  AP: 2,
+                  detail: [
+                    ['12?', '13.2?', '14.4?', '15.6?', '16.8?', '18?', '19.2?', '20.4?', '21.6?', '24?', '25.2?', '26.4?', '27.6?', 30]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                },
+                {
+                  ID: 'attractBoost_MiraCraPark',
+                  name: 'アトラクトブースト：みらくらぱーく！',
+                  AP: 2,
+                  detail: [
+                    [70, 77, 84, 91, 98, 105, 112, 119, 126, 140, 147, 154, 161, 175]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'APレデュース：スリーズブーケ & ショット：APゲイン',
+              detail: '手札にある状態でスリーズブーケのスキルを使用するたび、手札のこのスキルの消費AP-1。さらにこのスキル使用時、5回までAPを3回復する。',
+              type: ['APReduce', 'shot', 'APGain']
+            }
+          },
           'Bloom the smile, Bloom the dream!': {
             styleType: 'trickStar',
             mood: 'neutral',
@@ -13064,6 +13149,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'レディバグ/麗': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'レディバグ',
+            kana: 'れでぃばぐ',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.6',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 6000,
+              cool: 4700,
+              mental: 510,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'aggressiveBeliefBoost',
+              name: 'アグレッシブビリーフブースト',
+              AP: 4,
+              detail: [
+                [14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36]
+              ]
+            },
+            skill: {
+              ID: 'braveAttraction_under25_sectionAttract_heartCaptcha',
+              name: 'ブレイブアトラクション',
+              AP: 4,
+              detail: [
+                ['10.8?', '11.9?', '13?', '14?', '15.1?', '16.2?', '17.3?', '18.4?', '19.4?', '21.6?', '22.7?', '23.8?', '24.8?', 27],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+              ]
+            },
+            characteristic: {
+              name: 'APゲイン：ブレイブ',
+              detail: 'スキル使用時メンタルが25%以下のとき、APを+3する。',
+              type: ['APGain', 'brave']
+            }
+          },
           'Bloom the smile, Bloom the dream!': {
             styleType: 'performer',
             mood: 'neutral',

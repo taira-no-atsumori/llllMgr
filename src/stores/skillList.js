@@ -656,6 +656,19 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'アグレッシブプロテクトブースト': {
+        aggressiveProtectBoost: {
+          text: [
+            '5回の間スキルハート獲得効果による獲得数を+',
+            '%し、メンタルを最大値の5%減少させる。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['boost_loveAttract', 'mentalReduce']
+          }
+        }
+      },
       'アトラクトゲイン': {
         attractGain: {
           text: [
@@ -2068,6 +2081,17 @@ export const useSkillStore = defineStore('skillList', {
             type: ['heartCaptcha', 'loveAttract_section']
           }
         },
+        braveAttraction_under25_sectionAttract_heartCaptcha: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにメンタルが25%以下の時、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha', 'loveAttract_section']
+          }
+        },
         braveAttraction_under50_heartCaptcha_sectionAttract: {
           text: [
             'ビートハート',
@@ -2223,6 +2247,17 @@ export const useSkillStore = defineStore('skillList', {
             type: ['addCard']
           }
         },
+      },
+      'リメイクドレス《華・麗・雅》': {
+        remakeDress_hrm: {
+          text: [
+            'リメイクドレスカード《華・麗・雅》を3種類(合計3枚)山札に追加する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard', 'reshuffle']
+          }
+        }
       },
       'リブートエクステンド': {
         rebootExtend_stage1_stageAttract: {
@@ -2502,6 +2537,28 @@ export const useSkillStore = defineStore('skillList', {
             attr: '',
             type: ['heartLimitUp', 'extendHand']
           }
+        },
+        wideExtend_section4: {
+          text: [
+            'このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartLimitUp', 'extendHand']
+          }
+        }
+      },
+      'ワイドゲイン': {
+        wideGain_section: {
+          text: [
+            'このセクション中、ハートの上限を+',
+            'する。さらにAPを+5する。'
+          ],
+          detail: {
+            attr: 'wide',
+            type: ['heartLimitUp', 'APGain']
+          }
         }
       },
       'セレブレイション': {
@@ -2576,6 +2633,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['protect_stage', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブビリーフブースト': {
+        aggressiveBeliefBoost: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+',
+            '%する。またメンタルを最大値の50%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce']
           }
         }
       },

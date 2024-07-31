@@ -2213,6 +2213,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
       },
+      '永遠のEuphoria（104期Ver.）': {
+        musicData: {
+          kana: 'えいえんのゆーふぉりあ',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2023,
+            month: 3,
+            date: 29
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
+          BPM: {
+            original: 162,
+            inGame: 162
+          },
+          time: 109.63,
+          cover: false,
+          link: ''
+        },
+        attribute: 'smile',
+        BHcount: 68,
+        level: 0,
+        term: 104,
+        center: 'megumi',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+      },
       'Reflection in the mirror（104期NEW Ver.）': {
         musicData: {
           kana: 'りふれくしょんいんざみらー',
@@ -2315,6 +2341,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'kozue', 'ginko']
+      },
+      '月夜見海月': {
+        musicData: {
+          kana: 'つくよみくらげ',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2024,
+            month: 9,
+            date: 4
+          },
+          numbering: 'スリーズブーケ 4thシングル',
+          BPM: {
+            original: 140,
+            inGame: 140
+          },
+          time: 115,
+          cover: false,
+          link: 'https://youtu.be/TW05S9ZE434?si=WcXwaAVoR6lbqN7i&t=12'
+        },
+        attribute: 'cool',
+        BHcount: 65,
+        level: 0,
+        term: 104,
+        center: 'ginko',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue', 'ginko']
       },
       'Sparkly Spot（104期NEW Ver.）': {
