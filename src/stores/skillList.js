@@ -682,7 +682,17 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'アトラクトブースト': {
-        attractBoost: {
+        attractBoost1: {
+          text: [
+            '次に使用するラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_loveAttract']
+          }
+        },
+        attractBoost2: {
           text: [
             '2回の間ラブアトラクト効果を+',
             '%する。'
@@ -2699,8 +2709,20 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'イグニッションプロテクト': {
+        ignitionProtect: {
+          text: [
+            '姫芽が《イグニッションモード》になる。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: '',
+            type: ['modeChange', 'protect_stage']
+          }
+        }
+      },
       'オルタネイト：イグニッション': {
-        alternate_ignition: {
+        alternate_ignition_hime: {
           text: [
             '姫芽の《イグニッションモード》の状態に応じて効果が変化する。'
           ],

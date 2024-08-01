@@ -2582,7 +2582,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'attractBoost',
+              ID: 'attractBoost2',
               name: 'アトラクトブースト',
               AP: 15,
               detail: [
@@ -13614,6 +13614,83 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'みらくりえーしょん/雅': {
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'みらくりえーしょん',
+            kana: 'みらくりえーしょん',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 1stTerm 第4回サークル対抗戦」',
+              period: 'prize'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 6000,
+              pure: 4800,
+              cool: 3330,
+              mental: 510,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'ignitionProtect',
+              name: 'イグニッションプロテクト',
+              AP: 5,
+              detail: [
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13]
+              ]
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 5,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常',
+                  ID: 'attractBoost1',
+                  name: 'アトラクトブースト',
+                  AP: 5,
+                  detail: [
+                    [16.8, 18.5, 20.2, 21.8, 23.5, 25.2, 26.9, 28.6, 30.2, 33.6, 35.3, 37, 38.6, 42]
+                  ]
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'heartAttraction_section',
+                  name: 'ハートアトラクション',
+                  AP: 15,
+                  detail: [
+                    [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45],
+                    [22.8, 25.1, 27.4, 29.6, 32, 34.2, 36.5, 38.8, 41, 45.6, 47.9, 50.2, 52.4, 57]
+                  ]
+                }
+              }
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常',
+                  name: 'ドロー：アトラクトブースト',
+                  detail: 'ドローした時、2回の間ラブアトラクト効果を+9.6%する。'
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'ドロー：APレデュース',
+                  detail: 'ドローしたセクションの間、消費APを-10する。'
+                }
+              ]
+            }
+          },
           'みらくりえーしょん': {
             styleType: 'performer',
             mood: 'neutral',
@@ -13647,7 +13724,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'alternate_ignition',
+              ID: 'alternate_ignition_hime',
               name: 'オルタネイト：イグニッション',
               AP: 5,
               detail: [],
