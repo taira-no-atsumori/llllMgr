@@ -2317,6 +2317,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue', 'ginko']
       },
+      '眩耀夜行（104期Ver.）': {
+        musicData: {
+          kana: 'げんようやこう',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 8,
+            date: 9
+          },
+          numbering: 'スリーズブーケ 2ndシングル',
+          BPM: {
+            original: 158,
+            inGame: 158
+          },
+          time: 97.21,
+          cover: false,
+          link: ''
+        },
+        attribute: 'smile',
+        BHcount: 62,
+        level: 1,
+        term: 103,
+        center: 'kaho',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'kozue', 'ginko']
+      },
       'アオクハルカ': {
         musicData: {
           kana: 'あおくはるか',
@@ -2471,6 +2497,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+      },
+      'Mirage Voyage（104期Ver.）': {
+        musicData: {
+          kana: 'みらーじゅぼやーじゅ',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2023,
+            month: 8,
+            date: 9
+          },
+          numbering: 'DOLLCHESTRA 2ndシングル',
+          BPM: {
+            original: 130,
+            inGame: 130
+          },
+          time: 118.15,
+          cover: false,
+          link: ''
+        },
+        attribute: 'pure',
+        BHcount: 62,
+        level: 1,
+        term: 103,
+        center: 'sayaka',
+        bonusSkill: 'ビートハートアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
       },
       'アイデンティティ（104期NEW Ver.）': {
@@ -2680,6 +2732,32 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi', 'hime']
+      },
+      '夏色えがおで1, 2, Jump!': {
+        musicData: {
+          kana: 'なついろえがおでわんつーじゃんぷ',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2011,
+            month: 8,
+            date: 24
+          },
+          numbering: 'μ\'s 3rdシングル',
+          BPM: {
+            original: 170,
+            inGame: 170
+          },
+          time: 118,
+          cover: true,
+          link: 'https://youtu.be/1j-u11dHWnI?si=_D7L8JF485FlRfG9'
+        },
+        attribute: 'smile',
+        BHcount: 84,
+        level: 0,
+        term: 104,
+        center: 'megumi',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
       },
     }
   }),

@@ -946,6 +946,18 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'エクステプロテクトヒート': {
+        extensions3_protect_heat: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'APQuick', 'protect_stage']
+          }
+        }
+      },
       'エクステリカバー': {
         extensions3_recover_section: {
           text: [
@@ -955,6 +967,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'mentalRecover']
+          }
+        }
+      },
+      'エクステリカバーヒート': {
+        extensions3_recover_heat_section: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにメンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'APQuick', 'mentalRecover']
           }
         }
       },
@@ -1559,7 +1583,18 @@ export const useSkillStore = defineStore('skillList', {
             attr: 'groovy',
             type: ['loveAttract_stage', 'boost_heartCaptcha']
           }
-        }
+        },
+        groovyBoost_over10_boost_heartCaptcha: {
+          text: [
+            '次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。さらにボルテージLv.が10以上の時ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['boost_heartCaptcha', 'heartCaptcha']
+          }
+        },
       },
       'グルーヴィイニシアチブ': {
         groovyInitiative_over8_voltageGain_protect: {
@@ -1608,6 +1643,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'groovy',
             type: ['protect_stage', 'loveAttract_section']
+          }
+        }
+      },
+      'グルーヴィヒート': {
+        groovyHeat_section_over10: {
+          text: [
+            'このセクション中、AP回復速度を+5%する。さらにボルテージLv.が10以上の時このステージ中、5回の間スキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['APQuick', 'boost_loveAttract']
           }
         }
       },

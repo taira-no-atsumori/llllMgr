@@ -6534,6 +6534,52 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'PASSION!!!!!!': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'PASSION!!!!!!',
+            kana: 'ぱっしょん',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.7',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3840,
+              pure: 6960,
+              cool: 6360,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions3_recover_heat_section',
+              name: 'エクステリカバーヒート',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ]
+            },
+            skill: {
+              ID: 'groovyHeat_section_over10',
+              name: 'グルーヴィヒート',
+              AP: 3,
+              detail: [
+                [17.3, 19, 20.7, 22.4, 24.2, 25.9, 27.6, 29.4, 31.1, 34.6, 36.3, 38, 39.7, 43.2]
+              ]
+            },
+            characteristic: {
+              name: 'オーバーセクション：ヒートアップ & リシャッフル',
+              detail: '手札にある状態でセクションが変わった時、このセクション中、AP回復速度を+15%し、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+              type: ['overSection', 'APFast_section', 'reShuffle']
+            }
+          },
           'アオクハルカ': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -10867,6 +10913,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'PASSION!!!!!!': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'PASSION!!!!!!',
+            kana: 'ぱっしょん',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.7',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 5700,
+              cool: 5200,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions3_protect_heat',
+              name: 'エクステプロテクトヒート',
+              AP: 6,
+              detail: [
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13]
+              ]
+            },
+            skill: {
+              ID: 'groovyBoost_over10_boost_heartCaptcha',
+              name: 'グルーヴィブースト',
+              AP: 3,
+              detail: [
+                [35, 38.5, 42, 45.5, 49, 52.5, 56, 59.5, 63, 70, 73.5, 77, 80.5, 87.5],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
+              ]
+            },
+            characteristic: {
+              name: 'ショット：ヒートアップ',
+              detail: 'スキル使用時、このセクション中、AP回復速度を+50%する。(ステージ中、2回まで発動)',
+              type: ['shot', 'APFast_stage']
+            }
+          },
           'みらくりえーしょん': {
             styleType: 'moodMaker',
             mood: 'neutral',

@@ -145,17 +145,17 @@ export default {
   data() {
     return {
       eventList: {
-        /*'liveGP': {
-          title: 'ライブグランプリ「104期 1stTerm 第4回個人戦」',
+        'liveGP': {
+          title: 'ライブグランプリ「104期 2ndTerm 第1回個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 7, 11, 12, 0],
-          lastDay: [2024, 7, 17, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-07-09-20-acuk6bf4ej',
-          img: '104期1stTerm第4回個人戦_logo'
+          firstDay: [2024, 8, 12, 12, 0],
+          lastDay: [2024, 8, 18, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-08-10-20-k0buco5abu',
+          img: '104期2ndTerm第1回個人戦_logo'
         },
-        'liveGP': {
-          title: 'ライブグランプリ「104期 1stTerm 第4回サークル対抗戦」',
+        /*'liveGP': {
+          title: 'ライブグランプリ「104期 2ndTerm 第1回サークル対抗戦」',
           text: '',
           type: 'liveGP',
           firstDay: [2024, 7, 21, 12, 0],
