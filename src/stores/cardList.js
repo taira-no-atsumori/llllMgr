@@ -9670,6 +9670,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'PASSION!!!!!!': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'PASSION!!!!!!',
+            kana: 'ぱっしょん',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 2ndTerm 第1回個人戦」報酬',
+              period: 'prize'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3100,
+              pure: 4900,
+              cool: 4600,
+              mental: 420,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions2_voltage_section',
+              name: 'エクステボルテージ',
+              AP: 6,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, '40?']
+              ]
+            },
+            skill: {
+              ID: 'groovyVoltage_over8_voltageGain_heartCaptcha',
+              name: 'グルーヴィボルテージ',
+              AP: 3,
+              detail: [
+                [9, 10, 11, 12, 13, 14, 14, 15, 16, 18, 19, 20, 21, '23?'],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, '5?']
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：ヒートアップ',
+              detail: 'ドローしたセクションの間、AP回復速度を+5%する。',
+              type: ['drew', 'APFast_section']
+            }
+          },
           '365 Days': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -12639,7 +12686,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ワイドゲイン',
               AP: 4,
               detail: [
-                ['29?', '32?', '35?', '38?', '41?', '44?', '46?', '49?', '52?', '58?', '61?', '64?', '67?', 72]
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, 61, 64, 67, 72],
               ]
             },
             skill: {
@@ -12653,7 +12700,7 @@ export const useCardStore = defineStore('cardList', {
                   name: 'ワイドエクステンド',
                   AP: 2,
                   detail: [
-                    ['14?', '15?', '17?', '18?', '20?', '21?', '22?', '24?', '25?', '28?', '29?', '31?', '32?', 36]
+                    [14, 15, 17, 18, 20, 21, 22, 24, 25, 28, 29, 31, 32, 36]
                   ],
                   characteristic: {
                     name: 'インスタンス',
@@ -12666,7 +12713,8 @@ export const useCardStore = defineStore('cardList', {
                   name: 'アグレッシブプロテクトブースト',
                   AP: 2,
                   detail: [
-                    ['12?', '13.2?', '14.4?', '15.6?', '16.8?', '18?', '19.2?', '20.4?', '21.6?', '24?', '25.2?', '26.4?', '27.6?', 30]
+                    [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                    [2.4, 2.64, 2.88, 3.12, 3.36, 3.6, 3.84, 4.08, 4.32, 4.8, 5.04, 5.28, 5.52, 6]
                   ],
                   characteristic: {
                     name: 'インスタンス',

@@ -21,6 +21,9 @@
     <v-alert :type="alertContent.export.type" variant="tonal" class="mb-2">
       {{ alertContent.export.text }}
     </v-alert>
+    <v-alert type="warning" variant="tonal" class="mb-2">
+      Discordでバックアップファイルを共有する際は、Google DriveなどクラウドサーバにアップしたものDiscordにアップするか、PC版のDiscordからアップしてください。
+    </v-alert>
 
     <v-btn block color="pink" prepend-icon="mdi-file-export" @click="makeBackup(store);">バックアップファイル生成</v-btn>
   </v-tabs-window-item>
