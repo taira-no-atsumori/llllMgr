@@ -129,6 +129,18 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'リフレッシュプロテクト': {
+        refreshProtect_stage: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、メンタルを最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'protect_stage']
+          }
+        }
+      },
       'リフレッシュサポート': {
         refreshSupport_stage: {
           text: [
@@ -991,6 +1003,28 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['modeChange', 'extensions_stage', 'mentalRecover']
+          }
+        }
+      },
+      'エクステブーステッドヒート': {
+        'extensions_stage-boost_heartCaptcha-heatUp_section': {
+          text: [
+            'このステージ中、手札の上限を1枚追加し、次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。さらにこのセクション中、AP回復速度を+5%する。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_stage', 'boost_heartCaptcha', 'APQuick']
+          }
+        },
+        'extensions_stage-boost_loveAttract-heatUp_section': {
+          text: [
+            'このステージ中、手札の上限を1枚追加し、次に使用するラブアトラクト効果を+',
+            '%する。さらにこのセクション中、AP回復速度を+5%する。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_stage', 'boost_loveAttract', 'APQuick']
           }
         }
       },
@@ -2174,6 +2208,19 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ブレイブボルテージハート': {
+        braveVoltageHeart_under25: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルが25%以下の時、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['voltageGain', 'heartCaptcha']
+          }
+        }
+      },
       'ブレイブエクステボルテージ': {
         braveExtensionsVoltage1_under50_section: {
           text: [
@@ -2304,6 +2351,17 @@ export const useSkillStore = defineStore('skillList', {
             type: ['addCard']
           }
         },
+      },
+      'ドレス《PASSION!!!!!!》': {
+        dress_passion: {
+          text: [
+            'ドレスカード《PASSION!!!!!!》を1種類(合計2枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        }
       },
       'リメイクドレス《華・麗・雅》': {
         remakeDress_hrm: {
@@ -2733,6 +2791,16 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'ヒートアップ': {
+        heatUp_section: {
+          text: [
+            'このセクション中、AP回復速度を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['APQuick']
+          }
+        },
         heatUp_stage: {
           text: [
             'このステージ中、AP回復速度を+',

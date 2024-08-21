@@ -12657,6 +12657,65 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'PASSION!!!!!!': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'PASSION!!!!!!',
+            kana: 'ぱっしょん',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.8',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 5300,
+              cool: 4950,
+              mental: 495,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions_stage-boost_heartCaptcha-heatUp_section',
+              name: 'エクステブーステッドヒート',
+              AP: 6,
+              detail: [
+                [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125]
+              ]
+            },
+            skill: {
+              ID: 'dress_passion',
+              name: 'ドレス《PASSION!!!!!!》',
+              AP: 3,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'heatUp_section',
+                  name: 'ヒートアップ',
+                  AP: 2,
+                  detail: [
+                    [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'ヒートアップ：ハートキャプチャ',
+              detail: '手札にある状態でメイン効果がハートキャプチャのスキルを使用するたび、このセクション中、AP回復速度を+10%する。',
+              type: ['APFast']
+            }
+          },
           'アオクハルカ/華': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -13528,6 +13587,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'PASSION!!!!!!': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'PASSION!!!!!!',
+            kana: 'ぱっしょん',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.8',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 3300,
+              pure: 4800,
+              cool: 4500,
+              mental: 420,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions1_voltage_stage',
+              name: 'エクステボルテージ',
+              AP: 6,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ]
+            },
+            skill: {
+              ID: 'braveVoltageHeart_under25',
+              name: 'ブレイブボルテージハート',
+              AP: 3,
+              detail: [
+                [9, 10, 11, 12, 13, 14, 14, 15, 16, 18, 19, 20, 21, 22],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 9]
+              ]
+            },
+            characteristic: {
+              name: 'ヒートアップ：ブレイブ',
+              detail: 'メンタルが25%以下の時にドローすると、このセクション中、AP回復速度を+8%する。',
+              type: ['heatUp']
+            }
+          },
           '青嵐の鯉流し': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -13755,6 +13861,52 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'PASSION!!!!!!': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'PASSION!!!!!!',
+            kana: 'ぱっしょん',
+            gacha: {
+              addSeason: '2024 SUMMER LIMITED COLLECTION Vol.8',
+              period: 'summer'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 5300,
+              cool: 5000,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions_stage-boost_loveAttract-heatUp_section',
+              name: 'エクステブーステッドヒート',
+              AP: 6,
+              detail: [
+                [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, 36.96, 38.64, 42]
+              ]
+            },
+            skill: {
+              ID: 'refreshProtect_stage',
+              name: 'リフレッシュプロテクト',
+              AP: 3,
+              detail: [
+                [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8]
+              ]
+            },
+            characteristic: {
+              name: 'ヒートアップ',
+              detail: '手札にある間、AP回復速度を+30%する。',
+              type: ['heatUp']
+            }
+          },
           'みらくりえーしょん/雅': {
             styleType: 'performer',
             mood: 'neutral',

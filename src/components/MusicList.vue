@@ -550,6 +550,7 @@ export default {
 
 .skillIcon {
   width: 28px;
+  border-radius: 3px;
 }
 
 .member {

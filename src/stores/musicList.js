@@ -2707,32 +2707,6 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
       },
-      'ミラクルショッピング ～ドン・キホーテのテーマ～': {
-        musicData: {
-          kana: 'みらくるしょっぴんぐ',
-          singer: 'みらくらぱーく！',
-          releaseDate: {
-            year: 2024,
-            month: 7,
-            date: 27
-          },
-          numbering: 'ドン・キホーテのテーマ',
-          BPM: {
-            original: 167,
-            inGame: 167
-          },
-          time: 90,
-          cover: true,
-          link: 'https://youtu.be/r4QZzPCKbJM?si=1416AcrUKlg0FR4l'
-        },
-        attribute: 'smile',
-        BHcount: 61,
-        level: 0,
-        term: 104,
-        center: 'rurino',
-        bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi', 'hime']
-      },
       '夏色えがおで1, 2, Jump!': {
         musicData: {
           kana: 'なついろえがおでわんつーじゃんぷ',
@@ -2758,6 +2732,58 @@ export const useMusicStore = defineStore('musicList', {
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+      },
+      '常夏☆サンシャイン': {
+        musicData: {
+          kana: 'とこなつさんしゃいん',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2021,
+            month: 9,
+            date: 29
+          },
+          numbering: 'ラブライブ!スーパースター!! 第1期第6話 劇中歌',
+          BPM: {
+            original: 109,
+            inGame: 109
+          },
+          time: 97,
+          cover: true,
+          link: 'https://youtu.be/XR3h_agJgXQ?si=Tfw4V5DMFjfszU6D'
+        },
+        attribute: 'smile',
+        BHcount: 60,
+        level: 0,
+        term: 155,
+        center: 'rurino',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'megumi', 'hime']
+      },
+      'ミラクルショッピング ～ドン・キホーテのテーマ～': {
+        musicData: {
+          kana: 'みらくるしょっぴんぐ',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 7,
+            date: 27
+          },
+          numbering: 'ドン・キホーテのテーマ',
+          BPM: {
+            original: 167,
+            inGame: 167
+          },
+          time: 90,
+          cover: true,
+          link: 'https://youtu.be/r4QZzPCKbJM?si=1416AcrUKlg0FR4l'
+        },
+        attribute: 'smile',
+        BHcount: 61,
+        level: 0,
+        term: 104,
+        center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi', 'hime']
       },
     }
   }),
