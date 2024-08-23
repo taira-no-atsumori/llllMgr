@@ -2629,6 +2629,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi', 'hime']
       },
+      '以心☆電信（104期Ver.）': {
+        musicData: {
+          kana: 'いしんでんしん',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 8,
+            date: 23
+          },
+          numbering: '',
+          BPM: {
+            original: 152,
+            inGame: 152
+          },
+          time: 103.25,
+          cover: false,
+          link: ''
+        },
+        attribute: 'cool',
+        BHcount: 63,
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['rurino', 'megumi', 'hime']
+      },
       'Snow halation': {
         musicData: {
           kana: 'すのーはれーしょん',
