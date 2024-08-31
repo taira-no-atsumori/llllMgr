@@ -199,6 +199,15 @@ export default {
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=TTUC',
           img: '3rdLiveTour_logo_スリーズブーケ'
         },
+        'Live&FanMeeting': {
+          title: 'ライブ&ファンミーティング「ラブライブ！蓮ノ空女学院スクールアイドルクラブ Live & Fan Meeting TRY TRY UNITY!!!」',
+          text: '',
+          type: 'live',
+          firstDay: [2024, 12, 21, 0, 0],
+          lastDay: [2024, 12, 22, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=TTY',
+          img: 'live&fanMeeting_logo'
+        },
         '3rdLiveTour': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRI TRI UNITY!!!」',
           text: '',

@@ -2239,16 +2239,42 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
       },
+      '夏めきペイン（104期Ver.）': {
+        musicData: {
+          kana: 'なつめきぺいん',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: {
+            original: 188,
+            inGame: 188
+          },
+          time: 91.92,
+          cover: false,
+          link: 'https://youtu.be/nF3s1RC_HDA?si=IDw5KgeLVLS6SeKw'
+        },
+        attribute: 'pure',
+        BHcount: 66,
+        level: 1,
+        term: 103,
+        center: 'kozue',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko' ,'kosuzu', 'hime']
+      },
       'Reflection in the mirror（104期NEW Ver.）': {
         musicData: {
           kana: 'りふれくしょんいんざみらー',
           singer: 'スリーズブーケ',
           releaseDate: {
             year: 2024,
-            month: 4,
-            date: 29
+            month: 9,
+            date: 4
           },
-          numbering: '',
+          numbering: 'スリーズブーケ 4thシングル',
           BPM: {
             original: 137,
             inGame: 137
@@ -2401,10 +2427,10 @@ export const useMusicStore = defineStore('musicList', {
           singer: 'DOLLCHESTRA',
           releaseDate: {
             year: 2024,
-            month: 4,
-            date: 29
+            month: 9,
+            date: 11
           },
-          numbering: '',
+          numbering: 'DOLLCHESTRA 4thシングル',
           BPM: {
             original: 147,
             inGame: 147
@@ -2523,6 +2549,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+      },
+      'Proof': {
+        musicData: {
+          kana: 'ぷるーふ',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2024,
+            month: 9,
+            date: 11
+          },
+          numbering: 'DOLLCHESTRA 4thシングル',
+          BPM: {
+            original: 170,
+            inGame: 170
+          },
+          time: 108,
+          cover: false,
+          link: ''
+        },
+        attribute: 'pure',
+        BHcount: 75,
+        level: 0,
+        term: 104,
+        center: 'kosuzu',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
       },
       'アイデンティティ（104期NEW Ver.）': {
@@ -2749,7 +2801,7 @@ export const useMusicStore = defineStore('musicList', {
           },
           time: 118,
           cover: true,
-          link: 'https://youtu.be/1j-u11dHWnI?si=_D7L8JF485FlRfG9'
+          link: 'https://youtu.be/u9g6OAbswqo?si=ndqZm-bhuSGa7jL3'
         },
         attribute: 'smile',
         BHcount: 84,

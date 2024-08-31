@@ -681,6 +681,117 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'アグレッシブハートブースト': {
+        aggressiveHeartBoost: {
+          text: [
+            '10回の間スキルハート獲得効果による獲得数を+',
+            '%する。さらにメンタルを最大値の50%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['boost_heartCaptcha', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブリゲインボルテージ': {
+        aggressiveRegainVoltage: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
+            'し、メンタルを最大値の25%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['reshuffle', 'voltageGain', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブブースト：DOLLCHESTRA': {
+        aggressiveBoost_dollchestra: {
+          text: [
+            '10回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
+            '%、スキルハート獲得効果による獲得数を+',
+            'する。さらにメンタルを最大値の99%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['boost_loveAttract', 'boost_heartCaptcha', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブブレイブファッシネイト': {
+        aggressiveBraveFascinate10_section: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。メンタルを最大値の25%減少させる。さらにメンタルが10%以下のとき、ボルテージPt.を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['loveAttract_section', 'mentalReduce', 'voltageGain']
+          }
+        }
+      },
+      'アグレッシブブレイブブーステッドアトラクト：DOLLCHESTRA': {
+        aggressiveBraveBoostedAttract_dollchestra: {
+          text: [
+            '3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
+            '%し、メンタルを最大値の10%減少させる。さらにメンタルが1%以下のとき、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['boost_loveAttract', 'mentalReduce', 'loveAttract_section']
+          }
+        }
+      },
+      'アグレッシブエクステプロテクト': {
+        aggressiveExtendProtect_stage: {
+          text: [
+            'このステージ中、手札の上限枚数を2枚増加し、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。さらにメンタルを最大値の50%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['extendHand', 'protect_stage', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブプロテクション': {
+        aggressiveProtection_stage: {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。さらにメンタルを最大値の5%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['protect_stage', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブビリーフブースト': {
+        aggressiveBeliefBoost: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+',
+            '%する。またメンタルを最大値の50%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce']
+          }
+        }
+      },
+      'アグレッシブビリーフボルテージ': {
+        aggressiveBeliefVoltage: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにボルテージPt.を+',
+            'し、メンタルを最大値の50%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'voltageGain', 'mentalReduce']
+          }
+        }
+      },
       'アトラクトゲイン': {
         attractGain: {
           text: [
@@ -2134,6 +2245,29 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'チャウチャウプレゼント': {
+        chowchowPresent: {
+          text: [
+            'チャウチャウカードを1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        }
+      },
+      'チャウチャウバカンス': {
+        chowchowVacances: {
+          text: [
+            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を2枚増加し、メンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'extensions_section', 'mentalRecover']
+          }
+        }
+      },
       'ドリーミングサポート': {
         dreamingSupport: {
           text: [
@@ -2161,6 +2295,17 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'ブレイブアトラクション': {
+        braveAttraction_under1_heartCaptcha_sectionAttract: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが1%以下の時、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha', 'loveAttract_section']
+          }
+        },
         braveAttraction_under5_heartCaptcha_sectionAttract: {
           text: [
             'ビートハート',
@@ -2236,13 +2381,26 @@ export const useSkillStore = defineStore('skillList', {
       'ブレイブワイドブースト': {
         braveWideBoost_under10_section: {
           text: [
-            'このセクション中、ハート上限をを+',
+            'このセクション中、ハート上限を+',
             'する。さらにメンタルが10%以下の時、次に使用するスキルハート獲得効果による獲得数を+',
             'する。'
           ],
           detail: {
             attr: 'brave',
             type: ['heartLimitUp', 'boost_heartCaptcha']
+          }
+        }
+      },
+      'ブレイブブーステッドリカバー：DOLLCHESTRA': {
+        braveBoostedRecover_dollchestra: {
+          text: [
+            '3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
+            'する。さらにメンタルが1%以下のとき、メンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['boost_loveAttract', 'mentalRecover']
           }
         }
       },
@@ -2536,18 +2694,6 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
-      'アグレッシブハートブースト': {
-        aggressiveHeartBoost: {
-          text: [
-            '10回の間スキルハート獲得効果による獲得数を+',
-            '%する。さらにメンタルを最大値の50%減少させる。'
-          ],
-          detail: {
-            attr: 'aggressive',
-            type: ['boost_heartCaptcha', 'mentalReduce']
-          }
-        }
-      },
       'ハートブレッシング': {
         heartBlessing: {
           text: [
@@ -2701,67 +2847,18 @@ export const useSkillStore = defineStore('skillList', {
             type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover']
           }
         },
-      },
-      'アグレッシブリゲインボルテージ': {
-        aggressiveRegainVoltage: {
+        celebration_voltage_mental_heart: {
           text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
-            'し、メンタルを最大値の25%減少させる。'
+            '次に使用するボルテージゲイン効果を+',
+            '%、メンタルリカバー効果を+',
+            '%、スキルハート獲得効果を+',
+            '%する。'
           ],
           detail: {
-            attr: 'aggressive',
-            type: ['reshuffle', 'voltageGain', 'mentalReduce']
+            attr: '',
+            type: ['boost_voltageGain', 'boost_mentalRecover', 'boost_heartCaptcha']
           }
-        }
-      },
-      'アグレッシブブレイブファッシネイト': {
-        aggressiveBraveFascinate10_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。メンタルを最大値の25%減少させる。さらにメンタルが10%以下のとき、ボルテージPt.を+',
-            'する。'
-          ],
-          detail: {
-            attr: 'aggressive',
-            type: ['loveAttract_section', 'mentalReduce', 'voltageGain']
-          }
-        }
-      },
-      'アグレッシブエクステプロテクト': {
-        aggressiveExtendProtect_stage: {
-          text: [
-            'このステージ中、手札の上限枚数を2枚増加し、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにメンタルを最大値の50%減少させる。'
-          ],
-          detail: {
-            attr: 'aggressive',
-            type: ['extendHand', 'protect_stage', 'mentalReduce']
-          }
-        }
-      },
-      'アグレッシブプロテクション': {
-        aggressiveProtection_stage: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにメンタルを最大値の5%減少させる。'
-          ],
-          detail: {
-            attr: 'aggressive',
-            type: ['protect_stage', 'mentalReduce']
-          }
-        }
-      },
-      'アグレッシブビリーフブースト': {
-        aggressiveBeliefBoost: {
-          text: [
-            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+',
-            '%する。またメンタルを最大値の50%減少させる。'
-          ],
-          detail: {
-            attr: 'aggressive',
-            type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce']
-          }
-        }
+        },
       },
       'ビリーフブースト': {
         beliefBoost: {
@@ -2773,6 +2870,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'belief',
             type: ['mentalDown_section', 'boost_heartCaptcha', 'boost_loveAttract']
+          }
+        }
+      },
+      'ビリーフブースト：DOLLCHESTRA': {
+        beliefBoost_dollchestra: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'belief',
+            type: ['mentalDown_section', 'boost_loveAttract']
           }
         }
       },
