@@ -3336,17 +3336,18 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'heartCaptcha',
-              name: 'ハートキャプチャ',
+              ID: 'braveHeart_under50',
+              name: 'ブレイブハート',
               AP: 5,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+                [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 17]
               ]
             },
             characteristic: {
-              name: 'ブレイブハート',
-              detail: 'ビートハート13回分のスキルハートを獲得する。さらにメンタルが50%以下の時、ビートハート17回分のスキルハートを獲得する。',
-              type: ['heartCaptcha']
+              name: 'インタープリテーション',
+              detail: 'このスキルのムードによる効果上昇量を上昇させる。',
+              type: ['interPretation']
             }
           },
           'Rose Garden': {
@@ -9697,17 +9698,18 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'loveAttract_section',
-              name: 'ラブアトラクト',
+              ID: 'braveAttract_under25_sectionAttract',
+              name: 'ブレイブアトラクト',
               AP: 4,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                [13, 14.3, 15.6, 16.9, 18.2, 19.5, 20.8, 22.1, 23.4, 26, 27.3, 28.6, 29.9, 32.5]
               ]
             },
             characteristic: {
-              name: 'ブレイブアトラクト',
-              detail: 'このセクション中、獲得するLOVEを+25%する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+32.5%する。',
-              type: ['loveAttract_section']
+              name: 'インタープリテーション',
+              detail: 'このスキルのムードによる効果上昇量を上昇させる。',
+              type: ['interPretation']
             }
           },
           'チェリー♫ピクニック': {
@@ -13533,7 +13535,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'Proof': {
-            styleType: 'moodMaker',
+            styleType: 'performer',
             mood: 'neutral',
             series: 'Proof',
             kana: 'ぷるーふ',

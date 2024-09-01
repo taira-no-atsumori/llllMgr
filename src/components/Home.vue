@@ -153,7 +153,7 @@ export default {
           lastDay: [2024, 8, 18, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-08-10-20-k0buco5abu',
           img: '104期2ndTerm第1回個人戦_logo'
-        },*/
+        },
         'liveGP': {
           title: 'ライブグランプリ「104期 2ndTerm 第1回サークル対抗戦」',
           text: '',
@@ -162,16 +162,7 @@ export default {
           lastDay: [2024, 8, 28, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-08-20-10-zu2vmytum9',
           img: '104期 2ndTerm 第1回サークル対抗戦_logo'
-        },
-        'anisama': {
-          title: 'ライブ「Animelo Summer Live 2024 -Stargazer-」',
-          text: 'Day2(出演日)',
-          type: 'live',
-          firstDay: [2024, 8, 31, 0, 0],
-          lastDay: [2024, 8, 31, 23, 59],
-          url: 'https://anisama.tv/2024/liveinfo/',
-          img: 'anisama_logo'
-        },
+        },*/
         '3rdLiveTour_みらくらぱーく！': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRY TRI UNITY!!!」',
           text: 'with みらくらぱーく！',

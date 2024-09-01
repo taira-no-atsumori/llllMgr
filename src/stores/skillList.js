@@ -2282,7 +2282,30 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ブレイブハート': {
+        braveHeart_under50: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが50%以下の時、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha']
+          }
+        }
+      },
       'ブレイブアトラクト': {
+        braveAttract_under25_sectionAttract: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにメンタルが25%以下のとき、APを1回復する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['loveAttract_section']
+          }
+        },
         braveAttract_under50_sectionAttract_APGain: {
           text: [
             'このセクション中、獲得するLOVEを+',
