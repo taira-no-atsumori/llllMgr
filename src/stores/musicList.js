@@ -2265,6 +2265,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko' ,'kosuzu', 'hime']
       },
+      'DEEPNESS（ReC Ver.）': {
+        musicData: {
+          kana: 'でぃーぷねす',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 9,
+            date: 12
+          },
+          numbering: '',
+          BPM: {
+            original: 136,
+            inGame: 136
+          },
+          time: 104.12,
+          cover: false,
+          link: 'https://youtu.be/Cpi7W8Ycv1Y?si=0jeKapz7_DWv5qd-'
+        },
+        attribute: 'cool',
+        BHcount: 57,
+        level: 0,
+        term: 104,
+        center: 'tsuzuri',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi']
+      },
       'Reflection in the mirror（104期NEW Ver.）': {
         musicData: {
           kana: 'りふれくしょんいんざみらー',

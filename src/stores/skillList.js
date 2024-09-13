@@ -909,6 +909,18 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'リゲインエクステアトラクト': {
+        regainExtendAttract_section4: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を4枚増加し、このステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'regain',
+            type: ['reshuffle', 'extendHand', 'voltageGain']
+          }
+        }
+      },
       'エクステハート': {
         extensionsHeart_section3: {
           text: [
@@ -1562,7 +1574,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'loveAttract_stage']
+            type: ['loveAttract_stage']
           }
         },
         groovyAttract_section_over6_sectionAttract: {
@@ -1575,7 +1587,18 @@ export const useSkillStore = defineStore('skillList', {
             attr: 'groovy',
             type: ['loveAttract_section']
           }
-        }
+        },
+        groovyAttract_stage_over10_stageAttract: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにボルテージLv.が10以上の時このステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['loveAttract_stage']
+          }
+        },
       },
       'グルーヴィアトラクション': {
         groovyAttraction_section_over10_heartCaptcha: {
@@ -2976,6 +2999,20 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'alternate',
             type: ['ignition']
+          }
+        }
+      },
+      'トライアングルコード': {
+        triangleCode: {
+          text: [
+            '梢、綴理がそれぞれ6回の間使用するスキルハート獲得効果による獲得数を+',
+            '%、ラブアトラクト効果を+',
+            '%、ボルテージゲイン効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'triangle',
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain']
           }
         }
       }

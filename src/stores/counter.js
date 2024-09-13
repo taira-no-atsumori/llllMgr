@@ -5,7 +5,7 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.66(アーリーアクセス)',
+    version: 'ε.67(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,

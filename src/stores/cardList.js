@@ -1963,9 +1963,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'チェイン：さやか',
-              detail: 'さやかのスキルを使用した後、ドローされる確率が増加する。',
-              type: ['chain', 'sayaka']
+              name: 'チェイン：さやか & ドロー：アトラクトブースト：梢',
+              detail: 'さやかのスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に梢が使用するラブアトラクト効果を+75%する。',
+              type: ['chain', 'sayaka', 'drew', 'boost_loveAttract', 'kozue']
             }
           },
           '雨と紫陽花に唄へば': {
@@ -4185,9 +4185,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'チェイン：梢',
-              detail: '梢のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['chain', 'kozue']
+              name: 'チェイン：梢 & ドロー：アトラクトブースト：花帆',
+              detail: '梢のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に花帆が使用するラブアトラクト効果を+75%する。',
+              type: ['chain', 'kozue', 'drew', 'boost_loveAttract', 'kaho']
             }
           },
           'アメアガリストリート': {
@@ -4863,6 +4863,52 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'DEEPNESS': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'DEEPNESS',
+            kana: 'でぃーぷねす',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.1',
+              period: 'autumn'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4350,
+              pure: 4200,
+              cool: 6050,
+              mental: 460,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions2_voltage_stage',
+              name: 'エクステボルテージ',
+              AP: 11,
+              detail: [
+                [48, 53, 58, 62, 67, 72, 77, 82, 86, 96, 101, 106, 110, 120]
+              ]
+            },
+            skill: {
+              ID: 'regainExtendAttract_section4',
+              name: 'リゲインエクステアトラクト',
+              AP: 3,
+              detail: [
+                [32, 35.2, 38.4, 41.6, 44.8, 48, 51.2, 54.4, 57.6, 64, 67.2, 70.4, 73.6, 80]
+              ]
+            },
+            characteristic: {
+              name: 'ミラージュ',
+              detail: 'このスキルを6回使用すると、デッキから除外される。',
+              type: ['mirage']
+            }
+          },
           '織姫草紙': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -6535,9 +6581,9 @@ export const useCardStore = defineStore('cardList', {
               name: 'ハートチューニング',
               AP: 5,
               detail: [
-                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 100],
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
-                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
+                [4, 5, 5, 5, 6, 6, 7, 7, 7, 8, 9, 9, 9, 10]
               ]
             },
             characteristic: {
@@ -7340,17 +7386,18 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'loveAttract_stage',
-              name: 'ラブアトラクト',
+              ID: 'groovyAttract_stage_over10_stageAttract',
+              name: 'グルーヴィアトラクト',
               AP: 1,
               detail: [
-                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.9, 3, 3.2]
+                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.9, 3, 3.2],
+                [1.5, 1.7, 1.8, 2, 2.1, 2.3, 2.4, 2.6, 2.7, 3, 3.2, 3.3, 3.5, 3.9],
               ]
             },
             characteristic: {
-              name: 'チェイン：花帆 & ドロー：APゲイン',
-              detail: '花帆のスキルを使用した後、ドローされる確率が増加する。ドローした時、AP+1。',
-              type: ['kaho', 'draw', 'APGain']
+              name: 'チェイン：花帆 & ドロー：APゲイン & アトラクトブースト：さやか',
+              detail: '花帆のスキルを使用した後、ドローされる確率が増加する。ドローした時、AP+1し、次にさやかが使用するラブアトラクト効果を+120%する。',
+              type: ['kaho', 'draw', 'APGain', 'boost_loveAttract', 'sayaka']
             }
           },
           '金魚◎花火': {
@@ -9659,9 +9706,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'APレデュース：梢',
-              detail: '梢のスキルを使用するたび、手札のこのスキルの消費AP-3。',
-              type: ['APReduce', 'kozue']
+              name: 'APレデュース：梢 & リインフォース：慈',
+              detail: '梢のスキルを使用するたび、手札のこのスキルの消費AP-3。さらに慈のスキルを使用するたび3回まで、手札のこのスキルの効果量が増加する。',
+              type: ['APReduce', 'kozue', 'reinforce', 'megumi']
             }
           },
           'ツキマカセ': {
@@ -11145,6 +11192,54 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'DEEPNESS': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'DEEPNESS',
+            kana: 'でぃーぷねす',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.1',
+              period: 'autumn'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 4150,
+              cool: 6050,
+              mental: 450,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentalProtect_stageProtect',
+              name: 'メンタルプロテクト',
+              AP: 11,
+              detail: [
+                [14, 15.4, 16.8, 18.2, 19.6, 21, 22.4, 23.8, 25.2, 28, 29.4, 30.8, 32.2, 35]
+              ]
+            },
+            skill: {
+              ID: 'triangleCode',
+              name: 'トライアングルコード',
+              AP: 9,
+              detail: [
+                [228, 250.8, 273.6, 296.4, 319.2, 342, 364.8, 387.6, 410.4, 456, 478.8, 501.6, 524.4, 570],
+                [77.5, 85.3, 93, 100.8, 108.5, 116.3, 124, 131.8, 139.5, 155, 162.8, 170.5, 178.3, 193.8],
+                [77.5, 85.3, 93, 100.8, 108.5, 116.3, 124, 131.8, 139.5, 155, 162.8, 170.5, 178.3, 193.8],
+              ]
+            },
+            characteristic: {
+              name: 'ミラージュ',
+              detail: 'このスキルを6回使用すると、デッキから除外される。',
+              type: ['mirage']
+            }
+          },
           'PASSION!!!!!!': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -14080,9 +14175,9 @@ export const useCardStore = defineStore('cardList', {
               name: 'ファッシネイション',
               AP: 5,
               detail: [
-                [19, 21, 23, 25, 27, 29, 30, 32, 34, 38, 40, 42, 44, 48],
-                [5.28, 5.808, 6.336, 6.864, 7.392, 7.92, 8.448, 8.976, 9.504, 10.56, 11.088, 11.616, 12.144, 13.2],
-                [1.68, 1.848, 2.016, 2.184, 2.352, 2.52, 2.688, 2.856, 3.024, 3.36, 3.528, 3.696, 3.864, 4.2],
+                ['19?', '21?', '23?', '25?', '27?', '29?', '30?', '32?', '34?', '38?', '40?', '42?', '44?', 48],
+                ['5.28?', '5.81?', '6.34?', '6.86?', '7.39?', '7.92?', '8.45?', '8.98?', '9.50?', '10.56?', '11.09?', '11.67?', '12.14?', 13.2],
+                ['1.68?', '1.85?', '2.02?', '2.18?', '2.35?', '2.52?', '2.69?', '2.86?', '3.02?', '3.36?', '3.53?', '3.7?', '3.86?', 4.2],
               ]
             },
             characteristic: {
