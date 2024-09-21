@@ -145,7 +145,7 @@ export default {
   data() {
     return {
       eventList: {
-        'liveGP': {
+        /*'liveGP': {
           title: 'ライブグランプリ「104期 2ndTerm 第2回個人戦」',
           text: '',
           type: 'liveGP',
@@ -154,7 +154,7 @@ export default {
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-09-12-20-z92bkett4r',
           img: '104期2ndTerm第2回個人戦_logo'
         },
-        /*'liveGP': {
+        'liveGP': {
           title: 'ライブグランプリ「104期 2ndTerm 第1回サークル対抗戦」',
           text: '',
           type: 'liveGP',

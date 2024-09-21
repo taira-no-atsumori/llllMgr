@@ -3536,6 +3536,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          '魔法少女リズミックハート': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: '魔法少女リズミックハート',
+            kana: 'まほうしょうじょりずみっくはーと',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 2ndTerm 第2回個人戦」報酬',
+              period: 'prize'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 4500,
+              cool: 3600,
+              mental: 430,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensions1_sectionAttract_section',
+              name: 'エクステアトラクト',
+              AP: 6,
+              detail: [
+                [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, '8?']
+              ]
+            },
+            skill: {
+              ID: 'heartAttraction_section',
+              name: 'ハートアトラクション',
+              AP: 7,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, '13?'],
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, '15?']
+              ]
+            },
+            characteristic: {
+              name: 'ジャストドロー：フィーバー/APゲイン & ハートブースト & アトラクトブースト：さやか',
+              detail: 'フィーバーセクションでドローした時、APを5回復し、次にさやかが使用するスキルハート獲得効果による獲得数を+225%、ラブアトラクト効果を+75%する。',
+              type: ['justDrew', 'APGain', 'boost_heartCaptcha', 'boost_loveAttract', 'sayaka']
+            }
+          },
           '春風ブランコ': {
             styleType: 'cheerLeader',
             mood: 'happy',

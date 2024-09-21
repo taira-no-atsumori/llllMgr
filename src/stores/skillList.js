@@ -1006,6 +1006,16 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_stage', 'loveAttract_stage']
           }
         },
+        extensions1_sectionAttract_section: {
+          text: [
+            'このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'loveAttract_section']
+          }
+        },
         extensions3_sectionAttract_section: {
           text: [
             'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+',
