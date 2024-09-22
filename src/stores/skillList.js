@@ -154,6 +154,30 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'リフレッシュゲイン': {
+        refreshGain: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。さらにAPを7回復する。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'protect_stage', 'APGain']
+          }
+        }
+      },
+      'リフレッシュバブリング': {
+        refreshBubbling: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の',
+            '%回復させる。さらにバブルカードを1種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'mentalRecover', 'addCard']
+          }
+        }
+      },
       'リフレッシュエクステンド': {
         refreshExtend_stage1: {
           text: [
@@ -918,6 +942,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'regain',
             type: ['reshuffle', 'extendHand', 'voltageGain']
+          }
+        }
+      },
+      'リゲインバブリング': {
+        regainBubbling: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージPt.を+',
+            'する。さらにバブルカードを1種類(合計2枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'regain',
+            type: ['reshuffle', 'voltageGain', 'addCard']
           }
         }
       },
@@ -2577,6 +2613,17 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ドレス：月夜見海月': {
+        dress_tsukuyomi: {
+          text: [
+            'ドレスカード《月夜見海月》を1種類(合計3枚)山札に追加する。さらにデッキ枚数が25枚以下のとき、ドレスカード《月夜見海月》を1種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        }
+      },
       'リメイクドレス《華・麗・雅》': {
         remakeDress_hrm: {
           text: [
@@ -3025,7 +3072,57 @@ export const useSkillStore = defineStore('skillList', {
             type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain']
           }
         }
-      }
+      },
+      'アバンダンスアトラクション': {
+        abunDanceAttraction_over30_stage: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%し、AP回復速度を+1%する。さらにデッキ枚数が30枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha']
+          }
+        }
+      },
+      'アバンダンスアトラクト': {
+        abunDanceAttract_over30_stage: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が30枚以上のとき、このステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['loveAttract_stage']
+          }
+        }
+      },
+      'アバンダンスブースト：ドレス': {
+        abunDanceBoost_dress_over30: {
+          text: [
+            '3回の間ドレスカードの使用によるスキルハート獲得効果による獲得数を+',
+            '%する。さらにデッキ枚数が30枚以上のとき、3回の間ドレスカードの使用によるラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha']
+          }
+        }
+      },
+      'バブル': {
+        bubble_minus3_ceriseBouquet_dressCard: {
+          text: [
+            'デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'bubble',
+            type: ['APReduce_deck_ceriseBouquet', 'APReduce_deck_dressCard']
+          }
+        }
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -3138,6 +3235,31 @@ export const useSkillStore = defineStore('skillList', {
         colorCode: '',
         description: 'APを減らす。'
       },
+      APReduce_all: {
+        name: '消費AP減少',
+        colorCode: 'purple',
+        description: '手札の全てのスキルの消費APを減少させる。'
+      },
+      APReduce_heart: {
+        name: '消費AP減少(ハート系)',
+        colorCode: 'purple',
+        description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。'
+      },
+      APReduce_voltageGain: {
+        name: '消費AP減少(ボルテージ系)',
+        colorCode: 'purple',
+        description: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。'
+      },
+      APReduce_deck_ceriseBouquet: {
+        name: '消費AP減少(スリーズブーケ)',
+        colorCode: 'purple',
+        description: 'デッキにあるスリーズブーケのスキルの消費APを減少させる。'
+      },
+      APReduce_deck_dressCard: {
+        name: '消費AP減少(ドレスカード)',
+        colorCode: 'purple',
+        description: 'デッキにあるドレスカードの消費APを減少させる。'
+      },
       APQuick: {
         name: 'AP回復速度上昇',
         colorCode: '',
@@ -3157,21 +3279,6 @@ export const useSkillStore = defineStore('skillList', {
         name: 'カード追加',
         colorCode: 'purple',
         description: 'カードを山札に追加する。追加されるカードは以下の通り。'
-      },
-      APReduce_all: {
-        name: '消費AP減少',
-        colorCode: 'purple',
-        description: '手札の全てのスキルの消費APを減少させる。'
-      },
-      APReduce_voltageGain: {
-        name: '消費AP減少(ボルテージ系)',
-        colorCode: 'purple',
-        description: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。'
-      },
-      APReduce_heart: {
-        name: '消費AP減少(ハート系)',
-        colorCode: 'purple',
-        description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。'
       },
       ignition: {
         name: 'イグニッション',

@@ -138,7 +138,7 @@
             :src="require(`@/assets/bonusSkill_icon/${store.musicList[store.selectMusicTitle].bonusSkill}.webp`)"
             :alt="store.musicList[store.selectMusicTitle].bonusSkill"
             class="mr-1"
-            style="width: 30px;"
+            style="width: 30px; border-radius: 3px;"
           >
           {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
         </div>

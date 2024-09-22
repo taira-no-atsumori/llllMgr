@@ -42,7 +42,7 @@
                 <template v-slot:selection="{ item }">
                   <v-img
                     :src="require(`@/assets/bonusSkill_icon/${item.title}.webp`)"
-                    style="width: 25px"
+                    style="width: 25px; border-radius: 3px;"
                   ></v-img>
                 </template>
                 <template v-slot:item="{ item }">
@@ -303,7 +303,7 @@
                 >
                   <img
                     :src="require(`@/assets/bonusSkill_icon/${skillName}.webp`)"
-                    style="width: 30px;"
+                    style="width: 30px; border-radius: 3px;"
                   >
                 </v-col>
                 <v-col

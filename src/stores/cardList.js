@@ -261,6 +261,79 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '月夜見海月': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: '月夜見海月',
+            kana: 'つくよみくらげ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.2',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 5000,
+              cool: 5300,
+              mental: 440,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshBubbling',
+              name: 'リフレッシュバブリング',
+              AP: 7,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
+              ],
+              addSkill: [
+                {
+                  ID: 'bubble_minus3_ceriseBouquet_dressCard',
+                  name: 'バブル',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'ポッピング',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            },
+            skill: {
+              ID: 'abunDanceBoost_dress_over30',
+              name: 'アバンダンスブースト：ドレス',
+              AP: 5,
+              detail: [
+                [45, 49.5, 54, 58.5, 63., 67.5, 72, 76.5, 81, 90, 94.5, 99., 103.5, 112.5],
+                [168, 184.8, 201.6, 218.4, 235.2, 252, 268.8, 285.6, 302.4, 336, 352.8, 369.6, 386.4, 420]
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：バブリング',
+              detail: 'ドローした時、バブルカードを1種類(合計1枚)山札に追加する。',
+              type: ['drew', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'bubble_minus3_ceriseBouquet_dressCard',
+                  name: 'バブル',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            }
+          },
           'アオクハルカ': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -7817,6 +7890,79 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          '月夜見海月': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: '月夜見海月',
+            kana: 'つくよみくらげ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.2',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 4400,
+              cool: 4500,
+              mental: 390,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'regainBubbling',
+              name: 'リゲインバブリング',
+              AP: 7,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+              ],
+              addSkill: [
+                {
+                  ID: 'bubble_minus3_ceriseBouquet_dressCard',
+                  name: 'バブル',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'ポッピング',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            },
+            skill: {
+              ID: 'abunDanceAttract_over30_stage',
+              name: 'アバンダンスアトラクト',
+              AP: 3,
+              detail: [
+                [2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.6, 4.9, 5.2, 5.8, 6.1, 6.4, 6.7, 7.2],
+                [32, 35.2, 38.4, 41.6, 44.8, 48, 51.2, 54.4, 57.6, 64, 67.2, 70.4, 73.6, 80]
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：バブリング',
+              detail: 'ドローした時、バブルカードを1種類(合計1枚)山札に追加する。',
+              type: ['drew', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'bubble_minus3_ceriseBouquet_dressCard',
+                  name: 'バブル',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            }
+          },
           'おしえて♡ティーチャー': {
             styleType: 'performer',
             mood: 'melow',
@@ -12979,11 +13125,86 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ドレス《Ether Aria》',
               detail: 'ドローした時、ドレスカード《Ether Aria》を1種類（合計3枚）山札に追加する。',
-              type: ['drew', 'addCard']
+              type: ['drew', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'heartGain_1',
+                  name: 'ハートゲイン',
+                  AP: 1,
+                  detail: [
+                    ['8?', '9?', '10?', '11?', '12?', '13?', '13?', '14?', '15?', '17?', '18?', '18?', '19?', 21]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
             }
           }
         },
         UR: {
+          '月夜見海月': {
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: '月夜見海月',
+            kana: 'つくよみくらげ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.2',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 4900,
+              cool: 5500,
+              mental: 440,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshGain',
+              name: 'リフレッシュゲイン',
+              AP: 5,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ]
+            },
+            skill: {
+              ID: 'dress_tsukuyomi',
+              name: 'ドレス：月夜見海月',
+              AP: 3,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'abunDanceAttraction_over30_stage',
+                  name: 'アバンダンスアトラクション',
+                  AP: 3,
+                  detail: [
+                    [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：アバンダンス/エクステンドハンド',
+              detail: 'ドローした時、このセクション中、手札の上限枚数を1枚増加する。さらにデッキ枚数が25枚以上のとき、このセクション中、手札の上限枚数を3枚増加する。',
+              type: ['drew', 'abunDance', 'extendHand']
+            }
+          },
           'PASSION!!!!!!': {
             styleType: 'trickStar',
             mood: 'melow',

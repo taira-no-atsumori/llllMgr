@@ -2369,32 +2369,6 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue', 'ginko']
       },
-      '眩耀夜行（104期Ver.）': {
-        musicData: {
-          kana: 'げんようやこう',
-          singer: 'スリーズブーケ',
-          releaseDate: {
-            year: 2023,
-            month: 8,
-            date: 9
-          },
-          numbering: 'スリーズブーケ 2ndシングル',
-          BPM: {
-            original: 158,
-            inGame: 158
-          },
-          time: 97.21,
-          cover: false,
-          link: ''
-        },
-        attribute: 'smile',
-        BHcount: 62,
-        level: 1,
-        term: 103,
-        center: 'kaho',
-        bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue', 'ginko']
-      },
       'アオクハルカ': {
         musicData: {
           kana: 'あおくはるか',
@@ -2445,6 +2419,58 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'kozue', 'ginko']
+      },
+      '眩耀夜行（104期Ver.）': {
+        musicData: {
+          kana: 'げんようやこう',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 8,
+            date: 9
+          },
+          numbering: 'スリーズブーケ 2ndシングル',
+          BPM: {
+            original: 158,
+            inGame: 158
+          },
+          time: 97.21,
+          cover: false,
+          link: ''
+        },
+        attribute: 'smile',
+        BHcount: 62,
+        level: 1,
+        term: 103,
+        center: 'kaho',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'kozue', 'ginko']
+      },
+      'Holiday∞Holiday（104期Ver.）': {
+        musicData: {
+          kana: 'ほりでーほりでー',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 6,
+            date: 14
+          },
+          numbering: 'スリーズブーケ&DOLLCHESTRA ユニットスプリットシングル',
+          BPM: {
+            original: 135,
+            inGame: 135
+          },
+          time: 94.22,
+          cover: false,
+          link: 'https://youtu.be/IHSUgM4rVQg?si=bGMQLsZZ4YtPA8DE'
+        },
+        attribute: 'pure',
+        BHcount: 51,
+        level: 0,
+        term: 104,
+        center: 'kozue',
+        bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue', 'ginko']
       },
       'Sparkly Spot（104期NEW Ver.）': {
@@ -2603,6 +2629,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
       },
+      '希望的プリズム（104期Ver.）': {
+        musicData: {
+          kana: 'きぼうてきぷりずむ',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2023,
+            month: 4,
+            date: 26
+          },
+          numbering: 'DOLLCHESTRA 1stシングル',
+          BPM: {
+            original: 131,
+            inGame: 131
+          },
+          time: 112.38,
+          cover: false,
+          link: 'https://youtu.be/QyQOyVTLPT0?si=GYUfgXMVNGx6Ho7d&t=177'
+        },
+        attribute: 'cool',
+        BHcount: 57,
+        level: 0,
+        term: 104,
+        center: 'tsuzuri',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+      },
       'アイデンティティ（104期NEW Ver.）': {
         musicData: {
           kana: 'あいでんてぃてぃ',
@@ -2731,6 +2783,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'LOVEボーナス',
+        singingMembers: ['rurino', 'megumi', 'hime']
+      },
+      'ハクチューアラモード（104期Ver.）': {
+        musicData: {
+          kana: 'はくちゅーあらもーど',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: {
+            original: 258,
+            inGame: 129
+          },
+          time: 89.3,
+          cover: false,
+          link: 'https://youtu.be/vh_aOcsfBSE?si=aEMg-2KwfrwLxOoy'
+        },
+        attribute: 'smile',
+        BHcount: 42,
+        level: 0,
+        term: 104,
+        center: 'rurino',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi', 'hime']
       },
       'Snow halation': {
@@ -2888,6 +2966,32 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi', 'hime']
+      },
+      'ルージュの伝言': {
+        musicData: {
+          kana: 'るーじゅのでんごん',
+          singer: '百生 吟子',
+          releaseDate: {
+            year: 1975,
+            month: 2,
+            date: 20
+          },
+          numbering: '荒井由実 5thシングル',
+          BPM: {
+            original: 153,
+            inGame: 153
+          },
+          time: 116.43,
+          cover: true,
+          link: ''
+        },
+        attribute: 'smile',
+        BHcount: 72,
+        level: 0,
+        term: 104,
+        center: 'ginko',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['ginko']
       },
     }
   }),
