@@ -2082,9 +2082,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'フェイバリット：フィーバー',
-              detail: 'フィーバーセクションでドローされる確率が増加する。',
-              type: ['favorite']
+              name: 'フェイバリット：フィーバー & ジャストドロー：フィーバー/ハートブースト：花帆',
+              detail: 'フィーバーセクションでドローされる確率が増加する。さらにフィーバーセクションでドローした時、次に花帆が使用するスキルハート獲得効果による獲得数を+225%する。',
+              type: ['favorite', 'justDrew', 'boost_heartCaptcha', 'kaho']
             }
           },
           'アメアガリストリート': {
@@ -2128,9 +2128,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'ドロー：メンタルリカバー',
-              detail: 'ドローした時、メンタルを最大値の6%回復させる。',
-              type: ['draw', 'mentalRecover']
+              name: 'ドロー：メンタルリカバー & チル：ボルテージブースト',
+              detail: 'ドローした時、メンタルを最大値の6%回復させる。さらにドローした時ボルテージLv.が5以下のとき、次に使用するボルテージゲイン効果を+10%する。',
+              type: ['draw', 'mentalRecover', 'chill', 'boost_voltageGain']
             }
           },
           'チェリー♫ピクニック': {
@@ -3371,9 +3371,9 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha', 'loveAttraction']
             },
             characteristic: {
-              name: 'フェイバリット：フィーバー',
-              detail: 'フィーバーセクションでドローされる確率が増加する。',
-              type: ['favorite']
+              name: 'フェイバリット：フィーバー & ジャストドロー：フィーバー/ハートブースト & アトラクトブースト：さやか',
+              detail: 'フィーバーセクションでドローされる確率が増加する。さらにフィーバーセクションでドローした時、次にさやかが使用するスキルハート獲得効果による獲得数を+375%、ラブアトラクト効果を+120%する。',
+              type: ['favorite', 'justDrew', 'boost_heartCaptcha', 'boost_loveAttract']
             }
           },
           'ツキマカセ': {
@@ -4351,9 +4351,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'ドロー：ボルテージゲイン',
-              detail: 'ドローした時、ボルテージPt.を+12する。',
-              type: ['draw', 'voltageGain']
+              name: 'ドロー：ボルテージゲイン & ブレイブ：リカバーブースト',
+              detail: 'ドローした時、ボルテージPt.を+12する。さらにメンタルが50%以下の時にドローすると、次に使用するメンタルリカバー効果を+30%する。',
+              type: ['draw', 'voltageGain', 'boost_mentalRecover']
             }
           },
           'Tragic Drops': {
@@ -4923,17 +4923,17 @@ export const useCardStore = defineStore('cardList', {
                 supportSkillList: {
                   'ボルテージアップ': {
                     initLevel: 1,
-                    levelUp: 3,
+                    levelUp: 5,
                     upLevel: 1
                   },
                   'メンタルリカバー': {
                     initLevel: 1,
-                    levelUp: 4,
+                    levelUp: 3,
                     upLevel: 1
                   },
                   'ビートハートアップ': {
                     initLevel: 1,
-                    levelUp: 5,
+                    levelUp: 4,
                     upLevel: 1
                   },
                   'LOVEボーナス': {
@@ -8610,9 +8610,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'ドロー：ラブアトラクト',
-              detail: 'ドローした時、このセクション中、獲得するLOVEを2.4%する。',
-              type: ['draw', 'loveAttract']
+              name: 'ドロー：ラブアトラクト & ブレイブ：リカバーブースト',
+              detail: 'ドローした時、このステージ中、獲得するLOVEを+2.4%する。さらにメンタルが50%以下の時にドローすると、次に使用するメンタルリカバー効果を+30%する。',
+              type: ['draw', 'loveAttract_stage', 'brave', 'boost_mentalRecover']
             }
           },
           'Rose Garden': {
@@ -10702,9 +10702,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'ドロー：ハートキャプチャ',
-              detail: 'ドローした時、ビートハート3回分のスキルハートを獲得する。',
-              type: ['draw', 'heartCaptcha']
+              name: 'ドロー：ハートキャプチャ & グルーヴィ：アトラクトブースト',
+              detail: 'ドローした時、ビートハート3回分のスキルハートを獲得する。さらにドローした時ボルテージLv.が5以上のとき、次に使用するラブアトラクト効果を+10%する。',
+              type: ['draw', 'heartCaptcha', 'groovy', 'boost_loveAttract']
             }
           },
           '雨と紫陽花に唄へば': {
@@ -14455,6 +14455,81 @@ export const useCardStore = defineStore('cardList', {
             }
           }
         },
+        BR: {
+          '16th Birthday': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'しっくすてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Hime-',
+              period: 'birthday'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '16th Birthday',
+                supportSkillList: {
+                  'ボルテージアップ': {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1
+                  },
+                  'メンタルリカバー': {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1
+                  },
+                  'ビートハートアップ': {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1
+                  },
+                  'LOVEボーナス': {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1
+                  }
+                }
+              }
+            },
+            specialAppeal: {
+              ID: 'heartBoost_MiraCraPark_stage',
+              name: 'ハートブースト：みらくらぱーく！',
+              AP: 5,
+              detail: [
+                [44, 48.4, 52.8, 57.2, 61.6, 66, 70.4, 74.8, 79.2, 88, 92.4, 96.8, 101.2, 110]
+              ]
+            },
+            skill: {
+              ID: 'celebration_heart_attract_mental',
+              name: 'セレブレイション',
+              AP: 3,
+              detail: [
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 45.6, 48, 50.4, 52.8, 60],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ]
+            },
+            characteristic: {
+              name: 'オーバーセクション：ブレッシング',
+              detail: '手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。',
+              type: ['overSection', 'APReduce_all']
+            }
+          }
+        },
         UR: {
           'PASSION!!!!!!': {
             styleType: 'trickStar',
@@ -14782,7 +14857,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'heartBoost_MiraCraPark',
+              ID: 'heartBoost_MiraCraPark_limit3_limit3',
               name: 'ハートブースト：みらくらぱーく！',
               AP: 6,
               detail: [

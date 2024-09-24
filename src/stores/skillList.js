@@ -281,7 +281,17 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'ハートブースト：みらくらぱーく！': {
-        heartBoost_MiraCraPark: {
+        heartBoost_MiraCraPark_stage: {
+          text: [
+            'このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha']
+          }
+        },
+        heartBoost_MiraCraPark_limit3: {
           text: [
             '3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
             '%する。'
@@ -2960,6 +2970,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['boost_voltageGain', 'boost_mentalRecover', 'boost_heartCaptcha']
+          }
+        },
+        celebration_heart_attract_voltage: {
+          text: [
+            '次に使用するスキルハート獲得効果を+',
+            '%、ラブアトラクト効果を+',
+            '%、ボルテージゲイン効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain']
           }
         },
       },

@@ -419,7 +419,7 @@
           <img
             :src="require(`@/assets/bonusSkill_icon/${supportSkillName}.webp`)"
             class="mr-1"
-            style="width: 50px;"
+            style="width: 50px; border-radius: 5px;"
           >
           <span style="font-size: 18px;">Lv.{{ makeSupportSkillLevel(store, supportSkillName) }}</span>
         </li>
