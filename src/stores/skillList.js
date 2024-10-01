@@ -424,7 +424,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage', 'APGain']
+            type: ['loveAttract_section']
           }
         },
         cheerfulAttract_APGain_over75: {
@@ -655,7 +655,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha']
+            type: ['boost_heartCaptcha']
           }
         }
       },
