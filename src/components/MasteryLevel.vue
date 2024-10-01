@@ -36,7 +36,7 @@
           <div class="mr-1 mt-1">
             <v-img
               :src="require(`@/assets/bonusSkill_icon/${bonusSkill}.webp`)"
-              style="width: 32px; height:32px;"
+              style="width: 32px; height:32px; border-radius: 3px;"
             ></v-img>
             <p class="text-center" style="font-size: 14px;">Lv.{{ store.outputBonusSkillList[bonusSkill].skillLevel }}</p>
           </div>

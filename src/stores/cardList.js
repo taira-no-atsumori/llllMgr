@@ -805,7 +805,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'cheerfulHeart_heartCaptcha',
+              ID: 'cheerfulHeart_over75_heartCaptcha',
               name: 'チアフルハート',
               AP: 4,
               detail: [
@@ -891,7 +891,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'cheerfulRecover',
+              ID: 'cheerfulRecover_upper75_APGain',
               name: 'チアフルリカバー',
               AP: 6,
               detail: [
@@ -899,8 +899,8 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'heartBoost',
-              name: 'ハートブースト',
+              ID: 'cheerfulHeartBoost_over100_boost_heartCaptcha',
+              name: 'チアフルハートブースト',
               AP: 5,
               detail: [
                 [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 125]
@@ -1802,9 +1802,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'オーバーセクション：APレデュース',
-              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3。',
-              type: ['overSection', 'APReduce']
+              name: 'オーバーセクション：APレデュース & ラブアトラクト：梢',
+              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3。さらに手札にある状態で梢のスキルを使用するたび、このステージ中、獲得するLOVEを+1.6%する。',
+              type: ['overSection', 'APReduce', 'loveAttract_stage', 'kozue']
             }
           },
           'ドルフィン〰ビーチ': {
@@ -3119,7 +3119,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'cheerfulRecover',
+              ID: 'cheerfulRecover_upper75_APGain',
               name: 'チアフルリカバー',
               AP: 8,
               detail: [
@@ -3127,8 +3127,8 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'loveAttract_section',
-              name: 'ラブアトラクト',
+              ID: 'cheerfulAttract_over100_sectionAttract',
+              name: 'チアフルアトラクト',
               AP: 5,
               detail: [
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
@@ -4074,9 +4074,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'オーバーセクション：ハートキャプチャ',
-              detail: '手札にある状態でセクションが変わるたび、ビートハート4個分のスキルハートを獲得する。',
-              type: ['overSection', 'heartCaptcha']
+              name: 'オーバーセクション：ハートキャプチャ & メンタルプロテクト：綴理',
+              detail: '手札にある状態でセクションが変わるたび、ビートハート4回分のスキルハートを獲得する。さらに手札にある状態で綴理のスキルを使用するたび、このステージ中、メンタルの最大値の2%分のメンタルダメージを無効にする。',
+              type: ['overSection', 'heartCaptcha', 'tsuzuri', 'protect_stage']
             }
           },
           '夏めきペイン': {
@@ -4983,6 +4983,83 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ファンファーレ！！！': {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'ファンファーレ！！！',
+            kana: 'ふぁんふぁーれ',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 2ndTerm 第2回サークル対抗戦」報酬',
+              period: 'prize'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 5450,
+              pure: 5050,
+              cool: 3800,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentorRecover',
+              name: 'メンターリカバー',
+              AP: 5,
+              detail: [
+                [14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36]
+              ]
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 4,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常',
+                  ID: 'ignitionRefresh_hime_mentalRecover_over100',
+                  name: 'イグニッションリフレッシュ',
+                  AP: 4,
+                  detail: [
+                    [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16],
+                  ]
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'tagBoost',
+                  name: 'タッグブースト',
+                  AP: 5,
+                  detail: [
+                    [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250],
+                    [16.8, 18.5, 20.2, 21.8, 23.5, 25.2, 26.9, 28.6, 30.2, 33.6, 35.3, 367, 38.6, 42],
+                  ]
+                }
+              }
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常',
+                  name: 'ドロー：ボルテージゲイン',
+                  detail: 'ドローした時、ボルテージPt.を18する。'
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'クールダウン',
+                  detail: 'メンタルが最大値の50%以下でドローした時、次にみらくらぱーく！のメンバーが使用するメンタルリカバー効果を+125%する。また手札にある間、メンタルが最大値の50%以下、またはボルテージLv.が3以下のとき、姫芽の《イグニッションモード》を解除する。'
+                }
+              ]
+            }
+          },
           'DEEPNESS': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -5699,9 +5776,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'オーバーセクション：マチュレーション',
-              detail: '手札にある状態でセクションが変わるたび、スキルの効果量が増加する。',
-              type: ['overSection', 'maturation']
+              name: 'オーバーセクション：マチュレーション & ワイドハート',
+              detail: '手札にある状態でセクションが変わるたび、スキルの効果値が増加する。さらに手札にある間、ハート上限を+50する。',
+              type: ['overSection', 'maturation', 'wideHeart']
             }
           },
           'yours ever': {
@@ -5746,9 +5823,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'インタープリテーション',
-              detail: 'このスキルのムードによる効果上昇量を上昇させる。',
-              type: ['interPretation']
+              name: 'インタープリテーション & ドロー：ハッピー/ハートブースト',
+              detail: 'このスキルのムードによる効果増加量を上昇させる。さらにムードがハッピーでドローした時、次に使用するスキルハート獲得効果による獲得数を+60%する。',
+              type: ['interPretation', 'drew', 'boost_heartCaptcha']
             }
           },
           '夏めきペイン': {
@@ -6253,11 +6330,12 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'heartCaptcha',
-              name: 'ハートキャプチャ',
-              AP: 4,
+              ID: 'cheerfulHeart_over100_heartCaptcha',
+              name: 'チアフルハート',
+              AP: 6,
               detail: [
-                [5, 6, 6, 7, 7, 8, 8, 8, 9, 10, 10, 11, 12, 13]
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26]
               ]
             },
             characteristic: {
@@ -6308,9 +6386,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'チェイン：慈',
-              detail: '慈のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['chain', 'megumi']
+              name: 'チェイン：慈 & ドロー：ボルテージブースト：慈',
+              detail: '慈のスキルを使用した後、ドローされる確率が増加する。さらにドローしたとき、次に慈が使用するボルテージゲイン効果を+75%する。',
+              type: ['chain', 'megumi', 'drew', 'boost_voltageGain']
             }
           },
           'にゅーかまー！': {
@@ -7412,12 +7490,13 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'cheerfulAttract_APGain_over75',
+              ID: 'cheerfulAttract_over75_stageAttract_over100_stageAttract',
               name: 'チアフルアトラクト',
               AP: 6,
               detail: [
                 [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11.1, 12],
-                [2.4, 2.6, 2.9, 3.1, 3.4, 3.6, 3.8, 4.1, 4.3, 4.8, 5, 5.3, 5.5, 6]
+                [2.4, 2.6, 2.9, 3.1, 3.4, 3.6, 3.8, 4.1, 4.3, 4.8, 5, 5.3, 5.5, 6],
+                [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
               ]
             },
             characteristic: {
@@ -8334,9 +8413,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'オーバーセクション：APレデュース',
-              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3。',
-              type: ['overSection', 'APReduce']
+              name: 'オーバーセクション：APレデュース & ハートキャプチャ：花帆',
+              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3。さらに手札にある状態で花帆のスキルを使用するたび、ビートハート2回分のスキルハートを獲得する。',
+              type: ['overSection', 'APReduce', 'heartCaptcha', 'kaho']
             }
           },
           '夏めきペイン': {
@@ -9617,9 +9696,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'オーバーセクション：ラブアトラクト',
-              detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+15%する。',
-              type: ['overSection', 'loveAttract']
+              name: 'オーバーセクション：ラブアトラクト & メンタルリカバー：さやか',
+              detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+15%する。さらに手札にある状態でさやかのスキルを使用するたび、メンタルを最大値の6%回復させる。',
+              type: ['overSection', 'loveAttract_section', 'mentalRecover', 'sayaka']
             }
           },
           '秋色カントリーロード': {
@@ -9656,12 +9735,13 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'cheerfulHeart_heartCaptcha',
+              ID: 'cheerfulHeart_over75_heartCaptcha_over100_heartCaptcha',
               name: 'チアフルハート',
               AP: 4,
               detail: [
                 [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
-                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, '7?', 8]
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                [9, 10, 11, 12, 13, 14, 14, 15, 16, 18, 19, 20, 21, 23],
               ]
             },
             characteristic: {
@@ -11385,6 +11465,84 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ファンファーレ！！！': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'ファンファーレ！！！',
+            kana: 'ふぁんふぁーれ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.3',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 5600,
+              pure: 5000,
+              cool: 3700,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'mentorBoost_captcha_attract',
+              name: 'メンターブースト',
+              AP: 7,
+              detail: [
+                [144, '158.4?', '172.8?', '187.2?', '201.6?', 216, '230.4?', '244.8?', '259.2?', 288, '302.4?', '316.8?', '331.2?', 360],
+                [24, '26.4?', '28.8?', '31.2?', '33.6?', 36, '38.4?', '40.8?', '43.2?', 48, '50.4?', '52.8?', '55.2?', 60]
+              ]
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 4,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常',
+                  ID: 'ignitionEndurance_hime_mentalOver100OrVoltageOver10',
+                  name: 'イグニッションエンデュランス',
+                  AP: 5,
+                  detail: [
+                    [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                    [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+                  ]
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'tagHeart_APReduce20_hime',
+                  name: 'タッグハート',
+                  AP: 10,
+                  detail: [
+                    [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30]
+                  ]
+                }
+              }
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常',
+                  name: 'ドロー：メンタルリカバー & メンタルプロテクト',
+                  detail: 'ドローした時、メンタルを最大値の8%回復し、このステージ中、メンタルの最大値の4%分のメンタルダメージを無効にする。'
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'アクセルコントロール',
+                  detail: '手札にある間、ボルテージLv.が10以上のとき、このスキルの消費AP-7。ボルテージLv.が3以下のとき、姫芽の《イグニッションモード》を解除する。'
+                }
+              ]
+            }
+          },
           'DEEPNESS': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -12092,7 +12250,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'cheerfulHeart_APGain',
+              ID: 'cheerfulHeart_over75_APGain',
               name: 'チアフルハート',
               AP: 4,
               detail: [
@@ -12100,9 +12258,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'オーバーセクション：マチュレーション',
-              detail: '手札にある状態でセクションが変わるたび、スキルの効果量が増加する。',
-              type: ['overSection', 'maturation']
+              name: 'オーバーセクション：マチュレーション & ハートブースト',
+              detail: '手札にある状態でセクションが変わるたび、スキルの効果値が増加する。さらに手札にある間、スキルハート獲得効果による獲得数を+50%する。',
+              type: ['overSection', 'maturation', 'boost_heartCaptcha']
             }
           },
           'Au Bord du Lac': {
@@ -12657,10 +12815,11 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'mentalRecover',
-              name: 'メンタルリカバー',
+              ID: 'cheerfulRecover_upper100_stageProtect',
+              name: 'チアフルリカバー',
               AP: 6,
               detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
               ]
             },
@@ -12712,9 +12871,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'APレデュース：瑠璃乃',
-              detail: '瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['APReduce', 'rurino']
+              name: 'インタープリテーション & ドロー：ハッピー/アトラクトブースト',
+              detail: 'このスキルのムードによる効果増加量を上昇させる。さらにムードがハッピーでドローした時、次に使用するラブアトラクト効果を+20%する。',
+              type: ['interPretation', 'drew', 'boost_loveAttract']
             }
           },
           '世界中を夢中に': {
@@ -12759,9 +12918,9 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             characteristic: {
-              name: 'チェイン：瑠璃乃',
-              detail: '瑠璃乃のスキルを使用した後、ドローさせる確率が増加する。',
-              type: ['chain', 'rurino']
+              name: 'チェイン：瑠璃乃 & ドロー：ボルテージブースト：瑠璃乃',
+              detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローしたとき、次に瑠璃乃が使用するボルテージゲイン効果を+75%する。',
+              type: ['chain', 'rurino', 'drew', 'boost_voltageGain']
             }
           },
           '@いっつぁどりーみんわーるど！': {
@@ -14531,6 +14690,85 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'ファンファーレ！！！': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'ファンファーレ！！！',
+            kana: 'ふぁんふぁーれ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.3',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 5800,
+              pure: 4900,
+              cool: 3700,
+              mental: 480,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'modeChange_mentalRecover_voltageGain',
+              name: 'モードチェンジ',
+              AP: 7,
+              detail: [
+                [11.6, '12.8?', '13.9?', '15.1?', '16.2?', 17.4, '18.6?', '19.7?', '20.9?', 23.2, '24.4?', '25.5?', '26.7?', 29],
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 29]
+              ]
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 5,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常',
+                  ID: 'ignitionStandby_hime_mentalOver100OrVoltageOver10',
+                  name: 'イグニッションスタンバイ',
+                  AP: 5,
+                  detail: [
+                    [13.2, '14.5?', '15.8?', '17.2?', '18.5?', 19.8, '21.1?', '22.4?', '23.8?', 26.4, '27.7?', '29?', '30.4?', 33],
+                    [26, 29, 31, 34, 36, 39, 42, 44, 47, 52, 55, 57, 60, 65]
+                  ]
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'fullPowerAttraction',
+                  name: 'フルパワーアトラクション',
+                  AP: 25,
+                  detail: [
+                    [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                    [1333.2, '1466.5?', '1599.8?', '1733.2?', '1866.5?', 1999.8, '2133.1?', '2266.4?', '2399.8?', 2666.4, '2799.7?', '2933?', '3066.4?', 3333]
+                  ]
+                }
+              }
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常',
+                  name: 'ドロー：メンタルリカバー & メンタルプロテクト',
+                  detail: 'ドローした時、メンタルを最大値の8%回復し、このステージ中、メンタルの最大値の4%分のメンタルダメージを無効にする。'
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'アクセルコントロール',
+                  detail: '手札にある間、ボルテージLv.が10以上のとき、このスキルの消費AP-7。ボルテージLv.が3以下のとき、姫芽の《イグニッションモード》を解除する。'
+                }
+              ]
+            }
+          },
           'PASSION!!!!!!': {
             styleType: 'trickStar',
             mood: 'melow',

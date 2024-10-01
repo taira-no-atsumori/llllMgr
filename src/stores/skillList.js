@@ -370,7 +370,7 @@ export const useSkillStore = defineStore('skillList', {
         },
       },
       'チアフルハート': {
-        cheerfulHeart_APGain: {
+        cheerfulHeart_over75_APGain: {
           text: [
             'ビートハート',
             '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'
@@ -380,10 +380,33 @@ export const useSkillStore = defineStore('skillList', {
             type: ['heartCaptcha', 'APGain']
           }
         },
-        cheerfulHeart_heartCaptcha: {
+        cheerfulHeart_over75_heartCaptcha: {
           text: [
             'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが50%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['heartCaptcha']
+          }
+        },
+        cheerfulHeart_over100_heartCaptcha: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['heartCaptcha']
+          }
+        },
+        cheerfulHeart_over75_heartCaptcha_over100_heartCaptcha: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、メンタルが100%以上のとき、ビートハート',
             '回分のスキルハートを獲得する。'
           ],
           detail: {
@@ -393,6 +416,17 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'チアフルアトラクト': {
+        cheerfulAttract_over100_sectionAttract: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにメンタルが100%以上のとき、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['loveAttract_stage', 'APGain']
+          }
+        },
         cheerfulAttract_APGain_over75: {
           text: [
             'このステージ中、獲得するLOVEを+',
@@ -407,6 +441,18 @@ export const useSkillStore = defineStore('skillList', {
           text: [
             'このステージ中、獲得するLOVEを+',
             '%する。さらにメンタルが50%以上のとき、このステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['loveAttract_stage']
+          }
+        },
+        cheerfulAttract_over75_stageAttract_over100_stageAttract: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+',
+            'し、メンタルが100%以上のとき、このステージ中、獲得するLOVEを+',
             '%する。'
           ],
           detail: {
@@ -453,10 +499,21 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'チアフルリカバー': {
-        cheerfulRecover: {
+        cheerfulRecover_upper75_APGain: {
           text: [
             'メンタルを最大値の',
             '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['mentalRecover', 'APGain']
+          }
+        },
+        cheerfulRecover_upper100_stageProtect: {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。さらにメンタルが100%以上のとき、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
           ],
           detail: {
             attr: 'cheerful',
@@ -586,6 +643,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'cheerful',
             type: ['boost_heartCaptcha']
+          }
+        }
+      },
+      'チアフルハートブースト': {
+        cheerfulHeartBoost_over100_boost_heartCaptcha: {
+          text: [
+            '次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。さらにメンタルが100%以上のとき、3回の間スキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['heartCaptcha']
           }
         }
       },
@@ -3081,6 +3151,44 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'イグニッションリフレッシュ': {
+        ignitionRefresh_hime_mentalRecover_over100: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の',
+            '%回復させる。さらにメンタルが100%以上のとき姫芽が《イグニッションモード》になる。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'mentalRecover', 'modeChange']
+          }
+        }
+      },
+      'イグニッションスタンバイ': {
+        ignitionStandby_hime_mentalOver100OrVoltageOver10: {
+          text: [
+            'メンタルが50%以下のときメンタルを最大値の',
+            '%回復させる。ボルテージLv.が7以下のときボルテージPt.を+',
+            'する。メンタルが100%以上、またはボルテージLv.が10以上の時姫芽が《イグニッションモード》になる。'
+          ],
+          detail: {
+            attr: '',
+            type: ['mentalRecover', 'voltageGain', 'modeChange']
+          }
+        }
+      },
+      'イグニッションエンデュランス': {
+        ignitionEndurance_hime_mentalOver100OrVoltageOver10: {
+          text: [
+            'メンタルを最大値の',
+            '%回復し、ボルテージPt.を+',
+            'する。さらにメンタルが100%以上、またはボルテージLv.が10以上のとき姫芽が《イグニッションモード》になる。'
+          ],
+          detail: {
+            attr: '',
+            type: ['mentalRecover', 'voltageGain', 'modeChange']
+          }
+        }
+      },
       'トライアングルコード': {
         triangleCode: {
           text: [
@@ -3142,6 +3250,82 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'bubble',
             type: ['APReduce_deck_ceriseBouquet', 'APReduce_deck_dressCard']
+          }
+        }
+      },
+      'タッグハート': {
+        tagHeart_APReduce20_hime: {
+          text: [
+            'ビートハート',
+            '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。'
+          ],
+          detail: {
+            attr: 'tag',
+            type: ['heartCaptcha', 'APReduce']
+          }
+        }
+      },
+      'タッグブースト': {
+        tagBoost: {
+          text: [
+            '次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%、ラブアトラクト効果を+',
+            '%する。さらにデッキにある姫芽のスキルの消費AP-10。'
+          ],
+          detail: {
+            attr: 'tag',
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'APReduce']
+          }
+        }
+      },
+      'メンターリカバー': {
+        mentorRecover: {
+          text: [
+            '姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: 'mentor',
+            type: ['modeChange', 'mentalRecover']
+          }
+        }
+      },
+      'メンターブースト': {
+        mentorBoost_captcha_attract: {
+          text: [
+            '姫芽の《イグニッションモード》を切り替える。さらに次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%、ラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'mentor',
+            type: ['modeChange', 'boost_heartCaptcha', 'boost_loveAttract']
+          }
+        }
+      },
+      'フルパワーアトラクション': {
+        fullPowerAttraction: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得、このセクション中、獲得するLOVEを+',
+            '%し、APを20回復する。さらにメンタルを最大値の50%減少、ボルテージPt.を-600する。また姫芽の《イグニッションモード》を解除する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'loveAttract_section', 'modeChange']
+          }
+        }
+      },
+      'モードチェンジ': {
+        modeChange_mentalRecover_voltageGain: {
+          text: [
+            '姫芽の《イグニッションモード》の状態を切り替える。さらにメンタルを最大値の',
+            '%回復し、ボルテージPt.を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'modeChange',
+            type: ['modeChange', 'mentalRecover', 'voltageGain']
           }
         }
       },

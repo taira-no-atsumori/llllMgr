@@ -2291,6 +2291,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi']
       },
+      'Trick & Cute（104期Ver.）': {
+        musicData: {
+          kana: 'とりっくあんどきゅーと',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2024,
+            month: 1,
+            date: 17
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
+          BPM: {
+            original: 244,
+            inGame: 122
+          },
+          time: 86.56,
+          cover: false,
+          link: 'https://youtu.be/Jzg41mZGJRw?si=edZhXQbA2yBbp9AZ'
+        },
+        attribute: 'cool',
+        BHcount: 42,
+        level: 0,
+        term: 104,
+        center: 'sayaka',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+      },
       'Reflection in the mirror（104期NEW Ver.）': {
         musicData: {
           kana: 'りふれくしょんいんざみらー',
@@ -2661,10 +2687,10 @@ export const useMusicStore = defineStore('musicList', {
           singer: 'みらくらぱーく！',
           releaseDate: {
             year: 2024,
-            month: 4,
-            date: 29
+            month: 10,
+            date: 2
           },
-          numbering: '',
+          numbering: 'みらくらぱーく！ 3rdシングル',
           BPM: {
             original: 202,
             inGame: 202
@@ -2809,6 +2835,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
+        singingMembers: ['rurino', 'megumi', 'hime']
+      },
+      'ファンファーレ！！！': {
+        musicData: {
+          kana: 'ふぁんふぁーれ',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 10,
+            date: 2
+          },
+          numbering: 'みらくらぱーく！ 3rdシングル',
+          BPM: {
+            original: 220,
+            inGame: 110
+          },
+          time: 112.5,
+          cover: false,
+          link: 'https://youtu.be/P2eOSPJ8w1c?si=vOXpQHfcaehxJJnr&t=9'
+        },
+        attribute: 'smile',
+        BHcount: 98,
+        level: 0,
+        term: 104,
+        center: 'hime',
+        bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi', 'hime']
       },
       'Snow halation': {
