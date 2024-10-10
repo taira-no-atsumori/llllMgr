@@ -6950,7 +6950,7 @@ export const useCardStore = defineStore('cardList', {
             skill: {
               ID: 'cheerfulAttraction_over100_stage',
               name: 'チアフルアトラクション',
-              AP: 3,
+              AP: 5,
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
@@ -9312,7 +9312,7 @@ export const useCardStore = defineStore('cardList', {
             skill: {
               ID: 'voltageHeart',
               name: 'ボルテージハート',
-              AP: 3,
+              AP: 5,
               detail: [
                 [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
                 [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
