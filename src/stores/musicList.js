@@ -2395,6 +2395,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue', 'ginko']
       },
+      '素顔のピクセル（104期Ver.）': {
+        musicData: {
+          kana: 'すがおのぴくせる',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 15
+          },
+          numbering: 'スリーズブーケ 3rdシングル',
+          BPM: {
+            original: 138,
+            inGame: 112
+          },
+          time: 107.83,
+          cover: false,
+          link: ''
+        },
+        attribute: 'pure',
+        BHcount: 56,
+        level: 0,
+        term: 104,
+        center: 'kaho',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'kozue', 'ginko']
+      },
       'アオクハルカ': {
         musicData: {
           kana: 'あおくはるか',
@@ -2549,6 +2575,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'ビートハートアップ',
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+      },
+      'Take It Over（104期Ver.）': {
+        musicData: {
+          kana: 'ていくいっとおーばー',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2023,
+            month: 11,
+            date: 22
+          },
+          numbering: 'DOLLCHESTRA 3rdシングル',
+          BPM: {
+            original: 150,
+            inGame: 150
+          },
+          time: 89.6,
+          cover: false,
+          link: ''
+        },
+        attribute: 'cool',
+        BHcount: 50,
+        level: 0,
+        term: 104,
+        center: 'tsuzuri',
+        bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
       },
       'レディバグ': {
@@ -2835,6 +2887,32 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
+        singingMembers: ['rurino', 'megumi', 'hime']
+      },
+      'マハラジャンボリー（104期Ver.）': {
+        musicData: {
+          kana: 'まはらじゃんぼりー',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 27
+          },
+          numbering: 'みらくらぱーく！ 2ndシングル',
+          BPM: {
+            original: 152,
+            inGame: 152
+          },
+          time: 104.3,
+          cover: false,
+          link: ''
+        },
+        attribute: 'smile',
+        BHcount: 64,
+        level: 0,
+        term: 104,
+        center: 'megumi',
+        bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi', 'hime']
       },
       'ファンファーレ！！！': {

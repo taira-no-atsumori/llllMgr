@@ -402,7 +402,7 @@
     <v-col cols="12" class="pa-0">
       {{ store.settingCardData.characteristic.detail }}
     </v-col>
-    <v-col cols="12" class="pt-1" v-if="store.settingCardData.characteristic.type.some(item => item === 'alternate')">
+    <v-col cols="12" class="pt-1" v-if="store.settingCardData.characteristic?.type?.some(item => item === 'alternate')">
       <v-chip @click="openDialog(store, 'skillDescription', 600, {'skillID': 'ignition', 'targetSkill': 'characteristic', 'isAlternate': true})">詳細</v-chip>
     </v-col>
   </v-row>

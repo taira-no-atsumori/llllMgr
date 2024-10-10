@@ -462,10 +462,21 @@ export const useSkillStore = defineStore('skillList', {
         }
       },
       'チアフルアトラクション': {
-        cheerfulAttraction: {
+        cheerfulAttraction_over75_section: {
           text: [
             'ビートハート',
             '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['heartCaptcha', 'loveAttract_section']
+          }
+        },
+        cheerfulAttraction_over100_stage: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、このステージ中、獲得するLOVEを+',
             '%する。'
           ],
           detail: {
@@ -3329,6 +3340,39 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'アルティメットフォース': {
+        ultimateForce: {
+          text: [
+            'このステージ中、APを無限にする。さらに手札からスキルを使用したとき、スキル使用不可となるクールタイムが発生する。スペシャルアピールのLvが高い、デッキ枚数が多い、または楽曲が短いほどクールタイムが短くなる。'
+          ],
+          detail: {
+            attr: 'infinity',
+            type: ['infinity_AP_stage', 'coolTime']
+          }
+        }
+      },
+      'アブソリュートボルテージ': {
+        absoluteVoltage: {
+          text: [
+            'このステージ中、ボルテージLv.を無限にする。さらにボルテージPt.を獲得する効果が発動した時、このステージ中獲得するLOVEを増加させ、APを0～20回復する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。'
+          ],
+          detail: {
+            attr: 'infinity',
+            type: ['infinity_voltage_stage', 'loveAttract_stage', 'APGain']
+          }
+        }
+      },
+      'エターナルスピリッツ': {
+        eternalSpirits: {
+          text: [
+            'このステージ中、メンタルを無限にする。さらにメンタルを回復する効果、またはメンタルプロテクト効果が発動した時、スキルハートを獲得し、APを0～20回復する。発動した効果の効果量とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。'
+          ],
+          detail: {
+            attr: 'infinity',
+            type: ['infinity_mental_stage', 'heartCaptcha', 'APGain']
+          }
+        }
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -3495,6 +3539,26 @@ export const useSkillStore = defineStore('skillList', {
         name: 'モードチェンジ',
         colorCode: 'purple',
         description: 'スキルの効果を変化させる。'
+      },
+      coolTime: {
+        name: 'クールタイム',
+        colorCode: '',
+        description: 'スキル使用時、クールタイムが発生する。'
+      },
+      infinity_AP_stage: {
+        name: 'AP無限',
+        colorCode: '',
+        description: 'このステージ中、APを無限にする。'
+      },
+      infinity_voltage_stage: {
+        name: 'ボルテージ無限',
+        colorCode: '',
+        description: 'このステージ中、ボルテージを無限にする。'
+      },
+      infinity_mental_stage: {
+        name: 'メンタル無限',
+        colorCode: '',
+        description: 'このステージ中、メンタルを無限にする。'
       }
     }
   }),

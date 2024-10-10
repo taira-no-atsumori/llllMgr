@@ -1,13 +1,6 @@
 <template>
 <v-container fluid class="pa-2">
-<v-row no-gutters>
-  <v-col cols="12">
-    <h1>リンクラ マネージャー！</h1>
-    Ver. {{ store.version }}
-  </v-col>
-</v-row>
-
-<v-row v-if="Object.keys(outputEventList).length > 0">
+<v-row class="mt-0" v-if="Object.keys(outputEventList).length > 0">
   <v-col cols="12">
     <h2>ライブ・イベント情報</h2>
     <v-carousel
@@ -133,11 +126,6 @@
 </v-container>
 </template>
 
-<script setup>
-  import { useStoreCounter } from '../stores/counter';
-  const store = useStoreCounter();
-</script>
-
 <script>
 export default {
   name: 'Home',
@@ -145,16 +133,16 @@ export default {
   data() {
     return {
       eventList: {
-        /*'liveGP': {
+        'liveGP': {
           title: 'ライブグランプリ「104期 2ndTerm 第2回個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 9, 14, 12, 0],
-          lastDay: [2024, 9, 20, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-09-12-20-z92bkett4r',
-          img: '104期2ndTerm第2回個人戦_logo'
-        },*/
-        'liveGP': {
+          firstDay: [2024, 10, 11, 12, 0],
+          lastDay: [2024, 10, 17, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-10-09-20-n47gypu0nb',
+          img: '104期2ndTerm第3回個人戦_logo'
+        },
+        /*'liveGP': {
           title: 'ライブグランプリ「104期 2ndTerm 第2回サークル対抗戦」',
           text: '',
           type: 'liveGP',
@@ -162,7 +150,7 @@ export default {
           lastDay: [2024, 9, 29, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-09-21-10-tdb5t4rval',
           img: '104期 2ndTerm 第2回サークル対抗戦_logo'
-        },
+        },*/
         '3rdLiveTour_みらくらぱーく！': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRY TRI UNITY!!!」',
           text: 'with みらくらぱーく！',

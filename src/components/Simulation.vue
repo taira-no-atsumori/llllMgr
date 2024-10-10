@@ -82,13 +82,13 @@
   </v-col>
   <v-col cols="1">
     <v-combobox
-      v-model="period"
+      v-model="store.selectPeriod"
       label="期"
-      :items="[103, 104]"
+      :items="[104, 103]"
     ></v-combobox>
   </v-col>
   <v-col cols="12" class="pa-0">
-    <v-row no-gutters>
+    <v-row no-gutters v-if="false">
       <v-col
         v-for="(v, k) in attrName"
         :key="v"
@@ -98,14 +98,6 @@
     </v-row>
     <v-row no-gutters>
       <v-col cols="12">
-        <v-alert
-          v-if="countDefaultCard(store).main > 0"
-          type="error"
-          variant="outlined"
-          class="mb-2"
-        >
-          MAIN STYLEを設定してください
-        </v-alert>
         <v-alert
           type="warning"
           variant="outlined"
@@ -133,7 +125,7 @@
       <v-col
         cols="12"
         sm="4"
-        v-for="memberName in store.formationMember[period]"
+        v-for="memberName in store.formationMember[store.selectPeriod]"
         :key="memberName"
         class="pa-1"
       >
@@ -143,13 +135,14 @@
             class="memberArea"
             :data-member_name="memberName"
           >
-            <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true">
+            <!-- <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true"> -->
+            <v-col cols="12" class="characterDetailArea pa-1">
               <h2>
                 <span
                   class="d-flex flex-row justify-center align-center"
                 >
                   <img
-                    :src="require(`@/assets/member_icon/icon_illust_${memberName}_${period}.webp`)"
+                    :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectPeriod}.webp`)"
                     class="mr-1"
                     style="width: 35px;"
                   >
@@ -158,7 +151,7 @@
                   <v-icon color="yellow-accent-1">mdi-star</v-icon>
                 </span>
               </h2>
-              <v-row no-gutters>
+              <!-- <v-row no-gutters>
                 <v-col cols="4">
                   <dl>
                     <dt>合計マスタリーLv. </dt>
@@ -182,19 +175,22 @@
                   <h3>Season Fan Lv. </h3>
                   <p>7 / 10</p>
                 </v-col>
-              </v-row>
+              </v-row> -->
             </v-col>
             <v-col
               cols="12"
-              v-for="(ary, styleName) in store.styleHeadline"
+              v-for="(ary, styleName) in store.styleHeadline[store.selectPeriod]"
               :key="styleName"
               :data-style="styleName"
               class="pa-1"
             >
-              <v-row no-gutters>
-                <h3 style="writing-mode: vertical-rl; /*text-orientation: upright; */transform: rotate(180deg); display: flex; justify-content: center;">{{ ary.split('STYLE').join('') }}<v-icon color="yellow-accent-4" style="transform: rotate(180deg); opacity: 0;">mdi-crown</v-icon></h3>
+              <v-row no-gutters class="mb-2">
+                <h3
+                  style="writing-mode: vertical-rl; /*text-orientation: upright; */transform: rotate(180deg); display: flex;"
+                >
+                  {{ ary.split('STYLE').join('') }}<v-icon color="yellow-accent-4" style="transform: rotate(180deg); opacity: 0;">mdi-crown</v-icon>
+                </h3>
                 <v-col cols="4">
-                  
                   <v-card @click="store.showModalEvent('selectCard'); store.setOpenCard(memberName, styleName);">
                     <v-img
                       :src="require(`@/assets/card_illust/${makeIllustCard(store, store.selectCard[memberName][styleName], memberName)}.webp`)"
@@ -203,19 +199,18 @@
                 </v-col>
                 <v-col
                   style="font-size: 15px;"
-                  class="pl-2"
+                  class="pl-2 position-relative"
                 >
                   <v-row no-gutters>
-                    <h3 v-if="false">{{ ary }}<v-icon color="yellow-accent-4">mdi-crown</v-icon></h3>
-                    <v-spacer></v-spacer>
                     <v-btn
                       density="compact"
                       icon="mdi-close"
                       variant="flat"
+                      class="position-absolute right-0"
                       @click="reset();"
                     ></v-btn>
                   </v-row>
-                  <dl class="mb-1">
+                  <dl class="mt-1 mb-2">
                     <dt>カード名</dt>
                     <dd>{{ makeCardName(store, store.selectCard[memberName][styleName], memberName, styleName) }}</dd>
                   </dl>
@@ -325,7 +320,7 @@
                   </v-card>-->
                 </v-col>
               </v-row>
-              <v-divider class="mx-1"></v-divider>
+              <v-divider class="mx-1" v-if="Object.keys(store.styleHeadline[store.selectPeriod]).length > 0"></v-divider>
             </v-col>
           </v-row>
         </v-card>
@@ -338,7 +333,7 @@
   <v-col cols="12">
     <h1>SIMULATION</h1>
   </v-col>
-  <v-col cols="3">
+  <v-col cols="3" v-if="false">
     <v-card class="pa-2">
       <h3>センターカード</h3>
       <v-card>
@@ -746,7 +741,6 @@ export default {
         characterStatusSetting: false,
         paramSet: false
       },
-      period: 104,
       attr: ['cardLevel', 'SALevel', 'SLevel', 'releaseLevel', 'smile', 'cool', 'pure', 'mental'],
       selectFormation: '新規デッキ1',
       formation: {},
@@ -870,6 +864,11 @@ export default {
     }
   },
   methods: {
+    /**
+     * タブチェンジ
+     *
+     * @param {string} selectCharacter The name of the character to select.
+     */
     changeTab(selectCharacter) {
       this.selectTab = selectCharacter;
     },

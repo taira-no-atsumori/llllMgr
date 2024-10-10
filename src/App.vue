@@ -32,8 +32,12 @@
       </v-sheet>
     </v-bottom-sheet>
 
-    <v-toolbar-title class="d-none d-sm-block">リンクラ マネージャー！</v-toolbar-title>
-    <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
+    <v-toolbar-title class="d-none d-sm-block">
+      リンクラ マネージャー！<span class="text-subtitle-2">Ver. {{ store.version }}</span>
+    </v-toolbar-title>
+    <v-toolbar-title class="hidden-sm-and-up">
+      リンマネ
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
 

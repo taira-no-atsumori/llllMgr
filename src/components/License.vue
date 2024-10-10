@@ -49,18 +49,18 @@
         ライブラリ
         <ul class="dot_list">
           <li>Vuetify</li>
-          <li>3.6.11</li>
+          <li>3.7.2</li>
         </ul>
         <ul class="dot_list">
           <li>pinia</li>
-          <li>2.1.7</li>
+          <li>2.2.4</li>
         </ul>
       </li>
       <li>
         プラグイン
         <ul class="dot_list">
           <li>vue-router</li>
-          <li>4.3.0</li>
+          <li>4.4.5</li>
         </ul>
       </li>
     </ul>

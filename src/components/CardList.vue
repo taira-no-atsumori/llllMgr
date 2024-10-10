@@ -138,7 +138,7 @@
                 ><span style="padding-top: 2px;" class="hamidashi">{{ key.cardName }}</span>
               </v-card-title>
               <v-card-text class="pa-0 cardName" v-if="store.siteSettings.cardList.isShowDetail !== 'false'">
-                <v-divider opacity="100"></v-divider>
+                <v-divider opacity="50"></v-divider>
 
                 <v-row no-gutters class="pa-1">
                   <v-col cols="6" class="status"><span>特訓 </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.trainingLevel }}</v-col>
@@ -312,7 +312,7 @@ export default {
   }
 
   .status:nth-child(odd) {
-    border-right: 1px solid #000;
+    border-right: 1px solid #555;
   }
 
   .status:nth-child(even) {
@@ -322,17 +322,17 @@ export default {
   .status:nth-child(1),
   .status:nth-child(2) {
     padding-bottom: 2px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #555;
   }
 
   .status:nth-child(3) {
     padding: 1px 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #555;
   }
 
   .status:nth-child(4) {
     padding: 1px 0 1px 4px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #555;
   }
 
   .status:nth-child(5),
@@ -342,7 +342,7 @@ export default {
 }
 
 #possessionCard_container {
-  border: 1px solid #000;
+  border: 1px solid #555;
   border-top: none;
 
   li {
@@ -358,7 +358,7 @@ export default {
   }
 
   dl {
-    border-bottom: 1px dashed #000;
+    border-bottom: 1px dashed #555;
     margin-bottom: 15px;
 
     &:last-child {
@@ -373,7 +373,7 @@ export default {
   
   .abc {
     padding: 5px 10px;
-    border: 2px solid #000;
+    border: 2px solid #555;
     border-radius: 50px;
     margin: 0 10px 10px 0;
   }

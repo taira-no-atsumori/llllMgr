@@ -6917,6 +6917,51 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '輪廻の銀河へ': {
+            styleType: 'performer',
+            mood: 'melow',
+            series: '銀河',
+            kana: 'りんねのぎんがへ',
+            gacha: {
+              addSeason: '2024 PARTY! LIMITED COLLECTION',
+              period: 'party'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4300,
+              pure: 3900,
+              cool: 6200,
+              mental: 480,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'ultimateForce',
+              name: 'アルティメットフォース',
+              AP: 12,
+              detail: []
+            },
+            skill: {
+              ID: 'cheerfulAttraction_over100_stage',
+              name: 'チアフルアトラクション',
+              AP: 3,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ]
+            },
+            characteristic: {
+              name: 'アッチェレランド',
+              detail: '使用するたび、手札のこのスキルの消費AP+3(最大15)し、さらに5回までスキルの効果量が上昇する。',
+              type: ['APGain']
+            }
+          },
           'PASSION!!!!!!': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -9234,6 +9279,51 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '福音の銀河へ': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '銀河',
+            kana: 'ふくいんのぎんがへ',
+            gacha: {
+              addSeason: '2024 PARTY! LIMITED COLLECTION',
+              period: 'party'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 6100,
+              cool: 4200,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'absoluteVoltage',
+              name: 'アブソリュートボルテージ',
+              AP: 12,
+              detail: []
+            },
+            skill: {
+              ID: 'voltageHeart',
+              name: 'ボルテージハート',
+              AP: 3,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
+              ]
+            },
+            characteristic: {
+              name: 'インクリーズ',
+              detail: 'ボルテージLv.が10以上の間、消費APを-3し、スキル効果値が増加する。',
+              type: ['APReduce', 'maturation']
+            }
+          },
           'Proof': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -9728,7 +9818,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100
             },
             specialAppeal: {
-              ID: 'cheerfulAttraction',
+              ID: 'cheerfulAttraction_over75_section',
               name: 'チアフルアトラクション',
               AP: 6,
               detail: [
@@ -11467,6 +11557,51 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '久遠の銀河へ': {
+            styleType: 'cheerLeader',
+            mood: 'happy',
+            series: '銀河',
+            kana: 'くえんのぎんがへ',
+            gacha: {
+              addSeason: '2024 PARTY! LIMITED COLLECTION',
+              period: 'party'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1
+            },
+            uniqueStatus: {
+              smile: 600,
+              pure: 4100,
+              cool: 4000,
+              mental: 510,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'eternalSpirits',
+              name: 'エターナルスピリッツ',
+              AP: 12,
+              detail: []
+            },
+            skill: {
+              ID: 'refreshProtect_stage',
+              name: 'リフレッシュプロテクト',
+              AP: 5,
+              detail: [
+                [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16],
+                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, 3.48, 3.64, 4]
+              ]
+            },
+            characteristic: {
+              name: 'オーバーヒーリング',
+              detail: 'このスキルを使用するたび、5回までスキルの効果値が増加する。',
+              type: ['overHealing', 'maturation']
+            }
+          },
           'ファンファーレ！！！': {
             styleType: 'performer',
             mood: 'happy',
@@ -15097,7 +15232,7 @@ export const useCardStore = defineStore('cardList', {
               ]
             },
             skill: {
-              ID: 'heartBoost_MiraCraPark_limit3_limit3',
+              ID: 'heartBoost_MiraCraPark_limit3',
               name: 'ハートブースト：みらくらぱーく！',
               AP: 6,
               detail: [

@@ -5,13 +5,14 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.72(アーリーアクセス)',
+    version: 'ε.73(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
     checkMasteryMember: 'kaho',
+    selectPeriod: 104,
     rare: ['DR', 'BR', 'UR', 'SR', 'R'],
     favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
     bonusSkill: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
@@ -78,9 +79,15 @@ export const useStoreCounter = defineStore('store', {
       cardSeries: []
     },
     styleHeadline: {
-      main: 'MAIN STYLE',
-      side1: 'SIDE STYLE 1',
-      side2: 'SIDE STYLE 2'
+      103: {
+        main: 'MAIN STYLE',
+        side1: 'SIDE STYLE 1',
+        side2: 'SIDE STYLE 2'
+      },
+      104: {
+        main: 'MAIN STYLE',
+        side1: 'SIDE STYLE 1'
+      }
     },
     styleType: {
       performer: 'パフォーマー',
