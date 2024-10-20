@@ -20,7 +20,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -63,7 +64,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -105,7 +107,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 7200,
@@ -153,7 +156,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6400,
@@ -201,7 +205,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -276,7 +281,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -349,7 +355,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -408,7 +415,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -454,7 +462,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -500,7 +509,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6400,
@@ -548,7 +558,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 1,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -596,7 +607,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3700,
@@ -644,7 +656,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -691,7 +704,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6200,
@@ -739,7 +753,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -787,7 +802,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5300,
@@ -834,7 +850,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -881,7 +898,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -928,7 +946,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -975,7 +994,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -1022,7 +1042,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -1068,7 +1089,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -1114,7 +1136,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5450,
@@ -1161,7 +1184,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -1207,7 +1231,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -1253,7 +1278,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -1299,7 +1325,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -1345,7 +1372,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -1378,6 +1406,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          '紅葉乃舞姫': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '紅葉乃舞姫',
+            kana: 'こうようのまいひめ',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 2ndTerm 第3回個人戦」報酬',
+              period: 'prize'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 4800,
+              cool: 3200,
+              mental: 430,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'regainVoltage',
+              name: 'リゲインボルテージ',
+              AP: 5,
+              detail: [
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33]
+              ]
+            },
+            skill: {
+              ID: 'fulnessExtensionVoltage_add2_over5_over50',
+              name: 'フルネスエクステボルテージ',
+              AP: 8,
+              detail: [
+                [58, 64, 70, 75, 81, 87, 93, 99, 104, 116, 122, 128, 133, 145]
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：APレデュース：グルーヴィ & チアフル',
+              detail: 'ボルテージLv.5以上でドローした時、消費APを-2、メンタル50%以上でドローした時、消費APを-2する。',
+              type: ['drew', 'APReduce', 'groovy']
+            }
+          },
           '織姫草紙': {
             styleType: 'trickStar',
             mood: 'melow',
@@ -1393,7 +1468,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3500,
@@ -1439,7 +1515,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -1486,7 +1563,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -1538,7 +1616,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -1585,7 +1664,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -1634,7 +1714,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -1681,7 +1762,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -1728,7 +1810,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -1776,7 +1859,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -1824,7 +1908,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -1871,7 +1956,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -1918,7 +2004,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -1964,7 +2051,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -2011,7 +2099,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -2057,7 +2146,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -2103,7 +2193,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -2149,7 +2240,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -2195,7 +2287,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -2241,7 +2334,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -2287,7 +2381,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -2335,7 +2430,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3100,
@@ -2376,7 +2472,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2400,
@@ -2417,7 +2514,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2900,
@@ -2458,7 +2556,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2700,
@@ -2502,7 +2601,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -2544,7 +2644,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -2590,7 +2691,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -2623,6 +2725,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '紅葉乃舞姫': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '紅葉乃舞姫',
+            kana: 'こうようのまいひめ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.4',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4900,
+              pure: 5600,
+              cool: 3800,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshHeart',
+              name: 'リフレッシュハート',
+              AP: 5,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]
+              ]
+            },
+            skill: {
+              ID: 'fulnessExtensionHeart_add3_over8_over75',
+              name: 'フルネスエクステハート',
+              AP: 12,
+              detail: [
+                [48, 53, 58, 62, 67, 72, 77, 82, 86, 96, 101, 106, 110, 120]
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：ボルテージブースト & APレデュース：グルーヴィ & チアフル',
+              detail: 'ドローした時、次に使用するボルテージゲイン効果を+16%する。さらにボルテージLv.8以上でドローした時、消費APを-5、メンタル75%以上でドローした時、消費APを-2する。',
+              type: ['drew', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful']
+            }
+          },
           'Proof': {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -2638,7 +2787,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -2686,7 +2836,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -2732,7 +2883,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3550,
@@ -2778,7 +2930,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -2825,7 +2978,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -2873,7 +3027,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -2920,7 +3075,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6000,
@@ -2969,7 +3125,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -3017,7 +3174,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5500,
@@ -3064,7 +3222,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -3110,7 +3269,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -3157,7 +3317,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4050,
@@ -3204,7 +3365,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -3251,7 +3413,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -3298,7 +3461,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -3345,7 +3509,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -3393,7 +3558,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -3440,7 +3606,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -3486,7 +3653,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -3532,7 +3700,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -3578,7 +3747,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -3626,7 +3796,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -3673,7 +3844,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -3720,7 +3892,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3200,
@@ -3767,7 +3940,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -3814,7 +3988,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -3860,7 +4035,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3700,
@@ -3908,7 +4084,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -3956,7 +4133,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3200,
@@ -4003,7 +4181,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -4049,7 +4228,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -4096,7 +4276,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -4143,7 +4324,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -4189,7 +4371,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -4235,7 +4418,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3850,
@@ -4281,7 +4465,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -4327,7 +4512,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -4373,7 +4559,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3700,
@@ -4419,7 +4606,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -4465,7 +4653,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -4512,7 +4701,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -4558,7 +4748,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -4606,7 +4797,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2200,
@@ -4647,7 +4839,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2300,
@@ -4688,7 +4881,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2900,
@@ -4729,7 +4923,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2700,
@@ -4774,7 +4969,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -4818,7 +5014,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -4864,7 +5061,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5600,
@@ -4912,7 +5110,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -4985,6 +5184,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          '紅葉乃舞姫': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '紅葉乃舞姫',
+            kana: 'こうようのまいひめ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.4',
+              period: 'normal'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4900,
+              pure: 5600,
+              cool: 3800,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshProtect_stage',
+              name: 'リフレッシュプロテクト',
+              AP: 5,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+              ]
+            },
+            skill: {
+              ID: 'fulnessExtensionProtect_add3_over8_over75',
+              name: 'フルネスエクステプロテクト',
+              AP: 12,
+              detail: [
+                [48, 53, 58, 62, 67, 72, 77, 82, 86, 96, 101, 106, 110, 120]
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：ボルテージブースト & APレデュース：グルーヴィ & チアフル',
+              detail: 'ドローした時、次に使用するボルテージゲイン効果を+16%する。さらにボルテージLv.8以上でドローした時、消費APを-2、メンタル75%以上でドローした時、消費APを-5する。',
+              type: ['drew', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful']
+            }
+          },
           'ファンファーレ！！！': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -5000,7 +5246,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5450,
@@ -5077,7 +5324,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4350,
@@ -5123,7 +5371,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3950,
@@ -5170,7 +5419,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -5228,7 +5478,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -5327,7 +5578,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -5376,7 +5628,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3850,
@@ -5424,7 +5677,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -5472,7 +5726,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5600,
@@ -5518,7 +5773,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6000,
@@ -5565,7 +5821,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -5611,7 +5868,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -5658,7 +5916,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -5704,7 +5963,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -5751,7 +6011,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -5798,7 +6059,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -5845,7 +6107,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5500,
@@ -5892,7 +6155,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5500,
@@ -5940,7 +6204,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4450,
@@ -5987,7 +6252,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3300,
@@ -6034,7 +6300,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -6082,7 +6349,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -6129,7 +6397,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -6175,7 +6444,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3300,
@@ -6222,7 +6492,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -6268,7 +6539,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -6314,7 +6586,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -6361,7 +6634,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -6408,7 +6682,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4050,
@@ -6454,7 +6729,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -6500,7 +6776,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -6548,7 +6825,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2400,
@@ -6589,7 +6867,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3200,
@@ -6630,7 +6909,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3100,
@@ -6671,7 +6951,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3000,
@@ -6716,7 +6997,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -6758,7 +7040,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -6807,7 +7090,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6000,
@@ -6857,7 +7141,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -6932,7 +7217,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -6977,7 +7263,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3840,
@@ -7023,7 +7310,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -7082,7 +7370,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -7130,7 +7419,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5350,
@@ -7176,7 +7466,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -7223,7 +7514,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -7275,7 +7567,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 1,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -7328,7 +7621,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -7376,7 +7670,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -7423,7 +7718,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -7470,7 +7766,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6000,
@@ -7518,7 +7815,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -7567,7 +7865,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -7613,7 +7912,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -7661,7 +7961,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -7707,7 +8008,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5150,
@@ -7753,7 +8055,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -7799,7 +8102,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -7845,7 +8149,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -7891,7 +8196,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5300,
@@ -7937,7 +8243,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -7983,7 +8290,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5600,
@@ -8031,7 +8339,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -8104,7 +8413,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -8150,7 +8460,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -8196,7 +8507,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3500,
@@ -8244,7 +8556,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -8292,7 +8605,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -8340,7 +8654,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -8387,7 +8702,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -8433,7 +8749,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -8480,7 +8797,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -8526,7 +8844,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -8572,7 +8891,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -8618,7 +8938,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -8664,7 +8985,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -8710,7 +9032,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -8756,7 +9079,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -8802,7 +9126,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -8848,7 +9173,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -8894,7 +9220,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -8940,7 +9267,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -8988,7 +9316,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3050,
@@ -9029,7 +9358,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2500,
@@ -9070,7 +9400,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2700,
@@ -9111,7 +9442,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3000,
@@ -9156,7 +9488,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -9198,7 +9531,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -9244,7 +9578,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5200,
@@ -9294,7 +9629,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -9339,7 +9675,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5150,
@@ -9386,7 +9723,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -9433,7 +9771,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3500,
@@ -9480,7 +9819,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -9527,7 +9867,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -9573,7 +9914,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -9621,7 +9963,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3500,
@@ -9669,7 +10012,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -9715,7 +10059,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -9761,7 +10106,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -9808,7 +10154,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -9857,7 +10204,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4350,
@@ -9904,7 +10252,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -9950,7 +10299,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -9997,7 +10347,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4450,
@@ -10044,7 +10395,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -10091,7 +10443,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -10139,7 +10492,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4350,
@@ -10185,7 +10539,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -10233,7 +10588,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -10282,7 +10638,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3100,
@@ -10329,7 +10686,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4700,
@@ -10375,7 +10733,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -10422,7 +10781,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -10469,7 +10829,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -10517,7 +10878,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -10565,7 +10927,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -10613,7 +10976,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3500,
@@ -10660,7 +11024,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -10708,7 +11073,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4350,
@@ -10755,7 +11121,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3700,
@@ -10802,7 +11169,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -10848,7 +11216,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -10894,7 +11263,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -10940,7 +11310,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -10986,7 +11357,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3600,
@@ -11032,7 +11404,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -11078,7 +11451,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -11124,7 +11498,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3700,
@@ -11170,7 +11545,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -11216,7 +11592,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -11264,7 +11641,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2300,
@@ -11305,7 +11683,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2400,
@@ -11346,7 +11725,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2600,
@@ -11387,7 +11767,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2700,
@@ -11432,7 +11813,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -11474,7 +11856,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6800,
@@ -11522,7 +11905,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6400,
@@ -11572,7 +11956,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 600,
@@ -11617,7 +12002,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5600,
@@ -11695,7 +12081,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -11743,7 +12130,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3400,
@@ -11790,7 +12178,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -11849,7 +12238,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5450,
@@ -11895,7 +12285,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3200,
@@ -11942,7 +12333,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -11992,7 +12384,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5900,
@@ -12039,7 +12432,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -12086,7 +12480,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4450,
@@ -12134,7 +12529,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5000,
@@ -12182,7 +12578,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5500,
@@ -12229,7 +12626,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -12275,7 +12673,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -12324,7 +12723,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -12369,7 +12769,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -12415,7 +12816,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -12462,7 +12864,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -12509,7 +12912,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -12558,7 +12962,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -12604,7 +13009,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3650,
@@ -12652,7 +13058,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4100,
@@ -12700,7 +13107,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5050,
@@ -12747,7 +13155,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2130,
@@ -12795,7 +13204,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -12841,7 +13251,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -12888,7 +13299,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 1630,
@@ -12934,7 +13346,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -12981,7 +13394,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -13028,7 +13442,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -13075,7 +13490,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -13122,7 +13538,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -13170,7 +13587,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2350,
@@ -13211,7 +13629,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3200,
@@ -13252,7 +13671,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2700,
@@ -13293,7 +13713,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2600,
@@ -13338,7 +13759,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -13380,7 +13802,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -13440,6 +13863,97 @@ export const useCardStore = defineStore('cardList', {
             }
           }
         },
+        BR: {
+          '16th Birthday': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'しっくすてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Ginko-',
+              period: 'birthday'
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '16th Birthday',
+                supportSkillList: {
+                  'ボルテージアップ': {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1
+                  },
+                  'メンタルリカバー': {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1
+                  },
+                  'ビートハートアップ': {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1
+                  },
+                  'LOVEボーナス': {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1
+                  }
+                }
+              }
+            },
+            specialAppeal: {
+              ID: 'dress_birthday',
+              name: 'ドレス《16th Birthday》',
+              AP: 6,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'fascination_stageAttract_stageProtect',
+                  name: 'ファッシネイション',
+                  AP: 5,
+                  detail: [
+                    [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                    [48, 53, 58, 62, 67, 72, 77, 82, 86, 96, 101, 106, 110, 120],
+                    [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & ドロー：マルチブースト：ドレス',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにドローしたとき、次にドレスカードの使用によるラブアトラクト効果を+40%、ボルテージゲイン効果を+40%、メンタルプロテクト効果を+125%する。',
+                    type: ['exclusion', 'boost_loveAttract', 'boost_voltageGain', 'boost_MentalProtect']
+                  }
+                }
+              ]
+            },
+            skill: {
+              ID: 'celebration_attract_voltage_protect',
+              name: 'セレブレイション',
+              AP: 3,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 45.6, 48, 50.4, 52.8, 60]
+              ]
+            },
+            characteristic: {
+              name: 'オーバーセクション：ブレッシング',
+              detail: '手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。',
+              type: ['overSection', 'APReduce_all']
+            }
+          }
+        },
         UR: {
           '月夜見海月': {
             styleType: 'trickStar',
@@ -13456,7 +13970,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4400,
@@ -13516,7 +14031,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -13575,7 +14091,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -13661,7 +14178,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -13733,7 +14251,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,
@@ -13793,7 +14312,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5400,
@@ -13876,7 +14396,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4200,
@@ -13950,7 +14471,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3800,
@@ -14011,7 +14533,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2300,
@@ -14065,7 +14588,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2900,
@@ -14118,7 +14642,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -14160,7 +14685,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6500,
@@ -14208,7 +14734,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5100,
@@ -14255,7 +14782,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3400,
@@ -14302,7 +14830,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -14349,7 +14878,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3700,
@@ -14397,7 +14927,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -14444,7 +14975,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5300,
@@ -14493,7 +15025,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3300,
@@ -14540,7 +15073,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4300,
@@ -14589,7 +15123,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2700,
@@ -14630,7 +15165,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2200,
@@ -14675,7 +15211,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -14717,7 +15254,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5500,
@@ -14767,7 +15305,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4800,
@@ -14842,7 +15381,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 5800,
@@ -14895,13 +15435,13 @@ export const useCardStore = defineStore('cardList', {
               changeCharacteristic: [
                 {
                   modeName: '通常',
-                  name: 'ドロー：メンタルリカバー & メンタルプロテクト',
-                  detail: 'ドローした時、メンタルを最大値の8%回復し、このステージ中、メンタルの最大値の4%分のメンタルダメージを無効にする。'
+                  name: 'ドロー：リカバーブースト & ボルテージブースト：姫芽',
+                  detail: 'ドローした時、次に姫芽が使用するメンタルリカバー効果を+300%、ボルテージゲイン効果を+48%する。'
                 },
                 {
                   modeName: 'イグニッションモード',
-                  name: 'アクセルコントロール',
-                  detail: '手札にある間、ボルテージLv.が10以上のとき、このスキルの消費AP-7。ボルテージLv.が3以下のとき、姫芽の《イグニッションモード》を解除する。'
+                  name: 'APレデュース：みらくらぱーく！',
+                  detail: 'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-5。'
                 }
               ]
             }
@@ -14921,7 +15461,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4000,
@@ -14967,7 +15508,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 6000,
@@ -15044,7 +15586,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4500,
@@ -15121,7 +15664,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4850,
@@ -15167,7 +15711,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4600,
@@ -15214,7 +15759,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4850,
@@ -15262,7 +15808,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3900,
@@ -15310,7 +15857,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 2300,
@@ -15351,7 +15899,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 3400,
@@ -15396,7 +15945,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 30,
@@ -15438,7 +15988,8 @@ export const useCardStore = defineStore('cardList', {
               trainingLevel: 0,
               SALevel: 1,
               SLevel: 1,
-              releaseLevel: 1
+              releaseLevel: 1,
+              releasePoint: 0
             },
             uniqueStatus: {
               smile: 4900,

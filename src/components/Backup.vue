@@ -195,7 +195,7 @@ export default {
   },
   computed: {
     isFileImportError() {
-      return this.files.length === 0 || this.importData.length === 0 || this.alertContent.import.type === 'error';
+      return this.files === undefined ? true : this.files.length === 0 || this.importData.length === 0 || this.alertContent.import.type === 'error';
     }
   },
   mounted() {
@@ -220,17 +220,17 @@ export default {
       this.alertContent.export = this.alertContentList.export[1];
     },
     readFile() {
-      if (this.files.length === 0) {
+      if (this.files === undefined) {
         this.alertContent.import = this.alertContentList.import[0];
         this.disabled = true;
         return;
-      } else if (!(/json$/.test(this.files[0].name))) {
+      } else if (!(/json$/.test(this.files.name))) {
         this.alertContent.import = this.errorText.invalidFile;
         return;
       }
 
       this.changeImportData();
-      this.fileReader.readAsText(this.files[0]);
+      this.fileReader.readAsText(this.files);
     },
     setBackupData(store) {
       const sendData = {};

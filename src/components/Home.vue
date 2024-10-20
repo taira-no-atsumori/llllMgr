@@ -133,24 +133,24 @@ export default {
   data() {
     return {
       eventList: {
-        'liveGP': {
-          title: 'ライブグランプリ「104期 2ndTerm 第2回個人戦」',
+        /*'liveGP': {
+          title: 'ライブグランプリ「104期 2ndTerm 第3回個人戦」',
           text: '',
           type: 'liveGP',
           firstDay: [2024, 10, 11, 12, 0],
           lastDay: [2024, 10, 17, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-10-09-20-n47gypu0nb',
           img: '104期2ndTerm第3回個人戦_logo'
-        },
-        /*'liveGP': {
-          title: 'ライブグランプリ「104期 2ndTerm 第2回サークル対抗戦」',
+        },*/
+        'liveGP': {
+          title: 'ライブグランプリ「104期 2ndTerm 第3回サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2024, 9, 23, 12, 0],
-          lastDay: [2024, 9, 29, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-09-21-10-tdb5t4rval',
-          img: '104期 2ndTerm 第2回サークル対抗戦_logo'
-        },*/
+          firstDay: [2024, 10, 19, 12, 0],
+          lastDay: [2024, 10, 24, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-10-18-10-de5bpp0jlv',
+          img: '104期 2ndTerm 第3回サークル対抗戦_logo'
+        },
         '3rdLiveTour_みらくらぱーく！': {
           title: 'ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRY TRI UNITY!!!」',
           text: 'with みらくらぱーく！',

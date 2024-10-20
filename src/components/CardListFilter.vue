@@ -13,7 +13,12 @@
           <div class="d-flex pr-sm-3 mb-sm-1">
             レアリティ
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('rare');" class="px-2">一括チェック</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('rare');"
+              class="px-2"
+            >一括チェック</v-btn>
           </div>
           <v-row no-gutters>
             <v-col
@@ -38,7 +43,12 @@
           <div class="d-flex mb-1">
             ムード
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('mood');" class="px-2">一括チェック</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('mood');"
+              class="px-2"
+            >一括チェック</v-btn>
           </div>
           <v-row no-gutters>
             <v-col
@@ -72,7 +82,12 @@
         <v-col cols="12" class="d-flex mb-1 mb-sm-0">
           タイプ
           <v-spacer></v-spacer>
-          <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('styleType');" class="px-2">一括チェック</v-btn>
+          <v-btn
+            density="compact"
+            elevation="1"
+            @click="store.resetMusicFilter('styleType');"
+            class="px-2"
+          >一括チェック</v-btn>
         </v-col>
         <v-col
           cols="6"
@@ -104,7 +119,12 @@
         <v-col cols="12" class="d-flex mb-1">
           メンバー
           <v-spacer></v-spacer>
-          <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('memberName');" class="px-2">一括チェック</v-btn>
+          <v-btn
+            density="compact"
+            elevation="1"
+            @click="store.resetMusicFilter('memberName');"
+            class="px-2"
+          >一括チェック</v-btn>
         </v-col>
         <v-col
           cols="6"
@@ -163,11 +183,54 @@
       <v-divider class="mb-2"></v-divider>
 
       <v-row no-gutters>
+        <v-col cols="12" class="d-flex mb-1">
+          ステータス上限
+          <v-spacer></v-spacer>
+          <v-btn
+            density="compact"
+            elevation="1"
+            class="px-2"
+            @click="store.resetMusicFilter('releaseStatus');"
+          >
+            一括チェック
+          </v-btn>
+        </v-col>
+        <v-col
+          cols="12"
+          class="mb-2"
+        >
+          <v-radio-group
+            v-model="store.search.cardList.releaseStatus"
+            inline
+            density="compact"
+            hide-details
+          >
+            <v-radio
+              class="radio-space"
+              :value="value"
+              :label="store.statusName[value]"
+              color="pink"
+              hide-details
+              v-for="value in store.releaseStatus"
+              :key="value"
+            ></v-radio>
+          </v-radio-group>
+        </v-col>
+      </v-row>
+
+      <v-divider class="mb-2"></v-divider>
+
+      <v-row no-gutters>
         <v-col cols="12" sm="6">
           <div class="d-flex mb-sm-4 pr-sm-3">
             お気に入り
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('favorite');" class="px-2">一括チェック</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('favorite');"
+              class="px-2"
+            >一括チェック</v-btn>
           </div>
           <v-row no-gutters>
             <v-col
@@ -197,7 +260,12 @@
           <div class="d-flex mb-9">
             特訓度
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('trainingLevel');" class="px-2">リセット</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('trainingLevel');"
+              class="px-2"
+            >リセット</v-btn>
           </div>
           <div class="px-1">
             <v-range-slider
@@ -222,7 +290,12 @@
           <div class="mb-9 d-flex">
             カードレベル
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('cardLevel');" class="px-2">リセット</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('cardLevel');"
+              class="px-2"
+            >リセット</v-btn>
           </div>
           <div class="px-1">
             <v-range-slider
@@ -245,7 +318,12 @@
           <div class="d-flex mb-9">
             解放レベル
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('releaseLevel');" class="px-2">リセット</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('releaseLevel');"
+              class="px-2"
+            >リセット</v-btn>
           </div>
           <div class="px-1">
             <v-range-slider
@@ -270,7 +348,12 @@
           <div class="d-flex mb-9">
             スペシャルアピールレベル
             <v-spacer></v-spacer>
-            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('SALevel');" class="px-2">リセット</v-btn>
+            <v-btn
+              density="compact"
+              elevation="1"
+              @click="store.resetMusicFilter('SALevel');"
+              class="px-2"
+            >リセット</v-btn>
           </div>
           <div class="px-1">
             <v-range-slider
@@ -360,6 +443,7 @@
       </v-row>
     </v-container>
   </v-window-item>
+
   <v-window-item value="filter_skill">
     <v-radio-group v-model="store.search.skillList.skillFilterType" hide-details inline>
       <v-radio label="スキルタイプ絞り込み" value="skillType" color="pink"></v-radio>
@@ -512,6 +596,7 @@
       </v-window-item>
     </v-window>
   </v-window-item>
+
   <v-window-item value="filter_cardSeries">
     <v-row no-gutters>
       <v-col cols="12">
@@ -551,17 +636,42 @@ export default {
   name: 'CardListFilter',
   data() {
     return {
+      windowSize: {
+        w: 0,
+        h: 0,
+      },
       tab1: null
     }
   },
   created() {},
-  computed: {},
-  methods: {},
+  mounted() {
+    this.onResize();
+  },
+  computed: {
+    windowWidth() {
+      return window.innerWidth
+    },
+    windowHeight() {
+      return window.innerHeight
+    }
+  },
+  methods: {
+    onResize() {
+      this.windowSize = {
+        w: window.innerWidth,
+        h: window.innerHeight
+      }
+    }
+  },
   watch: {}
 }
 </script>
 
 <style lang="scss" scoped>
+.radio-space {
+  width: calc(100% / 6);
+}
+
 .icon {
   margin-right: 5px;
 
@@ -575,6 +685,12 @@ export default {
 
   &.member {
     width: 35px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .radio-space {
+    width: calc(100% / 3);
   }
 }
 </style>

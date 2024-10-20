@@ -670,6 +670,42 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'フルネスエクステハート': {
+        fulnessExtensionHeart_add3_over8_over75: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージLv.が8以上かつメンタルが75%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'fulness',
+            type: ['extendHand', 'heartCaptcha']
+          }
+        }
+      },
+      'フルネスエクステボルテージ': {
+        fulnessExtensionVoltage_add2_over5_over50: {
+          text: [
+            'このセクション中、手札の上限枚数を2枚増加する。さらにボルテージLv.が5以上かつメンタルが50%以上のとき、ボルテージPt.を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'fulness',
+            type: ['extendHand', 'voltageGain']
+          }
+        }
+      },
+      'フルネスエクステプロテクト': {
+        fulnessExtensionProtect_add3_over8_over75: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージLv.が8以上かつメンタルが75%以上のとき、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'fulness',
+            type: ['extendHand', 'protect_section']
+          }
+        }
+      },
       'アグレッシブハート': {
         aggressiveHeart_mentalReduce10: {
           text: [
@@ -1332,6 +1368,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'fascination',
             type: ['loveAttract_stage', 'voltageGain']
+          }
+        },
+        fascination_stageAttract_stageProtect: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにボルテージPt.を+',
+            'し、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'fascination',
+            type: ['loveAttract_stage', 'voltageGain', 'protect_stage']
           }
         }
       },
@@ -2704,6 +2752,17 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ドレス《16th Birthday》': {
+        dress_birthday: {
+          text: [
+            'ドレスカード《16th Birthday》を1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        }
+      },
       'ドレス：月夜見海月': {
         dress_tsukuyomi: {
           text: [
@@ -3063,6 +3122,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain']
+          }
+        },
+        celebration_attract_voltage_protect: {
+          text: [
+            '次に使用するラブアトラクト効果を+',
+            '%、ボルテージゲイン効果を+',
+            '%、メンタルプロテクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalProtect']
           }
         },
       },
@@ -3474,6 +3545,11 @@ export const useSkillStore = defineStore('skillList', {
         name: 'ブースト(メンタルリカバー)',
         colorCode: 'green',
         description: '次に使用するメンタルリカバーの効果を増加させる。'
+      },
+      boost_mentalProtect: {
+        name: 'ブースト(メンタルプロテクト)',
+        colorCode: 'green',
+        description: '次に使用するメンタルプロテクトの効果を増加させる。'
       },
       APGain: {
         name: 'APゲイン',

@@ -193,57 +193,77 @@
         <v-expansion-panel-title>楽曲マスタリーボーナス効果量一覧</v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-row>
-            <v-col cols="12" sm="3">
+            <v-col cols="12" sm="5">
               <h3>ボルテージアップ</h3>
+              <p>
+                ボルテージPt.を一定量獲得するごとに、1pt.追加獲得する。<br>
+                一定量は以下のとおり。
+              </p>
               <v-table>
                 <thead>
                   <tr>
-                    <th>1～5</th>
-                    <th>6～10</th>
-                    <th>11～15?</th>
-                    <th>16?～</th>
+                    <th class="text-center">Lv</th>
+                    <th class="text-center">1～5</th>
+                    <th class="text-center">6～10</th>
+                    <th class="text-center">11～15</th>
+                    <th class="text-center">16～20</th>
+                    <th class="text-center">21～25?</th>
+                    <th class="text-center">26～?</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>11</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>8</td>
+                    <td class="text-center">一定量</td>
+                    <td class="text-center">11</td>
+                    <td class="text-center">10</td>
+                    <td class="text-center">9</td>
+                    <td class="text-center">8</td>
+                    <td class="text-center">7</td>
+                    <td class="text-center">6</td>
                   </tr>
                 </tbody>
               </v-table>
             </v-col>
-            <v-col cols="12" sm="3">
+            <v-col cols="12" sm="5">
               <h3>メンタルリカバー</h3>
+              <p>
+                メンタルが一定量減少するごとに、メンタルを1回復する。<br>
+                一定量は以下のとおり。
+              </p>
               <v-table>
                 <thead>
                   <tr>
-                    <th>1</th>
-                    <th>2～4</th>
-                    <th>5～9</th>
-                    <th>10～14?</th>
-                    <th>15?～?</th>
+                    <th class="text-center">Lv</th>
+                    <th class="text-center">1</th>
+                    <th class="text-center">2～4</th>
+                    <th class="text-center">5～9</th>
+                    <th class="text-center">10～13</th>
+                    <th class="text-center">14～?</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>12</td>
-                    <td>11</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>8</td>
+                    <td class="text-center">一定量</td>
+                    <td class="text-center">12</td>
+                    <td class="text-center">11</td>
+                    <td class="text-center">10</td>
+                    <td class="text-center">9</td>
+                    <td class="text-center">8</td>
                   </tr>
                 </tbody>
               </v-table>
             </v-col>
-            <v-col cols="12" sm="3">
-              <h3>ビートハートアップ</h3>
-              ビートハートアップレベル×0.5%
-            </v-col>
-            <v-col cols="12" sm="3">
-              <h3>LOVEボーナス</h3>
-              LOVEボーナスレベル×0.5%
+            <v-col cols="12" sm="2">
+              <v-row>
+                <v-col cols="12">
+                  <h3>ビートハートアップ</h3>
+                  ビートハートアップレベル×0.5%
+                </v-col>
+                <v-col cols="12">
+                  <h3>LOVEボーナス</h3>
+                  LOVEボーナスレベル×0.5%
+                </v-col>
+              </v-row>
             </v-col>
           </v-row>
         </v-expansion-panel-text>

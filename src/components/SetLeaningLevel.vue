@@ -99,7 +99,7 @@
               size="small"
               @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level >= 10 ? store.musicList[store.selectMusicTitle].level - 10 : 0)"
               :disabled="store.musicList[store.selectMusicTitle].level === 0"
-            >{{ store.musicList[store.selectMusicTitle].level >= 10 ? '-10' : store.musicList[store.selectMusicTitle].level === 0 ?  0 : `-${store.musicList[store.selectMusicTitle].level}` }}</v-btn>
+            >{{ store.musicList[store.selectMusicTitle].level >= 10 ? '-10' : store.musicList[store.selectMusicTitle].level === 0 ? 0 : `-${store.musicList[store.selectMusicTitle].level}` }}</v-btn>
           </v-col>
           <v-spacer></v-spacer>
           <v-col>
@@ -127,7 +127,7 @@
               size="small"
               @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level <= 20 ? store.musicList[store.selectMusicTitle].level + 10 : 30)"
               :disabled="store.musicList[store.selectMusicTitle].level === 30"
-            >{{ store.musicList[store.selectMusicTitle].level  <= 20 ? '+10' : 30 - store.musicList[store.selectMusicTitle].level === 0 ? 0 : `+${30 - store.musicList[store.selectMusicTitle].level}`}}</v-btn>
+            >{{ store.musicList[store.selectMusicTitle].level <= 20 ? '+10' : 30 - store.musicList[store.selectMusicTitle].level === 0 ? 0 : `+${30 - store.musicList[store.selectMusicTitle].level}`}}</v-btn>
           </v-col>
         </v-row>
       </div>

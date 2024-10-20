@@ -5,16 +5,16 @@
       <h2 class="hidden-xs">
         <v-tooltip location="bottom">
           <template v-slot:activator="{ props }">
-            <a :href="makeWikiLink(store.settingCard.card, store.memberName[store.settingCard.name].first + store.memberName[store.settingCard.name].last)" target="_blank" :class="`text-${store.isDarkMode ? 'white' : 'black'}`" v-bind="props">
-              {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.makeFullName(store.settingCard.name) }}
+            <a :href="makeWikiLink(store.settingCard.card, `${store.memberName[store.settingCard.name].first}${store.memberName[store.settingCard.name].last}`)" target="_blank" :class="`text-${store.isDarkMode ? 'white' : 'black'}`" v-bind="props">
+              {{ makeCardName(store) }}
             </a>
           </template>
           Wikiを開く
         </v-tooltip>
       </h2>
       <h3 class="hidden-sm-and-up">
-        <a :href="makeWikiLink(store.settingCard.card, store.memberName[store.settingCard.name].first + store.memberName[store.settingCard.name].last)" target="_blank" :class="`text-${store.isDarkMode ? 'white' : 'black'}`">
-          {{ store.settingCard.rare }} [{{ store.settingCard.card }}] {{ store.makeFullName(store.settingCard.name) }}
+        <a :href="makeWikiLink(store.settingCard.card, `${store.memberName[store.settingCard.name].first}${store.memberName[store.settingCard.name].last}`)" target="_blank" :class="`text-${store.isDarkMode ? 'white' : 'black'}`">
+          {{ makeCardName(store) }}
         </a>
       </h3>
     </v-col>
@@ -71,7 +71,7 @@
         </span>
         </v-col>
       </v-row>
-      <v-table density="compact">
+      <v-table density="compact" class="mb-1">
         <thead>
           <tr>
             <th
@@ -112,7 +112,7 @@
       cols="12"
       sm="5"
     >
-      <div class="mb-6">
+      <div class="mb-4">
         <h4 class="mb-4">特訓度</h4>
         <v-row>
           <v-spacer></v-spacer>
@@ -188,7 +188,7 @@
           <v-spacer></v-spacer>
         </v-row>
       </div>
-      <div class="mb-6" v-if="store.settingCardData.specialAppeal !== undefined">
+      <div class="mb-6" v-if="store.settingCardData?.specialAppeal">
         <h4 class="mb-4 d-flex flex-row align-center">
           スペシャルアピール<v-btn size="small" density="compact" icon="mdi-help" class="ml-1" @click="openDialog(store, 'skillList', 900, {targetSkill: 'specialAppeal'})"></v-btn>
         </h4>
@@ -236,7 +236,7 @@
           <v-spacer></v-spacer>
         </v-row>
       </div>
-      <div class="mb-6" v-if="store.settingCardData.skill !== undefined">
+      <div class="mb-6" v-if="store.settingCardData?.skill">
         <h4 class="mb-4 d-flex flex-row align-center">
           スキル<v-btn size="small" density="compact" icon="mdi-help" class="ml-1" @click="openDialog(store, 'skillList', 900, {targetSkill: 'skill'})"></v-btn>
         </h4>
@@ -286,14 +286,17 @@
       </div>
       <div class="mb-6">
         <h4 class="mb-4 d-flex flex-row align-center">
-          解放Lv.<span v-if="store.settingCard.rare !== 'DR' && store.settingCardData.specialAppeal !== undefined" class="ml-1">(最終獲得GP Pt. +<span class="text-pink">{{ store.grandprixBonus.releaseLv[store.settingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }}</span>%)<v-btn size="small" density="compact" icon="mdi-help" class="ml-1" @click="openDialog(store, 'GPPT', 600, null)"></v-btn></span>
+          解放Lv.<span v-if="store.settingCard.rare !== 'DR' && store.settingCardData?.specialAppeal" class="ml-1">(最終獲得GP Pt. +<span class="text-pink">{{ store.grandprixBonus.releaseLv[store.settingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }}</span>%)<v-btn size="small" density="compact" icon="mdi-help" class="ml-1" @click="openDialog(store, 'GPPT', 600, null)"></v-btn></span>
         </h4>
         <v-row>
           <v-spacer></v-spacer>
           <v-col class="pa-0 align-self-center text-center">
             <v-btn
               :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
-              @click="store.valueChange('releaseLevel', 1)"
+              @click="
+                store.valueChange('releaseLevel', 1);
+                store.valueChange('releasePoint', maxReleasePoint(store));
+              "
             >
               MIN
             </v-btn>
@@ -302,7 +305,10 @@
           <v-col class="pa-0 align-self-center text-center">
             <v-btn
               :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
-              @click="store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel - 1)"
+              @click="
+                store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel - 1);
+                store.valueChange('releasePoint', maxReleasePoint(store));
+              "
             >
               -1
             </v-btn>
@@ -315,7 +321,13 @@
           <v-col class="pa-0 align-self-center text-center">
             <v-btn
               :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
-              @click="store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel + 1)"
+              @click="
+                store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel + 1);
+                store.valueChange(
+                  'releasePoint',
+                  Math.max(0, store.settingCardData.fluctuationStatus.releasePoint - store.releasePoint[store.settingCardData.rare].point)
+                )
+              "
             >
               +1
             </v-btn>
@@ -324,9 +336,77 @@
           <v-col class="pa-0 align-self-center text-center">
             <v-btn
               :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
-              @click="store.valueChange('releaseLevel', 5)"
+              @click="
+                store.valueChange('releaseLevel', 5);
+                store.valueChange('releasePoint', 0);
+              "
             >
               MAX
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
+        </v-row>
+      </div>
+      <div class="mb-4">
+        <h4 class="mb-8 d-flex flex-row align-center">
+          解放Pt.<span class="ml-1">(上限：{{ limitReleasePoint(store) }})</span><v-btn size="small" density="compact" icon="mdi-help" class="ml-1" @click="openDialog(store, 'releasePoint', 600, null)"></v-btn>
+        </h4>
+        <v-slider
+          hide-details
+          v-model="store.settingCardData.fluctuationStatus.releasePoint"
+          :max="limitReleasePoint(store)"
+          min="0"
+          thumb-label="always"
+          step="1"
+          color="pink"
+          thumb-color="pink"
+          class="mb-4 px-2"
+        ></v-slider>
+        <v-row class="mb-2">
+          <v-spacer></v-spacer>
+          <v-col class="pa-0 align-self-center text-center">
+            <v-btn
+              :disabled="store.settingCardData.fluctuationStatus.releasePoint === 0"
+              @click="store.valueChange(
+                'releasePoint',
+                Math.max(0, store.settingCardData.fluctuationStatus.releasePoint - store.releasePoint[store.settingCardData.rare].point)
+              )"
+            >
+              -{{ (store.settingCardData.fluctuationStatus.releasePoint - store.releasePoint[store.settingCardData.rare].point) < 0 ?
+                store.settingCardData.fluctuationStatus.releasePoint :
+                store.releasePoint[store.settingCardData.rare].point }}
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col class="pa-0 align-self-center text-center">
+            <v-btn
+              :disabled="store.settingCardData.fluctuationStatus.releasePoint === 0"
+              @click="store.valueChange('releasePoint', store.settingCardData.fluctuationStatus.releasePoint - 1)"
+            >
+              -1
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col class="pa-0 align-self-center text-center">
+            <v-btn
+              :disabled="store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)"
+              @click="store.valueChange('releasePoint', store.settingCardData.fluctuationStatus.releasePoint + 1)"
+            >
+              +1
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col class="pa-0 align-self-center text-center">
+            <v-btn
+              :disabled="store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)"
+              @click="store.valueChange(
+                'releasePoint',
+                Math.min(store.settingCardData.fluctuationStatus.releasePoint + store.releasePoint[store.settingCardData.rare].point, limitReleasePoint(store))
+              )"
+            >
+              +{{ (store.settingCardData.fluctuationStatus.releasePoint + store.releasePoint[store.settingCardData.rare].point) > limitReleasePoint(store) ?
+                limitReleasePoint(store) - store.settingCardData.fluctuationStatus.releasePoint :
+                store.releasePoint[store.settingCardData.rare].point }}
             </v-btn>
           </v-col>
           <v-spacer></v-spacer>
@@ -355,7 +435,7 @@
     </v-col>
   </v-row>
 
-  <v-row no-gutters class="mt-4 mb-2" v-if="store.settingCardData.specialAppeal !== undefined">
+  <v-row no-gutters class="mt-4 mb-2" v-if="store.settingCardData?.specialAppeal">
     <v-col cols="12" class="mb-1">
       <span class="specialAppeal">スペシャルアピール</span>{{ store.settingCardData.specialAppeal.name }}
       <span class="AP">AP{{ store.settingCardData.specialAppeal.AP - (store.settingCardData.fluctuationStatus.trainingLevel < store.maxCardLevel[store.settingCardData.rare].length - 2 ? store.settingCardData.fluctuationStatus.trainingLevel : 2) }}</span>
@@ -375,7 +455,7 @@
     </v-col>
   </v-row>
 
-  <v-row no-gutters v-if="store.settingCardData.skill !== undefined">
+  <v-row no-gutters v-if="store.settingCardData?.skill">
     <v-col cols="12" class="mb-1">
       <span class="specialAppeal">スキル</span>{{ store.settingCardData.skill.name }}
       <span class="AP">AP{{ store.settingCardData.skill.AP }}</span>
@@ -395,7 +475,7 @@
     </v-col>
   </v-row>
 
-  <v-row no-gutters class="mt-2" v-if="store.settingCardData.characteristic !== undefined">
+  <v-row no-gutters class="mt-2" v-if="store.settingCardData?.characteristic">
     <v-col cols="12" class="px-0 pt-0 pb-1">
       <span class="specialAppeal characteristic">特性</span>{{ store.settingCardData.characteristic.name }}
     </v-col>
@@ -407,7 +487,7 @@
     </v-col>
   </v-row>
 
-  <v-row no-gutters class="mt-2" v-if="store.settingCardData.uniqueStatus.supportSkill !== undefined">
+  <v-row no-gutters class="mt-2" v-if="store.settingCardData.uniqueStatus?.supportSkill">
     <v-col class="px-0 pt-0 pb-1">
       <span class="specialAppeal supportSkill">サポートスキル</span>{{ store.settingCardData.uniqueStatus.supportSkill.supportSkillTitle }}
       <ul class="d-flex mt-2">
@@ -469,7 +549,7 @@
         >
           <div class="mt-1">
             <div>
-              <p class="mt-1"><span class="specialAppeal" v-if="/addCard/.test(skillID)">スキル {{ i + 1 }}</span><span class="specialAppeal" v-else>{{ list.modeName }}</span><span class="mr-1">{{ list.name }}</span><span class="AP" v-if="list.AP !== undefined">AP{{ list.AP }}</span></p>
+              <p class="mt-1"><span class="specialAppeal" v-if="/addCard/.test(skillID)">スキル {{ i + 1 }}</span><span class="specialAppeal" v-else>{{ list.modeName }}</span><span class="mr-1">{{ list.name }}</span><span class="AP" v-if="list?.AP">AP{{ list.AP }}</span></p>
               <p class="mt-1" v-if="!isAlternate">{{ store.makeSkillText(outputAddSkillList.target, {addSkillNum: i}) }}</p>
               <p class="mt-1" v-else>{{ list.detail }}</p>
             </div>
@@ -483,7 +563,7 @@
             </div>
           </div>
 
-          <div class="mt-3" v-if="list.characteristic !== undefined">
+          <div class="mt-3" v-if="list?.characteristic">
             <span class="specialAppeal characteristic">特性 {{ i + 1 }}</span>{{ list.characteristic.name }}
             <p>{{ list.characteristic.detail }}</p>
           </div>
@@ -530,8 +610,33 @@
       </v-table>
       ※DRカードはライブグランプリに参加できないため、解放Lv.ボーナス対象外
     </div>
+    <div v-else-if="openDialogName === 'releasePoint'">
+      <h2 class="text-center mb-2">解放Pt.とは？</h2>
+
+      <p>
+        ガチャで入手したカードが重複していた場合に獲得できるのが「解放Pt.」です。<br/>
+        この解放Pt.を設定していると、カード一覧のカード画像の右上に<span class="text-blue-accent-4">●</span>がつきます。<br/>
+        なお、解放Lv.を上げると、現在設定されている解放Pt.から解放Lv.を上げるのに必要な解放Pt.を自動的に消費し、設定できる解放Pt.の上限も変化します。<br/>
+        ※解放Lv.を下げた場合は設定できる解放Pt.の上限は上がりますが、解放Pt.は変化しません。<br/><br/>
+      </p>
+      <p>
+        例1）解放Pt.を250に設定してURカードの解放Lv.を1から2に上げた場合<br/>
+        設定できる解放Pt.の上限：400→300<br/>
+        解放Pt.：250→150<br/><br/>
+      </p>
+      <p>
+        例2）解放Pt.を150に設定してURカードの解放Lv.を2から5(MAX)に上げた場合<br/>
+        設定できる解放Pt.の上限：300→0<br/>
+        解放Pt.：150→0<br/><br/>
+      </p>
+      <p>
+        例3）解放Pt.を98に設定してURカードの解放Lv.を4から1(MIN)に下げた場合<br/>
+        設定できる解放Pt.の上限：100→400<br/>
+        解放Pt.：98→98
+      </p>
+    </div>
     <div class="mt-1 text-center">
-      <v-btn @click="switchDialog(null)">閉じる</v-btn>
+      <v-btn @click="switchDialog(null);">閉じる</v-btn>
     </div>
   </v-sheet>
 </v-dialog>
@@ -553,7 +658,7 @@ export default {
       targetSkill: null,
       skillID: '',
       isAlternate: false,
-      outputAddSkillList: {}
+      outputAddSkillList: {},
     }
   },
   created() {},
@@ -562,6 +667,9 @@ export default {
   methods: {
     makeWikiLink(cardName, memberName) {
       return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${cardName.replaceAll('&', '＆')}］${memberName}`;
+    },
+    makeCardName(store) {
+      return `${store.settingCard.rare} [${store.settingCard.card}] ${store.makeFullName(store.settingCard.name)}`;
     },
     makeSupportSkillLevel(store, supportSkillName) {
       const result = store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].initLevel;
@@ -575,11 +683,7 @@ export default {
       }
     },
     switchDialog(flg) {
-      if (flg !== null) {
-        this.dialog = flg;
-      } else {
-        this.dialog = !this.dialog;
-      }
+      this.dialog = flg !== null ? flg : !this.dialog;
     },
     openDialog(store, openDialogName, dialogSize, option) {
       this.targetSkill = option !== null ? option.targetSkill : null;
@@ -595,12 +699,12 @@ export default {
       this.switchDialog(null);
     },
     makeOutputAddSkillList(store) {
-      if (store.settingCardData.characteristic.changeCharacteristic !== undefined && this.targetSkill === 'characteristic') {
+      if (store.settingCardData.characteristic?.changeCharacteristic && this.targetSkill === 'characteristic') {
         return {
           target: 'characteristic',
           list: store.settingCardData.characteristic.changeCharacteristic
         };
-      } else if (store.settingCardData.specialAppeal.addSkill !== undefined) {
+      } else if (store.settingCardData.specialAppeal?.addSkill) {
         return {
           target: 'specialAppeal',
           list: store.settingCardData.specialAppeal.addSkill
@@ -611,6 +715,28 @@ export default {
           list: store.settingCardData.skill.addSkill
         };
       }
+    },
+    /**
+     * 解放Pt.最大値計算
+     * 
+     * 各カードの解放Pt.の最大値を計算する。
+     * 
+     * @param {Object} store store
+     * @returns 最大値
+     */
+    maxReleasePoint(store) {
+      const point = Math.min(store.settingCardData.fluctuationStatus.releasePoint, this.limitReleasePoint(store));
+      store.valueChange('releasePoint', point);
+      return point;
+    },
+    /**
+     * 解放Pt.上限計算
+     * 
+     * @param {Object} store store
+     * @returns 上限値
+     */
+    limitReleasePoint(store) {
+      return store.releasePoint[store.settingCardData.rare].max - store.releasePoint[store.settingCardData.rare].point * (store.settingCardData.fluctuationStatus.releaseLevel - 1);
     }
   }
 }

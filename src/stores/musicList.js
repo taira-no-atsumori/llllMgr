@@ -3123,6 +3123,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['ginko']
       },
+      'ビビデバ': {
+        musicData: {
+          kana: 'びびでば',
+          singer: '徒町 小鈴',
+          releaseDate: {
+            year: 2024,
+            month: 3,
+            date: 23
+          },
+          numbering: '星街すいせい 配信限定シングル',
+          BPM: {
+            original: 120,
+            inGame: 120
+          },
+          time: 94,
+          cover: true,
+          link: ''
+        },
+        attribute: 'pure',
+        BHcount: 45,
+        level: 0,
+        term: 104,
+        center: 'kosuzu',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kosuzu']
+      },
     }
   }),
   getters: {},

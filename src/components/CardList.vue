@@ -9,7 +9,12 @@
       リンクラに実装されているカード一覧です。<br>
       各カードを選択すると、カードの詳細が見られます。<br>
       さらに、詳細画面では各カードにパラメータを設定できます。<br>
-      ※アプリ本編ではカードレベル0は存在しませんが、本サイトではカードレベル0を未所持状態、レベル1以上を所持状態と定義しています。
+      ※アプリ本編ではカードレベル0は存在しませんが、本サイトではカードレベル0を未所持状態、レベル1以上を所持状態と定義しています。<br><br>
+
+      右上にある●は、カードレベルが1以上かつ以下の条件でつきます。<br>
+      <span class="text-green-accent-4">●</span>←特訓Lv.が上げられるときに表示されます。<br>
+      <span class="text-red-accent-3">●</span>←カードLv.が上げられるときに表示されます。<br>
+      <span class="text-blue-accent-4">●</span>←解放Lv.が上げられるときに表示されます。
     </v-expansion-panel-text>
   </v-expansion-panel>
 </v-expansion-panels>
@@ -72,16 +77,42 @@
       v-else
       v-for="key in store.outputCardList"
       :key="key"
-      class="ma-1 card"
+      class="ma-1 card position-relative"
     >
+      <p
+        v-if="
+          store.toBool(store.siteSettings.cardList.dot_cardLevel) &&
+          (key.fluctuationStatus.cardLevel > 0) &&
+          (store.maxCardLevel[key.rare][store.maxCardLevel[key.rare].length - 1] > key.fluctuationStatus.cardLevel) &&
+          (store.maxCardLevel[key.rare][key.fluctuationStatus.trainingLevel] === key.fluctuationStatus.cardLevel)
+        "
+        class="dot bg-green-accent-4"
+      ></p>
+      <p
+        v-if="
+          store.toBool(store.siteSettings.cardList.dot_releaseLevel) &&
+          (key.fluctuationStatus.cardLevel > 0) &&
+          (store.maxCardLevel[key.rare][key.fluctuationStatus.trainingLevel] > key.fluctuationStatus.cardLevel)
+        "
+        class="dot bg-red-accent-3"
+      ></p>
+      <p
+        v-if="
+          store.toBool(store.siteSettings.cardList.dot_releasePoint) &&
+          (key.fluctuationStatus.cardLevel > 0) &&
+          (store.releasePoint[key.rare].point <= key.fluctuationStatus.releasePoint)
+        "
+        class="dot bg-blue-accent-4"
+      ></p>
       <v-card
-        v-if="store.siteSettings.cardList.hover === 'false' || windowSize.w <= 600"
+        v-if="!(store.toBool(store.siteSettings.cardList.hover)) || windowSize.w <= 600"
         :color="moodColor[key.mood]"
         @click="store.showModalEvent('setCardData'); store.cardSelect(key.memberName, key.rare, key.cardName)"
       >
         <v-img
           :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
           :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
+          :alt="`${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}`"
         ></v-img>
         <v-card-title class="d-flex align-center text-subtitle-2 px-2 pt-1 hamidashi" style="padding-bottom: 2px;">
           <img
@@ -90,7 +121,7 @@
           ><span style="padding-top: 2px;" class="hamidashi">{{ key.cardName }}</span>
         </v-card-title>
 
-        <v-card-text class="pa-0 cardName" v-if="store.siteSettings.cardList.isShowDetail !== 'false'">
+        <v-card-text class="pa-0 cardName" v-if="store.toBool(store.siteSettings.cardList.isShowDetail)">
           <v-divider opacity="100"></v-divider>
 
           <v-row no-gutters class="pa-1">
@@ -101,10 +132,10 @@
               <span>Level </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.cardLevel }}
             </v-col>
             <v-col cols="6" class="status">
-              <span>SA Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal !== undefined ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel : '-' }}
+              <span>SA Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal ?? false ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel : '-' }}
             </v-col>
             <v-col cols="6" class="status">
-              <span>S Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].skill !== undefined ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SLevel : '-' }}
+              <span>S Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].skill ?? false ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SLevel : '-' }}
             </v-col>
             <v-col cols="6" class="status">
               <span>解放Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.releaseLevel }}
@@ -130,6 +161,7 @@
               <v-img
                 :lazy-src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
                 :src="require(`@/assets/card_illust/${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}_覚醒後.webp`)"
+                :alt="`${store.conversion(key.cardName)}_${store.memberName[key.memberName].last}`"
               ></v-img>
               <v-card-title class="d-flex align-center text-subtitle-2 px-2 pt-1" style="padding-bottom: 2px;">
                 <img
@@ -137,14 +169,14 @@
                   class="icon type mr-1"
                 ><span style="padding-top: 2px;" class="hamidashi">{{ key.cardName }}</span>
               </v-card-title>
-              <v-card-text class="pa-0 cardName" v-if="store.siteSettings.cardList.isShowDetail !== 'false'">
+              <v-card-text class="pa-0 cardName" v-if="store.toBool(store.siteSettings.cardList.isShowDetail)">
                 <v-divider opacity="50"></v-divider>
 
                 <v-row no-gutters class="pa-1">
                   <v-col cols="6" class="status"><span>特訓 </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.trainingLevel }}</v-col>
                   <v-col cols="6" class="status"><span>カードLv. </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.cardLevel }}</v-col>
-                  <v-col cols="6" class="status"><span>SA Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal !== undefined ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel : '-' }}</v-col>
-                  <v-col cols="6" class="status"><span>S Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].skill !== undefined ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SLevel : '-' }}</v-col>
+                  <v-col cols="6" class="status"><span>SA Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal ?? false ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel : '-' }}</v-col>
+                  <v-col cols="6" class="status"><span>S Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].skill ?? false ? store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SLevel : '-' }}</v-col>
                   <v-col cols="6" class="status"><span>解放Lv. </span>{{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.releaseLevel }}</v-col>
                   <v-col cols="6" class="status"><span>GP Pt. </span>{{ /^DR$/.test(store.card[key.memberName][key.rare][key.cardName].rare) || store.card[key.memberName][key.rare][key.cardName].specialAppeal === undefined ? '-' : `+${store.grandprixBonus.releaseLv[store.card[key.memberName][key.rare][key.cardName].rare][store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.releaseLevel - 1] * 100}%` }}</v-col>
                 </v-row>
@@ -184,9 +216,9 @@
                 </v-col>
               </v-row>
             </v-container>
-            <p v-if="store.card[key.memberName][key.rare][key.cardName].specialAppeal !== undefined"><span class="mr-3">スペシャルアピール</span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal.name }} (Lv. {{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel }})</p>
-            <p v-if="store.card[key.memberName][key.rare][key.cardName].skill !== undefined"><span class="mr-3">スキル</span>{{ store.card[key.memberName][key.rare][key.cardName].skill.name }} (Lv. {{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SLevel }})</p>
-            <p v-if="store.card[key.memberName][key.rare][key.cardName].characteristic !== undefined"><span class="mr-3">特性</span>{{ store.card[key.memberName][key.rare][key.cardName].characteristic.name }}</p>
+            <p v-if="store.card[key.memberName][key.rare][key.cardName].specialAppeal ?? false"><span class="mr-3">スペシャルアピール</span>{{ store.card[key.memberName][key.rare][key.cardName].specialAppeal.name }} (Lv. {{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SALevel }})</p>
+            <p v-if="store.card[key.memberName][key.rare][key.cardName].skill ?? false"><span class="mr-3">スキル</span>{{ store.card[key.memberName][key.rare][key.cardName].skill.name }} (Lv. {{ store.card[key.memberName][key.rare][key.cardName].fluctuationStatus.SLevel }})</p>
+            <p v-if="store.card[key.memberName][key.rare][key.cardName].characteristic ?? false"><span class="mr-3">特性</span>{{ store.card[key.memberName][key.rare][key.cardName].characteristic.name }}</p>
           </div>
         </v-tooltip>
       </template>
@@ -205,12 +237,23 @@
 </v-window>
 
 <ul id="possessionCard_header" v-if="false">
-  <li v-for="(name_ja, name_en) in store.memberName" :key="name_ja" :data-character="name_en" :data-selected="selectTab2 === name_en" @click="changeTab(name_en)">
+  <li
+    v-for="(name_ja, name_en) in store.memberName"
+    :key="name_ja"
+    :data-character="name_en"
+    :data-selected="selectTab2 === name_en"
+    @click="changeTab(name_en);"
+  >
     {{ name_ja.last }}
   </li>
 </ul>
 <ul id="possessionCard_container" v-if="false">
-  <li v-for="(name_ja, name_en) in store.memberName" :key="name_en" :data-character="name_en" v-show="selectTab2 === name_en">
+  <li
+    v-for="(name_ja, name_en) in store.memberName"
+    :key="name_en"
+    :data-character="name_en"
+    v-show="selectTab2 === name_en"
+  >
     <dl v-for="rare in store.rare" :key="rare" :data-rare="rare">
       <dt>
         {{ rare }}
@@ -297,18 +340,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dot {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: -5px;
+}
+
+.dot:nth-child(1) + .dot:nth-child(2) {
+  top: 12px;
+}
+
 #cardListArea {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  //justify-content: space-between;
 
   .card {
     width: 190px;
   }
 
   .status {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .status:nth-child(odd) {
