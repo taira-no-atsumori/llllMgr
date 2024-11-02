@@ -3,3641 +3,2694 @@ import { defineStore } from 'pinia';
 export const useSkillStore = defineStore('skillList', {
   state: () => ({
     skillList: {
-      'ハートキャプチャ': {
+      ハートキャプチャ: {
         heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha'],
+          },
+        },
       },
-      'ラブアトラクト': {
+      ラブアトラクト: {
         loveAttract: {
-          text: [
-            '次のハート回収時、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['次のハート回収時、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract']
-          }
+            type: ['loveAttract'],
+          },
         },
         loveAttract_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_section']
-          }
+            type: ['loveAttract_section'],
+          },
         },
         loveAttract_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage']
-          }
-        }
+            type: ['loveAttract_stage'],
+          },
+        },
       },
-      'ボルテージゲイン': {
+      ボルテージゲイン: {
         voltageGain: {
-          text: [
-            'ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['voltageGain']
-          }
-        }
+            type: ['voltageGain'],
+          },
+        },
       },
-      'メンタルリカバー': {
+      メンタルリカバー: {
         mentalRecover: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '',
-            type: ['mentalRecover']
-          }
-        }
+            type: ['mentalRecover'],
+          },
+        },
       },
-      'メンタルプロテクト': {
+      メンタルプロテクト: {
         mentalProtect_recover_sectionProtect: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにこのセクション中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにこのセクション中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'protect_section']
-          }
+            type: ['mentalRecover', 'protect_section'],
+          },
         },
         mentalProtect_stageProtect: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['protect_stage']
-          }
-        }
+            type: ['protect_stage'],
+          },
+        },
       },
-      'エクステンドハンド': {
+      エクステンドハンド: {
         extendHand_stage1: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加する。'],
           detail: {
             attr: '',
-            type: ['extendHand']
-          }
-        }
+            type: ['extendHand'],
+          },
+        },
       },
-      'リフレッシュハート': {
+      リフレッシュハート: {
         refreshHeart: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'heartCaptcha']
-          }
-        }
+            type: ['reshuffle', 'heartCaptcha'],
+          },
+        },
       },
-      'リフレッシュマインド': {
+      リフレッシュマインド: {
         refreshMind: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover']
-          }
-        }
+            type: ['reshuffle', 'mentalRecover'],
+          },
+        },
       },
-      'リフレッシュプロテクト': {
+      リフレッシュプロテクト: {
         refreshProtect_stage: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、メンタルを最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、メンタルを最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'protect_stage']
-          }
-        }
+            type: ['reshuffle', 'protect_stage'],
+          },
+        },
       },
-      'リフレッシュサポート': {
+      リフレッシュサポート: {
         refreshSupport_stage: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
-            '%回復させ、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させ、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover', 'loveAttract_stage']
-          }
-        }
+            type: ['reshuffle', 'mentalRecover', 'loveAttract_stage'],
+          },
+        },
       },
-      'リフレッシュゲイン': {
+      リフレッシュゲイン: {
         refreshGain: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにAPを7回復する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにAPを7回復する。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'protect_stage', 'APGain']
-          }
-        }
+            type: ['reshuffle', 'protect_stage', 'APGain'],
+          },
+        },
       },
-      'リフレッシュバブリング': {
+      リフレッシュバブリング: {
         refreshBubbling: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の',
-            '%回復させる。さらにバブルカードを1種類(合計3枚)山札に追加する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の', '%回復させる。さらにバブルカードを1種類(合計3枚)山札に追加する。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover', 'addCard']
-          }
-        }
+            type: ['reshuffle', 'mentalRecover', 'addCard'],
+          },
+        },
       },
-      'リフレッシュエクステンド': {
+      リフレッシュエクステンド: {
         refreshExtend_stage1: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、手札の上限枚数を1枚増加し、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、手札の上限枚数を1枚増加し、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extendHand', 'protect_stage']
-          }
-        }
+            type: ['reshuffle', 'extendHand', 'protect_stage'],
+          },
+        },
       },
-      'リフレッシュブースト': {
+      リフレッシュブースト: {
         refreshBoost: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに3回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに3回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'boost_heartCaptcha']
-          }
-        }
+            type: ['reshuffle', 'boost_heartCaptcha'],
+          },
+        },
       },
-      'リフレッシュワイド': {
+      リフレッシュワイド: {
         refreshWide: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、ハート上限を+',
-            'する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、ハート上限を+', 'する。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'heartLimitUp']
-          }
-        }
+            type: ['reshuffle', 'heartLimitUp'],
+          },
+        },
       },
-      'ハートアトラクション': {
+      リフレッシュチェンジ: {
+        refreshChange: {
+          text: ['姫芽の《イグニッションモード》の状態を切り替える。さらに手札を全て捨てて、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の', '%のメンタルダメージを無効にする。'],
+          detail: {
+            attr: 'refresh',
+            type: ['modeChange', 'reshuffle', 'protect_stage'],
+          },
+        },
+      },
+      ハートアトラクション: {
         heartAttraction_section: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         heartAttraction_stage: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage']
-          }
+            type: ['heartCaptcha', 'loveAttract_stage'],
+          },
         },
         heartAttraction_50: {
-          text: [
-            '50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         heartAttraction_100: {
-          text: [
-            '100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'ハートブースト': {
+      ハートブースト: {
         heartBoost: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha']
-          }
+            type: ['boost_heartCaptcha'],
+          },
         },
         heartBoost_limit5: {
-          text: [
-            '5回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['5回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha']
-          }
-        }
+            type: ['boost_heartCaptcha'],
+          },
+        },
       },
       'ハートブースト：みらくらぱーく！': {
         heartBoost_MiraCraPark_stage: {
-          text: [
-            'このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha']
-          }
+            type: ['boost_heartCaptcha'],
+          },
         },
         heartBoost_MiraCraPark_limit3: {
-          text: [
-            '3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha']
-          }
-        }
+            type: ['boost_heartCaptcha'],
+          },
+        },
       },
-      'ハートゲイン': {
+      ハートゲイン: {
         heartGain_1: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにAPを1回復する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにAPを1回復する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'APGain']
-          }
+            type: ['heartCaptcha', 'APGain'],
+          },
         },
         heartGain_3: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにAPを3回復する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにAPを3回復する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'APGain']
-          }
-        }
+            type: ['heartCaptcha', 'APGain'],
+          },
+        },
       },
-      'ハイアトラクト': {
+      ハイアトラクト: {
         highAttract_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が6以上の時APを1回復する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が6以上の時APを1回復する。'],
           detail: {
             attr: 'high',
-            type: ['loveAttract_stage', 'APGain']
-          }
-        }
+            type: ['loveAttract_stage', 'APGain'],
+          },
+        },
       },
-      'ハイボルテージ': {
+      ハイボルテージ: {
         highVoltage: {
-          text: [
-            'ボルテージPt.を+',
-            'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。'],
           detail: {
             attr: 'high',
-            type: ['voltageGain', 'APGain']
-          }
+            type: ['voltageGain', 'APGain'],
+          },
         },
         highVoltage_ver2: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が6以上の時APを1回復する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が6以上の時APを1回復する。'],
           detail: {
             attr: 'high',
-            type: ['voltageGain', 'APGain']
-          }
+            type: ['voltageGain', 'APGain'],
+          },
         },
         highVoltage_heartCaptcha: {
-          text: [
-            'ボルテージPt.を+',
-            'する。使用時のボルテージLv.が6以上の時、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。使用時のボルテージLv.が6以上の時、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'high',
-            type: ['voltageGain', 'heartCaptcha']
-          }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
         },
       },
-      'チアフルハート': {
+      チアフルハート: {
         cheerfulHeart_over75_APGain: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'APGain']
-          }
+            type: ['heartCaptcha', 'APGain'],
+          },
         },
         cheerfulHeart_over75_heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha']
-          }
+            type: ['heartCaptcha'],
+          },
         },
         cheerfulHeart_over100_heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha']
-          }
+            type: ['heartCaptcha'],
+          },
         },
         cheerfulHeart_over75_heartCaptcha_over100_heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、ビートハート',
-            '回分のスキルハートを獲得し、メンタルが100%以上のとき、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、ビートハート', '回分のスキルハートを獲得し、メンタルが100%以上のとき、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha'],
+          },
+        },
       },
-      'チアフルアトラクト': {
+      チアフルアトラクト: {
         cheerfulAttract_over100_sectionAttract: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが100%以上のとき、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが100%以上のとき、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_section']
-          }
+            type: ['loveAttract_section'],
+          },
         },
         cheerfulAttract_APGain_over75: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルが75%以上のとき、APを1回復する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、APを1回復する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage', 'APGain']
-          }
+            type: ['loveAttract_stage', 'APGain'],
+          },
         },
         cheerfulAttract_loveAttract_over50: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルが50%以上のとき、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが50%以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage']
-          }
+            type: ['loveAttract_stage'],
+          },
         },
         cheerfulAttract_over75_stageAttract_over100_stageAttract: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+',
-            'し、メンタルが100%以上のとき、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+', 'し、メンタルが100%以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage']
-          }
-        }
+            type: ['loveAttract_stage'],
+          },
+        },
       },
-      'チアフルアトラクション': {
+      チアフルアトラクション: {
         cheerfulAttraction_over75_section: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         cheerfulAttraction_over100_stage: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'チアフルボルテージ': {
+      チアフルボルテージ: {
         cheerfulVoltage_voltageGain: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain']
-          }
+            type: ['voltageGain'],
+          },
         },
         cheerfulVoltage_heartCaptcha: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが75%以上のとき、ビートハート',
-            '個分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、ビートハート', '個分のスキルハートを獲得する。'],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain', 'heartCaptcha']
-          }
-        }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
       },
-      'チアフルリカバー': {
+      チアフルリカバー: {
         cheerfulRecover_upper75_APGain: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'APGain']
-          }
+            type: ['mentalRecover', 'APGain'],
+          },
         },
         cheerfulRecover_upper100_stageProtect: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにメンタルが100%以上のとき、このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにメンタルが100%以上のとき、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'APGain']
-          }
-        }
+            type: ['mentalRecover', 'APGain'],
+          },
+        },
       },
-      'チアフルプロテクト': {
+      チアフルプロテクト: {
         cheerfulProtect_loveAttract: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['protect_stage', 'loveAttract_stage']
-          }
-        }
+            type: ['protect_stage', 'loveAttract_stage'],
+          },
+        },
       },
-      'チアフルリゲイン': {
+      チアフルリゲイン: {
         cheerfulRegain: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルが50%以上のとき、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
-            type: ['reshuffle', 'voltageGain']
-          }
-        }
+            type: ['reshuffle', 'voltageGain'],
+          },
+        },
       },
-      'チアフルヒーリング': {
+      チアフルヒーリング: {
         cheerfulHealing: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにメンタルが75%以上のとき、ビートハート',
-            '個分のスキルハートを獲得する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにメンタルが75%以上のとき、ビートハート', '個分のスキルハートを獲得する。'],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'heartCaptcha']
-          }
-        }
+            type: ['mentalRecover', 'heartCaptcha'],
+          },
+        },
       },
-      'チアフルサポート': {
+      チアフルサポート: {
         cheerfulSupport_over75_section: {
-          text: [
-            'メンタルを最大値の',
-            '%回復する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'loveAttract_section']
-          }
+            type: ['mentalRecover', 'loveAttract_section'],
+          },
         },
         cheerfulSupport_over75_stage: {
-          text: [
-            'メンタルを最大値の',
-            '%回復する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復する。さらにメンタルが75%以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'loveAttract_stage']
-          }
-        }
+            type: ['mentalRecover', 'loveAttract_stage'],
+          },
+        },
       },
-      'チアフルエンデュランス': {
+      チアフルエンデュランス: {
         cheerfulEndurance_over75: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが75%以上のとき、メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain', 'mentalRecover']
-          }
-        }
+            type: ['voltageGain', 'mentalRecover'],
+          },
+        },
       },
-      'チアフルイニシエイト': {
+      チアフルイニシエイト: {
         cheerfulInitiate: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが75%以上のとき、このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain', 'protect_stage']
-          }
-        }
+            type: ['voltageGain', 'protect_stage'],
+          },
+        },
       },
-      'チアフルファッシネイト': {
+      チアフルファッシネイト: {
         cheerfulFascinate_section_over75: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが75%以上のとき、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_section', 'voltageGain']
-          }
+            type: ['loveAttract_section', 'voltageGain'],
+          },
         },
         cheerfulFascinate_stage_over50: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage', 'voltageGain']
-          }
-        }
+            type: ['loveAttract_stage', 'voltageGain'],
+          },
+        },
       },
-      'チアフルブースト': {
+      チアフルブースト: {
         cheerfulBoost: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにメンタルが50%以上のとき、次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにメンタルが50%以上のとき、次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['boost_heartCaptcha']
-          }
-        }
+            type: ['boost_heartCaptcha'],
+          },
+        },
       },
-      'チアフルハートブースト': {
+      チアフルハートブースト: {
         cheerfulHeartBoost_over100_boost_heartCaptcha: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにメンタルが100%以上のとき、3回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにメンタルが100%以上のとき、3回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'cheerful',
-            type: ['boost_heartCaptcha']
-          }
-        }
+            type: ['boost_heartCaptcha'],
+          },
+        },
       },
-      'フルネスエクステハート': {
+      フルネスエクステハート: {
         fulnessExtensionHeart_add3_over8_over75: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージLv.が8以上かつメンタルが75%以上のとき、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにボルテージLv.が8以上かつメンタルが75%以上のとき、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'fulness',
-            type: ['extendHand', 'heartCaptcha']
-          }
-        }
+            type: ['extendHand', 'heartCaptcha'],
+          },
+        },
       },
-      'フルネスエクステボルテージ': {
+      フルネスエクステボルテージ: {
         fulnessExtensionVoltage_add2_over5_over50: {
-          text: [
-            'このセクション中、手札の上限枚数を2枚増加する。さらにボルテージLv.が5以上かつメンタルが50%以上のとき、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を2枚増加する。さらにボルテージLv.が5以上かつメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'fulness',
-            type: ['extendHand', 'voltageGain']
-          }
-        }
+            type: ['extendHand', 'voltageGain'],
+          },
+        },
       },
-      'フルネスエクステプロテクト': {
+      フルネスエクステプロテクト: {
         fulnessExtensionProtect_add3_over8_over75: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージLv.が8以上かつメンタルが75%以上のとき、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにボルテージLv.が8以上かつメンタルが75%以上のとき、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'fulness',
-            type: ['extendHand', 'protect_section']
-          }
-        }
+            type: ['extendHand', 'protect_section'],
+          },
+        },
       },
-      'アグレッシブハート': {
+      アグレッシブハート: {
         aggressiveHeart_mentalReduce10: {
-          text: [
-            'ビートハート',
-            '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。'
-          ],
+          text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'mentalReduce']
-          }
+            type: ['heartCaptcha', 'mentalReduce'],
+          },
         },
         aggressiveHeart_mentalReduce15: {
-          text: [
-            'ビートハート',
-            '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。'
-          ],
+          text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'mentalReduce']
-          }
-        }
+            type: ['heartCaptcha', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブアトラクト': {
+      アグレッシブアトラクト: {
         aggressiveAttract_mentalReduce15_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルを最大値の15%減少させる。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_section', 'mentalReduce']
-          }
+            type: ['loveAttract_section', 'mentalReduce'],
+          },
         },
         aggressiveAttract_mentalReduce25_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルを最大値の25%減少させる。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルを最大値の25%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_stage', 'mentalReduce']
-          }
-        }
+            type: ['loveAttract_stage', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブアトラクション': {
+      アグレッシブアトラクション: {
         aggressiveAttraction25_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルを最大値の25%減少させる。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。さらにメンタルを最大値の25%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'loveAttract_section', 'mentalReduce']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブボルテージ': {
+      アグレッシブボルテージ: {
         aggressiveVoltage_mentalReduce15: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルを最大値の15%減少させる。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['voltageGain', 'mentalReduce']
-          }
-        }
+            type: ['voltageGain', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブリゲイン': {
+      アグレッシブリゲイン: {
         aggressiveRegain10_stageAttract: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+',
-            '%し、メンタルを最大値の10%減少させる。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+', '%し、メンタルを最大値の10%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['reshuffle', 'loveAttract_stage', 'mentalReduce']
-          }
-        }
+            type: ['reshuffle', 'loveAttract_stage', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブアトラクトブースト': {
+      アグレッシブアトラクトブースト: {
         aggressiveAttractBoost: {
-          text: [
-            '5回の間ラブアトラクト効果を+',
-            '%する。さらにメンタルを最大値の25%減少させる。'
-          ],
+          text: ['5回の間ラブアトラクト効果を+', '%する。さらにメンタルを最大値の25%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce']
-          }
+            type: ['boost_loveAttract', 'mentalReduce'],
+          },
         },
         aggressiveAttractBoost_mentalReduce3: {
-          text: [
-            '次に使用するラブアトラクト効果を+',
-            '%する。さらにメンタルを最大値の3%減少させる。'
-          ],
+          text: ['次に使用するラブアトラクト効果を+', '%する。さらにメンタルを最大値の3%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce']
-          }
+            type: ['boost_loveAttract', 'mentalReduce'],
+          },
         },
         aggressiveAttractBoost_mentalReduce10: {
-          text: [
-            '2回の間ラブアトラクト効果を+',
-            '%する。さらにメンタルを最大値の10%減少させる。'
-          ],
+          text: ['2回の間ラブアトラクト効果を+', '%する。さらにメンタルを最大値の10%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce']
-          }
-        }
+            type: ['boost_loveAttract', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブプロテクトブースト': {
+      アグレッシブプロテクトブースト: {
         aggressiveProtectBoost: {
-          text: [
-            '5回の間スキルハート獲得効果による獲得数を+',
-            '%し、メンタルを最大値の5%減少させる。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['5回の間スキルハート獲得効果による獲得数を+', '%し、メンタルを最大値の5%減少させる。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce']
-          }
-        }
+            type: ['boost_loveAttract', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブハートブースト': {
+      アグレッシブハートブースト: {
         aggressiveHeartBoost: {
-          text: [
-            '10回の間スキルハート獲得効果による獲得数を+',
-            '%する。さらにメンタルを最大値の50%減少させる。'
-          ],
+          text: ['10回の間スキルハート獲得効果による獲得数を+', '%する。さらにメンタルを最大値の50%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_heartCaptcha', 'mentalReduce']
-          }
-        }
+            type: ['boost_heartCaptcha', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブリゲインボルテージ': {
+      アグレッシブリゲインボルテージ: {
         aggressiveRegainVoltage: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
-            'し、メンタルを最大値の25%減少させる。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+', 'し、メンタルを最大値の25%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['reshuffle', 'voltageGain', 'mentalReduce']
-          }
-        }
+            type: ['reshuffle', 'voltageGain', 'mentalReduce'],
+          },
+        },
+      },
+      アグレッシブビリーブハート: {
+        aggressiveBelieveHeart: {
+          text: ['このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにビートハート', '回分のスキルハートを獲得し、メンタルを最大値の75%減少させる。'],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
+          },
+        },
       },
       'アグレッシブブースト：DOLLCHESTRA': {
         aggressiveBoost_dollchestra: {
-          text: [
-            '10回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
-            '%、スキルハート獲得効果による獲得数を+',
-            'する。さらにメンタルを最大値の99%減少させる。'
-          ],
+          text: ['10回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+', '%、スキルハート獲得効果による獲得数を+', 'する。さらにメンタルを最大値の99%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'boost_heartCaptcha', 'mentalReduce']
-          }
-        }
+            type: ['boost_loveAttract', 'boost_heartCaptcha', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブブレイブファッシネイト': {
+      アグレッシブブレイブファッシネイト: {
         aggressiveBraveFascinate10_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。メンタルを最大値の25%減少させる。さらにメンタルが10%以下のとき、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。メンタルを最大値の25%減少させる。さらにメンタルが10%以下のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_section', 'mentalReduce', 'voltageGain']
-          }
-        }
+            type: ['loveAttract_section', 'mentalReduce', 'voltageGain'],
+          },
+        },
       },
       'アグレッシブブレイブブーステッドアトラクト：DOLLCHESTRA': {
         aggressiveBraveBoostedAttract_dollchestra: {
-          text: [
-            '3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
-            '%し、メンタルを最大値の10%減少させる。さらにメンタルが1%以下のとき、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+', '%し、メンタルを最大値の10%減少させる。さらにメンタルが1%以下のとき、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce', 'loveAttract_section']
-          }
-        }
+            type: ['boost_loveAttract', 'mentalReduce', 'loveAttract_section'],
+          },
+        },
       },
-      'アグレッシブエクステプロテクト': {
+      アグレッシブエクステプロテクト: {
         aggressiveExtendProtect_stage: {
-          text: [
-            'このステージ中、手札の上限枚数を2枚増加し、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにメンタルを最大値の50%減少させる。'
-          ],
+          text: ['このステージ中、手札の上限枚数を2枚増加し、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにメンタルを最大値の50%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['extendHand', 'protect_stage', 'mentalReduce']
-          }
-        }
+            type: ['extendHand', 'protect_stage', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブプロテクション': {
+      アグレッシブプロテクション: {
         aggressiveProtection_stage: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにメンタルを最大値の5%減少させる。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにメンタルを最大値の5%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['protect_stage', 'mentalReduce']
-          }
-        }
+            type: ['protect_stage', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブビリーフブースト': {
+      アグレッシブビリーフブースト: {
         aggressiveBeliefBoost: {
-          text: [
-            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+',
-            '%する。またメンタルを最大値の50%減少させる。'
-          ],
+          text: ['このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+', '%する。またメンタルを最大値の50%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce']
-          }
-        }
+            type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce'],
+          },
+        },
       },
-      'アグレッシブビリーフボルテージ': {
+      アグレッシブビリーフボルテージ: {
         aggressiveBeliefVoltage: {
-          text: [
-            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにボルテージPt.を+',
-            'し、メンタルを最大値の50%減少させる。'
-          ],
+          text: ['このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにボルテージPt.を+', 'し、メンタルを最大値の50%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'voltageGain', 'mentalReduce']
-          }
-        }
+            type: ['mentalDown_section', 'voltageGain', 'mentalReduce'],
+          },
+        },
       },
-      'アトラクトゲイン': {
+      アトラクトゲイン: {
         attractGain: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにAPを3回復する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにAPを3回復する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'APGain']
-          }
-        }
+            type: ['loveAttract_stage', 'APGain'],
+          },
+        },
       },
-      'アトラクトブースト': {
+      アトラクトブースト: {
         attractBoost1: {
-          text: [
-            '次に使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract']
-          }
+            type: ['boost_loveAttract'],
+          },
         },
         attractBoost2: {
-          text: [
-            '2回の間ラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['2回の間ラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract']
-          }
-        }
+            type: ['boost_loveAttract'],
+          },
+        },
       },
       'アトラクトブースト：みらくらぱーく！': {
         attractBoost_MiraCraPark: {
-          text: [
-            '次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract']
-          }
-        }
+            type: ['boost_loveAttract'],
+          },
+        },
       },
-      'リゲインボルテージ': {
-          regainVoltage: {
-            text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
-            'する。'
-          ],
+      リゲインボルテージ: {
+        regainVoltage: {
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'voltageGain']
-          }
-        }
+            type: ['reshuffle', 'voltageGain'],
+          },
+        },
       },
-      'リゲインリカバー': {
-          regainRecover: {
-            text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+      リゲインリカバー: {
+        regainRecover: {
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'mentalRecover']
-          }
-        }
+            type: ['reshuffle', 'mentalRecover'],
+          },
+        },
       },
-      'リゲインアトラクト': {
+      リゲインアトラクト: {
         regainAttract_section: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'loveAttract_section']
-          }
+            type: ['reshuffle', 'loveAttract_section'],
+          },
         },
         regainAttract_stage: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'loveAttract_stage']
-          }
-        }
+            type: ['reshuffle', 'loveAttract_stage'],
+          },
+        },
       },
-      'リゲインファッシネイト': {
+      リゲインファッシネイト: {
         regainFascinate_stage: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにステージ中、獲得LOVEを+',
-            '%し、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにステージ中、獲得LOVEを+', '%し、ボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'loveAttract_stage', 'voltageGain']
-          }
-        }
+            type: ['reshuffle', 'loveAttract_stage', 'voltageGain'],
+          },
+        },
       },
-      'リゲインエクステンド': {
+      リゲインエクステンド: {
         regainExtend_stage1: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにステージ中、手札の上限枚数を1枚増加し、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにステージ中、手札の上限枚数を1枚増加し、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'extendHand', 'voltageGain']
-          }
-        }
+            type: ['reshuffle', 'extendHand', 'voltageGain'],
+          },
+        },
       },
-      'リゲインエクステアトラクト': {
+      リゲインエクステアトラクト: {
         regainExtendAttract_section4: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を4枚増加し、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を4枚増加し、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'extendHand', 'voltageGain']
-          }
-        }
+            type: ['reshuffle', 'extendHand', 'voltageGain'],
+          },
+        },
       },
-      'リゲインバブリング': {
+      リゲインバブリング: {
         regainBubbling: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージPt.を+',
-            'する。さらにバブルカードを1種類(合計2枚)山札に追加する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージPt.を+', 'する。さらにバブルカードを1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'voltageGain', 'addCard']
-          }
-        }
+            type: ['reshuffle', 'voltageGain', 'addCard'],
+          },
+        },
       },
-      'エクステハート': {
+      エクステハート: {
         extensionsHeart_section3: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'heartCaptcha']
-          }
+            type: ['extensions_section', 'heartCaptcha'],
+          },
         },
         extensionsHeart_stage1: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加する。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'heartCaptcha']
-          }
-        }
+            type: ['extensions_stage', 'heartCaptcha'],
+          },
+        },
       },
-      'エクステハートブースト': {
+      エクステハートブースト: {
         extensions_section3_heartBoost_stage: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、10回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'boost_heartCaptcha']
-          }
-        }
+            type: ['extensions_section', 'boost_heartCaptcha'],
+          },
+        },
       },
-      'エクステアトラクト': {
+      エクステアトラクト: {
         extensions1_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_stage']
-          }
+            type: ['extensions_section', 'loveAttract_stage'],
+          },
         },
         extensions2_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_stage']
-          }
+            type: ['extensions_section', 'loveAttract_stage'],
+          },
         },
         extensions3_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_stage']
-          }
+            type: ['extensions_section', 'loveAttract_stage'],
+          },
         },
         extensions4_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_section']
-          }
+            type: ['extensions_section', 'loveAttract_section'],
+          },
         },
         extensions1_stageAttract_stage: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'loveAttract_stage']
-          }
+            type: ['extensions_stage', 'loveAttract_stage'],
+          },
         },
         extensions1_sectionAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_section']
-          }
+            type: ['extensions_section', 'loveAttract_section'],
+          },
         },
         extensions3_sectionAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_section']
-          }
-        }
+            type: ['extensions_section', 'loveAttract_section'],
+          },
+        },
       },
-      'エクステボルテージ': {
+      エクステボルテージ: {
         extensions2_voltage_section: {
-          text: [
-            'このセクション中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'voltageGain']
-          }
+            type: ['extensions_section', 'voltageGain'],
+          },
         },
         extensions3_voltage_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'voltageGain']
-          }
+            type: ['extensions_section', 'voltageGain'],
+          },
         },
         extensions1_voltage_stage: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'voltageGain']
-          }
+            type: ['extensions_stage', 'voltageGain'],
+          },
         },
         extensions2_voltage_stage: {
-          text: [
-            'このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'voltageGain']
-          }
-        }
+            type: ['extensions_stage', 'voltageGain'],
+          },
+        },
       },
-      'エクステプロテクト': {
+      エクステプロテクト: {
         extensions1_protect: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'protect_stage']
-          }
+            type: ['extensions_stage', 'protect_stage'],
+          },
         },
         extensions3_protect: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚追加する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚追加する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'protect_stage']
-          }
-        }
+            type: ['extensions_section', 'protect_stage'],
+          },
+        },
       },
-      'エクステプロテクトヒート': {
+      エクステプロテクトヒート: {
         extensions3_protect_heat: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'APQuick', 'protect_stage']
-          }
-        }
+            type: ['extensions_section', 'APQuick', 'protect_stage'],
+          },
+        },
       },
-      'エクステリカバー': {
+      エクステリカバー: {
         extensions3_recover_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'mentalRecover']
-          }
-        }
+            type: ['extensions_section', 'mentalRecover'],
+          },
+        },
       },
-      'エクステリカバーヒート': {
+      エクステリカバーヒート: {
         extensions3_recover_heat_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'APQuick', 'mentalRecover']
-          }
-        }
+            type: ['extensions_section', 'APQuick', 'mentalRecover'],
+          },
+        },
       },
-      'エクステメンター': {
+      エクステメンター: {
         extensionsMentor: {
-          text: [
-            '姫芽の《イグニッションモード》の状態を切り替える。さらにこのステージ中、手札の上限を1枚増加し、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['姫芽の《イグニッションモード》の状態を切り替える。さらにこのステージ中、手札の上限を1枚増加し、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'extensions',
-            type: ['modeChange', 'extensions_stage', 'mentalRecover']
-          }
-        }
+            type: ['modeChange', 'extensions_stage', 'mentalRecover'],
+          },
+        },
       },
-      'エクステブーステッドヒート': {
+      エクステブーステッドヒート: {
         'extensions_stage-boost_heartCaptcha-heatUp_section': {
-          text: [
-            'このステージ中、手札の上限を1枚追加し、次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにこのセクション中、AP回復速度を+5%する。'
-          ],
+          text: ['このステージ中、手札の上限を1枚追加し、次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにこのセクション中、AP回復速度を+5%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'boost_heartCaptcha', 'APQuick']
-          }
+            type: ['extensions_stage', 'boost_heartCaptcha', 'APQuick'],
+          },
         },
         'extensions_stage-boost_loveAttract-heatUp_section': {
-          text: [
-            'このステージ中、手札の上限を1枚追加し、次に使用するラブアトラクト効果を+',
-            '%する。さらにこのセクション中、AP回復速度を+5%する。'
-          ],
+          text: ['このステージ中、手札の上限を1枚追加し、次に使用するラブアトラクト効果を+', '%する。さらにこのセクション中、AP回復速度を+5%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'boost_loveAttract', 'APQuick']
-          }
-        }
+            type: ['extensions_stage', 'boost_loveAttract', 'APQuick'],
+          },
+        },
       },
-      'ファッシネイション': {
+      ファッシネイション: {
         fascination: {
-          text: [
-            'ボルテージPt.を+',
-            'し、このセクション中、獲得するLOVEを+',
-            '%する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージPt.を+', 'し、このセクション中、獲得するLOVEを+', '%する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'fascination',
-            type: ['voltageGain', 'loveAttract_stage']
-          }
+            type: ['voltageGain', 'loveAttract_stage'],
+          },
         },
         fascination_voltageGain: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'fascination',
-            type: ['voltageGain', 'loveAttract_stage']
-          }
+            type: ['voltageGain', 'loveAttract_stage'],
+          },
         },
         fascination_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'fascination',
-            type: ['loveAttract_section', 'voltageGain']
-          }
+            type: ['loveAttract_section', 'voltageGain'],
+          },
         },
         fascination_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'fascination',
-            type: ['loveAttract_stage', 'voltageGain']
-          }
+            type: ['loveAttract_stage', 'voltageGain'],
+          },
         },
         fascination_stageAttract_stageProtect: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を+',
-            'し、このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'し、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'fascination',
-            type: ['loveAttract_stage', 'voltageGain', 'protect_stage']
-          }
-        }
+            type: ['loveAttract_stage', 'voltageGain', 'protect_stage'],
+          },
+        },
       },
-      'リプレイアトラクション': {
+      リプレイアトラクション: {
         replayAttraction_section: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'replay',
-            type: ['reshuffle', 'heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'サポーテッドフィール': {
+      サポーテッドフィール: {
         supportedFeel_section: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
-            type: ['mentalRecover', 'loveAttract_section']
-          }
+            type: ['mentalRecover', 'loveAttract_section'],
+          },
         },
         supportedFeel_stage: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
-            type: ['mentalRecover', 'loveAttract_stage']
-          }
+            type: ['mentalRecover', 'loveAttract_stage'],
+          },
         },
         supportedFeel_sectionAttract_mentalRecover: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。メンタルを最大値の',
-            '%回復させる。さらに'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。メンタルを最大値の', '%回復させる。さらに'],
           detail: {
             attr: 'feel',
-            type: ['loveAttract_section', 'mentalRecover']
-          }
+            type: ['loveAttract_section', 'mentalRecover'],
+          },
         },
         supportedFeel_stageAttract_mentalRecover: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'feel',
-            type: ['loveAttract_stage', 'mentalRecover']
-          }
-        }
+            type: ['loveAttract_stage', 'mentalRecover'],
+          },
+        },
       },
-      'プロテクトフィール': {
+      プロテクトフィール: {
         protectFeel_APreduce: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%のメンタルダメージを無効にし、獲得するLOVEを+',
-            '%する。さらにAPを5回復する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%のメンタルダメージを無効にし、獲得するLOVEを+', '%する。さらにAPを5回復する。'],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_stage', 'APGain']
-          }
+            type: ['protect_stage', 'loveAttract_stage', 'APGain'],
+          },
         },
         protectFeel_sectionAttract: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_section']
-          }
+            type: ['protect_stage', 'loveAttract_section'],
+          },
         },
         protectFeel_stageAttract: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにこのステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_stage']
-          }
+            type: ['protect_stage', 'loveAttract_stage'],
+          },
         },
         protectFeel_sectionAttract_stageProtect: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_stage']
-          }
+            type: ['protect_stage', 'loveAttract_stage'],
+          },
         },
         protectFeel_stageAttract_stageProtect: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'feel',
-            type: ['loveAttract_stage', 'protect_stage']
-          }
-        }
+            type: ['loveAttract_stage', 'protect_stage'],
+          },
+        },
       },
-      'プロテクトゲイン': {
+      プロテクトゲイン: {
         protectGain: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '分のメンタルダメージを無効にする。さらにAPを+5する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを+5する。'],
           detail: {
             attr: '',
-            type: ['protect_stage', 'APGain']
-          }
-        }
+            type: ['protect_stage', 'APGain'],
+          },
+        },
       },
-      'インヴォケーション': {
+      インヴォケーション: {
         invocation: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLvが6以下の場合、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLvが6以下の場合、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'invocation',
-            type: ['voltageGain', 'loveAttract_stage']
-          }
-        }
+            type: ['voltageGain', 'loveAttract_stage'],
+          },
+        },
       },
-      'ボルテージハート': {
+      ボルテージハート: {
         voltageHeart: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['voltageGain', 'heartCaptcha']
-          }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
         },
         voltageHeart_voltageGain_heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'voltageGain']
-          }
-        }
+            type: ['heartCaptcha', 'voltageGain'],
+          },
+        },
       },
-      'リカバーアトラクション': {
+      リカバーアトラクション: {
         recoverAttraction_section: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらに、ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらに、ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['mentalRecover', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'リカバーゲイン': {
+      リカバーゲイン: {
         recoverGain_gain5: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにAPを+5する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにAPを+5する。'],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'APGain']
-          }
+            type: ['mentalRecover', 'APGain'],
+          },
         },
         recoverGain_gain3: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにAPを+3する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにAPを+3する。'],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'APGain']
-          }
-        }
+            type: ['mentalRecover', 'APGain'],
+          },
+        },
       },
-      'チルアトラクト': {
+      チルアトラクト: {
         chillAttract_under3_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が3以下の時このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージLv.が3以下の時このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_section']
-          }
+            type: ['loveAttract_section'],
+          },
         },
         chillAttract_under3_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が3以下の時このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が3以下の時このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_stage']
-          }
-        }
+            type: ['loveAttract_stage'],
+          },
+        },
       },
-      'チルボルテージ': {
+      チルボルテージ: {
         chillVoltage_under1: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が1以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が1以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain']
-          }
+            type: ['voltageGain'],
+          },
         },
         chillVoltage_under3: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain']
-          }
+            type: ['voltageGain'],
+          },
         },
         chillVoltage_under5: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain']
-          }
+            type: ['voltageGain'],
+          },
         },
         chillVoltage_under5_heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['heartCaptcha', 'voltageGain']
-          }
-        }
+            type: ['heartCaptcha', 'voltageGain'],
+          },
+        },
       },
-      'チルプロテクト': {
+      チルプロテクト: {
         chillProtect_under3_stageProtect: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにボルテージLv.が3以下の時このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにボルテージLv.が3以下の時このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'chill',
-            type: ['protect_stage']
-          }
+            type: ['protect_stage'],
+          },
         },
         chillProtect_under5_stageProtect: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにボルテージLv.が5以下の時このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにボルテージLv.が5以下の時このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'chill',
-            type: ['protect_stage']
-          }
-        }
+            type: ['protect_stage'],
+          },
+        },
       },
-      'チルファッシネイト': {
+      チルファッシネイト: {
         chillFascinate_under3_voltageGain_stageAttract_APGain: {
-          text: [
-            'ボルテージPt.を+',
-            'し、このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が3以下の時APを3回復する。'
-          ],
+          text: ['ボルテージPt.を+', 'し、このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が3以下の時APを3回復する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain', 'loveAttract_stage', 'APGain']
-          }
+            type: ['voltageGain', 'loveAttract_stage', 'APGain'],
+          },
         },
         chillFascinate_under2_stageAttract_voltageGain: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_stage', 'voltageGain']
-          }
+            type: ['loveAttract_stage', 'voltageGain'],
+          },
         },
         chillFascinate_under5_stageAttract_voltageGain: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_stage', 'voltageGain']
-          }
-        }
+            type: ['loveAttract_stage', 'voltageGain'],
+          },
+        },
       },
-      'チルエンデュランス': {
+      チルエンデュランス: {
         chillEndurance_mentalRecover_under5_voltageGain: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['mentalRecover', 'voltageGain']
-          }
-        }
+            type: ['mentalRecover', 'voltageGain'],
+          },
+        },
       },
-      'チルフィール': {
+      チルフィール: {
         chillFeel_mentalRecover_under2_stageAttract: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにボルテージLv.が2以下の時このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が2以下の時このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'chill',
-            type: ['mentalRecover', 'loveAttract_stage']
-          }
-        }
+            type: ['mentalRecover', 'loveAttract_stage'],
+          },
+        },
       },
-      'グルーヴィアトラクト': {
+      グルーヴィアトラクト: {
         groovyAttract_stage_over8_sectionAttract: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'loveAttract_section']
-          }
+            type: ['loveAttract_stage', 'loveAttract_section'],
+          },
         },
         groovyAttract_stage_over6_stageAttract: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が6以上の時このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が6以上の時このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage']
-          }
+            type: ['loveAttract_stage'],
+          },
         },
         groovyAttract_section_over6_sectionAttract: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が6以上の時このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージLv.が6以上の時このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_section']
-          }
+            type: ['loveAttract_section'],
+          },
         },
         groovyAttract_stage_over10_stageAttract: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が10以上の時このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が10以上の時このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage']
-          }
+            type: ['loveAttract_stage'],
+          },
         },
       },
-      'グルーヴィアトラクション': {
+      グルーヴィアトラクション: {
         groovyAttraction_section_over10_heartCaptcha: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が10以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージLv.が10以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_section', 'heartCaptcha']
-          }
+            type: ['loveAttract_section', 'heartCaptcha'],
+          },
         },
         groovyAttraction_section_over8_heartCaptcha: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が8以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_section', 'heartCaptcha']
-          }
+            type: ['loveAttract_section', 'heartCaptcha'],
+          },
         },
         groovyAttraction_stage_over8_heartCaptcha: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が8以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'heartCaptcha']
-          }
+            type: ['loveAttract_stage', 'heartCaptcha'],
+          },
         },
         groovyAttraction_over8_heartCaptcha_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         groovyAttraction_section_over10_heartCaptcha_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'グルーヴィハート': {
+      グルーヴィハート: {
         groovyHeart_over8_heartCaptcha_mentalRecover: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'mentalRecover']
-          }
+            type: ['heartCaptcha', 'mentalRecover'],
+          },
         },
         groovyHeart_over8_heartCaptcha: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha']
-          }
+            type: ['heartCaptcha'],
+          },
         },
         groovyHeart_over8_voltageGain_heartCaptcha: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が8以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha']
-          }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
         },
         groovyHeart_over10_voltageGain_heartCaptcha: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が10以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が10以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha']
-          }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
         },
         groovyHeart_over8_mentalRecover_heartCaptcha: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにボルテージLv.が8以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['mentalRecover', 'heartCaptcha']
-          }
-        }
+            type: ['mentalRecover', 'heartCaptcha'],
+          },
+        },
       },
-      'グルーヴィボルテージ': {
+      グルーヴィボルテージ: {
         groovyVoltage_over8_voltageGain_heartCaptcha: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が8以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha']
-          }
-        }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
       },
-      'グルーヴィリカバー': {
+      グルーヴィリカバー: {
         groovyRecover_over8_mentalRecover: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'groovy',
-            type: ['mentalRecover']
-          }
-        }
+            type: ['mentalRecover'],
+          },
+        },
       },
-      'グルーヴィブースト': {
+      グルーヴィブースト: {
         groovyBoost_over10_stageAttract_boost: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が10以上の時次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が10以上の時次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'boost_heartCaptcha']
-          }
+            type: ['loveAttract_stage', 'boost_heartCaptcha'],
+          },
         },
         groovyBoost_over10_boost_heartCaptcha: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにボルテージLv.が10以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにボルテージLv.が10以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'groovy',
-            type: ['boost_heartCaptcha', 'heartCaptcha']
-          }
+            type: ['boost_heartCaptcha', 'heartCaptcha'],
+          },
         },
       },
-      'グルーヴィイニシアチブ': {
+      グルーヴィイニシアチブ: {
         groovyInitiative_over8_voltageGain_protect: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が8以上の時このステージ中、メンタルを最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時このステージ中、メンタルを最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'protect_stage']
-          }
-        }
+            type: ['voltageGain', 'protect_stage'],
+          },
+        },
       },
-      'グルーヴィファッシネイト': {
+      グルーヴィファッシネイト: {
         groovyFascinate_over8_voltageGain_sectionAttract: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+', 'する。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'loveAttract_section']
-          }
+            type: ['voltageGain', 'loveAttract_section'],
+          },
         },
         groovyFascinate_over10_voltageGain_sectionAttract: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+',
-            'する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+', 'する。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'loveAttract_section']
-          }
-        }
+            type: ['voltageGain', 'loveAttract_section'],
+          },
+        },
       },
-      'グルーヴィフィール': {
+      グルーヴィフィール: {
         groovyFeel_stage_over10_sectionAttract: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['protect_stage', 'loveAttract_section']
-          }
-        }
+            type: ['protect_stage', 'loveAttract_section'],
+          },
+        },
       },
-      'グルーヴィヒート': {
+      グルーヴィヒート: {
         groovyHeat_section_over10: {
-          text: [
-            'このセクション中、AP回復速度を+5%する。さらにボルテージLv.が10以上の時このステージ中、5回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['このセクション中、AP回復速度を+5%する。さらにボルテージLv.が10以上の時このステージ中、5回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'groovy',
-            type: ['APQuick', 'boost_loveAttract']
-          }
-        }
+            type: ['APQuick', 'boost_loveAttract'],
+          },
+        },
       },
-      'スイッチボルテージ': {
+      スイッチボルテージ: {
         switchVoltage: {
-          text: [
-            'ボルテージLv.5以下の時ボルテージPt.を+',
-            'する。ボルテージLv.が6以上の時ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージLv.5以下の時ボルテージPt.を+', 'する。ボルテージLv.が6以上の時ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'switch',
-            type: ['voltageGain', 'heartCaptcha']
-          }
-        }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
       },
-      'スイッチアトラクション': {
+      スイッチアトラクション: {
         switchAttraction_basis5_stageAttract_heartCaptcha: {
-          text: [
-            'ボルテージLv.5以下の時このステージ中、獲得するLOVEを+',
-            '%する。ボルテージLv.が6以上の時ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージLv.5以下の時このステージ中、獲得するLOVEを+', '%する。ボルテージLv.が6以上の時ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'switch',
-            type: ['loveAttract_stage', 'heartCaptcha', 'loveAttract_section']
-          }
+            type: ['loveAttract_stage', 'heartCaptcha', 'loveAttract_section'],
+          },
         },
         switchAttraction_basis5_voltageGain_heartCaptcha_sectionAttract: {
-          text: [
-            'ボルテージLv.5以下の時ボルテージPt.を+',
-            'する。ボルテージLv.が6以上の時ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージLv.5以下の時ボルテージPt.を+', 'する。ボルテージLv.が6以上の時ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'switch',
-            type: ['voltageGain', 'heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['voltageGain', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'スイッチプロテクト': {
+      スイッチプロテクト: {
         switchProtect: {
-          text: [
-            'メンタルが50%未満のとき、このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。メンタルが50%以上のとき、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['メンタルが50%未満のとき、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。メンタルが50%以上のとき、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'switch',
-            type: ['protect_stage', 'loveAttract_section']
-          }
-        }
+            type: ['protect_stage', 'loveAttract_section'],
+          },
+        },
       },
-      'カームハート': {
+      カームハート: {
         calmHeart: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージPt.を-20する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
-            type: ['heartCaptcha', 'voltageReduce']
-          }
-        }
+            type: ['heartCaptcha', 'voltageReduce'],
+          },
+        },
       },
-      'カームアトラクト': {
+      カームアトラクト: {
         calmAttract30_sectionAttract: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を-30する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を-30する。'],
           detail: {
             attr: 'calm',
-            type: ['loveAttract_section', 'voltageReduce']
-          }
+            type: ['loveAttract_section', 'voltageReduce'],
+          },
         },
         calmAttract20_sectionExtensions2: {
-          text: [
-            'このセクション中、手札の上限枚数を2枚増加し、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を-20する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を2枚増加し、獲得するLOVEを+', '%する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
-            type: ['extensions_section', 'loveAttract_section', 'voltageReduce']
-          }
-        }
+            type: ['extensions_section', 'loveAttract_section', 'voltageReduce'],
+          },
+        },
       },
-      'カームアトラクション': {
+      カームアトラクション: {
         calmAttraction20_heartCaptcha_stageAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を-20する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+', '%する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
-            type: ['heartCaptcha', 'loveAttract_stage', 'voltageReduce']
-          }
+            type: ['heartCaptcha', 'loveAttract_stage', 'voltageReduce'],
+          },
         },
         calmAttraction30_heartCaptcha_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を-30する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を-30する。'],
           detail: {
             attr: 'calm',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageReduce']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section', 'voltageReduce'],
+          },
+        },
       },
-      'カームブースト': {
+      カームブースト: {
         calmBoost20: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにボルテージPt.を-20する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
-            type: ['boost_heartCaptcha', 'voltageReduce']
-          }
-        }
+            type: ['boost_heartCaptcha', 'voltageReduce'],
+          },
+        },
       },
-      'カームプロテクト': {
+      カームプロテクト: {
         calmProtect: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにボルテージPt.を-10する。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにボルテージPt.を-10する。'],
           detail: {
             attr: 'calm',
-            type: ['protect_stage', 'voltageReduce']
-          }
-        }
+            type: ['protect_stage', 'voltageReduce'],
+          },
+        },
       },
-      'ヒーリングハート': {
+      ヒーリングハート: {
         healingHeart_recover_heart: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにビートハート',
-            '個分のスキルハートを獲得する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにビートハート', '個分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'heartCaptcha']
-          }
+            type: ['mentalRecover', 'heartCaptcha'],
+          },
         },
         healingHeart_heart_recover: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'mentalRecover']
-          }
-        }
+            type: ['heartCaptcha', 'mentalRecover'],
+          },
+        },
       },
-      'ラブキャブティベイト': {
+      ラブキャブティベイト: {
         loveCaptivate: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'loveAttract_section']
-          }
-        }
+            type: ['loveAttract_stage', 'loveAttract_section'],
+          },
+        },
       },
-      'エンデュランス': {
+      エンデュランス: {
         endurance_APGain: {
-          text: [
-            'ボルテージPt.を+',
-            'し、メンタルを最大値の',
-            '%回復させる。さらにAPを1回復する。'
-          ],
+          text: ['ボルテージPt.を+', 'し、メンタルを最大値の', '%回復させる。さらにAPを1回復する。'],
           detail: {
             attr: 'endurance',
-            type: ['voltageGain', 'APGain']
-          }
+            type: ['voltageGain', 'APGain'],
+          },
         },
         endurance_mentalVoltage: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'endurance',
-            type: ['mentalRecover', 'voltageGain']
-          }
+            type: ['mentalRecover', 'voltageGain'],
+          },
         },
         endurance_voltageMental: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'endurance',
-            type: ['voltageGain', 'mentalRecover']
-          }
-        }
+            type: ['voltageGain', 'mentalRecover'],
+          },
+        },
       },
-      'ロープロテクト': {
+      ロープロテクト: {
         lowProtect: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。さらにメンタルが30%以下のとき、メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにメンタルが30%以下のとき、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'low',
-            type: ['protect_stage', 'mentalRecover']
-          }
-        }
+            type: ['protect_stage', 'mentalRecover'],
+          },
+        },
       },
-      'イニシアチブ': {
+      イニシアチブ: {
         initiative: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'initiative',
-            type: ['voltageGain', 'protect_stage']
-          }
-        }
+            type: ['voltageGain', 'protect_stage'],
+          },
+        },
       },
-      'クラッチリカバー': {
+      クラッチリカバー: {
         clutchRecover: {
-          text: [
-            'メンタルが25%以上のとき、メンタルを最大値の',
-            '%回復させる。メンタルが25%未満のとき、メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['メンタルが25%以上のとき、メンタルを最大値の', '%回復させる。メンタルが25%未満のとき、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'clutch',
-            type: ['mentalRecover']
-          }
-        }
+            type: ['mentalRecover'],
+          },
+        },
       },
-      'ボルテックスアトラクション': {
+      ボルテックスアトラクション: {
         vortexAttraction_section: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'vortex',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain']
-          }
+            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain'],
+          },
         },
         vortexAttraction_stage: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'vortex',
-            type: ['heartCaptcha', 'loveAttract_stage', 'voltageGain']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_stage', 'voltageGain'],
+          },
+        },
       },
-      'ボルテックスシフト': {
+      ボルテックスシフト: {
         vortexShift: {
-          text: [
-            'このステージ中、ボルテージPt.を獲得する効果が発動した時、代わりに獲得するボルテージPt.の',
-            '%の個数のスキルハートを獲得する。'
-          ],
+          text: ['このステージ中、ボルテージPt.を獲得する効果が発動した時、代わりに獲得するボルテージPt.の', '%の個数のスキルハートを獲得する。'],
           detail: {
             attr: 'vortex',
-            type: ['heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha'],
+          },
+        },
       },
-      'クイックフォーム': {
+      クイックフォーム: {
         quickForm: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+',
-            '%する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['cardReduce', 'APQuick']
-          }
-        }
+            type: ['cardReduce', 'APQuick'],
+          },
+        },
       },
-      'オールマイトヒーリング': {
-          allMightHealing: {
-            text: [
-            'このステージ中、メンタルが回復した時、回復量の',
-            '%の個数のスキルハートを獲得する。'
-          ],
+      オールマイトヒーリング: {
+        allMightHealing: {
+          text: ['このステージ中、メンタルが回復した時、回復量の', '%の個数のスキルハートを獲得する。'],
           detail: {
             attr: 'allMight',
-            type: ['heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha'],
+          },
+        },
       },
       'Link! Like! Order!': {
         linklikeorder: {
-          text: [
-            'このステージ中、花帆/梢/さやか/綴理/瑠璃乃/慈のスキルを重複なく全員使用するたび、ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。消費APの合計に応じて効果量が変化する。'
-          ],
+          text: ['このステージ中、花帆/梢/さやか/綴理/瑠璃乃/慈のスキルを重複なく全員使用するたび、ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。消費APの合計に応じて効果量が変化する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'トリオフライト': {
+      'Link! Like! Order! 9': {
+        linklikeorder9: {
+          text: ['このステージ中、吟子/花帆/梢/小鈴/さやか/綴理/姫芽/瑠璃乃/慈のスキルを全員使用するたび、このステージ中、手札の上限枚数を1枚増加、獲得するLOVEを+', '%し、AP回復速度を+27%する。消費APの合計に応じてアトラクト効果量が変化する。各メンバーのスキルを使用した際、消費APの記録を上書きする。'],
+          detail: {
+            attr: '',
+            type: ['extendHand', 'loveAttract_stage', 'APQuick'],
+          },
+        },
+      },
+      トリオフライト: {
         trioFlight_section: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'],
           detail: {
             attr: 'trio',
-            type: ['heartCaptcha', 'loveAttract_section', 'reshuffle']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section', 'reshuffle'],
+          },
+        },
       },
-      'トライアングルライト': {
+      トライアングルライト: {
         triangleLight_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%し、ボルテージPt.を+',
-            'する。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%し、ボルテージPt.を+', 'する。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'triangle',
-            type: ['loveAttract_stage', 'voltageGain', 'protect_stage']
-          }
-        }
+            type: ['loveAttract_stage', 'voltageGain', 'protect_stage'],
+          },
+        },
       },
-      'ブルーミングハート': {
+      ブルーミングハート: {
         bloomingHeart: {
-          text: [
-            'このステージ中、メイン効果に獲得LOVE増加効果を持つスキルの消費AP-2。さらに2回の間ラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['このステージ中、メイン効果に獲得LOVE増加効果を持つスキルの消費AP-2。さらに2回の間ラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['APSlow', 'boost_heartCaptcha', 'heartLimitUp']
-          }
-        }
+            type: ['APSlow', 'boost_heartCaptcha', 'heartLimitUp'],
+          },
+        },
       },
-      'ユースフルキャプチャ': {
+      ユースフルキャプチャ: {
         youthfulCaptcha: {
-          text: [
-            'このステージ中、ボルテージPt.が1秒ごとに25ptずつ減少し、スキル使用時にビートハート',
-            '回分のスキルハートを獲得する。消費APに応じて効果量が変化する。'
-          ],
+          text: ['このステージ中、ボルテージPt.が1秒ごとに25ptずつ減少し、スキル使用時にビートハート', '回分のスキルハートを獲得する。消費APに応じて効果量が変化する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'voltageReduce']
-          }
-        }
+            type: ['heartCaptcha', 'voltageReduce'],
+          },
+        },
       },
-      'デュオアトラクト': {
+      デュオアトラクト: {
         duoAttract: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'loveAttract_section']
-          }
-        }
+            type: ['loveAttract_stage', 'loveAttract_section'],
+          },
+        },
       },
-      'チャウチャウパーティ': {
+      チャウチャウパーティ: {
         chowchowParty: {
-          text: [
-            'チャウチャウカードを4種類(合計10枚)山札に追加する。さらにこのステージ中、手札の上限枚数を1枚減少する。'
-          ],
+          text: ['チャウチャウカードを4種類(合計10枚)山札に追加する。さらにこのステージ中、手札の上限枚数を1枚減少する。'],
           detail: {
             attr: '',
-            type: ['addCard', 'cardReduce']
-          }
-        }
+            type: ['addCard', 'cardReduce'],
+          },
+        },
       },
-      'チャウチャウパフォーマンス': {
+      チャウチャウパフォーマンス: {
         chowchowPerformance: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha'],
+          },
+        },
       },
-      'チャウチャウムードメイク': {
+      チャウチャウムードメイク: {
         chowchowMoodMake: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '18',
-            type: ['loveAttract_section']
-          }
-        }
+            type: ['loveAttract_section'],
+          },
+        },
       },
-      'チャウチャウチアリーディング': {
+      チャウチャウチアリーディング: {
         chowchowCheerLeading: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '14.4',
-            type: ['mentalRecover']
-          }
-        }
+            type: ['mentalRecover'],
+          },
+        },
       },
-      'チャウチャウトリック': {
+      チャウチャウトリック: {
         chowchowTrick: {
-          text: [
-            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。'
-          ],
+          text: ['手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。'],
           detail: {
             attr: '',
-            type: ['reshuffle']
-          }
-        }
+            type: ['reshuffle'],
+          },
+        },
       },
-      'チャウチャウプレゼント': {
+      チャウチャウプレゼント: {
         chowchowPresent: {
-          text: [
-            'チャウチャウカードを1種類(合計1枚)山札に追加する。'
-          ],
+          text: ['チャウチャウカードを1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
-      'チャウチャウバカンス': {
+      チャウチャウバカンス: {
         chowchowVacances: {
-          text: [
-            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を2枚増加し、メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を2枚増加し、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extensions_section', 'mentalRecover']
-          }
-        }
+            type: ['reshuffle', 'extensions_section', 'mentalRecover'],
+          },
+        },
       },
-      'ドリーミングサポート': {
+      ドリーミングサポート: {
         dreamingSupport: {
-          text: [
-            '手札の全てのスキルの消費AP-3。さらにこのステージ中、獲得するLOVEを+',
-            '%し、ボルテージPt.を+',
-            '、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['手札の全てのスキルの消費AP-3。さらにこのステージ中、獲得するLOVEを+', '%し、ボルテージPt.を+', '、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['APReduce_all', 'loveAttract_stage', 'voltageGain', 'protect_stage']
-          }
-        }
+            type: ['APReduce_all', 'loveAttract_stage', 'voltageGain', 'protect_stage'],
+          },
+        },
       },
-      'ブレイブハート': {
+      ブレイブハート: {
         braveHeart_under50: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが50%以下の時、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが50%以下の時、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha'],
+          },
+        },
       },
-      'ブレイブアトラクト': {
+      ブレイブアトラクト: {
         braveAttract_under25_sectionAttract: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが25%以下のとき、APを1回復する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが25%以下のとき、APを1回復する。'],
           detail: {
             attr: 'brave',
-            type: ['loveAttract_section']
-          }
+            type: ['loveAttract_section'],
+          },
         },
         braveAttract_under50_sectionAttract_APGain: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが50%以下のとき、APを1回復する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが50%以下のとき、APを1回復する。'],
           detail: {
             attr: 'brave',
-            type: ['loveAttract_section', 'APGain']
-          }
-        }
+            type: ['loveAttract_section', 'APGain'],
+          },
+        },
       },
-      'ブレイブアトラクション': {
+      ブレイブアトラクション: {
         braveAttraction_under1_heartCaptcha_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが1%以下の時、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが1%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         braveAttraction_under5_heartCaptcha_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが5%以下の時、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが5%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         braveAttraction_under25_sectionAttract_heartCaptcha: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが25%以下の時、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが25%以下の時、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
         },
         braveAttraction_under50_heartCaptcha_sectionAttract: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
-      'ブレイブファッシネイト': {
+      ブレイブファッシネイト: {
         braveFascinate_under50_voltageGain_sectionAttract: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'loveAttract_section']
-          }
-        }
+            type: ['voltageGain', 'loveAttract_section'],
+          },
+        },
       },
-      'ブレイブボルテージハート': {
+      ブレイブボルテージハート: {
         braveVoltageHeart_under25: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが25%以下の時、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが25%以下の時、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'heartCaptcha']
-          }
-        }
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
       },
-      'ブレイブエクステボルテージ': {
+      ブレイブエクステボルテージ: {
         braveExtensionsVoltage1_under50_section: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが50%以下のとき、このセクション中、手札の上限枚数を1枚増加する。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以下のとき、このセクション中、手札の上限枚数を1枚増加する。'],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'extensions_section']
-          }
-        }
+            type: ['voltageGain', 'extensions_section'],
+          },
+        },
       },
-      'ブレイブワイドブースト': {
+      ブレイブワイドブースト: {
         braveWideBoost_under10_section: {
-          text: [
-            'このセクション中、ハート上限を+',
-            'する。さらにメンタルが10%以下の時、次に使用するスキルハート獲得効果による獲得数を+',
-            'する。'
-          ],
+          text: ['このセクション中、ハート上限を+', 'する。さらにメンタルが10%以下の時、次に使用するスキルハート獲得効果による獲得数を+', 'する。'],
           detail: {
             attr: 'brave',
-            type: ['heartLimitUp', 'boost_heartCaptcha']
-          }
-        }
+            type: ['heartLimitUp', 'boost_heartCaptcha'],
+          },
+        },
       },
       'ブレイブブーステッドリカバー：DOLLCHESTRA': {
         braveBoostedRecover_dollchestra: {
-          text: [
-            '3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
-            'する。さらにメンタルが1%以下のとき、メンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+', 'する。さらにメンタルが1%以下のとき、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'brave',
-            type: ['boost_loveAttract', 'mentalRecover']
-          }
-        }
+            type: ['boost_loveAttract', 'mentalRecover'],
+          },
+        },
       },
       'ドレス《室咲格子》': {
         dress_murozaki: {
-          text: [
-            'ドレスカード《室咲格子》を山札に1枚追加する。'
-          ],
+          text: ['ドレスカード《室咲格子》を山札に1枚追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《レインボーシフォン》': {
         dress_rainbow: {
-          text: [
-            'ドレスカード《レインボーシフォン》を山札に1枚追加する。'
-          ],
+          text: ['ドレスカード《レインボーシフォン》を山札に1枚追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《Dream Believers》': {
         dress_DreamBelievers: {
-          text: [
-            'ドレスカード《Dream Believers》を2種類(合計2枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《Dream Believers》を2種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《Reflection in the mirror》': {
         dress_ReflectionInTheMirror: {
-          text: [
-            'ドレスカード《Reflection in the mirror》を3種類(合計3枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《Reflection in the mirror》を3種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《青嵐の鯉流し》': {
         dress_seiranNoKoinagashi: {
-          text: [
-            'ドレスカード《青嵐の鯉流し》を1種類(合計2枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《青嵐の鯉流し》を1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《Ether Aria》': {
         dress_etherAria: {
-          text: [
-            'ドレスカード《Ether Aria》を1種類(合計9枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《Ether Aria》を1種類(合計9枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《Bloom the smile, Bloom the dream!》': {
         dress_BsBd: {
-          text: [
-            'ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《アオクハルカ》': {
         dress_aokuharuka_kaho: {
-          text: [
-            'ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
+            type: ['addCard'],
+          },
         },
         dress_aokuharuka_kozue: {
-          text: [
-            'ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
+            type: ['addCard'],
+          },
         },
         dress_aokuharuka_ginko: {
-          text: [
-            'ドレスカード《アオクハルカ》を1種類(合計3枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《アオクハルカ》を1種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
+            type: ['addCard'],
+          },
         },
       },
       'ドレス《PASSION!!!!!!》': {
         dress_passion: {
-          text: [
-            'ドレスカード《PASSION!!!!!!》を1種類(合計2枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《PASSION!!!!!!》を1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
       'ドレス《16th Birthday》': {
         dress_birthday: {
-          text: [
-            'ドレスカード《16th Birthday》を1種類(合計1枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《16th Birthday》を1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
       },
-      'ドレス：月夜見海月': {
+      'ドレス《月夜見海月》': {
         dress_tsukuyomi: {
-          text: [
-            'ドレスカード《月夜見海月》を1種類(合計3枚)山札に追加する。さらにデッキ枚数が25枚以下のとき、ドレスカード《月夜見海月》を1種類(合計3枚)山札に追加する。'
-          ],
+          text: ['ドレスカード《月夜見海月》を1種類(合計3枚)山札に追加する。さらにデッキ枚数が25枚以下のとき、ドレスカード《月夜見海月》を1種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard']
-          }
-        }
+            type: ['addCard'],
+          },
+        },
+      },
+      'ドレス《Link to the FUTURE》': {
+        dress_lttf: {
+          text: ['ドレスカード《Link to the FUTURE》を1種類(合計3枚)山札に追加する。'],
+          detail: {
+            attr: '',
+            type: ['addCard'],
+          },
+        },
       },
       'リメイクドレス《華・麗・雅》': {
         remakeDress_hrm: {
-          text: [
-            'リメイクドレスカード《華・麗・雅》を3種類(合計3枚)山札に追加する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'
-          ],
+          text: ['リメイクドレスカード《華・麗・雅》を3種類(合計3枚)山札に追加する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'],
           detail: {
             attr: '',
-            type: ['addCard', 'reshuffle']
-          }
-        }
+            type: ['addCard', 'reshuffle'],
+          },
+        },
       },
-      'リブートエクステンド': {
+      リブートエクステンド: {
         rebootExtend_stage1_stageAttract: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、手札の上限枚数を1枚増加し、次に使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、手札の上限枚数を1枚増加し、次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extendHand', 'boost_loveAttract']
-          }
-        }
+            type: ['reshuffle', 'extendHand', 'boost_loveAttract'],
+          },
+        },
       },
-      'リブートハート': {
+      リブートハート: {
         rebootHeart: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_heartCaptcha']
-          }
-        }
+            type: ['reshuffle', 'boost_heartCaptcha'],
+          },
+        },
       },
-      'リブートアトラクト': {
+      リブートアトラクト: {
         rebootAttract: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract']
-          }
-        }
+            type: ['reshuffle', 'boost_loveAttract'],
+          },
+        },
       },
       'リブートアトラクト：みらくらぱーく！': {
         rebootAttract_mirapa: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract']
-          }
-        }
+            type: ['reshuffle', 'boost_loveAttract'],
+          },
+        },
       },
-      'リブートプロテクト': {
+      リブートプロテクト: {
         rebootProtect: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するラブアトラクト効果を+',
-            '%し、このステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するラブアトラクト効果を+', '%し、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract', 'protect_stage']
-          }
-        }
+            type: ['reshuffle', 'boost_loveAttract', 'protect_stage'],
+          },
+        },
       },
-      'ボルテージサポート': {
+      ボルテージサポート: {
         voltageSupport: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。'
-          ],
+          text: ['ボルテージPt.を+', 'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。'],
           detail: {
             attr: '',
-            type: ['voltageGain', 'APReduce_voltageGain']
-          }
-        }
+            type: ['voltageGain', 'APReduce_voltageGain'],
+          },
+        },
       },
-      'オーバーブルーミング': {
+      オーバーブルーミング: {
         overBlooming_section: {
-          text: [
-            'このセクション中、ハートの上限を+',
-            'する。さらに',
-            '個のスキルハートを獲得する。'
-          ],
+          text: ['このセクション中、ハートの上限を+', 'する。さらに', '個のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'heartCaptcha']
-          }
-        }
+            type: ['heartLimitUp', 'heartCaptcha'],
+          },
+        },
       },
-      'ハートスプリンクル': {
+      ハートスプリンクル: {
         heartSprinkles: {
-          text: [
-            '',
-            '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['', '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'boost_heartCaptcha']
-          }
-        }
+            type: ['heartCaptcha', 'boost_heartCaptcha'],
+          },
+        },
       },
-      'アトラクトブレッシング': {
+      アトラクトブレッシング: {
         attractBlessing: {
-          text: [
-            'このステージ中、メイン効果に獲得LOVE増加効果を持つスキルの消費AP-2。さらに2回の間ラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['このステージ中、メイン効果に獲得LOVE増加効果を持つスキルの消費AP-2。さらに2回の間ラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'heartCaptcha']
-          }
-        }
+            type: ['heartLimitUp', 'heartCaptcha'],
+          },
+        },
       },
-      'フルリカバー': {
+      フルリカバー: {
         fullRecover: {
-          text: [
-            'メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の',
-            '%回復する。'
-          ],
+          text: ['メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover']
-          }
-        }
+            type: ['mentalRecover'],
+          },
+        },
       },
-      'ソラス': {
+      ソラス: {
         solas: {
-          text: [
-            'このセクション中、メンタルが1秒ごとに最大値の',
-            '%回復する。'
-          ],
+          text: ['このセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover']
-          }
-        }
+            type: ['mentalRecover'],
+          },
+        },
       },
-      'アトラクションゲイン': {
+      アトラクションゲイン: {
         attractionGain: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
-            '%する。さらにAPを10回復する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+', '%する。さらにAPを10回復する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage', 'APGain']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_stage', 'APGain'],
+          },
+        },
       },
-      'ハートチューニング': {
+      ハートチューニング: {
         heartTuning: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにこのセクション中、獲得するLOVEを+',
-            '%し、ハート数の上限を+',
-            'する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにこのセクション中、獲得するLOVEを+', '%し、ハート数の上限を+', 'する。'],
           detail: {
             attr: 'tuning',
-            type: ['boost_heartCaptcha', 'loveAttract_section', 'heartLimitUp']
-          }
-        }
+            type: ['boost_heartCaptcha', 'loveAttract_section', 'heartLimitUp'],
+          },
+        },
       },
-      'ハートブレッシング': {
+      ハートブレッシング: {
         heartBlessing: {
-          text: [
-            'このステージ中、メイン効果にスキルハート獲得効果を持つスキルの消費AP-2。さらに4回の間スキルハート獲得効果による獲得数を+',
-            '%する。'
-          ],
+          text: ['このステージ中、メイン効果にスキルハート獲得効果を持つスキルの消費AP-2。さらに4回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'blessing',
-            type: ['APReduce_heart', 'boost_heartCaptcha']
-          }
-        }
+            type: ['APReduce_heart', 'boost_heartCaptcha'],
+          },
+        },
       },
-      'エクステアトラクトブースト': {
+      エクステアトラクトブースト: {
         extendAttractBoost: {
-          text: [
-            'このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['extendHand', 'boost_loveAttract']
-          }
-        }
+            type: ['extendHand', 'boost_loveAttract'],
+          },
+        },
       },
-      'ラブギフト': {
+      ラブギフト: {
         loveGift: {
-          text: [
-            'それぞれ3回の間スキルハート獲得効果による獲得数を',
-            '%、ラブアトラクト効果を',
-            '%する。さらにこのセクション中、ハート数の上限を+',
-            'する。'
-          ],
+          text: ['それぞれ3回の間スキルハート獲得効果による獲得数を', '%、ラブアトラクト効果を', '%する。さらにこのセクション中、ハート数の上限を+', 'する。'],
           detail: {
             attr: 'gift',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'heartLimitUp']
-          }
-        }
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'heartLimitUp'],
+          },
+        },
       },
-      'フューチャーブレッシング': {
+      フューチャーブレッシング: {
         futureBlessing: {
-          text: [
-            '山札にある全てのスキルの消費AP-1。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['山札にある全てのスキルの消費AP-1。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'blessing',
-            type: ['APReduce_all', 'protect_stage']
-          }
-        }
+            type: ['APReduce_all', 'protect_stage'],
+          },
+        },
       },
-      'エイペックス': {
+      エイペックス: {
         apex: {
-          text: [
-            'ボルテージLv.を10にし、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['ボルテージLv.を10にし、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'apex',
-            type: ['voltageGain', 'loveAttract_stage']
-          }
-        }
+            type: ['voltageGain', 'loveAttract_stage'],
+          },
+        },
       },
-      'ワイドハート': {
+      ワイドハート: {
         wideHeart_stage: {
-          text: [
-            'このステージ中、ハートの上限を+',
-            'する。'
-          ],
+          text: ['このステージ中、ハートの上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp']
-          }
-        }
+            type: ['heartLimitUp'],
+          },
+        },
       },
-      'ワイドエクステンド': {
+      ワイドエクステンド: {
         wideExtend_section3: {
-          text: [
-            'このセクション中、ハート上限を+',
-            'し、手札の上限枚数を3枚増加する。'
-          ],
+          text: ['このセクション中、ハート上限を+', 'し、手札の上限枚数を3枚増加する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand']
-          }
+            type: ['heartLimitUp', 'extendHand'],
+          },
         },
         wideExtend_stage1: {
-          text: [
-            'このステージ中、ハート上限を+',
-            'し、手札の上限枚数を1枚増加する。'
-          ],
+          text: ['このステージ中、ハート上限を+', 'し、手札の上限枚数を1枚増加する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand']
-          }
+            type: ['heartLimitUp', 'extendHand'],
+          },
         },
         wideExtend_stage1_2: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加し、ハート上限を+',
-            'する。'
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加し、ハート上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand']
-          }
+            type: ['heartLimitUp', 'extendHand'],
+          },
         },
         wideExtend_section4: {
-          text: [
-            'このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+',
-            'する。'
-          ],
+          text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand']
-          }
-        }
+            type: ['heartLimitUp', 'extendHand'],
+          },
+        },
       },
-      'ワイドゲイン': {
+      ワイドゲイン: {
         wideGain_section: {
-          text: [
-            'このセクション中、ハートの上限を+',
-            'する。さらにAPを+5する。'
-          ],
+          text: ['このセクション中、ハートの上限を+', 'する。さらにAPを+5する。'],
           detail: {
             attr: 'wide',
-            type: ['heartLimitUp', 'APGain']
-          }
-        }
+            type: ['heartLimitUp', 'APGain'],
+          },
+        },
       },
-      'セレブレイション': {
+      セレブレイション: {
         celebration_heart_attract_mental: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%、ラブアトラクト効果を+',
-            '%、メンタルリカバー効果を+',
-            '%する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%、ラブアトラクト効果を+', '%、メンタルリカバー効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_mentalRecover']
-          }
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_mentalRecover'],
+          },
         },
         celebration_attract_voltage_mental: {
-          text: [
-            '次に使用するラブアトラクト効果を+',
-            '%、ボルテージゲイン効果を+',
-            '%、メンタルリカバー効果を+',
-            '%する。'
-          ],
+          text: ['次に使用するラブアトラクト効果を+', '%、ボルテージゲイン効果を+', '%、メンタルリカバー効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover']
-          }
+            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover'],
+          },
         },
         celebration_voltage_mental_heart: {
-          text: [
-            '次に使用するボルテージゲイン効果を+',
-            '%、メンタルリカバー効果を+',
-            '%、スキルハート獲得効果を+',
-            '%する。'
-          ],
+          text: ['次に使用するボルテージゲイン効果を+', '%、メンタルリカバー効果を+', '%、スキルハート獲得効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_voltageGain', 'boost_mentalRecover', 'boost_heartCaptcha']
-          }
+            type: ['boost_voltageGain', 'boost_mentalRecover', 'boost_heartCaptcha'],
+          },
         },
         celebration_heart_attract_voltage: {
-          text: [
-            '次に使用するスキルハート獲得効果を+',
-            '%、ラブアトラクト効果を+',
-            '%、ボルテージゲイン効果を+',
-            '%する。'
-          ],
+          text: ['次に使用するスキルハート獲得効果を+', '%、ラブアトラクト効果を+', '%、ボルテージゲイン効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain']
-          }
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
+          },
         },
         celebration_attract_voltage_protect: {
-          text: [
-            '次に使用するラブアトラクト効果を+',
-            '%、ボルテージゲイン効果を+',
-            '%、メンタルプロテクト効果を+',
-            '%する。'
-          ],
+          text: ['次に使用するラブアトラクト効果を+', '%、ボルテージゲイン効果を+', '%、メンタルプロテクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalProtect']
-          }
+            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalProtect'],
+          },
         },
       },
-      'ビリーフブースト': {
+      ビリーフブースト: {
         beliefBoost: {
-          text: [
-            'このセクション、メンタルが0になってもメンタルダウンしなくなる。さらに次に使用するスキルハート獲得効果による獲得数を+',
-            '%、ラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['このセクション、メンタルが0になってもメンタルダウンしなくなる。さらに次に使用するスキルハート獲得効果による獲得数を+', '%、ラブアトラクト効果を+', '%する。'],
           detail: {
             attr: 'belief',
-            type: ['mentalDown_section', 'boost_heartCaptcha', 'boost_loveAttract']
-          }
-        }
+            type: ['mentalDown_section', 'boost_heartCaptcha', 'boost_loveAttract'],
+          },
+        },
       },
       'ビリーフブースト：DOLLCHESTRA': {
         beliefBoost_dollchestra: {
-          text: [
-            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: 'belief',
-            type: ['mentalDown_section', 'boost_loveAttract']
-          }
-        }
+            type: ['mentalDown_section', 'boost_loveAttract'],
+          },
+        },
       },
-      'ブーステッドフィール': {
+      ブーステッドフィール: {
         boostedFeel: {
-          text: [
-            'メンタルを最大値の',
-            '%回復し、ボルテージPt.を+',
-            'する。さらに次に使用するラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['メンタルを最大値の', '%回復し、ボルテージPt.を+', 'する。さらに次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'voltageGain', 'boost_loveAttract']
-          }
-        }
+            type: ['mentalRecover', 'voltageGain', 'boost_loveAttract'],
+          },
+        },
       },
-      'ヒートアップ': {
+      ヒートアップ: {
         heatUp_section: {
-          text: [
-            'このセクション中、AP回復速度を+',
-            '%する。'
-          ],
+          text: ['このセクション中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['APQuick']
-          }
+            type: ['APQuick'],
+          },
         },
         heatUp_stage: {
-          text: [
-            'このステージ中、AP回復速度を+',
-            '%する。'
-          ],
+          text: ['このステージ中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['APQuick']
-          }
-        }
+            type: ['APQuick'],
+          },
+        },
       },
-      'イグニッションボルテージ': {
+      イグニッションボルテージ: {
         ignitionVoltage: {
-          text: [
-            '姫芽が《イグニッションモード》になる。さらにボルテージPt.を+',
-            'する。'
-          ],
+          text: ['姫芽が《イグニッションモード》になる。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['modeChange', 'voltageGain']
-          }
-        }
+            type: ['modeChange', 'voltageGain'],
+          },
+        },
       },
-      'イグニッションプロテクト': {
+      イグニッションプロテクト: {
         ignitionProtect: {
-          text: [
-            '姫芽が《イグニッションモード》になる。さらにこのステージ中、メンタルの最大値の',
-            '%分のメンタルダメージを無効にする。'
-          ],
+          text: ['姫芽が《イグニッションモード》になる。さらにこのステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['modeChange', 'protect_stage']
-          }
-        }
+            type: ['modeChange', 'protect_stage'],
+          },
+        },
       },
       'オルタネイト：イグニッション': {
         alternate_ignition_hime: {
-          text: [
-            '姫芽の《イグニッションモード》の状態に応じて効果が変化する。'
-          ],
+          text: ['姫芽の《イグニッションモード》の状態に応じて効果が変化する。'],
           detail: {
             attr: 'alternate',
-            type: ['ignition']
-          }
-        }
+            type: ['ignition'],
+          },
+        },
       },
-      'イグニッションリフレッシュ': {
+      イグニッションリフレッシュ: {
         ignitionRefresh_hime_mentalRecover_over100: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の',
-            '%回復させる。さらにメンタルが100%以上のとき姫芽が《イグニッションモード》になる。'
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の', '%回復させる。さらにメンタルが100%以上のとき姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'mentalRecover', 'modeChange']
-          }
-        }
+            type: ['reshuffle', 'mentalRecover', 'modeChange'],
+          },
+        },
       },
-      'イグニッションスタンバイ': {
+      イグニッションスタンバイ: {
         ignitionStandby_hime_mentalOver100OrVoltageOver10: {
-          text: [
-            'メンタルが50%以下のときメンタルを最大値の',
-            '%回復させる。ボルテージLv.が7以下のときボルテージPt.を+',
-            'する。メンタルが100%以上、またはボルテージLv.が10以上の時姫芽が《イグニッションモード》になる。'
-          ],
+          text: ['メンタルが50%以下のときメンタルを最大値の', '%回復させる。ボルテージLv.が7以下のときボルテージPt.を+', 'する。メンタルが100%以上、またはボルテージLv.が10以上の時姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'voltageGain', 'modeChange']
-          }
-        }
+            type: ['mentalRecover', 'voltageGain', 'modeChange'],
+          },
+        },
       },
-      'イグニッションエンデュランス': {
+      イグニッションエンデュランス: {
         ignitionEndurance_hime_mentalOver100OrVoltageOver10: {
-          text: [
-            'メンタルを最大値の',
-            '%回復し、ボルテージPt.を+',
-            'する。さらにメンタルが100%以上、またはボルテージLv.が10以上のとき姫芽が《イグニッションモード》になる。'
-          ],
+          text: ['メンタルを最大値の', '%回復し、ボルテージPt.を+', 'する。さらにメンタルが100%以上、またはボルテージLv.が10以上のとき姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'voltageGain', 'modeChange']
-          }
-        }
+            type: ['mentalRecover', 'voltageGain', 'modeChange'],
+          },
+        },
       },
-      'トライアングルコード': {
+      トライアングルコード: {
         triangleCode: {
-          text: [
-            '梢、綴理がそれぞれ6回の間使用するスキルハート獲得効果による獲得数を+',
-            '%、ラブアトラクト効果を+',
-            '%、ボルテージゲイン効果を+',
-            '%する。'
-          ],
+          text: ['梢、綴理がそれぞれ6回の間使用するスキルハート獲得効果による獲得数を+', '%、ラブアトラクト効果を+', '%、ボルテージゲイン効果を+', '%する。'],
           detail: {
             attr: 'triangle',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain']
-          }
-        }
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
+          },
+        },
       },
-      'アバンダンスアトラクション': {
+      アバンダンスアトラクション: {
         abunDanceAttraction_over30_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%し、AP回復速度を+1%する。さらにデッキ枚数が30枚以上のとき、ビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%し、AP回復速度を+1%する。さらにデッキ枚数が30枚以上のとき、ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha']
-          }
-        }
+            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+          },
+        },
       },
-      'アバンダンスアトラクト': {
+      アバンダンスボルテックスアトラクション: {
+        abundanceVortexAttraction: {
+          text: ['ビートハート', '回分のスキルハートを獲得し、ボルテージPt.を+', 'する。さらにデッキ枚数が25枚以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
+          detail: {
+            attr: 'abundance',
+            type: ['heartCaptcha', 'voltageGain', 'loveAttract_stage'],
+          },
+        },
+      },
+      アバンダンスアトラクト: {
         abunDanceAttract_over30_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにデッキ枚数が30枚以上のとき、このステージ中、獲得するLOVEを+',
-            '%する。'
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにデッキ枚数が30枚以上のとき、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage']
-          }
-        }
+            type: ['loveAttract_stage'],
+          },
+        },
       },
       'アバンダンスブースト：ドレス': {
         abunDanceBoost_dress_over30: {
-          text: [
-            '3回の間ドレスカードの使用によるスキルハート獲得効果による獲得数を+',
-            '%する。さらにデッキ枚数が30枚以上のとき、3回の間ドレスカードの使用によるラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['3回の間ドレスカードの使用によるスキルハート獲得効果による獲得数を+', '%する。さらにデッキ枚数が30枚以上のとき、3回の間ドレスカードの使用によるラブアトラクト効果を+', '%する。'],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha']
-          }
-        }
+            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+          },
+        },
       },
-      'バブル': {
+      バブル: {
         bubble_minus3_ceriseBouquet_dressCard: {
-          text: [
-            'デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。'
-          ],
+          text: ['デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。'],
           detail: {
             attr: 'bubble',
-            type: ['APReduce_deck_ceriseBouquet', 'APReduce_deck_dressCard']
-          }
-        }
+            type: ['APReduce_deck_ceriseBouquet', 'APReduce_deck_dressCard'],
+          },
+        },
       },
-      'タッグハート': {
+      タッグハート: {
         tagHeart_APReduce20_hime: {
-          text: [
-            'ビートハート',
-            '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。'
-          ],
+          text: ['ビートハート', '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。'],
           detail: {
             attr: 'tag',
-            type: ['heartCaptcha', 'APReduce']
-          }
-        }
+            type: ['heartCaptcha', 'APReduce'],
+          },
+        },
       },
-      'タッグブースト': {
+      タッグブースト: {
         tagBoost: {
-          text: [
-            '次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
-            '%、ラブアトラクト効果を+',
-            '%する。さらにデッキにある姫芽のスキルの消費AP-10。'
-          ],
+          text: ['次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%、ラブアトラクト効果を+', '%する。さらにデッキにある姫芽のスキルの消費AP-10。'],
           detail: {
             attr: 'tag',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'APReduce']
-          }
-        }
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'APReduce'],
+          },
+        },
       },
-      'メンターリカバー': {
+      メンターリカバー: {
         mentorRecover: {
-          text: [
-            '姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の',
-            '%回復させる。'
-          ],
+          text: ['姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'mentor',
-            type: ['modeChange', 'mentalRecover']
-          }
-        }
+            type: ['modeChange', 'mentalRecover'],
+          },
+        },
       },
-      'メンターブースト': {
+      メンターブースト: {
         mentorBoost_captcha_attract: {
-          text: [
-            '姫芽の《イグニッションモード》を切り替える。さらに次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
-            '%、ラブアトラクト効果を+',
-            '%する。'
-          ],
+          text: ['姫芽の《イグニッションモード》を切り替える。さらに次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%、ラブアトラクト効果を+', '%する。'],
           detail: {
             attr: 'mentor',
-            type: ['modeChange', 'boost_heartCaptcha', 'boost_loveAttract']
-          }
-        }
+            type: ['modeChange', 'boost_heartCaptcha', 'boost_loveAttract'],
+          },
+        },
       },
-      'フルパワーアトラクション': {
+      フルパワーアトラクション: {
         fullPowerAttraction: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得、このセクション中、獲得するLOVEを+',
-            '%し、APを20回復する。さらにメンタルを最大値の50%減少、ボルテージPt.を-600する。また姫芽の《イグニッションモード》を解除する。'
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得、このセクション中、獲得するLOVEを+', '%し、APを20回復する。さらにメンタルを最大値の50%減少、ボルテージPt.を-600する。また姫芽の《イグニッションモード》を解除する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'modeChange']
-          }
-        }
+            type: ['heartCaptcha', 'loveAttract_section', 'modeChange'],
+          },
+        },
       },
-      'モードチェンジ': {
+      モードチェンジ: {
         modeChange_mentalRecover_voltageGain: {
-          text: [
-            '姫芽の《イグニッションモード》の状態を切り替える。さらにメンタルを最大値の',
-            '%回復し、ボルテージPt.を+',
-            'する。'
-          ],
+          text: ['姫芽の《イグニッションモード》の状態を切り替える。さらにメンタルを最大値の', '%回復し、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'modeChange',
-            type: ['modeChange', 'mentalRecover', 'voltageGain']
-          }
-        }
+            type: ['modeChange', 'mentalRecover', 'voltageGain'],
+          },
+        },
       },
-      'アルティメットフォース': {
+      アルティメットフォース: {
         ultimateForce: {
-          text: [
-            'このステージ中、APを無限にする。さらに手札からスキルを使用したとき、スキル使用不可となるクールタイムが発生する。スペシャルアピールのLvが高い、デッキ枚数が多い、または楽曲が短いほどクールタイムが短くなる。'
-          ],
+          text: ['このステージ中、APを無限にする。さらに手札からスキルを使用したとき、スキル使用不可となるクールタイムが発生する。スペシャルアピールのLvが高い、デッキ枚数が多い、または楽曲が短いほどクールタイムが短くなる。'],
           detail: {
             attr: 'infinity',
-            type: ['infinity_AP_stage', 'coolTime']
-          }
-        }
+            type: ['infinity_AP_stage', 'coolTime'],
+          },
+        },
       },
-      'アブソリュートボルテージ': {
+      アブソリュートボルテージ: {
         absoluteVoltage: {
-          text: [
-            'このステージ中、ボルテージLv.を無限にする。さらにボルテージPt.を獲得する効果が発動した時、このステージ中獲得するLOVEを増加させ、APを0～20回復する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。'
-          ],
+          text: ['このステージ中、ボルテージLv.を無限にする。さらにボルテージPt.を獲得する効果が発動した時、このステージ中獲得するLOVEを増加させ、APを0～20回復する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。'],
           detail: {
             attr: 'infinity',
-            type: ['infinity_voltage_stage', 'loveAttract_stage', 'APGain']
-          }
-        }
+            type: ['infinity_voltage_stage', 'loveAttract_stage', 'APGain'],
+          },
+        },
       },
-      'エターナルスピリッツ': {
+      エターナルスピリッツ: {
         eternalSpirits: {
-          text: [
-            'このステージ中、メンタルを無限にする。さらにメンタルを回復する効果、またはメンタルプロテクト効果が発動した時、スキルハートを獲得し、APを0～20回復する。発動した効果の効果量とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。'
-          ],
+          text: ['このステージ中、メンタルを無限にする。さらにメンタルを回復する効果、またはメンタルプロテクト効果が発動した時、スキルハートを獲得し、APを0～20回復する。発動した効果の効果量とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。'],
           detail: {
             attr: 'infinity',
-            type: ['infinity_mental_stage', 'heartCaptcha', 'APGain']
-          }
-        }
+            type: ['infinity_mental_stage', 'heartCaptcha', 'APGain'],
+          },
+        },
+      },
+      モジュレートボルテージハート: {
+        modulateVoltageHeart: {
+          text: ['3セクション目までの間、ボルテージPt.を+', 'し、メンタルを最大値の10%減少させる。さらにAPを3回復する。4セクション目以降、ボルテージPt.を+', 'し、さらにメンタルが5%以下のとき、ビートハート', '回分のスキルハートを獲得する。'],
+          detail: {
+            attr: 'modulate',
+            type: ['voltageGain', 'mentalReduce', 'APGain', 'heartCaptcha'],
+          },
+        },
+      },
+      モジュレートエクステブースト: {
+        modulateExtensionsBoost: {
+          text: ['3セクション目までの間、このセクション中、手札の上限枚数を3枚増加し、このステージ中、3回の間みらくらぱーく！のメンバーが使用するラブアトラクト効果を+', '%する。4セクション目以降、このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にし、3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
+          detail: {
+            attr: 'modulate',
+            type: ['extensions_section', 'loveAttract_stage', 'protect_stage', 'boost_heartCaptcha'],
+          },
+        },
       },
     },
     skillColor: {
       heartCaptcha: {
         name: 'ハートキャプチャ',
         colorCode: 'red',
-        description: 'ハートを獲得する。'
+        description: 'ハートを獲得する。',
       },
       loveAttract: {
         name: 'ラブアトラクト',
         colorCode: 'lime-darken-3',
-        description: '次回ハート回収時、獲得するLOVEが増加する。'
+        description: '次回ハート回収時、獲得するLOVEが増加する。',
       },
       loveAttract_section: {
         name: 'ラブアトラクト(セクション)',
         colorCode: 'lime-darken-3',
-        description: 'このセクション中、獲得するLOVEが増加する。'
+        description: 'このセクション中、獲得するLOVEが増加する。',
       },
       loveAttract_stage: {
         name: 'ラブアトラクト(ステージ)',
         colorCode: 'lime-darken-3',
-        description: 'このステージ中、獲得するLOVEが増加する。'
+        description: 'このステージ中、獲得するLOVEが増加する。',
       },
       voltageGain: {
         name: 'ボルテージゲイン',
         colorCode: 'lime-darken-4',
-        description: 'ボルテージPt.を獲得する。'
+        description: 'ボルテージPt.を獲得する。',
       },
       voltageReduce: {
         name: 'ボルテージレデュース',
         colorCode: 'lime-darken-4',
-        description: 'ボルテージPt.を減らす。'
+        description: 'ボルテージPt.を減らす。',
       },
       mentalRecover: {
         name: 'メンタルリカバー',
         colorCode: 'green',
-        description: 'メンタルを回復する。'
+        description: 'メンタルを回復する。',
       },
       mentalReduce: {
         name: 'メンタルレデュース',
         colorCode: 'green',
-        description: 'メンタルを減らす。'
+        description: 'メンタルを減らす。',
       },
       mentalDown_section: {
         name: 'メンタルダウン(セクション)',
         colorCode: 'green',
-        description: 'メンタルが0になってもメンタルダウンしなくなる。'
+        description: 'メンタルが0になってもメンタルダウンしなくなる。',
       },
       protect_section: {
         name: 'プロテクト(セクション)',
         colorCode: 'green',
-        description: 'このセクション中、メンタル減少を一定量無効化する。'
+        description: 'このセクション中、メンタル減少を一定量無効化する。',
       },
       protect_stage: {
         name: 'プロテクト(ステージ)',
         colorCode: 'green',
-        description: 'このステージ中、メンタル減少を一定量無効化する。'
+        description: 'このステージ中、メンタル減少を一定量無効化する。',
       },
       reshuffle: {
         name: 'リシャッフル',
         colorCode: 'purple',
-        description: '手札を全て捨てて、デッキから手札上限までスキルを引く。'
+        description: '手札を全て捨てて、デッキから手札上限までスキルを引く。',
       },
       extendHand: {
         name: 'エクステンドハンド',
         colorCode: 'purple',
-        description: '手札の上限枚数が増加する。'
+        description: '手札の上限枚数が増加する。',
       },
       extensions_section: {
         name: 'エクステンション(セクション)',
         colorCode: 'purple',
-        description: 'このセクション中、手札の上限枚数が増加する(最大8枚)。'
+        description: 'このセクション中、手札の上限枚数が増加する(最大8枚)。',
       },
       extensions_stage: {
         name: 'エクステンション(ステージ)',
         colorCode: 'purple',
-        description: 'このステージ中、手札の上限枚数が増加する(最大8枚)。'
+        description: 'このステージ中、手札の上限枚数が増加する(最大8枚)。',
       },
       cardReduce: {
         name: '手札減少',
         colorCode: 'purple',
-        description: 'このステージ中、手札の上限枚数が減少する。'
+        description: 'このステージ中、手札の上限枚数が減少する。',
       },
       boost_heartCaptcha: {
         name: 'ブースト(ハートキャプチャ)',
         colorCode: 'red',
-        description: '次に使用するスキルハート獲得効果による獲得数を増加させる。'
+        description: '次に使用するスキルハート獲得効果による獲得数を増加させる。',
       },
       boost_loveAttract: {
         name: 'ブースト(ラブアトラクト)',
         colorCode: 'lime-darken-3',
-        description: '次に使用するラブアトラクトの効果を増加させる。'
+        description: '次に使用するラブアトラクトの効果を増加させる。',
       },
       boost_voltageGain: {
         name: 'ブースト(ボルテージゲイン)',
         colorCode: 'lime-darken-4',
-        description: '次に使用するボルテージゲインの効果を増加させる。'
+        description: '次に使用するボルテージゲインの効果を増加させる。',
       },
       boost_mentalRecover: {
         name: 'ブースト(メンタルリカバー)',
         colorCode: 'green',
-        description: '次に使用するメンタルリカバーの効果を増加させる。'
+        description: '次に使用するメンタルリカバーの効果を増加させる。',
       },
       boost_mentalProtect: {
         name: 'ブースト(メンタルプロテクト)',
         colorCode: 'green',
-        description: '次に使用するメンタルプロテクトの効果を増加させる。'
+        description: '次に使用するメンタルプロテクトの効果を増加させる。',
       },
       APGain: {
         name: 'APゲイン',
         colorCode: '',
-        description: 'APを回復する。'
+        description: 'APを回復する。',
       },
       APReduce: {
         name: 'APレデュース',
         colorCode: '',
-        description: 'APを減らす。'
+        description: 'APを減らす。',
       },
       APReduce_all: {
         name: '消費AP減少',
         colorCode: 'purple',
-        description: '手札の全てのスキルの消費APを減少させる。'
+        description: '手札の全てのスキルの消費APを減少させる。',
       },
       APReduce_heart: {
         name: '消費AP減少(ハート系)',
         colorCode: 'purple',
-        description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。'
+        description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
       },
       APReduce_voltageGain: {
         name: '消費AP減少(ボルテージ系)',
         colorCode: 'purple',
-        description: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。'
+        description: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。',
       },
       APReduce_deck_ceriseBouquet: {
         name: '消費AP減少(スリーズブーケ)',
         colorCode: 'purple',
-        description: 'デッキにあるスリーズブーケのスキルの消費APを減少させる。'
+        description: 'デッキにあるスリーズブーケのスキルの消費APを減少させる。',
       },
       APReduce_deck_dressCard: {
         name: '消費AP減少(ドレスカード)',
         colorCode: 'purple',
-        description: 'デッキにあるドレスカードの消費APを減少させる。'
+        description: 'デッキにあるドレスカードの消費APを減少させる。',
       },
       APQuick: {
         name: 'AP回復速度上昇',
         colorCode: '',
-        description: 'AP回復速度を上昇させる。'
+        description: 'AP回復速度を上昇させる。',
       },
       APSlow: {
         name: 'AP回復速度低下',
         colorCode: '',
-        description: 'AP回復速度を低下させる。'
+        description: 'AP回復速度を低下させる。',
       },
       heartLimitUp: {
         name: 'ハート数上限アップ',
         colorCode: '',
-        description: 'ハート数の上限を増加させる。'
+        description: 'ハート数の上限を増加させる。',
       },
       addCard: {
         name: 'カード追加',
         colorCode: 'purple',
-        description: 'カードを山札に追加する。追加されるカードは以下の通り。'
+        description: 'カードを山札に追加する。追加されるカードは以下の通り。',
       },
       ignition: {
         name: 'イグニッション',
         colorCode: 'purple',
-        description: '特定条件で効果が変化する。変化する効果は以下の通り。'
+        description: '特定条件で効果が変化する。変化する効果は以下の通り。',
       },
       modeChange: {
         name: 'モードチェンジ',
         colorCode: 'purple',
-        description: 'スキルの効果を変化させる。'
+        description: 'スキルの効果を変化させる。',
       },
       coolTime: {
         name: 'クールタイム',
         colorCode: '',
-        description: 'スキル使用時、クールタイムが発生する。'
+        description: 'スキル使用時、クールタイムが発生する。',
       },
       infinity_AP_stage: {
         name: 'AP無限',
         colorCode: '',
-        description: 'このステージ中、APを無限にする。'
+        description: 'このステージ中、APを無限にする。',
       },
       infinity_voltage_stage: {
         name: 'ボルテージ無限',
         colorCode: '',
-        description: 'このステージ中、ボルテージを無限にする。'
+        description: 'このステージ中、ボルテージを無限にする。',
       },
       infinity_mental_stage: {
         name: 'メンタル無限',
         colorCode: '',
-        description: 'このステージ中、メンタルを無限にする。'
-      }
-    }
+        description: 'このステージ中、メンタルを無限にする。',
+      },
+    },
   }),
   getters: {},
-  actions: {}
+  actions: {},
 });

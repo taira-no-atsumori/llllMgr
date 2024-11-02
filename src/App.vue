@@ -1,179 +1,145 @@
 <template>
-<v-app :theme="store.siteSettings.all.darkMode">
-  <v-app-bar :scroll-behavior="store.siteSettings.all.headerTracking" density="comfortable" color="pink">
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer;" class="hidden-sm-and-up"></v-app-bar-nav-icon>
-    <v-bottom-sheet v-model="drawer" v-if="false">
-      <template v-slot:activator="{ props }">
-        <v-icon v-bind="props" @click="drawer = true;" class="ml-3 hidden-sm-and-up">mdi-menu</v-icon>
-      </template>
+  <v-app :theme="store.siteSettings.all.darkMode">
+    <v-app-bar :scroll-behavior="store.siteSettings.all.headerTracking" density="comfortable" color="pink">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
+      <v-bottom-sheet v-model="drawer" v-if="false">
+        <template v-slot:activator="{ props }">
+          <v-icon v-bind="props" @click="drawer = true" class="ml-3 hidden-sm-and-up">mdi-menu</v-icon>
+        </template>
 
-      <v-sheet class="py-2">
-        <v-list-item
-          class="px-2 pt-0 pb-2"
-          title="リンクラ マネージャー！"
-          :subtitle="`Ver. ${store.version}`"
-        ></v-list-item>
+        <v-sheet class="py-2">
+          <v-list-item class="px-2 pt-0 pb-2" title="リンクラ マネージャー！" :subtitle="`Ver. ${store.version}`"></v-list-item>
 
-        <v-divider class="pb-1"></v-divider>
+          <v-divider class="pb-1"></v-divider>
 
-        <v-list-item
-          v-for="(arr, pageTitle) of pageList"
-          :key="arr"
-          :title="pageTitle.toUpperCase()"
-          :subtitle="arr.name"
-          class="px-2"
-          @click="pageMove(arr.url); drawer = false;"
-          :disabled="pageTitle === 'Simulation'"
-        >
-          <template v-slot:prepend>
-            <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
-          </template>
-        </v-list-item>
-      </v-sheet>
-    </v-bottom-sheet>
+          <v-list-item
+            v-for="(arr, pageTitle) of pageList"
+            :key="arr"
+            :title="pageTitle.toUpperCase()"
+            :subtitle="arr.name"
+            class="px-2"
+            @click="
+              pageMove(arr.url);
+              drawer = false;
+            "
+            :disabled="pageTitle === 'Simulation'"
+          >
+            <template v-slot:prepend>
+              <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+            </template>
+          </v-list-item>
+        </v-sheet>
+      </v-bottom-sheet>
 
-    <v-toolbar-title class="d-none d-sm-block">
-      リンクラ マネージャー！<span class="text-subtitle-2">Ver. {{ store.version }}</span>
-    </v-toolbar-title>
-    <v-toolbar-title class="hidden-sm-and-up">
-      リンマネ
-    </v-toolbar-title>
+      <v-toolbar-title class="d-none d-sm-block">
+        リンクラ マネージャー！<span class="text-subtitle-2">Ver. {{ store.version }}</span>
+      </v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-up"> リンマネ </v-toolbar-title>
 
-    <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
-    <ul class="d-none d-sm-flex">
-      <template
-        v-for="(arr, pageTitle) of pageList"
-        :key="arr"
-      >
-        <v-tooltip location="bottom" v-if="pageTitle !== 'License'">
-          <template v-slot:activator="{ props }">
-            <li style="border-right: 1px solid;">
-              <v-btn
-                v-bind="props"
-                text
-                class="px-2"
-                @click="pageMove(arr.url)"
-              ><v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>{{ pageTitle }}</v-btn>
-            </li>
-          </template>
-          {{ arr.name }}
-        </v-tooltip>
-      </template>
-    </ul>
-    
-    <ul class="d-flex" style="height: 36px;">
-      <li class="align-self-center ml-1">
-        <v-tooltip location="bottom">
-          <template v-slot:activator="{ props }">
-            <v-icon v-bind="props" @click="store.showModalEvent('share');" class="ml-1 mr-2">mdi-share-variant</v-icon>
-          </template>
-          シェア
-        </v-tooltip>
-      </li>
-      <li class="d-none d-sm-flex"><v-divider class="border-opacity-100" vertical></v-divider></li>
-      <li class="align-self-center ml-1">
-        <v-tooltip location="bottom">
-          <template v-slot:activator="{ props }">
-            <v-icon v-bind="props" @click="store.showModalEvent('backup');" class="ml-1 mr-2">mdi-backup-restore</v-icon>
-          </template>
-          データバックアップ
-        </v-tooltip>
-      </li>
-      <li class="d-none d-sm-flex"><v-divider class="border-opacity-100" vertical></v-divider></li>
-      <li class="align-self-center ml-1">
-        <v-tooltip location="bottom">
-          <template v-slot:activator="{ props }">
-            <v-icon v-bind="props" @click="store.showModalEvent('settings');" class="ml-1 mr-2">mdi-cog</v-icon>
-          </template>
-          サイト設定
-        </v-tooltip>
-      </li>
-    </ul>
-  </v-app-bar>
+      <ul class="d-none d-sm-flex">
+        <template v-for="(arr, pageTitle) of pageList" :key="arr">
+          <v-tooltip location="bottom" v-if="pageTitle !== 'License'">
+            <template v-slot:activator="{ props }">
+              <li style="border-right: 1px solid">
+                <v-btn v-bind="props" text class="px-2" @click="pageMove(arr.url)"
+                  ><v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon
+                  >{{ pageTitle }}</v-btn
+                >
+              </li>
+            </template>
+            {{ arr.name }}
+          </v-tooltip>
+        </template>
+      </ul>
 
-  <v-navigation-drawer
-    v-model="drawer"
-    temporary
-    class="py-2"
-    active-class="deep-purple--text text--accent-4"
-  >
-    <v-list-item
-      class="px-2 pt-0 pb-2"
-      title="リンクラ マネージャー！"
-      :subtitle="`Ver. ${store.version}`"
-    ></v-list-item>
+      <ul class="d-flex" style="height: 36px">
+        <li class="align-self-center ml-1">
+          <v-tooltip location="bottom">
+            <template v-slot:activator="{ props }">
+              <v-icon v-bind="props" @click="store.showModalEvent('share')" class="ml-1 mr-2">mdi-share-variant</v-icon>
+            </template>
+            シェア
+          </v-tooltip>
+        </li>
+        <li class="d-none d-sm-flex"><v-divider class="border-opacity-100" vertical></v-divider></li>
+        <li class="align-self-center ml-1">
+          <v-tooltip location="bottom">
+            <template v-slot:activator="{ props }">
+              <v-icon v-bind="props" @click="store.showModalEvent('backup')" class="ml-1 mr-2">mdi-backup-restore</v-icon>
+            </template>
+            データバックアップ
+          </v-tooltip>
+        </li>
+        <li class="d-none d-sm-flex"><v-divider class="border-opacity-100" vertical></v-divider></li>
+        <li class="align-self-center ml-1">
+          <v-tooltip location="bottom">
+            <template v-slot:activator="{ props }">
+              <v-icon v-bind="props" @click="store.showModalEvent('settings')" class="ml-1 mr-2">mdi-cog</v-icon>
+            </template>
+            サイト設定
+          </v-tooltip>
+        </li>
+      </ul>
+    </v-app-bar>
 
-    <v-divider class="pb-1"></v-divider>
+    <v-navigation-drawer v-model="drawer" temporary class="py-2" active-class="deep-purple--text text--accent-4">
+      <v-list-item class="px-2 pt-0 pb-2" title="リンクラ マネージャー！" :subtitle="`Ver. ${store.version}`"></v-list-item>
 
-    <v-list-item
-      v-for="(arr, pageTitle) of pageList"
-      :key="arr"
-      :title="pageTitle.toUpperCase()"
-      :subtitle="arr.name"
-      class="px-2"
-      @click="pageMove(arr.url);"
-    >
-      <template v-slot:prepend>
-        <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
-      </template>
-    </v-list-item>
-  </v-navigation-drawer>
+      <v-divider class="pb-1"></v-divider>
 
-  <v-main class="pb-2">
-    <router-view/>
-  </v-main>
+      <v-list-item v-for="(arr, pageTitle) of pageList" :key="arr" :title="pageTitle.toUpperCase()" :subtitle="arr.name" class="px-2" @click="pageMove(arr.url)">
+        <template v-slot:prepend>
+          <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+        </template>
+      </v-list-item>
+    </v-navigation-drawer>
 
-  <v-fab v-if="false" icon="mdi-arrow-up" app location="bottom" class="mb-10" @click="$vuetify.goTo(0)"></v-fab>
+    <v-main class="pb-2">
+      <router-view />
+    </v-main>
 
-  <Modal/>
+    <v-fab v-if="false" icon="mdi-arrow-up" app location="bottom" class="mb-10" @click="$vuetify.goTo(0)"></v-fab>
 
-  <v-footer color="pink" class="mb-10">
-    <v-row no-gutters justify="center">
-      <v-col cols="12" class="mx-2 text-center">
-        <a
-          v-for="(arr, pageTitle) of pageList"
-          :key="arr"
-          href="javascript:void(0)"
-          class="mx-3 mb-2 footer-link"
-          @click="pageMove(arr.url)"
-        >{{ pageTitle.toUpperCase() }}</a>
-      </v-col>
-      <v-col cols="12" class="text-center">
-        © 2023 - {{ new Date().getFullYear() }} <strong>taira no atsumori</strong>
-      </v-col>
-    </v-row>
-  </v-footer>
+    <Modal />
 
-  <v-bottom-navigation bg-color="pink" density="compact" class="d-flex flex-row align-center">
-    ご意見・ご要望・バグ報告は「<a href="https://odaibako.net/u/taira_no_atsumori" target="_blank" class="text-white font-weight-bold">お題箱</a>」まで
-  </v-bottom-navigation>
-</v-app>
+    <v-footer color="pink" class="mb-10">
+      <v-row no-gutters justify="center">
+        <v-col cols="12" class="mx-2 text-center">
+          <a v-for="(arr, pageTitle) of pageList" :key="arr" href="javascript:void(0)" class="mx-3 mb-2 footer-link" @click="pageMove(arr.url)">{{ pageTitle.toUpperCase() }}</a>
+        </v-col>
+        <v-col cols="12" class="text-center"> © 2023 - {{ new Date().getFullYear() }} <strong>taira no atsumori</strong> </v-col>
+      </v-row>
+    </v-footer>
+
+    <v-bottom-navigation bg-color="pink" density="compact" class="d-flex flex-row align-center"> ご意見・ご要望・バグ報告は「<a href="https://odaibako.net/u/taira_no_atsumori" target="_blank" class="text-white font-weight-bold">お題箱</a>」まで </v-bottom-navigation>
+  </v-app>
 </template>
 
 <script setup>
-  import { useStoreCounter } from './stores/counter';
-  const store = useStoreCounter();
-  store.init();
+import { useStoreCounter } from './stores/counter';
+const store = useStoreCounter();
+store.init();
 </script>
 
 <script>
-import Modal from './components/ModalArea.vue'
+import Modal from './components/ModalArea.vue';
 
 export default {
   name: 'App',
   components: {
-    Modal
+    Modal,
   },
   data() {
     return {
       drawer: false,
       siteName: 'リンクラ マネージャー！(リンマネ)',
       pageList: {
-        'Home': {
+        Home: {
           url: '/llllMgr/',
           name: 'ホーム',
-          icon: 'home'
+          icon: 'home',
         },
         /*'WithStar Mgr': {
           url: 'withStarMgr',
@@ -188,25 +154,25 @@ export default {
         'Card List': {
           url: 'cardlist',
           name: 'カード一覧 / 所持カード設定',
-          icon: 'cards'
+          icon: 'cards',
         },
         'Music List': {
           url: 'musiclist',
           name: '楽曲一覧 / 楽曲マスタリーレベル設定',
-          icon: 'music'
+          icon: 'music',
         },
         'Item List': {
           url: 'Itemlist',
           name: 'スキルアップ素材獲得ステージリスト',
-          icon: 'book'
+          icon: 'book',
         },
-        'License': {
+        License: {
           url: 'license',
           name: 'ライセンス',
-          icon: 'text-box-outline'
-        }
-      }
-    }
+          icon: 'text-box-outline',
+        },
+      },
+    };
   },
   created() {
     const userAgent = window.navigator.userAgent.toLowerCase();
@@ -231,14 +197,14 @@ export default {
     },
     goToTop() {
       this.$vuetify.goTo(0);
-    }
+    },
   },
   watch: {
-    '$route'(to) {
+    $route(to) {
       this.pageTitle(to);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -250,24 +216,24 @@ export default {
 
 <style lang="scss">
 .v-list-item__spacer {
-  width: 12px!important;
+  width: 12px !important;
 }
 
 /* メンバーイメージカラー */
-$kaho: #F8B500;
-$sayaka: #5383C3;
-$rurino: #E7609E;
-$kozue: #68BE8D;
-$tsuzuri: #BA2636;
-$megumi: #C8C2C6;
+$kaho: #f8b500;
+$sayaka: #5383c3;
+$rurino: #e7609e;
+$kozue: #68be8d;
+$tsuzuri: #ba2636;
+$megumi: #c8c2c6;
 $ginko: #a2d7dd;
 $kosuzu: #fad664;
 $hime: #9c8de2;
 
 /* ムードカラー */
-$happy: #EF8DC8;
-$neutral: #A9FCC7;
-$melow: #A1BAFA;
+$happy: #ef8dc8;
+$neutral: #a9fcc7;
+$melow: #a1bafa;
 
 /* コンテンツカラー */
 $series: #ff1493;
@@ -313,7 +279,7 @@ main {
 .memberArea {
   border: 3px solid;
 
-  &[data-member_name="kaho"] {
+  &[data-member_name='kaho'] {
     border-color: $kaho;
 
     .characterDetailArea {
@@ -321,39 +287,39 @@ main {
     }
   }
 
-  &[data-member_name="sayaka"] {
+  &[data-member_name='sayaka'] {
     border-color: $sayaka;
 
     .characterDetailArea {
       background-color: rgba($color: $sayaka, $alpha: 0.75);
     }
   }
-  
-  &[data-member_name="rurino"] {
+
+  &[data-member_name='rurino'] {
     border-color: $rurino;
 
     .characterDetailArea {
       background-color: rgba($color: $rurino, $alpha: 0.75);
     }
   }
-  
-  &[data-member_name="kozue"] {
+
+  &[data-member_name='kozue'] {
     border-color: $kozue;
 
     .characterDetailArea {
       background-color: rgba($color: $kozue, $alpha: 0.75);
     }
   }
-  
-  &[data-member_name="tsuzuri"] {
+
+  &[data-member_name='tsuzuri'] {
     border-color: $tsuzuri;
 
     .characterDetailArea {
       background-color: rgba($color: $tsuzuri, $alpha: 0.75);
     }
   }
-  
-  &[data-member_name="megumi"] {
+
+  &[data-member_name='megumi'] {
     border-color: $megumi;
 
     .characterDetailArea {
@@ -361,29 +327,29 @@ main {
     }
   }
 
-&[data-member_name="ginko"] {
-  border-color: $ginko;
+  &[data-member_name='ginko'] {
+    border-color: $ginko;
 
-  .characterDetailArea {
-    background-color: rgba($color: $ginko, $alpha: 0.75);
+    .characterDetailArea {
+      background-color: rgba($color: $ginko, $alpha: 0.75);
+    }
   }
-}
 
-&[data-member_name="kosuzu"] {
-  border-color: $kosuzu;
+  &[data-member_name='kosuzu'] {
+    border-color: $kosuzu;
 
-  .characterDetailArea {
-    background-color: rgba($color: $kosuzu, $alpha: 0.75);
+    .characterDetailArea {
+      background-color: rgba($color: $kosuzu, $alpha: 0.75);
+    }
   }
-}
 
-&[data-member_name="hime"] {
-  border-color: $hime;
+  &[data-member_name='hime'] {
+    border-color: $hime;
 
-  .characterDetailArea {
-    background-color: rgba($color: $hime, $alpha: 0.75);
+    .characterDetailArea {
+      background-color: rgba($color: $hime, $alpha: 0.75);
+    }
   }
-}
 }
 
 .cardList {
@@ -425,7 +391,7 @@ main {
       border-right: 1px solid #000;
     }
 
-    &:not([data-selected="true"]) {
+    &:not([data-selected='true']) {
       background: #999;
       border-bottom: 1px solid #000;
     }
