@@ -5,7 +5,7 @@ import { useMusicStore } from './musicList';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.75(アーリーアクセス)',
+    version: 'ε.76(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -16,12 +16,7 @@ export const useStoreCounter = defineStore('store', {
     rare: ['DR', 'BR', 'UR', 'SR', 'R'],
     favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
     releaseStatus: ['none', 'trainingLevel', 'cardLevel', 'releaseLevel'],
-    bonusSkill: [
-      'ボルテージアップ',
-      'メンタルリカバー',
-      'ビートハートアップ',
-      'LOVEボーナス',
-    ],
+    bonusSkill: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
     withStar: {
       kaho: 1,
       sayaka: 1,
@@ -61,18 +56,7 @@ export const useStoreCounter = defineStore('store', {
         rare: ['DR', 'BR', 'UR', 'SR', 'R'],
         styleType: ['performer', 'moodMaker', 'cheerLeader', 'trickStar'],
         mood: ['happy', 'neutral', 'melow'],
-        limited: [
-          'spring',
-          'summer',
-          'autumn',
-          'winter',
-          'graduation',
-          'party',
-          'birthday',
-          'collaboration',
-          'prize',
-          'normal',
-        ],
+        limited: ['spring', 'summer', 'autumn', 'winter', 'graduation', 'party', 'birthday', 'collaboration', 'prize', 'normal'],
         cardLevel: [0, 140],
         SALevel: [1, 14],
         SLevel: [1, 14],
@@ -80,18 +64,7 @@ export const useStoreCounter = defineStore('store', {
         SAP: [0, 20],
         releaseLevel: [1, 5],
         trainingLevel: [0, 4],
-        memberName: [
-          'kaho',
-          'sayaka',
-          'rurino',
-          'kozue',
-          'tsuzuri',
-          'megumi',
-          'ginko',
-          'kosuzu',
-          'hime',
-          'sachi',
-        ],
+        memberName: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime', 'sachi'],
         favorite: [],
         releaseStatus: 'cardLevel',
       },
@@ -263,17 +236,7 @@ export const useStoreCounter = defineStore('store', {
     exclusionMember: ['sachi'],
     formationMember: {
       103: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
-      104: [
-        'ginko',
-        'kosuzu',
-        'hime',
-        'kaho',
-        'sayaka',
-        'rurino',
-        'kozue',
-        'tsuzuri',
-        'megumi',
-      ],
+      104: ['ginko', 'kosuzu', 'hime', 'kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
     },
     memberColor: {
       kaho: '#F8B500',
@@ -318,89 +281,7 @@ export const useStoreCounter = defineStore('store', {
       },
     },
     memberData: {
-      centerList: {
-        kaho: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        sayaka: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        rurino: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        kozue: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        tsuzuri: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        megumi: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        ginko: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        kosuzu: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-        hime: {
-          centerMusic: [],
-          bonusSkill: {
-            ビートハートアップ: 0,
-            ボルテージアップ: 0,
-            メンタルリカバー: 0,
-            LOVEボーナス: 0,
-          },
-        },
-      },
+      centerList: {},
     },
     selectCard: {
       kaho: {
@@ -492,62 +373,7 @@ export const useStoreCounter = defineStore('store', {
         R: [0, 0.1, 0.15, 0.2, 0.25],
       },
     },
-    supportSkill: {
-      kaho: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      sayaka: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      rurino: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      kozue: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      tsuzuri: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      megumi: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      ginko: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      kosuzu: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-      hime: {
-        ビートハートアップ: 0,
-        ボルテージアップ: 0,
-        メンタルリカバー: 0,
-        LOVEボーナス: 0,
-      },
-    },
+    supportSkill: {},
     sortTypeList: {
       rare: 'レア度(標準)',
       //timeline: '時系列',
@@ -607,8 +433,7 @@ export const useStoreCounter = defineStore('store', {
             this.card[memberName][rare][cardName].cardName = cardName;
             this.card[memberName][rare][cardName].rare = rare;
             this.card[memberName][rare][cardName].memberName = memberName;
-            this.card[memberName][rare][cardName].limited =
-              this.card[memberName][rare][cardName].gacha.period;
+            this.card[memberName][rare][cardName].limited = this.card[memberName][rare][cardName].gacha.period;
             this.card[memberName][rare][cardName].sortPoint = 0;
             result[rare].push(this.card[memberName][rare][cardName]);
           }
@@ -630,39 +455,26 @@ export const useStoreCounter = defineStore('store', {
           filterList = this.search.cardList[searchKey];
           result = result.filter((cardData) => {
             if (/^(card|SA|S|release|training)Level$/.test(searchKey)) {
-              return (
-                filterList[0] <= cardData.fluctuationStatus[searchKey] &&
-                cardData.fluctuationStatus[searchKey] <= filterList[1]
-              );
+              return filterList[0] <= cardData.fluctuationStatus[searchKey] && cardData.fluctuationStatus[searchKey] <= filterList[1];
             } else if (searchKey === 'SAAP') {
               if (cardData.specialAppeal === undefined) {
                 return true;
               } else {
-                const AP =
-                  cardData.specialAppeal.AP -
-                  (this.maxCardLevel[cardData.rare].length - 2 >
-                  cardData.fluctuationStatus.trainingLevel
-                    ? cardData.fluctuationStatus.trainingLevel
-                    : this.maxCardLevel[cardData.rare].length - 3);
+                const AP = cardData.specialAppeal.AP - (this.maxCardLevel[cardData.rare].length - 2 > cardData.fluctuationStatus.trainingLevel ? cardData.fluctuationStatus.trainingLevel : this.maxCardLevel[cardData.rare].length - 3);
                 return filterList[0] <= AP && AP <= filterList[1];
               }
             } else if (searchKey === 'SAP') {
               if (cardData.skill === undefined) {
                 return true;
               } else {
-                return (
-                  filterList[0] <= cardData.skill.AP &&
-                  cardData.skill.AP <= filterList[1]
-                );
+                return filterList[0] <= cardData.skill.AP && cardData.skill.AP <= filterList[1];
               }
             } else if (searchKey === 'favorite') {
               if (this.search.cardList.favorite.length === 0) {
                 return true;
               } else {
                 return this.search.cardList.favorite.some((v) => {
-                  return cardData.favorite.length === 0
-                    ? false
-                    : cardData.favorite.indexOf(v) > -1;
+                  return cardData.favorite.length === 0 ? false : cardData.favorite.indexOf(v) > -1;
                 });
               }
             } else if (searchKey === 'releaseStatus') {
@@ -675,48 +487,26 @@ export const useStoreCounter = defineStore('store', {
               }
 
               if (this.search.cardList.releaseStatus === 'cardLevel') {
-                if (
-                  this.maxCardLevel[cardData.rare][
-                    this.maxCardLevel[cardData.rare].length - 1
-                  ] === cardData.fluctuationStatus.cardLevel
-                ) {
+                if (this.maxCardLevel[cardData.rare][this.maxCardLevel[cardData.rare].length - 1] === cardData.fluctuationStatus.cardLevel) {
                   return false;
                 } else {
-                  return (
-                    this.maxCardLevel[cardData.rare][
-                      cardData.fluctuationStatus.trainingLevel
-                    ] > cardData.fluctuationStatus.cardLevel
-                  );
+                  return this.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] > cardData.fluctuationStatus.cardLevel;
                 }
               }
 
               if (this.search.cardList.releaseStatus === 'trainingLevel') {
-                if (
-                  this.maxCardLevel[cardData.rare][
-                    this.maxCardLevel[cardData.rare].length - 1
-                  ] === cardData.fluctuationStatus.cardLevel
-                ) {
+                if (this.maxCardLevel[cardData.rare][this.maxCardLevel[cardData.rare].length - 1] === cardData.fluctuationStatus.cardLevel) {
                   return false;
                 } else {
-                  return (
-                    this.maxCardLevel[cardData.rare][
-                      cardData.fluctuationStatus.trainingLevel
-                    ] === cardData.fluctuationStatus.cardLevel
-                  );
+                  return this.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] === cardData.fluctuationStatus.cardLevel;
                 }
               }
 
               if (this.search.cardList.releaseStatus === 'releaseLevel') {
-                if (
-                  cardData.fluctuationStatus.releasePoint === 0 ||
-                  cardData.fluctuationStatus.releaseLevel === 5
-                ) {
+                if (cardData.fluctuationStatus.releasePoint === 0 || cardData.fluctuationStatus.releaseLevel === 5) {
                   return false;
                 } else {
-                  return (
-                    this.releasePoint[cardData.rare].point <=
-                    cardData.fluctuationStatus.releasePoint
-                  );
+                  return this.releasePoint[cardData.rare].point <= cardData.fluctuationStatus.releasePoint;
                 }
               }
 
@@ -731,13 +521,8 @@ export const useStoreCounter = defineStore('store', {
       }
 
       if (result.length > 0) {
-        for (const searchKey in this.search.skillList[
-          this.search.skillList.skillFilterType
-        ]) {
-          filterList =
-            this.search.skillList[this.search.skillList.skillFilterType][
-              searchKey
-            ];
+        for (const searchKey in this.search.skillList[this.search.skillList.skillFilterType]) {
+          filterList = this.search.skillList[this.search.skillList.skillFilterType][searchKey];
 
           if (filterList.length === 0) {
             continue;
@@ -755,9 +540,7 @@ export const useStoreCounter = defineStore('store', {
                     }
                   }
 
-                  return this.skillList[cardData[searchKey].name][
-                    cardData[searchKey].ID
-                  ].detail.type.some((key) => key === skillID);
+                  return this.skillList[cardData[searchKey].name][cardData[searchKey].ID].detail.type.some((key) => key === skillID);
                 } else {
                   return cardData[searchKey].name === val;
                 }
@@ -793,10 +576,7 @@ export const useStoreCounter = defineStore('store', {
 
           if (this.sortSettings.cardList.sortType === 'releaseBonus') {
             result = result.filter((cardData) => {
-              if (
-                cardData.rare === 'DR' ||
-                cardData.specialAppeal === undefined
-              ) {
+              if (cardData.rare === 'DR' || cardData.specialAppeal === undefined) {
                 mergeList.push(cardData);
                 return false;
               } else {
@@ -811,27 +591,11 @@ export const useStoreCounter = defineStore('store', {
               bb = b.fluctuationStatus.releaseLevel - 1;
 
               if (this.sortSettings.cardList.order === 'ascending') {
-                return this.grandprixBonus.releaseLv[a.rare][aa] <
-                  this.grandprixBonus.releaseLv[b.rare][bb]
-                  ? -1
-                  : this.grandprixBonus.releaseLv[a.rare][aa] >
-                      this.grandprixBonus.releaseLv[b.rare][bb]
-                    ? 1
-                    : 0;
+                return this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
               } else {
-                return this.grandprixBonus.releaseLv[a.rare][aa] >
-                  this.grandprixBonus.releaseLv[b.rare][bb]
-                  ? -1
-                  : this.grandprixBonus.releaseLv[a.rare][aa] <
-                      this.grandprixBonus.releaseLv[b.rare][bb]
-                    ? 1
-                    : 0;
+                return this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
               }
-            } else if (
-              /(card|SA|skill|release|training)Level/.test(
-                this.sortSettings.cardList.sortType
-              )
-            ) {
+            } else if (/(card|SA|skill|release|training)Level/.test(this.sortSettings.cardList.sortType)) {
               aa = a.fluctuationStatus[this.sortSettings.cardList.sortType];
               bb = b.fluctuationStatus[this.sortSettings.cardList.sortType];
 
@@ -864,10 +628,7 @@ export const useStoreCounter = defineStore('store', {
         cardSeries: this.search.cardSeries,
       };
 
-      this.setLocalStorage(
-        'llllMgr_cardListFilter',
-        this.localStorageData.cardList.cardListFilter
-      );
+      this.setLocalStorage('llllMgr_cardListFilter', this.localStorageData.cardList.cardListFilter);
 
       return result;
     },
@@ -894,24 +655,14 @@ export const useStoreCounter = defineStore('store', {
     makeSkillText() {
       return (target, option) => {
         let result = '';
-        const skillData =
-          option !== undefined && option.addSkillNum !== undefined
-            ? this.settingCardData[target].addSkill[option.addSkillNum]
-            : this.settingCardData[target];
+        const skillData = option !== undefined && option.addSkillNum !== undefined ? this.settingCardData[target].addSkill[option.addSkillNum] : this.settingCardData[target];
         const skillTextList = this.skillList[skillData.name][skillData.ID].text;
 
         for (let i = 0; i < skillTextList.length; i++) {
           result += skillTextList[i];
 
           if (i < skillTextList.length - 1) {
-            result +=
-              skillData.detail[i][
-                option !== undefined && option.targetSkillLv !== undefined
-                  ? option.targetSkillLv
-                  : this.settingCardData.fluctuationStatus[
-                      target === 'specialAppeal' ? 'SALevel' : 'SLevel'
-                    ] - 1
-              ];
+            result += skillData.detail[i][option !== undefined && option.targetSkillLv !== undefined ? option.targetSkillLv : this.settingCardData.fluctuationStatus[target === 'specialAppeal' ? 'SALevel' : 'SLevel'] - 1];
           }
         }
 
@@ -919,25 +670,19 @@ export const useStoreCounter = defineStore('store', {
       };
     },
     settingCardData() {
-      return this.card[this.settingCard.name][this.settingCard.rare][
-        this.settingCard.card
-      ];
+      return this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
     },
     setMaxTrainingLevel() {
       return this.maxCardLevel[this.settingCard.rare].length - 1;
     },
     changeMaxCardLevel() {
-      return this.maxCardLevel[this.settingCard.rare][
-        this.settingCardData.fluctuationStatus.trainingLevel
-      ];
+      return this.maxCardLevel[this.settingCard.rare][this.settingCardData.fluctuationStatus.trainingLevel];
     },
     changeMinCardLevel() {
       if (this.settingCardData.fluctuationStatus.trainingLevel - 1 < 0) {
         return this.maxCardLevel[this.settingCard.rare][0];
       } else {
-        return this.maxCardLevel[this.settingCard.rare][
-          this.settingCardData.fluctuationStatus.trainingLevel - 1
-        ];
+        return this.maxCardLevel[this.settingCard.rare][this.settingCardData.fluctuationStatus.trainingLevel - 1];
       }
     },
     changeSkillLevel() {
@@ -953,8 +698,7 @@ export const useStoreCounter = defineStore('store', {
           };
         }
 
-        const selectCard =
-          this.card[target.memberName][target.rare][target.cardName];
+        const selectCard = this.card[target.memberName][target.rare][target.cardName];
         target.trainingLevel = selectCard.fluctuationStatus.trainingLevel;
         target.cardLevel = selectCard.fluctuationStatus.cardLevel;
         const maxStatus = selectCard.uniqueStatus[style];
@@ -968,59 +712,18 @@ export const useStoreCounter = defineStore('store', {
 
         if (target.cardLevel === 0) {
           return 0;
-        } else if (
-          target.trainingLevel >=
-          this.maxCardLevel[target.rare].length - 2
-        ) {
-          return style === 'mental'
-            ? maxStatus
-            : Math.ceil(
-                maxStatus *
-                  (1 +
-                    (target.cardLevel -
-                      this.maxCardLevel[target.rare][
-                        this.maxCardLevel[target.rare].length - 3
-                      ]) /
-                      100)
-              );
-        } else if (
-          target.trainingLevel ===
-          magnification[target.rare].length - 1
-        ) {
-          return Math.ceil(
-            maxStatus * magnification[target.rare][target.trainingLevel] -
-              (maxStatus / 100) *
-                1.5 *
-                (this.maxCardLevel[target.rare][target.trainingLevel] -
-                  target.cardLevel)
-          );
+        } else if (target.trainingLevel >= this.maxCardLevel[target.rare].length - 2) {
+          return style === 'mental' ? maxStatus : Math.ceil(maxStatus * (1 + (target.cardLevel - this.maxCardLevel[target.rare][this.maxCardLevel[target.rare].length - 3]) / 100));
+        } else if (target.trainingLevel === magnification[target.rare].length - 1) {
+          return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - (maxStatus / 100) * 1.5 * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
         } else if (target.trainingLevel === 0) {
           if (/^(D|B)R$/.test(target.rare)) {
-            return Math.ceil(
-              maxStatus * magnification[target.rare][target.trainingLevel] -
-                ((maxStatus * magnification[target.rare][target.trainingLevel] -
-                  Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
-                  (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) *
-                  (this.maxCardLevel[target.rare][target.trainingLevel] -
-                    target.cardLevel)
-            );
+            return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - ((maxStatus * magnification[target.rare][target.trainingLevel] - Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) / (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
           } else {
-            return Math.ceil(
-              maxStatus * magnification[target.rare][target.trainingLevel] -
-                ((maxStatus / 2 -
-                  Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
-                  (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) *
-                  (this.maxCardLevel[target.rare][target.trainingLevel] -
-                    target.cardLevel)
-            );
+            return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - ((maxStatus / 2 - Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) / (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
           }
         } else {
-          return Math.ceil(
-            maxStatus * magnification[target.rare][target.trainingLevel] -
-              (maxStatus / (target.rare === 'R' ? 200 : 100)) *
-                (this.maxCardLevel[target.rare][target.trainingLevel] -
-                  target.cardLevel)
-          );
+          return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - (maxStatus / (target.rare === 'R' ? 200 : 100)) * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
         }
       };
     },
@@ -1034,17 +737,13 @@ export const useStoreCounter = defineStore('store', {
           LOVEボーナス: 0,
         };
 
-        for (const musicTitle of this.memberData.centerList[memberName]
-          .centerMusic) {
+        for (const musicTitle of this.memberData.centerList[memberName].centerMusic) {
           result += this.musicList[musicTitle].level;
-          bonusSkill[this.musicList[musicTitle].bonusSkill] += Math.floor(
-            this.musicList[musicTitle].level / 10
-          );
+          bonusSkill[this.musicList[musicTitle].bonusSkill] += Math.floor(this.musicList[musicTitle].level / 10);
         }
 
         for (const bonusSkillName in bonusSkill) {
-          this.memberData.centerList[memberName].bonusSkill[bonusSkillName] =
-            bonusSkill[bonusSkillName];
+          this.memberData.centerList[memberName].bonusSkill[bonusSkillName] = bonusSkill[bonusSkillName];
         }
 
         /*for (const musicTitle of this.memberData.centerList[memberName].centerMusic) {
@@ -1062,8 +761,7 @@ export const useStoreCounter = defineStore('store', {
     makeReleaseDate() {
       const date = {
         year: this.musicList[this.selectMusicTitle].musicData.releaseDate.year,
-        month:
-          this.musicList[this.selectMusicTitle].musicData.releaseDate.month,
+        month: this.musicList[this.selectMusicTitle].musicData.releaseDate.month,
         date: this.musicList[this.selectMusicTitle].musicData.releaseDate.date,
       };
 
@@ -1076,18 +774,9 @@ export const useStoreCounter = defineStore('store', {
       const result = {};
 
       for (const targetBonusSkill in this.bonusSkillList) {
-        if (
-          this.memberData.centerList[this.checkMasteryMember].bonusSkill[
-            targetBonusSkill
-          ] +
-            this.supportSkill[this.checkMasteryMember][targetBonusSkill] >
-          0
-        ) {
+        if (this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] + this.supportSkill[this.checkMasteryMember][targetBonusSkill] > 0) {
           result[targetBonusSkill] = this.bonusSkillList[targetBonusSkill];
-          result[targetBonusSkill].skillLevel =
-            this.memberData.centerList[this.checkMasteryMember].bonusSkill[
-              targetBonusSkill
-            ] + this.supportSkill[this.checkMasteryMember][targetBonusSkill];
+          result[targetBonusSkill].skillLevel = this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] + this.supportSkill[this.checkMasteryMember][targetBonusSkill];
         }
       }
 
@@ -1121,6 +810,20 @@ export const useStoreCounter = defineStore('store', {
   },
   actions: {
     init() {
+      const bonusSkillList = {};
+
+      for (const key in this.bonusSkillList) {
+        bonusSkillList[key] = 0;
+      }
+
+      for (const name in this.memberName) {
+        this.supportSkill[name] = structuredClone(bonusSkillList);
+        this.memberData.centerList[name] = {
+          centerMusic: [],
+          bonusSkill: structuredClone(bonusSkillList),
+        };
+      }
+
       this.search = structuredClone(this.defaultSearch);
       this.card = structuredClone(this.defaultCard);
       this.getLocalStorage();
@@ -1132,103 +835,54 @@ export const useStoreCounter = defineStore('store', {
     getLocalStorage(importData) {
       const isImportData = importData !== undefined;
 
-      if (
-        localStorage.llllMgr_musicData !== undefined ||
-        (isImportData && importData.musicData !== undefined)
-      ) {
+      if (localStorage.llllMgr_musicData !== undefined || (isImportData && importData.musicData !== undefined)) {
         if (!isImportData) {
-          this.localStorageData.musicData = JSON.parse(
-            localStorage.llllMgr_musicData
-          );
+          this.localStorageData.musicData = JSON.parse(localStorage.llllMgr_musicData);
 
           for (const musicTitle in this.musicList) {
-            this.musicList[musicTitle].level =
-              this.localStorageData.musicData.musicLevel[musicTitle];
-            this.memberData.centerList[
-              this.musicList[musicTitle].center
-            ].centerMusic.push(musicTitle);
+            this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
+            this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
           }
         } else if (importData.musicData !== undefined) {
           this.localStorageData.musicData = importData.musicData;
 
           for (const musicTitle in this.musicList) {
-            this.musicList[musicTitle].level =
-              this.localStorageData.musicData.musicLevel[musicTitle];
+            this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
           }
 
-          this.setLocalStorage(
-            'llllMgr_musicData',
-            this.localStorageData.musicData
-          );
+          this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
         }
       } else {
         for (const musicTitle in this.musicList) {
-          this.memberData.centerList[
-            this.musicList[musicTitle].center
-          ].centerMusic.push(musicTitle);
+          this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
         }
       }
 
-      if (
-        localStorage.llllMgr_card !== undefined ||
-        (isImportData &&
-          importData.cardList !== undefined &&
-          importData.cardList.card !== undefined)
-      ) {
+      if (localStorage.llllMgr_card !== undefined || (isImportData && importData.cardList !== undefined && importData.cardList.card !== undefined)) {
         let isRemakeCardData = false;
 
         if (!isImportData) {
-          this.localStorageData.cardList.card = this.makeExportCardData(
-            JSON.parse(localStorage.llllMgr_card)
-          );
+          this.localStorageData.cardList.card = this.makeExportCardData(JSON.parse(localStorage.llllMgr_card));
           isRemakeCardData = true;
-        } else if (
-          importData.cardList !== undefined &&
-          importData.cardList.card !== undefined
-        ) {
-          this.localStorageData.cardList.card = this.makeExportCardData(
-            importData.cardList.card
-          );
-          this.setLocalStorage(
-            'llllMgr_card',
-            this.localStorageData.cardList.card
-          );
+        } else if (importData.cardList !== undefined && importData.cardList.card !== undefined) {
+          this.localStorageData.cardList.card = this.makeExportCardData(importData.cardList.card);
+          this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
           isRemakeCardData = true;
         }
 
         if (isRemakeCardData) {
           for (const memberName in this.card) {
             for (const rare in this.card[memberName]) {
-              if (
-                this.localStorageData.cardList.card[memberName] !== undefined
-              ) {
-                for (const cardName in this.localStorageData.cardList.card[
-                  memberName
-                ][rare]) {
-                  this.card[memberName][rare][cardName].fluctuationStatus =
-                    this.localStorageData.cardList.card[memberName][rare][
-                      cardName
-                    ].fluctuationStatus;
+              if (this.localStorageData.cardList.card[memberName] !== undefined) {
+                for (const cardName in this.localStorageData.cardList.card[memberName][rare]) {
+                  this.card[memberName][rare][cardName].fluctuationStatus = this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
 
-                  if (
-                    this.localStorageData.cardList.card[memberName][rare][
-                      cardName
-                    ].fluctuationStatus.releasePoint === undefined
-                  ) {
-                    this.card[memberName][rare][
-                      cardName
-                    ].fluctuationStatus.releasePoint = 0;
+                  if (this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus.releasePoint === undefined) {
+                    this.card[memberName][rare][cardName].fluctuationStatus.releasePoint = 0;
                   }
 
-                  if (
-                    this.localStorageData.cardList.card[memberName][rare][
-                      cardName
-                    ].favorite !== undefined
-                  ) {
-                    this.card[memberName][rare][cardName].favorite =
-                      this.localStorageData.cardList.card[memberName][rare][
-                        cardName
-                      ].favorite;
+                  if (this.localStorageData.cardList.card[memberName][rare][cardName].favorite !== undefined) {
+                    this.card[memberName][rare][cardName].favorite = this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
                   }
                 }
               }
@@ -1237,18 +891,11 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (
-        localStorage.llllMgr_cardListFilter !== undefined ||
-        (isImportData &&
-          importData.cardList !== undefined &&
-          importData.cardList.cardListFilter !== undefined)
-      ) {
+      if (localStorage.llllMgr_cardListFilter !== undefined || (isImportData && importData.cardList !== undefined && importData.cardList.cardListFilter !== undefined)) {
         let isRemakeCardListFilter = false;
 
         if (!isImportData) {
-          const localStorageData = JSON.parse(
-            localStorage.llllMgr_cardListFilter
-          );
+          const localStorageData = JSON.parse(localStorage.llllMgr_cardListFilter);
 
           if (localStorageData.skillList.skillFilterType !== undefined) {
             this.localStorageData.cardList.cardListFilter = localStorageData;
@@ -1269,82 +916,47 @@ export const useStoreCounter = defineStore('store', {
           }
 
           isRemakeCardListFilter = true;
-        } else if (
-          importData.cardList !== undefined &&
-          importData.cardList.cardListFilter !== undefined
-        ) {
-          if (
-            importData.cardList.cardListFilter.skillFilterType !== undefined
-          ) {
-            this.localStorageData.cardList.cardListFilter =
-              importData.cardList.cardListFilter;
+        } else if (importData.cardList !== undefined && importData.cardList.cardListFilter !== undefined) {
+          if (importData.cardList.cardListFilter.skillFilterType !== undefined) {
+            this.localStorageData.cardList.cardListFilter = importData.cardList.cardListFilter;
           } else {
-            this.localStorageData.cardList.cardListFilter.cardList =
-              importData.cardList.cardListFilter.cardList;
-            this.localStorageData.cardList.cardListFilter.cardSeries =
-              importData.cardList.cardListFilter.cardSeries;
-            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType =
-              importData.cardList.cardListFilter.skillList.skillFilterType;
-            this.localStorageData.cardList.cardListFilter.skillList.skillName =
-              importData.cardList.cardListFilter.skillList.skillName;
-            this.localStorageData.cardList.cardListFilter.skillList.skillType =
-              importData.cardList.cardListFilter.skillList.skillType;
+            this.localStorageData.cardList.cardListFilter.cardList = importData.cardList.cardListFilter.cardList;
+            this.localStorageData.cardList.cardListFilter.cardSeries = importData.cardList.cardListFilter.cardSeries;
+            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType = importData.cardList.cardListFilter.skillList.skillFilterType;
+            this.localStorageData.cardList.cardListFilter.skillList.skillName = importData.cardList.cardListFilter.skillList.skillName;
+            this.localStorageData.cardList.cardListFilter.skillList.skillType = importData.cardList.cardListFilter.skillList.skillType;
           }
 
-          this.setLocalStorage(
-            'llllMgr_cardListFilter',
-            this.localStorageData.cardList.cardListFilter
-          );
+          this.setLocalStorage('llllMgr_cardListFilter', this.localStorageData.cardList.cardListFilter);
           isRemakeCardListFilter = true;
         }
 
         if (isRemakeCardListFilter) {
-          if (
-            this.localStorageData.cardList.cardListFilter.cardList === undefined
-          ) {
+          if (this.localStorageData.cardList.cardListFilter.cardList === undefined) {
             for (const filterName in this.search.cardList) {
-              this.search.cardList[filterName] =
-                this.localStorageData.cardList.cardListFilter[filterName];
+              this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter[filterName];
             }
           } else {
             for (const filterName in this.search.cardList) {
-              if (
-                this.localStorageData.cardList.cardListFilter.cardList[
-                  filterName
-                ] !== undefined
-              ) {
-                this.search.cardList[filterName] =
-                  this.localStorageData.cardList.cardListFilter.cardList[
-                    filterName
-                  ];
+              if (this.localStorageData.cardList.cardListFilter.cardList[filterName] !== undefined) {
+                this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter.cardList[filterName];
               }
             }
 
             for (const filterName in this.search.skillList) {
-              if (
-                this.localStorageData.cardList.cardListFilter.skillList[
-                  filterName
-                ]
-              ) {
-                this.search.skillList[filterName] =
-                  this.localStorageData.cardList.cardListFilter.skillList[
-                    filterName
-                  ];
+              if (this.localStorageData.cardList.cardListFilter.skillList[filterName]) {
+                this.search.skillList[filterName] = this.localStorageData.cardList.cardListFilter.skillList[filterName];
               } else {
                 this.search.skillList[filterName] = [];
               }
             }
 
-            this.search.cardSeries =
-              this.localStorageData.cardList.cardListFilter.cardSeries;
+            this.search.cardSeries = this.localStorageData.cardList.cardListFilter.cardSeries;
           }
         }
       }
 
-      if (
-        localStorage.llllMgr_selectItemList !== undefined ||
-        (isImportData && importData.selectItemList !== undefined)
-      ) {
+      if (localStorage.llllMgr_selectItemList !== undefined || (isImportData && importData.selectItemList !== undefined)) {
         let getSelectItemList = null;
 
         if (!isImportData) {
@@ -1356,16 +968,12 @@ export const useStoreCounter = defineStore('store', {
 
         if (getSelectItemList !== null) {
           for (let i = 1; i <= 3; i++) {
-            this.localStorageData.selectItemList[`item${i}`] =
-              getSelectItemList[`item${i}`];
+            this.localStorageData.selectItemList[`item${i}`] = getSelectItemList[`item${i}`];
           }
         }
       }
 
-      if (
-        localStorage.llllMgr_siteSettings !== undefined ||
-        (isImportData && importData.siteSettings !== undefined)
-      ) {
+      if (localStorage.llllMgr_siteSettings !== undefined || (isImportData && importData.siteSettings !== undefined)) {
         let getSiteSettings = null;
 
         if (!isImportData) {
@@ -1384,12 +992,8 @@ export const useStoreCounter = defineStore('store', {
 
         if (getSiteSettings !== null) {
           for (const siteSettingCategoryName in this.siteSettings) {
-            for (const settingName in this.siteSettings[
-              siteSettingCategoryName
-            ]) {
-              this.localStorageData.siteSettings[siteSettingCategoryName][
-                settingName
-              ] = getSiteSettings[siteSettingCategoryName][settingName];
+            for (const settingName in this.siteSettings[siteSettingCategoryName]) {
+              this.localStorageData.siteSettings[siteSettingCategoryName][settingName] = getSiteSettings[siteSettingCategoryName][settingName];
             }
           }
 
@@ -1397,10 +1001,7 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (
-        localStorage.llllMgr_sortSettings !== undefined ||
-        (isImportData && importData.sortSettings !== undefined)
-      ) {
+      if (localStorage.llllMgr_sortSettings !== undefined || (isImportData && importData.sortSettings !== undefined)) {
         let getSortSettings = null;
 
         if (!isImportData) {
@@ -1410,8 +1011,7 @@ export const useStoreCounter = defineStore('store', {
 
           for (const iterator of ['card', 'music']) {
             if (getSortSettings[`${iterator}List`] === undefined) {
-              getSortSettings[`${iterator}List`] =
-                this.sortSettings[`${iterator}List`];
+              getSortSettings[`${iterator}List`] = this.sortSettings[`${iterator}List`];
             }
           }
 
@@ -1420,12 +1020,8 @@ export const useStoreCounter = defineStore('store', {
 
         if (getSortSettings !== null) {
           for (const sortSettingCategoryName in this.sortSettings) {
-            for (const settingName in this.sortSettings[
-              sortSettingCategoryName
-            ]) {
-              this.localStorageData.sortSettings[sortSettingCategoryName][
-                settingName
-              ] = getSortSettings[sortSettingCategoryName][settingName];
+            for (const settingName in this.sortSettings[sortSettingCategoryName]) {
+              this.localStorageData.sortSettings[sortSettingCategoryName][settingName] = getSortSettings[sortSettingCategoryName][settingName];
             }
           }
 
@@ -1462,11 +1058,7 @@ export const useStoreCounter = defineStore('store', {
       return value === 'true';
     },
     conversion(name) {
-      return /!/.test(name)
-        ? name.replace(/!/g, '！')
-        : /\//.test(name)
-          ? name.replace(/\//g, '／')
-          : name;
+      return /!/.test(name) ? name.replace(/!/g, '！') : /\//.test(name) ? name.replace(/\//g, '／') : name;
     },
     setOpenCard(name, style) {
       this.openCard.name = name;
@@ -1474,14 +1066,8 @@ export const useStoreCounter = defineStore('store', {
     },
     aaa() {
       for (const rare of this.rare) {
-        if (
-          this.selectCard[this.openCard.name][this.openCard.style] in
-          this.card[this.openCard.name][rare]
-        ) {
-          this.selectCard[this.openCard.name][this.openCard.style] =
-            this.card[this.openCard.name][rare][
-              this.selectCard[this.openCard.name][this.openCard.style]
-            ];
+        if (this.selectCard[this.openCard.name][this.openCard.style] in this.card[this.openCard.name][rare]) {
+          this.selectCard[this.openCard.name][this.openCard.style] = this.card[this.openCard.name][rare][this.selectCard[this.openCard.name][this.openCard.style]];
           break;
         }
       }
@@ -1517,8 +1103,7 @@ export const useStoreCounter = defineStore('store', {
 
           for (const cardName in card[memberName][rare]) {
             result[memberName][rare][cardName] = {
-              fluctuationStatus:
-                card[memberName][rare][cardName].fluctuationStatus,
+              fluctuationStatus: card[memberName][rare][cardName].fluctuationStatus,
               favorite: card[memberName][rare][cardName].favorite,
             };
           }
@@ -1546,42 +1131,24 @@ export const useStoreCounter = defineStore('store', {
         this.musicList[this.selectMusicTitle].level = val;
 
         for (const musicTitle in this.musicList) {
-          this.localStorageData.musicData.musicLevel[musicTitle] =
-            this.musicList[musicTitle].level;
+          this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
         }
 
-        this.setLocalStorage(
-          'llllMgr_musicData',
-          this.localStorageData.musicData
-        );
+        this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
       } else {
         this.settingCardData.fluctuationStatus[target] = val;
 
         if (target === 'trainingLevel') {
-          if (
-            this.settingCardData.fluctuationStatus.cardLevel <
-              this.changeMinCardLevel ||
-            this.settingCardData.fluctuationStatus.cardLevel >
-              this.changeMaxCardLevel
-          ) {
-            this.settingCardData.fluctuationStatus.cardLevel =
-              this.changeMinCardLevel;
+          if (this.settingCardData.fluctuationStatus.cardLevel < this.changeMinCardLevel || this.settingCardData.fluctuationStatus.cardLevel > this.changeMaxCardLevel) {
+            this.settingCardData.fluctuationStatus.cardLevel = this.changeMinCardLevel;
           }
         } else if (target === 'releaseLevel') {
-          if (
-            this.settingCardData.fluctuationStatus.SALevel >
-            this.changeSkillLevel
-          ) {
-            this.settingCardData.fluctuationStatus.SALevel =
-              this.changeSkillLevel;
+          if (this.settingCardData.fluctuationStatus.SALevel > this.changeSkillLevel) {
+            this.settingCardData.fluctuationStatus.SALevel = this.changeSkillLevel;
           }
 
-          if (
-            this.settingCardData.fluctuationStatus.SLevel >
-            this.changeSkillLevel
-          ) {
-            this.settingCardData.fluctuationStatus.SLevel =
-              this.changeSkillLevel;
+          if (this.settingCardData.fluctuationStatus.SLevel > this.changeSkillLevel) {
+            this.settingCardData.fluctuationStatus.SLevel = this.changeSkillLevel;
           }
         }
 
@@ -1590,11 +1157,9 @@ export const useStoreCounter = defineStore('store', {
     },
     changeFav(target) {
       if (this.settingCardData.favorite.some((v) => v === target)) {
-        this.settingCardData.favorite = this.settingCardData.favorite.filter(
-          (v) => {
-            return v !== target;
-          }
-        );
+        this.settingCardData.favorite = this.settingCardData.favorite.filter((v) => {
+          return v !== target;
+        });
       } else {
         this.settingCardData.favorite.push(target);
       }
@@ -1611,31 +1176,17 @@ export const useStoreCounter = defineStore('store', {
           this.supportSkill[cardData.memberName][targetBonusSkill] = 0;
 
           if (cardData.fluctuationStatus.cardLevel > 0) {
-            this.supportSkill[cardData.memberName][targetBonusSkill] =
-              cardData.uniqueStatus.supportSkill.supportSkillList[
-                targetBonusSkill
-              ].initLevel;
+            this.supportSkill[cardData.memberName][targetBonusSkill] = cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].initLevel;
 
-            if (
-              cardData.fluctuationStatus.releaseLevel >=
-              cardData.uniqueStatus.supportSkill.supportSkillList[
-                targetBonusSkill
-              ].levelUp
-            ) {
-              this.supportSkill[cardData.memberName][targetBonusSkill] +=
-                cardData.uniqueStatus.supportSkill.supportSkillList[
-                  targetBonusSkill
-                ].upLevel;
+            if (cardData.fluctuationStatus.releaseLevel >= cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].levelUp) {
+              this.supportSkill[cardData.memberName][targetBonusSkill] += cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].upLevel;
             }
           }
         }
       }
     },
     setBonusSkillLevel(memberName, skillName) {
-      return (
-        this.memberData.centerList[memberName].bonusSkill[skillName] +
-        this.supportSkill[memberName][skillName]
-      );
+      return this.memberData.centerList[memberName].bonusSkill[skillName] + this.supportSkill[memberName][skillName];
     },
     /*cardParam(style, target) {
       if (target === undefined) {
@@ -1653,12 +1204,7 @@ export const useStoreCounter = defineStore('store', {
       const result = [];
 
       for (const key of this.cardList) {
-        if (
-          key[target] !== undefined &&
-          result.indexOf(
-            target === 'series' ? key[target] : key[target].name
-          ) === -1
-        ) {
+        if (key[target] !== undefined && result.indexOf(target === 'series' ? key[target] : key[target].name) === -1) {
           result.push(target === 'series' ? key[target] : key[target].name);
         }
       }
@@ -1670,10 +1216,7 @@ export const useStoreCounter = defineStore('store', {
     },
     resetMusicFilter(resetName) {
       if (/^(SA|S)(AP|Level)|(release|card|training)Level$/.test(resetName)) {
-        this.search.cardList[resetName] = [
-          this.defaultSearch.cardList[resetName][0],
-          this.defaultSearch.cardList[resetName][1],
-        ];
+        this.search.cardList[resetName] = [this.defaultSearch.cardList[resetName][0], this.defaultSearch.cardList[resetName][1]];
       } else if (this.search.cardList[resetName].length === 0) {
         if (/^rare|favorite|releaseStatus$/.test(resetName)) {
           this.search.cardList[resetName] = this[resetName];
@@ -1696,10 +1239,7 @@ export const useStoreCounter = defineStore('store', {
       }
     },
     changeSettings(setLocalStorageName) {
-      this.setLocalStorage(
-        `llllMgr_${setLocalStorageName}`,
-        this[setLocalStorageName]
-      );
+      this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this[setLocalStorageName]);
     },
   },
 });

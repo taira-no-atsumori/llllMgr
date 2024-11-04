@@ -533,10 +533,10 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
         aggressiveAttract_mentalReduce25_stage: {
-          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルを最大値の25%減少させる。'],
+          text: ['このステージ中、獲得するLOVEを+', '%し、メンタルを最大値の25％減少させる。さらにデッキにあるメイン効果がメンタル回復効果のスキルの消費AP-2。'],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_stage', 'mentalReduce'],
+            type: ['loveAttract_stage', 'mentalReduce', 'APReduce'],
           },
         },
       },
@@ -632,6 +632,24 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['boost_loveAttract', 'boost_heartCaptcha', 'mentalReduce'],
+          },
+        },
+      },
+      アグレッシブブレイブハート: {
+        aggressiveBraveHeart: {
+          text: ['ビートハート', '回分のスキルハートを獲得し、メンタルを最大値の15％減少させる。さらにメンタル5%以下のときビートハート', '回分のスキルハートを獲得する。'],
+          detail: {
+            attr: 'aggressive',
+            type: ['heartCaptcha', 'mentalReduce'],
+          },
+        },
+      },
+      アグレッシブブレイブアトラクション: {
+        aggressiveBraveAttraction: {
+          text: ['このセクション中、獲得するLOVEを+', '%し、メンタルを最大値の15％減少させる。さらにメンタル5%以下のときビートハート', '回分のスキルハートを獲得する。'],
+          detail: {
+            attr: 'aggressive',
+            type: ['loveAttract_section', 'mentalReduce', 'heartCaptcha'],
           },
         },
       },
@@ -1823,6 +1841,13 @@ export const useSkillStore = defineStore('skillList', {
             type: ['heartCaptcha', 'loveAttract_section'],
           },
         },
+        braveAttraction_sectionAttract_under50_heartCaptcha_under25_heartCaptcha: {
+          text: ['ビートハート', '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+', '%する。さらにメンタルが50%以下のとき、ビートハート', '回分のスキルハートを獲得し、メンタルが25%以下のとき、ビートハート', '回分のスキルハートを獲得する。'],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
       ブレイブファッシネイト: {
         braveFascinate_under50_voltageGain_sectionAttract: {
@@ -2657,12 +2682,12 @@ export const useSkillStore = defineStore('skillList', {
       addCard: {
         name: 'カード追加',
         colorCode: 'purple',
-        description: 'カードを山札に追加する。追加されるカードは以下の通り。',
+        description: 'カードを山札に追加する。',
       },
       ignition: {
         name: 'イグニッション',
         colorCode: 'purple',
-        description: '特定条件で効果が変化する。変化する効果は以下の通り。',
+        description: '特定条件で効果が変化する。',
       },
       modeChange: {
         name: 'モードチェンジ',

@@ -843,12 +843,14 @@ export const useCardStore = defineStore('cardList', {
               detail: [[24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60]],
             },
             skill: {
-              ID: 'heartAttraction_section',
-              name: 'ハートアトラクション',
+              ID: 'braveAttraction_sectionAttract_under50_heartCaptcha_under25_heartCaptcha',
+              name: 'ブレイブアトラクション',
               AP: 10,
               detail: [
-                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 20, 21, 22, 24],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24],
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24],
               ],
             },
             characteristic: {
@@ -1758,9 +1760,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：APレデュース',
-              detail: 'ドローしたセクション中、消費APを-1する。',
-              type: ['draw', 'APReduce'],
+              name: 'ドロー：APレデュース & アトラクトブースト：慈',
+              detail: 'ドローしたセクションの間、消費APを-1する。さらに手札にある状態で慈のスキルを使用するたび、次に使用するラブアトラクト効果を+7%する。',
+              type: ['draw', 'APReduce', 'boost_loveAttract'],
             },
           },
           素顔のピクセル: {
@@ -3077,9 +3079,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]],
             },
             characteristic: {
-              name: 'チェイン：瑠璃乃',
-              detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['chain', 'rurino'],
+              name: 'チェイン：瑠璃乃 & ドロー：ボルテージブースト',
+              detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に使用するボルテージゲイン効果を+16%する。',
+              type: ['chain', 'rurino', 'drew', 'boost_voltageGain'],
             },
           },
           'ゆのくにガールズ！': {
@@ -3981,9 +3983,12 @@ export const useCardStore = defineStore('cardList', {
             },
             skill: {
               ID: 'aggressiveAttract_mentalReduce15_section',
-              name: 'アグレッシブアトラクト',
+              name: 'アグレッシブブレイブアトラクション',
               AP: 3,
-              detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              ],
             },
             characteristic: {
               name: 'ドロー：ボルテージゲイン',
@@ -4975,7 +4980,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [],
               addSkill: {
                 off: {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   ID: 'ignitionRefresh_hime_mentalRecover_over100',
                   name: 'イグニッションリフレッシュ',
                   AP: 4,
@@ -4999,7 +5004,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'ドロー：ボルテージゲイン',
                   detail: 'ドローした時、ボルテージPt.を18する。',
                 },
@@ -5143,7 +5148,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'APゲイン',
                   detail: 'スキル使用時、APを+1する。',
                 },
@@ -5609,9 +5614,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8]],
             },
             characteristic: {
-              name: 'ドロー：カームダウン',
-              detail: 'ドローした時、ボルテージPt.を-50する。',
-              type: ['draw', 'calmDown'],
+              name: 'ドロー：カームダウン& アトラクトブースト',
+              detail: 'ドローした時、ボルテージPt.を-50し、次に使用するラブアトラクト効果を+16%する。',
+              type: ['draw', 'calmDown', 'boost_loveAttract'],
             },
           },
           '宇宙警察★うさぴょん': {
@@ -5655,9 +5660,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：ハイメンタル',
-              detail: 'メンタルが75%以上の時にドローすると、消費APを-2する。',
-              type: ['APReduce', 'hiMental'],
+              name: 'APレデュース：ハイメンタル & リカバーブースト：さやか',
+              detail: 'メンタルが75%以上の時にドローすると、消費APを-2する。さらに手札にある状態でさやかのスキルを使用するたび、次に使用するメンタルリカバー効果を+30%する。',
+              type: ['APReduce', 'APReduce', 'boost_mentalRecover', 'sayaka'],
             },
           },
           アイデンティティ: {
@@ -6200,9 +6205,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]],
             },
             characteristic: {
-              name: 'フェイバリット：1',
-              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が増加する。',
-              type: ['favorite'],
+              name: 'フェイバリット：1 & ジャストドロー：1/リカバーブースト：みらくらぱーく！',
+              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が増加する。さらに1セクション目にドローした時、次にみらくらぱーく！のメンバーが使用するメンタルリカバー効果を+150%する。',
+              type: ['favorite', 'justDraw', 'boost_mentalRecover'],
             },
           },
           'ゆのくにガールズ！': {
@@ -8253,9 +8258,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32]],
             },
             characteristic: {
-              name: 'オーバーセクション：アグレッシブ',
-              detail: '手札にある状態でセクションが変わるたび、メンタルを最大値の15%減少させる。',
-              type: ['overSection', 'aggressive'],
+              name: 'オーバーセクション：アグレッシブ & アキューミュレイト',
+              detail: '手札にある状態でセクションが変わるたび、メンタルを最大値の15％減少させる。さらにこのスキルを使用する度に、5回までスキルの効果値が増加する。',
+              type: ['overSection', 'aggressive', 'accumulate'],
             },
           },
           素顔のピクセル: {
@@ -9473,10 +9478,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]],
             },
             skill: {
-              ID: 'aggressiveHeart_mentalReduce15',
-              name: 'アグレッシブハート',
+              ID: 'aggressiveBraveHeart',
+              name: 'アグレッシブブレイブハート',
               AP: 3,
-              detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', '10?']],
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+              ],
             },
             characteristic: {
               name: 'ドロー：ラブアトラクト',
@@ -11370,7 +11378,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [],
               addSkill: {
                 off: {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   ID: 'ignitionEndurance_hime_mentalOver100OrVoltageOver10',
                   name: 'イグニッションエンデュランス',
                   AP: 5,
@@ -11394,7 +11402,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'ドロー：メンタルリカバー & メンタルプロテクト',
                   detail: 'ドローした時、メンタルを最大値の8%回復し、このステージ中、メンタルの最大値の4%分のメンタルダメージを無効にする。',
                 },
@@ -11545,7 +11553,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'ドロー：ハートブースト & アトラクトブースト：みらくらぱーく！',
                   detail: 'ドローした時、次にみらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+125%、ラブアトラクト効果を+40%する。',
                 },
@@ -12051,7 +12059,7 @@ export const useCardStore = defineStore('cardList', {
               ID: 'allMightHealing',
               name: 'オールマイトヒーリング',
               AP: 8,
-              detail: [[30, 33, 36, 39, 42, 45, 48, 51, 54, 60, 63, 66, 69, 75]],
+              detail: [[90, 99, 108, 117, 126, 135, 144, 153, 162, 180, 189, 198, 207, 225]],
             },
             skill: {
               ID: 'aggressiveAttract_mentalReduce25_stage',
@@ -12148,9 +12156,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'フェイバリット：1',
-              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が増加する。',
-              type: ['favorite'],
+              name: 'フェイバリット：1 & ジャストドロー：1/ボルテージブースト：みらくらぱーく！',
+              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が増加する。さらに1セクション目にドローした時、次にみらくらぱーく！のメンバーが使用するボルテージゲイン効果を+80%する。',
+              type: ['favorite', 'justDraw', 'boost_voltageGain'],
             },
           },
           夏めきペイン: {
@@ -12565,8 +12573,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, '9?', 10]],
             },
             characteristic: {
-              name: 'ドロー：カームダウン',
-              detail: 'ドローした時、ボルテージPt.を-20する。',
+              name: 'ドロー：カームダウン & ハートブースト',
+              detail: 'ドローした時、ボルテージPt.を-20し、次に使用するスキルハート獲得効果による獲得数を+30%する。',
               type: ['draw', 'calmDown'],
             },
           },
@@ -12608,9 +12616,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.8, 3, 3.2]],
             },
             characteristic: {
-              name: 'チェイン：花帆',
-              detail: '花帆のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['chain', 'kaho'],
+              name: 'チェイン：花帆 & リカバーブースト：花帆',
+              detail: '花帆のスキルを使用した後、ドローされる確率が増加する。さらに手札にある状態で花帆のスキルを使用するたび、次に使用するメンタルリカバー効果を+20%する。',
+              type: ['chain', 'kaho', 'boost_mentalRecover'],
             },
           },
           'ゆのくにガールズ！': {
@@ -14724,7 +14732,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'モードチェンジ',
               AP: 7,
               detail: [
-                [11.6, '12.8?', '13.9?', '15.1?', '16.2?', 17.4, '18.6?', '19.7?', '20.9?', 23.2, '24.4?', '25.5?', '26.7?', 29],
+                [11.6, 12.76, 13.92, 15.08, 16.24, 17.4, 18.56, 19.72, 20.88, 23.2, 24.36, 25.52, 26.68, 29],
                 [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 29],
               ],
             },
@@ -14733,28 +14741,28 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 5,
               detail: [],
-              addSkill: {
-                off: {
-                  modeName: '通常',
+              addSkill: [
+                {
+                  modeName: '通常モード',
                   ID: 'ignitionStandby_hime_mentalOver100OrVoltageOver10',
                   name: 'イグニッションスタンバイ',
                   AP: 5,
                   detail: [
-                    [13.2, '14.5?', '15.8?', '17.2?', '18.5?', 19.8, '21.1?', '22.4?', '23.8?', 26.4, '27.7?', '29?', '30.4?', 33],
+                    [13.2, 14.52, 15.84, 17.16, 18.48, 19.8, 21.12, 22.44, 23.76, 26.4, 27.72, 29.04, 30.36, 33],
                     [26, 29, 31, 34, 36, 39, 42, 44, 47, 52, 55, 57, 60, 65],
                   ],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'fullPowerAttraction',
                   name: 'フルパワーアトラクション',
                   AP: 25,
                   detail: [
                     [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
-                    [1333.2, '1466.5?', '1599.8?', '1733.2?', '1866.5?', 1999.8, '2133.1?', '2266.4?', '2399.8?', 2666.4, '2799.7?', '2933?', '3066.4?', 3333],
+                    [1333.2, 1466.5, 1599.8, 1733.2, 1866.5, 1999.8, 2133.1, 2266.4, 2399.8, 2666.4, 2799.7, 2933, 3066.4, 3333],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -14762,7 +14770,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'ドロー：リカバーブースト & ボルテージブースト：姫芽',
                   detail: 'ドローした時、次に姫芽が使用するメンタルリカバー効果を+300%、ボルテージゲイン効果を+48%する。',
                 },
@@ -14855,7 +14863,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [],
               addSkill: {
                 off: {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   ID: 'attractBoost1',
                   name: 'アトラクトブースト',
                   AP: 5,
@@ -14879,7 +14887,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'ドロー：アトラクトブースト',
                   detail: 'ドローした時、2回の間ラブアトラクト効果を+9.6%する。',
                 },
@@ -14929,7 +14937,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [],
               addSkill: {
                 off: {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   ID: 'voltageGain',
                   name: 'ボルテージゲイン',
                   AP: 5,
@@ -14953,7 +14961,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['alternate'],
               changeCharacteristic: [
                 {
-                  modeName: '通常',
+                  modeName: '通常モード',
                   name: 'ドロー：ボルテージブースト & アトラクトブースト：みらくらぱーく！',
                   detail: 'ドローした時、次にみらくらぱーく！のメンバーが使用するボルテージゲイン効果を+40%、ラブアトラクト効果を+40%する。',
                 },
