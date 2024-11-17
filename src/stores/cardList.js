@@ -4899,6 +4899,80 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          ジョーショーキリュー: {
+            styleType: 'performer',
+            mood: 'melow',
+            series: 'ジョーショーキリュー',
+            kana: 'じょーしょーきりゅー',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.6',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3900,
+              pure: 4000,
+              cool: 6000,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'ignitionBoost_loveAttract',
+              name: 'イグニッションブースト',
+              AP: 5,
+              detail: [[50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125]],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 3,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'extensions2_voltage_section',
+                  name: 'エクステボルテージ',
+                  AP: 3,
+                  detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'upDraftHeart_attract_reshuffle_heartCaptcha_reduce3',
+                  name: 'アップドラフトハート',
+                  AP: 13,
+                  detail: [
+                    [53.2, '58.5?', '63.8?', '69.2?', '74.5?', 79.8, '85.1?', '90.4?', '95.8?', 106.4, '111.7?', '117?', '122.4?', 133],
+                    [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常モード',
+                  name: 'ドロー：メンタルリカバー & イグニッション',
+                  detail: 'ドローした時、メンタルを最大値の10%回復させる。さらに手札にある間、メイン効果にメンタル効果、またはメンタルプロテクト効果を持つスキルを使用すると姫芽が《イグニッションモード》になる。',
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'APコントロール：みらくらぱーく！ & トライメンター',
+                  detail: 'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-3。このスキルを使用するたび、デッキにあるみらくらぱーく！のスキルの消費AP-3。このスキルを3回使用した時、このステージ中、AP回復速度を+13%し、姫芽の《イグニッションモード》を解除する。',
+                },
+              ],
+            },
+          },
           紅葉乃舞姫: {
             styleType: 'trickStar',
             mood: 'neutral',
@@ -9076,6 +9150,80 @@ export const useCardStore = defineStore('cardList', {
             },
           },
         },
+        BR: {
+          '18th Birthday': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'えいてぃーんばーすでー',
+            gacha: {
+              addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Tsuzuri-',
+              period: 'birthday',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '18th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'voltageBoost_stage',
+              name: 'ボルテージブースト',
+              AP: 6,
+              detail: [[5.6, 6.2, 6.7, 7.3, 7.8, 8.4, 9, 9.5, 10.1, 11.2, 11.8, 12.3, 12.9, 14]],
+            },
+            skill: {
+              ID: 'celebration_heart_attract_voltage',
+              name: 'セレブレイション',
+              AP: 3,
+              detail: [
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ブレッシング',
+              detail: '手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。',
+              type: ['overSection', 'APReduce_all'],
+            },
+          },
+        },
         UR: {
           福音の銀河へ: {
             styleType: 'moodMaker',
@@ -11291,6 +11439,83 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          ジョーショーキリュー: {
+            styleType: 'performer',
+            mood: 'melow',
+            series: 'ジョーショーキリュー',
+            kana: 'じょーしょーきりゅー',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.6',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3800,
+              pure: 4100,
+              cool: 5900,
+              mental: 540,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'ignitionBoost_loveAttract',
+              name: 'イグニッションブースト',
+              AP: 5,
+              detail: [[16.8, '18.5?', '20.2?', '21.8?', '23.5?', 25.2, '26.9?', '28.6?', '30.2?', 33.6, '35.3?', '37?', '38.6?', 42]],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 3,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'endurance_voltageMental',
+                  name: 'エンデュランス',
+                  AP: 3,
+                  detail: [
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26],
+                    [2.8, '3.08?', '3.36?', '3.64?', '3.92?', 4.2, '4.48?', '4.76?', '5.04?', 5.6, '5.88?', '6.16?', '6.44?', 7],
+                  ],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'upDraftAttract_attract_reshuffle_stageAttract_reduce3',
+                  name: 'アップドラフトアトラクト',
+                  AP: 13,
+                  detail: [
+                    [53.2, '58.5?', '63.8?', '69.2?', '74.5?', 79.8, '85.1?', '90.4?', '95.8?', 106.4, '111.7?', '117?', '122.4?', 133],
+                    [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常モード',
+                  name: 'ドロー：メンタルプロテクト & イグニッション',
+                  detail: 'ドローした時、メンタルの最大値の10%分のメンタルダメージを無効にする。さらに手札にある間、メイン効果にメンタル効果、またはメンタルプロテクト効果を持つスキルを使用すると、姫芽が《イグニッションモード》になる。',
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'APコントロール：みらくらぱーく！ & トライメンター',
+                  detail: 'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-3。このスキルを使用するたび、デッキにあるみらくらぱーく！のスキルの消費AP-3。このスキルを3回使用した時、このステージ中、AP回復速度を+13%し、姫芽の《イグニッションモード》を解除する。',
+                },
+              ],
+            },
+          },
           久遠の銀河へ: {
             styleType: 'cheerLeader',
             mood: 'happy',

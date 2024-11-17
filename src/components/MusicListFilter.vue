@@ -63,7 +63,7 @@
 </template>
 
 <script setup>
-  import { useStoreCounter } from '../stores/counter';
+  import { useStoreCounter } from '@/stores/counter';
   const store = useStoreCounter();
   const memberNameList = [];
 

@@ -2,10 +2,11 @@ import { defineStore } from 'pinia';
 import { useCardStore } from './cardList';
 import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
+import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.76(アーリーアクセス)',
+    version: 'ε.77(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -828,6 +829,16 @@ export const useStoreCounter = defineStore('store', {
       this.card = structuredClone(this.defaultCard);
       this.getLocalStorage();
       this.setSupportSkillLevel();
+    },
+    /**
+     * DB作成
+     */
+    makeDb() {
+      // DBのオープン
+      const db = new Dexie("llllMgrDB_test");
+      db.version(1).stores({
+        tasks: "++id,name,completed",
+      });
     },
     setLocalStorage(setLocalStorageName, value) {
       localStorage[setLocalStorageName] = JSON.stringify(value);

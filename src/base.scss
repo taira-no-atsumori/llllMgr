@@ -84,7 +84,7 @@ textarea {
   padding: 5px;
 }
 
-.charactorArea {
+.characterArea {
   border: 3px solid;
 
   &[data-charactorname="kaho"] {
@@ -94,25 +94,25 @@ textarea {
   &[data-charactorname="sayaka"] {
     border-color: $sayaka;
   }
-  
+
   &[data-charactorname="rurino"] {
     border-color: $rurino;
   }
-  
+
   &[data-charactorname="kozue"] {
     border-color: $kozue;
   }
-  
+
   &[data-charactorname="tsuzuri"] {
     border-color: $tsuzuri;
   }
-  
+
   &[data-charactorname="megumi"] {
     border-color: $megumi;
   }
 }
 
-.charactorName {
+.characterName {
   text-align: center;
   padding: 10px 0;
   font-weight: bold;
@@ -120,7 +120,7 @@ textarea {
   button {
     cursor: pointer;
     padding-bottom: 1px;
-    
+
     &:hover {
       opacity: 0.7;
       padding-bottom: 0;
@@ -129,7 +129,7 @@ textarea {
   }
 }
 
-.charactor_detail {
+.character_detail {
   padding: 10px 10px 0 10px;
 
   >div {
@@ -224,21 +224,21 @@ textarea {
   dt {
     margin-bottom: 5px;
   }
-  
+
   button {
     padding: 5px 10px;
     border: 2px solid #000;
     border-radius: 50px;
     margin: 0 10px 10px 0;
-    
+
     &[data-mood="happy"] {
       border-color: $happy;
     }
-    
+
     &[data-mood="neutral"] {
       border-color: $neutral;
     }
-    
+
     &[data-mood="melow"] {
       border-color: $melow;
     }
