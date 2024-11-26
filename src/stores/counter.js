@@ -6,7 +6,7 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.77(アーリーアクセス)',
+    version: 'ε.78(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,

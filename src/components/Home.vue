@@ -40,9 +40,7 @@
                   {{ event.text }}
                   <span class="d-inline-block">
                     <b class="text-red">
-                      開催
-                      <span v-if="event.type === 'live'"> 日 </span>
-                      <span v-else>中</span>
+                      開催<span v-if="event.type === 'live'"> 日 </span><span v-else>中</span>
                     </b>
                   </span>
                 </div>
@@ -180,7 +178,7 @@ export default {
   data() {
     return {
       eventList: {
-        liveGP: {
+        /*liveGP: {
           title: "ライブグランプリ「104期 3rdTerm 第1回個人戦」",
           text: "",
           type: "liveGP",
@@ -188,16 +186,16 @@ export default {
           lastDay: [2024, 11, 23, 3, 59],
           url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-11-16-40-f9ye1gw94i",
           img: "104期 3rdTerm 第1回個人戦_logo",
-        },
-        /*liveGP: {
+        },*/
+        liveGP: {
           title: "ライブグランプリ「104期 2ndTerm 第3回サークル対抗戦」",
           text: "",
           type: "liveGP",
-          firstDay: [2024, 10, 19, 12, 0],
-          lastDay: [2024, 10, 24, 3, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-10-18-10-de5bpp0jlv",
-          img: "104期 2ndTerm 第3回サークル対抗戦_logo",
-        },*/
+          firstDay: [2024, 11, 25, 12, 0],
+          lastDay: [2024, 12, 1, 3, 59],
+          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-11-25-20-gh16ks1rvz",
+          img: "104期 3rdTerm 第1回サークル対抗戦_logo",
+        },
         "3rdLiveTour_DOLLCHESTRA": {
           title:
             "ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRY TRI UNITY!!!」",

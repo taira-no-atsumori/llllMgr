@@ -3982,7 +3982,7 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
             },
             skill: {
-              ID: 'aggressiveAttract_mentalReduce15_section',
+              ID: 'aggressiveBraveAttraction_minus15_under5',
               name: 'アグレッシブブレイブアトラクション',
               AP: 3,
               detail: [
@@ -9225,6 +9225,79 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          バアドゲージ: {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'バアドゲージ',
+            kana: 'ばあどげーじ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.7',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 6000,
+              cool: 5200,
+              mental: 460,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'dack_extensions2_voltage_stage',
+              name: 'エクステボルテージダック',
+              AP: 5,
+              detail: [[16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],],
+              addSkill: [
+                {
+                  ID: 'torikago',
+                  name: 'トリカゴ',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+            skill: {
+              ID: 'braveVortexAttraction_under1_under0',
+              name: 'ブレイブボルテックスアトラクション',
+              AP: 13,
+              detail: [
+                [66, 73, 79, 86, 92, 99, 106, 112, 119, 132, 139, 145, 152, 164],
+                [91, 100, 109, 118, 127, 137, 146, 155, 164, 182, 191, 200, 209, 228],
+                [180, 198, 216, 234, 252, 270, 288, 306, 324, 360, 378, 396, 414, 450],
+              ],
+            },
+            characteristic: {
+              name: 'リベレイト',
+              detail: 'このスキルを3回使用するまで、スキル使用時、山札に戻る。このスキルを3回使用した時、スキル効果量が増加し、トリカゴカードを1種類(合計3枚)山札に追加する。',
+              type: ['drew', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'torikago',
+                  name: 'トリカゴ',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+          },
           福音の銀河へ: {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -14212,6 +14285,53 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          バアドゲージ: {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'バアドゲージ',
+            kana: 'ばあどげーじ',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION vol.7',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3700,
+              pure: 5800,
+              cool: 5100,
+              mental: 460,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'aggressiveBeliefBoost_heatUp_minus100',
+              name: 'アグレッシブビリーフブースト',
+              AP: 5,
+              detail: [[5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],],
+            },
+            skill: {
+              ID: 'braveVortexBoost_under1_under0',
+              name: 'ブレイブボルテックスブースト',
+              AP: 13,
+              detail: [
+                [66, 73, 79, 86, 92, 99, 106, 112, 119, 132, 139, 145, 152, 164],
+                [91, 100, 109, 118, 127, 137, 146, 155, 164, 182, 191, 200, 209, 228],
+                [618.8, '680.7?', '742.6?', '804.4?', '866.3?', 928.2, '990.1?', '1052?', '1113.8?', 1237.6, '1299.5?', '1361.4?', '1423.2?', 1547],
+              ],
+            },
+            characteristic: {
+              name: 'ジャストドロー：1/ビリーフ & アグレッシブ',
+              detail: '1セクション目までにドローした時、このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにメンタルを最大値の100%減少させる。',
+              type: ['justDrew', 'mentalDown_section', 'mentalReduce'],
+            },
+          },
           'Link to the FUTURE': {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -15332,6 +15452,83 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          ジョーショーキリュー: {
+            styleType: 'cheerLeader',
+            mood: 'melow',
+            series: 'ジョーショーキリュー',
+            kana: 'じょーしょーきりゅー',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 3rdTerm 第1回個人戦」',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3500,
+              pure: 3800,
+              cool: 4900,
+              mental: 460,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'ignitionBoost_mentalRecover',
+              name: 'イグニッションブースト',
+              AP: 5,
+              detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 3,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'cheerfulRecover_upper100_stageProtect',
+                  name: 'チアフルリカバープロテクト',
+                  AP: 3,
+                  detail: [
+                    [4.4, 4.84, 5.28, 5.72, 6.16, 6.6, 7.04, 7.48, 7.92, 8.8, 9.24, 9.68, 10.12, 11],
+                    [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15],
+                  ],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'refreshMind_stageProtect',
+                  name: 'リフレッシュマインド',
+                  AP: 3,
+                  detail: [
+                    [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
+                    [2.4, 2.64, 2.88, 3.12, 3.36, 3.6, 3.84, 4.08, 4.32, 4.8, 5.04, 5.28, 5.52, 6],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常モード',
+                  name: 'ドロー：リカバーブースト：みらくらぱーく！ & イグニッション',
+                  detail: 'ドローした時、3回の間みらくらぱーく！のメンバーが使用するメンタル回復効果を+30%する。さらに手札にある間、メイン効果にメンタル効果、またはメンタルプロテクト効果を持つスキルを使用すると、姫芽が《イグニッションモード》になる。',
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'イグニッションモード：トライチェンジ',
+                  detail: 'このスキルを使用するたび、デッキにあるみらくらぱーく！のスキルの消費AP-3。このスキルを3回使用した時、このステージ中、AP回復速度を+13%し、姫芽の《イグニッションモード》を解除する。',
+                },
+              ],
+            },
+          },
           'Bloom the smile, Bloom the dream!': {
             styleType: 'trickStar',
             mood: 'neutral',

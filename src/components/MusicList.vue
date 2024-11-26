@@ -115,7 +115,7 @@
                   <h3>マスタリーLv.で絞り込み</h3>
                   <v-range-slider
                     v-model="masteryLv"
-                    max="30"
+                    max="50"
                     min="0"
                     thumb-label="always"
                     step="1"

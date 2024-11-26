@@ -775,7 +775,7 @@
                 </span>
               </p>
               <p class="mt-1">
-                {{ list?.characteristic?.detail ?? list.detail }}
+                {{ list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail }}
               </p>
 
               <div v-if="list?.ID">

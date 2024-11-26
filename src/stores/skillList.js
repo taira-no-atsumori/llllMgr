@@ -137,6 +137,17 @@ export const useSkillStore = defineStore('skillList', {
             attr: 'refresh',
             type: ['reshuffle', 'mentalRecover']
           }
+        },
+        refreshMind_stageProtect: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
+            '%回復させ、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'mentalRecover', 'protect_stage']
+          }
         }
       },
       リフレッシュプロテクト: {
@@ -548,6 +559,19 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      チアフルリカバープロテクト: {
+        cheerfulRecover_upper100_stageProtect: {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。さらにメンタルが100%以上のとき、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['mentalRecover', 'protect_stage'],
+          },
+        },
+      },
       チアフルプロテクト: {
         cheerfulProtect_loveAttract: {
           text: [
@@ -911,7 +935,7 @@ export const useSkillStore = defineStore('skillList', {
         },
       },
       アグレッシブブレイブアトラクション: {
-        aggressiveBraveAttraction: {
+        aggressiveBraveAttraction_minus15_under5: {
           text: [
             'このセクション中、獲得するLOVEを+',
             '%し、メンタルを最大値の15％減少させる。さらにメンタル5%以下のときビートハート',
@@ -982,6 +1006,16 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce'],
+          },
+        },
+        aggressiveBeliefBoost_heatUp_minus100: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、AP回復速度を+',
+            '%する。さらにメンタルを最大値の100%減少させる。',
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'APQuick', 'mentalReduce'],
           },
         },
       },
@@ -1369,6 +1403,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['extensions_stage', 'boost_loveAttract', 'APQuick'],
+          },
+        },
+      },
+      エクステボルテージダック: {
+        dack_extensions2_voltage_stage: {
+          text: [
+            'このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
+            'し、トリカゴカードを1種類(合計1枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_stage', 'voltageGain', 'addCard'],
           },
         },
       },
@@ -2688,6 +2734,34 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      ブレイブボルテックスアトラクション: {
+        braveVortexAttraction_under1_under0: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルが1%以下の時、ビートハート',
+            '回分のスキルハートを獲得し、メンタルが0%のとき、このステージ中、獲得するLOVEを+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
+          },
+        },
+      },
+      ブレイブボルテックスブースト: {
+        braveVortexBoost_under1_under0: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルが1%以下のとき、ビートハート',
+            '回分のスキルハートを獲得し、メンタルが0%のとき、3回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['voltageGain', 'heartCaptcha', 'loveAttract'],
+          },
+        },
+      },
       'ブレイブブーステッドリカバー：DOLLCHESTRA': {
         braveBoostedRecover_dollchestra: {
           text: [
@@ -3295,6 +3369,16 @@ export const useSkillStore = defineStore('skillList', {
             type: ['modeChange', 'boost_heartCaptcha'],
           },
         },
+        ignitionBoost_mentalRecover: {
+          text: [
+            '姫芽が《イグニッションモード》になる。さらに3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'alternate',
+            type: ['modeChange', 'boost_mentalRecover'],
+          },
+        },
       },
       イグニッションボルテージ: {
         ignitionVoltage: {
@@ -3626,6 +3710,17 @@ export const useSkillStore = defineStore('skillList', {
               'loveAttract_stage',
               'mentalReduce',
             ],
+          },
+        },
+      },
+      トリカゴ: {
+        torikago: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、AP回復速度を+33%する。さらにメンタルを最大値の100%減少させる。',
+          ],
+          detail: {
+            attr: 'torikago',
+            type: ['mentalDown_section', 'APQuick', 'mentalReduce'],
           },
         },
       },
