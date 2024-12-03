@@ -260,6 +260,53 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          ハナムスビ: {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'ハナムスビ',
+            kana: 'はなむすび',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.8',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5900,
+              pure: 4200,
+              cool: 4100,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionsGain_add3',
+              name: 'エクステゲイン',
+              AP: 5,
+              detail: [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+            },
+            skill: {
+              ID: 'abunDanceAttraction_over30_stage_over33',
+              name: 'アバンダンスアトラクション',
+              AP: 33,
+              detail: [
+                [108, 118.8, 129.6, 140.4, 151.2, 162, 172.8, 183.6, 194.4, 216, 226.8, 237.6, 248.4, 270],
+                [1500, 1650, 1800, 1950, 2100, 2250, 2400, 2550, 2700, 3000, 3150, 3300, 3450, 3750],
+                [2250, 2475, 2700, 2925, 3150, 3375, 3600, 3825, 4050, 4500, 4725, 4950, 5175, 5625]
+              ],
+            },
+            characteristic: {
+              name: 'ブーステッドハートゲイン：スリーズブーケ',
+              detail: '手札にある状態でスリーズブーケのスキルを使用するたび、ビートハート3回分のスキルハートを獲得、次のドレスカード使用によるラブアトラクト効果を+25%し、さらにAPを1回復する。',
+              type: ['heartCaptcha', 'CeriseBouquet', 'boost_loveAttract', 'APGain']
+            },
+          },
           月夜見海月: {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -760,9 +807,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：APレデュース & マチュレーション',
-              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費APを-3し、スキルの効果値が増加する。',
-              type: ['overSection', 'APReduce', 'maturation'],
+              name: 'オーバーセクション：APレデュース & マチュレーション & ボルテージゲイン：瑠璃乃',
+              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3し、スキルの効果値が増加する。さらに手札にある状態で瑠璃乃のスキルを使用するたび、ボルテージPt.を+10する。',
+              type: ['overSection', 'APReduce', 'maturation', 'voltageGain', 'rurino'],
             },
           },
           喫茶ハスノソラ: {
@@ -806,9 +853,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'インタープリテーション & チェイン：梢',
-              detail: 'このスキルのムードによる効果増加量を上昇させる。さらに梢のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['interPretation', 'chain', 'kozue'],
+              name: 'インタープリテーション & チェイン：梢 & ドロー：ハッピー/アトラクトブースト：梢',
+              detail: 'このスキルのムードによる効果増加量を上昇させ、梢のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に梢が使用するラブアトラクト効果を+240%する。',
+              type: ['interPretation', 'chain', 'kozue', 'drew', 'boost_loveAttract'],
             },
           },
           'Trick & Cute': {
@@ -1714,9 +1761,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：メンタル',
-              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)',
-              type: ['APReduce', 'mental'],
+              name: 'APレデュース：メンタル & チアフル：ボルテージゲイン',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)。さらにメンタルが100%以上の時にドローすると、ボルテージPt.を+30する。',
+              type: ['APReduce', 'mental', 'cheerful', 'voltageGain'],
             },
           },
           '宇宙演舞☆うさぴょん': {
@@ -3036,9 +3083,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'インタープリテーション & チェイン：慈',
-              detail: 'このスキルのムードによる効果増加量を上昇させる。さらに慈のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['interPretation', 'chain', 'megumi'],
+              name: 'インタープリテーション & チェイン：慈 & ドロー：ハッピー/アトラクトブースト：慈',
+              detail: 'このスキルのムードによる効果増加量を上昇させ、慈のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に慈が使用するラブアトラクト効果を+240%する。',
+              type: ['interPretation', 'chain', 'megumi', 'drew', 'boost_loveAttract'],
             },
           },
           '宇宙警察★うさぴょん': {
@@ -3581,6 +3628,53 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          バアドゲージ: {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'バアドゲージ',
+            kana: 'ばあどげーじ',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 3rdTerm 第1回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3600,
+              pure: 5800,
+              cool: 5200,
+              mental: 460,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'aggressiveBelieveHeart_reduce100',
+              name: 'アグレッシブビリーブハート',
+              AP: 5,
+              detail: [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],],
+            },
+            skill: {
+              ID: 'aggressiveBraveHeart_under1_under0',
+              name: 'アグレッシブブレイブハート',
+              AP: 13,
+              detail: [
+                [66, 73, 79, 86, 92, 99, 106, 112, 119, 132, 139, 145, 152, 165],
+                [90, 99, 108, 117, 126, 135, 144, 153, 162, 180, 189, 198, 207, 225],
+                [180, 198, 216, 234, 252, 270, 288, 306, 324, 360, 378, 396, 414, 450],
+              ],
+            },
+            characteristic: {
+              name: 'ブレイブ：オーバーセクション：リカバープロテクト & APサポート：DOLLCHESTRA',
+              detail: 'メンタルが25%以下かつ手札にある状態でセクションが変わるたび、メンタルを最大値の1%回復させ、このステージ中、メンタルの最大値の33%分のメンタルダメージを無効にする。さらにメンタルが25%以下のとき、このスキルを使用するたび、デッキにあるDOLLCHESTRAのスキルの消費AP-3。',
+              type: ['brave', 'overSection', 'mentalRecover', 'protect_stage', 'APReduce', 'DOLLCHESTRA'],
+            },
+          },
           魔法少女リズミックハート: {
             styleType: 'performer',
             mood: 'happy',
@@ -3936,12 +4030,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
             },
             skill: {
-              ID: 'cheerfulSupport_over75_section',
+              ID: 'cheerfulSupport_over75_section_over100',
               name: 'チアフルサポート',
               AP: 6,
               detail: [
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
                 [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15],
+                [7.6, 8.36, 9.12, 9.88, 10.64, 11.4, 12.16, 12.92, 13.68, 15.2, 15.96, 16.72, 17.48, 19],
               ],
             },
             characteristic: {
@@ -5645,9 +5740,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：APレデュース & マチュレーション',
-              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費APを-3し、スキルの効果値が増加する。',
-              type: ['overSection', 'APReduce', 'maturation'],
+              name: 'オーバーセクション：APレデュース & マチュレーション & メンタルリカバー：花帆',
+              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3し、スキルの効果値が増加する。さらに手札にある状態で花帆のスキルを使用するたび、メンタルを最大値の6%回復させる。',
+              type: ['overSection', 'APReduce', 'maturation', 'mentalRecover', 'kaho'],
             },
           },
           'Trick & Cute': {
@@ -6184,12 +6279,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]],
             },
             skill: {
-              ID: 'cheerfulVoltage_voltageGain',
+              ID: 'cheerfulVoltage_voltageGain_over75_over100',
               name: 'チアフルボルテージ',
               AP: 4,
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
                 [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                [30, 33, 36, 39, 42, 45, 48, 51, 54, 60, 63, 66, 69, 75],
               ],
             },
             characteristic: {
@@ -6236,9 +6332,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]],
             },
             characteristic: {
-              name: 'ドロー：ハートキャプチャ',
-              detail: 'ドローした時、ビートハート3回分のスキルハートを獲得する。',
-              type: ['draw', 'heartCaptcha'],
+              name: 'ドロー：ハートキャプチャ & ハッピー/マチュレーション',
+              detail: 'ドローした時、ビートハート3回分のスキルハートを獲得する。さらにムードがハッピーでドローした時、スキル効果値が増加する。',
+              type: ['draw', 'heartCaptcha', 'maturation'],
             },
           },
           'Au Bord du Lac': {
@@ -7405,9 +7501,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：メンタル',
-              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-6)',
-              type: ['APReduce', 'mental'],
+              name: 'APレデュース：メンタル & チアフル：メンタルプロテクト',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-6)。さらにメンタルが100%以上の時にドローすると、このステージ中、メンタルの最大値の25%分のメンタルダメージを無効にする。',
+              type: ['APReduce', 'mental', 'cheerful', 'protect_stage'],
             },
           },
           奇跡の舞踏会: {
@@ -7945,6 +8041,52 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          ハナムスビ: {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'ハナムスビ',
+            kana: 'はなむすび',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.8',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5000,
+              pure: 3800,
+              cool: 3500,
+              mental: 450,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'rebootSupport',
+              name: 'リブートサポート',
+              AP: 5,
+              detail: [[13, 14.3, 15.6, 16.9, 18.2, 19.5, 20.8, 22.1, 23.4, 26, 27.3, 28.6, 29.9, 32.5]]
+            },
+            skill: {
+              ID: 'tokinoito',
+              name: 'トキノイト',
+              AP: 13,
+              detail: [
+                [1360, 1496, 1632, 1768, 1904, 2040, 2176, 2312, 2448, 2720, 2856, 2992, 3128, 3400],
+                [2040, 2244, 2448, 2652, 2856, 3060, 3264, 3468, 3672, 4080, 4284, 4488, 4692, 5100],
+              ],
+            },
+            characteristic: {
+              name: 'ハートキャプチャ：スリーズブーケ & APコントロール：スリーズブーケ&ドレス',
+              detail: '手札にある状態でスリーズブーケのスキルを使用するたび、ビートハート2回分のスキルを獲得し、手札のこのスキルの消費AP-3。このスキルを使用するたび、デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。',
+              type: ['heartCaptcha', 'CeriseBouquet', 'APControl']
+            },
+          },
           月夜見海月: {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -8289,9 +8431,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'インタープリテーション & チェイン：花帆',
-              detail: 'このスキルのムードによる効果増加量を上昇させる。さらに花帆のスキルを使用した後、ドローされる確率が増加する。',
-              type: ['interPretation', 'chain', 'kaho'],
+              name: 'インタープリテーション & チェイン：花帆 & ドロー：ハッピー/アトラクトブースト：花帆',
+              detail: 'このスキルのムードによる効果増加量を上昇させ、花帆のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に花帆が使用するラブアトラクト効果を+150%する。',
+              type: ['interPretation', 'chain', 'kaho', 'drew', 'boost_loveAttract'],
             },
           },
           'Trick & Cute': {
@@ -9662,9 +9804,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：メンタル',
-              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-8)',
-              type: ['APReduce', 'mental'],
+              name: 'APレデュース：メンタル & チアフル：ハートキャプチャ',
+              detail: '現在の残りメンタルが多いほどスキルの消費APダウン(最大-8)。さらにメンタルが100%以上の時にドローすると、ビートハート13回分のスキルハートを獲得する。',
+              type: ['APReduce', 'mental', 'cheerful', 'heartCaptcha'],
             },
           },
           'Trick & Cute': {
@@ -10637,9 +10779,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：APレデュース & マチュレーション',
-              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費APを-3し、スキルの効果値が増加する。',
-              type: ['overSection', 'APReduce', 'maturation'],
+              name: 'オーバーセクション：APレデュース & マチュレーション & ボルテージゲイン：慈',
+              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3し、スキルの効果値が増加する。さらに手札にある状態で慈のスキルを使用するたび、ボルテージPt.を+6する。',
+              type: ['overSection', 'APReduce', 'maturation', 'voltageGain', 'megumi'],
             },
           },
           喫茶ハスノソラ: {
@@ -10686,9 +10828,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：ラブアトラクト',
-              detail: 'ドローした時、このセクション中、獲得するLOVEを+7.5%する。',
-              type: ['draw', 'loveAttract'],
+              name: 'ドロー：ラブアトラクト & ハッピー/マチュレーション',
+              detail: 'ドローした時、このセクション中、獲得するLOVEを+7.5%する。さらにムードがハッピーでドローした時、スキル効果値が増加する。',
+              type: ['draw', 'loveAttract', 'maturation'],
             },
           },
           夏めきペイン: {
@@ -12267,10 +12409,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]],
             },
             skill: {
-              ID: 'heartCaptcha',
-              name: 'ハートキャプチャ',
+              ID: 'cheerfulHeart_over100_heartCaptcha',
+              name: 'チアフルハート',
               AP: 6,
-              detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]],
+              detail: [
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+                [9, 10, 11, 12, 13, 14, 14, 15, 16, 18, 19, 20, 21, 23],
+              ],
             },
             characteristic: {
               name: 'APレデュース：メンタル',
@@ -12322,9 +12467,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'インタープリテーション & チェイン：さやか',
-              detail: 'このスキルのムードによる効果増加量を上昇させる。さらにさやかのスキルを使用した後、ドローされる確率が増加する。',
-              type: ['interPretation', 'chain', 'sayaka'],
+              name: 'インタープリテーション & チェイン：さやか & ドロー：ハッピー/アトラクトブースト：さやか',
+              detail: 'このスキルのムードによる効果増加量を上昇させ、さやかのスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次にさやかが使用するラブアトラクト効果を+240%する。',
+              type: ['interPretation', 'chain', 'sayaka', 'drew', 'boost_loveAttract'],
             },
           },
           約束の舞踏会: {
@@ -12825,9 +12970,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
             },
             characteristic: {
-              name: 'オーバーセクション：APレデュース & マチュレーション',
-              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費APを-3し、スキルの効果値が増加する。',
-              type: ['overSection', 'APReduce', 'maturation'],
+              name: 'オーバーセクション：APレデュース & マチュレーション & メンタルリカバー：綴理',
+              detail: '手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3し、スキルの効果値が増加する。さらに手札にある状態で綴理のスキルを使用するたび、メンタルを最大値の4%回復させる。',
+              type: ['overSection', 'APReduce', 'maturation', 'mentalRecover', 'tsuzuri'],
             },
           },
           'Trick & Cute': {
@@ -13509,6 +13654,96 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          ハナムスビ: {
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'ハナムスビ',
+            kana: 'はなむすび',
+            gacha: {
+              addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.8',
+              period: 'autumn',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 6100,
+              pure: 4600,
+              cool: 3500,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'tokinoito',
+              name: 'トキノイト',
+              AP: 5,
+              detail: [
+                [420, 462, 504, 546, 588, 630, 672, 714, 756, 840, 882, 924, 966, 1050],
+                [630, 693, 756, 819, 882, 945, 1008, 1071, 1134, 1260, 1323, 1386, 1449, 1575],
+              ]
+            },
+            skill: {
+              ID: 'dress_hanamusubi',
+              name: 'ドレス《ハナムスビ》',
+              AP: 13,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'abunDanceVoltageHeart',
+                  name: 'アバンダンスボルテージハート',
+                  AP: 3,
+                  detail: [
+                    [48, 53, 58, 62, 67, 72, 77, 82, 86, 96, 101, 106, 110, 120],
+                    [180, 198, 216, 234, 252, 270, 288, 306, 324, 360, 378, 396, 414, 450],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'abunDanceHeartProtect',
+                  name: 'アバンダンスハートプロテクト',
+                  AP: 3,
+                  detail: [
+                    [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                    [180, 198, 216, 234, 252, 270, 288, 306, 324, 360, 378, 396, 414, 450],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'abunDanceReplayAttraction',
+                  name: 'アバンダンスリプレイアトラクション',
+                  AP: 3,
+                  detail: [
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                    [180, 198, 216, 234, 252, 270, 288, 306, 324, 360, 378, 396, 414, 450],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'APレデュース：スリーズブーケ',
+              detail: '手札にあるスリーズブーケのメンバーのスキル1枚につき、手札のこのスキルの消費AP-3。',
+              type: ['APReduce', 'CeriseBouquet']
+            },
+          },
           'Link to the FUTURE': {
             styleType: 'trickStar',
             mood: 'happy',

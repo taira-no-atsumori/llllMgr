@@ -534,7 +534,7 @@ export default {
         h: 0,
       },
       inputMusicTitle: null,
-      masteryLv: [0, 30],
+      masteryLv: [0, 50],
       center_en: null,
       center_ja: null,
       bonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],

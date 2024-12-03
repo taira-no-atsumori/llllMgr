@@ -524,6 +524,18 @@ export const useSkillStore = defineStore('skillList', {
             type: ['voltageGain'],
           },
         },
+        cheerfulVoltage_voltageGain_over75_over100: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルが75%以上のとき、ボルテージPt.を+',
+            'し、メンタルが100％以上のとき、ボルテージPt.を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['voltageGain'],
+          },
+        },
         cheerfulVoltage_heartCaptcha: {
           text: [
             'ボルテージPt.を+',
@@ -631,6 +643,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'cheerful',
             type: ['mentalRecover', 'loveAttract_stage'],
+          },
+        },
+        cheerfulSupport_over75_section_over100: {
+          text: [
+            'メンタルを最大値の',
+            '%回復する。さらにメンタルが75%以上のとき、このセクション中、獲得するLOVEを+',
+            '%し、メンタルが100％以上のとき、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['mentalRecover', 'loveAttract_section', 'protect_stage'],
           },
         },
       },
@@ -907,6 +931,16 @@ export const useSkillStore = defineStore('skillList', {
             type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
           },
         },
+        aggressiveBelieveHeart_reduce100: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルを最大値の100%減少させる。',
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
+          },
+        },
       },
       'アグレッシブブースト：DOLLCHESTRA': {
         aggressiveBoost_dollchestra: {
@@ -931,6 +965,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['heartCaptcha', 'mentalReduce'],
+          },
+        },
+        aggressiveBraveHeart_under1_under0: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルが1%以下のとき、このステージ中、獲得するLOVEを+',
+            '%する。メンタルが0%のとき、このステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
           },
         },
       },
@@ -1415,6 +1461,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['extensions_stage', 'voltageGain', 'addCard'],
+          },
+        },
+      },
+      エクステゲイン: {
+        extensionsGain_add3: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにAPを',
+            '回復する。',
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'APGain'],
           },
         },
       },
@@ -2919,6 +2977,17 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ドレス《ハナムスビ》': {
+        dress_hanamusubi: {
+          text: [
+            'ドレスカード《ハナムスビ》を3種類(合計9枚)山札に追加する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。この時ドレスカードをドローする確率大幅アップ。',
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard', 'reshuffle'],
+          },
+        },
+      },
       'リメイクドレス《華・麗・雅》': {
         remakeDress_hrm: {
           text: [
@@ -2988,6 +3057,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['reshuffle', 'boost_loveAttract', 'protect_stage'],
+          },
+        },
+      },
+      リブートサポート: {
+        rebootSupport: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次にスリーズブーケのメンバーが使用するラブアトラクト効果を',
+            '%し、デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'boost_loveAttract', 'APReduce'],
           },
         },
       },
@@ -3483,6 +3564,18 @@ export const useSkillStore = defineStore('skillList', {
             type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
           },
         },
+        abunDanceAttraction_over30_stage_over33: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が30枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、デッキ枚数が33枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+          },
+        },
       },
       アバンダンスボルテックスアトラクション: {
         abundanceVortexAttraction: {
@@ -3508,6 +3601,45 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'abunDance',
             type: ['loveAttract_stage'],
+          },
+        },
+      },
+      アバンダンスボルテージハート: {
+        abunDanceVoltageHeart: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにデッキ枚数が30枚以上のとき、このセクション中、AP回復速度を+13%し、デッキ枚数が33枚以上のとき、このステージ中、ビートハート',
+            '回分のスキルハートを獲得する。',
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['voltageGain', 'APQuick', 'heartCaptcha'],
+          },
+        },
+      },
+      アバンダンスハートプロテクト: {
+        abunDanceHeartProtect: {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。 さらにデッキ枚数が30枚以上のとき、APを3回復し、デッキ枚数が33枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。',
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['protect_stage', 'APGain', 'heartCaptcha'],
+          },
+        },
+      },
+      アバンダンスリプレイアトラクション: {
+        abunDanceReplayAttraction: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。この時スリーズブーケのカードをドローする確率大幅アップ。さらにデッキ枚数が30枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、デッキ枚数が33枚以上のとき、このステージ中、獲得するLOVEを+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['reshuffle', 'heartCaptcha', 'loveAttract_stage'],
           },
         },
       },
@@ -3721,6 +3853,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'torikago',
             type: ['mentalDown_section', 'APQuick', 'mentalReduce'],
+          },
+        },
+      },
+      トキノイト: {
+        tokinoito: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。この時スリーズブーケ、ドレスカードをドローする確率大幅アップ。さらにデッキ枚数が30枚以上のとき、次のドレスカード使用によるラブアトラクト効果を+',
+            '%し、デッキ枚数が33枚以上のとき、次にスリーズブーケのメンバーが使用するラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'tokinoito',
+            type: ['reshuffle', 'boost_loveAttract'],
           },
         },
       },
