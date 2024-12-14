@@ -178,16 +178,16 @@ export default {
   data() {
     return {
       eventList: {
-        /*liveGP: {
-          title: "ライブグランプリ「104期 3rdTerm 第1回個人戦」",
+        liveGP: {
+          title: "ライブグランプリ「104期 3rdTerm 第2回個人戦」",
           text: "",
           type: "liveGP",
-          firstDay: [2024, 11, 17, 12, 0],
-          lastDay: [2024, 11, 23, 3, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-11-16-40-f9ye1gw94i",
-          img: "104期 3rdTerm 第1回個人戦_logo",
-        },*/
-        liveGP: {
+          firstDay: [2024, 12, 13, 12, 0],
+          lastDay: [2024, 12, 18, 3, 59],
+          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-12-11-10-v03uamnu4n",
+          img: "104期 3rdTerm 第2回個人戦_logo",
+        },
+         /*liveGP: {
           title: "ライブグランプリ「104期 2ndTerm 第3回サークル対抗戦」",
           text: "",
           type: "liveGP",
@@ -195,27 +195,7 @@ export default {
           lastDay: [2024, 12, 1, 3, 59],
           url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-11-25-20-gh16ks1rvz",
           img: "104期 3rdTerm 第1回サークル対抗戦_logo",
-        },
-        "3rdLiveTour_DOLLCHESTRA": {
-          title:
-            "ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRY TRI UNITY!!!」",
-          text: "with DOLLCHESTRA",
-          type: "live",
-          firstDay: [2024, 11, 24, 0, 0],
-          lastDay: [2024, 11, 24, 23, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=TTUD",
-          img: "3rdLiveTour_logo_DOLLCHESTRA",
-        },
-        "3rdLiveTour_スリーズブーケ": {
-          title:
-            "ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRY TRI UNITY!!!」",
-          text: "with スリーズブーケ",
-          type: "live",
-          firstDay: [2024, 12, 1, 0, 0],
-          lastDay: [2024, 12, 1, 23, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=TTUC",
-          img: "3rdLiveTour_logo_スリーズブーケ",
-        },
+        },*/
         "Live&FanMeeting": {
           title:
             "ライブ&ファンミーティング「ラブライブ！蓮ノ空女学院スクールアイドルクラブ Live & Fan Meeting TRY TRY UNITY!!!」",

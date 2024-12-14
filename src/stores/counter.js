@@ -645,9 +645,6 @@ export const useStoreCounter = defineStore('store', {
     cardSeriesList() {
       return this.makeSkillFilterList('series');
     },
-    setSelectCard() {
-      //console.log(this.card[this.openCard.name][this.openCard.style])
-    },
     makeFullName() {
       return (name) => {
         return `${this.memberName[name].first} ${this.memberName[name].last}`;
@@ -656,7 +653,16 @@ export const useStoreCounter = defineStore('store', {
     makeSkillText() {
       return (target, option) => {
         let result = '';
-        const skillData = option !== undefined && option.addSkillNum !== undefined ? this.settingCardData[target].addSkill[option.addSkillNum] : this.settingCardData[target];
+        const skillData = (() => {
+          if (target === 'addSkill') {
+            return this.settingCardData.skill.addSkill[option.addSkillNum[0]].addSkill[option.addSkillNum[1]];
+          } else if (option !== undefined && option.addSkillNum !== undefined) {
+            return this.settingCardData[target].addSkill[option.addSkillNum];
+          } else {
+            return this.settingCardData[target];
+          }
+        })();
+
         const skillTextList = this.skillList[skillData.name][skillData.ID].text;
 
         for (let i = 0; i < skillTextList.length; i++) {
@@ -1251,6 +1257,10 @@ export const useStoreCounter = defineStore('store', {
     },
     changeSettings(setLocalStorageName) {
       this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this[setLocalStorageName]);
+    },
+    setSelectCard(cardName) {
+      this.selectCard[this.openCard.name][this.openCard.style] = cardName;
+      //console.log(this.card[this.openCard.name][this.openCard.style])
     },
   },
 });

@@ -260,6 +260,52 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '103/ASTERISM': {
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'オンゲキコラボ',
+            kana: 'あすてりずむ',
+            gacha: {
+              addSeason: '2024 O.N.G.E.K.I LIMITED COLLECTION',
+              period: 'collaboration',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5700,
+              pure: 5500,
+              cool: 3500,
+              mental: 450,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'engelAttack',
+              name: 'エンジェルアタック',
+              AP: 5,
+              detail: [[20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 25, 25.5, 26, 26.5, 27]]
+            },
+            skill: {
+              ID: 'replayBoostedHeart',
+              name: 'リプレイブーステッドハート',
+              AP: 9,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+                [6.5, 7.1, 7.8, 8.4, 9.1, 9.7, 10.4, 11, 11.7, 13, 13.6, 14.3, 14.9, 16.2]
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：ASTERISM',
+              detail: 'ドローした時、ビートハート5回分のスキルハートを獲得、メンタルを最大値の10%回復させ、さらにこのセクション中、手札の上限枚数を1枚増加する。',
+              type: ['drew', 'heartCaptcha', 'mentalRecover', 'extendHand']
+            },
+          },
           ハナムスビ: {
             styleType: 'moodMaker',
             mood: 'happy',
@@ -9367,6 +9413,52 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '102/R.B.P.': {
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'オンゲキコラボ',
+            kana: 'あーるびーぴー',
+            gacha: {
+              addSeason: '2024 O.N.G.E.K.I LIMITED COLLECTION',
+              period: 'collaboration',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 5600,
+              cool: 5500,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'justiceAttack',
+              name: 'ジャスティスアタック',
+              AP: 5,
+              detail: [[100, 102.5, 105, 107.5, 110., 112.5, 115., 117.5, 120, 125, 127.5, 130, 132.5, 135]]
+            },
+            skill: {
+              ID: 'vortexHeatHeart',
+              name: 'ボルテックスヒートハート',
+              AP: 9,
+              detail: [
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：R.B.P.',
+              detail: 'ドローした時、次に使用するラブアトラクト効果を+16%、ボルテージPt.を+18し、さらにこのステージ中、メンタルの最大値の10%分のメンタルダメージを無効にする。',
+              type: ['drew', 'boost_loveAttract', 'boost_voltageGain', 'protect_stage']
+            },
+          },
           バアドゲージ: {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -15235,6 +15327,83 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '104/⊿TRiEDGE': {
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'オンゲキコラボ',
+            kana: 'とらいえっじ',
+            gacha: {
+              addSeason: '2024 O.N.G.E.K.I LIMITED COLLECTION',
+              period: 'collaboration',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4150,
+              pure: 4250,
+              cool: 5800,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'trustSlash',
+              name: 'トラストスラッシュ',
+              AP: 5,
+              detail: [
+                [112, 123.2, 134.4, 145.6, 156.8, 168, 179.2, 190.4, 201.6, 224, 235.2, 246.4, 257.6, 280],
+                [45, 50, 54, 59, 63, 68, 72, 77, 81, 90, 95, 99, 104, 112],
+              ]
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 3,
+              detail: [],
+              addSkill: [
+                {
+                  modeName: '通常モード',
+                  ID: 'dress_shooterDress',
+                  name: 'ドレス《シュータードレス》',
+                  AP: 3,
+                  detail: [],
+                  addSkill: [
+                    {
+                      ID: 'shooterDressRio',
+                      name: '《シュータードレス/RIO》',
+                      AP: 3,
+                      detail: [
+                        [13.2, 14.52, 15.84, 17.16, 18.48, 19.8, 21.12, 22.44, 23.76, 26.4, 27.72, 29.04, 30.36, 33],
+                        [26, 29, 31, 34, 36, 39, 42, 44, 47, 52, 55, 57, 60, 65],
+                      ],
+                    }
+                  ]
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  ID: 'braveHeart_under50_under25',
+                  name: 'ブレイブハート',
+                  AP: 3,
+                  detail: [
+                    [28, 31, 34, 36, 39, 42, 45, 48, 50, 56, 59, 62, 64, 69],
+                    [37, 41, 44, 48, 52, 56, 59, 63, 67, 74, 78, 81, 85, 92],
+                    [46, 51, 55, 60, 64, 69, 74, 78, 83, 92, 97, 101, 106, 114],
+                  ],
+                },
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：⊿TRiEDGE',
+              detail: 'ドローした時、デッキ枚数が25枚以上かつメンタルが50%以下のとき、姫芽が《イグニッションモード》になる。',
+              type: ['alternate'],
+            },
+          },
           'Link to the FUTURE': {
             styleType: 'moodMaker',
             mood: 'happy',

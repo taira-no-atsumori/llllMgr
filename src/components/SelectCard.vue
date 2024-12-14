@@ -17,7 +17,29 @@
           sm="2"
           class="pa-1"
         >
-          <v-tooltip location="bottom">
+          <v-card
+            v-if="searchSetCard(store, cardName)"
+            v-bind="props"
+            @click="openCheckDialog(store, cardName, rare)"
+          >
+            <v-img
+              :src="require(`@/assets/card_illust/${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+              gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
+              class="d-flex align-center"
+            ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>選択中</p></v-img>
+            <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
+          </v-card>
+          <v-card
+            v-else
+            v-bind="props"
+            @click="openCheckDialog(store, cardName, rare)"
+          >
+            <v-img
+              :src="require(`@/assets/card_illust/${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+            ></v-img>
+            <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
+          </v-card>
+          <!--<v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
               <v-card
                 v-if="searchSetCard(store, cardName)"
@@ -80,12 +102,12 @@
             <p><span class="mr-3">スペシャルアピール</span>{{ store.card[store.openCard.name][rare][cardName].specialAppeal.name }}</p>
             <p><span class="mr-3">スキル</span>{{ store.card[store.openCard.name][rare][cardName].skill.name }}</p>
             <p v-if="rare !== 'R'"><span class="mr-3">特性</span>{{ store.card[store.openCard.name][rare][cardName].characteristic.name }}</p>
-          </v-tooltip>
+          </v-tooltip>-->
         </v-col>
       <!--</template>-->
     </v-row>
   </v-container>
-  
+
   <v-dialog
     v-model="dialog"
     max-width="600"
@@ -180,7 +202,7 @@
       </div>
     </v-sheet>
   </v-dialog>
-  
+
   <div v-if="false">
   <label for="cardList">カード名</label>
   <select v-model="store.selectCard[store.openCard.name][store.openCard.style]" name="cardList" id="cardList">
@@ -191,7 +213,7 @@
   </select>
   </div>
   </template>
-  
+
   <script>
   export default {
     name: 'selectCard',
@@ -219,14 +241,14 @@
       searchSetCard() {
         return (store, cardName) => {
           let result = false;
-  
+
           for (const key in store.styleHeadline) {
             if (store.searchSelectCard(store.openCard.name, key) === cardName) {
               result = key;
               break;
             }
           }
-  
+
           return result;
         }
       }
@@ -234,7 +256,7 @@
     methods: {
       openCheckDialog(store, cardName, rare) {
         if (store.searchSelectCard(store.openCard.name, store.openCard.style) === 'default') {
-          //store.setSelectCard(cardName);
+          store.setSelectCard(cardName);
           store.switchDialog(false);
         } else if (store.searchSelectCard(store.openCard.name, store.openCard.style) === cardName) {
           store.switchDialog(false);
@@ -294,17 +316,17 @@
     }
   }
   </script>
-  
+
   <script setup>
     import { useStoreCounter } from '../stores/counter';
     const store = useStoreCounter();
   </script>
-  
+
   <style lang="scss" scoped>
   .up {
     color: green;
   }
-  
+
   .down {
     color: red;
   }

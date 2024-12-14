@@ -276,7 +276,7 @@
               density="compact"
               icon="mdi-help"
               class="ml-1"
-              @click="openDialog(store, 'skillList', 900, { targetSkill: 'specialAppeal' })"
+              @click="openDialog('skillList', 900, { targetSkill: 'specialAppeal' })"
             ></v-btn>
           </h4>
           <v-row>
@@ -334,7 +334,7 @@
               density="compact"
               icon="mdi-help"
               class="ml-1"
-              @click="openDialog(store, 'skillList', 900, { targetSkill: 'skill' })"
+              @click="openDialog('skillList', 900, { targetSkill: 'skill' })"
             ></v-btn>
           </h4>
           <v-row>
@@ -395,7 +395,7 @@
                 density="compact"
                 icon="mdi-help"
                 class="ml-1"
-                @click="openDialog(store, 'GPPT', 600, null)"
+                @click="openDialog('GPPT', 600, null)"
               ></v-btn
             ></span>
           </h4>
@@ -464,7 +464,7 @@
               density="compact"
               icon="mdi-help"
               class="ml-1"
-              @click="openDialog(store, 'releasePoint', 600, null)"
+              @click="openDialog('releasePoint', 600, null)"
             ></v-btn>
           </h4>
           <v-row class="mb-2">
@@ -562,7 +562,7 @@
           :key="skillID"
           :color="store.skillColor[skillID].colorCode"
           :class="`chipSize mb-1 ${i + 1 < store.skillList[store.settingCardData.specialAppeal.name][store.settingCardData.specialAppeal.ID].detail.type.length ? 'mr-1' : ''}`"
-          @click="openDialog(store, 'skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
+          @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
         >
           {{ store.skillColor[skillID].name }}
         </v-chip>
@@ -615,7 +615,7 @@
                     :key="skillID"
                     :color="store.skillColor[skillID].colorCode"
                     :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
-                    @click="openDialog(store, 'skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
+                    @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
                   >
                     {{ store.skillColor[skillID].name }}
                   </v-chip>
@@ -654,7 +654,7 @@
           :key="skillID"
           :color="store.skillColor[skillID].colorCode"
           :class="`chipSize mb-1 ${i + 1 < store.skillList[store.settingCardData.skill.name][store.settingCardData.skill.ID].detail.type.length ? 'mr-1' : ''}`"
-          @click="openDialog(store, 'skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
+          @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
           >{{ store.skillColor[skillID].name }}</v-chip
         >
       </div>
@@ -707,7 +707,7 @@
                     :key="skillID"
                     :color="store.skillColor[skillID].colorCode"
                     :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
-                    @click="openDialog(store, 'skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
+                    @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
                   >
                     {{ store.skillColor[skillID].name }}
                   </v-chip>
@@ -722,6 +722,78 @@
                 {{ list.characteristic.name }}
                 <p class="mt-1">{{ list.characteristic.detail }}</p>
               </div>
+
+              <v-expansion-panels
+                class="my-2"
+                v-if="list?.addSkill"
+              >
+                <v-expansion-panel bg-color="yellow-darken-1">
+                  <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
+                  <v-expansion-panel-text>
+                    <div
+                      v-for="(addSkillList, addSkillNum) of list?.addSkill"
+                      :key="addSkillNum"
+                      :class="`${addSkillNum === 0 ? '' : 'mt-2'}`"
+                    >
+                      <v-divider class="mb-3 border-opacity-50"></v-divider>
+
+                      <div>
+                        <p>
+                          <span
+                            class="specialAppeal"
+                            v-if="addSkillList?.modeName"
+                          >
+                            {{ addSkillList.modeName }}
+                          </span>
+                          <span
+                            class="specialAppeal"
+                            v-else
+                          >
+                            スキル {{ addSkillNum + 1 }}
+                          </span>
+                        <span class="mr-1">
+                          {{ addSkillList.name }}
+                        </span>
+                        <span
+                          class="AP"
+                          v-if="list?.AP"
+                        >
+                          AP{{ addSkillList.AP }}
+                        </span>
+                      </p>
+
+                      <p class="mt-1">
+                        {{ store.makeSkillText('addSkill', {
+                           addSkillNum: [i, addSkillNum]
+                         })
+                        }}
+                      </p>
+
+                      <div>
+                        <v-chip
+                          v-for="(skillID, ii) in store.skillList[addSkillList.name][addSkillList.ID].detail.type"
+                          :key="skillID"
+                          :color="store.skillColor[skillID].colorCode"
+                          :class="`chipSize mt-1 ${ii + 1 < store.skillList[addSkillList.name][addSkillList.ID].detail.type.length ? 'mr-1' : ''}`"
+                          @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
+                        >
+                          {{ store.skillColor[skillID].name }}
+                        </v-chip>
+                      </div>
+                    </div>
+
+                      <div
+                        class="mt-3"
+                        v-if="list?.characteristic"
+                      >
+                        <span class="specialAppeal characteristic"> 特性 {{ addSkillNum + 1 }} </span>
+                        {{ addSkillList.characteristic.name }}
+                        <p class="mt-1">{{ addSkillList.characteristic.detail }}</p>
+                      </div>
+                    </div>
+                  </v-expansion-panel-text>
+                </v-expansion-panel>
+              </v-expansion-panels>
             </div>
           </v-expansion-panel-text>
         </v-expansion-panel>
@@ -784,7 +856,7 @@
                   :key="skillID"
                   :color="store.skillColor[skillID].colorCode"
                   :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
-                  @click="openDialog(store, 'skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
+                  @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
                 >
                   {{ store.skillColor[skillID].name }}
                 </v-chip>
@@ -840,7 +912,7 @@
           color="pink"
           grow
         >
-          <v-tab value="mainSkill"> メインスキル </v-tab>
+          <v-tab value="mainSkill">メインスキル</v-tab>
           <v-tab
             v-for="(addSkillData, i) in store.settingCardData[targetSkill].addSkill"
             :key="i"
@@ -1030,12 +1102,31 @@ export default {
   mounted() {},
   computed: {},
   methods: {
+    /**
+     * リンク作成
+     *
+     * @param cardName カード名
+     * @param memberName メンバー名
+     * @returns string リンク
+     */
     makeWikiLink(cardName, memberName) {
-      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${cardName.replaceAll('&', '＆')}］${memberName}`;
+      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${cardName.replaceAll('&', '＆').replaceAll('/', '／')}］${memberName}`;
     },
+    /**
+     * カードネーム作成
+     *
+     * @param store ストア
+     * @returns string カード名
+     */
     makeCardName(store) {
       return `${store.settingCard.rare} [${store.settingCard.card}] ${store.makeFullName(store.settingCard.name)}`;
     },
+    /**
+     * サポートスキル作成
+     *
+     * @param store ストア
+     * @param supportSkillName サポートスキル名
+     */
     makeSupportSkillLevel(store, supportSkillName) {
       const result = store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].initLevel;
 
@@ -1047,11 +1138,25 @@ export default {
         return result;
       }
     },
+    /**
+     * ダイアログスイッチ
+     *
+     * ダイアログの表示・非表示を切り替える
+     *
+     * @param flg フラグ
+     */
     switchDialog(flg) {
-      this.dialog = flg !== null ? flg : !this.dialog;
+      this.dialog = flg === null ? !this.dialog : flg;
     },
-    openDialog(store, openDialogName, dialogSize, option) {
-      this.targetSkill = option !== null ? option.targetSkill : null;
+    /**
+     * ダイアログ開閉処理
+     *
+     * @param openDialogName 開きたいダイアログ名
+     * @param dialogSize ダイアログの横幅
+     * @param option オプション
+     */
+    openDialog(openDialogName, dialogSize, option) {
+      this.targetSkill = option === null ? null : option.targetSkill;
       this.openDialogName = openDialogName;
       this.dialogSize = dialogSize;
 
@@ -1067,7 +1172,7 @@ export default {
      * 各カードの解放Pt.の最大値を計算する。
      *
      * @param {Object} store store
-     * @returns 最大値
+     * @returns number 最大値
      */
     maxReleasePoint(store) {
       const point = Math.min(store.settingCardData.fluctuationStatus.releasePoint, this.limitReleasePoint(store));
@@ -1078,7 +1183,7 @@ export default {
      * 解放Pt.上限計算
      *
      * @param {Object} store store
-     * @returns 上限値
+     * @returns string 上限値
      */
     limitReleasePoint(store) {
       return store.releasePoint[store.settingCardData.rare].max - store.releasePoint[store.settingCardData.rare].point * (store.settingCardData.fluctuationStatus.releaseLevel - 1);

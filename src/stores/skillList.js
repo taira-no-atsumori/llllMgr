@@ -2658,6 +2658,18 @@ export const useSkillStore = defineStore('skillList', {
             type: ['heartCaptcha'],
           },
         },
+        braveHeart_under50_under25: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、姫芽の《イグニッションモード》を解除する。メンタルが50%以下のとき、ビートハート',
+            '回分のスキルハートを獲得、メンタルが25%以下のとき、ビートハート',
+            '回分のスキルハートをさらに追加で獲得する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha', 'modeChange'],
+          },
+        },
       },
       ブレイブアトラクト: {
         braveAttract_under25_sectionAttract: {
@@ -3866,6 +3878,92 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'tokinoito',
             type: ['reshuffle', 'boost_loveAttract'],
+          },
+        },
+      },
+      エンジェルアタック: {
+        engelAttack: {
+          text: [
+            'このステージ中、スキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha'],
+          },
+        },
+      },
+      ジャスティスアタック: {
+        justiceAttack: {
+          text: [
+            'メンタルが75%以上のとき、このセクション中、スキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha'],
+          },
+        },
+      },
+      トラストスラッシュ: {
+        trustSlash: {
+          text: [
+            '5セクション目でボルテージLv.が10以上のとき、このセクション中、獲得するLOVEを+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを3回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract_section', 'heartCaptcha'],
+          },
+        },
+      },
+      ボルテックスヒートハート: {
+        vortexHeatHeart: {
+          text: [
+            'ボルテージPt.を+',
+            '2し、このセクション中、AP回復速度を+20%する。さらにビートハート',
+            '回分のスキルハートを3回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'APQuick', 'heartCaptcha'],
+          },
+        },
+      },
+      リプレイブーステッドハート: {
+        replayBoostedHeart: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを3回獲得し、3回の間ラブアトラクト効果を+',
+            '%する。さらに手札を全て捨てて、捨て札を全て山札に戻した後、デッキから手札上限までスキルを引く。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'boost_loveAttract', 'reshuffle'],
+          },
+        },
+      },
+      'ドレス《シュータードレス》': {
+        dress_shooterDress: {
+          text: [
+            '《シュータードレス/RIO》を1種類(合計1枚)山札に追加する。メンタルが50%以下のとき、さらに《シュータードレス/RIO》を1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      '《シュータードレス/RIO》': {
+        shooterDressRio: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、AP回復速度を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['reshuffle', 'APQuick'],
           },
         },
       },
