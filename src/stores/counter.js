@@ -6,7 +6,7 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.79(アーリーアクセス)',
+    version: 'ε.81(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -817,6 +817,7 @@ export const useStoreCounter = defineStore('store', {
   },
   actions: {
     init() {
+      // this.makeDb();
       const bonusSkillList = {};
 
       for (const key in this.bonusSkillList) {
@@ -842,10 +843,43 @@ export const useStoreCounter = defineStore('store', {
     makeDb() {
       // DBのオープン
       const db = new Dexie("llllMgrDB_test");
+      // バージョン1
       db.version(1).stores({
-        tasks: "++id,name,completed",
+        notes: "++id, title, body, *tags, updated_at"
+      });
+
+      // バージョン2 usersストアを追加
+      db.version(2).stores({
+        notes: "++id, title, body, *tags, updated_at",
+        users: "++id, name"
+      });
+
+      // バージョン3 notesストアにgoodを追加
+      // 更新時にtagsにgoodがあったら、新しく追加したキー「good」にtrueを入れるようにします。
+      db.version(3).stores({
+        notes: "++id, title, body, *tags, good, updated_at",
+        users: "++id, name"
+      }).upgrade(function() {
+        return db.notes.modify(function(note) {
+          if (note.tags.indexOf('good')) {
+            note.good = true;
+          }
+        });
+      });
+
+      db.notes.add({
+        title: "タイトル",
+        body: '本文',
+        tags: ["IndexedDB", "Dexie.js"],
+        updated_at: new Date()
       });
     },
+    /**
+     * ローカルストレージ設定
+     *
+     * @param setLocalStorageName ローカルストレージ名
+     * @param value 値
+     */
     setLocalStorage(setLocalStorageName, value) {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },

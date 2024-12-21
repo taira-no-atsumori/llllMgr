@@ -1665,9 +1665,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：メンタルリカバー',
-              detail: 'ドローした際、メンタルを最大値の6%回復させる。',
-              type: ['draw', 'mentalRecover'],
+              name: 'ドロー：メンタルリカバー & ハートキャプチャ',
+              detail: 'ドローした時、メンタルを最大値の6%回復させ、ビートハート3回分のスキルハートを獲得する。',
+              type: ['draw', 'mentalRecover', 'heartCaptcha'],
             },
           },
           '迎春 -食-': {
@@ -2670,6 +2670,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          聖夜譚: {
+            styleType: 'performer',
+            mood: 'melow',
+            series: '聖夜譚',
+            kana: 'せいやたん',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.1',
+              period: 'normal',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 5300,
+              cool: 4600,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'boostedExtendGain-boost_voltage-addCard1_stage-gain10',
+              name: 'ブーステッドエクステゲイン',
+              AP: 7,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+              ],
+            },
+            skill: {
+              ID: 'groovyVortexHeart-over5_voltageGain-over10_heartCaptcha',
+              name: 'グルーヴィボルテックスハート',
+              AP: 18,
+              detail: [
+                [28, 31, 34, 36, 39, 42, 45, 48, 50, 56, 59, 62, 64, 69],
+                [158, 174, 190, 205, 221, 237, 253, 269, 284, 316, 332, 348, 363, 396],
+                [55, 61, 66, 72, 77, 83, 88, 94, 99, 110, 116, 121, 127, 137],
+              ],
+            },
+            characteristic: {
+              name: 'アキューミュレイト & ドロー：メロウ/リインフォース',
+              detail: '使用する度に消費APが-3される。さらにムードがメロウでドローした時、スキル効果値が増加する。',
+              type: ['accumulate', 'drew', 'reinforce'],
+            },
+          },
           紅葉乃舞姫: {
             styleType: 'trickStar',
             mood: 'neutral',
@@ -3943,9 +3992,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
             },
             characteristic: {
-              name: 'ドロー：APレデュース',
-              detail: 'ドローしたセクションの間、消費APを-3する。',
-              type: ['draw', 'APReduce'],
+              name: 'ドロー：APレデュース & アトラクトブースト',
+              detail: 'ドローしたセクションの間、消費APを-3する。さらにドローした時、次に使用するラブアトラクト効果を+10%する。',
+              type: ['draw', 'APReduce', 'boost_loveAttract'],
             },
           },
           Eisprinzessin: {
@@ -5040,6 +5089,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          聖夜譚: {
+            styleType: 'performer',
+            mood: 'happy',
+            series: '聖夜譚',
+            kana: 'せいやたん',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.1',
+              period: 'normal',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4600,
+              pure: 5200,
+              cool: 4500,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'boostedExtendGain-boost_recover-addCard1_stage-gain10',
+              name: 'ブーステッドエクステゲイン',
+              AP: 7,
+              detail: [
+                [150, 165, 180, 195, 210, 225, 240, 255, 270, 300, 315, 330, 345, 375],
+              ],
+            },
+            skill: {
+              ID: 'cheerfulRecoverHeart-over50_recover-over100_heartCaptcha',
+              name: 'チアフルリカバーハート',
+              AP: 18,
+              detail: [
+                [28, 31, 34, 36, 39, 42, 45, 48, 50, 56, 59, 62, 64, 69],
+                [79.2, 87.12, 95.04, 102.96, 110.88, 118.8, 126.72, 134.64, 142.56, 158.4, 166.32, 174.24, 182.16, 198],
+                [76, 84, 91, 99, 106, 114, 122, 129, 137, 152, 160, 167, 175, 190],
+              ],
+            },
+            characteristic: {
+              name: 'アキューミュレイト & ドロー：ハッピー/リインフォース',
+              detail: '使用する度に消費APが-3される。さらにムードがハッピーでドローした時、スキル効果値が増加する。',
+              type: ['accumulate', 'drew', 'reinforce'],
+            },
+          },
           ジョーショーキリュー: {
             styleType: 'performer',
             mood: 'melow',
@@ -5512,9 +5610,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APエスカレート：メンタル',
-              detail: '現在の残りメンタルが多いほどスキルの消費AP増加(最大+9 最小+1)',
-              type: ['APEscalate', 'mental'],
+              name: 'APエスカレート：メンタル & メンタルバリア：ハートキャプチャ',
+              detail: '現在の残りメンタルが多いほどスキルの消費AP増加(最大+9)。さらに手札にある状態でメイン効果にスキルハート獲得効果を持つスキルを使用するたび、このステージ中、メンタルの最大値の5%分のメンタルダメージを無効にする。',
+              type: ['APEscalate', 'protect_stage'],
             },
           },
           蓮ノ空歌留多: {
@@ -8286,9 +8384,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
             },
             characteristic: {
-              name: 'ドロー：APレデュース',
-              detail: 'ドローしたセクションの間、消費APを-3する。',
-              type: ['draw', 'APReduce'],
+              name: 'ドロー：APレデュース & アトラクトブースト',
+              detail: 'ドローしたセクションの間、消費APを-3する。さらにドローした時、次に使用するラブアトラクト効果を+10%する。',
+              type: ['draw', 'APReduce', 'boost_loveAttract'],
             },
           },
           '節分 -魅-': {
@@ -11647,6 +11745,80 @@ export const useCardStore = defineStore('cardList', {
             },
           },
         },
+        BR: {
+          '18th Birthday': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'えいてぃーんばーすでー',
+            gacha: {
+              addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Megumi-',
+              period: 'birthday',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '18th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'APGain-mentalRecover_protect',
+              name: 'APゲイン：メンタルリカバー & プロテクト',
+              AP: 4,
+              detail: [],
+            },
+            skill: {
+              ID: 'celebration_heart_recover_protect',
+              name: 'セレブレイション',
+              AP: 3,
+              detail: [
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60],
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60],
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ブレッシング',
+              detail: '手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。',
+              type: ['overSection', 'APReduce_all'],
+            },
+          },
+        },
         DR: {
           'Ether Aria': {
             styleType: 'moodMaker',
@@ -12265,12 +12437,15 @@ export const useCardStore = defineStore('cardList', {
               detail: [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]],
             },
             skill: {
-              ID: 'heartAttraction_section',
-              name: 'ハートアトラクション',
+              ID: 'cheerfulAttraction-sectionAttract-over50_heart-over75_heart-over100_heart',
+              name: 'チアフルアトラクション',
               AP: 7,
               detail: [
                 [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
                 [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                [9, 10, 11, 12, 13, 14, 14, 15, 16, 18, 19, 20, 21, 23],
               ],
             },
             characteristic: {
@@ -13747,7 +13922,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           ハナムスビ: {
-            styleType: 'moodMaker',
+            styleType: 'trickStar',
             mood: 'happy',
             series: 'ハナムスビ',
             kana: 'はなむすび',
@@ -14365,6 +14540,68 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          聖夜譚: {
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: '聖夜譚',
+            kana: 'せいやたん',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.1',
+              period: 'normal',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 4600,
+              cool: 4100,
+              mental: 410,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'boostedGain-boost_recover-boost_voltage-gain7',
+              name: 'ブーステッドゲイン',
+              AP: 5,
+              detail: [
+                [32, 35.2, 38.4, 41.6, 44.8, 48, 51.2, 54.4, 57.6, 64, 67.2, 70.4, 73.6, 80],
+                [5.4, 6, 6.5, 7.1, 7.6, 8.2, 8.7, 9.2, 9.8, 10.9, 11.4, 11.9, 12.5, 13.6],
+              ],
+            },
+            skill: {
+              ID: 'dress_seiyatan',
+              name: 'ドレス《聖夜譚》',
+              AP: 8,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'refreshVoltage',
+                  name: 'リフレッシュボルテージ',
+                  AP: 3,
+                  detail: [
+                    [11.6, 12.76, 13.92, 15.08, 16.24, 17.4, 18.56, 19.72, 20.88, 23.2, 24.36, 25.52, 26.68, 29],
+                    [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 29],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：ハッピー/APレデュース',
+              detail: 'ムードがハッピーでドローした時、消費APを-5する。',
+              type: ['drew', 'APReduce'],
+            },
+          },
           アオクハルカ: {
             styleType: 'trickStar',
             mood: 'melow',
@@ -14987,6 +15224,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          魔法少女リズミックハート２: {
+            styleType: 'performer',
+            mood: 'melow',
+            series: '魔法少女リズミックハート',
+            kana: 'まほうしょうじょりずみっくはーと',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 3rdTerm 第2回個人戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2900,
+              pure: 4100,
+              cool: 5100,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionsHeart_section3',
+              name: 'エクステハート',
+              AP: 6,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, '10?']
+              ],
+            },
+            skill: {
+              ID: 'aggressiveAttraction25_sectionAttract',
+              name: 'アグレッシブアトラクション',
+              AP: 7,
+              detail: [
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, '15?'],
+                [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+              ],
+            },
+            characteristic: {
+              name: 'ジャストドロー：フィーバー/APロス & APレデュース & ハートブースト & アトラクトブースト：小鈴',
+              detail: 'フィーバーセクションでドローした時、APを5減少し、デッキにある小鈴のスキル消費AP-10。さらに次に小鈴が使用するスキルハート獲得効果による獲得数を+675%、ラブアトラクト効果を+225%する。',
+              type: ['justDrew', 'APLoss', 'APReduce', 'boost_heartCaptcha', 'boost_loveAttract', 'kosuzu'],
+            },
+          },
           'PASSION!!!!!!': {
             styleType: 'moodMaker',
             mood: 'melow',

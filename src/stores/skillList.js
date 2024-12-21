@@ -127,6 +127,19 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      リフレッシュボルテージ: {
+        refreshVoltage: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
+            '%回復させ、ボルテージPt.を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'mentalRecover', 'voltageGain']
+          }
+        }
+      },
       リフレッシュマインド: {
         refreshMind: {
           text: [
@@ -511,6 +524,20 @@ export const useSkillStore = defineStore('skillList', {
             type: ['heartCaptcha', 'loveAttract_section'],
           },
         },
+        'cheerfulAttraction-sectionAttract-over50_heart-over75_heart-over100_heart': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+            '%する。メンタルが50%以上のとき、ビートハート',
+            '回分のスキルハートを追加で獲得、メンタルが75%以上のとき、ビートハート',
+            '回分のスキルハートを追加で獲得、メンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートをさらに追加で獲得する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
       },
       チアフルボルテージ: {
         cheerfulVoltage_voltageGain: {
@@ -568,6 +595,20 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'cheerful',
             type: ['mentalRecover', 'APGain'],
+          },
+        },
+      },
+      チアフルリカバーハート: {
+        'cheerfulRecoverHeart-over50_recover-over100_heartCaptcha': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。メンタルが50%以上のとき、メンタルを最大値の',
+            '%回復させ、メンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを追加で獲得する。'
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['heartCaptcha', 'mentalRecover'],
           },
         },
       },
@@ -2157,6 +2198,20 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      グルーヴィボルテックスハート: {
+        'groovyVortexHeart-over5_voltageGain-over10_heartCaptcha': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。ボルテージLv.が5以上の時、ボルテージPt.を+',
+            'し、ボルテージLv.が10以上の時、ビートハート',
+            '回分のスキルハートを追加で獲得する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['heartCaptcha', 'voltageGain'],
+          },
+        },
+      },
       スイッチボルテージ: {
         switchVoltage: {
           text: [
@@ -3000,6 +3055,17 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ドレス《聖夜譚》': {
+        dress_seiyatan: {
+          text: [
+            'ドレスカード《聖夜譚》を1種類(合計5枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
       'リメイクドレス《華・麗・雅》': {
         remakeDress_hrm: {
           text: [
@@ -3319,7 +3385,7 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'celebration',
             type: [
               'boost_heartCaptcha',
               'boost_loveAttract',
@@ -3335,7 +3401,7 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'celebration',
             type: [
               'boost_loveAttract',
               'boost_voltageGain',
@@ -3351,7 +3417,7 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'celebration',
             type: [
               'boost_voltageGain',
               'boost_mentalRecover',
@@ -3367,7 +3433,7 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'celebration',
             type: [
               'boost_heartCaptcha',
               'boost_loveAttract',
@@ -3383,10 +3449,26 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'celebration',
             type: [
               'boost_loveAttract',
               'boost_voltageGain',
+              'boost_mentalProtect',
+            ],
+          },
+        },
+        celebration_heart_recover_protect: {
+          text: [
+            '次に使用するラブアトラクト効果を+',
+            '%、メンタルリカバー効果を+',
+            '%、メンタルプロテクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'celebration',
+            type: [
+              'boost_loveAttract',
+              'boost_mentalRecover',
               'boost_mentalProtect',
             ],
           },
@@ -3432,6 +3514,41 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['mentalRecover', 'voltageGain', 'boost_loveAttract'],
+          },
+        },
+      },
+      ブーステッドゲイン: {
+        'boostedGain-boost_recover-boost_voltage-gain7': {
+          text: [
+            '次に使用するメンタルリカバー効果を+',
+            '%、ボルテージゲイン効果を+',
+            '%する。さらにAPを7回復する。'
+          ],
+          detail: {
+            attr: 'boost',
+            type: ['boost_mentalRecover', 'boost_voltageGain', 'APGain'],
+          },
+        },
+      },
+      ブーステッドエクステゲイン: {
+        'boostedExtendGain-boost_voltage-addCard1_stage-gain10': {
+          text: [
+            '次に使用するボルテージゲイン効果を+',
+            '%する。さらにこのステージ中、手札の上限枚数を1枚増加し、APを10回復する。',
+          ],
+          detail: {
+            attr: 'boost',
+            type: ['boost_voltageGain', 'extendHand', 'APGain'],
+          },
+        },
+        'boostedExtendGain-boost_recover-addCard1_stage-gain10': {
+          text: [
+            '次に使用するメンタルリカバー効果を+',
+            '%する。さらにこのステージ中、手札の上限枚数を1枚増加し、APを10回復する。',
+          ],
+          detail: {
+            attr: 'boost',
+            type: ['boost_mentalRecover', 'extendHand', 'APGain'],
           },
         },
       },
@@ -3964,6 +4081,17 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'dress',
             type: ['reshuffle', 'APQuick'],
+          },
+        },
+      },
+      'APゲイン：メンタルリカバー & プロテクト': {
+        'APGain-mentalRecover_protect': {
+          text: [
+            'このステージ中、メンタルを回復する効果、またはメンタルプロテクト効果が発動した時、APを0～20回復する。発動した効果の効果とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['APGain'],
           },
         },
       },
