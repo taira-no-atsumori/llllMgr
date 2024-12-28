@@ -804,8 +804,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'サーチ：綴理 & APゲイン',
-              detail: 'スキル使用後、綴理のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。',
+              name: 'サーチ：綴理 & ショット：APゲイン & リインフォース',
+              detail: 'スキル使用後、綴理のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。また、このスキルを3回使用した時、スキル効果値が増加する。',
               type: ['search', 'tsuzuri', 'APGain'],
             },
           },
@@ -1761,9 +1761,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'フェイバリット：1',
-              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が大幅に増加する。',
-              type: ['favorite'],
+              name: 'フェイバリット：フィーバー & ジャストドロー：フィーバー/ボルテージゲイン & APゲイン',
+              detail: 'フィーバーセクションでドローされる確率が増加する。さらにフィーバーセクションでドローした時、ボルテージPt.を+30し、APを5回復する。',
+              type: ['favorite', 'voltageGain', 'APGain'],
             },
           },
           'ツバサ・ラ・リベルテ': {
@@ -3123,18 +3123,19 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'groovyVoltage_over8_voltageGain_heartCaptcha',
+              ID: 'groovyVoltage-voltageOver8_heartCaptcha-voltageOver10_heartCaptcha',
               name: 'グルーヴィボルテージ',
               AP: 4,
               detail: [
                 [14, 16, 17, 19, 20, 22, 23, 24, 26, 29, 30, 32, 33, 36],
                 [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 9],
+                [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18],
               ],
             },
             characteristic: {
-              name: 'チェイン：綴理 & ドロー：ボルテージゲイン',
-              detail: '綴理のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、ボルテージPt.を+18する。',
-              type: ['chain', 'tsuzuri', 'draw', 'voltageGain'],
+              name: 'チェイン：綴理 & ドロー：ボルテージゲイン & ドロー：グルーヴィ/アトラクトブースト：綴理',
+              detail: '綴理のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、ボルテージPt.を+18し、ボルテージLv.が8以上でドローした時、次に綴理が使用するラブアトラクト効果を+60%する。',
+              type: ['chain', 'tsuzuri', 'draw', 'voltageGain', 'groovy', 'boost_loveAttract'],
             },
           },
           喫茶ハスノソラ: {
@@ -5795,8 +5796,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
             },
             characteristic: {
-              name: 'サーチ：梢 & APゲイン',
-              detail: 'スキル使用後、梢のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。',
+              name: 'サーチ：梢 & ショット：APゲイン',
+              detail: 'スキル使用後、梢のカードをドローする確率大幅アップ。さらにスキル使用時、6回までAPを5回復する。',
               type: ['search', 'kozue', 'APGain'],
             },
           },
@@ -5838,9 +5839,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]],
             },
             characteristic: {
-              name: 'ドロー：ラブアトラクト',
-              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。',
-              type: ['draw', 'loveAttract_stage'],
+              name: 'ドロー：ハートアトラクション',
+              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%し、ビートハート5回分のスキルハートを獲得する。',
+              type: ['draw', 'loveAttract_stage', 'heartCaptcha'],
             },
           },
           'コットン=ユートピア': {
@@ -6343,9 +6344,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'チェイン：慈',
-              detail: '慈のスキルを使用した時、ドローされる確率が増加する。',
-              type: ['chain', 'megumi'],
+              name: 'チェイン：慈 & ドロー：リカバーブースト：慈',
+              detail: '慈のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に慈が使用するメンタルリカバー効果を+75%する。',
+              type: ['chain', 'megumi', 'drew', 'boost_mentalRecover'],
             },
           },
           冬のおくりもの: {
@@ -6387,7 +6388,7 @@ export const useCardStore = defineStore('cardList', {
             },
             characteristic: {
               name: 'フェイバリット：1 & APレデュース：チル',
-              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が増加する。さらにドローした時ボルテージLv.が3以下のとき、手札のこのスキルの消費AP-1。',
+              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が増加する。さらにドローした時ボルテージLv.が5以下のとき、手札のこのスキルの消費AP-3。',
               type: ['favorite', 'APReduce', 'chill'],
             },
           },
@@ -7121,6 +7122,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'KEY of Like！': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'KEY of Like！',
+            kana: 'きーおぶらいく',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 3rdTerm 第2回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 6400,
+              cool: 4700,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'protectGain-AP9',
+              name: 'プロテクトゲイン',
+              AP: 5,
+              detail: [
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13]
+              ],
+            },
+            skill: {
+              ID: 'abunDanceBoostedRecoverHeart',
+              name: 'アバンダンスブーステッドリカバーハート',
+              AP: 9,
+              detail: [
+                [16, 17.6, 19.2, 20.8, 22.4, 24, 25.6, 27.2, 28.8, 32, 33.6, 35.2, 36.8, 40],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+                [840, 924, 1008, 1092, 1176, 1260, 1344, 1428, 1512, 1680, 1764, 1848, 1932, 2100],
+              ],
+            },
+            characteristic: {
+              name: 'スターゲイザー',
+              detail: 'ドローした時、デッキにある慈のスキルの消費AP-9。さらに手札にある状態で慈のスキルを使用するたび、このステージ中、メンタルの最大値の6%分のメンタルダメージを無効にし、ビートハート4回分のスキルハートを獲得する。',
+              type: ['drew', 'APReduce', 'protect_stage', 'heartCaptcha'],
+            },
+          },
           輪廻の銀河へ: {
             styleType: 'performer',
             mood: 'melow',
@@ -7599,9 +7649,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'フェイバリット：1',
-              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が大幅に増加する。',
-              type: ['favorite', 'mental'],
+              name: 'フェイバリット：1 & ジャストドロー：1/アトラクトブースト & APゲイン',
+              detail: 'フィーバーセクションを除いた1セクション目でドローされる確率が大幅に増加する。さらに1セクション目でドローした時、次に使用するラブアトラクト効果を+32%し、APを8回復する。',
+              type: ['favorite', 'boost_loveAttract', 'APGain'],
             },
           },
           'ツバサ・ラ・リベルテ': {
@@ -8529,8 +8579,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'サーチ：花帆 & APゲイン',
-              detail: 'スキル使用後、花帆のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。',
+              name: 'サーチ：花帆 & ショット：APゲイン & APゲイン：花帆',
+              detail: 'スキル使用後、花帆のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。また、手札にある状態で花帆のスキルを使用した時、APを2回復する。',
               type: ['search', 'kaho', 'APGain'],
             },
           },
@@ -9511,6 +9561,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'KEY of Like！': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'KEY of Like！',
+            kana: 'きーおぶらいく',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.2',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 6400,
+              cool: 4600,
+              mental: 540,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'vortexGain-voltage-AP',
+              name: 'ボルテックスゲイン',
+              AP: 5,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+              ],
+            },
+            skill: {
+              ID: 'groovyBoostedVoltageHeart-over10_attract',
+              name: 'グルーヴィブーステッドボルテージハート',
+              AP: 3,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 26],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+                ['48.6?', '53.5?', '58.3?', '63.2?', '68?', '72.9?', '77.8?', '82.6?', '87.5?', '97.2?', '102.1?', '106.9?', '111.8?', 121.5],
+              ],
+            },
+            characteristic: {
+              name: 'エンパシー',
+              detail: 'ドローした時、デッキにある梢、慈のスキルの消費AP-3。さらに手札にある状態で慈のスキルを使用するたび、ボルテージPt.を+10し、ビートハート4回分のスキルハートを獲得する。',
+              type: ['drew', 'APReduce', 'voltageGain', 'heartCaptcha'],
+            },
+          },
           '102/R.B.P.': {
             styleType: 'moodMaker',
             mood: 'melow',
@@ -10874,8 +10973,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'サーチ：さやか & APゲイン',
-              detail: 'スキル使用後、さやかのカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。',
+              name: 'サーチ：さやか & ショット：APゲイン & APゲイン：さやか',
+              detail: 'スキル使用後、さやかのカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。また、手札にある状態でさやかのスキルを使用した時、APを2回復する。',
               type: ['search', 'sayaka', 'APGain'],
             },
           },
@@ -10923,9 +11022,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'チェイン：さやか',
-              detail: 'さやかのスキルを使用した時、ドローされる確率が増加する。',
-              type: ['chain', 'sayaka'],
+              name: 'チェイン：さやか & ドロー：グルーヴィ/アトラクトブースト：さやか',
+              detail: 'さやかのスキルを使用した後、ドローされる確率が増加する。さらにボルテージLv.8以上でドローした時、次にさやかが使用するラブアトラクト効果を+60%する。',
+              type: ['chain', 'sayaka', 'drew', 'groovy', 'boost_loveAttract'],
             },
           },
           'コットン=ユートピア': {
@@ -11918,6 +12017,67 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'KEY of Like！': {
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'KEY of Like！',
+            kana: 'きーおぶらいく',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.2',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4600,
+              pure: 6600,
+              cool: 4500,
+              mental: 550,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'keyOfLink',
+              name: 'KEY of Link！',
+              AP: 11,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
+              ],
+            },
+            skill: {
+              ID: 'worldWideAttraction',
+              name: 'ワールドワイドアトラクション',
+              AP: 39,
+              detail: [
+                [232, 255, 278, 302, 325, 348, 371, 394, 418, 464, 487, 510, 534, 580],
+                [2900, 3190, 3480, 3770, 4060, 4350, 4640, 4930, 5220, 5800, 6090, 6380, 6670, 7250],
+              ],
+            },
+            characteristic: {
+              name: 'ブライトネス',
+              detail: '梢、綴理、花帆、さやか、瑠璃乃、吟子、小鈴、姫芽のスキルを使用するたび、手札のこのスキルの消費AP-3。さらにこのスキル使用時、ジュエルカードを1種類(合計1枚)山札に追加する。',
+              type: ['APReduce', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'msJewel',
+                  name: 'M\'s ジュエル',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'フラジール',
+                    detail: 'ドローしたとき、ビートハート5回分のスキルハートを獲得、次に使用するラブアトラクト効果を+16%、ボルテージPt.を+18し、このステージ中、メンタルの最大値の10%分のメンタルダメージを無効にする。さらにこのスキルを使用すると、デッキから除外される。',
+                    type: ['drew', 'heartCaptcha', 'boost_loveAttract', 'voltageGain', 'protect_stage', 'exclusion'],
+                  },
+                },
+              ],
+            },
+          },
           ジョーショーキリュー: {
             styleType: 'performer',
             mood: 'melow',
@@ -12584,18 +12744,19 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'groovyRecover_over8_mentalRecover',
+              ID: 'groovyRecover-voltageOver8_mentalRecover-voltageOver10_mentalRecover',
               name: 'グルーヴィリカバー',
               AP: 4,
               detail: [
                 [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16],
                 [9.6, 10.6, 11.5, 12.5, 13.4, 14.4, 15.4, 16.3, 17.3, 19.2, 20.2, 21.1, 22.1, 24],
+                [14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36],
               ],
             },
             characteristic: {
-              name: 'チェイン：瑠璃乃 & ドロー：メンタルリカバー',
-              detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、メンタルを最大値の10%回復させる。',
-              type: ['chain', 'tsuzuri', 'draw', 'mentalRecover'],
+              name: 'チェイン：瑠璃乃 & ドロー：メンタルリカバー & ドロー：グルーヴィ/アトラクトブースト：瑠璃乃',
+              detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、メンタルを最大値の10%回復させ、ボルテージLv.が8以上でドローした時、次に瑠璃乃が使用するラブアトラクト効果を+60%する。',
+              type: ['chain', 'tsuzuri', 'draw', 'mentalRecover', 'groovy', 'boost_loveAttract'],
             },
           },
           冬のおくりもの: {
@@ -12639,9 +12800,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'フェイバリット：フィーバー & APレデュース：グルーヴィ',
-              detail: 'フィーバーセクションでドローされる確率が増加する。さらにドローした時ボルテージLv.が8以上のとき、手札のこのスキルの消費AP-3。',
-              type: ['favorite', 'mental'],
+              name: 'フェイバリット：フィーバー & APレデュース：グルーヴィ & ジャストドロー：フィーバー/メンタルリカバー & APゲイン',
+              detail: 'フィーバーセクションでドローされる確率が増加する。さらにドローした時ボルテージLv.が8以上のとき、手札のこのスキルの消費AP-3。フィーバーセクションでドローした時、メンタルを最大値の25%回復させ、APを8回復する。',
+              type: ['favorite', 'APReduce', 'groovy', 'justDrew', 'mentalRecover', 'APGain'],
             },
           },
           'ツバサ・ラ・リベルテ': {
@@ -13145,8 +13306,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'サーチ：瑠璃乃 & APゲイン',
-              detail: 'スキル使用後、瑠璃乃のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。',
+              name: 'サーチ：瑠璃乃 & ショット：APゲイン & APゲイン：瑠璃乃',
+              detail: 'スキル使用後、瑠璃乃のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを3回復する。また、手札にある状態で瑠璃乃のスキルを使用した時、APを2回復する。',
               type: ['search', 'rurino', 'APGain'],
             },
           },
@@ -13194,9 +13355,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：メンタルリカバー',
-              detail: 'ドローした時、メンタルの最大値の6%回復させる。',
-              type: ['draw', 'mentalRecover'],
+              name: 'ドロー：メンタルリカバー & メンタルプロテクト',
+              detail: 'ドローした時、メンタルを最大値の6%回復させ、このステージ中、メンタルの最大値の6%分のメンタルダメージを無効にする。',
+              type: ['draw', 'mentalRecover', 'protect_stage'],
             },
           },
           'コットン=ユートピア': {

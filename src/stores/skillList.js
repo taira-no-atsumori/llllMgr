@@ -1703,6 +1703,16 @@ export const useSkillStore = defineStore('skillList', {
             type: ['protect_stage', 'APGain'],
           },
         },
+        'protectGain-AP9': {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '分のメンタルダメージを無効にする。さらにAPを9回復する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['protect_stage', 'APGain'],
+          },
+        },
       },
       インヴォケーション: {
         invocation: {
@@ -1870,7 +1880,7 @@ export const useSkillStore = defineStore('skillList', {
           text: [
             'ボルテージPt.を+',
             'し、このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が3以下の時APを3回復する。',
+            '%する。さらにボルテージLv.が3以下の時APを5回復する。',
           ],
           detail: {
             attr: 'chill',
@@ -2098,6 +2108,18 @@ export const useSkillStore = defineStore('skillList', {
             type: ['voltageGain', 'heartCaptcha'],
           },
         },
+        'groovyVoltage-voltageOver8_heartCaptcha-voltageOver10_heartCaptcha': {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにボルテージLv.が8以上の時ビートハート',
+            '回分のスキルハートを獲得し、ボルテージLv.が10以上の時ビートハート',
+            '回分のスキルハートを追加で獲得する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
       },
       グルーヴィリカバー: {
         groovyRecover_over8_mentalRecover: {
@@ -2105,6 +2127,18 @@ export const useSkillStore = defineStore('skillList', {
             'メンタルを最大値の',
             '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の',
             '%回復させる。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['mentalRecover'],
+          },
+        },
+        'groovyRecover-voltageOver8_mentalRecover-voltageOver10_mentalRecover': {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の',
+            '%回復させさせ、ボルテージLv.が10以上の時メンタルを最大値の',
+            '%追加で回復させる。'
           ],
           detail: {
             attr: 'groovy',
@@ -2209,6 +2243,20 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'groovy',
             type: ['heartCaptcha', 'voltageGain'],
+          },
+        },
+      },
+      グルーヴィブーステッドボルテージハート: {
+        'groovyBoostedVoltageHeart-over10_attract': {
+          text: [
+            'ボルテージPt.を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにボルテージLv.が10以上の時、次に慈が使用するラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
           },
         },
       },
@@ -2461,6 +2509,19 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      ボルテックスヒートハート: {
+        vortexHeatHeart: {
+          text: [
+            'ボルテージPt.を+',
+            'し、このセクション中、AP回復速度を+20%する。さらにビートハート',
+            '回分のスキルハートを3回獲得する。'
+          ],
+          detail: {
+            attr: 'vortex',
+            type: ['voltageGain', 'APQuick', 'heartCaptcha'],
+          },
+        },
+      },
       ボルテックスアトラクション: {
         vortexAttraction_section: {
           text: [
@@ -2484,6 +2545,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'vortex',
             type: ['heartCaptcha', 'loveAttract_stage', 'voltageGain'],
+          },
+        },
+      },
+      ボルテックスゲイン: {
+        'vortexGain-voltage-AP': {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにAPを9回復する。'
+          ],
+          detail: {
+            attr: 'vortex',
+            type: ['voltageGain', 'APGain'],
           },
         },
       },
@@ -2526,13 +2599,13 @@ export const useSkillStore = defineStore('skillList', {
       'Link! Like! Order!': {
         linklikeorder: {
           text: [
-            'このステージ中、花帆/梢/さやか/綴理/瑠璃乃/慈のスキルを重複なく全員使用するたび、ビートハート',
+            'このステージ中、花帆/梢/さやか/綴理/瑠璃乃/慈のスキルを全員使用するたび、ビートハート',
             '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-            '%する。消費APの合計に応じて効果量が変化する。',
+            '%する。さらにAPを回復する。消費APの合計に応じて効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: ['heartCaptcha', 'APGain', 'loveAttract_section'],
           },
         },
       },
@@ -2545,6 +2618,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['extendHand', 'loveAttract_stage', 'APQuick'],
+          },
+        },
+      },
+      'KEY of Link！': {
+        keyOfLink: {
+          text: [
+            'このステージ中、吟子/花帆/梢/小鈴/さやか/綴理/姫芽/瑠璃乃/慈のスキルを全員使用するたび、ビートハート',
+            '回分のスキルハートを9回獲得する。消費APの合計に応じてハート獲得効果の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha'],
           },
         },
       },
@@ -3785,6 +3870,32 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      アバンダンスブーステッドリカバーハート: {
+        abunDanceBoostedRecoverHeart: {
+          text: [
+            'メンタルを最大値の',
+            '%回復させ、ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキ枚数が30枚以上のとき、次に慈が使用するラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['mentalRecover', 'heartCaptcha', 'boost_loveAttract'],
+          },
+        },
+        abunDanceAttraction_over30_stage_over33: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が30枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、デッキ枚数が33枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+          },
+        },
+      },
       バブル: {
         bubble_minus3_ceriseBouquet_dressCard: {
           text: [
@@ -4035,19 +4146,6 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      ボルテックスヒートハート: {
-        vortexHeatHeart: {
-          text: [
-            'ボルテージPt.を+',
-            '2し、このセクション中、AP回復速度を+20%する。さらにビートハート',
-            '回分のスキルハートを3回獲得する。'
-          ],
-          detail: {
-            attr: '',
-            type: ['voltageGain', 'APQuick', 'heartCaptcha'],
-          },
-        },
-      },
       リプレイブーステッドハート: {
         replayBoostedHeart: {
           text: [
@@ -4092,6 +4190,30 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['APGain'],
+          },
+        },
+      },
+      'ワールドワイドアトラクション': {
+        'worldWideAttraction': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキ枚数が30枚以上、ボルテージLv.が10以上かつメンタルが100%以上のときこのステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'loveAttract_stage'],
+          },
+        },
+      },
+      'M\'s ジュエル': {
+        'msJewel': {
+          text: [
+            'デッキにある全てのカードのスキルの消費AP-1。さらにこのステージ中、AP回復速度を+9%し、手札の上限枚数を1枚増加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['APReduce_all', 'APQuick', 'extendHand'],
           },
         },
       },

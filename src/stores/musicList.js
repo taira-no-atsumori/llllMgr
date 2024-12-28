@@ -2369,6 +2369,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
+      'KEY of Like！': {
+        musicData: {
+          kana: 'きーおぶらいく',
+          singer: 'スリーズブーケ & DOLLCHESTRA & みらくらぱーく！',
+          releaseDate: {
+            year: 2025,
+            month: 2,
+            date: 5,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 4thシングル',
+          BPM: {
+            original: 170,
+            inGame: 170,
+          },
+          time: 128,
+          cover: false,
+          link: '',
+        },
+        attribute: 'pure',
+        BHcount: 89,
+        level: 0,
+        term: 104,
+        center: 'megumi',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
+      },
       'ツバサ・ラ・リベルテ（104期Ver.）': {
         musicData: {
           kana: 'つばさらりべるて',
@@ -3514,6 +3540,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
+      /*'恥は人生のかきすて': {
+        musicData: {
+          kana: 'はじはじんせいのかきすて',
+          singer: '百生吟子、徒町小鈴、安養寺姫芽',
+          releaseDate: {
+            year: 2025,
+            month: 3,
+            date: 26,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
+          BPM: {
+            original: 135,
+            inGame: 135,
+          },
+          time: 158,
+          cover: false,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 87,
+        level: 1,
+        term: 104,
+        center: 'kosuzu',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['ginko', 'kosuzu', 'hime'],
+      },*/
     },
   }),
   getters: {},
