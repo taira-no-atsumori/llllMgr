@@ -74,56 +74,56 @@ textarea {
   padding: 5px;
 }
 
-.charactorArea {
+.characterArea {
   border: 3px solid;
 }
-.charactorArea[data-charactorname=kaho] {
+.characterArea[data-charactorname=kaho] {
   border-color: #F8B500;
 }
-.charactorArea[data-charactorname=sayaka] {
+.characterArea[data-charactorname=sayaka] {
   border-color: #5383C3;
 }
-.charactorArea[data-charactorname=rurino] {
+.characterArea[data-charactorname=rurino] {
   border-color: #E7609E;
 }
-.charactorArea[data-charactorname=kozue] {
+.characterArea[data-charactorname=kozue] {
   border-color: #68BE8D;
 }
-.charactorArea[data-charactorname=tsuzuri] {
+.characterArea[data-charactorname=tsuzuri] {
   border-color: #BA2636;
 }
-.charactorArea[data-charactorname=megumi] {
+.characterArea[data-charactorname=megumi] {
   border-color: #C8C2C6;
 }
 
-.charactorName {
+.characterName {
   text-align: center;
   padding: 10px 0;
   font-weight: bold;
 }
-.charactorName button {
+.characterName button {
   cursor: pointer;
   padding-bottom: 1px;
 }
-.charactorName button:hover {
+.characterName button:hover {
   opacity: 0.7;
   padding-bottom: 0;
   border-bottom: 1px solid #000;
 }
 
-.charactor_detail {
+.character_detail {
   padding: 10px 10px 0 10px;
 }
-.charactor_detail > div {
+.character_detail > div {
   padding-bottom: 10px;
 }
-.charactor_detail > div > div {
+.character_detail > div > div {
   display: grid;
   grid-template-columns: 50px 1fr 50px 35px 35px;
   grid-template-rows: 1fr;
   grid-column-gap: 5px;
 }
-.charactor_detail > div > div input {
+.character_detail > div > div input {
   width: 100%;
 }
 

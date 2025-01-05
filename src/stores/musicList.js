@@ -2915,9 +2915,9 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      バアドゲージ: {
+      バアドケージ: {
         musicData: {
-          kana: 'ばあどげーじ',
+          kana: 'ばあどけーじ',
           singer: 'DOLLCHESTRA',
           releaseDate: {
             year: 2024,

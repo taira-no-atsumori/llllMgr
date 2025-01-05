@@ -15,8 +15,9 @@
             v-bind="props"
             @click="drawer = true"
             class="ml-3 hidden-sm-and-up"
-            >mdi-menu</v-icon
           >
+            mdi-menu
+          </v-icon>
         </template>
 
         <v-sheet class="py-2">
@@ -38,7 +39,6 @@
               pageMove(arr.url);
               drawer = false;
             "
-            :disabled="pageTitle === 'Simulation'"
           >
             <template v-slot:prepend>
               <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
@@ -61,7 +61,6 @@
               <li style="border-right: 1px solid">
                 <v-btn
                   v-bind="props"
-                  :text="true"
                   class="px-2"
                   @click="pageMove(arr.url)"
                 >
@@ -233,12 +232,12 @@ export default {
           url: 'withStarMgr',
           name: '獲得WithStar計算ツール',
           icon: 'star'
-        },
+        },*/
         'Simulation': {
           url: 'simulation',
           name: '編成シミュレーション',
           icon: 'calculator'
-        },*/
+        },
         'Card List': {
           url: 'cardlist',
           name: 'カード一覧 / 所持カード設定',
@@ -275,11 +274,28 @@ export default {
       this.pageMove(`/llllMgr/${pageName}`);
     }
   },
+  mounted() {},
   methods: {
+    /**
+     * ページ移動
+     *
+     * @param movePageName 移動先ページ名
+     */
     pageMove(movePageName) {
       this.$router.replace(movePageName);
+      /*this.$router.replace({
+        name: 'CardList',
+        query: {
+          page: 5
+        }
+      });*/
       window.scrollTo(0, 0);
     },
+    /**
+     * ページタイトル変更
+     *
+     * @param to タイトル
+     */
     pageTitle(to) {
       document.title = `${to.meta.title}${this.siteName}`;
     },

@@ -5,39 +5,112 @@
       <textarea name="textOutput" id="textOutput" class="mb-2"></textarea>
       <p id="textLength"></p>
     </div>
-    <!--<div id="possessionCardSettingArea">
-    <p class="mb-2">所持カード設定</p>
-    <ul id="possessionCard_header">
-      <li v-for="(name_ja, name_en) in memberName" :key="name_ja" :data-character="name_en" :data-selected="selectTab === name_en" @click="changeTab(name_en)">
-        {{ name_ja.last }}
-      </li>
-    </ul>
-    <ul id="possessionCard_container">
-      <li v-for="(name_ja, name_en) in memberName" :key="name_en" :data-character="name_en" v-show="selectTab === name_en">
-        <dl v-for="rare in store.rarity" :key="rare" :data-rare="rare">
-          <dt>
-            {{ rare }}
-          </dt>
-          <dd>
-            <button v-for="(ary, cardName) in card[name_en][rare]" :key="ary" :data-mood="ary.mood" @click="showModalEvent('possessionCardSetting'); store.submitCardData({memberName: name_en, rare: rare, selectedCard: cardName})">{{ cardName }}</button>
-          </dd>
-        </dl>
-      </li>
-    </ul>
-  </div>-->
+    <div id="possessionCardSettingArea" v-if="false">
+      <p class="mb-2">所持カード設定</p>
+      <ul id="possessionCard_header">
+        <li v-for="(name_ja, name_en) in memberName" :key="name_ja" :data-character="name_en" :data-selected="selectTab === name_en" @click="changeTab(name_en)">
+          {{ name_ja.last }}
+        </li>
+      </ul>
+      <ul id="possessionCard_container">
+        <li v-for="(name_ja, name_en) in memberName" :key="name_en" :data-character="name_en" v-show="selectTab === name_en">
+          <dl v-for="rare in store.rarity" :key="rare" :data-rare="rare">
+            <dt>
+              {{ rare }}
+            </dt>
+            <dd>
+              <button v-for="(ary, cardName) in card[name_en][rare]" :key="ary" :data-mood="ary.mood" @click="showModalEvent('possessionCardSetting'); store.submitCardData({memberName: name_en, rare: rare, selectedCard: cardName})">{{ cardName }}</button>
+            </dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <v-container fluid class="px-1 py-2">
     <v-row no-gutters class="mb-5">
       <v-col cols="12" class="px-1 pb-2">
-        <h1>FORMATION</h1>
+        <h1>SIMULATION（おためし版）</h1>
       </v-col>
-      <v-col cols="12" class="pt-0 pb-2 px-1">
+      <v-col cols="12" class="pb-2">
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
             <v-expansion-panel-text>
-              ライブグランプリの獲得グランプリPt.の計算ツールです。<br />
+              デッキシミュレーションツールです。<br />
+              現在は、以下の機能に対応しております。<br />
+              <br />
+
+              <b>デッキの編集</b><br />
+              「NO IMAGE」をクリック（タップ）すると、編成できるカード一覧が表示されます。<br />
+              カードを選択すると、デッキが完了します。<br />
+              「CARD LISTのパラメータを反映する」をONにすると、CARD LISTのパラメータがデッキに反映されます。<br />
+              <br />
+
+              <b>デッキを新規作成</b><br />
+              新しいデッキを作成します。<br />
+              <br />
+
+              <b>デッキ名の変更</b><br />
+              現在選択中のデッキ名を変更できます。<br />
+              <br />
+
+              <b>デッキ選択</b><br />
+              デッキリストを開き、デッキを選択できます。<br />
+              デッキ名の下のボタンは、以下のような機能となっております。<br />
+              <br />
+
+              <ul>
+                <li><u>1. デッキ選択</u></li>
+                <li>
+                  <ul class="ml-4">
+                    <li>クリック（タップ）したデッキを表示します。</li>
+                  </ul>
+                </li>
+                <li><u>2. デッキコピー</u></li>
+                <li>
+                  <ul class="ml-4">
+                    <li>1回目のクリック（タップ）で、コピー元のデッキを選択します。</li>
+                    <li>2回目のクリック（タップ）で、コピー先のデッキにコピー元のデッキをコピーします。</li>
+                    <li>なお、1回目にクリック（タップ）したコピーボタンをもう一度クリック（タップ）すると、コピーをキャンセルします。</li>
+                    <li>また、デッキ名はコピーされません。</li>
+                  </ul>
+                </li>
+                <li><u>3. デッキ入れ替え</u></li>
+                <li>
+                  <ul class="ml-4">
+                    <li>1回目のクリック（タップ）で、入れ替え元のデッキを選択します。</li>
+                    <li>2回目のクリック（タップ）で、デッキを入れ替えます。</li>
+                    <li>なお、1回目にクリック（タップ）した入れ替えボタンをもう一度クリック（タップ）すると、入れ替えをキャンセルします。</li>
+                  </ul>
+                </li>
+                <li><u>4. デッキ削除</u></li>
+                <li>
+                  <ul class="ml-4">
+                    <li>クリック（タップ）したデッキを削除します。</li>
+                    <li>なお、確認モーダルは出現しませんので、ご注意ください。</li>
+                  </ul>
+                </li>
+              </ul>
+              <br />
+
+              <b>デッキリセット</b><br />
+              現在編集中のデッキをリセットします。<br />
+              <br />
+
+              <b>エースカード設定</b><br />
+              カードを編成すると、カードの左に<v-icon color="grey-lighten-2">mdi-crown</v-icon>が表示されます。<br />
+              デッキ名の下のボタンは、以下のような機能となっております。<br />
+              それをクリック（タップ）すると、アイコンが<v-icon color="yellow-accent-4">mdi-crown</v-icon>に変化し、エースカードに設定されます。<br />
+              <br />
+
+              <b>その他</b><br />
+              このページは現在PCでの利用を想定しています。<br />
+              スマホ対応は今後行います。<br />
+              <br />
+              おためし版では編成の保存に対応していないため、リロードすると作成した編成は消えてしまいます。<br />
+              遺しておきたい場合は、スクショを撮るなどの対応をお願いします。<br />
+              <!-- ライブグランプリの獲得グランプリPt.の計算ツールです。<br />
               <br />
               <b>使い方</b><br />
               Season Fan Lv.は全員分入力してください。<br />
@@ -50,375 +123,469 @@
               で該当メンバーの解放Lv.を変更できるようになります。<br />
               <br />
               <b>注意事項</b><br />
-              ※この機能は暫定機能です。今後のアップデートでリニューアルします。
+              ※この機能は暫定機能です。今後のアップデートでリニューアルします。 -->
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
       </v-col>
-      <v-col cols="11">
-        <v-btn
-          color="light-blue"
-          prepend-icon="mdi-content-save"
-          @click="snackbar.save = true"
-        >
-          保存
-        </v-btn>
-        <v-btn
-          color="green"
-          prepend-icon="mdi-content-save-edit"
-          @click="snackbar.nameSave = true"
-        >
-          名前をつけて保存
-        </v-btn>
-        <v-btn prepend-icon="mdi-folder-open" color="indigo">編成を開く</v-btn>
-        <v-btn prepend-icon="mdi-trash-can" color="red">編成リセット</v-btn>
-        <v-btn
-          prepend-icon="mdi-crown"
-          color="yellow"
-          :disabled="
-            countDefaultCard(store).main + countDefaultCard(store).leaves === 18
-          "
-        >
-          エースカード設定
-        </v-btn>
-      </v-col>
-      <v-col cols="1">
-        <v-select
-          v-model="store.selectPeriod"
-          label="期"
-          :items="[104, 103]"
-        ></v-select>
-      </v-col>
-      <v-col cols="12" class="pa-0">
-        <v-row no-gutters v-if="false">
-          <v-col v-for="(v, k) in attrName" :key="v">
-            総{{ v }}：{{ totalParam(store, k) }}
-          </v-col>
-        </v-row>
-        <v-row no-gutters>
-          <v-col cols="12">
-            <v-alert type="warning" variant="outlined" class="mb-2">
-              SIDE STYLEに未設定カードがあるため、AP回復速度が{{
-                countDefaultCard(store).result
-              }}%低下します
-            </v-alert>
-            <v-alert
-              v-if="
-                countDefaultCard(store).main + countDefaultCard(store).leaves <
-                18
-              "
-              type="warning"
-              variant="outlined"
-              class="mb-2"
+      <v-col cols="12" v-if="store.deck.length === 0">
+        <v-row no-gutters class="mt-5">
+          <v-col cols="2" class="d-none d-sm-block"></v-col>
+          <v-col cols="12" sm="3">
+            <v-card
+              class="py-10 py-sm-16 text-center mb-10 mb-sm-0"
+              color="light-blue"
+              @click="makeNewDeck(store);"
             >
-              エースカードが未設定です
-            </v-alert>
-            <v-alert v-if="false" type="info" variant="outlined" class="mb-2">
-              エースカードを設定してください
-            </v-alert>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="4"
-            v-for="memberName in store.formationMember[store.selectPeriod]"
-            :key="memberName"
-            class="pa-1"
-          >
-            <v-card elevation="2">
-              <v-row
-                no-gutters
-                class="memberArea"
-                :data-member_name="memberName"
+              <v-icon
+                size="x-large"
+                class="mb-2"
               >
-                <!-- <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true"> -->
-                <v-col cols="12" class="characterDetailArea pa-1">
-                  <h2>
-                    <span class="d-flex flex-row justify-center align-center">
-                      <img
-                        :src="
-                          require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectPeriod}.webp`)
-                        "
-                        class="mr-1"
-                        style="width: 35px"
-                      />
-                      <span style="margin-top: 2px">{{
-                        store.makeFullName(memberName)
-                      }}</span>
-                      <v-icon color="indigo">mdi-microphone-variant</v-icon>
-                      <v-icon color="yellow-accent-1">mdi-star</v-icon>
-                    </span>
-                  </h2>
-                  <!-- <v-row no-gutters>
-                <v-col cols="4">
-                  <dl>
-                    <dt>合計マスタリーLv. </dt>
-                    <dd>{{ store.makeTotalMasteryLv(memberName) }}</dd>
-                  </dl>
-                </v-col>
-                <v-col cols="5">
-                  <h3>ボーナススキル</h3>
-                  <span
-                    v-for="skillName in bonusSkillList"
-                    :key="skillName"
-                    class="mr-1"
-                  >
-                    <img
-                      :src="require(`@/assets/bonusSkill_icon/${skillName}.webp`)"
-                      style="width: 25px;"
-                    >×{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
-                  </span>
-                </v-col>
-                <v-col cols="3">
-                  <h3>Season Fan Lv. </h3>
-                  <p>7 / 10</p>
-                </v-col>
-              </v-row> -->
-                </v-col>
-                <v-col
-                  cols="12"
-                  v-for="(ary, styleName) in store.styleHeadline[
-                    store.selectPeriod
-                  ]"
-                  :key="styleName"
-                  :data-style="styleName"
-                  class="pa-1"
+                mdi-plus
+              </v-icon>
+              <p class="text-h5">デッキを新規作成</p>
+            </v-card>
+          </v-col>
+          <v-col cols="2" class="d-none d-sm-block"></v-col>
+          <v-col cols="12" sm="3">
+            <v-card
+              class="py-10 py-sm-16 text-center"
+              color="indigo"
+              @click="dialog.deckList = true"
+              :disabled="store.selectDeck === undefined"
+            >
+              <v-icon
+                size="x-large"
+                class="mb-2"
+              >
+                mdi-folder-open
+              </v-icon>
+              <p class="text-h5">デッキ選択</p>
+            </v-card>
+          </v-col>
+          <v-col cols="2" class="d-none d-sm-block"></v-col>
+        </v-row>
+      </v-col>
+      <v-col cols="12" v-else>
+        <v-row no-gutters>
+          <v-col cols="12" sm="11">
+            <v-btn
+              color="light-blue"
+              prepend-icon="mdi-plus"
+              @click="
+                makeNewDeck(store);
+                snackbar.makeDeck = true;
+              "
+              class="mr-2 mb-2"
+            >
+              デッキを新規作成
+            </v-btn>
+            <v-btn
+              color="green"
+              prepend-icon="mdi-pencil"
+              @click="
+                inputDeckName = store.selectDeck.name;
+                dialog.changeDeckName = true;
+              "
+              class="mr-2 mb-2"
+            >
+              デッキ名を変更
+            </v-btn>
+            <v-btn
+              prepend-icon="mdi-folder-open"
+              color="indigo"
+              @click="dialog.deckList = true;"
+              class="mr-2 mb-2"
+            >
+              デッキ選択
+            </v-btn>
+            <v-btn
+              prepend-icon="mdi-rotate-right"
+              color="red"
+              @click="makeNewDeck(store, true);"
+              class="mr-2 mb-2"
+            >
+              デッキリセット
+            </v-btn>
+            <v-btn
+              v-if="false"
+              prepend-icon="mdi-crown"
+              color="yellow"
+              :disabled="countDefaultCard(store).main + countDefaultCard(store).leaves === 18"
+            >
+              エースカード設定
+            </v-btn>
+            <v-btn
+              v-if="false"
+              prepend-icon="mdi-database-sync"
+              color="yellow"
+            >
+              最新化反映
+            </v-btn>
+          </v-col>
+          <v-col cols="12" sm="1">
+            <v-select
+              v-model="store.selectDeck.period"
+              label="期"
+              :items="Object.keys(store.formationMember).reverse()"
+            ></v-select>
+          </v-col>
+          <v-col cols="12" class="pa-0">
+            <v-row no-gutters v-if="false">
+              <v-col v-for="(v, k) in attrName" :key="v">
+                総{{ v }}：{{ totalParam(store, k) }}
+              </v-col>
+            </v-row>
+            <v-row no-gutters>
+              <v-col cols="12">
+                <v-alert type="warning" variant="outlined" class="mb-2">
+                  SIDE STYLEに未設定カードがあるため、AP回復速度が{{
+                    countDefaultCard(store).result
+                  }}%低下します
+                </v-alert>
+                <v-alert
+                  v-if="
+                    (countDefaultCard(store).main + countDefaultCard(store).leaves < 18) && !isSelectedAceCard
+                  "
+                  type="warning"
+                  variant="outlined"
+                  class="mb-2"
                 >
-                  <v-row no-gutters class="mb-2">
-                    <h3
-                      style="
-                        writing-mode: vertical-rl; /*text-orientation: upright; */
-                        transform: rotate(180deg);
-                        display: flex;
-                      "
-                    >
-                      {{ ary.split("STYLE").join("") }}
-                      <v-icon
-                        color="yellow-accent-4"
-                        style="transform: rotate(180deg); opacity: 0"
-                      >
-                        mdi-crown
-                      </v-icon>
-                    </h3>
-                    <v-col cols="4">
-                      <v-card
-                        @click="
-                          store.showModalEvent('selectCard');
-                          store.setOpenCard(memberName, styleName);
-                        "
-                      >
-                        <v-img
-                          :src="
-                            require(`@/assets/card_illust/${makeIllustCard(
-                              store,
-                              store.selectCard[memberName][styleName],
-                              memberName
-                            )}.webp`)
-                          "
-                        ></v-img>
-                      </v-card>
+                  エースカードが未設定です
+                </v-alert>
+                <v-alert v-if="false" type="info" variant="outlined" class="mb-2">
+                  エースカードを設定してください
+                </v-alert>
+              </v-col>
+
+              <v-col cols="12" class="deckNameArea mt-1 mb-2">
+                <span class="deckNameTitle">デッキ名</span><span class="py-2">{{ store.selectDeck.name }}</span>
+              </v-col>
+
+              <v-col
+                cols="12"
+                sm="4"
+                v-for="memberName in store.formationMember[store.selectDeck.period]"
+                :key="memberName"
+                class="pa-1"
+              >
+                <v-card elevation="2">
+                  <v-row
+                    no-gutters
+                    class="memberArea"
+                    :data-member_name="memberName"
+                  >
+                    <!-- <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true"> -->
+                    <v-col cols="12" class="characterDetailArea pa-1">
+                      <h2>
+                        <span class="d-flex flex-row justify-center align-center">
+                          <img
+                            :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectDeck.period}.webp`)"
+                            class="mr-1"
+                            style="width: 35px"
+                          />
+                          <span style="margin-top: 2px">{{
+                            store.makeFullName(memberName)
+                          }}</span>
+                          <v-icon color="indigo" v-if="false">mdi-microphone-variant</v-icon>
+                          <v-icon color="yellow-accent-1" v-if="false">mdi-star</v-icon>
+                        </span>
+                      </h2>
+                      <v-row no-gutters v-if="false">
+                        <v-col cols="4">
+                          <dl>
+                            <dt>合計マスタリーLv. </dt>
+                            <dd>{{ store.makeTotalMasteryLv(memberName) }}</dd>
+                          </dl>
+                        </v-col>
+                        <v-col cols="5">
+                          <h3>ボーナススキル</h3>
+                          <span
+                            v-for="skillName in bonusSkillList"
+                            :key="skillName"
+                            class="mr-1"
+                          >
+                            <img
+                              :src="require(`@/assets/bonusSkill_icon/${skillName}.webp`)"
+                              style="width: 25px;"
+                            >×{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
+                          </span>
+                        </v-col>
+                        <v-col cols="3">
+                          <h3>Season Fan Lv. </h3>
+                          <p>7 / 10</p>
+                        </v-col>
+                      </v-row>
                     </v-col>
                     <v-col
-                      style="font-size: 15px"
-                      class="pl-2 position-relative"
+                      cols="12"
+                      v-for="(ary, styleName) in store.styleHeadline[
+                        store.selectDeck.period
+                      ]"
+                      :key="styleName"
+                      :data-style="styleName"
+                      class="pa-1"
                     >
-                      <v-row no-gutters>
-                        <v-btn
-                          density="compact"
-                          icon="mdi-close"
-                          variant="flat"
-                          class="position-absolute right-0"
-                          @click="reset()"
-                        ></v-btn>
-                      </v-row>
-                      <dl class="mt-1 mb-2">
-                        <dt>カード名</dt>
-                        <dd>
-                          {{
-                            makeCardName(
-                              store,
-                              store.selectCard[memberName][styleName],
-                              memberName,
-                              styleName
-                            )
-                          }}
-                        </dd>
-                      </dl>
-                      <v-card
-                        variant="flat"
-                        @click="dialog.paramSet = true"
-                        :disabled="
-                          store.selectCard[memberName][styleName] === 'default'
-                        "
-                      >
+                      <v-row no-gutters class="mb-2">
+                        <h3
+                          style="
+                            writing-mode: vertical-rl; /*text-orientation: upright; */
+                            transform: rotate(180deg);
+                            display: flex;
+                          "
+                        >
+                          {{ ary.split("STYLE").join("") }}
+                          <v-icon
+                            v-if="store.selectDeck.cardData[memberName][styleName].cardName !== 'default'"
+                            :color="`${store.selectDeck.cardData[memberName][styleName].isAce ? 'yellow-accent-4' : 'grey-lighten-2'}`"
+                            style="transform: rotate(180deg);"
+                            @click="changeAceCard(store, memberName, styleName);"
+                          >
+                            mdi-crown
+                          </v-icon>
+                        </h3>
+                        <v-col cols="4">
+                          <v-card
+                            @click="
+                              store.showModalEvent('selectCard');
+                              store.setOpenCard(memberName, styleName);
+                            "
+                          >
+                            <v-img
+                              :src="
+                                require(`@/assets/card_illust/${makeIllustCard(
+                                  store,
+                                  store.selectDeck.cardData[memberName][styleName].cardName,
+                                  memberName,
+                                )}.webp`)
+                              "
+                            ></v-img>
+                          </v-card>
+                        </v-col>
+                        <v-col
+                          style="font-size: 15px"
+                          class="pl-2 position-relative"
+                        >
+                          <v-row no-gutters>
+                            <v-btn
+                              density="compact"
+                              icon="mdi-close"
+                              variant="flat"
+                              class="position-absolute right-0"
+                              @click="deleteSelectCard(store, memberName, styleName);"
+                            ></v-btn>
+                          </v-row>
+                          <dl class="mb-1">
+                            <dt>カード名</dt>
+                            <dd style="height: 3em;">
+                              {{
+                                makeCardName(
+                                  store,
+                                  store.selectDeck.cardData[memberName][styleName].cardName,
+                                  memberName,
+                                  styleName
+                                )
+                              }}
+                            </dd>
+                          </dl>
+                          <v-card
+                            variant="flat"
+                            @click="
+                              store.setOpenCard(memberName, styleName);
+                              dialog.paramSet = true;
+                            "
+                            :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'"
+                          >
+                            <v-row no-gutters class="pb-1">
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>レベル</dt>
+                                  <dd>
+                                    {{
+                                      store.selectDeck.cardData[memberName][styleName].param.cardLevel
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>SA</dt>
+                                  <dd>
+                                    {{
+                                      store.selectDeck.cardData[memberName][styleName].param.SALevel
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>スキル</dt>
+                                  <dd>
+                                    {{
+                                      store.selectDeck.cardData[memberName][styleName].param.SLevel
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>解放Lv.</dt>
+                                  <dd>
+                                    {{
+                                      store.selectDeck.cardData[memberName][styleName].param.releaseLevel
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3" v-if="false">
+                                <dl>
+                                  <dt>スマイル</dt>
+                                  <dd>
+                                    {{
+                                      this.formation[this.selectDeckName][
+                                        memberName
+                                      ][styleName].smile
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3" v-if="false">
+                                <dl>
+                                  <dt>クール</dt>
+                                  <dd>
+                                    {{
+                                      this.formation[this.selectDeckName][
+                                        memberName
+                                      ][styleName].cool
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3" v-if="false">
+                                <dl>
+                                  <dt>ピュア</dt>
+                                  <dd>
+                                    {{
+                                      this.formation[this.selectDeckName][
+                                        memberName
+                                      ][styleName].pure
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3" v-if="false">
+                                <dl>
+                                  <dt>メンタル</dt>
+                                  <dd>
+                                    {{
+                                      this.formation[this.selectDeckName][
+                                        memberName
+                                      ][styleName].mental
+                                    }}
+                                  </dd>
+                                </dl>
+                              </v-col>
+                            </v-row>
+                          </v-card>
+                          <!--<v-card variant="flat" @click="dialog.paramSet = true;" :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'" v-if="false">
                         <v-row no-gutters class="pb-1">
                           <v-col cols="3">
                             <dl>
                               <dt>レベル</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].cardLevel
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'cardLevel') }}</dd>
                             </dl>
                           </v-col>
                           <v-col cols="3">
                             <dl>
                               <dt>SA</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].SALevel
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'SALevel') }}</dd>
                             </dl>
                           </v-col>
                           <v-col cols="3">
                             <dl>
                               <dt>スキル</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].SLevel
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'SLevel') }}</dd>
                             </dl>
                           </v-col>
                           <v-col cols="3">
                             <dl>
                               <dt>解放Lv.</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].releaseLevel
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'releaseLevel') }}</dd>
                             </dl>
                           </v-col>
-                          <v-col cols="3" v-if="false">
+                          <v-col cols="3">
                             <dl>
                               <dt>スマイル</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].smile
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'smile') }}</dd>
                             </dl>
                           </v-col>
-                          <v-col cols="3" v-if="false">
+                          <v-col cols="3">
                             <dl>
                               <dt>クール</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].cool
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'cool') }}</dd>
                             </dl>
                           </v-col>
-                          <v-col cols="3" v-if="false">
+                          <v-col cols="3">
                             <dl>
                               <dt>ピュア</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].pure
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'pure') }}</dd>
                             </dl>
                           </v-col>
-                          <v-col cols="3" v-if="false">
+                          <v-col cols="3">
                             <dl>
                               <dt>メンタル</dt>
-                              <dd>
-                                {{
-                                  this.formation[this.selectFormation][
-                                    memberName
-                                  ][styleName].mental
-                                }}
-                              </dd>
+                              <dd>{{ makeParam(store, memberName, styleName, 'mental') }}</dd>
                             </dl>
                           </v-col>
                         </v-row>
-                      </v-card>
-                      <!--<v-card variant="flat" @click="dialog.paramSet = true;" :disabled="store.selectCard[memberName][styleName] === 'default'" v-if="false">
-                    <v-row no-gutters class="pb-1">
-                      <v-col cols="3">
-                        <dl>
-                          <dt>レベル</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'cardLevel') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>SA</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'SALevel') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>スキル</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'SLevel') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>解放Lv.</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'releaseLevel') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>スマイル</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'smile') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>クール</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'cool') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>ピュア</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'pure') }}</dd>
-                        </dl>
-                      </v-col>
-                      <v-col cols="3">
-                        <dl>
-                          <dt>メンタル</dt>
-                          <dd>{{ makeParam(store, memberName, styleName, 'mental') }}</dd>
-                        </dl>
-                      </v-col>
-                    </v-row>
-                  </v-card>-->
+                      </v-card>-->
+                        </v-col>
+                      </v-row>
+
+                      <v-divider
+                        class="mx-1"
+                        v-if="Object.keys(store.styleHeadline[store.selectDeck.period]).length > 0"
+                      ></v-divider>
                     </v-col>
                   </v-row>
-                  <v-divider
-                    class="mx-1"
-                    v-if="
-                      Object.keys(store.styleHeadline[store.selectPeriod])
-                        .length > 0
-                    "
-                  ></v-divider>
-                </v-col>
-              </v-row>
-            </v-card>
+                </v-card>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-col>
     </v-row>
+        
+    <v-alert
+      type="warning"
+      variant="outlined"
+      class="mt-7"
+    >
+      このページは現在、おためし版となっております。<br />
+      おためし版は、以下のような仕様となっております。<br />
+      <br />
 
-    <v-row no-gutters>
+      <b>できること</b>
+      <ul class="ml-4">
+        <li>・デッキの作成</li>
+      </ul>
+      <br />
+
+      <b>できないこと（今後できるようになること）</b>
+      <ul class="ml-4">
+        <li>・デッキの保存（バックアップ）</li>
+      </ul>
+      <br />
+
+      また、操作中にエラーが発生する可能性があります。<br />
+      その際は、お手数ですがお題箱よりお知らせください。<br />
+      （「この操作を行ったらこうなるはずがこうなった」というような、その時の操作や状況などをできるだけ詳しく教えてもらえるとありがたいです）<br />
+      <br />
+      もちろん、「こんな機能がほしい！」「ここがこうなったらもっと良いのに…」などの要望もお待ちしております。<br />
+      そちらもお題箱よりお知らせください。
+    </v-alert>
+
+    <v-row no-gutters v-if="false">
       <v-col cols="12">
         <h1>SIMULATION</h1>
       </v-col>
@@ -455,54 +622,215 @@
         </v-card>
       </v-col>
     </v-row>
-
-    <v-snackbar v-model="snackbar.save" timeout="5000" color="blue-lighten-1">
-      保存しました
-    </v-snackbar>
   </v-container>
 
   <v-dialog v-model="dialog.paramSet" max-width="600">
     <v-sheet class="pa-2">
       <v-row no-gutters>
-        <v-col></v-col>
+        <v-col cols="12">
+          <p class="text-h6 mb-8">レベル</p>
+          <v-slider
+            hide-details
+            v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.cardLevel"
+            :max="
+              store.maxCardLevel[
+                store.searchRarity(store.openCard.name, store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName)
+              ][store.maxCardLevel[
+                store.searchRarity(store.openCard.name, store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName)
+              ].length - 1]
+            "
+            min="1"
+            thumb-label="always"
+            step="1"
+            color="pink"
+            thumb-color="pink"
+            class="px-3"
+          ></v-slider>
+        </v-col>
+        <v-col cols="12" class="mt-2">
+          <p class="text-h6 mb-8">SA</p>
+          <v-slider
+            hide-details
+            v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.SALevel"
+            min="1"
+            :max="`${9 + store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.releaseLevel}`"
+            thumb-label="always"
+            step="1"
+            color="pink"
+            thumb-color="pink"
+            class="px-3"
+          ></v-slider>
+        </v-col>
+        <v-col cols="12" class="mt-2">
+          <p class="text-h6 mb-8">スキル</p>
+          <v-slider
+            hide-details
+            v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.SLevel"
+            min="1"
+            :max="`${9 + store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.releaseLevel}`"
+            thumb-label="always"
+            step="1"
+            color="pink"
+            thumb-color="pink"
+            class="px-3"
+          ></v-slider>
+        </v-col>
+        <v-col cols="12" class="mt-2">
+          <p class="text-h6 mb-8">解放Lv.</p>
+          <v-slider
+            hide-details
+            v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.releaseLevel"
+            max="5"
+            min="1"
+            thumb-label="always"
+            step="1"
+            color="pink"
+            thumb-color="pink"
+            class="px-3"
+          ></v-slider>
+        </v-col>
       </v-row>
+
       <div class="mt-3 text-center">
-        <v-btn @click="dialog.paramSet = false" class="mr-4">CANCEL</v-btn>
-        <v-btn color="light-blue" @click="dialog.paramSet = false">
-          <v-icon class="mr-1">mdi-content-save</v-icon>保存
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.paramSet = false"
+          class="mr-4"
+        >
+          CLOSE
         </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="snackbar.nameSave" max-width="600">
+  <v-dialog v-model="dialog.changeDeckName" max-width="600">
     <v-sheet class="pa-2">
       <v-row no-gutters>
         <v-col cols="12" class="mb-2">
-          <h3>名前をつけて保存する</h3>
+          <h3>デッキ名を変更</h3>
         </v-col>
         <v-col cols="12">
           <v-text-field
-            label="編成名"
+            v-model="inputDeckName"
+            label="デッキ名"
             counter
             color="pink"
-            hint="編成名を入力してください"
-            maxlength="30"
+            hint="デッキ名を入力してください"
+            maxlength="50"
             persistent-counter
             persistent-hint
+            :rules="[checkDeckName(store)]"
           ></v-text-field>
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
-        <v-btn @click="snackbar.nameSave = false" class="mr-4">CANCEL</v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.changeDeckName = false;"
+          class="mr-4"
+        >
+          CLOSE
+        </v-btn>
         <v-btn
           color="light-blue"
-          @click="
-            snackbar.save = true;
-            snackbar.nameSave = false;
-          "
+          prepend-icon="mdi-content-save"
+          :disabled="checkDeckName(store) !== false"
+          @click="changeSelectDeckName(store);"
         >
-          <v-icon class="mr-1">mdi-content-save</v-icon>保存
+          SAVE
+        </v-btn>
+      </div>
+    </v-sheet>
+  </v-dialog>
+
+  <v-dialog
+    v-model="dialog.deckList"
+    max-width="600"
+  >
+    <v-sheet class="pa-2">
+      <h2>デッキリスト</h2>
+
+      <v-row no-gutters>
+        <v-col
+          cols="12"
+          class="mb-3"
+          v-for="(deck, index) in store.deck"
+          :key="index"
+        >
+          <v-card
+            class="pa-2"
+            color="yellow"
+          >
+            <p class="text-h6 py-1 px-2">
+              {{ deck.name }}
+            </p>
+
+            <v-divider class="mb-2"></v-divider>
+
+            <v-row no-gutters class="text-center">
+              <v-col cols="3">
+                <v-btn
+                  color="success"
+                  :disabled="
+                    deck.name === store.selectDeck.name ||
+                    beforeDeckName !== ''
+                  "
+                  @click="
+                    snackbar.openDeck = false;
+                    inputDeckName = deck.name;
+                    store.selectDeckName = deck.name;
+                    snackbar.openDeck = true;
+                  "
+                >
+                  <v-icon>mdi-folder-open</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="3">
+                <v-btn
+                  color="light-blue"
+                  :disabled="
+                    store.deck.length <= 1 ||
+                    !/デッキを入れ替えました|入れ替えをキャンセルしました/.test(shiftDeckMessage.text)
+                  "
+                  @click="copyDeck(store, deck.name);"
+                >
+                  <v-icon>mdi-content-copy</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="3">
+                <v-btn
+                  color="purple"
+                  :disabled="
+                    store.deck.length <= 1 ||
+                    !/デッキをコピーしました|コピーをキャンセルしました/.test(copyDeckMessage.text)
+                  "
+                  @click="shiftDeck(store, deck.name);"
+                >
+                  <v-icon>mdi-swap-vertical</v-icon>
+                </v-btn>
+              </v-col>
+              <v-col cols="3">
+                <v-btn
+                  color="error"
+                  :disabled="
+                    deck.name === store.selectDeck.name ||
+                    beforeDeckName !== ''
+                  "
+                  @click="deleteDeck(store, deck.name);"
+                >
+                  <v-icon>mdi-trash-can</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-col>
+      </v-row>
+      <div class="text-center mt-2">
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.deckList = false;"
+        >
+          CLOSE
         </v-btn>
       </div>
     </v-sheet>
@@ -514,7 +842,7 @@
         <v-col cols="12" sm="4" class="pr-sm-2">
           <h3>合計マスタリーLv.</h3>
           <v-text-field
-            :rules="rules"
+            :rules="rules.hankaku"
             maxlength="3"
             density="compact"
           ></v-text-field>
@@ -535,14 +863,19 @@
         <v-col cols="12" sm="4" class="pl-sm-2">
           <h3>Season Fan Lv.</h3>
           <v-text-field
-            :rules="rules"
+            :rules="rules.hankaku"
             maxlength="2"
             density="compact"
           ></v-text-field>
         </v-col>
       </v-row>
       <div class="text-center">
-        <v-btn @click="dialog.characterStatusSetting = false">閉じる</v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.characterStatusSetting = false"
+          >
+            CLOSE
+          </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
@@ -601,7 +934,7 @@
                   v-model="score[i - 1]"
                   label="スコア"
                   hint="スコアを入力してください"
-                  :rules="rules"
+                  :rules="rules.hankaku"
                   persistent-hint
                   color="pink"
                   base-color="pink"
@@ -737,7 +1070,64 @@
       </v-col>
     </v-row>
   </v-container>
+
+  <v-snackbar
+    v-model="snackbar.makeDeck"
+    color="success"
+    :timeout="2000"
+  >
+    デッキを新規作成しました
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.nameSave"
+    color="success"
+    :timeout="2000"
+  >
+    デッキ名を変更しました
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.openDeck"
+    color="success"
+    :timeout="2000"
+  >
+    {{ store.selectDeck.name }}を開きました
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.copyDeck"
+    :color="copyDeckMessage.color"
+    :timeout="copyDeckMessage.time"
+  >
+    {{ copyDeckMessage.text }}
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.shiftDeck"
+    :color="shiftDeckMessage.color"
+    :timeout="shiftDeckMessage.time"
+  >
+    {{ shiftDeckMessage.text }}
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.deleteDeck"
+    color="success"
+    :timeout="2000"
+  >
+    {{ deleteDeckName }}を削除しました
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.resetDeck"
+    color="success"
+    :timeout="2000"
+  >
+    デッキをリセットしました
+  </v-snackbar>
 </template>
+
 
 <script setup>
 import { useStoreCounter } from "../stores/counter";
@@ -762,6 +1152,21 @@ export default {
         "メンタルリカバー",
         "LOVEボーナス",
       ],
+      inputDeckName: '',
+      selectDeckName: '',
+      deleteDeckName: '',
+      beforeDeckName: '',
+      shiftDeckMessage: {
+        text: 'デッキを入れ替えました',
+        time: 0,
+        color: '',
+      },
+      copyDeckMessage: {
+        text: 'デッキをコピーしました',
+        time: 0,
+        color: '',
+      },
+      isSelectedAceCard: false,
       score: [0, 0],
       clearStage: [1, 1],
       performance: [[], []],
@@ -792,9 +1197,9 @@ export default {
         ],
         seasonFan: [
           {
-            ginko: null,
-            kosuzu: null,
-            hime: null,
+            ginko: 1,
+            kosuzu: 1,
+            hime: 1,
             kaho: 1,
             sayaka: 1,
             rurino: 1,
@@ -803,9 +1208,9 @@ export default {
             megumi: 1,
           },
           {
-            ginko: null,
-            kosuzu: null,
-            hime: null,
+            ginko: 1,
+            kosuzu: 1,
+            hime: 1,
             kaho: 1,
             sayaka: 1,
             rurino: 1,
@@ -816,9 +1221,9 @@ export default {
         ],
         release: [
           {
-            ginko: null,
-            kosuzu: null,
-            hime: null,
+            ginko: 1,
+            kosuzu: 1,
+            hime: 1,
             kaho: 1,
             sayaka: 1,
             rurino: 1,
@@ -827,9 +1232,9 @@ export default {
             megumi: 1,
           },
           {
-            ginko: null,
-            kosuzu: null,
-            hime: null,
+            ginko: 1,
+            kosuzu: 1,
+            hime: 1,
             kaho: 1,
             sayaka: 1,
             rurino: 1,
@@ -846,15 +1251,25 @@ export default {
         SR: [0, 0.15, 0.25, 0.3, 0.35],
         R: [0, 0.1, 0.15, 0.2, 0.25],
       },
-      rules: [(value) => !isNaN(value) || "半角数字で入力してください"],
-      selectTab: "kaho",
-      snackbar: {
-        save: false,
-        nameSave: false,
+      rules: {
+        inputCheck: (value) => !!value || "入力してください",
+        hankaku: (value) => !isNaN(value) || "半角数字で入力してください",
       },
+      selectTab: "kaho",
       dialog: {
+        deckList: false,
+        changeDeckName: false,
         characterStatusSetting: false,
         paramSet: false,
+      },
+      snackbar: {
+        makeDeck: false,
+        nameSave: false,
+        openDeck: false,
+        shiftDeck: false,
+        copyDeck: false,
+        deleteDeck: false,
+        resetDeck: false,
       },
       attr: [
         "cardLevel",
@@ -866,53 +1281,52 @@ export default {
         "pure",
         "mental",
       ],
-      selectFormation: "新規デッキ1",
       formation: {},
       formation_default: {
         ginko: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         kosuzu: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         hime: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         kaho: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         sayaka: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         rurino: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         kozue: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         tsuzuri: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
         megumi: {
-          main: "default",
-          side1: "default",
-          side2: "default",
+          main: 'default',
+          side1: 'default',
+          side2: 'default',
         },
       },
     };
@@ -958,10 +1372,10 @@ export default {
       return (store, attr) => {
         let result = 0;
 
-        for (const memberName in store.selectCard) {
-          for (const style in store.selectCard[memberName]) {
+        for (const memberName in store.deck) {
+          for (const style in store.deck[memberName]) {
             if (attr) {
-              //if (store.selectCard[memberName][style] === 'default') {
+              //if (store.deck[memberName][style] === 'default') {
               continue;
             }
 
@@ -974,28 +1388,206 @@ export default {
     },
     countDefaultCard() {
       return (store) => {
-        let result = {
+        let sum = {
           main: 0,
-          side: 0,
+          side: 0
         };
 
-        for (const memberName in store.memberName) {
-          for (const style in store.selectCard[memberName]) {
-            if (store.selectCard[memberName][style] === "default") {
-              result[style === "main" ? "main" : "side"]++;
+        for (const memberName in store.selectDeck.cardData) {
+          for (const style in store.selectDeck.cardData[memberName]) {
+            if (
+              store.selectDeck.cardData[memberName][style].cardName === 'default' &&
+              Object.keys(store.styleHeadline[store.selectDeck.period]).find((v) => v === style) !== undefined
+            ) {
+              sum[style === 'main' ? 'main' : 'side']++;
             }
           }
         }
 
         return {
-          main: result.main,
-          leaves: result.side,
-          result: result.side > 9 ? 95 : result.side * 10,
+          main: sum.main,
+          leaves: sum.side,
+          result: sum.side > 9 ? 95 : sum.side * 10
         };
-      };
-    },
+      }
+    }
   },
   methods: {
+    makeNewDeck(store, resetFlg) {
+      let a = {
+        name: '',
+        period: resetFlg ? store.selectDeck.period : store.thisPeriod,
+        cardData: {},
+        comment: '',
+      };
+
+      if (resetFlg) {
+        a.name = store.selectDeck.name;
+      } else {
+        for (let index = 1; index < 9999; index++) {
+          if (this.checkDeckName(store, `新規デッキ${index}`) === false) {
+            a.name = `新規デッキ${index}`;
+            break;
+          }
+        }
+      }
+
+      for (const name of store.formationMember[a.period]) {
+        a.cardData[name] = {};
+
+        for (const style of ['main', 'side1', 'side2']) {
+          a.cardData[name][style] = {
+            cardName: 'default',
+            isAce: false,
+            param: {
+              cardLevel: 1,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+            }
+          };
+        }
+      }
+
+      this.selectDeckName = a.name;
+      this.inputDeckName = a.name;
+      this.isSelectedAceCard = false;
+      store.selectDeckName = a.name;
+
+      if (resetFlg) {
+        for (const num in store.deck) {
+          if (store.deck[num].name === store.selectDeck.name) {
+            store.deck[num] = a;
+          }
+        }
+        
+        this.snackbar.resetDeck = true;
+      } else {
+        store.deck.push(a);
+      }
+    },
+    changeSelectDeckName(store) {
+      this.dialog.changeDeckName = false;
+      this.snackbar.nameSave = true;
+      store.selectDeck.name = this.inputDeckName;
+      store.selectDeckName = this.inputDeckName;
+    },
+    deleteDeck(store, deleteDeckName) {
+      this.snackbar.deleteDeck = false;
+      let num = 0;
+
+      store.deck = store.deck.filter((v, i) => {
+        if (v.name !== deleteDeckName) {
+          return true;
+        } else {
+          num = (i - 1) < 0 ? 0 : i - 1;
+          return false;
+        }
+      });
+
+      store.selectDeckName = store.deck[num].name;
+      this.selectDeckName = store.deck[num].name;
+      this.inputDeckName = store.deck[num].name;
+      this.deleteDeckName = deleteDeckName;
+      this.snackbar.deleteDeck = true;
+    },
+    checkDeckName(store, checkDeckName) {
+      const name = checkDeckName || this.inputDeckName;
+
+      if (name === '') {
+        return 'デッキ名を入力してください';
+      } else if (store.deck.find((v) => v.name === name)) {
+        return '既に存在するデッキ名です';
+      } else {
+        return false;
+      }
+    },
+    shiftDeck(store, targetDeckName) {
+      this.snackbar.shiftDeck = false;
+      this.copyDeckMessage.text = 'デッキをコピーしました';
+
+      if (this.beforeDeckName === '') {
+        this.beforeDeckName = targetDeckName;
+        this.shiftDeckMessage.text = '入れ替えるデッキを選択してください';
+        this.shiftDeckMessage.time = -1;
+        this.shiftDeckMessage.color = 'info';
+        this.snackbar.shiftDeck = true;
+      } else if (this.beforeDeckName === targetDeckName) {
+        this.beforeDeckName = '';
+        this.shiftDeckMessage.text = '入れ替えをキャンセルしました';
+        this.shiftDeckMessage.time = 2000;
+        this.shiftDeckMessage.color = 'info';
+        this.snackbar.shiftDeck = true;
+      } else {
+        const before = store.deck.findIndex(item => item.name === this.beforeDeckName);
+        const after = store.deck.findIndex(item => item.name === targetDeckName);
+
+        [store.deck[before], store.deck[after]] = [store.deck[after], store.deck[before]];
+
+        this.beforeDeckName = '';
+        this.shiftDeckMessage.text = 'デッキを入れ替えました';
+        this.shiftDeckMessage.time = 2000;
+        this.shiftDeckMessage.color = 'success';
+        this.snackbar.shiftDeck = true;
+      }
+    },
+    copyDeck(store, targetDeckName) {
+      this.snackbar.shiftDeck = false;
+      this.shiftDeckMessage.text = 'デッキを入れ替えました';
+
+      if (this.beforeDeckName === '') {
+        this.beforeDeckName = targetDeckName;
+        this.copyDeckMessage.text = 'コピーするデッキを選択してください';
+        this.copyDeckMessage.time = -1;
+        this.copyDeckMessage.color = 'info';
+        this.snackbar.copyDeck = true;
+      } else if (this.beforeDeckName === targetDeckName) {
+        this.beforeDeckName = '';
+        this.copyDeckMessage.text = 'コピーをキャンセルしました';
+        this.copyDeckMessage.time = 2000;
+        this.copyDeckMessage.color = 'info';
+        this.snackbar.copyDeck = true;
+      } else {
+        const before = store.deck.findIndex(item => item.name === this.beforeDeckName);
+        const after = store.deck.findIndex(item => item.name === targetDeckName);
+
+        store.deck[after].period = store.deck[before].period;
+        store.deck[after].cardData = store.deck[before].cardData;
+
+        this.beforeDeckName = '';
+        this.copyDeckMessage.text = 'デッキをコピーしました';
+        this.copyDeckMessage.time = 2000;
+        this.copyDeckMessage.color = 'success';
+        this.snackbar.copyDeck = true;
+      }
+    },
+    changeAceCard(store, targetMemberName, targetStyle) {
+      let flg = false;
+
+      for (const memberName in store.selectDeck.cardData) {
+        for (const style in store.selectDeck.cardData[memberName]) {
+          store.selectDeck.cardData[memberName][style].isAce = memberName === targetMemberName && style === targetStyle;
+
+          if (!flg) {
+            flg = memberName === targetMemberName && style === targetStyle;
+          }
+        }
+      }
+
+      this.isSelectedAceCard = flg;
+    },
+    deleteSelectCard(store, memberName, styleName) {
+      if (store.selectDeck.cardData[memberName][styleName].isAce) {
+        this.isSelectedAceCard = false;
+      }
+
+      store.selectDeck.cardData[memberName][styleName].cardName = 'default';
+      store.selectDeck.cardData[memberName][styleName].isAce = false;
+      store.selectDeck.cardData[memberName][styleName].param.cardLevel = 1;
+      store.selectDeck.cardData[memberName][styleName].param.SALevel = 1;
+      store.selectDeck.cardData[memberName][styleName].param.SLevel = 1;
+      store.selectDeck.cardData[memberName][styleName].param.releaseLevel = 1;
+    },
     /**
      * タブチェンジ
      *
@@ -1020,58 +1612,55 @@ export default {
         this.performance[i] = musicDataList[this.selectMusic[i]].singingMembers;
       }
     },
-    makeIllustCard(store, selectCardName, memberName) {
-      if (selectCardName === "default") {
+    makeIllustCard(store, selectCardName, selectMemberName) {
+      if (selectCardName === 'default') {
         return "NO IMAGE";
       } else {
         return `${store.conversion(selectCardName)}_${
-          store.memberName[memberName].last
+          store.memberName[store.findOpenCardMemberName(selectCardName, selectMemberName)].last
         }_覚醒後`;
       }
     },
     makeCardName(store, selectCardName, memberName, style) {
-      this.makeParam(store, memberName, style, this.attr);
+      // this.makeParam(store, memberName, style, this.attr);
+      style;
 
-      if (selectCardName === "default") {
+      if (selectCardName === 'default') {
         return "カードを選択してください";
       } else {
-        return `[${store.searchRarity(memberName, selectCardName)}${
-          ["", "+", "++"][
-            store.cardParam("trainingLevel", {
-              memberName: memberName,
-              rare: store.searchRarity(memberName, selectCardName),
-              cardName: selectCardName,
-            })
-          ]
-        }] ${selectCardName}`;
+        return `[${store.searchRarity(memberName, selectCardName)}] ${selectCardName}`;
       }
     },
     makeParam(store, name, style, attr) {
-      //return store.cardParam(attr, {memberName: name, rare: store.searchRarity(name, store.selectCard[name][style]), cardName: store.selectCard[name][style]});
+      //return store.cardParam(attr, {memberName: name, rare: store.searchRarity(name, store.selectDeck.cardData[name][style].cardName), cardName: store.selectDeck.cardData[name][style].cardName});
       const list = {};
       let rare;
 
       for (const key of attr) {
-        rare = store.searchRarity(name, store.selectCard[name][style]);
+        rare = store.searchRarity(name, store.selectDeck.cardData[name][style].cardName);
         list[key] = store.cardParam(key, {
           memberName: name,
           rare: rare,
-          cardName: store.selectCard[name][style],
+          cardName: store.selectDeck.cardData[name][style].cardName,
         });
       }
 
-      list.cardName = store.selectCard[name][style];
+      list.cardName = store.selectDeck.cardData[name][style].cardName;
       list.rare = rare;
 
-      this.formation[this.selectFormation][name][style] = Object.create(list);
-      console.log(this.formation[this.selectFormation]);
+      this.formation[this.selectDeckName][name][style] = Object.create(list);
     },
     getParamList(store, name, style) {
       return store.card[name][
-        store.searchRarity(name, store.selectCard[name][style])
-      ][store.selectCard[name][style]];
+        store.searchRarity(name, store.selectDeck.cardData[name][style].cardName)
+      ][store.selectDeck.cardData[name][style].cardName];
     },
-    reset() {},
+    reset(store) {
+      for (const memberName in store.selectDeck.cardData) {
+        store.selectDeck.cardData[memberName]
+      }
+      //[styleName].cardName = cardName;
+    },
     makeDefaultFormation() {
       const list = {};
       let list2 = {};
@@ -1088,34 +1677,29 @@ export default {
         "megumi",
       ]) {
         for (const style of ["main", "side1", "side2"]) {
-          list2[style] = "default";
+          list2[style] = 'default';
           list[memberName] = list2;
         }
       }
 
       return list;
     },
-    /*countDefaultCard(store) {
-      let result = {
-        main: 0,
-        side: 0
-      };
-
-      for (const memberName in store.memberName) {
-        for (const style in store.selectCard[memberName]) {
-          if (store.selectCard[memberName][style] === 'default') {
-            result[style === 'main' ? 'main' : 'side']++;
-          }
-        }
-      }
-
-      return {
-        main: result.main,
-        leaves: result.side,
-        result: result.side > 9 ? 95 : result.side * 10
-      };
-    }*/
   },
   watch: {},
 };
 </script>
+
+<style lang="scss" scoped>
+.deckNameArea {
+  border-bottom: 1px solid #e5762c;
+}
+
+.deckNameTitle {
+  color: #fff;
+  background: #e5762c;
+  border-radius: 0 15px 15px 0;
+  padding: 4px 8px 4px 8px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+</style>

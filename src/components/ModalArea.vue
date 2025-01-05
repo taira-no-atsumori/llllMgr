@@ -37,10 +37,12 @@
       </div>
       <div class="mt-2 text-center">
         <v-btn
+          prepend-icon="mdi-close"
           :theme="store.siteSettings.all.darkMode"
           @click="store.switchDialog(false)"
-          >閉じる</v-btn
         >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>

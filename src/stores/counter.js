@@ -6,14 +6,15 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ε.83(アーリーアクセス)',
+    version: 'ζ.1(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
     checkMasteryMember: 'kaho',
-    selectPeriod: 104,
+    thisPeriod: 104,
+    selectDeckName: '',
     rare: ['DR', 'BR', 'UR', 'SR', 'R'],
     favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
     releaseStatus: ['none', 'trainingLevel', 'cardLevel', 'releaseLevel'],
@@ -234,10 +235,29 @@ export const useStoreCounter = defineStore('store', {
         last: '沙知',
       },
     },
-    exclusionMember: ['sachi'],
+    exclusionMember: [
+      'sachi'
+    ],
     formationMember: {
-      103: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
-      104: ['ginko', 'kosuzu', 'hime', 'kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
+      103: [
+        'kaho',
+        'sayaka',
+        'rurino',
+        'kozue',
+        'tsuzuri',
+        'megumi'
+      ],
+      104: [
+        'ginko',
+        'kosuzu',
+        'hime',
+        'kaho',
+        'sayaka',
+        'rurino',
+        'kozue',
+        'tsuzuri',
+        'megumi'
+      ],
     },
     memberColor: {
       kaho: '#F8B500',
@@ -284,53 +304,7 @@ export const useStoreCounter = defineStore('store', {
     memberData: {
       centerList: {},
     },
-    selectCard: {
-      kaho: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      sayaka: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      rurino: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      kozue: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      tsuzuri: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      megumi: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      ginko: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      kosuzu: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-      hime: {
-        main: 'default',
-        side1: 'default',
-        side2: 'default',
-      },
-    },
+    deck: [],
     settingCard: {
       // 何故か分からないがここを設定しないとエラーが出るため設定
       rare: 'DR',
@@ -392,6 +366,10 @@ export const useStoreCounter = defineStore('store', {
       //kana: '五十音'
     },
     defaultCardList: [],
+    windowSize: {
+      w: 0,
+      h: 0,
+    },
   }),
   getters: {
     defaultCard() {
@@ -426,7 +404,7 @@ export const useStoreCounter = defineStore('store', {
         }
 
         for (const rare in this.card[memberName]) {
-          for (const cardName in this.card[memberName][rare]) {
+          for (let cardName in this.card[memberName][rare]) {
             if (cardName === 'default') {
               continue;
             }
@@ -792,6 +770,9 @@ export const useStoreCounter = defineStore('store', {
     isDarkMode() {
       return this.siteSettings.all.darkMode === 'dark';
     },
+    selectDeck() {
+      return this.deck.find((v) => v.name === this.selectDeckName);
+    },
     /*makeMusicList() {
       return (selectSkillList) => {
         const list = {};
@@ -836,6 +817,49 @@ export const useStoreCounter = defineStore('store', {
       this.card = structuredClone(this.defaultCard);
       this.getLocalStorage();
       this.setSupportSkillLevel();
+      //this.makeNewDeck();
+    },
+    makeNewDeck() {
+      let a = {
+        name: `新規デッキ${this.deck.length + 1}`,
+        period: this.thisPeriod,
+        cardData: {}
+      };
+
+      for (const name of this.formationMember[a.period]) {
+        a.cardData[name] = {
+          main: {
+            cardName: 'default',
+            param: {
+              level: 0,
+              SA: 0,
+              skill: 0,
+              release: 0
+            }
+          },
+          side1: {
+            cardName: 'default',
+            param: {
+              level: 0,
+              SA: 0,
+              skill: 0,
+              release: 0
+            }
+          },
+          side2: {
+            cardName: 'default',
+            param: {
+              level: 0,
+              SA: 0,
+              skill: 0,
+              release: 0
+            }
+          },
+        };
+      }
+
+      this.selectDeckName = a.name;
+      this.deck = [a];
     },
     /**
      * DB作成
@@ -890,12 +914,22 @@ export const useStoreCounter = defineStore('store', {
         if (!isImportData) {
           this.localStorageData.musicData = JSON.parse(localStorage.llllMgr_musicData);
 
+          if (this.localStorageData.musicData['バアドゲージ']) {
+            this.localStorageData.musicData['バアドケージ'] = this.localStorageData.musicData['バアドゲージ'];
+            delete this.localStorageData.musicData['バアドゲージ'];
+          }
+
           for (const musicTitle in this.musicList) {
             this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
             this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
           }
         } else if (importData.musicData !== undefined) {
           this.localStorageData.musicData = importData.musicData;
+
+          if (this.localStorageData.musicData['バアドゲージ']) {
+            this.localStorageData.musicData['バアドケージ'] = this.localStorageData.musicData['バアドゲージ'];
+            delete this.localStorageData.musicData['バアドゲージ'];
+          }
 
           for (const musicTitle in this.musicList) {
             this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
@@ -909,7 +943,10 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (localStorage.llllMgr_card !== undefined || (isImportData && importData.cardList !== undefined && importData.cardList.card !== undefined)) {
+      if (
+        localStorage.llllMgr_card !== undefined ||
+        (isImportData && importData.cardList !== undefined && importData.cardList.card !== undefined)
+      ) {
         let isRemakeCardData = false;
 
         if (!isImportData) {
@@ -925,15 +962,15 @@ export const useStoreCounter = defineStore('store', {
           for (const memberName in this.card) {
             for (const rare in this.card[memberName]) {
               if (this.localStorageData.cardList.card[memberName] !== undefined) {
-                for (const cardName in this.localStorageData.cardList.card[memberName][rare]) {
-                  this.card[memberName][rare][cardName].fluctuationStatus = this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
+                for (let cardName in this.localStorageData.cardList.card[memberName][rare]) {
+                  this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].fluctuationStatus = this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
 
                   if (this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus.releasePoint === undefined) {
-                    this.card[memberName][rare][cardName].fluctuationStatus.releasePoint = 0;
+                    this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].fluctuationStatus.releasePoint = 0;
                   }
 
                   if (this.localStorageData.cardList.card[memberName][rare][cardName].favorite !== undefined) {
-                    this.card[memberName][rare][cardName].favorite = this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
+                    this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].favorite = this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
                   }
                 }
               }
@@ -1117,30 +1154,27 @@ export const useStoreCounter = defineStore('store', {
     },
     aaa() {
       for (const rare of this.rare) {
-        if (this.selectCard[this.openCard.name][this.openCard.style] in this.card[this.openCard.name][rare]) {
-          this.selectCard[this.openCard.name][this.openCard.style] = this.card[this.openCard.name][rare][this.selectCard[this.openCard.name][this.openCard.style]];
+        if (this.deck[this.openCard.name][this.openCard.style] in this.card[this.openCard.name][rare]) {
+          this.deck[this.openCard.name][this.openCard.style] = this.card[this.openCard.name][rare][this.deck[this.openCard.name][this.openCard.style]];
           break;
         }
       }
     },
     searchRarity(memberName, cardName) {
-      let result = 'default';
-
-      if (cardName === result) {
-        return result;
+      if (cardName === 'default') {
+        return 'default';
+      } else if (this.findOpenCardMemberName(cardName, memberName) === 'sachi') {
+        return 'UR';
       }
 
       for (const rare of this.rare) {
         if (cardName in this.card[memberName][rare]) {
-          result = rare;
-          break;
+          return rare;
         }
       }
-
-      return result;
     },
-    searchSelectCard(name, style) {
-      return this.selectCard[name][style];
+    searchSelectDeckCard(name, style) {
+      return this.selectDeck.cardData[name][style].cardName;
     },
     makeExportCardData(data) {
       let result = {};
@@ -1265,6 +1299,9 @@ export const useStoreCounter = defineStore('store', {
     isExclusionMember(targetMember) {
       return this.exclusionMember.some((val) => val === targetMember);
     },
+    findOpenCardMemberName(cardName, name) {
+      return cardName === '蓮ノ空女学院スクールアイドルクラブ101期生' ? 'sachi' : name;
+    },
     resetMusicFilter(resetName) {
       if (/^(SA|S)(AP|Level)|(release|card|training)Level$/.test(resetName)) {
         this.search.cardList[resetName] = [this.defaultSearch.cardList[resetName][0], this.defaultSearch.cardList[resetName][1]];
@@ -1292,9 +1329,12 @@ export const useStoreCounter = defineStore('store', {
     changeSettings(setLocalStorageName) {
       this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this[setLocalStorageName]);
     },
-    setSelectCard(cardName) {
-      this.selectCard[this.openCard.name][this.openCard.style] = cardName;
-      //console.log(this.card[this.openCard.name][this.openCard.style])
+    setSelectCard(cardName, param) {
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].cardName = cardName;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.cardLevel = param.cardLevel;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SALevel = param.SALevel;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SLevel = param.SLevel;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.releaseLevel = param.releaseLevel;
     },
   },
 });

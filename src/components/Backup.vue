@@ -128,6 +128,7 @@ export default {
         selectItemList: 'アイテム絞り込み条件',
         sortSettings_card: 'ソート設定(CARD LIST)',
         //sortSettings_music: 'ソート設定(MUSIC LIST)',
+        //deckList: '編成リスト',
         siteSettings: 'サイト設定',
       },
       radios: false,
@@ -182,7 +183,16 @@ export default {
           text: '正しいバックアップファイルをアップロードしてください。'
         }
       },
-      defaultImportData: ['card', 'cardListFilter', 'musicData', 'selectItemList', 'sortSettings_card', /*'sortSettings_music', */'siteSettings'],
+      defaultImportData: [
+        'card',
+        'cardListFilter',
+        'musicData',
+        'selectItemList',
+        'sortSettings_card',
+        // 'sortSettings_music',
+        //'deckList',
+        'siteSettings'
+      ],
       importData: [],
       resetList: []
     }
@@ -195,13 +205,17 @@ export default {
   },
   computed: {
     isFileImportError() {
-      return this.files === undefined ? true : this.files.length === 0 || this.importData.length === 0 || this.alertContent.import.type === 'error';
+      return this.files === undefined ?
+      true :
+      this.files.length === 0 ||
+      this.importData.length === 0 ||
+      this.alertContent.import.type === 'error';
     }
   },
   mounted() {
     this.fileReader = new FileReader();
     this.fileReader.onload = (event) => {
-      if (event.target.result  === "") {
+      if (event.target.result === "") {
         this.alertContent.import = this.errorText.invalidFile;
       } else {
         this.backupData = JSON.parse(event.target.result);
@@ -270,7 +284,10 @@ export default {
       this.alertContent.import = this.alertContentList.import[2];
     },
     changeImportData() {
-      this.alertContent.import = this.importData.length === 0 ? this.errorText.nonImportDataSelect : this.alertContentList.import[1];
+      this.alertContent.import =
+        this.importData.length === 0 ?
+        this.errorText.nonImportDataSelect :
+        this.alertContentList.import[1];
     },
     resetAction(store) {
       store.dataReset(this.resetList);

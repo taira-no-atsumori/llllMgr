@@ -1,5 +1,10 @@
 <template>
   <v-container fluid class="pa-0">
+    <v-switch
+      v-model="isParamReflect"
+      label="CARD LISTのパラメータを反映する"
+      color="pink"
+    ></v-switch>
     <v-row
       no-gutters
       v-for="rare in store.rare"
@@ -8,34 +13,53 @@
     >
       <!--<template>-->
         <v-col cols="12">
-          <h3 class="px-1">{{ rare }}</h3>
+          <h3
+            v-if="Object.keys(store.card[store.openCard.name][rare]).length > 0"
+            class="px-1"
+          >
+            {{ rare }}
+          </h3>
         </v-col>
         <v-col
-          v-for="(ary, cardName) in store.card[store.openCard.name][rare]"
+          v-for="(ary, cardName) in outputCardList(store, rare)"
           :key="ary"
           cols="6"
           sm="2"
           class="pa-1"
         >
           <v-card
-            v-if="searchSetCard(store, cardName)"
-            v-bind="props"
-            @click="openCheckDialog(store, cardName, rare)"
+            v-if="!!searchSetCard(store, cardName)"
+            :disabled="
+              !!searchSetCard(store, cardName)
+            "
+            @click="openCheckDialog(store, cardName, rare, ary);"
           >
             <v-img
-              :src="require(`@/assets/card_illust/${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+              :src="require(
+                `@/assets/card_illust/${store.conversion(cardName)}_${
+                  store.memberName[store.findOpenCardMemberName(cardName, store.openCard.name)].last
+                }_覚醒後.webp`
+              )"
               gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
               class="d-flex align-center"
-            ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>選択中</p></v-img>
+            >
+              <p class="text-center text-white font-weight-bold text-h6">
+                {{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>
+                選択中
+              </p>
+            </v-img>
             <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
           </v-card>
           <v-card
             v-else
-            v-bind="props"
-            @click="openCheckDialog(store, cardName, rare)"
+            @click="openCheckDialog(store, cardName, rare, ary);"
           >
             <v-img
-              :src="require(`@/assets/card_illust/${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+              :src="require(
+                `@/assets/card_illust/${store.conversion(cardName)}_${
+                  store.memberName[store.findOpenCardMemberName(cardName, store.openCard.name)].last
+                }_覚醒後.webp`
+              )"
             ></v-img>
             <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
           </v-card>
@@ -130,9 +154,9 @@
         <v-col cols="12" sm="5">
           <v-card>
             <v-img
-              :src="require(`@/assets/card_illust/${store.conversion(store.searchSelectCard(store.openCard.name, store.openCard.style))}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+              :src="require(`@/assets/card_illust/${store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
             ></v-img>
-            <v-card-title class="pa-2">{{ store.conversion(store.searchSelectCard(store.openCard.name, store.openCard.style)) }}</v-card-title>
+            <v-card-title class="pa-2">{{ store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style)) }}</v-card-title>
             <v-card-text class="px-2 pb-2">
               <v-row no-gutters>
                 <v-col cols="6">カードレベル</v-col>
@@ -212,6 +236,22 @@
     </optgroup>
   </select>
   </div>
+
+  <v-snackbar
+    v-model="snackbar.sameCard"
+    color="warning"
+    :timeout="2000"
+  >
+    すでに編成済みです
+  </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.sachi"
+    color="light-green-darken-4"
+    :timeout="3000"
+  >
+    {{ sachiMessage }}
+  </v-snackbar>
   </template>
 
   <script>
@@ -223,6 +263,12 @@
         selectCard: undefined,
         selectedCard: undefined,
         rarity: undefined,
+        isParamReflect: true,
+        snackbar: {
+          sameCard: false,
+          sachi: false,
+        },
+        sachiMessage: '私はMAIN STYLEには設定できないんだよねぃ',
         cardStatus: {
           before: {
             status: {},
@@ -237,43 +283,124 @@
     },
     created() {},
     mounted() {},
-    computed: {
-      searchSetCard() {
-        return (store, cardName) => {
-          let result = false;
+    computed: {},
+    methods: {
+      searchSetCard(store, cardName) {
+        let result = false;
 
-          for (const key in store.styleHeadline) {
-            if (store.searchSelectCard(store.openCard.name, key) === cardName) {
-              result = key;
+        for (const name in store.selectDeck.cardData) {
+          for (const style in store.selectDeck.cardData[name]) {
+            if (store.searchSelectDeckCard(store.openCard.name, style) === cardName) {
+              result = name;
               break;
             }
           }
-
-          return result;
         }
-      }
-    },
-    methods: {
-      openCheckDialog(store, cardName, rare) {
-        if (store.searchSelectCard(store.openCard.name, store.openCard.style) === 'default') {
-          store.setSelectCard(cardName);
+
+        return result;
+      },
+      outputCardList(store, rare) {
+        if (store.formationMember[103].some(name => name === store.openCard.name) && rare === 'UR') {
+          return { ...store.card[store.openCard.name][rare], ...store.card.sachi.UR };
+        } else {
+          return store.card[store.openCard.name][rare];
+        }
+      },
+      openMemberName(store) {
+        return store.openCard.name;
+      },
+      /**
+       * @description
+       * 選択したカードが選択中のカードと同じかどうかをチェックし、
+       * 違っていた場合は選択中のカードを更新、
+       * 同じ場合は toast を表示
+       * @param {Object} store - vuex store
+       * @param {string} cardName - 選択したカード名
+       * @param {string} rare - 選択したカードのレアリティ
+       */
+      openCheckDialog(store, cardName, rare, ary) {
+        const p = (() => {
+          if (this.isParamReflect) {
+            return {
+              cardLevel: ary.fluctuationStatus.cardLevel,
+              SALevel: ary.fluctuationStatus.SALevel,
+              SLevel: ary.fluctuationStatus.SLevel,
+              releaseLevel: ary.fluctuationStatus.releaseLevel,
+            };
+          } else {
+            return store.selectDeck.cardData[ary.memberName][store.openCard.style].param;
+          }
+        })();
+        if (
+          this.sameCardCheck(store, cardName)
+        ) {
+          this.snackbar.sameCard = true;
+        } else if (
+          store.findOpenCardMemberName(cardName, store.openCard.name) === 'sachi'
+        ) {
+          if (store.openCard.style === 'main') {
+            this.sachiMessage = '私はMAIN STYLEには設定できないんだよねぃ';
+            this.snackbar.sachi = true;
+            return;
+          } else {
+            for (const name in store.selectDeck.cardData) {
+              for (const style in store.selectDeck.cardData[name]) {
+                if (store.selectDeck.cardData[name][style].cardName === cardName) {
+                  this.sachiMessage = 'すでに編成されてるんだよねぃ';
+                  this.snackbar.sachi = true;
+                  return;
+                }
+              }
+            }
+          }
+
+          store.setSelectCard(
+            cardName,
+            p
+          );
           store.switchDialog(false);
-        } else if (store.searchSelectCard(store.openCard.name, store.openCard.style) === cardName) {
+        } else if (
+          store.searchSelectDeckCard(store.openCard.name, store.openCard.style) === 'default'
+        ) {
+          /*for (const style in store.selectDeck.cardData[store.openCard.name]) {
+            const data = { ...{}, ...store.selectDeck.cardData[store.openCard.name][style] };
+            console.log(data);
+            store.selectDeck.cardData[store.openCard.name][style].cardName === cardName;
+          }*/
+          store.setSelectCard(
+            cardName,
+            p
+          );
           store.switchDialog(false);
         } else {
-          this.selectCard = cardName;
-          this.rarity = rare;
-          this.dialog = true;
-          this.cardStatus = {
-            before: {
-              status: store.cardParam('all', {memberName: store.openCard.name, rare: store.searchRarity(store.openCard.name, store.searchSelectCard(store.openCard.name, store.openCard.style)), cardName: store.conversion(store.searchSelectCard(store.openCard.name, store.openCard.style))}),
-              rare: store.searchRarity(store.openCard.name, store.searchSelectCard(store.openCard.name, store.openCard.style))
-            },
-            after: {
-              status: store.cardParam('all', {memberName: store.openCard.name, rare: rare, cardName: store.conversion(cardName)})},
-              rare: rare
-          };
+          store.setSelectCard(
+            cardName,
+            p
+          );
+          store.switchDialog(false);
+          rare;
+          // this.selectCard = cardName;
+          // this.rarity = rare;
+          // this.dialog = true;
+          // this.cardStatus = {
+          //   before: {
+          //     status: store.cardParam('all', {memberName: store.openCard.name, rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style)), cardName: store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}),
+          //     rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
+          //   },
+          //   after: {
+          //     status: store.cardParam('all', {memberName: store.openCard.name, rare: rare, cardName: store.conversion(cardName)})},
+          //     rare: rare
+          // };
         }
+      },
+      sameCardCheck(store, cardName) {
+        for (const style in store.selectDeck.cardData[store.openCard.name]) {
+          if (store.selectDeck.cardData[store.openCard.name][style].cardName === cardName) {
+            return true;
+          }
+        }
+
+        return false;
       },
       getCardStatus(attr, isBefore) {
         if (/smile|cool|pure/.test(attr)) {
@@ -291,7 +418,7 @@
       },
       makeReleaseBonus(store, isBefore) {
         if (isBefore) {
-          return (1 + store.grandprixBonus.releaseLv[store.searchRarity(store.openCard.name, store.searchSelectCard(store.openCard.name, store.openCard.style))][this.getCardStatus('releaseLevel', true) - 1]) * 100;
+          return (1 + store.grandprixBonus.releaseLv[store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))][this.getCardStatus('releaseLevel', true) - 1]) * 100;
         } else {
           return (1 + store.grandprixBonus.releaseLv[this.rarity][this.getCardStatus('releaseLevel', false) - 1]) * 100;
         }

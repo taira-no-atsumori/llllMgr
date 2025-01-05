@@ -60,7 +60,6 @@
           block
           prepend-icon="mdi-calculator"
           @click="pageMove('simulation')"
-          :disabled="true"
         >
           Simulation
         </v-btn>
@@ -90,7 +89,7 @@
     <v-row>
       <v-col cols="12">
         <h2>About</h2>
-        このサイトは、アプリ「Link！Like！ラブライブ！」(通称リンクラ)のゲームパートである「スクールアイドルステージ」(通称スクステ)をもっと楽しく！もっと深く！もっと便利に！をモットーに作成された、非公式のサイトです。<br />
+        このサイトは、アプリ「Link！Like！ラブライブ！」（通称リンクラ）のゲームパートである「スクールアイドルステージ」（通称スクステ）をもっと楽しく！もっと深く！もっと便利に！をモットーに作成された、非公式のサイトです。<br />
         ただ眺めるだけでも良いですが、ぜひご自身のデータを入力して使い倒してください！
       </v-col>
     </v-row>
@@ -98,7 +97,7 @@
     <v-row>
       <v-col cols="12">
         <h2>Attention</h2>
-        このサイトは、PC/スマホ両方からの利用に対応していますが、一部ページはスマホで利用する場合、表示崩れが起こる可能性があります。<br />
+        このサイトは、PC／スマホ両方からの利用に対応していますが、一部ページはスマホで利用する場合、表示崩れが起こる可能性があります。<br />
         利用できないほどのものでない限り、メイン機能を一通り実装し終えた後の対応となります。
       </v-col>
       <v-col cols="12">
@@ -116,7 +115,7 @@
       <v-col cols="12">
         完全個人制作のため、一部デザインが崩れていたり、動かない場合があります。<br />
         順次対応していきますので、大目に見てください…<br />
-        (あと、教えてもらえると助かります…)
+        （あと、教えてもらえると助かります…）
       </v-col>
       <v-col cols="12">
         このサイトはリンクフリーです。<br />
@@ -131,26 +130,30 @@
         <h2>Page Introduction</h2>
         各ページを簡単に紹介します。
       </v-col>
-      <v-col cols="12">
-        <s
-          ><b>SIMULATION(獲得グランプリPt.計算ツール)</b><br />
+      <v-col cols="12" v-if="false">
+        <b>SIMULATION（獲得グランプリPt.計算ツール）</b><br />
           獲得グランプリPt.を計算できます。<br />
-          なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。</s
-        ><br />
-        →リニューアル準備中
+          なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
       </v-col>
       <v-col cols="12">
-        <b>CARD LIST(カード一覧)</b><br />
-        リンクラ内に実装されているカードの一覧と、カードの属性/スペシャルアピール/スキルレベル/特性/カードシリーズでの絞り込みができます。<br />
+        <b>SIMULATION（編成シミュレーション）</b><br />
+          簡単な編成シミュレーションを行えます。<br />
+          現在はおためし版となっております。<br />
+          リロードすると編成データは消えるため、ご注意ください。<br />
+          なお、このページのみ、PCからの利用を推奨しています。
+      </v-col>
+      <v-col cols="12">
+        <b>CARD LIST（カード一覧）</b><br />
+        リンクラ内に実装されているカードの一覧と、カードの属性／スペシャルアピール／スキルレベル／特性／カードシリーズでの絞り込みができます。<br />
         また、自分が所持しているカードのデータを入力して管理することもできます。
       </v-col>
       <v-col cols="12">
-        <b>MUSIC LIST(楽曲一覧)</b><br />
-        リンクラ内に実装されている楽曲の一覧と、獲得ボーナススキル/センター/マスタリーレベル/曲名で絞り込みができます。<br />
+        <b>MUSIC LIST（楽曲一覧）</b><br />
+        リンクラ内に実装されている楽曲の一覧と、獲得ボーナススキル／センター／マスタリーレベル／曲名で絞り込みができます。<br />
         また、自分のアカウントの楽曲マスタリーレベルの設定ができます。
       </v-col>
       <v-col cols="12">
-        <b>ITEM LIST(アイテム一覧)</b><br />
+        <b>ITEM LIST（アイテム一覧）</b><br />
         Quest
         Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
       </v-col>
@@ -160,7 +163,7 @@
     <v-row>
       <v-col cols="12">
         <h2>Update Information</h2>
-        下記ページにて更新情報をお知らせしています(別タブで開きます)。<br />
+        下記ページにて更新情報をお知らせしています（別タブで開きます）。<br />
         <a
           href="https://github.com/taira-no-atsumori/llllMgr/releases"
           target="_blank"
@@ -178,16 +181,16 @@ export default {
   data() {
     return {
       eventList: {
-        /*liveGP: {
-          title: "ライブグランプリ「104期 3rdTerm 第2回個人戦」",
+        liveGP: {
+          title: "ライブグランプリ「104期 3rdTerm 第3回個人戦」",
           text: "",
           type: "liveGP",
-          firstDay: [2024, 12, 13, 12, 0],
-          lastDay: [2024, 12, 18, 3, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-12-11-10-v03uamnu4n",
-          img: "104期 3rdTerm 第2回個人戦_logo",
-        },*/
-         liveGP: {
+          firstDay: [2025, 1, 4, 12, 0],
+          lastDay: [2025, 1, 10, 3, 59],
+          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-01-03-10-lbtb4l7zf0",
+          img: "104期 3rdTerm 第3回個人戦_logo",
+        },
+        /*liveGP: {
           title: "ライブグランプリ「104期 3rdTerm 第2回サークル対抗戦」",
           text: "",
           type: "liveGP",
@@ -195,7 +198,7 @@ export default {
           lastDay: [2024, 12, 25, 3, 59],
           url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-12-18-60-ldzzzx53k1",
           img: "104期 3rdTerm 第2回サークル対抗戦_logo",
-        },
+        },*/
         "Live&FanMeeting": {
           title:
             "ライブ&ファンミーティング「ラブライブ！蓮ノ空女学院スクールアイドルクラブ Live & Fan Meeting TRY TRY UNITY!!!」",

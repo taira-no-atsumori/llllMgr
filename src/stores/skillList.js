@@ -1494,7 +1494,7 @@ export const useSkillStore = defineStore('skillList', {
         },
       },
       エクステボルテージダック: {
-        dack_extensions2_voltage_stage: {
+        duck_extensions2_voltage_stage: {
           text: [
             'このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
             'し、トリカゴカードを1種類(合計1枚)山札に追加する。',
@@ -2513,7 +2513,8 @@ export const useSkillStore = defineStore('skillList', {
         vortexHeatHeart: {
           text: [
             'ボルテージPt.を+',
-            'し、このセクション中、AP回復速度を+20%する。さらにビートハート',
+            'し、このセクション中、AP回復速度を+',
+            '%する。さらにビートハート',
             '回分のスキルハートを3回獲得する。'
           ],
           detail: {
@@ -4110,7 +4111,7 @@ export const useSkillStore = defineStore('skillList', {
         },
       },
       エンジェルアタック: {
-        engelAttack: {
+        angelAttack: {
           text: [
             'このステージ中、スキルハート獲得効果による獲得数を+',
             '%する。',

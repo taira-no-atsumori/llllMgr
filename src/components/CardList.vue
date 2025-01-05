@@ -120,12 +120,8 @@
               v-if="
                 store.toBool(store.siteSettings.cardList.dot_releaseLevel) &&
                 key.fluctuationStatus.cardLevel > 0 &&
-                store.maxCardLevel[key.rare][
-                  store.maxCardLevel[key.rare].length - 1
-                ] > key.fluctuationStatus.cardLevel &&
-                store.maxCardLevel[key.rare][
-                  key.fluctuationStatus.trainingLevel
-                ] === key.fluctuationStatus.cardLevel
+                store.maxCardLevel[key.rare][store.maxCardLevel[key.rare].length - 1] > key.fluctuationStatus.cardLevel &&
+                store.maxCardLevel[key.rare][key.fluctuationStatus.trainingLevel] === key.fluctuationStatus.cardLevel
               "
               class="dot bg-green-accent-4"
             ></p>
@@ -133,9 +129,7 @@
               v-if="
                 store.toBool(store.siteSettings.cardList.dot_cardLevel) &&
                 key.fluctuationStatus.cardLevel > 0 &&
-                store.maxCardLevel[key.rare][
-                  key.fluctuationStatus.trainingLevel
-                ] > key.fluctuationStatus.cardLevel
+                store.maxCardLevel[key.rare][key.fluctuationStatus.trainingLevel] > key.fluctuationStatus.cardLevel
               "
               class="dot bg-red-accent-3"
             ></p>
@@ -143,8 +137,7 @@
               v-if="
                 store.toBool(store.siteSettings.cardList.dot_releasePoint) &&
                 key.fluctuationStatus.cardLevel > 0 &&
-                store.releasePoint[key.rare].point <=
-                  key.fluctuationStatus.releasePoint
+                store.releasePoint[key.rare].point <= key.fluctuationStatus.releasePoint
               "
               class="dot bg-blue-accent-4"
             ></p>

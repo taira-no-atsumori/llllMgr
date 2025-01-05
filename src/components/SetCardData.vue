@@ -1055,7 +1055,12 @@
         </p>
       </div>
       <div class="mt-1 text-center">
-        <v-btn @click="switchDialog(null)">閉じる</v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="switchDialog(null);"
+        >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
