@@ -21,7 +21,7 @@
 <v-tabs-window v-model="pageName">
   <v-tabs-window-item value="all">
     <v-switch
-      v-model="store.siteSettings.all.headerTracking"
+      v-model="store.localStorageData.siteSettings.all.headerTracking"
       color="pink"
       density="comfortable"
       false-value="hide"
@@ -32,7 +32,7 @@
       @change="store.changeSettings('siteSettings')"
     ></v-switch>
     <v-switch
-      v-model="store.siteSettings.all.darkMode"
+      v-model="store.localStorageData.siteSettings.all.darkMode"
       color="pink"
       density="comfortable"
       false-value="light"
@@ -50,7 +50,7 @@
       <v-row no-gutters>
         <v-col cols="12" sm="4">
           <v-switch
-            v-model="store.siteSettings.cardList.dot_cardLevel"
+            v-model="store.localStorageData.siteSettings.cardList.dot_cardLevel"
             color="pink"
             density="comfortable"
             false-value="false"
@@ -63,7 +63,7 @@
         </v-col>
         <v-col cols="12" sm="4">
           <v-switch
-            v-model="store.siteSettings.cardList.dot_releaseLevel"
+            v-model="store.localStorageData.siteSettings.cardList.dot_releaseLevel"
             color="pink"
             density="comfortable"
             false-value="false"
@@ -76,7 +76,7 @@
         </v-col>
         <v-col cols="12" sm="4">
           <v-switch
-            v-model="store.siteSettings.cardList.dot_releasePoint"
+            v-model="store.localStorageData.siteSettings.cardList.dot_releasePoint"
             color="pink"
             density="comfortable"
             false-value="false"
@@ -93,7 +93,7 @@
     <div>
       <p class="font-weight-bold">その他</p>
       <v-switch
-        v-model="store.siteSettings.cardList.isShowDetail"
+        v-model="store.localStorageData.siteSettings.cardList.isShowDetail"
         color="pink"
         density="comfortable"
         false-value="false"
@@ -104,7 +104,7 @@
         @change="store.changeSettings('siteSettings')"
       ></v-switch>
       <v-switch
-        v-model="store.siteSettings.cardList.hover"
+        v-model="store.localStorageData.siteSettings.cardList.hover"
         color="pink"
         density="comfortable"
         false-value="false"
@@ -119,7 +119,7 @@
 
   <v-tabs-window-item value="music">
     <v-switch
-      v-model="store.siteSettings.musicList.hover"
+      v-model="store.localStorageData.siteSettings.musicList.hover"
       color="pink"
       density="comfortable"
       false-value="false"

@@ -181,53 +181,59 @@ export default {
   data() {
     return {
       eventList: {
-        liveGP: {
-          title: "ライブグランプリ「104期 3rdTerm 第3回個人戦」",
-          text: "",
-          type: "liveGP",
+        /*liveGP: {
+          title: 'ライブグランプリ「104期 3rdTerm 第3回個人戦」',
+          text: '',
+          type: 'liveGP',
           firstDay: [2025, 1, 4, 12, 0],
           lastDay: [2025, 1, 10, 3, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-01-03-10-lbtb4l7zf0",
-          img: "104期 3rdTerm 第3回個人戦_logo",
-        },
-        /*liveGP: {
-          title: "ライブグランプリ「104期 3rdTerm 第2回サークル対抗戦」",
-          text: "",
-          type: "liveGP",
-          firstDay: [2024, 12, 20, 12, 0],
-          lastDay: [2024, 12, 25, 3, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2024-12-18-60-ldzzzx53k1",
-          img: "104期 3rdTerm 第2回サークル対抗戦_logo",
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-01-03-10-lbtb4l7zf0',
+          img: '104期 3rdTerm 第3回個人戦_logo',
         },*/
-        "Live&FanMeeting": {
-          title:
-            "ライブ&ファンミーティング「ラブライブ！蓮ノ空女学院スクールアイドルクラブ Live & Fan Meeting TRY TRY UNITY!!!」",
-          text: "",
-          type: "live",
-          firstDay: [2024, 12, 21, 0, 0],
-          lastDay: [2024, 12, 22, 23, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=TTY",
-          img: "live&fanMeeting_logo",
+        'liveGP': {
+          title: 'ライブグランプリ「104期 3rdTerm 第3回サークル対抗戦」',
+          text: '',
+          type: 'liveGP',
+          firstDay: [2025, 1, 13, 12, 0],
+          lastDay: [2025, 1, 18, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-01-12-10-pni4cjn8na',
+          img: '104期 3rdTerm 第3回サークル対抗戦_logo',
         },
-        "3rdLiveTour": {
-          title:
-            "ライブ「ラブライブ！ 蓮ノ空女学院スクールアイドルクラブ 3rd Live Tour TRI TRI UNITY!!!」",
-          text: "",
-          type: "live",
-          firstDay: [2025, 1, 10, 0, 0],
-          lastDay: [2025, 1, 11, 23, 59],
-          url: "https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=TTU",
-          img: "3rdLiveTour_logo",
-        },
-        AsiaTour: {
-          title:
-            "ライブ「LoveLive! Series Asia Tour 2024 ～みんなで叶える物語 ～」",
-          text: "横浜公演",
-          type: "live",
+        'AsiaTour': {
+          title: 'ライブ「LoveLive! Series Asia Tour 2024 ～みんなで叶える物語 ～」',
+          text: '横浜公演',
+          type: 'live',
           firstDay: [2025, 2, 1, 0, 0],
           lastDay: [2025, 2, 2, 23, 59],
-          url: "https://lovelive-anime.jp/special/live/live_detail.php?p=asiatour_2024",
-          img: "AsiaTour_kv",
+          url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=asiatour_2024',
+          img: 'AsiaTour_kv',
+        },
+        '4thLiveDream_ishikawa': {
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
+          text: '石川公演',
+          type: 'live',
+          firstDay: [2025, 4, 26, 0, 0],
+          lastDay: [2025, 4, 27, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
+          img: '4thLiveDream_ishikawa_logo',
+        },
+        '4thLiveDream_hyogo': {
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
+          text: '兵庫公演',
+          type: 'live',
+          firstDay: [2025, 5, 31, 0, 0],
+          lastDay: [2025, 6, 1, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
+          img: '4thLiveDream_hyogo_logo',
+        },
+        '4thLiveDream_kanagawa': {
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
+          text: '神奈川公演',
+          type: 'live',
+          firstDay: [2025, 6, 7, 0, 0],
+          lastDay: [2025, 1, 8, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
+          img: '4thLiveDream_kanagawa_logo',
         },
       },
       outputEventList: {},
@@ -237,11 +243,11 @@ export default {
     for (const key in this.eventList) {
       const arr = this.countDown(key);
 
-      if (arr.state !== "after") {
+      if (arr.state !== 'after') {
         this.outputEventList[key] = this.eventList[key];
         this.outputEventList[key].state = arr.state;
 
-        if (arr.state === "prev") {
+        if (arr.state === 'prev') {
           this.outputEventList[key].count = {
             day: arr.day,
             time: arr.time,
@@ -293,18 +299,18 @@ export default {
       if (f.getTime() === t.getTime()) {
         if (today.getHours() < firstDay.getHours()) {
           return {
-            state: "prev",
+            state: 'prev',
             day: 0,
             time: firstDay.getHours() - today.getHours(),
           };
         } else {
           return {
-            state: "now",
+            state: 'now',
           };
         }
       } else if (f.getTime() > t.getTime()) {
         return {
-          state: "prev",
+          state: 'prev',
           day: -Math.floor(
             (today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)
           ),
@@ -312,18 +318,18 @@ export default {
         };
       } else if (t.getTime() < l.getTime()) {
         return {
-          state: "now",
+          state: 'now',
         };
       } else if (l.getTime() === t.getTime()) {
         if (today.getTime() <= lastDay.getTime()) {
           return {
-            state: "now",
+            state: 'now',
           };
         }
       }
 
       return {
-        state: "after",
+        state: 'after',
       };
     },
   },

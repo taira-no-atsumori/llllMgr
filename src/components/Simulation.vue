@@ -750,81 +750,67 @@
     <v-sheet class="pa-2">
       <h2>デッキリスト</h2>
 
-      <v-row no-gutters>
-        <v-col
-          cols="12"
-          class="mb-3"
-          v-for="(deck, index) in store.deck"
-          :key="index"
-        >
+      <draggable
+        v-model="store.deck"
+        item-key="cardName"
+      >
+        <template #item="{element}">
           <v-card
-            class="pa-2"
+            class="mb-3 pa-2 handle cursor-pointer"
             color="yellow"
           >
             <p class="text-h6 py-1 px-2">
-              {{ deck.name }}
+              {{ element.name }}
             </p>
 
             <v-divider class="mb-2"></v-divider>
 
             <v-row no-gutters class="text-center">
-              <v-col cols="3">
+              <v-col cols="4">
                 <v-btn
                   color="success"
                   :disabled="
-                    deck.name === store.selectDeck.name ||
+                    element.name === store.selectDeck.name ||
                     beforeDeckName !== ''
                   "
                   @click="
                     snackbar.openDeck = false;
-                    inputDeckName = deck.name;
-                    store.selectDeckName = deck.name;
+                    inputDeckName = element.name;
+                    store.selectDeckName = element.name;
                     snackbar.openDeck = true;
                   "
                 >
                   <v-icon>mdi-folder-open</v-icon>
                 </v-btn>
               </v-col>
-              <v-col cols="3">
+              <v-col cols="4">
                 <v-btn
                   color="light-blue"
                   :disabled="
                     store.deck.length <= 1 ||
                     !/デッキを入れ替えました|入れ替えをキャンセルしました/.test(shiftDeckMessage.text)
                   "
-                  @click="copyDeck(store, deck.name);"
+                  @click="copyDeck(store, element.name);"
                 >
                   <v-icon>mdi-content-copy</v-icon>
                 </v-btn>
               </v-col>
-              <v-col cols="3">
-                <v-btn
-                  color="purple"
-                  :disabled="
-                    store.deck.length <= 1 ||
-                    !/デッキをコピーしました|コピーをキャンセルしました/.test(copyDeckMessage.text)
-                  "
-                  @click="shiftDeck(store, deck.name);"
-                >
-                  <v-icon>mdi-swap-vertical</v-icon>
-                </v-btn>
-              </v-col>
-              <v-col cols="3">
+              <v-col cols="4">
                 <v-btn
                   color="error"
                   :disabled="
-                    deck.name === store.selectDeck.name ||
+                    element.name === store.selectDeck.name ||
                     beforeDeckName !== ''
                   "
-                  @click="deleteDeck(store, deck.name);"
+                  @click="deleteDeck(store, element.name);"
                 >
                   <v-icon>mdi-trash-can</v-icon>
                 </v-btn>
               </v-col>
             </v-row>
           </v-card>
-        </v-col>
-      </v-row>
+        </template>
+      </draggable>
       <div class="text-center mt-2">
         <v-btn
           prepend-icon="mdi-close"
@@ -1131,12 +1117,16 @@
 
 <script setup>
 import { useStoreCounter } from "../stores/counter";
+import draggable from "vuedraggable";
 const store = useStoreCounter();
 </script>
 
 <script>
 export default {
   name: "FormationArea",
+  components: {
+    draggable
+  },
   data() {
     return {
       attrName: {
@@ -1500,35 +1490,6 @@ export default {
         return '既に存在するデッキ名です';
       } else {
         return false;
-      }
-    },
-    shiftDeck(store, targetDeckName) {
-      this.snackbar.shiftDeck = false;
-      this.copyDeckMessage.text = 'デッキをコピーしました';
-
-      if (this.beforeDeckName === '') {
-        this.beforeDeckName = targetDeckName;
-        this.shiftDeckMessage.text = '入れ替えるデッキを選択してください';
-        this.shiftDeckMessage.time = -1;
-        this.shiftDeckMessage.color = 'info';
-        this.snackbar.shiftDeck = true;
-      } else if (this.beforeDeckName === targetDeckName) {
-        this.beforeDeckName = '';
-        this.shiftDeckMessage.text = '入れ替えをキャンセルしました';
-        this.shiftDeckMessage.time = 2000;
-        this.shiftDeckMessage.color = 'info';
-        this.snackbar.shiftDeck = true;
-      } else {
-        const before = store.deck.findIndex(item => item.name === this.beforeDeckName);
-        const after = store.deck.findIndex(item => item.name === targetDeckName);
-
-        [store.deck[before], store.deck[after]] = [store.deck[after], store.deck[before]];
-
-        this.beforeDeckName = '';
-        this.shiftDeckMessage.text = 'デッキを入れ替えました';
-        this.shiftDeckMessage.time = 2000;
-        this.shiftDeckMessage.color = 'success';
-        this.snackbar.shiftDeck = true;
       }
     },
     copyDeck(store, targetDeckName) {

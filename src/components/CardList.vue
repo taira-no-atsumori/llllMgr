@@ -46,7 +46,7 @@
             :key="val"
             :value="val"
             @click="
-              store.sortSettings.cardList.sortType = val;
+              store.localStorageData.sortSettings.cardList.sortType = val;
               store.changeSettings('sortSettings');
             "
           >
@@ -59,7 +59,7 @@
     </v-btn>
 
     <v-btn-toggle
-      v-model="store.sortSettings.cardList.order"
+      v-model="store.localStorageData.sortSettings.cardList.order"
       density="compact"
       variant="outlined"
       color="pink"
@@ -67,7 +67,7 @@
       mandatory
     >
       <v-btn
-        v-model="store.sortSettings.cardList.order"
+        v-model="store.localStorageData.sortSettings.cardList.order"
         value="descending"
         class="px-0 px-sm-2"
       >
@@ -75,7 +75,7 @@
         <span class="ml-2 hidden-sm-and-down">降順</span>
       </v-btn>
       <v-btn
-        v-model="store.sortSettings.cardList.order"
+        v-model="store.localStorageData.sortSettings.cardList.order"
         value="ascending"
         class="px-0 px-sm-2"
       >
@@ -86,7 +86,7 @@
 
     <div class="d-inline-block mr-1">絞り込み結果：{{ store.outputCardList.length }}枚 /</div>
 
-    <div class="d-inline-block">現在のソート：{{ store.sortTypeList[store.sortSettings.cardList.sortType] }}</div>
+    <div class="d-inline-block">現在のソート：{{ store.sortTypeList[store.localStorageData.sortSettings.cardList.sortType] }}</div>
 
     <v-divider class="my-2"></v-divider>
 
@@ -118,7 +118,7 @@
           >
             <p
               v-if="
-                store.toBool(store.siteSettings.cardList.dot_releaseLevel) &&
+                store.toBool(store.localStorageData.siteSettings.cardList.dot_releaseLevel) &&
                 key.fluctuationStatus.cardLevel > 0 &&
                 store.maxCardLevel[key.rare][store.maxCardLevel[key.rare].length - 1] > key.fluctuationStatus.cardLevel &&
                 store.maxCardLevel[key.rare][key.fluctuationStatus.trainingLevel] === key.fluctuationStatus.cardLevel
@@ -127,7 +127,7 @@
             ></p>
             <p
               v-if="
-                store.toBool(store.siteSettings.cardList.dot_cardLevel) &&
+                store.toBool(store.localStorageData.siteSettings.cardList.dot_cardLevel) &&
                 key.fluctuationStatus.cardLevel > 0 &&
                 store.maxCardLevel[key.rare][key.fluctuationStatus.trainingLevel] > key.fluctuationStatus.cardLevel
               "
@@ -135,7 +135,7 @@
             ></p>
             <p
               v-if="
-                store.toBool(store.siteSettings.cardList.dot_releasePoint) &&
+                store.toBool(store.localStorageData.siteSettings.cardList.dot_releasePoint) &&
                 key.fluctuationStatus.cardLevel > 0 &&
                 store.releasePoint[key.rare].point <= key.fluctuationStatus.releasePoint
               "
@@ -143,7 +143,7 @@
             ></p>
             <v-card
               v-if="
-                !store.toBool(store.siteSettings.cardList.hover) ||
+                !store.toBool(store.localStorageData.siteSettings.cardList.hover) ||
                 windowSize.w <= 600
               "
               :color="moodColor[key.mood]"
@@ -187,7 +187,7 @@
 
               <v-card-text
                 class="pa-0 cardName"
-                v-if="store.toBool(store.siteSettings.cardList.isShowDetail)"
+                v-if="store.toBool(store.localStorageData.siteSettings.cardList.isShowDetail)"
               >
                 <v-divider opacity="100"></v-divider>
 
@@ -310,7 +310,7 @@
                     <v-card-text
                       class="pa-0 cardName"
                       v-if="
-                        store.toBool(store.siteSettings.cardList.isShowDetail)
+                        store.toBool(store.localStorageData.siteSettings.cardList.isShowDetail)
                       "
                     >
                       <v-divider opacity="50"></v-divider>

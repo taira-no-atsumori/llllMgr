@@ -6,7 +6,7 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ζ.1(アーリーアクセス)',
+    version: 'ζ.2(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -68,10 +68,10 @@ export const useStoreCounter = defineStore('store', {
         trainingLevel: [0, 4],
         memberName: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime', 'sachi'],
         favorite: [],
-        releaseStatus: 'cardLevel',
+        releaseStatus: 'none',
       },
       skillList: {
-        skillFilterType: null,
+        skillFilterType: 'skillType',
         skillType: {
           specialAppeal: [],
           skill: [],
@@ -544,8 +544,8 @@ export const useStoreCounter = defineStore('store', {
       }
 
       if (result.length > 0) {
-        if (this.sortSettings.cardList.sortType === 'rare') {
-          if (this.sortType === 'ascending') {
+        if (this.localStorageData.sortSettings.cardList.sortType === 'rare') {
+          if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
             result.reverse();
           }
         } else {
@@ -553,7 +553,7 @@ export const useStoreCounter = defineStore('store', {
           let bb;
           const mergeList = [];
 
-          if (this.sortSettings.cardList.sortType === 'releaseBonus') {
+          if (this.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
             result = result.filter((cardData) => {
               if (cardData.rare === 'DR' || cardData.specialAppeal === undefined) {
                 mergeList.push(cardData);
@@ -565,29 +565,29 @@ export const useStoreCounter = defineStore('store', {
           }
 
           result.sort((a, b) => {
-            if (this.sortSettings.cardList.sortType === 'releaseBonus') {
+            if (this.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
               aa = a.fluctuationStatus.releaseLevel - 1;
               bb = b.fluctuationStatus.releaseLevel - 1;
 
-              if (this.sortSettings.cardList.order === 'ascending') {
+              if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
                 return this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
               } else {
                 return this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? -1 : this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
               }
-            } else if (/(card|SA|skill|release|training)Level/.test(this.sortSettings.cardList.sortType)) {
-              aa = a.fluctuationStatus[this.sortSettings.cardList.sortType];
-              bb = b.fluctuationStatus[this.sortSettings.cardList.sortType];
+            } else if (/(card|SA|skill|release|training)Level/.test(this.localStorageData.sortSettings.cardList.sortType)) {
+              aa = a.fluctuationStatus[this.localStorageData.sortSettings.cardList.sortType];
+              bb = b.fluctuationStatus[this.localStorageData.sortSettings.cardList.sortType];
 
-              if (this.sortSettings.cardList.order === 'ascending') {
+              if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
                 return aa < bb ? -1 : aa > bb ? 1 : 0;
               } else {
                 return aa > bb ? -1 : aa < bb ? 1 : 0;
               }
             } else {
-              aa = a[this.sortSettings.cardList.sortType];
-              bb = b[this.sortSettings.cardList.sortType];
+              aa = a[this.localStorageData.sortSettings.cardList.sortType];
+              bb = b[this.localStorageData.sortSettings.cardList.sortType];
 
-              if (this.sortSettings.cardList.order === 'ascending') {
+              if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
                 return aa < bb ? -1 : aa > bb ? 1 : 0;
               } else {
                 return aa > bb ? -1 : aa < bb ? 1 : 0;
@@ -768,7 +768,7 @@ export const useStoreCounter = defineStore('store', {
       return result;
     },
     isDarkMode() {
-      return this.siteSettings.all.darkMode === 'dark';
+      return this.localStorageData.siteSettings.all.darkMode === 'dark';
     },
     selectDeck() {
       return this.deck.find((v) => v.name === this.selectDeckName);
@@ -1084,8 +1084,6 @@ export const useStoreCounter = defineStore('store', {
               this.localStorageData.siteSettings[siteSettingCategoryName][settingName] = getSiteSettings[siteSettingCategoryName][settingName];
             }
           }
-
-          this.siteSettings = this.localStorageData.siteSettings;
         }
       }
 
@@ -1112,8 +1110,6 @@ export const useStoreCounter = defineStore('store', {
               this.localStorageData.sortSettings[sortSettingCategoryName][settingName] = getSortSettings[sortSettingCategoryName][settingName];
             }
           }
-
-          this.sortSettings = this.localStorageData.sortSettings;
         }
       }
     },
@@ -1320,14 +1316,52 @@ export const useStoreCounter = defineStore('store', {
     dataReset(resetList) {
       for (const iterator of resetList) {
         if (iterator === 'card') {
-          console.log(this.card);
+          this.card = structuredClone(this.defaultCard);
+          this.localStorageData.cardList.card = this.makeExportCardData(this.card);
+          this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
         } else if (iterator === 'cardListFilter') {
           this.search = structuredClone(this.defaultSearch);
+        } else if (iterator === 'musicData') {
+          const bonusSkillList = {};
+    
+          for (const key in this.bonusSkillList) {
+            bonusSkillList[key] = 0;
+          }
+    
+          for (const name in this.memberName) {
+            this.supportSkill[name] = structuredClone(bonusSkillList);
+            this.memberData.centerList[name].bonusSkill = structuredClone(bonusSkillList);
+    
+            for (const musicTitle in this.musicList) {
+              this.musicList[musicTitle].level = 0;
+              this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
+            }
+    
+            this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
+          }
+        } else if (iterator === 'selectItemList') {
+          this.localStorageData.selectItemList = {
+            item1: [],
+            item2: [],
+            item3: [],
+          };
+          this.setLocalStorage('llllMgr_selectItemList', this.localStorageData.selectItemList);
+        } else if (iterator === 'sortSettings_card') {
+          this.localStorageData.sortSettings.cardList = structuredClone(this.sortSettings.cardList);
+          this.setLocalStorage('llllMgr_sortSettings', this.localStorageData.sortSettings);
+        } else if (iterator === 'siteSettings') {
+          this.localStorageData.siteSettings = structuredClone(this.siteSettings);
+          this.setLocalStorage('llllMgr_siteSettings', this.localStorageData.siteSettings);
         }
       }
     },
+    /**
+     * 設定をlocalStorageに保存
+     * 
+     * @param {string} setLocalStorageName 保存する設定の名前
+     */
     changeSettings(setLocalStorageName) {
-      this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this[setLocalStorageName]);
+      this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this.localStorageData[setLocalStorageName]);
     },
     setSelectCard(cardName, param) {
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].cardName = cardName;

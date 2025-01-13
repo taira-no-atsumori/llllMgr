@@ -4218,6 +4218,68 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'AURORA LINK': {
+        'AURORALINK': {
+          text: [
+            'このステージ中、吟子/花帆/梢/小鈴/さやか/綴理/姫芽/瑠璃乃/慈のスキルを全員使用するたび、このステージ中、獲得するLOVEを+',
+            '%し、APを20回復する。消費APの合計に応じてアトラクト効果の効果量が変化する。各メンバーを重複した際、消費APの記録を上書きする。'
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract_stage', 'APGain'],
+          },
+        },
+      },
+      'ナインハート・アンサンブル': {
+        'nineHeart_ensemble': {
+          text: [
+            '手札の全てのスキルを使用する。さらにビートハート',
+            '回分のスキルハートを9回獲得する。このスキル使用に必要なAPは、他の手札の全てのスキルのAPの合計値になる。'
+          ],
+          detail: {
+            attr: '',
+            type: ['skillUse-handsCard', 'heartCaptcha'],
+          },
+        },
+      },
+      'ナインハート・ボルテージ': {
+        'nineHeart_voltage': {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにビートハート',
+            '回分のスキルハートを9回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
+      },
+      'ナインハート・プロテクト': {
+        'nineHeart_protect': {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。さらにビートハート',
+            '回分のスキルハートを9回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['protect_stage', 'heartCaptcha'],
+          },
+        },
+      },
+      シーズニングキャプチャ: {
+        'seasoningCaptcha_stage-useSkill': {
+          text: [
+            'このステージ中、スキル使用時にビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha'],
+          },
+        },
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -4334,7 +4396,12 @@ export const useSkillStore = defineStore('skillList', {
       APReduce: {
         name: 'APレデュース',
         colorCode: '',
-        description: 'APを減らす。',
+        description: 'スキルの消費APを減少させる。',
+      },
+      APLoss: {
+        name: 'APロス',
+        colorCode: '',
+        description: 'APを減少させる。',
       },
       APReduce_all: {
         name: '消費AP減少',
@@ -4412,6 +4479,11 @@ export const useSkillStore = defineStore('skillList', {
         name: 'メンタル無限',
         colorCode: '',
         description: 'このステージ中、メンタルを無限にする。',
+      },
+      'skillUse-handsCard': {
+        name: 'スキル使用(手札)',
+        colorCode: '',
+        description: '手札の他の全スキルを同時に使用する。',
       },
     },
   }),

@@ -2385,7 +2385,7 @@ export const useMusicStore = defineStore('musicList', {
           },
           time: 128,
           cover: false,
-          link: '',
+          link: 'https://youtu.be/9bYIbe4uzIQ?si=eA-32nnoy_OcKLpO',
         },
         attribute: 'pure',
         BHcount: 89,
@@ -2395,6 +2395,32 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
+      /*'AURORA FLOWER': {
+        musicData: {
+          kana: 'おーろらふらわー',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2025,
+            month: 2,
+            date: 26,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 5thシングル',
+          BPM: {
+            original: 172,
+            inGame: 172,
+          },
+          time: 100,
+          cover: false,
+          link: '',
+        },
+        attribute: 'smile',
+        BHcount: 70,
+        level: 0,
+        term: 104,
+        center: 'kozue',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
+      },*/
       'ツバサ・ラ・リベルテ（104期Ver.）': {
         musicData: {
           kana: 'つばさらりべるて',
@@ -2879,7 +2905,7 @@ export const useMusicStore = defineStore('musicList', {
           },
           time: 108,
           cover: false,
-          link: '',
+          link: 'https://youtu.be/c7rI3Bmlwf4?si=kFjnJP59XH-nT0-4',
         },
         attribute: 'pure',
         BHcount: 75,

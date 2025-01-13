@@ -404,7 +404,7 @@
         :key="ary"
       >
         <v-card
-          v-if="store.siteSettings.musicList.hover === 'false' || windowSize.w <= 600"
+          v-if="store.localStorageData.siteSettings.musicList.hover === 'false' || windowSize.w <= 600"
           :color="attributeColor[ary.attribute]"
           @click="
             store.showModalEvent('setLeaningLevel');

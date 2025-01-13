@@ -1,5 +1,5 @@
 <template>
-<h1>DATA BACKUP</h1>
+<h1>DATA BACKUP / RESET</h1>
 
 <v-tabs
   v-model="tabName"
@@ -75,31 +75,70 @@
     <v-btn block color="pink" prepend-icon="mdi-file-import" @click="setBackupData(store);" :disabled="isFileImportError || !radios">反映</v-btn>
   </v-tabs-window-item>
 
-  <v-tabs-window-item value="reset" class="my-2" v-if="false">
-    <v-alert :type="alertContent.reset.type" variant="tonal">
-      {{ alertContent.reset.text }}
+  <v-tabs-window-item value="reset" class="my-2">
+    <v-alert
+      type="info"
+      variant="tonal"
+      class="mb-2"
+    >
+      リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。
     </v-alert>
-    <v-container fluid class="pa-0">
-      <v-row no-gutters>
-        <v-col
-          cols="6"
-          v-for="(name, value) in dataName"
-          :key="value"
-        >
-          <v-checkbox
-            v-model="resetList"
-            density="comfortable"
-            color="pink"
-            :value="value"
-            :label="name"
-            hide-details
-          ></v-checkbox>
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-btn block color="pink" prepend-icon="mdi-cached" @click="resetAction(store);" :disabled="resetList.length === 0">リセット</v-btn>
+
+    <v-row no-gutters class="mb-4">
+      <v-col
+        cols="6"
+        v-for="(name, value) in dataName"
+        :key="value"
+      >
+        <v-checkbox
+          v-model="resetList"
+          density="comfortable"
+          color="pink"
+          :value="value"
+          :label="name"
+          hide-details
+        ></v-checkbox>
+      </v-col>
+    </v-row>
+
+    <v-alert
+      class="mb-2"
+      type="warning"
+      variant="tonal"
+    >
+      選択したデータを初期化します。実行後データは復元できません。<br/>
+      よろしければ、チェックを入れてください。
+    </v-alert>
+
+    <v-checkbox
+      v-model="isReset"
+      class="mb-4"
+      color="pink"
+      density="compact"
+      label="選択したデータを初期化する。"
+      hide-details
+      :disabled="resetList.length === 0"
+    ></v-checkbox>
+
+    <v-btn
+      block
+      color="pink"
+      prepend-icon="mdi-cached"
+      @click="resetAction(store);"
+      :disabled="!isReset"
+    >
+      リセット
+    </v-btn>
   </v-tabs-window-item>
 </v-tabs-window>
+
+<v-snackbar
+  v-model="snackBar.reset"
+  color="success"
+  :timeout="4000"
+>
+  選択したデータをリセットしました。
+</v-snackbar>
 </template>
 
 <script setup>
@@ -119,7 +158,8 @@ export default {
       tabName: null,
       tabs: [
         {text: 'export', value: 'export'},
-        {text: 'import', value: 'import'}
+        {text: 'import', value: 'import'},
+        {text: 'reset', value: 'reset'}
       ],
       dataName: {
         card: 'カードデータ',
@@ -132,6 +172,12 @@ export default {
         siteSettings: 'サイト設定',
       },
       radios: false,
+      isReset: false,
+      snackBar: {
+        export: false,
+        import: false,
+        reset: false
+      },
       alertContent: {
         export: {type: null, text: null},
         import: {type: null, text: null},
@@ -165,7 +211,7 @@ export default {
         reset: [
           {
             type: 'info',
-            text: 'リセットしたいデータを選択後、「リセット」ボタンを押してください。'
+            text: 'リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。'
           },
           {
             type: 'success',
@@ -293,6 +339,8 @@ export default {
       store.dataReset(this.resetList);
       this.resetList = [];
       this.alertContent.reset = this.alertContentList.reset[1];
+      this.snackBar.reset = true;
+      this.isReset = false;
     }
   }
 }

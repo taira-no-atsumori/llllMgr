@@ -42,25 +42,25 @@
         フレームワーク
         <ul class="dot_list">
           <li>Vue</li>
-          <li>3.4.21</li>
+          <li>3.5.13</li>
         </ul>
       </li>
       <li>
         ライブラリ
         <ul class="dot_list">
           <li>Vuetify</li>
-          <li>3.7.2</li>
+          <li>3.7.6</li>
         </ul>
         <ul class="dot_list">
           <li>pinia</li>
-          <li>2.2.4</li>
+          <li>2.3.0</li>
         </ul>
       </li>
       <li>
         プラグイン
         <ul class="dot_list">
           <li>vue-router</li>
-          <li>4.4.5</li>
+          <li>4.5.0</li>
         </ul>
       </li>
     </ul>

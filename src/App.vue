@@ -1,7 +1,7 @@
 <template>
-  <v-app :theme="store.siteSettings.all.darkMode">
+  <v-app :theme="store.localStorageData.siteSettings.all.darkMode">
     <v-app-bar
-      :scroll-behavior="store.siteSettings.all.headerTracking"
+      :scroll-behavior="store.localStorageData.siteSettings.all.headerTracking"
       density="comfortable"
       color="pink"
     >
@@ -48,7 +48,7 @@
       </v-bottom-sheet>
 
       <v-toolbar-title class="d-none d-sm-block">
-        リンクラ マネージャー！<span class="text-subtitle-2">Ver. {{ store.version }}</span>
+        リンクラ マネージャー！<span class="text-subtitle-2">Ver.{{ store.version }}</span>
       </v-toolbar-title>
       <v-toolbar-title class="hidden-sm-and-up"> リンマネ </v-toolbar-title>
 
@@ -64,7 +64,7 @@
                   class="px-2"
                   @click="pageMove(arr.url)"
                 >
-                  <v-icon class="mr-1"> {{ `mdi-${arr.icon}` }} </v-icon>
+                  <v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>
                   {{ pageTitle }}
                 </v-btn>
               </li>
@@ -103,7 +103,7 @@
                 mdi-backup-restore
               </v-icon>
             </template>
-            データバックアップ
+            データバックアップ・リセット
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
@@ -135,7 +135,7 @@
       <v-list-item
         class="px-2 pt-0 pb-2"
         title="リンクラ マネージャー！"
-        :subtitle="`Ver. ${store.version}`"
+        :subtitle="`Ver.${store.version}`"
       ></v-list-item>
 
       <v-divider class="pb-1"></v-divider>

@@ -2689,7 +2689,80 @@ export const useCardStore = defineStore('cardList', {
             },
           },
         },
-        BR: {},
+        BR: {
+          '17th Birthday': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'せぶんてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Sayaka-',
+              period: 'birthday',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '17th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'seasoningCaptcha_stage-useSkill',
+              name: 'シーズニングキャプチャ',
+              AP: 4,
+              detail: [[1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, '2?', '2?', 3]],
+            },
+            skill: {
+              ID: 'celebration_attract_voltage_protect',
+              name: 'セレブレイション',
+              AP: 3,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ブレッシング',
+              detail: '手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。',
+              type: ['overSection', 'APReduce_all'],
+            },
+          },
+        },
         UR: {
           聖夜譚: {
             styleType: 'performer',
@@ -7149,6 +7222,49 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'AURORA FLOWER': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.3',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'AURORALINK',
+              name: 'AURORA LINK',
+              AP: 11,
+              detail: [[5.8, 6.38, 6.96, 7.54, 8.12, 8.7, 9.28, 9.86, 10.44, 11.6, 12.18, 12.76, 13.34, 14.4]],
+            },
+            skill: {
+              ID: 'nineHeart_ensemble',
+              name: 'ナインハート・アンサンブル',
+              AP: 0,
+              detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'ドローされる確率が大幅に増加する。さらにこのスキル使用時、APを0にする。',
+              type: ['favorite', 'APLoss'],
+            },
+          },
           'KEY of Like！': {
             styleType: 'cheerLeader',
             mood: 'neutral',
@@ -9598,6 +9714,52 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'AURORA FLOWER': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.3',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 11,
+              detail: [[56, 62, 67, 73, 78, 84, 90, 95, 101, 112, 118, 123, 129, 140]],
+            },
+            skill: {
+              ID: 'nineHeart_voltage',
+              name: 'ナインハート・ボルテージ',
+              AP: 9,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'このスキル使用時、スキルの効果値が増加し、APを0にする。',
+              type: ['accumulate', 'APLoss'],
+            },
+          },
           'KEY of Like！': {
             styleType: 'cheerLeader',
             mood: 'neutral',
@@ -13178,6 +13340,52 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          'AURORA FLOWER': {
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 3rdTerm 第3回個人戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 4500,
+              cool: 4500,
+              mental: 450,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 11,
+              detail: [[24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60]],
+            },
+            skill: {
+              ID: 'nineHeart_protect',
+              name: 'ナインハート・プロテクト',
+              AP: 9,
+              detail: [
+                [8.4, 9.24, 10.08, 10.92, 11.76, 12.6, 13.44, 14.28, 15.12, 16.8, 17.64, 18.48, 19.32, 21],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 21],
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'このスキル使用時、スキルの効果値が増加し、APを0にする。',
+              type: ['accumulate', 'APLoss'],
+            },
+          },
           'H.S.C.T.☆': {
             styleType: 'cheerLeader',
             mood: 'happy',
@@ -14136,6 +14344,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          /*蓮ノ空歌留多: {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '蓮ノ空歌留多',
+            kana: 'はすのそらかるた',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4450,
+              pure: 4750,
+              cool: 5100,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'groovyHeart_over8_mentalRecover_heartCaptcha',
+              name: 'グルーヴィハート',
+              AP: 4,
+              detail: [
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+            skill: {
+              ID: 'voltageHeart',
+              name: 'ボルテージハート',
+              AP: 5,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
+              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+            },
+          },*/
           ハナムスビ: {
             styleType: 'trickStar',
             mood: 'happy',
@@ -15065,6 +15322,55 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {},
         UR: {
+          /*蓮ノ空歌留多: {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '蓮ノ空歌留多',
+            kana: 'はすのそらかるた',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4450,
+              pure: 4750,
+              cool: 5100,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'groovyHeart_over8_mentalRecover_heartCaptcha',
+              name: 'グルーヴィハート',
+              AP: 4,
+              detail: [
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+            skill: {
+              ID: 'voltageHeart',
+              name: 'ボルテージハート',
+              AP: 5,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
+              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+            },
+          },*/
           バアドケージ: {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -15435,7 +15741,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'アキューミュレイト',
               detail: '使用する度に消費APが低下する。',
-              type: ['exclusion'],
+              type: ['accumulate'],
             },
           },
         },
@@ -15828,6 +16134,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          /*蓮ノ空歌留多: {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '蓮ノ空歌留多',
+            kana: 'はすのそらかるた',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
+              period: 'prize',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4450,
+              pure: 4750,
+              cool: 5100,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'groovyHeart_over8_mentalRecover_heartCaptcha',
+              name: 'グルーヴィハート',
+              AP: 4,
+              detail: [
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+            skill: {
+              ID: 'voltageHeart',
+              name: 'ボルテージハート',
+              AP: 5,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
+              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+            },
+          },*/
           '104/⊿TRiEDGE': {
             styleType: 'performer',
             mood: 'neutral',
