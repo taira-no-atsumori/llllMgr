@@ -167,7 +167,7 @@
         </v-row>
       </v-col>
       <v-col cols="12" v-else>
-        <v-row no-gutters>
+        <v-row no-gutters class="mb-3">
           <v-col cols="12" sm="11">
             <v-btn
               color="light-blue"
@@ -228,17 +228,18 @@
               v-model="store.selectDeck.period"
               label="期"
               :items="Object.keys(store.formationMember).reverse()"
+              :update:modelValue="periodChange(store)"
             ></v-select>
           </v-col>
           <v-col cols="12" class="pa-0">
-            <v-row no-gutters v-if="false">
-              <v-col v-for="(v, k) in attrName" :key="v">
-                総{{ v }}：{{ totalParam(store, k) }}
-              </v-col>
-            </v-row>
             <v-row no-gutters>
               <v-col cols="12">
-                <v-alert type="warning" variant="outlined" class="mb-2">
+                <v-alert
+                  v-if="countDefaultCard(store).result > 0"
+                  type="warning"
+                  variant="outlined"
+                  class="mb-2"
+                >
                   SIDE STYLEに未設定カードがあるため、AP回復速度が{{
                     countDefaultCard(store).result
                   }}%低下します
@@ -262,6 +263,19 @@
                 <span class="deckNameTitle">デッキ名</span><span class="py-2">{{ store.selectDeck.name }}</span>
               </v-col>
 
+              <v-col cols="12">
+                <v-row no-gutters class="px-1">
+                  <v-col
+                    v-for="(v, k) in attrName"
+                    :key="v"
+                    cols="4"
+                    sm="2"
+                  >
+                    総{{ v }}：{{ totalParam(store, k) }}
+                  </v-col>
+                </v-row>
+              </v-col>
+
               <v-col
                 cols="12"
                 sm="4"
@@ -283,12 +297,23 @@
                             :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectDeck.period}.webp`)"
                             class="mr-1"
                             style="width: 35px"
+                            :alt="memberName"
                           />
                           <span style="margin-top: 2px">{{
                             store.makeFullName(memberName)
                           }}</span>
-                          <v-icon color="indigo" v-if="false">mdi-microphone-variant</v-icon>
-                          <v-icon color="yellow-accent-1" v-if="false">mdi-star</v-icon>
+                          <v-icon
+                            v-if="store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)"
+                            color="indigo"
+                          >
+                            mdi-microphone-variant
+                          </v-icon>
+                          <v-icon
+                            v-if="store.musicList[store.selectDeck.selectMusic]?.center === memberName"
+                            color="yellow-accent-1"
+                          >
+                            mdi-star
+                          </v-icon>
                         </span>
                       </h2>
                       <v-row no-gutters v-if="false">
@@ -359,6 +384,11 @@
                                   memberName,
                                 )}.webp`)
                               "
+                              :alt="makeIllustCard(
+                                store,
+                                store.selectDeck.cardData[memberName][styleName].cardName,
+                                memberName,
+                              )"
                             ></v-img>
                           </v-card>
                         </v-col>
@@ -553,7 +583,80 @@
             </v-row>
           </v-col>
         </v-row>
+
+        <v-row no-gutters>
+          <v-col cols="12">
+            <h1>想定楽曲</h1>
+          </v-col>
+          <v-col cols="12" sm="4" v-if="false">
+            <v-card class="pa-2">
+              <h3>センターカード</h3>
+              <v-card>
+                <v-img :src="require(`@/assets/card_illust/NO IMAGE.webp`)"></v-img>
+              </v-card>
+              <div>NO IMAGE</div>
+              <div>属性：クール</div>
+              <div></div>
+            </v-card>
+          </v-col>
+          <v-col cols="12" sm="4">
+            <v-card class="pa-2" @click="dialog.selectMusic = true;">
+              <v-row no-gutters>
+                <v-col cols="12" class="mb-2">
+                  <span class="mr-2">曲名</span>{{ store.selectDeck.selectMusic }}
+                </v-col>
+                <v-col cols="6">
+                  <v-card>
+                    <v-img
+                      :lazy-src="require(`@/assets/CD_jacket/${store.conversion(store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic)}.webp`)"
+                      :src="require(`@/assets/CD_jacket/${store.conversion(store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic)}.webp`)"
+                      :alt="store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic"
+                    ></v-img>
+                  </v-card>
+                </v-col>
+                <v-col cols="6" class="pl-4">
+                  <div class="mb-2">
+                    <span class="mr-2">属性</span>
+                    {{ store.attribute[store.musicList[store.selectDeck.selectMusic]?.attribute] ?? '' }}
+                  </div>
+                  <div class="d-flex flex-row align-center mb-2">
+                    <span class="mr-2">センター</span>
+                    <img
+                      v-if="store.selectDeck.selectMusic !== ''"
+                      :src="require(`@/assets/member_icon/icon_illust_${store.musicList[store.selectDeck.selectMusic]?.center}_${store.selectDeck.period}.webp`)"
+                      class="mr-1"
+                      style="width: 35px; height: 35px;"
+                      :alt="store.musicList[store.selectDeck.selectMusic]?.center"
+                    />
+                  </div>
+                  <div style="min-height: 35px;">
+                    <p class="mb-1">歌唱メンバー</p>
+                    <img
+                      v-for="memberName in store.musicList[store.selectDeck.selectMusic]?.singingMembers"
+                      :key="memberName"
+                      :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectDeck.period}.webp`)"
+                      class="mr-1"
+                      style="width: 35px"
+                      :alt="memberName"
+                    />
+                  </div>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+          <v-col cols="6" v-if="false">
+            <v-card class="pa-2">
+              <h3>シミュレーション結果</h3>
+              <p>
+                ハート1個あたりのLOVE値：{{
+                  Math.ceil((120 * totalParam(store, "smile") * 1.5) / 6 / 90)
+                }}
+              </p>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-col>
+
     </v-row>
         
     <v-alert
@@ -584,41 +687,194 @@
       もちろん、「こんな機能がほしい！」「ここがこうなったらもっと良いのに…」などの要望もお待ちしております。<br />
       そちらもお題箱よりお知らせください。
     </v-alert>
+  </v-container>
 
-    <v-row no-gutters v-if="false">
-      <v-col cols="12">
-        <h1>SIMULATION</h1>
+  <v-container fluid class="pa-2" v-if="false">
+    <v-row>
+      <v-col cols="12" class="pb-3">
+        <h1>SIMULATION ～ 獲得グランプリPt.計算ツール ～</h1>
       </v-col>
-      <v-col cols="3" v-if="false">
-        <v-card class="pa-2">
-          <h3>センターカード</h3>
-          <v-card>
-            <v-img :src="require(`@/assets/card_illust/NO IMAGE.webp`)"></v-img>
-          </v-card>
-          <div>NO IMAGE</div>
-          <div>属性：クール</div>
-          <div></div>
-        </v-card>
+      <v-col cols="12" class="pt-0 pb-3">
+        <v-expansion-panels>
+          <v-expansion-panel>
+            <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
+            <v-expansion-panel-text>
+              ライブグランプリの獲得グランプリPt.の計算ツールです。<br />
+              <br />
+              <b>使い方</b><br />
+              Season Fan Lv.は全員分入力してください。<br />
+              (アプリ内上部のユーザーネームをタップして、Fan
+              Lv.の右にあるアイコンをタップすると確認できます)<br />
+              解放Lv.は、その楽曲の歌唱メンバー(リーダーを含む)のみ入力してください。<br />
+              解放Lv.の変更方法は、<br />
+              ・名前の横にあるチェックマークにチェックを入れる<br />
+              ・歌唱メンバーのメインスタイルに設定しているカードのレア度を設定<br />
+              で該当メンバーの解放Lv.を変更できるようになります。<br />
+              <br />
+              <b>注意事項</b><br />
+              ※突貫で作ったため、スマホでの表示を考慮していません。横画面にするか、PCからアクセスしてください。<br />
+              ※この機能は暫定機能です。今後のアップデートでリニューアルします。
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-col>
-      <v-col cols="3">
-        <v-card class="pa-2">
-          <h3>想定楽曲</h3>
-          <v-card>
-            <v-img :src="require(`@/assets/CD_jacket/NO IMAGE.webp`)"></v-img>
-          </v-card>
-          <div>NO IMAGE</div>
-          <div>属性：クール</div>
-          <div></div>
-        </v-card>
-      </v-col>
-      <v-col cols="6" v-if="false">
-        <v-card class="pa-2">
-          <h3>シミュレーション結果</h3>
-          <p>
-            ハート1個あたりのLOVE値：{{
-              Math.ceil((120 * totalParam(store, "smile") * 1.5) / 6 / 90)
-            }}
-          </p>
+      <v-col
+        v-for="i in 2"
+        :key="i"
+        cols="12"
+        sm="6"
+        :class="
+          [
+            'py-2 prr-sm-2 pr-md-2 pr-lg-2 pr-xl-2',
+            'py-2 prl-sm-2 pl-md-2 pl-lg-2 pl-xl-2',
+          ][i - 1]
+        "
+      >
+        <v-card elevation="2">
+          <v-card-title>楽曲{{ i }}</v-card-title>
+          <v-card-text>
+            <v-row>
+              <v-col cols="12">
+                <h2>予想獲得グランプリPt. {{ GPpt(i - 1) }}</h2>
+              </v-col>
+
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  v-model="score[i - 1]"
+                  label="スコア"
+                  hint="スコアを入力してください"
+                  :rules="rules.hankaku"
+                  persistent-hint
+                  color="pink"
+                  base-color="pink"
+                ></v-text-field>
+              </v-col>
+
+              <v-col cols="12" sm="6" class="mb-5">
+                <v-select
+                  v-model="clearStage[i - 1]"
+                  :items="[1, 2, 3, 4]"
+                  label="ステージ"
+                  hint="ステージを選択してください"
+                  persistent-hint
+                  color="pink"
+                  base-color="pink"
+                ></v-select>
+              </v-col>
+            </v-row>
+
+            <div
+              v-for="(arr, memberName) in store.memberName"
+              :key="memberName"
+            >
+              <v-checkbox
+                v-model="performance[i - 1]"
+                :label="arr.last"
+                :value="memberName"
+                hide-details
+                color="pink"
+              ></v-checkbox>
+
+              <v-row no-gutters>
+                <v-col cols="2">レア度</v-col>
+                <v-col cols="5" class="text-center">Season Fan Lv.</v-col>
+                <v-col cols="5" class="text-center">解放Lv.</v-col>
+                <v-col cols="2">
+                  <v-select
+                    v-model="bonus.rare[i - 1][memberName]"
+                    :items="['UR', 'SR', 'R']"
+                    :hint="`メインスタイルに設定している${arr.last}のカードのレア度を選択してください`"
+                    color="pink"
+                    base-color="pink"
+                  ></v-select>
+                </v-col>
+                <v-col cols="5">
+                  <v-row no-gutters>
+                    <v-spacer></v-spacer>
+                    <v-col align="center" justify="center" class="pa-0">
+                      <v-btn
+                        x-small
+                        :disabled="bonus.seasonFan[i - 1][memberName] === 1"
+                        @click="
+                          setValue(
+                            ['seasonFan', i - 1, memberName],
+                            bonus.seasonFan[i - 1][memberName] - 1
+                          )
+                        "
+                        >-1
+                      </v-btn>
+                    </v-col>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="px-0 pt-1 pb-0"
+                    >
+                      {{ bonus.seasonFan[i - 1][memberName] }}
+                    </v-col>
+                    <v-col align="center" justify="center" class="pa-0">
+                      <v-btn
+                        x-small
+                        :disabled="bonus.seasonFan[i - 1][memberName] === 10"
+                        @click="
+                          setValue(
+                            ['seasonFan', i - 1, memberName],
+                            bonus.seasonFan[i - 1][memberName] + 1
+                          )
+                        "
+                        >+1
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                  <v-spacer></v-spacer>
+                </v-col>
+                <v-col cols="5">
+                  <v-row no-gutters>
+                    <v-spacer></v-spacer>
+                    <v-col align="center" justify="center" class="pa-0">
+                      <v-btn
+                        x-small
+                        :disabled="
+                          bonus.rare[i - 1][memberName] === undefined ||
+                          bonus.release[i - 1][memberName] === 1
+                        "
+                        @click="
+                          setValue(
+                            ['release', i - 1, memberName],
+                            bonus.release[i - 1][memberName] - 1
+                          )
+                        "
+                        >-1
+                      </v-btn>
+                    </v-col>
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="px-0 pt-1 pb-0"
+                    >
+                      {{ bonus.release[i - 1][memberName] }}
+                    </v-col>
+                    <v-col align="center" justify="center" class="pa-0">
+                      <v-btn
+                        x-small
+                        :disabled="
+                          bonus.rare[i - 1][memberName] === undefined ||
+                          bonus.release[i - 1][memberName] === 5
+                        "
+                        @click="
+                          setValue(
+                            ['release', i - 1, memberName],
+                            bonus.release[i - 1][memberName] + 1
+                          )
+                        "
+                        >+1
+                      </v-btn>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </div>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -866,196 +1122,46 @@
     </v-sheet>
   </v-dialog>
 
-  <v-container fluid class="pa-2" v-if="false">
-    <v-row>
-      <v-col cols="12" class="pb-3">
-        <h1>SIMULATION ～ 獲得グランプリPt.計算ツール ～</h1>
-      </v-col>
-      <v-col cols="12" class="pt-0 pb-3">
-        <v-expansion-panels>
-          <v-expansion-panel>
-            <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
-            <v-expansion-panel-text>
-              ライブグランプリの獲得グランプリPt.の計算ツールです。<br />
-              <br />
-              <b>使い方</b><br />
-              Season Fan Lv.は全員分入力してください。<br />
-              (アプリ内上部のユーザーネームをタップして、Fan
-              Lv.の右にあるアイコンをタップすると確認できます)<br />
-              解放Lv.は、その楽曲の歌唱メンバー(リーダーを含む)のみ入力してください。<br />
-              解放Lv.の変更方法は、<br />
-              ・名前の横にあるチェックマークにチェックを入れる<br />
-              ・歌唱メンバーのメインスタイルに設定しているカードのレア度を設定<br />
-              で該当メンバーの解放Lv.を変更できるようになります。<br />
-              <br />
-              <b>注意事項</b><br />
-              ※突貫で作ったため、スマホでの表示を考慮していません。横画面にするか、PCからアクセスしてください。<br />
-              ※この機能は暫定機能です。今後のアップデートでリニューアルします。
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-col>
-      <v-col
-        v-for="i in 2"
-        :key="i"
-        cols="12"
-        sm="6"
-        :class="
-          [
-            'py-2 prr-sm-2 pr-md-2 pr-lg-2 pr-xl-2',
-            'py-2 prl-sm-2 pl-md-2 pl-lg-2 pl-xl-2',
-          ][i - 1]
-        "
-      >
-        <v-card elevation="2">
-          <v-card-title>楽曲{{ i }}</v-card-title>
-          <v-card-text>
-            <v-row>
-              <v-col cols="12">
-                <h2>予想獲得グランプリPt. {{ GPpt(i - 1) }}</h2>
-              </v-col>
-
-              <v-col cols="12" sm="6">
-                <v-text-field
-                  v-model="score[i - 1]"
-                  label="スコア"
-                  hint="スコアを入力してください"
-                  :rules="rules.hankaku"
-                  persistent-hint
-                  color="pink"
-                  base-color="pink"
-                ></v-text-field>
-              </v-col>
-
-              <v-col cols="12" sm="6" class="mb-5">
-                <v-select
-                  v-model="clearStage[i - 1]"
-                  :items="[1, 2, 3, 4]"
-                  label="ステージ"
-                  hint="ステージを選択してください"
-                  persistent-hint
-                  color="pink"
-                  base-color="pink"
-                ></v-select>
-              </v-col>
-            </v-row>
-
-            <div
-              v-for="(arr, memberName) in store.memberName"
-              :key="memberName"
+  <v-dialog
+    v-model="dialog.selectMusic"
+    max-width="1600"
+  >
+    <v-sheet class="pa-2">
+      <ul id="musicList">
+        <li
+          v-for="(data, title) in musicList(store)"
+          :key="title"
+        >
+          <v-card
+            @click="
+              store.selectDeck.selectMusic = title;
+              dialog.selectMusic = false;
+            "
+          >
+            <v-img
+              :lazy-src="require(`@/assets/CD_jacket/${store.conversion(title)}.webp`)"
+              :src="require(`@/assets/CD_jacket/${store.conversion(title)}.webp`)"
+              :alt="title"
+            ></v-img>
+            <v-card-title
+              class="text-subtitle-2 text-center px-2 pt-1 pb-0"
             >
-              <v-checkbox
-                v-model="performance[i - 1]"
-                :label="arr.last"
-                :value="memberName"
-                hide-details
-                color="pink"
-              ></v-checkbox>
+              {{ title }}
+            </v-card-title>
+          </v-card>
+        </li>
+      </ul>
 
-              <v-row no-gutters>
-                <v-col cols="2">レア度</v-col>
-                <v-col cols="5" class="text-center">Season Fan Lv.</v-col>
-                <v-col cols="5" class="text-center">解放Lv.</v-col>
-                <v-col cols="2">
-                  <v-select
-                    v-model="bonus.rare[i - 1][memberName]"
-                    :items="['UR', 'SR', 'R']"
-                    :hint="`メインスタイルに設定している${arr.last}のカードのレア度を選択してください`"
-                    color="pink"
-                    base-color="pink"
-                  ></v-select>
-                </v-col>
-                <v-col cols="5">
-                  <v-row no-gutters>
-                    <v-spacer></v-spacer>
-                    <v-col align="center" justify="center" class="pa-0">
-                      <v-btn
-                        x-small
-                        :disabled="bonus.seasonFan[i - 1][memberName] === 1"
-                        @click="
-                          setValue(
-                            ['seasonFan', i - 1, memberName],
-                            bonus.seasonFan[i - 1][memberName] - 1
-                          )
-                        "
-                        >-1
-                      </v-btn>
-                    </v-col>
-                    <v-col
-                      align="center"
-                      justify="center"
-                      class="px-0 pt-1 pb-0"
-                    >
-                      {{ bonus.seasonFan[i - 1][memberName] }}
-                    </v-col>
-                    <v-col align="center" justify="center" class="pa-0">
-                      <v-btn
-                        x-small
-                        :disabled="bonus.seasonFan[i - 1][memberName] === 10"
-                        @click="
-                          setValue(
-                            ['seasonFan', i - 1, memberName],
-                            bonus.seasonFan[i - 1][memberName] + 1
-                          )
-                        "
-                        >+1
-                      </v-btn>
-                    </v-col>
-                  </v-row>
-                  <v-spacer></v-spacer>
-                </v-col>
-                <v-col cols="5">
-                  <v-row no-gutters>
-                    <v-spacer></v-spacer>
-                    <v-col align="center" justify="center" class="pa-0">
-                      <v-btn
-                        x-small
-                        :disabled="
-                          bonus.rare[i - 1][memberName] === undefined ||
-                          bonus.release[i - 1][memberName] === 1
-                        "
-                        @click="
-                          setValue(
-                            ['release', i - 1, memberName],
-                            bonus.release[i - 1][memberName] - 1
-                          )
-                        "
-                        >-1
-                      </v-btn>
-                    </v-col>
-                    <v-col
-                      align="center"
-                      justify="center"
-                      class="px-0 pt-1 pb-0"
-                    >
-                      {{ bonus.release[i - 1][memberName] }}
-                    </v-col>
-                    <v-col align="center" justify="center" class="pa-0">
-                      <v-btn
-                        x-small
-                        :disabled="
-                          bonus.rare[i - 1][memberName] === undefined ||
-                          bonus.release[i - 1][memberName] === 5
-                        "
-                        @click="
-                          setValue(
-                            ['release', i - 1, memberName],
-                            bonus.release[i - 1][memberName] + 1
-                          )
-                        "
-                        >+1
-                      </v-btn>
-                    </v-col>
-                    <v-spacer></v-spacer>
-                  </v-row>
-                </v-col>
-              </v-row>
-            </div>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+      <div class="mt-3 text-center">
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.selectMusic = false"
+        >
+          CLOSE
+        </v-btn>
+      </div>
+    </v-sheet>
+  </v-dialog>
 
   <v-snackbar
     v-model="snackbar.makeDeck"
@@ -1130,11 +1236,11 @@ export default {
   data() {
     return {
       attrName: {
-        smile: "スマイル",
-        cool: "クール",
-        pure: "ピュア",
-        mental: "メンタル",
-        releaseLevel: "解放Lv.",
+        smile: 'スマイル',
+        cool: 'クール',
+        pure: 'ピュア',
+        mental: 'メンタル',
+        releaseLevel: '解放Lv.',
       },
       bonusSkillList: [
         "ビートハートアップ",
@@ -1238,6 +1344,7 @@ export default {
       seasonFanLv: [0, 0.2, 0.275, 0.35, 0.425, 0.5, 0.55, 0.6, 0.65, 0.7],
       releaseLv: {
         UR: [0, 0.2, 0.3, 0.35, 0.4],
+        BR: [0, 0.2, 0.3, 0.35, 0.4],
         SR: [0, 0.15, 0.25, 0.3, 0.35],
         R: [0, 0.1, 0.15, 0.2, 0.25],
       },
@@ -1251,6 +1358,7 @@ export default {
         changeDeckName: false,
         characterStatusSetting: false,
         paramSet: false,
+        selectMusic: false,
       },
       snackbar: {
         makeDeck: false,
@@ -1361,19 +1469,56 @@ export default {
     totalParam() {
       return (store, attr) => {
         let result = 0;
+        let releasePoint = 0;
 
-        for (const memberName in store.deck) {
-          for (const style in store.deck[memberName]) {
-            if (attr) {
-              //if (store.deck[memberName][style] === 'default') {
+        if (store.selectDeck.selectMusic === '') {
+          return result;
+        }
+
+        for (const memberName in store.selectDeck.cardData) {
+          for (const style in store.styleHeadline[store.selectDeck.period]) {
+            if (store.selectDeck.cardData[memberName][style].cardName === 'default') {
+              continue;
+            } else if (attr === 'releaseLevel') {
+              if (store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
+                if (style === 'main') {
+                  result += store.selectDeck.cardData[memberName][style].param.releaseLevel;
+                  releasePoint += (this.releaseLv[store.searchRarity(
+                    memberName,
+                    store.selectDeck.cardData[memberName][style].cardName
+                  )][store.selectDeck.cardData[memberName][style].param.releaseLevel - 1]) * 100;
+                }
+              }
+
+              continue;
+            } else if (!store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
               continue;
             }
 
-            result += this.makeParam(store, memberName, style, attr);
+            let param = store.cardParam(attr, {
+              memberName: store.findOpenCardMemberName(
+                store.selectDeck.cardData[memberName][style].cardName, memberName
+              ),
+              rare: store.searchRarity(
+                memberName,
+                store.selectDeck.cardData[memberName][style].cardName
+              ),
+              cardName: store.selectDeck.cardData[memberName][style].cardName,
+            });
+
+            if (store.musicList[store.selectDeck.selectMusic].attribute === attr) {
+              param *= 1.5;
+            }
+
+            if (style !== 'main') {
+              param *= 0.1;
+            }
+
+            result += Math.round(param);
           }
         }
 
-        return result;
+        return attr === 'releaseLevel' ? `${result} (×${1 + releasePoint / 100})` : result;
       };
     },
     countDefaultCard() {
@@ -1406,8 +1551,9 @@ export default {
     makeNewDeck(store, resetFlg) {
       let a = {
         name: '',
-        period: resetFlg ? store.selectDeck.period : store.thisPeriod,
+        period: resetFlg ? Number(store.selectDeck.period) : store.thisPeriod,
         cardData: {},
+        selectMusic: '',
         comment: '',
       };
 
@@ -1512,7 +1658,7 @@ export default {
         const before = store.deck.findIndex(item => item.name === this.beforeDeckName);
         const after = store.deck.findIndex(item => item.name === targetDeckName);
 
-        store.deck[after].period = store.deck[before].period;
+        store.deck[after].period = Number(store.deck[before].period);
         store.deck[after].cardData = store.deck[before].cardData;
 
         this.beforeDeckName = '';
@@ -1548,6 +1694,17 @@ export default {
       store.selectDeck.cardData[memberName][styleName].param.SALevel = 1;
       store.selectDeck.cardData[memberName][styleName].param.SLevel = 1;
       store.selectDeck.cardData[memberName][styleName].param.releaseLevel = 1;
+    },
+    musicList(store) {
+      const list = {};
+
+      for (const title in store.musicList) {
+        if (store.musicList[title].term === Number(store.selectDeck.period)) {
+          list[title] = store.musicList[title];
+        }
+      }
+
+      return list;
     },
     /**
      * タブチェンジ
@@ -1593,23 +1750,11 @@ export default {
       }
     },
     makeParam(store, name, style, attr) {
-      //return store.cardParam(attr, {memberName: name, rare: store.searchRarity(name, store.selectDeck.cardData[name][style].cardName), cardName: store.selectDeck.cardData[name][style].cardName});
-      const list = {};
-      let rare;
-
-      for (const key of attr) {
-        rare = store.searchRarity(name, store.selectDeck.cardData[name][style].cardName);
-        list[key] = store.cardParam(key, {
-          memberName: name,
-          rare: rare,
-          cardName: store.selectDeck.cardData[name][style].cardName,
-        });
-      }
-
-      list.cardName = store.selectDeck.cardData[name][style].cardName;
-      list.rare = rare;
-
-      this.formation[this.selectDeckName][name][style] = Object.create(list);
+      return store.cardParam(attr, {
+        memberName: name,
+        rare: store.searchRarity(name, store.selectDeck.cardData[name][style].cardName),
+        cardName: store.selectDeck.cardData[name][style].cardName,
+      });
     },
     getParamList(store, name, style) {
       return store.card[name][
@@ -1645,6 +1790,9 @@ export default {
 
       return list;
     },
+    periodChange(store) {
+      store.selectDeck.selectMusic = '';
+    },
   },
   watch: {},
 };
@@ -1662,5 +1810,25 @@ export default {
   padding: 4px 8px 4px 8px;
   margin-right: 8px;
   font-weight: bold;
+}
+
+#musicList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    width: calc((100% - 90px) / 10);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #musicList {
+    gap: 10px 2%;
+
+    > li {
+      width: 49%;
+    }
+  }
 }
 </style>

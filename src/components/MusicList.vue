@@ -1,7 +1,7 @@
 <template>
   <v-container
     fluid
-    class="px-2 pt-2 pb-0"
+    class="px-2 px-sm-0 pt-2 pb-0"
   >
     <h1 class="mb-1">MUSIC LIST ～ 楽曲一覧 / 楽曲マスタリーレベル設定 ～</h1>
 
@@ -641,10 +641,10 @@ export default {
 #CDJacketArea {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
 
   > li {
-    width: 153px;
+    width: calc((100% - 72px) / 10);
   }
 }
 

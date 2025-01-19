@@ -665,7 +665,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'kaho', 'sayaka', 'rurino'],
             },
           },
-          蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'performer',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -709,9 +709,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：花帆',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに花帆のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'kaho'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & アトラクトブースト：花帆',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらに花帆のスキルを使用するたび、手札のこのスキルの消費AP-2し、次に花帆が使用するラブアトラクト効果を+75%する。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'boost_loveAttract', 'kaho'],
             },
           },
           'Special Thanks': {
@@ -3084,7 +3084,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'loveAttract'],
             },
           },
-          蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -3128,12 +3128,12 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：さやか',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらにさやかのスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'sayaka'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & ハートキャプチャ：さやか',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらにさやかのスキルを使用するたび、手札のこのスキルの消費AP-2し、ビートハート3回分のスキルハートを獲得する。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'heartCaptcha', 'sayaka'],
             },
           },
-          青とシャボン: {
+          '青とシャボン': {
             styleType: 'moodMaker',
             mood: 'melow',
             series: '青とシャボン',
@@ -3279,7 +3279,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'tsuzuri', 'draw', 'voltageGain', 'groovy', 'boost_loveAttract'],
             },
           },
-          喫茶ハスノソラ: {
+          '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -5714,7 +5714,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APEscalate', 'protect_stage'],
             },
           },
-          蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'performer',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -5758,12 +5758,12 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：瑠璃乃',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'rurino'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & メンタルリカバー：瑠璃乃',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらに瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-2し、メンタルを最大値の6%回復させる。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'mentalRecover', 'rurino'],
             },
           },
-          ミルク: {
+          'ミルク': {
             styleType: 'trickStar',
             mood: 'happy',
             series: 'ミルク',
@@ -5810,7 +5810,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'mentalRecover', 'megumi'],
             },
           },
-          ハクチューアラモード: {
+          'ハクチューアラモード': {
             styleType: 'trickStar',
             mood: 'happy',
             series: 'ハクチューアラモード',
@@ -5899,7 +5899,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['search', 'kozue', 'APGain'],
             },
           },
-          プチパティシエール: {
+          'プチパティシエール': {
             styleType: 'trickStar',
             mood: 'happy',
             series: 'プチパティシエール',
@@ -6077,7 +6077,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'APReduce', 'boost_mentalRecover', 'sayaka'],
             },
           },
-          アイデンティティ: {
+          'アイデンティティ': {
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'アイデンティティ',
@@ -7708,7 +7708,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'kozue', 'tsuzuri', 'megumi'],
             },
           },
-          蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -7752,9 +7752,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：梢',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに梢のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'kozue'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & メンタルリカバー：梢',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらに梢のスキルを使用するたび、手札のこのスキルの消費AP-2し、メンタルを最大値の6%回復させる。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'mentalRecover', 'kozue'],
             },
           },
           冬のおくりもの: {
@@ -10204,7 +10204,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['accumulate'],
             },
           },
-          蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -10248,9 +10248,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：綴理',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに綴理のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'kozue'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & ボルテージゲイン：綴理',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらに綴理のスキルを使用するたび、手札のこのスキルの消費AP-2し、ボルテージPt.を+12する。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'tsuzuri'],
             },
           },
           'ツバサ・ラ・リベルテ': {
@@ -12686,7 +12686,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APGain'],
             },
           },
-          抱きしめる花びら: {
+          '抱きしめる花びら': {
             styleType: 'cheerLeader',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -12828,7 +12828,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'loveAttract'],
             },
           },
-          ハクチューアラモード: {
+          'ハクチューアラモード': {
             styleType: 'performer',
             mood: 'happy',
             series: 'ハクチューアラモード',
@@ -12874,7 +12874,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'loveAttract'],
             },
           },
-          蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -12918,9 +12918,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & ハートキャプチャ：慈',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2し、ビートハート3回分のスキルハートを獲得する。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'heartCaptcha', 'megumi'],
             },
           },
           'Secret Christmas': {
@@ -12973,7 +12973,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'tsuzuri', 'draw', 'mentalRecover', 'groovy', 'boost_loveAttract'],
             },
           },
-          冬のおくりもの: {
+          '冬のおくりもの': {
             styleType: 'performer',
             mood: 'neutral',
             series: '冬のおくりもの',
@@ -13065,7 +13065,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'mental'],
             },
           },
-          喫茶ハスノソラ: {
+          '喫茶ハスノソラ': {
             styleType: 'moodMaker',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -13114,7 +13114,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'chain', 'sayaka', 'drew', 'boost_loveAttract'],
             },
           },
-          約束の舞踏会: {
+          '約束の舞踏会': {
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '舞踏会',
@@ -13157,7 +13157,7 @@ export const useCardStore = defineStore('cardList', {
               detail: 'ドローした時、メンタルを最大値の5%回復させる。さらにスキル使用時、山札に戻る。',
             },
           },
-          アイデンティティ: {
+          'アイデンティティ': {
             styleType: 'performer',
             mood: 'neutral',
             series: 'アイデンティティ',
@@ -13246,7 +13246,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'justDraw', 'boost_voltageGain'],
             },
           },
-          夏めきペイン: {
+          '夏めきペイン': {
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '夏めきペイン',
@@ -14344,14 +14344,14 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
-          /*蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'trickStar',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
-              period: 'prize',
+              addSeason: '2024 WINTER LIMITED COLLECTION Vol.4',
+              period: 'normal',
             },
             favorite: [],
             fluctuationStatus: {
@@ -14363,37 +14363,144 @@ export const useCardStore = defineStore('cardList', {
               releasePoint: 0,
             },
             uniqueStatus: {
-              smile: 4450,
-              pure: 4750,
-              cool: 5100,
+              smile: 4100,
+              pure: 4700,
+              cool: 5500,
               mental: 490,
               BP: 100,
             },
             specialAppeal: {
-              ID: 'groovyHeart_over8_mentalRecover_heartCaptcha',
-              name: 'グルーヴィハート',
+              ID: 'groovyHeartGain-over8_voltage-gain7',
+              name: 'グルーヴィハートゲイン',
               AP: 4,
               detail: [
-                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
               ],
             },
             skill: {
-              ID: 'voltageHeart',
-              name: 'ボルテージハート',
-              AP: 5,
-              detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ID: 'dress_kagayuuzen',
+              name: 'ドレス《加賀友禅》',
+              AP: 10,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'design_kozue',
+                  name: '梢デザイン',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_tsuzuri',
+                  name: '綴理デザイン',
+                  AP: 1,
+                  detail: [
+                    [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_megumi',
+                  name: '慈デザイン',
+                  AP: 1,
+                  detail: [
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_kaho',
+                  name: '花帆デザイン',
+                  AP: 1,
+                  detail: [
+                    [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_sayaka',
+                  name: 'さやかデザイン',
+                  AP: 1,
+                  detail: [
+                    [16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, 36.96, 38.64, 42]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_rurino',
+                  name: '瑠璃乃デザイン',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_ginko',
+                  name: '吟子デザイン',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_kosuzu',
+                  name: '小鈴デザイン',
+                  AP: 1,
+                  detail: [
+                    [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13]
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'design_hime',
+                  name: '姫芽デザイン',
+                  AP: 1,
+                  detail: [],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース：吟子',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APが3回復する。さらに吟子のスキルを使用するたび、手札のこのスキルの消費AP-5。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'ginko'],
             },
-          },*/
-          ハナムスビ: {
+          },
+          'ハナムスビ': {
             styleType: 'trickStar',
             mood: 'happy',
             series: 'ハナムスビ',
@@ -14414,7 +14521,7 @@ export const useCardStore = defineStore('cardList', {
             uniqueStatus: {
               smile: 6100,
               pure: 4600,
-              cool: 3500,
+              cool: 3600,
               mental: 490,
               BP: 100,
             },
@@ -14543,7 +14650,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['search', 'kosuzu', 'shot', 'APGain'],
             },
           },
-          月夜見海月: {
+          '月夜見海月': {
             styleType: 'trickStar',
             mood: 'melow',
             series: '月夜見海月',
@@ -14806,7 +14913,7 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'HeartLimitUp'],
             },
           },
-          青嵐の鯉流し: {
+          '青嵐の鯉流し': {
             styleType: 'trickStar',
             mood: 'happy',
             series: '青嵐の鯉流し',
@@ -15322,14 +15429,14 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {},
         UR: {
-          /*蓮ノ空歌留多: {
+          '蓮ノ空歌留多': {
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
-              period: 'prize',
+              addSeason: '2024 WINTER LIMITED COLLECTION Vol.4',
+              period: 'normal',
             },
             favorite: [],
             fluctuationStatus: {
@@ -15341,36 +15448,35 @@ export const useCardStore = defineStore('cardList', {
               releasePoint: 0,
             },
             uniqueStatus: {
-              smile: 4450,
+              smile: 4200,
               pure: 4750,
-              cool: 5100,
-              mental: 490,
+              cool: 5450,
+              mental: 480,
               BP: 100,
             },
             specialAppeal: {
-              ID: 'groovyHeart_over8_mentalRecover_heartCaptcha',
-              name: 'グルーヴィハート',
+              ID: 'groovyVortexBelief-over8_vol',
+              name: 'グルーヴィボルテックスビリーフ',
               AP: 4,
               detail: [
-                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
               ],
             },
             skill: {
-              ID: 'voltageHeart',
-              name: 'ボルテージハート',
+              ID: 'braveVoltageHeart_under10',
+              name: 'ブレイブボルテージハート',
               AP: 5,
               detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+                [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45],
+                [10, 11, 12, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 26]
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & ハートキャプチャ：小鈴',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APが3回復する。さらに小鈴のスキルを使用するたび、手札のこのスキルの消費AP-2し、ビートハート4回分のスキルハートを獲得する。',
+              type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'heartChaptha', 'kosuzu'],
             },
-          },*/
+          },
           バアドケージ: {
             styleType: 'moodMaker',
             mood: 'neutral',
@@ -16134,14 +16240,14 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
-          /*蓮ノ空歌留多: {
-            styleType: 'moodMaker',
+          '蓮ノ空歌留多': {
+            styleType: 'performer',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
-              addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
-              period: 'prize',
+              addSeason: '2024 WINTER LIMITED COLLECTION Vol.4',
+              period: 'normal',
             },
             favorite: [],
             fluctuationStatus: {
@@ -16153,10 +16259,10 @@ export const useCardStore = defineStore('cardList', {
               releasePoint: 0,
             },
             uniqueStatus: {
-              smile: 4450,
-              pure: 4750,
-              cool: 5100,
-              mental: 490,
+              smile: 4100,
+              pure: 4500,
+              cool: 5600,
+              mental: 500,
               BP: 100,
             },
             specialAppeal: {
@@ -16169,20 +16275,39 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'voltageHeart',
-              name: 'ボルテージハート',
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
               AP: 5,
-              detail: [
-                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
-                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
-              ],
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'regainChange',
+                  name: 'リゲインチェンジ',
+                  AP: 5,
+                  detail: [
+                    [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+                  ],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'groovyChangeHeart-over8_vol-over10_vol',
+                  name: 'グルーヴィチェンジハート',
+                  AP: 5,
+                  detail: [
+                    [11, 12, 13, 14, 15, 17, 18, 19, 20, 22, 23, 24, 25, 27],
+                    [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45],
+                    [22, 24, 26, 29, 31, 33, 35, 37, 40, 44, 46, 48, 51, 54]
+                  ],
+                },
+              },
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン & APレデュース：慈',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20する。さらに慈のスキルを使用するたび、手札のこのスキルの消費AP-2。',
-              type: ['overSection', 'voltageGain', 'APReduce', 'megumi'],
+              name: 'オーバーセクション：ボルテージゲイン & APゲイン & モードチェンジ & APレデュース：姫芽',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+20、APが3回復し、姫芽の《イグニッションモード》の状態を切り替える。さらに姫芽のスキルを使用するたび、手札のこのスキルの消費AP-2する。',
+              type: ['overSection', 'voltageGain', 'APGain', 'modeChange', 'APReduce', 'hime'],
             },
-          },*/
+          },
           '104/⊿TRiEDGE': {
             styleType: 'performer',
             mood: 'neutral',

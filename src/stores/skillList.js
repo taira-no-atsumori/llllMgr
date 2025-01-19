@@ -1253,6 +1253,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      リゲインチェンジ: {
+        regainChange: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージPt.を+',
+            'する。さらに姫芽の《イグニッションモード》の状態を切り替える。',
+          ],
+          detail: {
+            attr: 'regain',
+            type: ['reshuffle', 'voltageGain', 'modeChange'],
+          },
+        },
+      },
       エクステハート: {
         extensionsHeart_section3: {
           text: [
@@ -2096,6 +2108,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      グルーヴィハートゲイン: {
+        'groovyHeartGain-over8_voltage-gain7': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時、APを7回復する。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['heartCaptcha', 'APGain'],
+          },
+        },
+      },
       グルーヴィボルテージ: {
         groovyVoltage_over8_voltageGain_heartCaptcha: {
           text: [
@@ -2246,6 +2270,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      グルーヴィボルテックスビリーフ: {
+        'groovyVortexBelief-over8_vol': {
+          text: [
+            'ボルテージLv.を+',
+            'する。さらにボルテージLv.が8以上の時、このセクション中、メンタルが0になってもメンタルダウンしなくなる。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['voltageGain', 'mentalDown_section'],
+          },
+        },
+      },
       グルーヴィブーステッドボルテージハート: {
         'groovyBoostedVoltageHeart-over10_attract': {
           text: [
@@ -2257,6 +2293,32 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'groovy',
             type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
+          },
+        },
+      },
+      グルーヴィブーステッドチェンジ: {
+        'groovyBoostedChange-over8_attract': {
+          text: [
+            '姫芽の《イグニッションモード》の状態を切り替える。さらにボルテージLv.が8以上の時、次に使用するラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['modeChange', 'boost_loveAttract'],
+          },
+        },
+      },
+      グルーヴィチェンジハート: {
+        'groovyChangeHeart-over8_vol-over10_vol': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、姫芽の《イグニッションモード》の状態を切り替える。さらにボルテージLv.が8以上の時、ビートハート',
+            '回分のスキルハートを追加で獲得し、ボルテージLv.が10以上の時、ビートハート',
+            '回分のスキルハートを追加で獲得する。'
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['heartCaptcha', 'modeChange'],
           },
         },
       },
@@ -2919,6 +2981,17 @@ export const useSkillStore = defineStore('skillList', {
             type: ['voltageGain', 'heartCaptcha'],
           },
         },
+        braveVoltageHeart_under10: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルが10%以下の時、ビートハート',
+            '回分のスキルハートを獲得する。',
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['voltageGain', 'heartCaptcha'],
+          },
+        },
       },
       ブレイブエクステボルテージ: {
         braveExtensionsVoltage1_under50_section: {
@@ -3152,6 +3225,17 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ドレス《加賀友禅》': {
+        dress_kagayuuzen: {
+          text: [
+            'ドレスカード《加賀友禅》を9種類(合計9枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
       'リメイクドレス《華・麗・雅》': {
         remakeDress_hrm: {
           text: [
@@ -3160,6 +3244,110 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['addCard', 'reshuffle'],
+          },
+        },
+      },
+      '梢デザイン': {
+        design_kozue: {
+          text: [
+            'このステージ中、AP回復速度を+3%する。',
+          ],
+          detail: {
+            attr: 'design',
+            type: ['APQuick'],
+          },
+        },
+      },
+      '綴理デザイン': {
+        design_tsuzuri: {
+          text: [
+            'ボルテージPt.を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['voltageGain'],
+          },
+        },
+      },
+      '慈デザイン': {
+        design_megumi: {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['mentalRecover'],
+          },
+        },
+      },
+      '花帆デザイン': {
+        design_kaho: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['heartCaptcha'],
+          },
+        },
+      },
+      'さやかデザイン': {
+        design_sayaka: {
+          text: [
+            '次に使用するラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['boost_loveAttract'],
+          },
+        },
+      },
+      '瑠璃乃デザイン': {
+        design_rurino: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['reshuffle'],
+          },
+        },
+      },
+      '吟子デザイン': {
+        design_ginko: {
+          text: [
+            'このステージ中、手札の上限枚数を1枚増加する。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['extendHand'],
+          },
+        },
+      },
+      '小鈴デザイン': {
+        design_kosuzu: {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['protect_stage'],
+          },
+        },
+      },
+      '姫芽デザイン': {
+        design_hime: {
+          text: [
+            '姫芽の《イグニッションモード》の状態を切り替える。'
+          ],
+          detail: {
+            attr: 'design',
+            type: ['modeChange'],
           },
         },
       },
@@ -4268,7 +4456,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      シーズニングキャプチャ: {
+      'シーズニングキャプチャ': {
         'seasoningCaptcha_stage-useSkill': {
           text: [
             'このステージ中、スキル使用時にビートハート',

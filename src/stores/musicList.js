@@ -81,7 +81,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      DEEPNESS: {
+      'DEEPNESS': {
         musicData: {
           kana: 'でぃーぷねす',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -107,7 +107,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
-      永遠のEuphoria: {
+      '永遠のEuphoria': {
         musicData: {
           kana: 'えいえんのゆーふぉりあ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -133,7 +133,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      夏めきペイン: {
+      '夏めきペイン': {
         musicData: {
           kana: 'なつめきぺいん',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -185,7 +185,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      Legato: {
+      'Legato': {
         musicData: {
           kana: 'れがーと',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -263,7 +263,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      明日の空の僕たちへ: {
+      '明日の空の僕たちへ': {
         musicData: {
           kana: 'あすのそらのぼくたちへ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -341,7 +341,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      抱きしめる花びら: {
+      '抱きしめる花びら': {
         musicData: {
           kana: 'だきしめるはなびら',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -393,7 +393,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      水彩世界: {
+      '水彩世界': {
         musicData: {
           kana: 'すいさいせかい',
           singer: 'スリーズブーケ',
@@ -445,7 +445,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
       },
-      フォーチュンムービー: {
+      'フォーチュンムービー': {
         musicData: {
           kana: 'ふぉーちゅんむーびー',
           singer: 'スリーズブーケ',
@@ -497,7 +497,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue'],
       },
-      謳歌爛漫: {
+      '謳歌爛漫': {
         musicData: {
           kana: 'おうからんまん',
           singer: 'スリーズブーケ',
@@ -549,7 +549,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue'],
       },
-      眩耀夜行: {
+      '眩耀夜行': {
         musicData: {
           kana: 'げんようやこう',
           singer: 'スリーズブーケ',
@@ -601,7 +601,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue'],
       },
-      残陽: {
+      '残陽': {
         musicData: {
           kana: 'ざんよう',
           singer: 'スリーズブーケ',
@@ -627,7 +627,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue'],
       },
-      素顔のピクセル: {
+      '素顔のピクセル': {
         musicData: {
           kana: 'すがおのぴくせる',
           singer: 'スリーズブーケ',
@@ -653,7 +653,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
       },
-      千変万華: {
+      '千変万華': {
         musicData: {
           kana: 'せんぺんばんか',
           singer: 'スリーズブーケ',
@@ -705,7 +705,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
       },
-      シュガーメルト: {
+      'シュガーメルト': {
         musicData: {
           kana: 'しゅがーめると',
           singer: 'スリーズブーケ',
@@ -757,7 +757,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
       },
-      AWOKE: {
+      'AWOKE': {
         musicData: {
           kana: 'あうぉーく',
           singer: 'DOLLCHESTRA',
@@ -809,7 +809,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      ツキマカセ: {
+      'ツキマカセ': {
         musicData: {
           kana: 'つきまかせ',
           singer: 'DOLLCHESTRA',
@@ -835,7 +835,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      希望的プリズム: {
+      '希望的プリズム': {
         musicData: {
           kana: 'きぼうてきぷりずむ',
           singer: 'DOLLCHESTRA',
@@ -861,7 +861,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      スケイプゴート: {
+      'スケイプゴート': {
         musicData: {
           kana: 'すけいぷごーと',
           singer: 'DOLLCHESTRA',
@@ -939,7 +939,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      ジブンダイアリー: {
+      'ジブンダイアリー': {
         musicData: {
           kana: 'しぶんだいありー',
           singer: 'DOLLCHESTRA',
@@ -965,7 +965,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      パラレルダンサー: {
+      'パラレルダンサー': {
         musicData: {
           kana: 'ぱられるだんさー',
           singer: 'DOLLCHESTRA',
@@ -1017,7 +1017,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      KNOT: {
+      'KNOT': {
         musicData: {
           kana: 'のっと',
           singer: 'DOLLCHESTRA',
@@ -1043,7 +1043,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      青春の輪郭: {
+      '青春の輪郭': {
         musicData: {
           kana: 'せいしゅんのりんかく',
           singer: 'DOLLCHESTRA',
@@ -1069,7 +1069,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      飴色: {
+      '飴色': {
         musicData: {
           kana: 'あめいろ',
           singer: 'DOLLCHESTRA',
@@ -1095,7 +1095,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      青とシャボン: {
+      '青とシャボン': {
         musicData: {
           kana: 'あおとしゃぼん',
           singer: 'DOLLCHESTRA',
@@ -1147,7 +1147,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi'],
       },
-      ハクチューアラモード: {
+      'ハクチューアラモード': {
         musicData: {
           kana: 'はくちゅーあらもーど',
           singer: 'みらくらぱーく！',
@@ -1173,7 +1173,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi'],
       },
-      ココン東西: {
+      'ココン東西': {
         musicData: {
           kana: 'ここんとうざい',
           singer: 'みらくらぱーく！',
@@ -1199,7 +1199,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi'],
       },
-      アイデンティティ: {
+      'アイデンティティ': {
         musicData: {
           kana: 'あいでんてぃてぃ',
           singer: 'みらくらぱーく！',
@@ -1225,7 +1225,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi'],
       },
-      ノンフィクションヒーローショー: {
+      'ノンフィクションヒーローショー': {
         musicData: {
           kana: 'のんふぃくしょんひーろーしょー',
           singer: 'みらくらぱーく！',
@@ -1251,7 +1251,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi'],
       },
-      天才なのかもしれない: {
+      '天才なのかもしれない': {
         musicData: {
           kana: 'てんさいなのかもしれない',
           singer: 'みらくらぱーく！',
@@ -1277,7 +1277,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi'],
       },
-      ミルク: {
+      'ミルク': {
         musicData: {
           kana: 'みるく',
           singer: 'みらくらぱーく！',
@@ -1355,7 +1355,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi'],
       },
-      マハラジャンボリー: {
+      'マハラジャンボリー': {
         musicData: {
           kana: 'まはらじゃんぼりー',
           singer: 'みらくらぱーく！',
@@ -1433,7 +1433,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'kozue'],
       },
-      Colorfulness: {
+      'Colorfulness': {
         musicData: {
           kana: 'からふるねす',
           singer: 'るりのとゆかいなつづりたち',
@@ -1459,7 +1459,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'tsuzuri'],
       },
-      Runway: {
+      'Runway': {
         musicData: {
           kana: 'らんうぇい',
           singer: '村野さやか',
@@ -1563,7 +1563,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi'],
       },
-      始まりは君の空: {
+      '始まりは君の空': {
         musicData: {
           kana: 'はじまりはきみのそら',
           singer: 'DOLLCHESTRA',
@@ -1589,7 +1589,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      ビバハピ: {
+      'ビバハピ': {
         musicData: {
           kana: 'びばはぴ',
           singer: '日野下 花帆',
@@ -1615,7 +1615,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho'],
       },
-      深愛: {
+      '深愛': {
         musicData: {
           kana: 'しんあい',
           singer: '乙宗 梢',
@@ -1667,7 +1667,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue'],
       },
-      そばかす: {
+      'そばかす': {
         musicData: {
           kana: 'そばかす',
           singer: '村野 さやか',
@@ -1693,7 +1693,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka'],
       },
-      ロストワンの号哭: {
+      'ロストワンの号哭': {
         musicData: {
           kana: 'ろすとわんのごうこく',
           singer: '夕霧 綴理',
@@ -1719,7 +1719,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['tsuzuri'],
       },
-      名前のない怪物: {
+      '名前のない怪物': {
         musicData: {
           kana: 'なまえのないかいぶつ',
           singer: 'DOLLCHESTRA',
@@ -1745,7 +1745,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      狙いうち: {
+      '狙いうち': {
         musicData: {
           kana: 'ねらいうち',
           singer: '大沢 瑠璃乃',
@@ -1797,7 +1797,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['megumi'],
       },
-      いーあるふぁんくらぶ: {
+      'いーあるふぁんくらぶ': {
         musicData: {
           kana: 'いーあるふぁんくらぶ',
           singer: 'みらくらぱーく！',
@@ -1823,7 +1823,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi'],
       },
-      ハッピーシンセサイザ: {
+      'ハッピーシンセサイザ': {
         musicData: {
           kana: 'はっぴーしんせさいざ',
           singer: 'スリーズブーケ',
@@ -1849,7 +1849,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
       },
-      ヴィラン: {
+      'ヴィラン': {
         musicData: {
           kana: 'ゔぃらん',
           singer: 'DOLLCHESTRA',
@@ -1875,7 +1875,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      心予報: {
+      '心予報': {
         musicData: {
           kana: 'しんよほう',
           singer: 'スリーズブーケ',
@@ -1901,7 +1901,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
       },
-      威風堂々: {
+      '威風堂々': {
         musicData: {
           kana: 'いふうどうどう',
           singer: 'DOLLCHESTRA',
@@ -1927,7 +1927,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      強風オールバック: {
+      '強風オールバック': {
         musicData: {
           kana: 'きょうふうおーるばっく',
           singer: 'みらくらぱーく！',
@@ -1953,7 +1953,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi'],
       },
-      ダンスロボットダンス: {
+      'ダンスロボットダンス': {
         musicData: {
           kana: 'だんすろぼっとだんす',
           singer: 'みらくらぱーく！',
@@ -2005,7 +2005,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       },
-      祝福: {
+      '祝福': {
         musicData: {
           kana: 'しゅくふく',
           singer: 'DOLLCHESTRA',
@@ -2031,7 +2031,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
-      御旗のもとに: {
+      '御旗のもとに': {
         musicData: {
           kana: 'みはたのもとに',
           singer: 'スリーズブーケ',
@@ -2057,7 +2057,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue'],
       },
-      ダイヤモンドハッピー: {
+      'ダイヤモンドハッピー': {
         musicData: {
           kana: 'だいやもんどはっぴー',
           singer: '乙宗梢・夕霧綴理・藤島慈',
@@ -2551,7 +2551,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      アオクハルカ: {
+      'アオクハルカ': {
         musicData: {
           kana: 'あおくはるか',
           singer: 'スリーズブーケ',
@@ -2577,7 +2577,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      月夜見海月: {
+      '月夜見海月': {
         musicData: {
           kana: 'つくよみくらげ',
           singer: 'スリーズブーケ',
@@ -2655,7 +2655,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      ハナムスビ: {
+      'ハナムスビ': {
         musicData: {
           kana: 'はなむすび',
           singer: 'スリーズブーケ',
@@ -2811,7 +2811,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      レディバグ: {
+      'レディバグ': {
         musicData: {
           kana: 'れでぃばぐ',
           singer: 'DOLLCHESTRA',
@@ -2889,7 +2889,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      Proof: {
+      'Proof': {
         musicData: {
           kana: 'ぷるーふ',
           singer: 'DOLLCHESTRA',
@@ -2941,7 +2941,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      バアドケージ: {
+      'バアドケージ': {
         musicData: {
           kana: 'ばあどけーじ',
           singer: 'DOLLCHESTRA',
@@ -3097,7 +3097,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      みらくりえーしょん: {
+      'みらくりえーしょん': {
         musicData: {
           kana: 'みらくりえーしょん',
           singer: 'みらくらぱーく！',
@@ -3227,7 +3227,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      ジョーショーキリュー: {
+      'ジョーショーキリュー': {
         musicData: {
           kana: 'じょーしょーきりゅー',
           singer: 'みらくらぱーく！',
@@ -3462,7 +3462,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      ルージュの伝言: {
+      'ルージュの伝言': {
         musicData: {
           kana: 'るーじゅのでんごん',
           singer: '百生 吟子',
@@ -3488,7 +3488,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['ginko'],
       },
-      ビビデバ: {
+      'ビビデバ': {
         musicData: {
           kana: 'びびでば',
           singer: '徒町 小鈴',
@@ -3565,6 +3565,32 @@ export const useMusicStore = defineStore('musicList', {
         center: 'hime',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
+      },
+      '雑踏、僕らの街': {
+        musicData: {
+          kana: 'ざっとうぼくらのまち',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2024,
+            month: 5,
+            date: 22,
+          },
+          numbering: 'トゲナシトゲアリ 6thシングル',
+          BPM: {
+            original: 171,
+            inGame: 171,
+          },
+          time: 100,
+          cover: true,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 72,
+        level: 0,
+        term: 104,
+        center: 'tsuzuri',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       /*'恥は人生のかきすて': {
         musicData: {
