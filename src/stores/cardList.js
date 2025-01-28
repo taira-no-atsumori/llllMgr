@@ -260,6 +260,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'AURORA FLOWER': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.5',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'bloomingTogether',
+              name: 'ブルーミングトゥギャザー',
+              AP: 11,
+              detail: [
+                [3.6, 4, 4.3, 4.7, 5, 5.4, 5.8, 6.1, 6.5, 7.2, 7.6, 7.9, 8.3, 9]
+              ],
+            },
+            skill: {
+              ID: 'nineHeart_attraction',
+              name: 'ナインハート・アトラクション',
+              AP: 99,
+              detail: [
+                [3999.6, 4399.6, 4799.5, 5199.5, 5599.4, 5999.4, 6399.4, 6799.3, 7199.3, 7999.2, 8399.2, 8799.1, 9199.1, 9999],
+                [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 999]
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'このカード以外のスキルを使用するたび、手札のこのスキルの消費AP-9。さらにこのスキル使用時、APを0にする。',
+              type: ['APReduce', 'APLoss'],
+            },
+          },
           '103/ASTERISM': {
             styleType: 'performer',
             mood: 'happy',
@@ -2764,6 +2812,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'AURORA FLOWER': {
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.5',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'attractBoost1',
+              name: 'アトラクトブースト',
+              AP: 11,
+              detail: [
+                [44, 48.4, 52.8, 57.2, 61.6, 66, 70.4, 74.8, 79.2, 88, 92.4, 96.8, 101.2, 110]
+              ],
+            },
+            skill: {
+              ID: 'nineHeart_boost',
+              name: 'ナインハート・ブースト',
+              AP: 9,
+              detail: [
+                [33.6, 37, 40.3, 43.7, 47, 50.4, 53.8, 57.1, 60.5, 67.2, 70.6, 74, 77.3, 84],
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'このスキル使用時、スキルの効果値が増加し、APを0にする。',
+              type: ['reinforce', 'APLoss'],
+            },
+          },
           聖夜譚: {
             styleType: 'performer',
             mood: 'melow',
@@ -5188,6 +5284,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'AURORA FLOWER': {
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.5',
+              period: 'winter',
+            },
+            favorite: [],
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'refreshMind_stageProtect',
+              name: 'リフレッシュマインド',
+              AP: 11,
+              detail: [
+                [14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36],
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18]
+              ],
+            },
+            skill: {
+              ID: 'nineHeart_extend',
+              name: 'ナインハート・エクステンド',
+              AP: 9,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'ドローされる確率が大幅に増加する。さらにこのスキル使用時、APを0にする。',
+              type: ['favorite', 'APLoss'],
+            },
+          },
           聖夜譚: {
             styleType: 'performer',
             mood: 'happy',

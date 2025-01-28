@@ -6,7 +6,7 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ζ.3(アーリーアクセス)',
+    version: 'ζ.4(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -62,8 +62,8 @@ export const useStoreCounter = defineStore('store', {
         cardLevel: [0, 140],
         SALevel: [1, 14],
         SLevel: [1, 14],
-        SAAP: [0, 50],
-        SAP: [0, 50],
+        SAAP: [0, 99],
+        SAP: [0, 99],
         releaseLevel: [1, 5],
         trainingLevel: [0, 4],
         memberName: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime', 'sachi'],

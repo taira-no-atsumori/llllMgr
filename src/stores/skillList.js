@@ -4456,6 +4456,44 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ナインハート・ブースト': {
+        'nineHeart_boost': {
+          text: [
+            '次に使用するラブアトラクト効果を+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを9回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_loveAttract', 'heartCaptcha'],
+          },
+        },
+      },
+      'ナインハート・エクステンド': {
+        'nineHeart_extend': {
+          text: [
+            'このセクション中、手札の上限枚数を6枚増加する。さらにビートハート',
+            '回分のスキルハートを9回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['extendHand', 'heartCaptcha'],
+          },
+        },
+      },
+      'ナインハート・アトラクション': {
+        'nineHeart_attraction': {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを9回獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract_stage', 'heartCaptcha'],
+          },
+        },
+      },
       'シーズニングキャプチャ': {
         'seasoningCaptcha_stage-useSkill': {
           text: [
@@ -4465,6 +4503,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['heartCaptcha'],
+          },
+        },
+      },
+      'ブルーミングトゥギャザー': {
+        'bloomingTogether': {
+          text: [
+            'このステージ中、スキルハート獲得効果による獲得数を+',
+            '%する。さらにデッキにある全てのスキルの消費APを1度だけ1にする。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha', 'APReduce_all'],
           },
         },
       },
