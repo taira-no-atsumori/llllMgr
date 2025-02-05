@@ -6,7 +6,7 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ζ.4(アーリーアクセス)',
+    version: 'ζ.5(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -234,9 +234,14 @@ export const useStoreCounter = defineStore('store', {
         first: '大賀美',
         last: '沙知',
       },
+      /*selaIzu: {
+        first: 'セラス&',
+        last: '泉',
+      },*/
     },
     exclusionMember: [
-      'sachi'
+      'sachi',
+      'selaIzu',
     ],
     formationMember: {
       103: [
@@ -414,6 +419,7 @@ export const useStoreCounter = defineStore('store', {
             this.card[memberName][rare][cardName].memberName = memberName;
             this.card[memberName][rare][cardName].limited = this.card[memberName][rare][cardName].gacha.period;
             this.card[memberName][rare][cardName].sortPoint = 0;
+            this.card[memberName][rare][cardName].favorite = [];
             result[rare].push(this.card[memberName][rare][cardName]);
           }
         }

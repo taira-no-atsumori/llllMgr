@@ -5,7 +5,7 @@ export const useCardStore = defineStore('cardList', {
     card: {
       default: {
         default: {
-          default: {
+          'default': {
             styleType: '',
             mood: '',
             series: '',
@@ -14,7 +14,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -50,7 +49,8 @@ export const useCardStore = defineStore('cardList', {
       },
       kaho: {
         default: {
-          default: {
+          'default': {
+            ID: 'kh_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -58,7 +58,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -93,6 +92,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'kh_045',
             styleType: 'performer',
             mood: 'happy',
             series: 'Ether Aria',
@@ -101,7 +101,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -142,6 +141,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
+            ID: 'kh_022',
             styleType: 'performer',
             mood: 'happy',
             series: 'Prism Echo',
@@ -150,7 +150,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -187,6 +186,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '17th Birthday': {
+            ID: 'kh_046',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -195,7 +195,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Kaho-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -261,6 +260,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'AURORA FLOWER': {
+            ID: 'kh_054',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -269,7 +269,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.5',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -309,6 +308,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '103/ASTERISM': {
+            ID: 'kh_053',
             styleType: 'performer',
             mood: 'happy',
             series: 'オンゲキコラボ',
@@ -317,7 +317,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 O.N.G.E.K.I LIMITED COLLECTION',
               period: 'collaboration',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -354,7 +353,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['drew', 'heartCaptcha', 'mentalRecover', 'extendHand']
             },
           },
-          ハナムスビ: {
+          'ハナムスビ': {
+            ID: 'kh_052',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ハナムスビ',
@@ -363,7 +363,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -401,7 +400,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha', 'CeriseBouquet', 'boost_loveAttract', 'APGain']
             },
           },
-          月夜見海月: {
+          '月夜見海月': {
+            ID: 'kh_050',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '月夜見海月',
@@ -410,7 +410,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -473,7 +472,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          アオクハルカ: {
+          'アオクハルカ': {
+            ID: 'kh_049',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'アオクハルカ',
@@ -482,7 +482,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -530,6 +529,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'H.S.C.T.☆': {
+            ID: 'kh_047',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'hsct',
@@ -538,7 +538,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.1',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -572,7 +571,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'APFast_stage'],
             },
           },
-          春風ブランコ: {
+          '春風ブランコ': {
+            ID: 'kh_044',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '春風ブランコ',
@@ -581,7 +581,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -615,7 +614,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['earlyDraw', 'APGain', 'lateDraw', 'APReduce'],
             },
           },
-          軌跡の舞踏会: {
+          '軌跡の舞踏会': {
+            ID: 'kh_040',
             styleType: 'performer',
             mood: 'happy',
             series: '舞踏会',
@@ -624,7 +624,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -665,6 +664,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'lucky train!': {
+            ID: 'kh_037',
             styleType: 'performer',
             mood: 'melow',
             series: 'アイカツ!コラボ',
@@ -673,7 +673,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'AIKATSU! LIMITED COLLECTION',
               period: 'collaboration',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 1,
@@ -714,6 +713,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
+            ID: 'kh_036',
             styleType: 'performer',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -722,7 +722,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「第8回 個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -763,6 +762,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Special Thanks': {
+            ID: 'kh_035',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Special Thanks',
@@ -771,7 +771,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.6',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -809,6 +808,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'kh_033',
             styleType: 'performer',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -817,7 +817,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -858,6 +857,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'コットン=ユートピア': {
+            ID: 'kh_030',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'コットン=ユートピア',
@@ -866,7 +866,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION Vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -906,7 +905,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'APReduce', 'maturation', 'voltageGain', 'rurino'],
             },
           },
-          喫茶ハスノソラ: {
+          '喫茶ハスノソラ': {
+            ID: 'kh_029',
             styleType: 'performer',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -915,7 +915,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「第5回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -955,6 +954,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Trick & Cute': {
+            ID: 'kh_028',
             styleType: 'performer',
             mood: 'melow',
             series: 'Trick & Cute',
@@ -963,7 +963,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.5',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1003,6 +1002,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ゆのくにガールズ！': {
+            ID: 'kh_025',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ゆのくにガールズ！',
@@ -1011,7 +1011,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1048,7 +1047,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'loveAttract'],
             },
           },
-          夏めきペイン: {
+          '夏めきペイン': {
+            ID: 'kh_024',
             styleType: 'performer',
             mood: 'happy',
             series: '夏めきペイン',
@@ -1057,7 +1057,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期8月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1097,6 +1096,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'SPLASH!!!!': {
+            ID: 'kh_022',
             styleType: 'performer',
             mood: 'neutral',
             series: 'SPLASH!!!!',
@@ -1105,7 +1105,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1142,7 +1141,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'kozue', 'boost_heartCaptcha'],
             },
           },
-          眩耀夜行: {
+          '眩耀夜行': {
+            ID: 'kh_019',
             styleType: 'performer',
             mood: 'happy',
             series: '眩耀夜行',
@@ -1151,7 +1151,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1185,7 +1184,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'drew', 'boost_loveAttract'],
             },
           },
-          ペンギンアイス: {
+          'ペンギンアイス': {
+            ID: 'kh_016',
             styleType: 'performer',
             mood: 'happy',
             series: 'ペンギンアイス',
@@ -1194,7 +1194,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.4',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1228,7 +1227,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'heartCaptcha', 'APGain'],
             },
           },
-          フォーチュンムービー: {
+          'フォーチュンムービー': {
+            ID: 'kh_014',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'フォーチュンムービー',
@@ -1237,7 +1237,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1275,6 +1274,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Holiday∞Holiday': {
+            ID: 'kh_011',
             styleType: 'performer',
             mood: 'neutral',
             series: 'Holiday∞Holiday',
@@ -1283,7 +1283,6 @@ export const useCardStore = defineStore('cardList', {
               period: 'spring',
             },
             kana: 'ほりでーほりでー',
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1318,6 +1317,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Rose Garden': {
+            ID: 'kh_009',
             styleType: 'performer',
             mood: 'neutral',
             series: 'Rose Garden',
@@ -1326,7 +1326,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1362,7 +1361,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'kozue', 'APReduce'],
             },
           },
-          薫風の調べ: {
+          '薫風の調べ': {
+            ID: 'kh_008',
             styleType: 'performer',
             mood: 'happy',
             series: '薫風の調べ',
@@ -1371,7 +1371,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1405,7 +1404,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce'],
             },
           },
-          春色ニューデイズ: {
+          '春色ニューデイズ': {
+            ID: 'kh_006',
             styleType: 'performer',
             mood: 'happy',
             series: '春色ニューデイズ',
@@ -1414,7 +1414,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1449,6 +1448,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'kh_001',
             styleType: 'performer',
             mood: 'happy',
             series: 'Dream Believers',
@@ -1457,7 +1457,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1493,7 +1492,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          紅葉乃舞姫: {
+          '紅葉乃舞姫': {
+            ID: 'kh_051',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '紅葉乃舞姫',
@@ -1502,7 +1502,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 2ndTerm 第3回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1536,7 +1535,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['drew', 'APReduce', 'groovy'],
             },
           },
-          織姫草紙: {
+          '織姫草紙': {
+            ID: 'kh_048',
             styleType: 'trickStar',
             mood: 'melow',
             series: '織姫草紙',
@@ -1545,7 +1545,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 1stTerm 第4回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1579,7 +1578,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['justDrew', 'APReduce', 'otherDrew', 'boost_mentalRecover'],
             },
           },
-          抱きしめる花びら: {
+          '抱きしめる花びら': {
+            ID: 'kh_041',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -1588,7 +1588,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期3月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1627,7 +1626,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'search', 'kozue'],
             },
           },
-          桃節銘記: {
+          '桃節銘記': {
+            ID: 'kh_039',
             styleType: 'performer',
             mood: 'happy',
             series: '桃節銘記',
@@ -1636,7 +1636,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.1',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1681,6 +1680,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ハッピー至上主義！': {
+            ID: 'kh_038',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'ハッピー至上主義！',
@@ -1689,7 +1689,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1727,6 +1726,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '迎春 -食-': {
+            ID: 'kh_04',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '迎春',
@@ -1735,7 +1735,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1776,7 +1775,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'APGain'],
             },
           },
-          冬のおくりもの: {
+          '冬のおくりもの': {
+            ID: 'kh_032',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '冬のおくりもの',
@@ -1785,7 +1785,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.1',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1823,6 +1822,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
+            ID: 'kh_031',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -1831,7 +1831,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1869,6 +1868,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '宇宙演舞☆うさぴょん': {
+            ID: 'kh_027',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'うさぴょん',
@@ -1877,7 +1877,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -1914,7 +1913,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'boost_loveAttract'],
             },
           },
-          素顔のピクセル: {
+          '素顔のピクセル': {
+            ID: 'kh_026',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '素顔のピクセル',
@@ -1923,7 +1923,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.3',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -1962,6 +1961,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ドルフィン〰ビーチ': {
+            ID: 'kh_021',
             styleType: 'performer',
             mood: 'happy',
             series: 'ドルフィン〰ビーチ',
@@ -1970,7 +1970,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第2回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -2006,6 +2005,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'はじける☆オレンジソーダ': {
+            ID: 'kh_020',
             styleType: 'performer',
             mood: 'happy',
             series: 'はじける☆ソーダ',
@@ -2014,7 +2014,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -2049,7 +2048,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'APGain', 'APReduce'],
             },
           },
-          朝顔令嬢: {
+          '朝顔令嬢': {
+            ID: 'kh_018',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '朝顔令嬢',
@@ -2058,7 +2058,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -2094,6 +2093,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '金魚◎花火': {
+            ID: 'kh_017',
             styleType: 'performer',
             mood: 'melow',
             series: '金魚◎花火',
@@ -2102,7 +2102,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第1回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2136,7 +2135,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'drew', 'boost_heartCaptcha'],
             },
           },
-          DEEPNESS: {
+          'DEEPNESS': {
+            ID: 'kh_015',
             styleType: 'performer',
             mood: 'melow',
             series: 'DEEPNESS',
@@ -2145,7 +2145,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.3',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -2184,7 +2183,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'sayaka', 'drew', 'boost_loveAttract', 'kozue'],
             },
           },
-          雨と紫陽花に唄へば: {
+          '雨と紫陽花に唄へば': {
+            ID: 'kh_013',
             styleType: 'performer',
             mood: 'happy',
             series: '雨と紫陽花に唄へば',
@@ -2193,7 +2193,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期6月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2227,7 +2226,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'justDrew', 'boost_heartCaptcha', 'kaho'],
             },
           },
-          アメアガリストリート: {
+          'アメアガリストリート': {
+            ID: 'kh_012',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'アメアガリストリート',
@@ -2236,7 +2236,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.1',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2275,6 +2274,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'チェリー♫ピクニック': {
+            ID: 'kh_010',
             styleType: 'performer',
             mood: 'melow',
             series: 'チェリー♫ピクニック',
@@ -2283,7 +2283,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2317,7 +2316,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'kozue', 'sayaka'],
             },
           },
-          謳歌爛漫: {
+          '謳歌爛漫': {
+            ID: 'kh_007',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '謳歌爛漫',
@@ -2326,7 +2326,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2363,6 +2362,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Reflection in the mirror': {
+            ID: 'kh_005',
             styleType: 'performer',
             mood: 'happy',
             series: 'Reflection in the mirror',
@@ -2371,7 +2371,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2407,7 +2406,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['mentalRecover', 'APReduce', 'cheerful'],
             },
           },
-          水彩世界: {
+          '水彩世界': {
+            ID: 'kh_004',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '水彩世界',
@@ -2416,7 +2416,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2452,7 +2451,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'kh_043',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '室咲格子',
@@ -2461,7 +2461,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2490,7 +2489,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'kh_042',
             styleType: 'performer',
             mood: 'neutral',
             series: 'レインボーシフォン',
@@ -2499,7 +2499,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2528,7 +2527,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]],
             },
           },
-          華紺青: {
+          '華紺青': {
+            ID: 'kh_003',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '華紺青',
@@ -2537,7 +2537,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2566,7 +2565,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]],
             },
           },
-          オーロラスカイ: {
+          'オーロラスカイ': {
+            ID: 'kh_002',
             styleType: 'performer',
             mood: 'happy',
             series: 'オーロラスカイ',
@@ -2575,7 +2575,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2609,6 +2608,7 @@ export const useCardStore = defineStore('cardList', {
       sayaka: {
         default: {
           default: {
+            ID: 'sy_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -2616,7 +2616,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2651,6 +2650,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'sy_045',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Ether Aria',
@@ -2659,7 +2659,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2694,6 +2693,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
+            ID: 'sy023',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Prism Echo',
@@ -2702,7 +2702,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2739,6 +2738,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '17th Birthday': {
+            ID: 'sy_053',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -2747,7 +2747,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Sayaka-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2813,6 +2812,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'AURORA FLOWER': {
+            ID: 'sy_054',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -2821,7 +2821,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.5',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2860,7 +2859,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['reinforce', 'APLoss'],
             },
           },
-          聖夜譚: {
+          '聖夜譚': {
+            ID: 'sy_052',
             styleType: 'performer',
             mood: 'melow',
             series: '聖夜譚',
@@ -2869,7 +2869,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2909,7 +2908,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['accumulate', 'drew', 'reinforce'],
             },
           },
-          バアドケージ: {
+          'バアドケージ': {
+            ID: 'sy_051',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'バアドケージ',
@@ -2918,7 +2918,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 3rdTerm 第1回サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2956,7 +2955,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['brave', 'overSection', 'mentalRecover', 'protect_stage', 'APReduce', 'DOLLCHESTRA'],
             },
           },
-          紅葉乃舞姫: {
+          '紅葉乃舞姫': {
+            ID: 'sy_050',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '紅葉乃舞姫',
@@ -2965,7 +2965,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -2999,7 +2998,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['drew', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful'],
             },
           },
-          Proof: {
+          'Proof': {
+            ID: 'sy_048',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Proof',
@@ -3008,7 +3008,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 2ndTerm 第1回サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3048,7 +3047,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['boost_loveAttract'],
             },
           },
-          織姫草紙: {
+          '織姫草紙': {
+            ID: 'sy_047',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '織姫草紙',
@@ -3057,7 +3057,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION vol.4',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3091,7 +3090,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['midDrew', 'APReduce', 'otherDrew', 'boost_heartCaptcha'],
             },
           },
-          レディバグ: {
+          'レディバグ': {
+            ID: 'sy_046',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'レディバグ',
@@ -3100,7 +3100,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.6',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3134,7 +3133,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha', 'DOLLCHESTRA'],
             },
           },
-          真実の舞踏会: {
+          '真実の舞踏会': {
+            ID: 'sy_040',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '舞踏会',
@@ -3143,7 +3143,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3181,6 +3180,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
+            ID: 'sy_037',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -3189,7 +3189,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3230,6 +3229,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '青とシャボン': {
+            ID: 'sy_036',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '青とシャボン',
@@ -3238,7 +3238,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.6',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3276,6 +3275,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'sy_033',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -3284,7 +3284,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期12月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3326,6 +3325,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Secret Christmas': {
+            ID: 'sy_032',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Secret Christmas',
@@ -3334,7 +3334,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.2',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3376,6 +3375,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '喫茶ハスノソラ': {
+            ID: 'sy_029',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -3384,7 +3384,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.6',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3422,6 +3421,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '宇宙警察★うさぴょん': {
+            ID: 'sy_027',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'うさぴょん',
@@ -3430,7 +3430,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3465,6 +3464,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ゆのくにガールズ！': {
+            ID: 'sy_025',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ゆのくにガールズ！',
@@ -3473,7 +3473,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3511,6 +3510,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'SPLASH!!!!': {
+            ID: 'sy_022',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'SPLASH!!!!',
@@ -3519,7 +3519,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3557,6 +3556,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ドルフィン〰ビーチ': {
+            ID: 'sy_021',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ドルフィン〰ビーチ',
@@ -3565,7 +3565,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第2回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3603,6 +3602,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Mirage Voyage': {
+            ID: 'sy_019',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Mirage Voyage',
@@ -3611,7 +3611,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3648,7 +3647,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'drew', 'boost_loveAttract'],
             },
           },
-          朝顔令嬢: {
+          '朝顔令嬢': {
+            ID: 'sy_018',
             styleType: 'performer',
             mood: 'neutral',
             series: '朝顔令嬢',
@@ -3657,7 +3657,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3694,7 +3693,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'APGain'],
             },
           },
-          雨と紫陽花に唄へば: {
+          '雨と紫陽花に唄へば': {
+            ID: 'sy_014',
             styleType: 'performer',
             mood: 'happy',
             series: '雨と紫陽花に唄へば',
@@ -3703,7 +3703,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期6月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3743,7 +3742,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'justDrew', 'boost_heartCaptcha', 'boost_loveAttract'],
             },
           },
-          ツキマカセ: {
+          'ツキマカセ': {
+            ID: 'sy_013',
             styleType: 'performer',
             mood: 'melow',
             series: 'ツキマカセ',
@@ -3752,7 +3752,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3790,6 +3789,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Rose Garden': {
+            ID: 'sy_009',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Rose Garden',
@@ -3798,7 +3798,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ログインボーナス',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3832,7 +3831,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'tsuzuri', 'APReduce', 'sayaka'],
             },
           },
-          薫風の調べ: {
+          '薫風の調べ': {
+            ID: 'sy_008',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '薫風の調べ',
@@ -3841,7 +3841,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3875,7 +3874,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce'],
             },
           },
-          スケイプゴート: {
+          'スケイプゴート': {
+            ID: 'sy_007',
             styleType: 'performer',
             mood: 'neutral',
             series: 'スケイプゴート',
@@ -3884,7 +3884,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3919,6 +3918,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'sy_001',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Dream Believers',
@@ -3927,7 +3927,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -3963,7 +3962,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          魔法少女リズミックハート: {
+          '魔法少女リズミックハート': {
+            ID: 'sy_049',
             styleType: 'performer',
             mood: 'happy',
             series: '魔法少女リズミックハート',
@@ -3972,7 +3972,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 2ndTerm 第2回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4009,7 +4008,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['justDrew', 'APGain', 'boost_heartCaptcha', 'boost_loveAttract', 'sayaka'],
             },
           },
-          春風ブランコ: {
+          '春風ブランコ': {
+            ID: 'sy_044',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '春風ブランコ',
@@ -4018,7 +4018,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4055,7 +4054,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['lateDraw', 'APReduce'],
             },
           },
-          抱きしめる花びら: {
+          '抱きしめる花びら': {
+            ID: 'sy_041',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -4064,7 +4064,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.2',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4101,7 +4100,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'search', 'tsuzuri'],
             },
           },
-          桃節銘記: {
+          '桃節銘記': {
+            ID: 'sy_039',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '桃節銘記',
@@ -4110,7 +4110,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.1',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4148,6 +4147,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Pleasure Feather': {
+            ID: 'sy_038',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Pleasure Feather',
@@ -4156,7 +4156,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期2月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4190,7 +4189,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'boost_loveAttract'],
             },
           },
-          Eisprinzessin: {
+          'Eisprinzessin': {
+            ID: 'sy_035',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Eisprinzessin / Eisritter',
@@ -4199,7 +4199,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4238,6 +4237,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '迎春 -舞-': {
+            ID: 'sy_034',
             styleType: 'performer',
             mood: 'neutral',
             series: '迎春',
@@ -4246,7 +4246,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4287,6 +4286,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
+            ID: 'sy_031',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -4295,7 +4295,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4334,6 +4333,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Trick & Cute': {
+            ID: 'sy_028',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Trick & Cute',
@@ -4342,7 +4342,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期10月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4380,6 +4379,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Take It Over': {
+            ID: 'sy_026',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Take It Over',
@@ -4388,7 +4388,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期9月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4425,7 +4424,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'heartCaptcha', 'tsuzuri', 'protect_stage'],
             },
           },
-          夏めきペイン: {
+          '夏めきペイン': {
+            ID: 'sy_024',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '夏めきペイン',
@@ -4434,7 +4434,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.9',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4472,6 +4471,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'はじける☆ブルーソーダ': {
+            ID: 'sy_020',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'はじける☆ソーダ',
@@ -4480,7 +4480,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4515,6 +4514,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '金魚◎花火': {
+            ID: 'sy_017',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '金魚◎花火',
@@ -4523,7 +4523,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期7月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4557,7 +4556,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'loveAttract', 'boost_loveAttract'],
             },
           },
-          ペンギンアイス: {
+          'ペンギンアイス': {
+            ID: 'sy_016',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ペンギンアイス',
@@ -4566,7 +4566,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.4',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4600,7 +4599,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'heartCaptcha', 'APGain'],
             },
           },
-          DEEPNESS: {
+          'DEEPNESS': {
+            ID: 'sy_015',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'DEEPNESS',
@@ -4609,7 +4609,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.3',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4643,7 +4642,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'kozue', 'drew', 'boost_loveAttract', 'kaho'],
             },
           },
-          アメアガリストリート: {
+          'アメアガリストリート': {
+            ID: 'sy_012',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'アメアガリストリート',
@@ -4652,7 +4652,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.2',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4687,6 +4686,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Tragic Drops': {
+            ID: 'sy_011',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Tragic Drops',
@@ -4695,7 +4695,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.3',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4732,6 +4731,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'チェリー♫ピクニック': {
+            ID: 'sy_010',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'チェリー♫ピクニック',
@@ -4740,7 +4740,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4774,7 +4773,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'tsuzuri', 'kaho'],
             },
           },
-          春色ニューデイズ: {
+          '春色ニューデイズ': {
+            ID: 'sy_006',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '春色ニューデイズ',
@@ -4783,7 +4783,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4820,7 +4819,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['justDraw', 'APReduce'],
             },
           },
-          AWOKE: {
+          'AWOKE': {
+            ID: 'sy_004',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'AWOKE',
@@ -4829,7 +4829,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4864,6 +4863,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Sparkly Spot': {
+            ID: 'sy_005',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Sparkly Spot',
@@ -4872,7 +4872,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4908,7 +4907,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'sy_043',
             styleType: 'performer',
             mood: 'melow',
             series: '室咲格子',
@@ -4917,7 +4917,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4946,7 +4945,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'sy_042',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'レインボーシフォン',
@@ -4955,7 +4955,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -4984,7 +4983,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 16]],
             },
           },
-          華紺青: {
+          '華紺青': {
+            ID: 'sy_003',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '華紺青',
@@ -4993,7 +4993,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5022,7 +5021,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
             },
           },
-          オーロラスカイ: {
+          'オーロラスカイ': {
+            ID: 'sy_002',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'オーロラスカイ',
@@ -5031,7 +5031,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5064,7 +5063,8 @@ export const useCardStore = defineStore('cardList', {
       },
       rurino: {
         default: {
-          default: {
+          'default': {
+            ID: 'rr_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -5072,7 +5072,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -5110,6 +5109,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'rr_033',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'Ether Aria',
@@ -5118,7 +5118,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5153,6 +5152,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
+            ID: 'rr_008',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Prism Echo',
@@ -5161,7 +5161,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5198,6 +5197,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '17th Birthday': {
+            ID: 'rr_036',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -5206,7 +5206,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Rurino-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5285,6 +5284,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'AURORA FLOWER': {
+            ID: 'rr_042',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -5293,7 +5293,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.5',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5332,7 +5331,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'APLoss'],
             },
           },
-          聖夜譚: {
+          '聖夜譚': {
+            ID: 'rr_041',
             styleType: 'performer',
             mood: 'happy',
             series: '聖夜譚',
@@ -5341,7 +5341,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5381,7 +5380,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['accumulate', 'drew', 'reinforce'],
             },
           },
-          ジョーショーキリュー: {
+          'ジョーショーキリュー': {
+            ID: 'rr_040',
             styleType: 'performer',
             mood: 'melow',
             series: 'ジョーショーキリュー',
@@ -5390,7 +5390,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.6',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5455,7 +5454,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          紅葉乃舞姫: {
+          '紅葉乃舞姫': {
+            ID: 'rr_039',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '紅葉乃舞姫',
@@ -5464,7 +5464,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5499,6 +5498,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ファンファーレ！！！': {
+            ID: 'rr_038',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ファンファーレ！！！',
@@ -5507,7 +5507,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 2ndTerm 第2回サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5572,7 +5571,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          DEEPNESS: {
+          'DEEPNESS': {
+            ID: 'rr_037',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'DEEPNESS',
@@ -5581,7 +5581,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.1',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5615,7 +5614,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['mirage'],
             },
           },
-          織姫草紙: {
+          '織姫草紙': {
+            ID: 'rr_035',
             styleType: 'trickStar',
             mood: 'melow',
             series: '織姫草紙',
@@ -5624,7 +5624,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION vol.4',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5661,7 +5660,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['justDrew', 'APReduce', 'otherDrew', 'boost_loveAttract'],
             },
           },
-          みらくりえーしょん: {
+          'みらくりえーしょん': {
+            ID: 'rr_034',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'みらくりえーしょん',
@@ -5670,7 +5670,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION vol.3',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5716,7 +5715,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          悠久の舞踏会: {
+          '悠久の舞踏会': {
+            ID: 'rr_028',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '舞踏会',
@@ -5725,7 +5725,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5808,7 +5807,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APUp'],
             },
           },
-          Colorfulness: {
+          'Colorfulness': {
+            ID: 'rr_027',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'Colorfulness',
@@ -5817,7 +5817,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5859,6 +5858,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
+            ID: 'rr_026',
             styleType: 'performer',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -5867,7 +5867,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5908,6 +5907,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ミルク': {
+            ID: 'rr_025',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'ミルク',
@@ -5916,7 +5916,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'サークル対抗戦 -Exhibition- (2024年1月度)',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5955,6 +5954,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ハクチューアラモード': {
+            ID: 'rr_024',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'ハクチューアラモード',
@@ -5963,7 +5963,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -5998,6 +5997,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'rr_022',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -6006,7 +6006,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6044,6 +6043,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'プチパティシエール': {
+            ID: 'rr_020',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'プチパティシエール',
@@ -6052,7 +6052,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第6回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6087,6 +6086,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'コットン=ユートピア': {
+            ID: 'rr_017',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'コットン=ユートピア',
@@ -6095,7 +6095,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6133,6 +6132,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Trick & Cute': {
+            ID: 'rr_015',
             styleType: 'performer',
             mood: 'melow',
             series: 'Trick & Cute',
@@ -6141,7 +6141,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.5',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6176,6 +6175,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '宇宙警察★うさぴょん': {
+            ID: 'rr_014',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'うさぴょん',
@@ -6184,7 +6184,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6222,6 +6221,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'アイデンティティ': {
+            ID: 'rr_012',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'アイデンティティ',
@@ -6230,7 +6230,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.3',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6268,6 +6267,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'yours ever': {
+            ID: 'rr_010',
             styleType: 'performer',
             mood: 'happy',
             series: 'yours ever',
@@ -6276,7 +6276,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第3回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6313,7 +6312,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'drew', 'boost_heartCaptcha'],
             },
           },
-          夏めきペイン: {
+          '夏めきペイン': {
+            ID: 'rr_009',
             styleType: 'trickStar',
             mood: 'happy',
             series: '夏めきペイン',
@@ -6322,7 +6322,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.9',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6360,6 +6359,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'rr_001',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'Dream Believers',
@@ -6368,7 +6368,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6404,7 +6403,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          春風ブランコ: {
+          '春風ブランコ': {
+            ID: 'rr_032',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '春風ブランコ',
@@ -6413,7 +6413,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 第1回 個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6450,7 +6449,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['lateDraw', 'APReduce'],
             },
           },
-          抱きしめる花びら: {
+          '抱きしめる花びら': {
+            ID: 'rr_029',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -6459,7 +6459,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.2',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6497,6 +6496,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '迎春 -楽-': {
+            ID: 'rr_023',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '迎春',
@@ -6505,7 +6505,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6546,6 +6545,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Secret Christmas': {
+            ID: 'rr_021',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'Secret Christmas',
@@ -6554,7 +6554,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.2',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6591,7 +6590,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'megumi', 'drew', 'boost_mentalRecover'],
             },
           },
-          冬のおくりもの: {
+          '冬のおくりもの': {
+            ID: 'rr_019',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '冬のおくりもの',
@@ -6600,7 +6600,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.1',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6635,6 +6634,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
+            ID: 'rr_018',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -6643,7 +6643,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期11月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6681,7 +6680,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'mental'],
             },
           },
-          喫茶ハスノソラ: {
+          '喫茶ハスノソラ': {
+            ID: 'rr_016',
             styleType: 'trickStar',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -6690,7 +6690,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.6',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6725,6 +6724,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Au Bord du Lac': {
+            ID: 'rr_013',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Au Bord du Lac',
@@ -6733,7 +6733,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第4回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6768,6 +6767,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ゆのくにガールズ！': {
+            ID: 'rr_011',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ゆのくにガールズ！',
@@ -6776,7 +6776,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6813,7 +6812,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'megumi'],
             },
           },
-          世界中を夢中に: {
+          '世界中を夢中に': {
+            ID: 'rr_007',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '世界中を夢中に',
@@ -6822,7 +6822,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6860,6 +6859,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'にゅーかまー！': {
+            ID: 'rr_006',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'にゅーかまー！',
@@ -6868,7 +6868,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6903,6 +6902,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '@いっつぁどりーみんわーるど！': {
+            ID: 'rr_005',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '@いっつぁどりーみんわーるど！',
@@ -6911,7 +6911,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6947,7 +6946,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'megumi'],
             },
           },
-          "R's One Day": {
+          'R\'s One Day': {
+            ID: 'rr_004',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'One Day',
@@ -6956,7 +6956,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -6992,7 +6991,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'rr_031',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '室咲格子',
@@ -7001,7 +7001,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7030,7 +7029,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'rr_030',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'レインボーシフォン',
@@ -7039,7 +7039,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7068,7 +7067,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8]],
             },
           },
-          華紺青: {
+          '華紺青': {
+            ID: 'rr_003',
             styleType: 'performer',
             mood: 'happy',
             series: '華紺青',
@@ -7077,7 +7077,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7106,7 +7105,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 16]],
             },
           },
-          オーロラスカイ: {
+          'オーロラスカイ': {
+            ID: 'rr_002',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'オーロラスカイ',
@@ -7115,7 +7115,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7148,7 +7147,8 @@ export const useCardStore = defineStore('cardList', {
       },
       kozue: {
         default: {
-          default: {
+          'default': {
+            ID: 'kz_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -7156,7 +7156,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -7192,6 +7191,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'kz_044',
             styleType: 'performer',
             mood: 'melow',
             series: 'Ether Aria',
@@ -7200,7 +7200,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7242,6 +7241,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
+            ID: 'kz_023',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Prism Echo',
@@ -7250,7 +7250,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7293,6 +7292,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '18th Birthday': {
+            ID: 'kz_047',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -7301,7 +7301,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Kozue-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7367,6 +7366,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'AURORA FLOWER': {
+            ID: 'kz_054',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -7375,7 +7375,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.3',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7410,6 +7409,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'KEY of Like！': {
+            ID: 'kz_053',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'KEY of Like！',
@@ -7418,7 +7418,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 3rdTerm 第2回サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7458,7 +7457,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['drew', 'APReduce', 'protect_stage', 'heartCaptcha'],
             },
           },
-          輪廻の銀河へ: {
+          '輪廻の銀河へ': {
+            ID: 'kz_051',
             styleType: 'performer',
             mood: 'melow',
             series: '銀河',
@@ -7467,7 +7467,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7505,6 +7504,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'PASSION!!!!!!': {
+            ID: 'kz_049',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -7513,7 +7513,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.7',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7547,7 +7546,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'APFast_section', 'reShuffle'],
             },
           },
-          アオクハルカ: {
+          'アオクハルカ': {
+            ID: 'kz_048',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'アオクハルカ',
@@ -7556,7 +7556,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7604,6 +7603,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'H.S.C.T.☆': {
+            ID: 'kz_046',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'hsct',
@@ -7612,7 +7612,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.1',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7651,6 +7650,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '365 Days': {
+            ID: 'kz_045',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '365 Days',
@@ -7659,7 +7659,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.5',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7697,7 +7696,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APGain', 'encore'],
             },
           },
-          抱きしめる花びら: {
+          '抱きしめる花びら': {
+            ID: 'kz_041',
             styleType: 'performer',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -7706,7 +7706,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期3月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7745,7 +7744,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'loveAttract_stage', 'shot', 'loveAttract_section'],
             },
           },
-          桃節銘記: {
+          '桃節銘記': {
+            ID: 'kz_039',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '桃節銘記',
@@ -7754,7 +7754,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.1',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7798,7 +7797,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCollect', 'APReduce', 'heartCaptcha'],
             },
           },
-          ダイヤモンドハッピー: {
+          'ダイヤモンドハッピー': {
+            ID: 'kz_037',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'アイカツ!コラボ',
@@ -7807,7 +7807,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'AIKATSU! LIMITED COLLECTION',
               period: 'collaboration',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 1,
@@ -7853,6 +7852,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
+            ID: 'kz_034',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -7861,7 +7861,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7901,7 +7900,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'mentalRecover', 'kozue'],
             },
           },
-          冬のおくりもの: {
+          '冬のおくりもの': {
+            ID: 'kz_032',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '冬のおくりもの',
@@ -7910,7 +7910,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.1',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7948,6 +7947,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
+            ID: 'kz_031',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -7956,7 +7956,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -7993,7 +7992,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'mental', 'cheerful', 'protect_stage'],
             },
           },
-          奇跡の舞踏会: {
+          '奇跡の舞踏会': {
+            ID: 'kz_027',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '舞踏会',
@@ -8002,7 +8002,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8040,7 +8039,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'reShuffle'],
             },
           },
-          秋色カントリーロード: {
+          '秋色カントリーロード': {
+            ID: 'kz_025',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '秋色カントリーロード',
@@ -8049,7 +8049,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.1',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8091,6 +8090,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'はじける☆メロンソーダ': {
+            ID: 'kz_021',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'はじける☆ソーダ',
@@ -8099,7 +8099,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8133,7 +8132,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'loveAttract', 'APReduce'],
             },
           },
-          DEEPNESS: {
+          'DEEPNESS': {
+            ID: 'kz_016',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'DEEPNESS',
@@ -8142,7 +8142,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.3',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8183,6 +8182,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '金魚◎花火': {
+            ID: 'kz_018',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: '金魚◎花火',
@@ -8191,7 +8191,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第1回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8225,7 +8224,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'drew', 'boost_mentalRecover'],
             },
           },
-          フォーチュンムービー: {
+          'フォーチュンムービー': {
+            ID: 'kz_015',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'フォーチュンムービー',
@@ -8234,7 +8234,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8268,7 +8267,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'mentalRecover', 'maturation'],
             },
           },
-          雨と紫陽花に唄へば: {
+          '雨と紫陽花に唄へば': {
+            ID: 'kz_014',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '雨と紫陽花に唄へば',
@@ -8277,7 +8277,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ログインボーナス',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8312,6 +8311,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Holiday∞Holiday': {
+            ID: 'kz_012',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Holiday∞Holiday',
@@ -8320,7 +8320,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.3',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8355,6 +8354,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'チェリー♫ピクニック': {
+            ID: 'kz_011',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'チェリー♫ピクニック',
@@ -8363,7 +8363,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8398,6 +8397,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Reflection in the mirror': {
+            ID: 'kz_006',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Reflection in the mirror',
@@ -8406,7 +8406,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8440,7 +8439,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'mentalRecover', 'APReduce', 'cheerful'],
             },
           },
-          春色ニューデイズ: {
+          '春色ニューデイズ': {
+            ID: 'kz_007',
             styleType: 'performer',
             mood: 'happy',
             series: '春色ニューデイズ',
@@ -8449,7 +8449,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8484,6 +8483,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'kz_001',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Dream Believers',
@@ -8492,7 +8492,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8528,7 +8527,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          ハナムスビ: {
+          'ハナムスビ': {
+            ID: 'kz_052',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ハナムスビ',
@@ -8537,7 +8537,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8574,7 +8573,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCaptcha', 'CeriseBouquet', 'APControl']
             },
           },
-          月夜見海月: {
+          '月夜見海月': {
+            ID: 'kz_050',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '月夜見海月',
@@ -8583,7 +8583,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8647,6 +8646,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'おしえて♡ティーチャー': {
+            ID: 'kz_040',
             styleType: 'performer',
             mood: 'melow',
             series: 'おしえて♡ティーチャー',
@@ -8655,7 +8655,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第9回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8692,6 +8691,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Pleasure Feather': {
+            ID: 'kz_038',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Pleasure Feather',
@@ -8700,7 +8700,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8735,6 +8734,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '節分 -魅-': {
+            ID: 'kz_036',
             styleType: 'performer',
             mood: 'neutral',
             series: '節分',
@@ -8743,7 +8743,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「第8回 個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8784,6 +8783,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Special Thanks': {
+            ID: 'kz_035',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Special Thanks',
@@ -8792,7 +8792,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.6',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8831,6 +8830,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'kz_033',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -8839,7 +8839,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8879,7 +8878,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['search', 'kaho', 'APGain'],
             },
           },
-          喫茶ハスノソラ: {
+          '喫茶ハスノソラ': {
+            ID: 'kz_029',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -8888,7 +8888,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第5回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8928,6 +8927,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Trick & Cute': {
+            ID: 'kz_028',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Trick & Cute',
@@ -8936,7 +8936,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.5',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -8970,7 +8969,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'aggressive', 'accumulate'],
             },
           },
-          素顔のピクセル: {
+          '素顔のピクセル': {
+            ID: 'kz_026',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '素顔のピクセル',
@@ -8979,7 +8979,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.3',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9016,7 +9015,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'APReduce', 'heartCaptcha', 'kaho'],
             },
           },
-          夏めきペイン: {
+          '夏めきペイン': {
+            ID: 'kz_024',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '夏めきペイン',
@@ -9025,7 +9025,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期8月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9060,6 +9059,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'SPLASH!!!!': {
+            ID: 'kz_022',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'SPLASH!!!!',
@@ -9068,7 +9068,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9102,7 +9101,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'boost_mentalRecover', 'kaho'],
             },
           },
-          眩耀夜行: {
+          '眩耀夜行': {
+            ID: 'kz_020',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '眩耀夜行',
@@ -9111,7 +9111,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9145,7 +9144,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'drew', 'boost_loveAttract'],
             },
           },
-          朝顔令嬢: {
+          '朝顔令嬢': {
+            ID: 'kz_019',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '朝顔令嬢',
@@ -9154,7 +9154,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9188,7 +9187,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'APGain'],
             },
           },
-          ペンギンアイス: {
+          'ペンギンアイス': {
+            ID: 'kz_017',
             styleType: 'performer',
             mood: 'happy',
             series: 'ペンギンアイス',
@@ -9197,7 +9197,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.4',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9231,7 +9230,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'voltageGain', 'APGain'],
             },
           },
-          アメアガリストリート: {
+          'アメアガリストリート': {
+            ID: 'kz_013',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'アメアガリストリート',
@@ -9240,7 +9240,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.1',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9275,6 +9274,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Rose Garden': {
+            ID: 'kz_010',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'Rose Garden',
@@ -9283,7 +9283,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9317,7 +9316,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'kaho', 'APReduce', 'kozue'],
             },
           },
-          薫風の調べ: {
+          '薫風の調べ': {
+            ID: 'kz_009',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '薫風の調べ',
@@ -9326,7 +9326,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9360,7 +9359,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce'],
             },
           },
-          謳歌爛漫: {
+          '謳歌爛漫': {
+            ID: 'kz_008',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '謳歌爛漫',
@@ -9369,7 +9369,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9403,7 +9402,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'heartCaptcha', 'acceleration'],
             },
           },
-          水彩世界: {
+          '水彩世界': {
+            ID: 'kz_005',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '水彩世界',
@@ -9412,7 +9412,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.3',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9447,6 +9446,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Grace Phrase': {
+            ID: 'kz_004',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'Grace Phrase',
@@ -9455,7 +9455,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9491,7 +9490,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'kz_043',
             styleType: 'performer',
             mood: 'happy',
             series: '室咲格子',
@@ -9500,7 +9500,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9529,7 +9528,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'kz_042',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'レインボーシフォン',
@@ -9538,7 +9538,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9567,7 +9566,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.8, 3, 3.2]],
             },
           },
-          華紺青: {
+          '華紺青': {
+            ID: 'kz_003',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '華紺青',
@@ -9576,7 +9576,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9605,7 +9604,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8]],
             },
           },
-          オーロラスカイ: {
+          'オーロラスカイ': {
+            ID: 'kz_002',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'オーロラスカイ',
@@ -9614,7 +9614,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9647,7 +9646,8 @@ export const useCardStore = defineStore('cardList', {
       },
       tsuzuri: {
         default: {
-          default: {
+          'default': {
+            ID: 'tz_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -9655,7 +9655,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -9691,6 +9690,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'tz_043',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Ether Aria',
@@ -9699,7 +9699,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9734,6 +9733,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
+            ID: 'tz_023',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Prism Echo',
@@ -9742,7 +9742,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9785,6 +9784,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '18th Birthday': {
+            ID: 'tz_049',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -9793,7 +9793,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Tsuzuri-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9859,6 +9858,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'AURORA FLOWER': {
+            ID: 'tz_053',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -9867,7 +9867,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.3',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9905,6 +9904,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'KEY of Like！': {
+            ID: 'tz_052',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'KEY of Like！',
@@ -9913,7 +9913,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.2',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -9954,6 +9953,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '102/R.B.P.': {
+            ID: 'tz_051',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'オンゲキコラボ',
@@ -9962,7 +9962,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 O.N.G.E.K.I LIMITED COLLECTION',
               period: 'collaboration',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10000,7 +9999,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['drew', 'boost_loveAttract', 'boost_voltageGain', 'protect_stage']
             },
           },
-          バアドケージ: {
+          'バアドケージ': {
+            ID: 'tz_050',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'バアドケージ',
@@ -10009,7 +10009,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.7',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10073,7 +10072,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          福音の銀河へ: {
+          '福音の銀河へ': {
+            ID: 'tz_048',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '銀河',
@@ -10082,7 +10082,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10119,7 +10118,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'maturation'],
             },
           },
-          Proof: {
+          'Proof': {
+            ID: 'tz_047',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Proof',
@@ -10128,7 +10128,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.9',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10165,7 +10164,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['mentalDown_section', 'APGain'],
             },
           },
-          レディバグ: {
+          'レディバグ': {
+            ID: 'tz_045',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'レディバグ',
@@ -10174,7 +10174,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 1stTerm 第2回サークル対抗戦」',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10211,7 +10210,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APGain'],
             },
           },
-          抱きしめる花びら: {
+          '抱きしめる花びら': {
+            ID: 'tz_040',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -10220,7 +10220,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.2',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10257,7 +10256,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'voltageGain', 'shot', 'loveAttract_section'],
             },
           },
-          桃節銘記: {
+          '桃節銘記': {
+            ID: 'tz_039',
             styleType: 'performer',
             mood: 'happy',
             series: '桃節銘記',
@@ -10266,7 +10266,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.1',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10303,7 +10302,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['heartCollect', 'APReduce', 'loveAttract_section'],
             },
           },
-          Colorfulness: {
+          'Colorfulness': {
+            ID: 'tz_038',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'Colorfulness',
@@ -10312,7 +10312,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期2月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10349,6 +10348,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
+            ID: 'tz_034',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -10357,7 +10357,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10398,6 +10397,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
+            ID: 'tz_031',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -10406,7 +10406,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10445,6 +10444,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Trick & Cute': {
+            ID: 'tz_028',
             styleType: 'performer',
             mood: 'melow',
             series: 'Trick & Cute',
@@ -10453,7 +10453,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期10月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10490,7 +10489,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'loveAttract'],
             },
           },
-          革命の舞踏会: {
+          '革命の舞踏会': {
+            ID: 'tz_027',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '舞踏会',
@@ -10499,7 +10499,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10534,6 +10533,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Take It Over': {
+            ID: 'tz_026',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Take It Over',
@@ -10542,7 +10542,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期9月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10579,7 +10578,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'loveAttract_section', 'mentalRecover', 'sayaka'],
             },
           },
-          秋色カントリーロード: {
+          '秋色カントリーロード': {
+            ID: 'tz_025',
             styleType: 'performer',
             mood: 'neutral',
             series: '秋色カントリーロード',
@@ -10588,7 +10588,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.1',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10630,6 +10629,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'はじける☆スイカソーダ': {
+            ID: 'tz_021',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'はじける☆ソーダ',
@@ -10638,7 +10638,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10675,50 +10674,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'heartCaptcha'],
             },
           },
-          '金魚◎花火': {
-            styleType: 'moodMaker',
-            mood: 'melow',
-            series: '金魚◎花火',
-            kana: 'きんぎょはなび',
-            gacha: {
-              addSeason: 'ライブグランプリ「103期7月度 サークル対抗戦」報酬',
-              period: 'prize',
-            },
-            favorite: [],
-            fluctuationStatus: {
-              cardLevel: 0,
-              trainingLevel: 0,
-              SALevel: 1,
-              SLevel: 1,
-              releaseLevel: 1,
-              releasePoint: 0,
-            },
-            uniqueStatus: {
-              smile: 4400,
-              pure: 5200,
-              cool: 4800,
-              mental: 480,
-              BP: 100,
-            },
-            specialAppeal: {
-              ID: 'voltageGain',
-              name: 'ボルテージゲイン',
-              AP: 4,
-              detail: [[16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]],
-            },
-            skill: {
-              ID: 'voltageGain',
-              name: 'ボルテージゲイン',
-              AP: 3,
-              detail: [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32]],
-            },
-            characteristic: {
-              name: 'ドロー：ボルテージゲイン & ボルテージブースト',
-              detail: 'ドローした時、ボルテージPt.を+18する。さらに次に使用するボルテージゲイン効果を+16%する。',
-              type: ['draw', 'voltageGain', 'boost_voltageGain'],
-            },
-          },
-          朝顔令嬢: {
+          '朝顔令嬢': {
+            ID: 'tz_019',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '朝顔令嬢',
@@ -10727,7 +10684,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10764,7 +10720,51 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce', 'APGain'],
             },
           },
-          ペンギンアイス: {
+          '金魚◎花火': {
+            ID: 'tz_018',
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: '金魚◎花火',
+            kana: 'きんぎょはなび',
+            gacha: {
+              addSeason: 'ライブグランプリ「103期7月度 サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 5200,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 4,
+              detail: [[16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]],
+            },
+            skill: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 3,
+              detail: [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32]],
+            },
+            characteristic: {
+              name: 'ドロー：ボルテージゲイン & ボルテージブースト',
+              detail: 'ドローした時、ボルテージPt.を+18する。さらに次に使用するボルテージゲイン効果を+16%する。',
+              type: ['draw', 'voltageGain', 'boost_voltageGain'],
+            },
+          },
+          'ペンギンアイス': {
+            ID: 'tz_017',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ペンギンアイス',
@@ -10773,7 +10773,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.4',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10810,7 +10809,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'loveAttract', 'APGain'],
             },
           },
-          DEEPNESS: {
+          'DEEPNESS': {
+            ID: 'tz_016',
             styleType: 'performer',
             mood: 'melow',
             series: 'DEEPNESS',
@@ -10819,7 +10819,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.3',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10856,7 +10855,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'kozue', 'reinforce', 'megumi'],
             },
           },
-          ツキマカセ: {
+          'ツキマカセ': {
+            ID: 'tz_014',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'ツキマカセ',
@@ -10865,7 +10865,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10906,6 +10905,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'チェリー♫ピクニック': {
+            ID: 'tz_011',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'チェリー♫ピクニック',
@@ -10914,7 +10914,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10948,7 +10947,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['favorite', 'earlyDrew', 'APReduce'],
             },
           },
-          スケイプゴート: {
+          'スケイプゴート': {
+            ID: 'tz_008',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'スケイプゴート',
@@ -10957,7 +10957,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -10998,6 +10997,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'tz_001',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Dream Believers',
@@ -11006,7 +11006,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11046,6 +11045,7 @@ export const useCardStore = defineStore('cardList', {
         },
         SR: {
           'PASSION!!!!!!': {
+            ID: 'tz_046',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -11054,7 +11054,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 2ndTerm 第1回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11094,6 +11093,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '365 Days': {
+            ID: 'tz_044',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '365 Days',
@@ -11102,7 +11102,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.5',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11137,6 +11136,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '節分 -妖-': {
+            ID: 'tz_037',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '節分',
@@ -11145,7 +11145,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11182,7 +11181,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'loveAttract'],
             },
           },
-          青とシャボン: {
+          '青とシャボン': {
+            ID: 'tz_036',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '青とシャボン',
@@ -11191,7 +11191,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.6',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11228,7 +11227,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['APReduce', 'voltageGain', 'sayaka'],
             },
           },
-          Eisritter: {
+          'Eisritter': {
+            ID: 'tz_035',
             styleType: 'performer',
             mood: 'melow',
             series: 'Eisprinzessin / Eisritter',
@@ -11237,7 +11237,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11278,6 +11277,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'tz_033',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -11286,7 +11286,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期12月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11327,6 +11326,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Secret Christmas': {
+            ID: 'tz_032',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Secret Christmas',
@@ -11335,7 +11335,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.2',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11376,6 +11375,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'コットン=ユートピア': {
+            ID: 'tz_030',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'コットン=ユートピア',
@@ -11384,7 +11384,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11421,7 +11420,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'APReduce', 'maturation', 'voltageGain', 'megumi'],
             },
           },
-          喫茶ハスノソラ: {
+          '喫茶ハスノソラ': {
+            ID: 'tz_029',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -11430,7 +11430,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.6',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11470,7 +11469,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'loveAttract', 'maturation'],
             },
           },
-          夏めきペイン: {
+          '夏めきペイン': {
+            ID: 'tz_024',
             styleType: 'performer',
             mood: 'happy',
             series: '夏めきペイン',
@@ -11479,7 +11479,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.9',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11517,6 +11516,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'SPLASH!!!!': {
+            ID: 'tz_022',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'SPLASH!!!!',
@@ -11525,7 +11525,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11563,6 +11562,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Mirage Voyage': {
+            ID: 'tz_020',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Mirage Voyage',
@@ -11571,7 +11571,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11605,7 +11604,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'drew', 'boost_loveAttract'],
             },
           },
-          アメアガリストリート: {
+          'アメアガリストリート': {
+            ID: 'tz_013',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'アメアガリストリート',
@@ -11614,7 +11614,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.2',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11648,7 +11647,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'heartCaptcha', 'groovy', 'boost_loveAttract'],
             },
           },
-          雨と紫陽花に唄へば: {
+          '雨と紫陽花に唄へば': {
+            ID: 'tz_015',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '雨と紫陽花に唄へば',
@@ -11657,7 +11657,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ログインボーナス',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11692,6 +11691,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Tragic Drops': {
+            ID: 'tz_012',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Tragic Drops',
@@ -11700,7 +11700,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.3',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11735,6 +11734,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Rose Garden': {
+            ID: 'tz_010',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Rose Garden',
@@ -11743,7 +11743,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ログインボーナス',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11777,7 +11776,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'sayaka', 'APReduce', 'tsuzuri'],
             },
           },
-          薫風の調べ: {
+          '薫風の調べ': {
+            ID: 'tz_009',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '薫風の調べ',
@@ -11786,7 +11786,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11821,6 +11820,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Sparkly Spot': {
+            ID: 'tz_006',
             styleType: 'performer',
             mood: 'melow',
             series: 'Sparkly Spot',
@@ -11829,7 +11829,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11865,7 +11864,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'voltageGain', 'APReduce', 'groovy'],
             },
           },
-          春色ニューデイズ: {
+          '春色ニューデイズ': {
+            ID: 'kz_007',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '春色ニューデイズ',
@@ -11874,7 +11874,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.2',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11908,7 +11907,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['justDraw', 'APReduce'],
             },
           },
-          AWOKE: {
+          'AWOKE': {
+            ID: 'tz_005',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'AWOKE',
@@ -11917,7 +11917,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.3',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11954,6 +11953,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Vivid Phrase': {
+            ID: 'tz_004',
             styleType: 'performer',
             mood: 'melow',
             series: 'Vivid Phrase',
@@ -11962,7 +11962,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -11998,7 +11997,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'tz_042',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '室咲格子',
@@ -12007,7 +12007,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12036,7 +12035,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'tz_041',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'レインボーシフォン',
@@ -12045,7 +12045,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12074,7 +12073,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]],
             },
           },
-          華紺青: {
+          '華紺青': {
+            ID: 'tz_003',
             styleType: 'performer',
             mood: 'melow',
             series: '華紺青',
@@ -12083,7 +12083,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12112,7 +12111,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]],
             },
           },
-          オーロラスカイ: {
+          'オーロラスカイ': {
+            ID: 'tz_002',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'オーロラスカイ',
@@ -12121,7 +12121,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12154,7 +12153,8 @@ export const useCardStore = defineStore('cardList', {
       },
       megumi: {
         default: {
-          default: {
+          'default': {
+            ID: 'mg_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -12162,7 +12162,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -12198,6 +12197,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'mg_032',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Ether Aria',
@@ -12206,7 +12206,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12247,6 +12246,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
+            ID: 'mg_007',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Prism Echo',
@@ -12255,7 +12255,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12298,6 +12297,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '18th Birthday': {
+            ID: 'mg_041',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -12306,7 +12306,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Megumi-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12372,6 +12371,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'KEY of Like！': {
+            ID: 'mg_042',
             styleType: 'performer',
             mood: 'neutral',
             series: 'KEY of Like！',
@@ -12380,7 +12380,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.2',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12432,7 +12431,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          ジョーショーキリュー: {
+          'ジョーショーキリュー': {
+            ID: 'mg_040',
             styleType: 'performer',
             mood: 'melow',
             series: 'ジョーショーキリュー',
@@ -12441,7 +12441,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.6',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12511,7 +12510,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          久遠の銀河へ: {
+          '久遠の銀河へ': {
+            ID: 'mg_039',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '銀河',
@@ -12520,7 +12520,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12558,6 +12557,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ファンファーレ！！！': {
+            ID: 'mg_038',
             styleType: 'performer',
             mood: 'happy',
             series: 'ファンファーレ！！！',
@@ -12566,7 +12566,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.3',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12634,7 +12633,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          DEEPNESS: {
+          'DEEPNESS': {
+            ID: 'mg_037',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'DEEPNESS',
@@ -12643,7 +12643,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.1',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12682,6 +12681,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'PASSION!!!!!!': {
+            ID: 'mg_036',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -12690,7 +12690,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.7',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12727,7 +12726,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['shot', 'APFast_stage'],
             },
           },
-          みらくりえーしょん: {
+          'みらくりえーしょん': {
+            ID: 'mg_035',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'みらくりえーしょん',
@@ -12736,7 +12736,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 1stTerm 第3回サークル対抗戦」',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12786,6 +12785,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '365 Days': {
+            ID: 'mg_033',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '365 Days',
@@ -12794,7 +12794,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.5',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12831,6 +12830,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '抱きしめる花びら': {
+            ID: 'mg_029',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -12839,7 +12839,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.2',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12877,6 +12876,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'おしえて♡ティーチャー': {
+            ID: 'mg_028',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'おしえて♡ティーチャー',
@@ -12885,7 +12885,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第9回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12924,6 +12923,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ハッピー至上主義！': {
+            ID: 'mg_027',
             styleType: 'performer',
             mood: 'happy',
             series: 'ハッピー至上主義！',
@@ -12932,7 +12932,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.8',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -12973,6 +12972,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ハクチューアラモード': {
+            ID: 'mg_024',
             styleType: 'performer',
             mood: 'happy',
             series: 'ハクチューアラモード',
@@ -12981,7 +12981,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13019,6 +13018,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
+            ID: 'mg_023',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -13027,7 +13027,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第7回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13068,6 +13067,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Secret Christmas': {
+            ID: 'mg_021',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'Secret Christmas',
@@ -13076,7 +13076,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.2',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13118,6 +13117,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '冬のおくりもの': {
+            ID: 'mg_019',
             styleType: 'performer',
             mood: 'neutral',
             series: '冬のおくりもの',
@@ -13126,7 +13126,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.1',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13164,6 +13163,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
+            ID: 'mg_018',
             styleType: 'performer',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -13172,7 +13172,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期11月度 サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13210,6 +13209,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '喫茶ハスノソラ': {
+            ID: 'mg_016',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '喫茶ハスノソラ',
@@ -13218,7 +13218,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.6',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13259,6 +13258,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '約束の舞踏会': {
+            ID: 'mg_012',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '舞踏会',
@@ -13267,7 +13267,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 PARTY! LIMITED COLLECTION',
               period: 'party',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -13302,6 +13301,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'アイデンティティ': {
+            ID: 'mg_011',
             styleType: 'performer',
             mood: 'neutral',
             series: 'アイデンティティ',
@@ -13310,7 +13310,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.3',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13345,6 +13344,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Au Bord du Lac': {
+            ID: 'mg_013',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Au Bord du Lac',
@@ -13353,7 +13353,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第4回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13391,6 +13390,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '夏めきペイン': {
+            ID: 'mg_008',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '夏めきペイン',
@@ -13399,7 +13399,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SUMMER LIMITED COLLECTION vol.',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13437,6 +13436,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'mg_001',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'Dream Believers',
@@ -13445,7 +13445,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13485,6 +13484,7 @@ export const useCardStore = defineStore('cardList', {
         },
         SR: {
           'AURORA FLOWER': {
+            ID: 'mg_043',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -13493,7 +13493,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 3rdTerm 第3回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13531,6 +13530,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'H.S.C.T.☆': {
+            ID: 'mg_034',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'hsct',
@@ -13539,7 +13539,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 1stTerm 第3回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13574,6 +13573,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '節分 -艶-': {
+            ID: 'mg_026',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '節分',
@@ -13582,7 +13582,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13620,7 +13619,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'voltageGain'],
             },
           },
-          ミルク: {
+          'ミルク': {
+            ID: 'mg_025',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'ミルク',
@@ -13629,7 +13629,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'サークル対抗戦 -Exhibition- (2024年1月度)',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13670,6 +13669,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'mg_022',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -13678,7 +13678,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 WINTER LIMITED COLLECTION Vol.3',
               period: 'winter',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13715,7 +13714,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['search', 'rurino', 'APGain'],
             },
           },
-          プチパティシエール: {
+          'プチパティシエール': {
+            ID: 'mg_020',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'プチパティシエール',
@@ -13724,7 +13724,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第6回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13765,6 +13764,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'コットン=ユートピア': {
+            ID: 'mg_017',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'コットン=ユートピア',
@@ -13773,7 +13773,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.7',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13808,6 +13807,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Trick & Cute': {
+            ID: 'mg_015',
             styleType: 'performer',
             mood: 'melow',
             series: 'Trick & Cute',
@@ -13816,7 +13816,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.5',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13854,6 +13853,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '宇宙演舞☆うさぴょん': {
+            ID: 'mg_014',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'うさぴょん',
@@ -13862,7 +13862,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13897,6 +13896,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ゆのくにガールズ！': {
+            ID: 'mg_010',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'ゆのくにガールズ！',
@@ -13905,7 +13905,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13943,6 +13942,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'yours ever': {
+            ID: 'mg_009',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'yours ever',
@@ -13951,7 +13951,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「103期 第3回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -13988,7 +13987,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['interPretation', 'drew', 'boost_loveAttract'],
             },
           },
-          世界中を夢中に: {
+          '世界中を夢中に': {
+            ID: 'mg_006',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '世界中を夢中に',
@@ -13997,7 +13997,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 AUTUMN LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14037,6 +14036,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '@いっつぁどりーみんわーるど！': {
+            ID: 'mg_005',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '@いっつぁどりーみんわーるど！',
@@ -14045,7 +14045,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14082,7 +14081,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['chain', 'rurino'],
             },
           },
-          "M's One Day": {
+          'M\'s One Day': {
+            ID: 'mg_004',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'One Day',
@@ -14091,7 +14091,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14127,7 +14126,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'mg_031',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '室咲格子',
@@ -14136,7 +14136,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14165,7 +14164,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'mg_030',
             styleType: 'performer',
             mood: 'happy',
             series: 'レインボーシフォン',
@@ -14174,7 +14174,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14203,7 +14202,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, 3.52, 3.68, 4]],
             },
           },
-          華紺青: {
+          '華紺青': {
+            ID: 'mg_003',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '華紺青',
@@ -14212,7 +14212,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14241,7 +14240,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
             },
           },
-          オーロラスカイ: {
+          'オーロラスカイ': {
+            ID: 'mg_002',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'オーロラスカイ',
@@ -14250,7 +14250,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14283,7 +14282,8 @@ export const useCardStore = defineStore('cardList', {
       },
       ginko: {
         default: {
-          default: {
+          'default': {
+            ID: 'gn_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -14291,7 +14291,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -14327,6 +14326,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'gn_006',
             styleType: 'performer',
             mood: 'happy',
             series: 'Ether Aria',
@@ -14335,7 +14335,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14398,6 +14397,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '16th Birthday': {
+            ID: 'gn_012',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -14406,7 +14406,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Ginko-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14488,7 +14487,101 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'AURORA FLOWER': {
+            ID: 'gn_017',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.6',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'attractGain-stageAttract-APGain7',
+              name: 'アトラクトゲイン',
+              AP: 11,
+              detail: [
+                [14, 15.4, 16.8, 18.2, 19.6, 21, 22.4, 23.8, 25.2, 28, 29.4, 30.8, 32.2, 35]
+              ],
+            },
+            skill: {
+              ID: 'nineHeart_dress',
+              name: 'ナインハート・ドレス',
+              AP: 9,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]
+              ],
+              addSkill: [
+                {
+                  ID: 'auroraFlower-C',
+                  name: 'AURORA FLOWER/C',
+                  AP: 3,
+                  detail: [
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                    [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3],
+                  ],
+                  characteristic: {
+                    name: 'インモータル',
+                    detail: 'このドレスは使用時にデッキから除外されない',
+                    type: ['forever'],
+                  },
+                },
+                {
+                  ID: 'auroraFlower-D',
+                  name: 'AURORA FLOWER/D',
+                  AP: 3,
+                  detail: [
+                    [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                    [84, 92.4, 100.8, 109.2, 117.6, 126, 134.4, 142.8, 151.2, 168, 176.4, 184.8, 193.2, 210],
+                  ],
+                  characteristic: {
+                    name: 'インモータル',
+                    detail: 'このドレスは使用時にデッキから除外されない',
+                    type: ['forever'],
+                  },
+                },
+                {
+                  ID: 'auroraFlower-M',
+                  name: 'AURORA FLOWER/M',
+                  AP: 3,
+                  detail: [
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                  ],
+                  characteristic: {
+                    name: 'インモータル',
+                    detail: 'このドレスは使用時にデッキから除外されない',
+                    type: ['forever'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'ドローされる確率が大幅に増加する。さらにこのスキル使用時、APを0にする。',
+              type: ['favorite', 'APLoss'],
+            },
+          },
           '蓮ノ空歌留多': {
+            ID: 'gn_016',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -14497,7 +14590,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION Vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14645,6 +14737,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ハナムスビ': {
+            ID: 'gn_014',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'ハナムスビ',
@@ -14653,7 +14746,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.8',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14735,6 +14827,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'gn_013',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -14743,7 +14836,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 2ndTerm 第3回サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14795,6 +14887,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '月夜見海月': {
+            ID: 'gn_011',
             styleType: 'trickStar',
             mood: 'melow',
             series: '月夜見海月',
@@ -14803,7 +14896,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION Vol.2',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14854,6 +14946,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'PASSION!!!!!!': {
+            ID: 'gn_010',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -14862,7 +14955,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14910,6 +15002,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'アオクハルカ/華': {
+            ID: 'gn_009',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'アオクハルカ',
@@ -14918,7 +15011,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -14991,6 +15083,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Bloom the smile, Bloom the dream!': {
+            ID: 'gn_007',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Bloom the smile, Bloom the dream!',
@@ -14999,7 +15092,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.2',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15058,6 +15150,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '青嵐の鯉流し': {
+            ID: 'gn_005',
             styleType: 'trickStar',
             mood: 'happy',
             series: '青嵐の鯉流し',
@@ -15066,7 +15159,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15117,6 +15209,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Reflection in the mirror': {
+            ID: 'gn_004',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'Reflection in the mirror',
@@ -15125,7 +15218,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.3',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15195,6 +15287,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'gn_001',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'Dream Believers',
@@ -15203,7 +15296,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15263,7 +15355,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          聖夜譚: {
+          '聖夜譚': {
+            ID: 'gn_015',
             styleType: 'trickStar',
             mood: 'happy',
             series: '聖夜譚',
@@ -15272,7 +15365,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15325,7 +15417,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['drew', 'APReduce'],
             },
           },
-          アオクハルカ: {
+          'アオクハルカ': {
+            ID: 'gn_008',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'アオクハルカ',
@@ -15334,7 +15427,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.5',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15383,7 +15475,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'gn_003',
             styleType: 'trickStar',
             mood: 'melow',
             series: '室咲格子',
@@ -15392,7 +15485,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15434,7 +15526,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'gn_002',
             styleType: 'trickStar',
             mood: 'happy',
             series: 'レインボーシフォン',
@@ -15443,7 +15536,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15484,7 +15576,8 @@ export const useCardStore = defineStore('cardList', {
       },
       kosuzu: {
         default: {
-          default: {
+          'default': {
+            ID: 'sz_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -15492,7 +15585,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -15528,6 +15620,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'sz_006',
             styleType: 'performer',
             mood: 'happy',
             series: 'Ether Aria',
@@ -15536,7 +15629,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15573,7 +15665,56 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {},
         UR: {
+          'AURORA FLOWER': {
+            ID: 'sz_016',
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.6',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 5300,
+              cool: 5300,
+              mental: 530,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'aggressiveBeliefProtect-mentalMinus50',
+              name: 'アグレッシブビリーフプロテクト',
+              AP: 11,
+              detail: [
+                [14, 15.4, 16.8, 18.2, 19.6, 21, 22.4, 23.8, 25.2, 28, 29.4, 30.8, 32.2, 35]
+              ],
+            },
+            skill: {
+              ID: 'nineHeart_brave',
+              name: 'ナインハート・ブレイブ',
+              AP: 9,
+              detail: [
+                [9, 10, 11, 12, 13, 14, 14, 15, 16, 18, 19, 20, 21, 23],
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+              ],
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'ドローされる確率が大幅に増加する。さらにこのスキル使用時、APを0にする。',
+              type: ['favorite', 'APLoss'],
+            },
+          },
           '蓮ノ空歌留多': {
+            ID: 'sz_015',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -15582,7 +15723,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION Vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15621,7 +15761,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['overSection', 'voltageGain', 'APGain', 'APReduce', 'heartChaptha', 'kosuzu'],
             },
           },
-          バアドケージ: {
+          'バアドケージ': {
+            ID: 'sz_013',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'バアドケージ',
@@ -15630,7 +15771,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.7',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15669,6 +15809,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'sz_012',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -15677,7 +15818,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.5',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15715,7 +15855,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['search', 'hime', 'shot', 'APGain'],
             },
           },
-          Proof: {
+          'Proof': {
+            ID: 'sz_011',
             styleType: 'performer',
             mood: 'neutral',
             series: 'Proof',
@@ -15724,7 +15865,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.9',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15762,6 +15902,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'レディバグ/麗': {
+            ID: 'sz_009',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'レディバグ',
@@ -15770,7 +15911,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.6',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15808,6 +15948,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Bloom the smile, Bloom the dream!': {
+            ID: 'sz_008',
             styleType: 'performer',
             mood: 'neutral',
             series: 'Bloom the smile, Bloom the dream!',
@@ -15816,7 +15957,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.2',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15853,7 +15993,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'heartBoost'],
             },
           },
-          レディバグ: {
+          'レディバグ': {
+            ID: 'sz_007',
             styleType: 'performer',
             mood: 'melow',
             series: 'レディバグ',
@@ -15862,7 +16003,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.6',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15903,6 +16043,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Sparkly Spot': {
+            ID: 'sz_002',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Sparkly Spot',
@@ -15911,7 +16052,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期OPENING！第1回サークル対抗戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15949,6 +16089,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'sz_001',
             styleType: 'performer',
             mood: 'happy',
             series: 'Dream Believers',
@@ -15957,7 +16098,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -15996,7 +16136,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          魔法少女リズミックハート２: {
+          '魔法少女リズミックハート２': {
+            ID: 'sz_014',
             styleType: 'performer',
             mood: 'melow',
             series: '魔法少女リズミックハート',
@@ -16005,7 +16146,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 3rdTerm 第2回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16045,6 +16185,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'PASSION!!!!!!': {
+            ID: 'sz_010',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -16053,7 +16194,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16090,7 +16230,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['heatUp'],
             },
           },
-          青嵐の鯉流し: {
+          '青嵐の鯉流し': {
+            ID: 'sz_005',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '青嵐の鯉流し',
@@ -16099,7 +16240,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 1stTerm 第2回個人戦」報酬',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16138,7 +16278,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'sz_003',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '室咲格子',
@@ -16147,7 +16288,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16176,7 +16316,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2.4, 2.64, 2.88, 3.12, 3.36, 3.6, 3.84, 4.08, 4.32, 4.8, 5.04, 5.28, 5.52, 6]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'sz_002',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'レインボーシフォン',
@@ -16185,7 +16326,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16218,7 +16358,8 @@ export const useCardStore = defineStore('cardList', {
       },
       hime: {
         default: {
-          default: {
+          'default': {
+            ID: 'hm_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -16226,7 +16367,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -16262,6 +16402,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
+            ID: 'hm_006',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Ether Aria',
@@ -16270,7 +16411,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '「ドリームスタイルクエスト」クリア報酬',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16311,6 +16451,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '16th Birthday': {
+            ID: 'hm_011',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -16319,7 +16460,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Hime-',
               period: 'birthday',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16385,6 +16525,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           '蓮ノ空歌留多': {
+            ID: 'hm_016',
             styleType: 'performer',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -16393,7 +16534,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 WINTER LIMITED COLLECTION Vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16453,6 +16593,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '104/⊿TRiEDGE': {
+            ID: 'hm_015',
             styleType: 'performer',
             mood: 'neutral',
             series: 'オンゲキコラボ',
@@ -16461,7 +16602,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 O.N.G.E.K.I LIMITED COLLECTION',
               period: 'collaboration',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16530,6 +16670,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
+            ID: 'hm_013',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -16538,7 +16679,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.5',
               period: 'autumn',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16577,6 +16717,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ファンファーレ！！！': {
+            ID: 'hm_012',
             styleType: 'performer',
             mood: 'happy',
             series: 'ファンファーレ！！！',
@@ -16585,7 +16726,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 AUTUMN LIMITED COLLECTION vol.3',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16657,6 +16797,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'PASSION!!!!!!': {
+            ID: 'hm_010',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -16665,7 +16806,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.8',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16700,6 +16840,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'みらくりえーしょん/雅': {
+            ID: 'hm_009',
             styleType: 'performer',
             mood: 'neutral',
             series: 'みらくりえーしょん',
@@ -16708,7 +16849,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 1stTerm 第4回サークル対抗戦」',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16773,7 +16913,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          みらくりえーしょん: {
+          'みらくりえーしょん': {
+            ID: 'hm_008',
             styleType: 'performer',
             mood: 'neutral',
             series: 'みらくりえーしょん',
@@ -16782,7 +16923,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION vol.3',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16847,7 +16987,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
           },
-          青嵐の鯉流し: {
+          '青嵐の鯉流し': {
+            ID: 'hm_005',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '青嵐の鯉流し',
@@ -16856,7 +16997,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.4',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16890,7 +17030,8 @@ export const useCardStore = defineStore('cardList', {
               type: ['draw', 'APReduce'],
             },
           },
-          アイデンティティ: {
+          'アイデンティティ': {
+            ID: 'hm_004',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'アイデンティティ',
@@ -16899,7 +17040,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.3',
               period: 'spring',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16937,6 +17077,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Dream Believers': {
+            ID: 'hm_001',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Dream Believers',
@@ -16945,7 +17086,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION Vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -16981,7 +17121,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
-          ジョーショーキリュー: {
+          'ジョーショーキリュー': {
+            ID: 'hm_014',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'ジョーショーキリュー',
@@ -16990,7 +17131,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: 'ライブグランプリ「104期 3rdTerm 第1回個人戦」',
               period: 'prize',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -17059,6 +17199,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Bloom the smile, Bloom the dream!': {
+            ID: 'hm_007',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Bloom the smile, Bloom the dream!',
@@ -17067,7 +17208,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SUMMER LIMITED COLLECTION Vol.2',
               period: 'summer',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -17103,7 +17243,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
-          室咲格子: {
+          '室咲格子': {
+            ID: 'hm_003',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '室咲格子',
@@ -17112,7 +17253,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2024 SPRING LIMITED COLLECTION vol.1',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -17141,7 +17281,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]],
             },
           },
-          レインボーシフォン: {
+          'レインボーシフォン': {
+            ID: 'hm_002',
             styleType: 'performer',
             mood: 'happy',
             series: 'レインボーシフォン',
@@ -17150,7 +17291,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '初期所持',
               period: 'normal',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -17183,7 +17323,8 @@ export const useCardStore = defineStore('cardList', {
       },
       sachi: {
         default: {
-          default: {
+          'default': {
+            ID: 'sc_000',
             styleType: '',
             mood: '',
             kana: '',
@@ -17191,7 +17332,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '',
               period: '',
             },
-            favorite: [],
             fluctuationStatus: {
               possession: false,
               cardLevel: 0,
@@ -17226,7 +17366,8 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
-          蓮ノ空女学院スクールアイドルクラブ101期生: {
+          '蓮ノ空女学院スクールアイドルクラブ101期生': {
+            ID: 'sc_001',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '蓮ノ空女学院スクールアイドルクラブ101期生',
@@ -17235,7 +17376,6 @@ export const useCardStore = defineStore('cardList', {
               addSeason: '2023 GRADUATION LIMITED COLLECTION Vol.2',
               period: 'graduation',
             },
-            favorite: [],
             fluctuationStatus: {
               cardLevel: 0,
               trainingLevel: 0,
@@ -17264,6 +17404,120 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'グラデュエーション',
               detail: 'このスキルを3回使用すると、デッキから除外される。',
+              type: ['exclusion'],
+            },
+          },
+        },
+      },
+      selaIzu: {
+        default: {
+          'default': {
+            ID: 'si_000',
+            styleType: '',
+            mood: '',
+            kana: '',
+            gacha: {
+              addSeason: '',
+              period: '',
+            },
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
+              BP: 100,
+            },
+            specialAppeal: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            skill: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            characteristic: {
+              name: '',
+              detail: '',
+              type: [],
+            },
+          },
+        },
+        SR: {
+          'Edelied': {
+            ID: 'si_001',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Edelied',
+            kana: 'えーでらいど',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 3rdTerm 第3回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4200,
+              pure: 4200,
+              cool: 4200,
+              mental: 420,
+              BP: 100,
+            },
+            skill: {
+              ID: 'letzterLied',
+              name: 'Letzter Lied',
+              AP: 20,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'prinzessin',
+                  name: 'Prinzessin',
+                  AP: 2,
+                  detail: [
+                    [26.4, 29.1, 31.7, 34.4, 37, 39.6, 42.3, 44.9, 47.6, 52.8, 55.5, 58.1, 60.8, 66]
+                  ],
+                  characteristic: {
+                    name: 'クローズ',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'ritter',
+                  name: 'Ritter',
+                  AP: 2,
+                  detail: [
+                    [178, 196, 214, 231, 249, 267, 285, 303, 320, 356, 374, 392, 409, 445],
+                    [26.4, 29.04, 31.68, 34.32, 36.96, 39.6, 42.24, 44.88, 47.52, 52.8, 55.44, 58.08, 60.72, 66],
+
+                  ],
+                  characteristic: {
+                    name: 'クローズ',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'クローズ',
+              detail: 'このスキルを使用すると、デッキから除外される。',
               type: ['exclusion'],
             },
           },

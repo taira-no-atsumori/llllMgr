@@ -50,7 +50,7 @@
       <v-toolbar-title class="d-none d-sm-block">
         リンクラ マネージャー！<span class="text-subtitle-2">Ver.{{ store.version }}</span>
       </v-toolbar-title>
-      <v-toolbar-title class="hidden-sm-and-up"> リンマネ </v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -206,8 +206,10 @@
 
 <script setup>
 import { useStoreCounter } from './stores/counter';
+// import Push from 'push.js';
 const store = useStoreCounter();
 store.init();
+// Push.create('test');
 </script>
 
 <script>

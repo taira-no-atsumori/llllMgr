@@ -1118,11 +1118,33 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      アグレッシブビリーフプロテクト: {
+        'aggressiveBeliefProtect-mentalMinus50': {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の50%減少させる。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。',
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'mentalReduce', 'protect_stage'],
+          },
+        }
+      },
       アトラクトゲイン: {
         attractGain: {
           text: [
             'このステージ中、獲得するLOVEを+',
             '%する。さらにAPを3回復する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract_stage', 'APGain'],
+          },
+        },
+        'attractGain-stageAttract-APGain7': {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにAPを7回復する。',
           ],
           detail: {
             attr: '',
@@ -3351,6 +3373,42 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'Letzter Lied': {
+        letzterLied: {
+          text: [
+            'エーデルカードを2種類(合計2枚)山札に追加する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard'],
+          },
+        },
+      },
+      'Prinzessin': {
+        prinzessin: {
+          text: [
+            'このセクション中、AP回復速度を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['APQuick'],
+          },
+        },
+      },
+      'Ritter': {
+        ritter: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'protect_stage'],
+          },
+        },
+      },
       リブートエクステンド: {
         rebootExtend_stage1_stageAttract: {
           text: [
@@ -4425,7 +4483,7 @@ export const useSkillStore = defineStore('skillList', {
             '回分のスキルハートを9回獲得する。このスキル使用に必要なAPは、他の手札の全てのスキルのAPの合計値になる。'
           ],
           detail: {
-            attr: '',
+            attr: 'nineHeart',
             type: ['skillUse-handsCard', 'heartCaptcha'],
           },
         },
@@ -4438,7 +4496,7 @@ export const useSkillStore = defineStore('skillList', {
             '回分のスキルハートを9回獲得する。'
           ],
           detail: {
-            attr: '',
+            attr: 'nineHeart',
             type: ['voltageGain', 'heartCaptcha'],
           },
         },
@@ -4451,7 +4509,7 @@ export const useSkillStore = defineStore('skillList', {
             '回分のスキルハートを9回獲得する。'
           ],
           detail: {
-            attr: '',
+            attr: 'nineHeart',
             type: ['protect_stage', 'heartCaptcha'],
           },
         },
@@ -4464,7 +4522,7 @@ export const useSkillStore = defineStore('skillList', {
             '回分のスキルハートを9回獲得する。'
           ],
           detail: {
-            attr: '',
+            attr: 'nineHeart',
             type: ['boost_loveAttract', 'heartCaptcha'],
           },
         },
@@ -4476,7 +4534,7 @@ export const useSkillStore = defineStore('skillList', {
             '回分のスキルハートを9回獲得する。'
           ],
           detail: {
-            attr: '',
+            attr: 'nineHeart',
             type: ['extendHand', 'heartCaptcha'],
           },
         },
@@ -4489,8 +4547,74 @@ export const useSkillStore = defineStore('skillList', {
             '回分のスキルハートを9回獲得する。'
           ],
           detail: {
-            attr: '',
+            attr: 'nineHeart',
             type: ['loveAttract_stage', 'heartCaptcha'],
+          },
+        },
+      },
+      'ナインハート・ドレス': {
+        'nineHeart_dress': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを9回獲得する。さらに3回までドレスカード《AURORA FLOWER》を3種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'nineHeart',
+            type: ['heartCaptcha', 'addCard'],
+          },
+        },
+      },
+      'ナインハート・ブレイブ': {
+        'nineHeart_brave': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを9回獲得する。さらにメンタルが50%以下のとき、ビートハート',
+            '回分のスキルハートを追加で9回獲得する。'
+          ],
+          detail: {
+            attr: 'nineHeart',
+            type: ['heartCaptcha'],
+          },
+        },
+      },
+      'AURORA FLOWER/C': {
+        'auroraFlower-C': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを3回獲得し、このステージ中、獲得するLOVEを+',
+            '%する。さらにAPを',
+            '回復する。'
+          ],
+          detail: {
+            attr: 'auroraFlower',
+            type: ['heartCaptcha', 'loveAttract_stage', 'APGain'],
+          },
+        },
+      },
+      'AURORA FLOWER/D': {
+        'auroraFlower-D': {
+          text: [
+            'ボルテージPt.を+',
+            'し、ビートハート',
+            '回分のスキルハートを3回獲得する。さらに次のドレスカード使用によるラブアトラクト効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'auroraFlower',
+            type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
+          },
+        },
+      },
+      'AURORA FLOWER/M': {
+        'auroraFlower-M': {
+          text: [
+            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引き、ビートハート',
+            '回分のスキルハートを3回獲得する。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'auroraFlower',
+            type: ['reshuffle', 'heartCaptcha', 'protect_stage'],
           },
         },
       },
