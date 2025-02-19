@@ -282,7 +282,7 @@ export default {
       localStorage.removeItem('inflow');
 
       for (const listName in this.pageList) {
-        if (this.pageList[listName].url === pageName) {
+        if (this.pageList[listName].url.toLowerCase() === pageName.toLowerCase()) {
           this.pageMove(this.pageList[pageName].name_en);
           return;
         }
