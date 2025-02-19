@@ -1321,6 +1321,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'エクステハートチェンジ': {
+        'extendHeartChange-add3': {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加し、ビートハート',
+            '回分のスキルハートを獲得する。さらに姫芽の《イグニッションモード》の状態を切り替える。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'extensions_section', 'modeChange'],
+          },
+        },
+      },
       エクステアトラクト: {
         extensions1_stageAttract_section: {
           text: [
@@ -4577,6 +4589,30 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ナインハート・イグニッション': {
+        'nineHeart_ignition': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを9回獲得する。さらに姫芽が《イグニッションモード》になる。',
+          ],
+          detail: {
+            attr: 'nineHeart',
+            type: ['heartCaptcha', 'modeChange'],
+          },
+        },
+      },
+      'ナインハート・リプレイ': {
+        'nineHeart_replay': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを9回獲得し、手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽の《イグニッションモード》を解除する。'
+          ],
+          detail: {
+            attr: 'nineHeart',
+            type: ['heartCaptcha', 'reshuffle', 'modeChange'],
+          },
+        },
+      },
       'AURORA FLOWER/C': {
         'auroraFlower-C': {
           text: [
@@ -4639,6 +4675,114 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['boost_heartCaptcha', 'APReduce_all'],
+          },
+        },
+      },
+      'ズッキュン♡ラブビーム': {
+        'zukkyunLovebeam_section': {
+          text: [
+            'このセクション中、AP回復速度を+',
+            '%する。さらに手札にある全てのスキルの消費AP-9。'
+          ],
+          detail: {
+            attr: '',
+            type: ['APQuick', 'APReduce_all'],
+          },
+        },
+      },
+      'オールレンジ♡ボルテージ': {
+        'allRangeVoltage_section-mentalOver100': {
+          text: [
+            'このセクション中、ハート上限を+',
+            '、AP回復速度を+',
+            '%し、ボルテージPt.を+',
+            'する。さらにメンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'APQuick', 'voltageGain', 'heartCaptcha'],
+          },
+        },
+      },
+      'オールレンジ♡アトラクション': {
+        'allRangeAttraction_section': {
+          text: [
+            'このセクション中、ハート上限を+',
+            '、AP回復速度を+',
+            '%し、姫芽の《イグニッションモード》を解除する。さらにメンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'APQuick', 'modeChange', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
+      },
+      'オールレンジ♡リカバー': {
+        'allRangeRecover_section': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'し、手札の上限枚数を+1する。さらにメンタルを最大値の',
+            '%回復させる。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'reshuffle', 'protect_stage'],
+          },
+        },
+      },
+      'オールレンジ♡プロテクト': {
+        'allRangeProtect_section': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'する。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'protect_stage'],
+          },
+        },
+      },
+      'オールレンジ♡リフレッシュ': {
+        'allRangeRefresh_section': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'する。さらに手札を全て捨てて、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の',
+            '%のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'reshuffle', 'protect_stage'],
+          },
+        },
+      },
+      'オールレンジ♡ブースト': {
+        'allRangeBoost_section': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'し、このステージ中、9回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得効果を+',
+            '%、ラブアトラクト効果を+',
+            '%する。さらにメンタルが100%以上のとき、APを3回復する。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'boost_heartCaptcha', 'boost_loveAttract', 'APGain'],
+          },
+        },
+      },
+      'オールレンジ♡リブート': {
+        'allRangeReboot_section': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'する。さらに手札を全て捨てて、デッキから手札上限までスキルを引き、9回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'allRange',
+            type: ['heartLimitUp', 'reshuffle', 'boost_heartCaptcha'],
           },
         },
       },
@@ -4803,8 +4947,8 @@ export const useSkillStore = defineStore('skillList', {
         description: 'AP回復速度を低下させる。',
       },
       heartLimitUp: {
-        name: 'ハート数上限アップ',
-        colorCode: '',
+        name: 'ワイドハート',
+        colorCode: 'red',
         description: 'ハート数の上限を増加させる。',
       },
       addCard: {

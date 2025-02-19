@@ -84,7 +84,7 @@
                     v-model="center_ja"
                     clearable
                     label="センター"
-                    :items="memberNameList"
+                    :items="Object.keys(store.memberColor)"
                     variant="outlined"
                     color="pink"
                     hint="絞り込みたいセンターメンバーを選んでください"
@@ -294,11 +294,11 @@
       </v-col>
 
       <template
-        v-for="(arr, memberName) in store.memberName"
+        v-for="memberName in store.memberNameList"
         :key="memberName"
       >
         <v-col
-          v-if="!store.isExclusionMember(memberName)"
+          v-if="!store.isOtherMember(memberName)"
           cols="6"
           md="4"
           lg="2"
@@ -370,7 +370,11 @@
         align="center"
         class="align-self-center"
       >
-        <v-btn @click="store.showModalEvent('masteryLevel')">詳細を見る</v-btn>
+        <v-btn
+          @click="store.showModalEvent('masteryLevel')"
+        >
+          詳細を見る
+        </v-btn>
       </v-col>
 
       <v-col
@@ -384,8 +388,9 @@
         <v-btn
           color="blue"
           @click="store.showModalEvent('masteryLevel')"
-          >ソート</v-btn
         >
+          ソート
+        </v-btn>
       </v-col>
     </v-row>
 
@@ -489,7 +494,11 @@
                       class="skillIcon"
                     ></v-img>
                   </li>
-                  <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
+                  <li
+                    class="align-self-center text-caption"
+                  >
+                    MLv.{{ store.musicList[songTitle].level }}
+                  </li>
                 </ul>
               </v-card-item>
             </v-card>
@@ -514,13 +523,6 @@
 import { useStoreCounter } from '../stores/counter';
 const store = useStoreCounter();
 store.setSupportSkillLevel();
-const memberNameList = [];
-
-for (const memberName in store.memberName) {
-  if (!store.isExclusionMember(memberName)) {
-    memberNameList.push(memberName);
-  }
-}
 </script>
 
 <script>

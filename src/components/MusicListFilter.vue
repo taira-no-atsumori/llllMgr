@@ -8,7 +8,7 @@
           clearable
           chips
           label="センター"
-          :items="memberNameList"
+          :items="store.memberNameList"
           variant="outlined"
           color="pink"
         >
@@ -23,12 +23,19 @@
             </v-chip>
           </template>-->
           <template v-slot:item="{ item, index }">
-            <v-list-item :title="item.title" @click="selectCenter(item.title)">
+            <v-list-item
+              :title="item.title"
+              @click="selectCenter(item.title)"
+            >
               <template v-slot:prepend>
-                <v-img
-                  :src="require(`@/assets/member_icon/icon_SD_${Object.keys(store.memberName)[index]}.png`)"
-                  class="icon member"
-                ></v-img>
+                <template
+                  v-if="!store.isOtherMember(item.title)"
+                >
+                  <v-img
+                    :src="require(`@/assets/member_icon/icon_SD_${Object.keys(store.memberName)[index]}.png`)"
+                    class="icon member"
+                  ></v-img>
+                </template>
               </template>
             </v-list-item>
           </template>

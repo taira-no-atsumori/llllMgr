@@ -4,6 +4,7 @@ export const useMusicStore = defineStore('musicList', {
   state: () => ({
     musicList: {
       'Dream Believers(4人Ver.)': {
+        ID: 'm_001',
         musicData: {
           kana: 'どりーむびりーばーず',
           singer: '日野下 花帆、村野 さやか、乙宗 梢、夕霧 綴理',
@@ -30,6 +31,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
       '永遠のEuphoria(4人Ver.)': {
+        ID: 'm_002',
         musicData: {
           kana: 'えいえんのゆーふぉりあ',
           singer: '日野下 花帆、村野 さやか、乙宗 梢、夕霧 綴理',
@@ -56,6 +58,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
       'On your mark': {
+        ID: 'm_003',
         musicData: {
           kana: 'おんゆあまーく',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -82,6 +85,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'DEEPNESS': {
+        ID: 'm_016',
         musicData: {
           kana: 'でぃーぷねす',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -108,6 +112,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
       '永遠のEuphoria': {
+        ID: 'm_037',
         musicData: {
           kana: 'えいえんのゆーふぉりあ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -134,6 +139,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       '夏めきペイン': {
+        ID: 'm_038',
         musicData: {
           kana: 'なつめきぺいん',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -160,6 +166,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Dream Believers': {
+        ID: 'm_046',
         musicData: {
           kana: 'どりーむびりーばーず',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -186,6 +193,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Legato': {
+        ID: 'm_050',
         musicData: {
           kana: 'れがーと',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -212,6 +220,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Trick & Cute': {
+        ID: 'm_051',
         musicData: {
           kana: 'とりっくあんどきゅーと',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -238,6 +247,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Yup! Yup! Yup!': {
+        ID: 'm_059',
         musicData: {
           kana: 'やっぷやっぷやっぷ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -264,6 +274,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       '明日の空の僕たちへ': {
+        ID: 'm_057',
         musicData: {
           kana: 'あすのそらのぼくたちへ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -290,6 +301,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'ツバサ・ラ・リベルテ': {
+        ID: 'm_060',
         musicData: {
           kana: 'つばさらりべるて',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -316,6 +328,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Link to the FUTURE': {
+        ID: 'm_066',
         musicData: {
           kana: 'りんくとぅーざふゅーちゃー',
           singer: 'スリーズブーケ & DOLLCHESTRA & みらくらぱーく！',
@@ -342,6 +355,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       '抱きしめる花びら': {
+        ID: 'm_080',
         musicData: {
           kana: 'だきしめるはなびら',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -368,6 +382,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'STEP UP！': {
+        ID: 'm_081',
         musicData: {
           kana: 'すてっぷあっぷ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -394,6 +409,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       '水彩世界': {
+        ID: 'm_004',
         musicData: {
           kana: 'すいさいせかい',
           singer: 'スリーズブーケ',
@@ -420,6 +436,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'Reflection in the mirror': {
+        ID: 'm_006',
         musicData: {
           kana: 'りふれくしょんいんざみらー',
           singer: 'スリーズブーケ',
@@ -446,6 +463,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'フォーチュンムービー': {
+        ID: 'm_007',
         musicData: {
           kana: 'ふぉーちゅんむーびー',
           singer: 'スリーズブーケ',
@@ -472,6 +490,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'Mix shake!!': {
+        ID: 'm_008',
         musicData: {
           kana: 'みっくすしぇいく',
           singer: 'スリーズブーケ',
@@ -498,6 +517,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       '謳歌爛漫': {
+        ID: 'm_013',
         musicData: {
           kana: 'おうからんまん',
           singer: 'スリーズブーケ',
@@ -524,6 +544,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'Holiday∞Holiday': {
+        ID: 'm_012',
         musicData: {
           kana: 'ほりでーほりでー',
           singer: 'スリーズブーケ',
@@ -550,6 +571,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       '眩耀夜行': {
+        ID: 'm_033',
         musicData: {
           kana: 'げんようやこう',
           singer: 'スリーズブーケ',
@@ -576,6 +598,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'Kawaii no susume': {
+        ID: 'm_035',
         musicData: {
           kana: 'かわいいのすすめ',
           singer: 'スリーズブーケ',
@@ -602,6 +625,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       '残陽': {
+        ID: 'm_044',
         musicData: {
           kana: 'ざんよう',
           singer: 'スリーズブーケ',
@@ -628,6 +652,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       '素顔のピクセル': {
+        ID: 'm_047',
         musicData: {
           kana: 'すがおのぴくせる',
           singer: 'スリーズブーケ',
@@ -654,6 +679,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       '千変万華': {
+        ID: 'm_052',
         musicData: {
           kana: 'せんぺんばんか',
           singer: 'スリーズブーケ',
@@ -680,6 +706,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'Dear my future': {
+        ID: 'm_061',
         musicData: {
           kana: 'でぃあまいふゅーちゃー',
           singer: 'スリーズブーケ',
@@ -706,6 +733,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'シュガーメルト': {
+        ID: 'm_063',
         musicData: {
           kana: 'しゅがーめると',
           singer: 'スリーズブーケ',
@@ -732,6 +760,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'Special Thanks': {
+        ID: 'm_068',
         musicData: {
           kana: 'すぺしゃるさんくす',
           singer: 'スリーズブーケ',
@@ -758,6 +787,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'AWOKE': {
+        ID: 'm_005',
         musicData: {
           kana: 'あうぉーく',
           singer: 'DOLLCHESTRA',
@@ -784,6 +814,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Sparkly Spot': {
+        ID: 'm_009',
         musicData: {
           kana: 'すぱーくりーすぽっと',
           singer: 'DOLLCHESTRA',
@@ -810,6 +841,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'ツキマカセ': {
+        ID: 'm_010',
         musicData: {
           kana: 'つきまかせ',
           singer: 'DOLLCHESTRA',
@@ -836,6 +868,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '希望的プリズム': {
+        ID: 'm_011',
         musicData: {
           kana: 'きぼうてきぷりずむ',
           singer: 'DOLLCHESTRA',
@@ -862,6 +895,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'スケイプゴート': {
+        ID: 'm_015',
         musicData: {
           kana: 'すけいぷごーと',
           singer: 'DOLLCHESTRA',
@@ -888,6 +922,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Tragic Drops': {
+        ID: 'm_014',
         musicData: {
           kana: 'とらじっくどろっぷす',
           singer: 'DOLLCHESTRA',
@@ -914,6 +949,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Mirage Voyage': {
+        ID: 'm_034',
         musicData: {
           kana: 'みらーじゅぼやーじゅ',
           singer: 'DOLLCHESTRA',
@@ -940,6 +976,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'ジブンダイアリー': {
+        ID: 'm_036',
         musicData: {
           kana: 'しぶんだいありー',
           singer: 'DOLLCHESTRA',
@@ -966,6 +1003,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'パラレルダンサー': {
+        ID: 'm_045',
         musicData: {
           kana: 'ぱられるだんさー',
           singer: 'DOLLCHESTRA',
@@ -992,6 +1030,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Take It Over': {
+        ID: 'm_048',
         musicData: {
           kana: 'ていくいっとおーばー',
           singer: 'DOLLCHESTRA',
@@ -1018,6 +1057,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'KNOT': {
+        ID: 'm_053',
         musicData: {
           kana: 'のっと',
           singer: 'DOLLCHESTRA',
@@ -1044,6 +1084,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '青春の輪郭': {
+        ID: 'm_058',
         musicData: {
           kana: 'せいしゅんのりんかく',
           singer: 'DOLLCHESTRA',
@@ -1070,6 +1111,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '飴色': {
+        ID: 'm_064',
         musicData: {
           kana: 'あめいろ',
           singer: 'DOLLCHESTRA',
@@ -1096,6 +1138,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '青とシャボン': {
+        ID: 'm_069',
         musicData: {
           kana: 'あおとしゃぼん',
           singer: 'DOLLCHESTRA',
@@ -1122,6 +1165,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       'ド！ド！ド！': {
+        ID: 'm_039',
         musicData: {
           kana: 'どどど',
           singer: 'みらくらぱーく！',
@@ -1148,6 +1192,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ハクチューアラモード': {
+        ID: 'm_040',
         musicData: {
           kana: 'はくちゅーあらもーど',
           singer: 'みらくらぱーく！',
@@ -1174,6 +1219,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ココン東西': {
+        ID: 'm_041',
         musicData: {
           kana: 'ここんとうざい',
           singer: 'みらくらぱーく！',
@@ -1200,6 +1246,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'アイデンティティ': {
+        ID: 'm_049',
         musicData: {
           kana: 'あいでんてぃてぃ',
           singer: 'みらくらぱーく！',
@@ -1226,6 +1273,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ノンフィクションヒーローショー': {
+        ID: 'm_054',
         musicData: {
           kana: 'のんふぃくしょんひーろーしょー',
           singer: 'みらくらぱーく！',
@@ -1252,6 +1300,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       '天才なのかもしれない': {
+        ID: 'm_065',
         musicData: {
           kana: 'てんさいなのかもしれない',
           singer: 'みらくらぱーく！',
@@ -1278,6 +1327,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ミルク': {
+        ID: 'm_070',
         musicData: {
           kana: 'みるく',
           singer: 'みらくらぱーく！',
@@ -1304,6 +1354,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'BANG YOU グラビティ': {
+        ID: 'm_077',
         musicData: {
           kana: 'ばんゆうぐらびてぃ',
           singer: 'みらくらぱーく！',
@@ -1330,6 +1381,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       '以心☆電信': {
+        ID: 'm_078',
         musicData: {
           kana: 'いしんでんしん',
           singer: 'みらくらぱーく！',
@@ -1356,6 +1408,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'マハラジャンボリー': {
+        ID: 'm_079',
         musicData: {
           kana: 'まはらじゃんぼりー',
           singer: 'みらくらぱーく！',
@@ -1382,6 +1435,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ハッピー至上主義！': {
+        ID: 'm_074',
         musicData: {
           kana: 'はっぴーしじょうしゅぎ',
           singer: 'かほめぐ♡じぇらーと',
@@ -1408,6 +1462,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'megumi'],
       },
       'Pleasure Feather': {
+        ID: 'm_075',
         musicData: {
           kana: 'ぷれじゃーふぇざー',
           singer: '蓮ノ休日',
@@ -1434,6 +1489,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'kozue'],
       },
       'Colorfulness': {
+        ID: 'm_076',
         musicData: {
           kana: 'からふるねす',
           singer: 'るりのとゆかいなつづりたち',
@@ -1460,6 +1516,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'tsuzuri'],
       },
       'Runway': {
+        ID: 'm_055',
         musicData: {
           kana: 'らんうぇい',
           singer: '村野さやか',
@@ -1486,6 +1543,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka'],
       },
       '僕らのLIVE 君とのLIFE': {
+        ID: 'm_017',
         musicData: {
           kana: 'ぼくらのらいふきみとのらいふ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -1512,6 +1570,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       },
       '君のこころは輝いてるかい？': {
+        ID: 'm_018',
         musicData: {
           kana: 'きみのこころはかがやいてるかい',
           singer: 'スリーズブーケ',
@@ -1537,33 +1596,8 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'kozue'],
       },
-      'TOKIMEKI Runners': {
-        musicData: {
-          kana: 'ときめきらんなーず',
-          singer: 'みらくらぱーく！',
-          releaseDate: {
-            year: 2018,
-            month: 11,
-            date: 21,
-          },
-          numbering: '虹ヶ咲学園スクールアイドル同好会 1stアルバム',
-          BPM: {
-            original: 180,
-            inGame: 180,
-          },
-          time: 94.67,
-          cover: true,
-          link: 'https://youtu.be/V2tCGX7m5KE?si=k87Q4qhwsSj8s4h3',
-        },
-        attribute: 'smile',
-        BHcount: 69,
-        level: 0,
-        term: 103,
-        center: 'rurino',
-        bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi'],
-      },
       '始まりは君の空': {
+        ID: 'm_022',
         musicData: {
           kana: 'はじまりはきみのそら',
           singer: 'DOLLCHESTRA',
@@ -1589,7 +1623,35 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
       },
+      'TOKIMEKI Runners': {
+        ID: 'm_025',
+        musicData: {
+          kana: 'ときめきらんなーず',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2018,
+            month: 11,
+            date: 21,
+          },
+          numbering: '虹ヶ咲学園スクールアイドル同好会 1stアルバム',
+          BPM: {
+            original: 180,
+            inGame: 180,
+          },
+          time: 94.67,
+          cover: true,
+          link: 'https://youtu.be/V2tCGX7m5KE?si=k87Q4qhwsSj8s4h3',
+        },
+        attribute: 'smile',
+        BHcount: 69,
+        level: 0,
+        term: 103,
+        center: 'rurino',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'megumi'],
+      },
       'ビバハピ': {
+        ID: 'm_027',
         musicData: {
           kana: 'びばはぴ',
           singer: '日野下 花帆',
@@ -1616,6 +1678,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho'],
       },
       '深愛': {
+        ID: 'm_028',
         musicData: {
           kana: 'しんあい',
           singer: '乙宗 梢',
@@ -1642,6 +1705,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kozue'],
       },
       'Preserved Roses': {
+        ID: 'm_019',
         musicData: {
           kana: 'ぷりざーぶどろーぜず',
           singer: 'スリーズブーケ',
@@ -1668,6 +1732,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'そばかす': {
+        ID: 'm_029',
         musicData: {
           kana: 'そばかす',
           singer: '村野 さやか',
@@ -1694,6 +1759,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka'],
       },
       'ロストワンの号哭': {
+        ID: 'm_030',
         musicData: {
           kana: 'ろすとわんのごうこく',
           singer: '夕霧 綴理',
@@ -1720,6 +1786,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['tsuzuri'],
       },
       '名前のない怪物': {
+        ID: 'm_023',
         musicData: {
           kana: 'なまえのないかいぶつ',
           singer: 'DOLLCHESTRA',
@@ -1746,6 +1813,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '狙いうち': {
+        ID: 'm_031',
         musicData: {
           kana: 'ねらいうち',
           singer: '大沢 瑠璃乃',
@@ -1772,6 +1840,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino'],
       },
       '♡桃色片想い♡': {
+        ID: 'm_032',
         musicData: {
           kana: 'ももいろかたおもい',
           singer: '藤島 慈',
@@ -1798,6 +1867,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['megumi'],
       },
       'いーあるふぁんくらぶ': {
+        ID: 'm_026',
         musicData: {
           kana: 'いーあるふぁんくらぶ',
           singer: 'みらくらぱーく！',
@@ -1824,6 +1894,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ハッピーシンセサイザ': {
+        ID: 'm_020',
         musicData: {
           kana: 'はっぴーしんせさいざ',
           singer: 'スリーズブーケ',
@@ -1850,6 +1921,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'ヴィラン': {
+        ID: 'm_024',
         musicData: {
           kana: 'ゔぃらん',
           singer: 'DOLLCHESTRA',
@@ -1876,6 +1948,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '心予報': {
+        ID: 'm_021',
         musicData: {
           kana: 'しんよほう',
           singer: 'スリーズブーケ',
@@ -1902,6 +1975,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       '威風堂々': {
+        ID: 'm_042',
         musicData: {
           kana: 'いふうどうどう',
           singer: 'DOLLCHESTRA',
@@ -1928,6 +2002,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '強風オールバック': {
+        ID: 'm_043',
         musicData: {
           kana: 'きょうふうおーるばっく',
           singer: 'みらくらぱーく！',
@@ -1954,6 +2029,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'ダンスロボットダンス': {
+        ID: 'm_056',
         musicData: {
           kana: 'だんすろぼっとだんす',
           singer: 'みらくらぱーく！',
@@ -1980,6 +2056,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi'],
       },
       'CHANGE!!!!': {
+        ID: 'm_062',
         musicData: {
           kana: 'ちぇんじ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2006,6 +2083,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       },
       '祝福': {
+        ID: 'm_067',
         musicData: {
           kana: 'しゅくふく',
           singer: 'DOLLCHESTRA',
@@ -2032,6 +2110,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri'],
       },
       '御旗のもとに': {
+        ID: 'm_071',
         musicData: {
           kana: 'みはたのもとに',
           singer: 'スリーズブーケ',
@@ -2058,6 +2137,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue'],
       },
       'ダイヤモンドハッピー': {
+        ID: 'm_072',
         musicData: {
           kana: 'だいやもんどはっぴー',
           singer: '乙宗梢・夕霧綴理・藤島慈',
@@ -2084,6 +2164,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kozue', 'tsuzuri', 'megumi'],
       },
       'lucky train!': {
+        ID: 'm_073',
         musicData: {
           kana: 'らっきーとれいん',
           singer: '日野下花帆・村野さやか・大沢瑠璃乃',
@@ -2110,6 +2191,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino'],
       },
       'Dream Believers(104期Ver.)': {
+        ID: 'm_082',
         musicData: {
           kana: 'どりーむびりーばーず',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2136,6 +2218,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'On your mark(104期Ver.)': {
+        ID: 'm_083',
         musicData: {
           kana: 'おんゆあまーく',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2162,6 +2245,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       '365 Days': {
+        ID: 'm_090',
         musicData: {
           kana: 'えぶりでい',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2188,6 +2272,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'Bloom the smile, Bloom the dream!': {
+        ID: 'm_096',
         musicData: {
           kana: 'ぶるーむざすまいるぶるーむざどりーむ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2214,6 +2299,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       '永遠のEuphoria（104期Ver.）': {
+        ID: 'm_102',
         musicData: {
           kana: 'えいえんのゆーふぉりあ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2240,6 +2326,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       '夏めきペイン（104期Ver.）': {
+        ID: 'm_109',
         musicData: {
           kana: 'なつめきぺいん',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2266,6 +2353,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'DEEPNESS（ReC Ver.）': {
+        ID: 'm_112',
         musicData: {
           kana: 'でぃーぷねす',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2292,6 +2380,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       },
       'Trick & Cute（104期Ver.）': {
+        ID: 'm_116',
         musicData: {
           kana: 'とりっくあんどきゅーと',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2318,6 +2407,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'Link to the FUTURE（104期Ver.）': {
+        ID: 'm_123',
         musicData: {
           kana: 'りんくとぅーざふゅーちゃー',
           singer: 'スリーズブーケ & DOLLCHESTRA & みらくらぱーく！',
@@ -2344,6 +2434,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'Now or Never': {
+        ID: 'm_122',
         musicData: {
           kana: 'なうおあねばー',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2370,6 +2461,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'KEY of Like！': {
+        ID: 'm_136',
         musicData: {
           kana: 'きーおぶらいく',
           singer: 'スリーズブーケ & DOLLCHESTRA & みらくらぱーく！',
@@ -2396,6 +2488,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'AURORA FLOWER': {
+        ID: 'm_138',
         musicData: {
           kana: 'おーろらふらわー',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2422,6 +2515,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'ゲッカビジン': {
+        ID: 'm_139',
         musicData: {
           kana: 'げっかびじん',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2448,6 +2542,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'ツバサ・ラ・リベルテ（104期Ver.）': {
+        ID: 'm_127',
         musicData: {
           kana: 'つばさらりべるて',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -2474,6 +2569,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'Reflection in the mirror（104期NEW Ver.）': {
+        ID: 'm_084',
         musicData: {
           kana: 'りふれくしょんいんざみらー',
           singer: 'スリーズブーケ',
@@ -2500,6 +2596,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Mix shake!!（104期Ver.）': {
+        ID: 'm_087',
         musicData: {
           kana: 'みっくすしぇいく',
           singer: 'スリーズブーケ',
@@ -2526,6 +2623,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '千変万華（104期Ver.）': {
+        ID: 'm_093',
         musicData: {
           kana: 'せんぺんばんか',
           singer: 'スリーズブーケ',
@@ -2552,6 +2650,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '素顔のピクセル（104期Ver.）': {
+        ID: 'm_118',
         musicData: {
           kana: 'すがおのぴくせる',
           singer: 'スリーズブーケ',
@@ -2578,6 +2677,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'アオクハルカ': {
+        ID: 'm_099',
         musicData: {
           kana: 'あおくはるか',
           singer: 'スリーズブーケ',
@@ -2604,6 +2704,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '月夜見海月': {
+        ID: 'm_103',
         musicData: {
           kana: 'つくよみくらげ',
           singer: 'スリーズブーケ',
@@ -2630,6 +2731,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '眩耀夜行（104期Ver.）': {
+        ID: 'm_105',
         musicData: {
           kana: 'げんようやこう',
           singer: 'スリーズブーケ',
@@ -2656,6 +2758,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Holiday∞Holiday（104期Ver.）': {
+        ID: 'm_112',
         musicData: {
           kana: 'ほりでーほりでー',
           singer: 'スリーズブーケ',
@@ -2682,6 +2785,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'ハナムスビ': {
+        ID: 'm_130',
         musicData: {
           kana: 'はなむすび',
           singer: 'スリーズブーケ',
@@ -2708,6 +2812,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '水彩世界（104期Ver.）': {
+        ID: 'm_131',
         musicData: {
           kana: 'すいさいせかい',
           singer: 'スリーズブーケ',
@@ -2734,6 +2839,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'シュガーメルト（104期Ver.）': {
+        ID: 'm_133',
         musicData: {
           kana: 'しゅがーめると',
           singer: 'スリーズブーケ',
@@ -2760,6 +2866,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Sparkly Spot（104期NEW Ver.）': {
+        ID: 'm_085',
         musicData: {
           kana: 'すぱーくりーすぽっと',
           singer: 'DOLLCHESTRA',
@@ -2786,6 +2893,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Tragic Drops（104期Ver.）': {
+        ID: 'm_088',
         musicData: {
           kana: 'とらじっくどろっぷす',
           singer: 'DOLLCHESTRA',
@@ -2812,6 +2920,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Take It Over（104期Ver.）': {
+        ID: 'm_119',
         musicData: {
           kana: 'ていくいっとおーばー',
           singer: 'DOLLCHESTRA',
@@ -2838,6 +2947,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'レディバグ': {
+        ID: 'm_092',
         musicData: {
           kana: 'れでぃばぐ',
           singer: 'DOLLCHESTRA',
@@ -2864,6 +2974,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'KNOT（104期Ver.）': {
+        ID: 'm_094',
         musicData: {
           kana: 'のっと',
           singer: 'DOLLCHESTRA',
@@ -2890,6 +3001,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Mirage Voyage（104期Ver.）': {
+        ID: 'm_106',
         musicData: {
           kana: 'みらーじゅぼやーじゅ',
           singer: 'DOLLCHESTRA',
@@ -2916,6 +3028,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Proof': {
+        ID: 'm_110',
         musicData: {
           kana: 'ぷるーふ',
           singer: 'DOLLCHESTRA',
@@ -2942,6 +3055,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       '希望的プリズム（104期Ver.）': {
+        ID: 'm_113',
         musicData: {
           kana: 'きぼうてきぷりずむ',
           singer: 'DOLLCHESTRA',
@@ -2968,6 +3082,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'バアドケージ': {
+        ID: 'm_128',
         musicData: {
           kana: 'ばあどけーじ',
           singer: 'DOLLCHESTRA',
@@ -2994,6 +3109,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'AWOKE（104期Ver.）': {
+        ID: 'm_129',
         musicData: {
           kana: 'あうぉーく',
           singer: 'DOLLCHESTRA',
@@ -3020,6 +3136,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       '青春の輪郭（104期Ver.）': {
+        ID: 'm_134',
         musicData: {
           kana: 'せいしゅんのりんかく',
           singer: 'DOLLCHESTRA',
@@ -3046,6 +3163,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'アイデンティティ（104期NEW Ver.）': {
+        ID: 'm_086',
         musicData: {
           kana: 'あいでんてぃてぃ',
           singer: 'みらくらぱーく！',
@@ -3072,6 +3190,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ココン東西（104期Ver.）': {
+        ID: 'm_089',
         musicData: {
           kana: 'ここんとうざい',
           singer: 'みらくらぱーく！',
@@ -3098,6 +3217,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ノンフィクションヒーローショー（104期Ver.）': {
+        ID: 'm_095',
         musicData: {
           kana: 'のんふぃくしょんひーろーしょー',
           singer: 'みらくらぱーく！',
@@ -3124,6 +3244,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'みらくりえーしょん': {
+        ID: 'm_098',
         musicData: {
           kana: 'みらくりえーしょん',
           singer: 'みらくらぱーく！',
@@ -3150,6 +3271,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       '以心☆電信（104期Ver.）': {
+        ID: 'm_108',
         musicData: {
           kana: 'いしんでんしん',
           singer: 'みらくらぱーく！',
@@ -3176,6 +3298,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ハクチューアラモード（104期Ver.）': {
+        ID: 'm_114',
         musicData: {
           kana: 'はくちゅーあらもーど',
           singer: 'みらくらぱーく！',
@@ -3202,6 +3325,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ファンファーレ！！！': {
+        ID: 'm_117',
         musicData: {
           kana: 'ふぁんふぁーれ',
           singer: 'みらくらぱーく！',
@@ -3228,6 +3352,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'マハラジャンボリー（104期Ver.）': {
+        ID: 'm_120',
         musicData: {
           kana: 'まはらじゃんぼりー',
           singer: 'みらくらぱーく！',
@@ -3254,6 +3379,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ジョーショーキリュー': {
+        ID: 'm_125',
         musicData: {
           kana: 'じょーしょーきりゅー',
           singer: 'みらくらぱーく！',
@@ -3281,6 +3407,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ド！ド！ド！（104期Ver.）': {
+        ID: 'm_126',
         musicData: {
           kana: 'どどど',
           singer: 'みらくらぱーく！',
@@ -3307,6 +3434,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       '天才なのかもしれない（104期Ver.）': {
+        ID: 'm_135',
         musicData: {
           kana: 'てんさいなのかもしれない',
           singer: 'みらくらぱーく！',
@@ -3332,7 +3460,62 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
+      '全方位キュン♡': {
+        ID: 'm_141',
+        musicData: {
+          kana: 'ぜんほういきゅん',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2025,
+            month: 3,
+            date: 19,
+          },
+          numbering: 'みらくらぱーく！ 4thシングル',
+          BPM: {
+            original: 190,
+            inGame: 190,
+          },
+          time: 109,
+          cover: false,
+          link: 'https://youtu.be/3nSkPtE56kc?si=NSma1HL3Zpd50wL1',
+        },
+        attribute: 'smile',
+        BHcount: 87,
+        level: 0,
+        term: 104,
+        center: 'megumi',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['rurino', 'megumi', 'hime'],
+      },
+      'かくれんぼしよう': {
+        ID: 'm_142',
+        musicData: {
+          kana: 'かくれんぼしよう',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2025,
+            month: 3,
+            date: 19,
+          },
+          numbering: 'みらくらぱーく！ 4thシングル',
+          BPM: {
+            original: 96,
+            inGame: 96,
+          },
+          time: 138,
+          cover: false,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 53,
+        level: 0,
+        term: 104,
+        center: 'rurino',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'megumi', 'hime'],
+      },
       'Snow halation': {
+        ID: 'm_091',
         musicData: {
           kana: 'すのーはれーしょん',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -3359,6 +3542,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'NEO SKY, NEO MAP!': {
+        ID: 'm_097',
         musicData: {
           kana: 'ねおすかいねおまっぷ',
           singer: 'スリーズブーケ',
@@ -3385,6 +3569,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Daydream Warrior': {
+        ID: 'm_100',
         musicData: {
           kana: 'でいどりーむうぉーりあー',
           singer: 'DOLLCHESTRA',
@@ -3411,6 +3596,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       '夏色えがおで1, 2, Jump!': {
+        ID: 'm_104',
         musicData: {
           kana: 'なついろえがおでわんつーじゃんぷ',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -3437,6 +3623,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       '常夏☆サンシャイン': {
+        ID: 'm_107',
         musicData: {
           kana: 'とこなつさんしゃいん',
           singer: 'みらくらぱーく！',
@@ -3463,6 +3650,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ミラクルショッピング ～ドン・キホーテのテーマ～': {
+        ID: 'm_101',
         musicData: {
           kana: 'みらくるしょっぴんぐ',
           singer: 'みらくらぱーく！',
@@ -3489,6 +3677,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ルージュの伝言': {
+        ID: 'm_115',
         musicData: {
           kana: 'るーじゅのでんごん',
           singer: '百生 吟子',
@@ -3515,6 +3704,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['ginko'],
       },
       'ビビデバ': {
+        ID: 'm_121',
         musicData: {
           kana: 'びびでば',
           singer: '徒町 小鈴',
@@ -3541,6 +3731,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kosuzu'],
       },
       'This game': {
+        ID: 'm_124',
         musicData: {
           kana: 'でぃすげーむ',
           singer: '安養寺 姫芽',
@@ -3567,6 +3758,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['hime'],
       },
       'STARTLINER': {
+        ID: 'm_132',
         musicData: {
           kana: 'すたーとらいなー',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
@@ -3593,6 +3785,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       '雑踏、僕らの街': {
+        ID: 'm_137',
         musicData: {
           kana: 'ざっとうぼくらのまち',
           singer: 'DOLLCHESTRA',
@@ -3619,6 +3812,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'きゅうくらりん': {
+        ID: 'm_140',
         musicData: {
           kana: 'きゅうくらりん',
           singer: 'みらくらぱーく！',
@@ -3643,6 +3837,33 @@ export const useMusicStore = defineStore('musicList', {
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['rurino', 'megumi', 'hime'],
+      },
+      'Welcome!': {
+        ID: 'm_143',
+        musicData: {
+          kana: 'うぇるかむ',
+          singer: '乙宗梢',
+          releaseDate: {
+            year: 2025,
+            month: 2,
+            date: 9,
+          },
+          numbering: 'ゲーマーズCMソング',
+          BPM: {
+            original: 100,
+            inGame: 100,
+          },
+          time: 123.27,
+          cover: true,
+          link: 'https://youtu.be/9eGkn0jhS8A?si=TW2To0acNciaA8LX',
+        },
+        attribute: 'smile',
+        BHcount: 49,
+        level: 0,
+        term: 104,
+        center: 'kozue',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kozue'],
       },
       /*'恥は人生のかきすて': {
         musicData: {

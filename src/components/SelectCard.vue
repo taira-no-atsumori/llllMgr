@@ -37,7 +37,7 @@
             <v-img
               :src="require(
                 `@/assets/card_illust/${store.conversion(cardName)}_${
-                  store.memberName[store.findOpenCardMemberName(cardName, store.openCard.name)].last
+                  makeCardMemberName(store, cardName)
                 }_覚醒後.webp`
               )"
               gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
@@ -57,7 +57,7 @@
             <v-img
               :src="require(
                 `@/assets/card_illust/${store.conversion(cardName)}_${
-                  store.memberName[store.findOpenCardMemberName(cardName, store.openCard.name)].last
+                  makeCardMemberName(store, cardName)
                 }_覚醒後.webp`
               )"
             ></v-img>
@@ -285,6 +285,11 @@
     mounted() {},
     computed: {},
     methods: {
+      makeCardMemberName(store, cardName) {
+        const cardMemberName = store.findOpenCardMemberName(store.findCardId(store.openCard.name, cardName));
+
+        return cardMemberName === 'selaIzu' ? '桂城泉＆セラス 柳田 リリエンフェルト' : store.memberName[cardMemberName].last;
+      },
       searchSetCard(store, cardName) {
         let result = false;
 
@@ -300,10 +305,28 @@
         return result;
       },
       outputCardList(store, rare) {
+        let result = { ...store.card[store.openCard.name][rare] };
+
+        if (store.formationMember[104].some(name => name === store.openCard.name) && rare === 'SR') {
+          result = { ...result, ...store.card.selaIzu.SR };
+        }
+
         if (store.formationMember[103].some(name => name === store.openCard.name) && rare === 'UR') {
-          return { ...store.card[store.openCard.name][rare], ...store.card.sachi.UR };
+          result = { ...result, ...store.card.sachi.UR };
+        }
+
+        if (store.openCard.style !== 'main') {
+          return result;
         } else {
-          return store.card[store.openCard.name][rare];
+          let result2 = {};
+
+          for (const cardName in result) {
+            if (result[cardName]?.specialAppeal) {
+              result2[cardName] = result[cardName];
+            }
+          }
+
+          return result2;
         }
       },
       openMemberName(store) {
@@ -336,7 +359,7 @@
         ) {
           this.snackbar.sameCard = true;
         } else if (
-          store.findOpenCardMemberName(cardName, store.openCard.name) === 'sachi'
+          store.findOpenCardMemberName(store.findCardId(store.openCard.name, cardName)) === 'sachi'
         ) {
           if (store.openCard.style === 'main') {
             this.sachiMessage = '私はMAIN STYLEには設定できないんだよねぃ';
@@ -354,10 +377,7 @@
             }
           }
 
-          store.setSelectCard(
-            cardName,
-            p
-          );
+          store.setSelectCard(cardName, p);
           store.switchDialog(false);
         } else if (
           store.searchSelectDeckCard(store.openCard.name, store.openCard.style) === 'default'
@@ -367,16 +387,10 @@
             console.log(data);
             store.selectDeck.cardData[store.openCard.name][style].cardName === cardName;
           }*/
-          store.setSelectCard(
-            cardName,
-            p
-          );
+          store.setSelectCard(cardName, p);
           store.switchDialog(false);
         } else {
-          store.setSelectCard(
-            cardName,
-            p
-          );
+          store.setSelectCard(cardName, p);
           store.switchDialog(false);
           rare;
           // this.selectCard = cardName;
@@ -418,9 +432,22 @@
       },
       makeReleaseBonus(store, isBefore) {
         if (isBefore) {
-          return (1 + store.grandprixBonus.releaseLv[store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))][this.getCardStatus('releaseLevel', true) - 1]) * 100;
+          return (
+            1 + store.grandprixBonus.releaseLv[
+              store.searchRarity(
+                store.findCardId(
+                  store.openCard.name,
+                  store.searchSelectDeckCard(store.openCard.name, store.openCard.style)
+                )
+              )
+            ][this.getCardStatus('releaseLevel', true) - 1]
+          ) * 100;
         } else {
-          return (1 + store.grandprixBonus.releaseLv[this.rarity][this.getCardStatus('releaseLevel', false) - 1]) * 100;
+          return (
+            1 + store.grandprixBonus.releaseLv[
+              this.rarity
+            ][this.getCardStatus('releaseLevel', false) - 1]
+          ) * 100;
         }
       },
       whichParam(store, attr, isBefore) {

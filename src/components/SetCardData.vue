@@ -55,7 +55,12 @@
           <v-carousel-item
             v-for="kakusei in /^(D|B)R$/.test(store.settingCard.rare) ? ['後'] : ['前', '後']"
             :key="kakusei"
-            :src="require(`@/assets/card_illust/${store.conversion(store.settingCard.card)}_${store.memberName[store.settingCard.name].last}_覚醒${kakusei}.webp`)"
+            :src="require(`@/assets/card_illust/${
+              store.conversion(store.settingCard.card)}_${
+              store.makeCardMemberName(
+                store.settingCard.ID
+              )
+            }_覚醒${kakusei}.webp`)"
           ></v-carousel-item>
         </v-carousel>
         <v-row

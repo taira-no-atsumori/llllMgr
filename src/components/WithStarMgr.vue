@@ -55,11 +55,11 @@
           <v-stepper-window-item value="2">
             <v-row no-gutters>
               <template
-                v-for="(arr, memberName) in store.memberName"
+                v-for="memberName in store.memberNameList"
                 :key="memberName"
               >
                 <v-col
-                  v-if="!store.isExclusionMember(memberName)"
+                  v-if="!store.isOtherMember(memberName)"
                   cols="6"
                   md="4"
                   lg="2"
@@ -68,7 +68,7 @@
                   <v-card class="pa-2">
                     <div class="d-flex flex-row align-center justify-center">
                       <img
-                        v-if="!store.isExclusionMember(memberName)"
+                        v-if="!store.isOtherMember(memberName)"
                         :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
                         style="width: 50px;"
                         class="ml-1 mr-2"
@@ -115,11 +115,11 @@
             </div>
             <v-row no-gutters>
               <template
-                v-for="(arr, memberName) in store.memberName"
+                v-for="memberName in store.memberName"
                 :key="memberName"
               >
                 <v-col
-                  v-if="!store.isExclusionMember(memberName)"
+                  v-if="!store.isOtherMember(memberName)"
                   cols="6"
                   md="4"
                   lg="2"
@@ -128,7 +128,7 @@
                   <v-card class="pa-2">
                     <div class="d-flex flex-row align-center justify-center">
                       <img
-                        v-if="!store.isExclusionMember(memberName)"
+                        v-if="!store.isOtherMember(memberName)"
                         :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
                         style="width: 50px;"
                         class="ml-1 mr-2"
@@ -233,7 +233,7 @@
               :key="memberName"
             >
               <v-col
-                v-if="!store.isExclusionMember(memberName)"
+                v-if="!store.isOtherMember(memberName)"
                 cols="6"
                 md="4"
                 lg="2"
@@ -242,7 +242,7 @@
                 <v-card class="pa-2">
                   <div class="d-flex flex-row align-center justify-center">
                     <img
-                      v-if="!store.isExclusionMember(memberName)"
+                      v-if="!store.isOtherMember(memberName)"
                       :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
                       :style="`width: 50px; filter: grayscale(${sendGiftPtList[i - 1].member[memberName].giftPt > 0 ? 0 : 1});`"
                       class="ml-1 mr-2"
@@ -340,7 +340,7 @@
         :key="memberName"
       >
         <v-col
-          v-if="!store.isExclusionMember(memberName)"
+          v-if="!store.isOtherMember(memberName)"
           cols="12"
           md="4"
           lg="2"
@@ -349,7 +349,7 @@
           <v-row no-gutters>
             <v-col cols="4" align="center" class="align-self-center">
               <v-img
-                v-if="!store.isExclusionMember(memberName)"
+                v-if="!store.isOtherMember(memberName)"
                 :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
                 style="width: 50px;"
               ></v-img>

@@ -33,10 +33,10 @@
             v-for="(arr, pageTitle) of pageList"
             :key="arr"
             :title="pageTitle.toUpperCase()"
-            :subtitle="arr.name"
+            :subtitle="arr.name_ja"
             class="px-2"
             @click="
-              pageMove(arr.url);
+              pageMove(arr.name_en);
               drawer = false;
             "
           >
@@ -62,14 +62,14 @@
                 <v-btn
                   v-bind="props"
                   class="px-2"
-                  @click="pageMove(arr.url)"
+                  @click="pageMove(arr.name_en)"
                 >
                   <v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>
                   {{ pageTitle }}
                 </v-btn>
               </li>
             </template>
-            {{ arr.name }}
+            {{ arr.name_ja }}
           </v-tooltip>
         </template>
       </ul>
@@ -144,9 +144,9 @@
         v-for="(arr, pageTitle) of pageList"
         :key="arr"
         :title="pageTitle.toUpperCase()"
-        :subtitle="arr.name"
+        :subtitle="arr.name_ja"
         class="px-2"
-        @click="pageMove(arr.url)"
+        @click="pageMove(arr.name_en)"
       >
         <template v-slot:prepend>
           <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
@@ -177,7 +177,7 @@
             :key="arr"
             href="javascript:void(0)"
             class="mx-3 mb-2 footer-link"
-            @click="pageMove(arr.url)"
+            @click="pageMove(arr.name_en)"
           >
             {{ pageTitle.toUpperCase() }}
           </a>
@@ -225,39 +225,46 @@ export default {
       drawer: false,
       siteName: 'リンクラ マネージャー！(リンマネ)',
       pageList: {
-        Home: {
+        'Home': {
+          name_en: 'Home',
+          name_ja: 'ホーム',
           url: '/llllMgr/',
-          name: 'ホーム',
           icon: 'home',
         },
         /*'WithStar Mgr': {
+          name_en: 'WithStarMgr',
+          name_ja: '獲得WithStar計算ツール',
           url: 'withStarMgr',
-          name: '獲得WithStar計算ツール',
           icon: 'star'
         },*/
         'Simulation': {
+          name_en: 'Simulation',
+          name_ja: '編成シミュレーション',
           url: 'simulation',
-          name: '編成シミュレーション',
           icon: 'calculator'
         },
         'Card List': {
+          name_en: 'CardList',
+          name_ja: 'カード一覧 / 所持カード設定',
           url: 'cardlist',
-          name: 'カード一覧 / 所持カード設定',
           icon: 'cards',
         },
         'Music List': {
+          name_en: 'MusicList',
+          name_ja: '楽曲一覧 / 楽曲マスタリーレベル設定',
           url: 'musiclist',
-          name: '楽曲一覧 / 楽曲マスタリーレベル設定',
           icon: 'music',
         },
         'Item List': {
+          name_en: 'ItemList',
+          name_ja: 'スキルアップ素材獲得ステージリスト',
           url: 'Itemlist',
-          name: 'スキルアップ素材獲得ステージリスト',
           icon: 'book',
         },
-        License: {
+        'License': {
+          name_en: 'License',
+          name_ja: 'ライセンス',
           url: 'license',
-          name: 'ライセンス',
           icon: 'text-box-outline',
         },
       },
@@ -273,7 +280,15 @@ export default {
     if (localStorage.inflow !== undefined) {
       const pageName = localStorage.inflow;
       localStorage.removeItem('inflow');
-      this.pageMove(`/llllMgr/${pageName}`);
+
+      for (const listName in this.pageList) {
+        if (this.pageList[listName].url === pageName) {
+          this.pageMove(this.pageList[pageName].name_en);
+          return;
+        }
+      }
+
+      this.pageMove(this.pageList.Home.name_en);
     }
   },
   mounted() {},
@@ -284,13 +299,13 @@ export default {
      * @param movePageName 移動先ページ名
      */
     pageMove(movePageName) {
-      this.$router.replace(movePageName);
-      /*this.$router.replace({
-        name: 'CardList',
-        query: {
-          page: 5
-        }
-      });*/
+      // this.$router.replace(movePageName);
+      this.$router.replace({
+        name: movePageName,
+        // query: {
+        //   page: 5
+        // }
+      });
       window.scrollTo(0, 0);
     },
     /**

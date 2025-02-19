@@ -6,6 +6,7 @@ export const useCardStore = defineStore('cardList', {
       default: {
         default: {
           'default': {
+            ID: 'df_000',
             styleType: '',
             mood: '',
             series: '',
@@ -6403,6 +6404,76 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          '全方位キュン♡': {
+            ID: 'rr_043',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '全方位キュン♡',
+            kana: 'ぜんほういきゅん',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.7',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4300,
+              pure: 4800,
+              cool: 3200,
+              mental: 450,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'allRangeRefresh_section',
+              name: 'オールレンジ♡リフレッシュ',
+              AP: 5,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8],
+              ],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 3,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'allRangeRecover_section',
+                  name: 'オールレンジ♡リカバー',
+                  AP: 3,
+                  detail: [
+                    [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                    [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
+                  ],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'allRangeVoltage_section-mentalOver100',
+                  name: 'オールレンジ♡ボルテージ',
+                  AP: 13,
+                  detail: [
+                    [52, 57, 62, 68, 73, 78, 83, 88, 94, 104, 109, 114, 120, 130],
+                    [5.2, 5.8, 6.3, 6.8, 7.3, 7.8, 8.4, 8.9, 9.4, 10.4, 111, 11.5, 12, 13],
+                    [52, 57, 62, 68, 73, 78, 83, 88, 94, 104, 109, 114, 120, 130],
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'イグニッション & APレデュース：みらくらぱーく！',
+              detail: 'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-3し、姫芽が《イグニッションモード》になる。',
+              type: ['APReduce', 'modeChange'],
+            },
+          },
           '春風ブランコ': {
             ID: 'rr_032',
             styleType: 'moodMaker',
@@ -12370,6 +12441,75 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '全方位キュン♡': {
+            ID: 'mg_044',
+            styleType: 'performer',
+            mood: 'neutral',
+            series: '全方位キュン♡',
+            kana: 'ぜんほういきゅん',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.7',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4900,
+              pure: 5600,
+              cool: 3500,
+              mental: 520,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'zukkyunLovebeam_section',
+              name: 'ズッキュン♡ラブビーム',
+              AP: 11,
+              detail: [
+                [36, 39.6, 43.2, 46.8, 50.4, 54, 57.6, 61.2, 64.8, 72, 75.6, 79.2, 82.8, 90],
+              ],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 9,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'allRangeProtect_section',
+                  name: 'オールレンジ♡プロテクト',
+                  AP: 9,
+                  detail: [
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                    [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                  ],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'allRangeAttraction_section',
+                  name: 'オールレンジ♡アトラクション',
+                  AP: 90,
+                  detail: [
+                    [360, 396, 432, 468, 504, 540, 576, 612, 648, 720, 756, 792, 828, 900],
+                    [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                    [1200, 1320, 1440, 1560, 1680, 1800, 1920, 2040, 2160, 2400, 2520, 2640, 2760, 3000],
+                    [1200, 1320, 1440, 1560, 1680, 1800, 1920, 2040, 2160, 2400, 2520, 2640, 2760, 3000],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'M\'s キングダム',
+              detail: 'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-9。さらにこのスキル使用時、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引き、デッキにあるみらくらぱーく！のスキルの消費AP-9。この時みらくらぱーく！のスキルをドローする確率大幅アップ。',
+              type: ['APReduce', 'reshuffle'],
+            },
+          },
           'KEY of Like！': {
             ID: 'mg_042',
             styleType: 'performer',
@@ -16524,6 +16664,68 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '全方位キュン♡': {
+            ID: 'hm_018',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '全方位キュン♡',
+            kana: 'ぜんほういきゅん',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.7',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4700,
+              pure: 5700,
+              cool: 3600,
+              mental: 520,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'allRangeReboot_section',
+              name: 'オールレンジ♡リブート',
+              AP: 11,
+              detail: [
+                [360, 396, 432, 468, 504, 540, 576, 612, 648, 720, 756, 792, 828, 900],
+                [60, 66, 72, 78, 84, 90, 96, 102, 108, 120, 126, 132, 138, 150],
+              ],
+            },
+            skill: {
+              ID: 'allRangeBoost_section',
+              name: 'オールレンジ♡ブースト',
+              AP: 9,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [25, 28, 30, 33, 35, 38, 40, 43, 45, 50, 53, 55, 58, 63],
+                [8.4, 9.24, 10.08, 10.92, 11.76, 12.6, 13.44, 14.28, 15.12, 16.8, 17.64, 18.48, 19.32, 21],
+              ],
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常モード',
+                  name: 'イグニッション：みらくらぱーく！',
+                  detail: '手札にある状態でみらくらぱーく！のスキルを使用するたび、姫芽が《イグニッションモード》になる。',
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'APレデュース：みらくらぱーく！',
+                  detail: 'このスキルを使用するたび、手札にあるみらくらぱーく！のスキルの消費AP-9。',
+                },
+              ],
+            },
+          },
           '蓮ノ空歌留多': {
             ID: 'hm_016',
             styleType: 'performer',
@@ -17121,6 +17323,71 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          'AURORA FLOWER': {
+            ID: 'hm_017',
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'AURORA FLOWER',
+            kana: 'おーろらふらわー',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 FinalTerm 第1回個人戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 4500,
+              cool: 4500,
+              mental: 450,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extendHeartChange-add3',
+              name: 'エクステハートチェンジ',
+              AP: 11,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30]
+              ],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 9,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'nineHeart_ignition',
+                  name: 'ナインハート・イグニッション',
+                  AP: 9,
+                  detail: [
+                    [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                  ],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'nineHeart_replay',
+                  name: 'ナインハート・リプレイ',
+                  AP: 9,
+                  detail: [
+                    [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'Now or Never',
+              detail: 'ドローされる確率が大幅に増加する。さらにこのスキル使用時、APを0にする。',
+              type: ['favorite', 'APLoss'],
+            },
+          },
           'ジョーショーキリュー': {
             ID: 'hm_014',
             styleType: 'cheerLeader',
@@ -17455,7 +17722,7 @@ export const useCardStore = defineStore('cardList', {
         },
         SR: {
           'Edelied': {
-            ID: 'si_001',
+            ID: 'is_001',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Edelied',

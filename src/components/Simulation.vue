@@ -8,7 +8,7 @@
     <div id="possessionCardSettingArea" v-if="false">
       <p class="mb-2">所持カード設定</p>
       <ul id="possessionCard_header">
-        <li v-for="(name_ja, name_en) in memberName" :key="name_ja" :data-character="name_en" :data-selected="selectTab === name_en" @click="changeTab(name_en)">
+        <li v-for="(name_ja, name_en) in memberName" :key="name_ja" :data-character="name_en" :data-selected="selectTab === name_en" @click="this.selectTab = name_en">
           {{ name_ja.last }}
         </li>
       </ul>
@@ -181,17 +181,6 @@
               デッキを新規作成
             </v-btn>
             <v-btn
-              color="green"
-              prepend-icon="mdi-pencil"
-              @click="
-                inputDeckName = store.selectDeck.name;
-                dialog.changeDeckName = true;
-              "
-              class="mr-2 mb-2"
-            >
-              デッキ名を変更
-            </v-btn>
-            <v-btn
               prepend-icon="mdi-folder-open"
               color="indigo"
               @click="dialog.deckList = true;"
@@ -254,13 +243,41 @@
                 >
                   エースカードが未設定です
                 </v-alert>
-                <v-alert v-if="false" type="info" variant="outlined" class="mb-2">
+                <v-alert
+                  v-if="false"
+                  type="info"
+                  variant="outlined"
+                  class="mb-2"
+                >
                   エースカードを設定してください
                 </v-alert>
               </v-col>
 
-              <v-col cols="12" class="deckNameArea mt-1 mb-2">
-                <span class="deckNameTitle">デッキ名</span><span class="py-2">{{ store.selectDeck.name }}</span>
+              <v-col cols="12" id="deckNameArea" class="mt-1 mb-2">
+                <span class="deckNameTitle">
+                  デッキ名
+                </span>
+                <span>
+                  <!-- <v-text-field
+                    v-model="store.selectDeck.name"
+                    variant="underlined"
+                    density="compact"
+                    color="#e5762c"
+                    hide-details
+                    append-icon="mdi-pencil"
+                  ></v-text-field> -->
+                  {{ store.selectDeck.name }}
+                </span>
+                <span>
+                  <v-btn
+                    icon="mdi-pencil"
+                    size="x-small"
+                    @click="
+                      inputDeckName = store.selectDeck.name;
+                      dialog.changeDeckName = true;
+                    "
+                  ></v-btn>
+                </span>
               </v-col>
 
               <v-col cols="12">
@@ -299,9 +316,9 @@
                             style="width: 35px"
                             :alt="memberName"
                           />
-                          <span style="margin-top: 2px">{{
-                            store.makeFullName(memberName)
-                          }}</span>
+                          <span style="margin-top: 2px">
+                            {{ store.makeFullName(memberName) }}
+                          </span>
                           <v-icon
                             v-if="store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)"
                             color="indigo"
@@ -359,7 +376,7 @@
                             display: flex;
                           "
                         >
-                          {{ ary.split("STYLE").join("") }}
+                          {{ ary.split('STYLE').join('') }}
                           <v-icon
                             v-if="store.selectDeck.cardData[memberName][styleName].cardName !== 'default'"
                             :color="`${store.selectDeck.cardData[memberName][styleName].isAce ? 'yellow-accent-4' : 'grey-lighten-2'}`"
@@ -373,7 +390,13 @@
                           <v-card
                             @click="
                               store.showModalEvent('selectCard');
-                              store.setOpenCard(memberName, styleName);
+                              store.setOpenCard(
+                                store.findCardId(
+                                  store.selectDeck.cardData[memberName][styleName].cardName
+                                ),
+                                memberName,
+                                styleName
+                              );
                             "
                           >
                             <v-img
@@ -412,8 +435,7 @@
                                 makeCardName(
                                   store,
                                   store.selectDeck.cardData[memberName][styleName].cardName,
-                                  memberName,
-                                  styleName
+                                  memberName
                                 )
                               }}
                             </dd>
@@ -421,7 +443,13 @@
                           <v-card
                             variant="flat"
                             @click="
-                              store.setOpenCard(memberName, styleName);
+                              store.setOpenCard(
+                                store.findCardId(
+                                  store.selectDeck.cardData[memberName][styleName].cardName
+                                ),
+                                memberName,
+                                styleName
+                              );
                               dialog.paramSet = true;
                             "
                             :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'"
@@ -517,58 +545,63 @@
                               </v-col>
                             </v-row>
                           </v-card>
-                          <!--<v-card variant="flat" @click="dialog.paramSet = true;" :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'" v-if="false">
-                        <v-row no-gutters class="pb-1">
-                          <v-col cols="3">
-                            <dl>
-                              <dt>レベル</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'cardLevel') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>SA</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'SALevel') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>スキル</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'SLevel') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>解放Lv.</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'releaseLevel') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>スマイル</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'smile') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>クール</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'cool') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>ピュア</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'pure') }}</dd>
-                            </dl>
-                          </v-col>
-                          <v-col cols="3">
-                            <dl>
-                              <dt>メンタル</dt>
-                              <dd>{{ makeParam(store, memberName, styleName, 'mental') }}</dd>
-                            </dl>
-                          </v-col>
-                        </v-row>
-                      </v-card>-->
+                          <v-card
+                            variant="flat"
+                            @click="dialog.paramSet = true;"
+                            :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'"
+                            v-if="false"
+                          >
+                            <v-row no-gutters class="pb-1">
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>レベル</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'cardLevel') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>SA</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'SALevel') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>スキル</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'SLevel') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>解放Lv.</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'releaseLevel') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>スマイル</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'smile') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>クール</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'cool') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>ピュア</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'pure') }}</dd>
+                                </dl>
+                              </v-col>
+                              <v-col cols="3">
+                                <dl>
+                                  <dt>メンタル</dt>
+                                  <dd>{{ makeParam(store, memberName, styleName, 'mental') }}</dd>
+                                </dl>
+                              </v-col>
+                            </v-row>
+                          </v-card>
                         </v-col>
                       </v-row>
 
@@ -608,8 +641,16 @@
                 <v-col cols="6">
                   <v-card>
                     <v-img
-                      :lazy-src="require(`@/assets/CD_jacket/${store.conversion(store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic)}.webp`)"
-                      :src="require(`@/assets/CD_jacket/${store.conversion(store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic)}.webp`)"
+                      :lazy-src="require(`@/assets/CD_jacket/${
+                        store.conversion(
+                          store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic
+                        )
+                      }.webp`)"
+                      :src="require(`@/assets/CD_jacket/${
+                        store.conversion(
+                          store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic
+                        )
+                      }.webp`)"
                       :alt="store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic"
                     ></v-img>
                   </v-card>
@@ -649,7 +690,7 @@
               <h3>シミュレーション結果</h3>
               <p>
                 ハート1個あたりのLOVE値：{{
-                  Math.ceil((120 * totalParam(store, "smile") * 1.5) / 6 / 90)
+                  Math.ceil((120 * totalParam(store, 'smile') * 1.5) / 6 / 90)
                 }}
               </p>
             </v-card>
@@ -764,7 +805,7 @@
             </v-row>
 
             <div
-              v-for="(arr, memberName) in store.memberName"
+              v-for="memberName in store.memberNameList"
               :key="memberName"
             >
               <v-checkbox
@@ -890,9 +931,19 @@
             v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.cardLevel"
             :max="
               store.maxCardLevel[
-                store.searchRarity(store.openCard.name, store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName)
+                store.searchRarity(
+                  store.findCardId(
+                    store.openCard.name,
+                    store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName
+                  )
+                )
               ][store.maxCardLevel[
-                store.searchRarity(store.openCard.name, store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName)
+                store.searchRarity(
+                  store.findCardId(
+                    store.openCard.name,
+                    store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName
+                  )
+                )
               ].length - 1]
             "
             min="1"
@@ -968,7 +1019,6 @@
         <v-col cols="12">
           <v-text-field
             v-model="inputDeckName"
-            label="デッキ名"
             counter
             color="pink"
             hint="デッキ名を入力してください"
@@ -1009,10 +1059,12 @@
       <draggable
         v-model="store.deck"
         item-key="cardName"
+        class="d-none d-sm-flex flex-column"
+        style="gap: 12px;"
       >
         <template #item="{element}">
           <v-card
-            class="mb-3 pa-2 handle cursor-pointer"
+            class="pa-2 handle cursor-pointer"
             color="yellow"
           >
             <p class="text-h6 py-1 px-2">
@@ -1067,6 +1119,77 @@
           </v-card>
         </template>
       </draggable>
+
+      <v-card
+        v-for="(deck, index) in store.deck"
+        :key="index"
+        :class="`${
+          store.deck.length - 1 === index ? '' : 'mb-3 '
+        }pa-2 handle cursor-pointer d-block d-sm-none`"
+        color="yellow"
+      >
+        <p class="text-h6 py-1 px-2">
+          {{ deck.name }}
+        </p>
+
+        <v-divider class="mb-2"></v-divider>
+
+        <v-row no-gutters class="text-center">
+          <v-col cols="3">
+            <v-btn
+              color="success"
+              :disabled="
+                deck.name === store.selectDeck.name ||
+                beforeDeckName !== ''
+              "
+              @click="
+                snackbar.openDeck = false;
+                inputDeckName = deck.name;
+                store.selectDeckName = deck.name;
+                snackbar.openDeck = true;
+              "
+            >
+              <v-icon>mdi-folder-open</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="3">
+            <v-btn
+              color="purple"
+              :disabled="
+                store.deck.length <= 1 ||
+                !/デッキをコピーしました|コピーをキャンセルしました/.test(copyDeckMessage.text)
+              "
+              @click="shiftDeck(store, deck.name);"
+            >
+              <v-icon>mdi-swap-vertical</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="3">
+            <v-btn
+              color="light-blue"
+              :disabled="
+                store.deck.length <= 1 ||
+                !/デッキを入れ替えました|入れ替えをキャンセルしました/.test(shiftDeckMessage.text)
+              "
+              @click="copyDeck(store, deck.name);"
+            >
+              <v-icon>mdi-content-copy</v-icon>
+            </v-btn>
+          </v-col>
+          <v-col cols="3">
+            <v-btn
+              color="error"
+              :disabled="
+                deck.name === store.selectDeck.name ||
+                beforeDeckName !== ''
+              "
+              @click="deleteDeck(store, deck.name);"
+            >
+              <v-icon>mdi-trash-can</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
       <div class="text-center mt-2">
         <v-btn
           prepend-icon="mdi-close"
@@ -1222,8 +1345,8 @@
 
 
 <script setup>
-import { useStoreCounter } from "../stores/counter";
-import draggable from "vuedraggable";
+import { useStoreCounter } from '../stores/counter';
+import draggable from 'vuedraggable';
 const store = useStoreCounter();
 </script>
 
@@ -1235,6 +1358,10 @@ export default {
   },
   data() {
     return {
+      windowSize: {
+        width: 0,
+        height: 0,
+      },
       attrName: {
         smile: 'スマイル',
         cool: 'クール',
@@ -1484,8 +1611,10 @@ export default {
                 if (style === 'main') {
                   result += store.selectDeck.cardData[memberName][style].param.releaseLevel;
                   releasePoint += (this.releaseLv[store.searchRarity(
-                    memberName,
-                    store.selectDeck.cardData[memberName][style].cardName
+                    store.findCardId(
+                      memberName,
+                      store.selectDeck.cardData[memberName][style].cardName
+                    )
                   )][store.selectDeck.cardData[memberName][style].param.releaseLevel - 1]) * 100;
                 }
               }
@@ -1496,12 +1625,12 @@ export default {
             }
 
             let param = store.cardParam(attr, {
-              memberName: store.findOpenCardMemberName(
-                store.selectDeck.cardData[memberName][style].cardName, memberName
-              ),
+              memberName: memberName,
               rare: store.searchRarity(
-                memberName,
-                store.selectDeck.cardData[memberName][style].cardName
+                store.findCardId(
+                  memberName,
+                  store.selectDeck.cardData[memberName][style].cardName
+                )
               ),
               cardName: store.selectDeck.cardData[memberName][style].cardName,
             });
@@ -1638,6 +1767,35 @@ export default {
         return false;
       }
     },
+    shiftDeck(store, targetDeckName) {
+      this.snackbar.shiftDeck = false;
+      this.copyDeckMessage.text = 'デッキをコピーしました';
+
+      if (this.beforeDeckName === '') {
+        this.beforeDeckName = targetDeckName;
+        this.shiftDeckMessage.text = '入れ替えるデッキを選択してください';
+        this.shiftDeckMessage.time = -1;
+        this.shiftDeckMessage.color = 'info';
+        this.snackbar.shiftDeck = true;
+      } else if (this.beforeDeckName === targetDeckName) {
+        this.beforeDeckName = '';
+        this.shiftDeckMessage.text = '入れ替えをキャンセルしました';
+        this.shiftDeckMessage.time = 2000;
+        this.shiftDeckMessage.color = 'info';
+        this.snackbar.shiftDeck = true;
+      } else {
+        const before = store.deck.findIndex(item => item.name === this.beforeDeckName);
+        const after = store.deck.findIndex(item => item.name === targetDeckName);
+
+        [store.deck[before], store.deck[after]] = [store.deck[after], store.deck[before]];
+
+        this.beforeDeckName = '';
+        this.shiftDeckMessage.text = 'デッキを入れ替えました';
+        this.shiftDeckMessage.time = 2000;
+        this.shiftDeckMessage.color = 'success';
+        this.snackbar.shiftDeck = true;
+      }
+    },
     copyDeck(store, targetDeckName) {
       this.snackbar.shiftDeck = false;
       this.shiftDeckMessage.text = 'デッキを入れ替えました';
@@ -1706,18 +1864,10 @@ export default {
 
       return list;
     },
-    /**
-     * タブチェンジ
-     *
-     * @param {string} selectCharacter The name of the character to select.
-     */
-    changeTab(selectCharacter) {
-      this.selectTab = selectCharacter;
-    },
     setIcon(memberName) {
       return {
-        "background-image": `url(${require(`@/assets/member_icon/icon_${memberName}.webp`)})`,
-        "background-position": "center",
+        'background-image': `url(${require(`@/assets/member_icon/icon_${memberName}.webp`)})`,
+        'background-position': 'center',
       };
     },
     setValue(target, v) {
@@ -1732,33 +1882,56 @@ export default {
     },
     makeIllustCard(store, selectCardName, selectMemberName) {
       if (selectCardName === 'default') {
-        return "NO IMAGE";
+        return 'NO IMAGE';
       } else {
+        const cardId = store.findCardId(selectMemberName, selectCardName).slice(0, 2);
+
         return `${store.conversion(selectCardName)}_${
-          store.memberName[store.findOpenCardMemberName(selectCardName, selectMemberName)].last
+          cardId === 'is' ?
+            '桂城泉＆セラス 柳田 リリエンフェルト' :
+            store.memberName[store.memberId[cardId]].last
         }_覚醒後`;
       }
     },
-    makeCardName(store, selectCardName, memberName, style) {
+    makeCardName(store, selectCardName, memberName) {
       // this.makeParam(store, memberName, style, this.attr);
-      style;
 
       if (selectCardName === 'default') {
-        return "カードを選択してください";
+        return 'カードを選択してください';
       } else {
-        return `[${store.searchRarity(memberName, selectCardName)}] ${selectCardName}`;
+        return `[${
+          store.searchRarity(store.findCardId(memberName, selectCardName))
+        }] ${selectCardName}`;
       }
     },
+    /**
+     * パラメーター作成
+     * 
+     * @param {Object} store vuex store
+     * @param {string} name メンバー名
+     * @param {string} style スタイル名
+     * @param {string} attr 属性
+     * @returns {number} パラメーター
+     */
     makeParam(store, name, style, attr) {
       return store.cardParam(attr, {
         memberName: name,
-        rare: store.searchRarity(name, store.selectDeck.cardData[name][style].cardName),
+        rare: store.searchRarity(
+          store.findCardId(
+            name,
+            store.selectDeck.cardData[name][style].cardName
+          )
+        ),
         cardName: store.selectDeck.cardData[name][style].cardName,
       });
     },
     getParamList(store, name, style) {
       return store.card[name][
-        store.searchRarity(name, store.selectDeck.cardData[name][style].cardName)
+        store.searchRarity(
+          store.findCardId(
+            name, store.selectDeck.cardData[name][style].cardName
+          )
+        )
       ][store.selectDeck.cardData[name][style].cardName];
     },
     reset(store) {
@@ -1772,17 +1945,17 @@ export default {
       let list2 = {};
 
       for (const memberName of [
-        "ginko",
-        "kosuzu",
-        "hime",
-        "kaho",
-        "sayaka",
-        "rurino",
-        "kozue",
-        "tsuzuri",
-        "megumi",
+        'ginko',
+        'kosuzu',
+        'hime',
+        'kaho',
+        'sayaka',
+        'rurino',
+        'kozue',
+        'tsuzuri',
+        'megumi',
       ]) {
-        for (const style of ["main", "side1", "side2"]) {
+        for (const style of ['main', 'side1', 'side2']) {
           list2[style] = 'default';
           list[memberName] = list2;
         }
@@ -1799,15 +1972,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.deckNameArea {
+#deckNameArea {
   border-bottom: 1px solid #e5762c;
+  display: grid;
+  grid-template-columns: calc(32px + 4em) auto 32px;
+  grid-auto-rows: 32px;
+
+  span {
+    align-content: center;
+  }
 }
 
 .deckNameTitle {
   color: #fff;
   background: #e5762c;
   border-radius: 0 15px 15px 0;
-  padding: 4px 8px 4px 8px;
+  padding: 0 8px;
   margin-right: 8px;
   font-weight: bold;
 }

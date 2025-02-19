@@ -18,7 +18,9 @@
               elevation="1"
               @click="store.resetMusicFilter('rare');"
               class="px-2"
-            >一括チェック</v-btn>
+            >
+              一括チェック
+            </v-btn>
           </div>
           <v-row no-gutters>
             <v-col
@@ -48,7 +50,9 @@
               elevation="1"
               @click="store.resetMusicFilter('mood');"
               class="px-2"
-            >一括チェック</v-btn>
+            >
+              一括チェック
+            </v-btn>
           </div>
           <v-row no-gutters>
             <v-col
@@ -87,7 +91,9 @@
             elevation="1"
             @click="store.resetMusicFilter('styleType');"
             class="px-2"
-          >一括チェック</v-btn>
+          >
+            一括チェック
+          </v-btn>
         </v-col>
         <v-col
           cols="6"
@@ -124,30 +130,38 @@
             elevation="1"
             @click="store.resetMusicFilter('memberName');"
             class="px-2"
-          >一括チェック</v-btn>
+          >
+            一括チェック
+          </v-btn>
         </v-col>
         <v-col
           cols="6"
           sm="4"
           md="3"
           lg="2"
-          v-for="(name_ja, name_en) in store.memberName"
-          :key="name_ja"
+          v-for="memberName in store.memberNameList"
+          :key="memberName"
           class="mb-1"
         >
           <v-checkbox
             v-model="store.search.cardList.memberName"
-            :value="name_en"
+            :value="memberName"
             color="pink"
             hide-details
             density="compact"
           >
             <template v-slot:label>
-              <v-img
-                v-if="!store.isExclusionMember(name_en)"
-                :src="require(`@/assets/member_icon/icon_illust_${name_en}_104.webp`)"
-                class="icon member"
-              ></v-img>{{ name_ja.first }} {{ name_ja.last }}
+              <template
+                v-if="!store.isOtherMember(memberName)"
+              >
+                <v-img
+                  :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.thisPeriod}.webp`)"
+                  class="icon member"
+                ></v-img>{{ store.makeFullName(memberName) }}
+              </template>
+              <template v-else>
+                特殊
+              </template>
             </template>
           </v-checkbox>
         </v-col>
@@ -159,7 +173,14 @@
         <v-col cols="12" class="d-flex">
           LIMITED
           <v-spacer></v-spacer>
-          <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('limited');" class="px-2">一括チェック</v-btn>
+          <v-btn
+            density="compact"
+            elevation="1"
+            @click="store.resetMusicFilter('limited');"
+            class="px-2"
+          >
+            一括チェック
+          </v-btn>
         </v-col>
         <v-col
           cols="6"
@@ -230,7 +251,9 @@
               elevation="1"
               @click="store.resetMusicFilter('favorite');"
               class="px-2"
-            >一括チェック</v-btn>
+            >
+              一括チェック
+            </v-btn>
           </div>
           <v-row no-gutters>
             <v-col

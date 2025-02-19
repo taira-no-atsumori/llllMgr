@@ -6,7 +6,7 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ζ.5(アーリーアクセス)',
+    version: 'ζ.6(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -15,10 +15,33 @@ export const useStoreCounter = defineStore('store', {
     checkMasteryMember: 'kaho',
     thisPeriod: 104,
     selectDeckName: '',
-    rare: ['DR', 'BR', 'UR', 'SR', 'R'],
-    favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
-    releaseStatus: ['none', 'trainingLevel', 'cardLevel', 'releaseLevel'],
-    bonusSkill: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
+    rare: [
+      'DR',
+      'BR',
+      'UR',
+      'SR',
+      'R'
+    ],
+    favorite: [
+      'heart',
+      'circle',
+      'triangle',
+      'square',
+      'rhombus',
+      'star'
+    ],
+    releaseStatus: [
+      'none',
+      'trainingLevel',
+      'cardLevel',
+      'releaseLevel'
+    ],
+    bonusSkill: [
+      'ボルテージアップ',
+      'メンタルリカバー',
+      'ビートハートアップ',
+      'LOVEボーナス'
+    ],
     withStar: {
       kaho: 1,
       sayaka: 1,
@@ -26,6 +49,9 @@ export const useStoreCounter = defineStore('store', {
       kozue: 1,
       tsuzuri: 1,
       megumi: 1,
+      ginko: 1,
+      kosuzu: 1,
+      hime: 1,
     },
     siteSettings: {
       all: {
@@ -55,10 +81,36 @@ export const useStoreCounter = defineStore('store', {
     },
     defaultSearch: {
       cardList: {
-        rare: ['DR', 'BR', 'UR', 'SR', 'R'],
-        styleType: ['performer', 'moodMaker', 'cheerLeader', 'trickStar'],
-        mood: ['happy', 'neutral', 'melow'],
-        limited: ['spring', 'summer', 'autumn', 'winter', 'graduation', 'party', 'birthday', 'collaboration', 'prize', 'normal'],
+        rare: [
+          'DR',
+          'BR',
+          'UR',
+          'SR',
+          'R'
+        ],
+        styleType: [
+          'performer',
+          'moodMaker',
+          'cheerLeader',
+          'trickStar'
+        ],
+        mood: [
+          'happy',
+          'neutral',
+          'melow'
+        ],
+        limited: [
+          'spring',
+          'summer',
+          'autumn',
+          'winter',
+          'graduation',
+          'party',
+          'birthday',
+          'collaboration',
+          'prize',
+          'normal'
+        ],
         cardLevel: [0, 140],
         SALevel: [1, 14],
         SLevel: [1, 14],
@@ -66,7 +118,18 @@ export const useStoreCounter = defineStore('store', {
         SAP: [0, 99],
         releaseLevel: [1, 5],
         trainingLevel: [0, 4],
-        memberName: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime', 'sachi'],
+        memberName: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+          'special'
+        ],
         favorite: [],
         releaseStatus: 'none',
       },
@@ -234,15 +297,32 @@ export const useStoreCounter = defineStore('store', {
         first: '大賀美',
         last: '沙知',
       },
-      /*selaIzu: {
-        first: 'セラス&',
-        last: '泉',
-      },*/
+      selaIzu: {
+        first: '桂城泉＆',
+        last: 'セラス 柳田 リリエンフェルト',
+      },
     },
     exclusionMember: [
       'sachi',
       'selaIzu',
     ],
+    specialCardIdList: [
+      'sc_001',
+      'is_001',
+    ],
+    memberId: {
+      kh: 'kaho',
+      sy: 'sayaka',
+      rr: 'rurino',
+      kz: 'kozue',
+      tz: 'tsuzuri',
+      mg: 'megumi',
+      gn: 'ginko',
+      sz: 'kosuzu',
+      hm: 'hime',
+      sc: 'sachi',
+      is: 'selaIzu',
+    },
     formationMember: {
       103: [
         'kaho',
@@ -283,26 +363,39 @@ export const useStoreCounter = defineStore('store', {
       kahomeguGelato: 'かほめぐ♡じぇらーと',
       hasunokyujitsu: '蓮ノ休日',
       rurinoTsuzuri: 'るりのとゆかいなつづりたち',
+      EdelNote: 'Edel Note'
     },
     bonusSkillList: {
       ボルテージアップ: {
-        text: ['ボルテージPt.を', 'pt.獲得するごとに、1pt.追加獲得'],
+        text: [
+          'ボルテージPt.を',
+          'pt.獲得するごとに、1pt.追加獲得'
+        ],
         skillLevel: 0,
         init: 11,
         ary: [5, 10, 15, 20, 25],
       },
       メンタルリカバー: {
-        text: ['メンタルが', '減少するごとに、メンタルを1回復'],
+        text: [
+          'メンタルが',
+          '減少するごとに、メンタルを1回復'
+        ],
         skillLevel: 0,
         init: 12,
         ary: [1, 4, 9, 13],
       },
       ビートハートアップ: {
-        text: ['ビートハートの出現量+', '%'],
+        text: [
+          'ビートハートの出現量+',
+          '%'
+        ],
         skillLevel: 0,
       },
       LOVEボーナス: {
-        text: ['ハート回収時のLOVE獲得量+', '%'],
+        text: [
+          'ハート回収時のLOVE獲得量+',
+          '%'
+        ],
         skillLevel: 0,
       },
     },
@@ -317,6 +410,7 @@ export const useStoreCounter = defineStore('store', {
       card: 'Prism Echo',
     },
     openCard: {
+      ID: '',
       name: 'kaho',
       style: 'main',
     },
@@ -496,6 +590,17 @@ export const useStoreCounter = defineStore('store', {
               }
 
               return true;
+            } else if (searchKey === 'memberName') {
+              if (
+                filterList.includes('special') &&
+                this.specialCardIdList.includes(cardData.ID)
+              ) {
+                return true;
+              }
+
+              return filterList.some((val) => {
+                return cardData[searchKey] === val;
+              });
             } else {
               return filterList.some((val) => {
                 return cardData[searchKey] === val;
@@ -629,10 +734,15 @@ export const useStoreCounter = defineStore('store', {
     cardSeriesList() {
       return this.makeSkillFilterList('series');
     },
-    makeFullName() {
-      return (name) => {
-        return `${this.memberName[name].first} ${this.memberName[name].last}`;
-      };
+    /**
+     * メンバーのリストを作成
+     * 
+     * @returns {Array} メンバーのリスト
+     */
+    memberNameList() {
+      const memberNames = Object.keys(this.memberColor);
+      memberNames.push('special');
+      return memberNames;
     },
     makeSkillText() {
       return (target, option) => {
@@ -803,6 +913,9 @@ export const useStoreCounter = defineStore('store', {
     },*/
   },
   actions: {
+    /**
+     * ページを読み込んだときに最初に行われる処理郡
+     */
     init() {
       // this.makeDb();
       const bonusSkillList = {};
@@ -824,6 +937,10 @@ export const useStoreCounter = defineStore('store', {
       this.getLocalStorage();
       this.setSupportSkillLevel();
       //this.makeNewDeck();
+      // console.log(window.location.search.replace('?', ''));
+      // if (window.location.search.replace('?', '') !== '') {
+      //   window.location.replace('/llllMgr/musicList');
+      // }
     },
     makeNewDeck() {
       let a = {
@@ -1139,10 +1256,11 @@ export const useStoreCounter = defineStore('store', {
     setLevel(a, e) {
       this.settingCardData.fluctuationStatus[a] = e.target.value;
     },
-    cardSelect(memberName, rare, selectedCard) {
+    cardSelect(memberName, rare, selectedCard, cardId) {
       this.settingCard.rare = rare;
       this.settingCard.name = memberName;
       this.settingCard.card = selectedCard;
+      this.settingCard.ID = cardId;
     },
     toBool(value) {
       return value === 'true';
@@ -1150,9 +1268,23 @@ export const useStoreCounter = defineStore('store', {
     conversion(name) {
       return /!/.test(name) ? name.replace(/!/g, '！') : /\//.test(name) ? name.replace(/\//g, '／') : name;
     },
-    setOpenCard(name, style) {
+    setOpenCard(id, name, style) {
+      this.openCard.ID = id;
       this.openCard.name = name;
       this.openCard.style = style;
+    },
+    makeFullName(name) {
+      return `${this.memberName[name].first} ${this.memberName[name].last}`;
+    },
+    makeCardMemberName(id) {
+      if (id === 'is_001') {
+        return `${this.memberName.selaIzu.first}${this.memberName.selaIzu.last}`;
+      } else {
+        return `${this.memberName[this.memberId[id.slice(0, 2)]].last}`;
+      }
+    },
+    isOtherMember(name) {
+      return name === 'special';
     },
     aaa() {
       for (const rare of this.rare) {
@@ -1162,17 +1294,41 @@ export const useStoreCounter = defineStore('store', {
         }
       }
     },
-    searchRarity(memberName, cardName) {
+    /**
+     * メンバー名とカード名からカードIDを検索
+     *
+     * @param {string} memberName メンバー名
+     * @param {string} cardName カード名
+     * @return {string} カードID
+     */
+    findCardId(memberName, cardName) {
       if (cardName === 'default') {
-        return 'default';
-      } else if (this.findOpenCardMemberName(cardName, memberName) === 'sachi') {
-        return 'UR';
-      }
+        return '';
+      } else {
+        const list = this.cardList.filter((v) => {
+          return v.cardName === cardName;
+        });
 
-      for (const rare of this.rare) {
-        if (cardName in this.card[memberName][rare]) {
-          return rare;
+        if (list.length === 1) {
+          return list[0].ID;
+        } else {
+          return list.find((v) => {
+            return v.memberName === memberName;
+          })?.ID ?? '';
         }
+      }
+    },
+    /**
+     * カードIDからカードのレアリティを検索
+     *
+     * @param {string} cardId カードID
+     * @return {string} カードのレアリティ
+     */
+    searchRarity(cardId) {
+      if (Number(cardId.split('_')[1]) === 0) {
+        return 'default';
+      } else {
+        return this.cardList.find(v => v.ID === cardId)?.rare ?? '';
       }
     },
     searchSelectDeckCard(name, style) {
@@ -1301,8 +1457,8 @@ export const useStoreCounter = defineStore('store', {
     isExclusionMember(targetMember) {
       return this.exclusionMember.some((val) => val === targetMember);
     },
-    findOpenCardMemberName(cardName, name) {
-      return cardName === '蓮ノ空女学院スクールアイドルクラブ101期生' ? 'sachi' : name;
+    findOpenCardMemberName(cardId) {
+      return this.cardList.find((v) => v.ID === cardId)?.memberName ?? '';
     },
     resetMusicFilter(resetName) {
       if (/^(SA|S)(AP|Level)|(release|card|training)Level$/.test(resetName)) {
@@ -1310,6 +1466,8 @@ export const useStoreCounter = defineStore('store', {
       } else if (this.search.cardList[resetName].length === 0) {
         if (/^rare|favorite|releaseStatus$/.test(resetName)) {
           this.search.cardList[resetName] = this[resetName];
+        } else if (resetName === 'memberName') {
+          this.search.cardList.memberName = structuredClone(this.memberNameList);
         } else {
           for (const key in this[resetName]) {
             this.search.cardList[resetName].push(key);

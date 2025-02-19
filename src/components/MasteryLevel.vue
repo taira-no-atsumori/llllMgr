@@ -4,11 +4,11 @@
 
   <div>
     <template
-      v-for="(arr, memberName) in store.memberName"
+      v-for=" memberName in store.memberNameList"
       :key="memberName"
     >
       <img
-        v-if="!store.isExclusionMember(memberName)"
+        v-if="!store.isOtherMember(memberName)"
         :src="require(`@/assets/member_icon/icon_SD_${memberName}.webp`)"
         class="cursor-pointer"
         :style="`width: 10%; max-width: 45px; margin: 0 0.5%; filter: grayscale(${memberName === store.checkMasteryMember ? 0 : 1});`"
