@@ -283,7 +283,7 @@ export default {
 
       for (const listName in this.pageList) {
         if (this.pageList[listName].url.toLowerCase() === pageName.toLowerCase()) {
-          this.pageMove(this.pageList[pageName].name_en);
+          this.pageMove(this.pageList[listName].name_en);
           return;
         }
       }
