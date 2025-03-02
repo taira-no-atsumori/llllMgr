@@ -260,6 +260,88 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'ユメワズライ': {
+            ID: 'kh_055',
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'ユメワズライ',
+            kana: 'ゆめわずらい',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.8',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5100,
+              pure: 4700,
+              cool: 4600,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'heartBoost-bouquet_01',
+              name: 'ハートブースト：ブーケ',
+              AP: 5,
+              detail: [
+                [60, 66, 72, 78, 84, 90, 96, 102, 108, 120, 126, 132, 138, 150],
+              ],
+            },
+            skill: {
+              ID: 'sustainDream_01',
+              name: 'サステイン＊ドリーム',
+              AP: 12,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+                [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+              ],
+              addSkill: [
+                {
+                  ID: 'graceBouquet_01',
+                  name: 'グレイスブーケ',
+                  AP: 6,
+                  detail: [
+                    [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                    [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+                  ],
+                  characteristic: {
+                    name: 'ブルーミング',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにドリームブーケカードを1種類(合計2枚)山札に追加する。',
+                    type: ['exclusion', 'addCard'],
+                  },
+                },
+                {
+                  ID: 'dreamBouquet_01',
+                  name: 'ドリームブーケ',
+                  AP: 9,
+                  detail: [
+                    [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                    [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
+                  ],
+                  characteristic: {
+                    name: 'リインカネーション',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が39枚以上でドローした時、それぞれ100回の間ブーケカード使用によるスキルハート獲得効果の獲得数を+3%、ラブアトラクト効果を+3%する。',
+                    type: ['exclusion', 'boost_loveAttract', 'boost_heartCaptcha', 'boost_loveAttract'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'デイブレイク',
+              detail: '1セクション目までにドローした時、APを5回復し、デッキにあるスリーズブーケのスキルの消費AP-9。',
+              type: ['justDraw', 'APGain', 'APReduce'],
+            },
+          },
           'AURORA FLOWER': {
             ID: 'kh_054',
             styleType: 'moodMaker',
@@ -465,7 +547,7 @@ export const useCardStore = defineStore('cardList', {
                   AP: 1,
                   detail: [],
                   characteristic: {
-                    name: 'インスタンス',
+                    name: 'ポッピング',
                     detail: 'このスキルを使用すると、デッキから除外される。',
                     type: ['exclusion'],
                   },
@@ -7436,6 +7518,75 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'ユメワズライ': {
+            ID: 'kz_055',
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'ユメワズライ',
+            kana: 'ゆめわずらい',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.8',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5300,
+              pure: 4600,
+              cool: 4500,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'reStart_01',
+              name: 'リスタート',
+              AP: 11,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+              ],
+            },
+            skill: {
+              ID: 'chaseDream_01',
+              name: 'チェイス＊ドリーム',
+              AP: 12,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+                [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+              ],
+              addSkill: [
+                {
+                  ID: 'dreamBouquet_01',
+                  name: 'ドリームブーケ',
+                  AP: 9,
+                  detail: [
+                    [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                    [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
+                  ],
+                  characteristic: {
+                    name: 'リインカネーション',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が39枚以上でドローした時、それぞれ100回の間ブーケカード使用によるスキルハート獲得効果の獲得数を+3%、ラブアトラクト効果を+3%する。',
+                    type: ['exclusion', 'boost_loveAttract', 'boost_heartCaptcha', 'boost_loveAttract'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'エターニティドリーマー',
+              detail: 'このスキル使用時、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引き、デッキにあるブーケカードスキルの消費AP-3。この時ブーケカードのスキルをドローする確率大幅アップ。',
+              type: ['reshuffle', 'APReduce', 'draw'],
+            },
+          },
           'AURORA FLOWER': {
             ID: 'kz_054',
             styleType: 'trickStar',
@@ -14627,6 +14778,114 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'ユメワズライ': {
+            ID: 'gn_018',
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'ユメワズライ',
+            kana: 'ゆめわずらい',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 FinalTerm 第1回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5200,
+              pure: 4600,
+              cool: 4600,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'justGain1_01',
+              name: 'ジャストゲイン：1',
+              AP: 2,
+              detail: [
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              ],
+            },
+            skill: {
+              ID: 'dress_yumewazurai_01',
+              name: 'ドレス《ユメワズライ》',
+              AP: 12,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+              ],
+              addSkill: [
+                {
+                  ID: 'yumewazurai_01',
+                  name: '《ユメワズライ》',
+                  AP: 3,
+                  detail: [
+                    [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                    [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250],
+                    [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+                {
+                  ID: 'freshBouquet_01',
+                  name: 'フレッシュブーケ',
+                  AP: 3,
+                  detail: [
+                    [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+                    [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                  ],
+                  characteristic: {
+                    name: 'グローイング',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにグレイスブーケカードを1種類(合計1枚)山札に追加する。',
+                    type: ['exclusion', 'addCard'],
+                  },
+                },
+                {
+                  ID: 'graceBouquet_01',
+                  name: 'グレイスブーケ',
+                  AP: 6,
+                  detail: [
+                    [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                    [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+                  ],
+                  characteristic: {
+                    name: 'ブルーミング',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにドリームブーケカードを1種類(合計2枚)山札に追加する。',
+                    type: ['exclusion', 'addCard'],
+                  },
+                },
+                {
+                  ID: 'dreamBouquet_01',
+                  name: 'ドリームブーケ',
+                  AP: 9,
+                  detail: [
+                    [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                    [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
+                  ],
+                  characteristic: {
+                    name: 'リインカネーション',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が39枚以上でドローした時、それぞれ100回の間ブーケカード使用によるスキルハート獲得効果の獲得数を+3%、ラブアトラクト効果を+3%する。',
+                    type: ['exclusion', 'boost_loveAttract', 'boost_heartCaptcha'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'デイブレイク',
+              detail: '1セクション目までにドローした時、APを5回復し、デッキにあるスリーズブーケのスキルの消費AP-9。',
+              type: ['justDraw', 'APGain', 'APReduce'],
+            },
+          },
           'AURORA FLOWER': {
             ID: 'gn_017',
             styleType: 'trickStar',
@@ -15803,7 +16062,95 @@ export const useCardStore = defineStore('cardList', {
             },
           },
         },
-        BR: {},
+        BR: {
+          '16th Birthday': {
+            ID: 'sz_017',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'しっくすてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2024 BIRTHDAY LIMITED COLLECTION -Kosuzu-',
+              period: 'birthday',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '16th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'fluffyDinosaur_01',
+              name: 'フラッフィーダイナソー',
+              AP: 4,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'MGonzalez_01',
+                  name: 'M.ゴンザレス',
+                  AP: 3,
+                  detail: [
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                  ],
+                  characteristic: {
+                    name: 'エクスティンクション',
+                    detail: 'このスキルを2回使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+            skill: {
+              ID: 'celebration_heart_attract_protect',
+              name: 'セレブレイション',
+              AP: 3,
+              detail: [
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 45.6, 48, 50.4, 52.8, 60],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 45.6, 48, 50.4, 52.8, 60],
+              ],
+            },
+            characteristic: {
+              name: 'オーバーセクション：ブレッシング',
+              detail: '手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。',
+              type: ['overSection', 'APReduce_all'],
+            },
+          },
+        },
         UR: {
           'AURORA FLOWER': {
             ID: 'sz_016',
@@ -17459,7 +17806,7 @@ export const useCardStore = defineStore('cardList', {
                 },
                 {
                   modeName: 'イグニッションモード',
-                  name: 'イグニッションモード：トライチェンジ',
+                  name: 'トライチェンジ',
                   detail: 'このスキルを使用するたび、デッキにあるみらくらぱーく！のスキルの消費AP-3。このスキルを3回使用した時、このステージ中、AP回復速度を+13%し、姫芽の《イグニッションモード》を解除する。',
                 },
               ],

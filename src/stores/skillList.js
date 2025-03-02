@@ -3737,6 +3737,22 @@ export const useSkillStore = defineStore('skillList', {
             ],
           },
         },
+        celebration_heart_attract_protect: {
+          text: [
+            '次に使用するスキルハート獲得効果による獲得数を+',
+            '%、ラブアトラクト効果を+',
+            '%、メンタルプロテクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'celebration',
+            type: [
+              'boost_heartCaptcha',
+              'boost_loveAttract',
+              'boost_mentalProtect',
+            ],
+          },
+        },
         celebration_attract_voltage_mental: {
           text: [
             '次に使用するラブアトラクト効果を+',
@@ -4351,7 +4367,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'torikago',
-            type: ['mentalDown_section', 'APQuick', 'mentalReduce'],
+            type: ['mentalDown_section', 'APQuick', 'mentalDown_section'],
           },
         },
       },
@@ -4786,6 +4802,165 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'リスタート': {
+        'reStart_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'する。AP回復速度を+',
+            '、手札の上限枚数を1枚増加し、スキルハート獲得効果による獲得数を+',
+            'する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
+          },
+        },
+      },
+      'チェイス＊ドリーム': {
+        'chaseDream_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            '、AP回復速度を+3%し、ドリームブーケカードを1種類(合計1枚)山札に追加する。さらにデッキ枚数が27枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、デッキ枚数が39枚以上のとき、ビートハート',
+            '回分のスキルハートを追加で獲得し、このステージ中、ハート上限を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'dream',
+            type: ['heartLimitUp', 'APQuick', 'addCard', 'heartCaptcha'],
+          },
+        },
+      },
+      'ハートブースト：ブーケ': {
+        'heartBoost-bouquet_01': {
+          text: [
+            'このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
+          },
+        },
+      },
+      'サステイン＊ドリーム': {
+        'sustainDream_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'スリーズブーケのメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%し、グレイスブーケカードを1種類(合計1枚)山札に追加する。さらにデッキ枚数が27枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、デッキ枚数が39枚以上のとき、ビートハート',
+            '回分のスキルハートを追加で獲得し、このステージ中、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'dream',
+            type: ['heartLimitUp', 'boost_heartCaptcha', 'addCard', 'heartCaptcha'],
+          },
+        },
+      },
+      'ジャストゲイン：1': {
+        'justGain1_01': {
+          text: [
+            'このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha'],
+          },
+        },
+      },
+      'ドレス《ユメワズライ》': {
+        'dress_yumewazurai_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'する。さらにドレスカード《ユメワズライ》を1種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['heartLimitUp', 'addCard'],
+          },
+        },
+      },
+      '《ユメワズライ》': {
+        'yumewazurai_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            '、AP回復速度を+3%、このセクション中、手札の上限枚数を3枚増加し、フレッシュブーケカードを1種類(合計1枚)山札に追加する。さらにデッキ枚数が27枚以上のとき、このステージ中、獲得するLOVEを+',
+            '%し、デッキ枚数が39枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、このステージ中、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['heartLimitUp', 'APQuick', 'extendHand', 'addCard', 'loveAttract_stage', 'heartCaptcha'],
+          },
+        },
+      },
+      'フレッシュブーケ': {
+        'freshBouquet_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにこのセクション中、手札の上限枚数を1枚増加する。'
+          ],
+          detail: {
+            attr: 'bouquet',
+            type: ['heartLimitUp', 'heartCaptcha', 'extendHand'],
+          },
+        },
+      },
+      'グレイスブーケ': {
+        'graceBouquet_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキにあるスリーズブーケのカードスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'bouquet',
+            type: ['heartLimitUp', 'heartCaptcha', 'APReduce_deck_ceriseBouquet'],
+          },
+        },
+      },
+      'ドリームブーケ': {
+        'dreamBouquet_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+',
+            '%、AP回復速度を+3%する。'
+          ],
+          detail: {
+            attr: 'bouquet',
+            type: ['heartLimitUp', 'heartCaptcha', 'loveAttract_stage', 'APQuick'],
+          },
+        },
+      },
+      'フラッフィーダイナソー': {
+        'fluffyDinosaur_01': {
+          text: [
+            'ダイナソーカードを1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard'],
+          },
+        },
+      },
+      'M.ゴンザレス': {
+        'MGonzalez_01': {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、ハート上限を+',
+            'する。さらにメンタルを最大値の100%減少させる。'
+          ],
+          detail: {
+            attr: 'dinosaur',
+            type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce'],
+          },
+        },
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -4899,15 +5074,15 @@ export const useSkillStore = defineStore('skillList', {
         colorCode: '',
         description: 'APを回復する。',
       },
-      APReduce: {
-        name: 'APレデュース',
-        colorCode: '',
-        description: 'スキルの消費APを減少させる。',
-      },
       APLoss: {
         name: 'APロス',
         colorCode: '',
         description: 'APを減少させる。',
+      },
+      APReduce: {
+        name: 'APレデュース',
+        colorCode: 'purple',
+        description: 'スキルの消費APを減少させる。',
       },
       APReduce_all: {
         name: '消費AP減少',
@@ -4937,8 +5112,8 @@ export const useSkillStore = defineStore('skillList', {
         description: 'デッキにあるドレスカードの消費APを減少させる。',
       },
       APQuick: {
-        name: 'AP回復速度上昇',
-        colorCode: '',
+        name: 'ヒートアップ',
+        colorCode: 'lime-darken-3',
         description: 'AP回復速度を上昇させる。',
       },
       APSlow: {

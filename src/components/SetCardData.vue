@@ -393,9 +393,8 @@
               v-if="store.settingCard.rare !== 'DR' && store.settingCardData?.specialAppeal"
               class="ml-1"
             >
-              (最終獲得GP Pt. +
-              <span class="text-pink"> {{ store.grandprixBonus.releaseLv[store.settingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }} </span>
-              %)<v-btn
+              (最終獲得GP Pt. +<span class="text-pink"> {{ store.grandprixBonus.releaseLv[store.settingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }} </span>%)
+              <v-btn
                 size="small"
                 density="compact"
                 icon="mdi-help"
@@ -463,7 +462,7 @@
         <div class="mb-4">
           <h4 class="mb-4 d-flex flex-row align-center">
             解放Pt.
-            <span class="ml-1"> (上限：{{ limitReleasePoint(store) }}) </span>
+            <span class="ml-1">(上限：{{ limitReleasePoint(store) }})</span>
             <v-btn
               size="small"
               density="compact"
@@ -516,6 +515,7 @@
             <v-spacer></v-spacer>
           </v-row>
           <v-slider
+            v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5"
             hide-details
             v-model="store.settingCardData.fluctuationStatus.releasePoint"
             :max="limitReleasePoint(store)"
@@ -549,7 +549,8 @@
       </v-col>
     </v-row>
 
-    <div
+    <skillArea skillType="specialAppeal" />
+    <!-- <div
       class="mt-4"
       v-if="store.settingCardData?.specialAppeal"
     >
@@ -639,9 +640,10 @@
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
-    </div>
+    </div> -->
 
-    <div
+    <skillArea skillType="skill" />
+    <!-- <div
       class="mt-4"
       v-if="store.settingCardData?.skill"
     >
@@ -663,6 +665,7 @@
           >{{ store.skillColor[skillID].name }}</v-chip
         >
       </div>
+
       <v-expansion-panels
         class="mb-2"
         v-if="outputAddSkillList?.skill"
@@ -670,146 +673,159 @@
         <v-expansion-panel bg-color="yellow-darken-1">
           <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
           <v-expansion-panel-text>
-            <div
-              v-for="(list, i) of outputAddSkillList?.skill"
-              :key="i"
-              :class="`${i === 0 ? '' : 'mt-2'}`"
+            <v-tabs
+              v-model="tab_addSkill"
+              color="pink"
+              density="compact"
+              grow
+              show-arrows
             >
-              <v-divider class="mb-3 border-opacity-50"></v-divider>
-
-              <div>
-                <p>
-                  <span
-                    class="specialAppeal"
-                    v-if="list?.modeName"
-                  >
-                    {{ list.modeName }}
-                  </span>
-                  <span
-                    class="specialAppeal"
-                    v-else
-                  >
-                    スキル {{ i + 1 }}
-                  </span>
-                  <span class="mr-1">
-                    {{ list.name }}
-                  </span>
-                  <span
-                    class="AP"
-                    v-if="list?.AP"
-                  >
-                    AP{{ list.AP }}
-                  </span>
-                </p>
-
-                <p class="mt-1">
-                  {{ store.makeSkillText('skill', { addSkillNum: i }) }}
-                </p>
-
-                <div>
-                  <v-chip
-                    v-for="(skillID, ii) in store.skillList[list.name][list.ID].detail.type"
-                    :key="skillID"
-                    :color="store.skillColor[skillID].colorCode"
-                    :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
-                    @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
-                  >
-                    {{ store.skillColor[skillID].name }}
-                  </v-chip>
-                </div>
-              </div>
-
-              <div
-                class="mt-3"
-                v-if="list?.characteristic"
+              <template
+                v-for="(list, i) of outputAddSkillList?.skill"
+                :key="i"
               >
-                <span class="specialAppeal characteristic"> 特性 {{ i + 1 }} </span>
-                {{ list.characteristic.name }}
-                <p class="mt-1">{{ list.characteristic.detail }}</p>
-              </div>
-
-              <v-expansion-panels
-                class="my-2"
-                v-if="list?.addSkill"
+                <v-tab>{{ list.name }}</v-tab>
+              </template>
+            </v-tabs>
+            <v-divider class="border-opacity-50"></v-divider>
+            <v-tabs-window v-model="tab_addSkill">
+              <template
+                v-for="(list, i) of outputAddSkillList?.skill"
+                :key="i"
               >
-                <v-expansion-panel bg-color="yellow-darken-1">
-                  <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
-                  <v-expansion-panel-text>
-                    <div
-                      v-for="(addSkillList, addSkillNum) of list?.addSkill"
-                      :key="addSkillNum"
-                      :class="`${addSkillNum === 0 ? '' : 'mt-2'}`"
-                    >
-                      <v-divider class="mb-3 border-opacity-50"></v-divider>
+                <v-tabs-window-item :value="i" class="pt-2">
+                  <div>
+                    <p>
+                      <span
+                        class="specialAppeal"
+                        v-if="list?.modeName"
+                      >{{ list.modeName }}</span>
+                      <span
+                        class="specialAppeal"
+                        v-else
+                      >スキル</span>
+                      <span class="mr-1">{{ list.name }}</span>
+                      <span
+                        class="AP"
+                        v-if="list?.AP"
+                      >AP{{ list.AP }}</span>
+                    </p>
 
-                      <div>
-                        <p>
-                          <span
-                            class="specialAppeal"
-                            v-if="addSkillList?.modeName"
-                          >
-                            {{ addSkillList.modeName }}
-                          </span>
-                          <span
-                            class="specialAppeal"
-                            v-else
-                          >
-                            スキル {{ addSkillNum + 1 }}
-                          </span>
-                        <span class="mr-1">
-                          {{ addSkillList.name }}
-                        </span>
-                        <span
-                          class="AP"
-                          v-if="list?.AP"
-                        >
-                          AP{{ addSkillList.AP }}
-                        </span>
-                      </p>
+                    <p class="mt-1">
+                      {{ store.makeSkillText('skill', { addSkillNum: i }) }}
+                    </p>
 
-                      <p class="mt-1">
-                        {{ store.makeSkillText('addSkill', {
-                           addSkillNum: [i, addSkillNum]
-                         })
-                        }}
-                      </p>
-
-                      <div>
-                        <v-chip
-                          v-for="(skillID, ii) in store.skillList[addSkillList.name][addSkillList.ID].detail.type"
-                          :key="skillID"
-                          :color="store.skillColor[skillID].colorCode"
-                          :class="`chipSize mt-1 ${ii + 1 < store.skillList[addSkillList.name][addSkillList.ID].detail.type.length ? 'mr-1' : ''}`"
-                          @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
-                        >
-                          {{ store.skillColor[skillID].name }}
-                        </v-chip>
-                      </div>
-                    </div>
-
-                      <div
-                        class="mt-3"
-                        v-if="list?.characteristic"
+                    <div>
+                      <v-chip
+                        v-for="(skillID, ii) in store.skillList[list.name][list.ID].detail.type"
+                        :key="skillID"
+                        :color="store.skillColor[skillID].colorCode"
+                        :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
+                        @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
                       >
-                        <span class="specialAppeal characteristic"> 特性 {{ addSkillNum + 1 }} </span>
-                        {{ addSkillList.characteristic.name }}
-                        <p class="mt-1">{{ addSkillList.characteristic.detail }}</p>
-                      </div>
+                        {{ store.skillColor[skillID].name }}
+                      </v-chip>
                     </div>
-                  </v-expansion-panel-text>
-                </v-expansion-panel>
-              </v-expansion-panels>
-            </div>
+                  </div>
+
+                  <div
+                    class="mt-3"
+                    v-if="list?.characteristic"
+                  >
+                    <span class="specialAppeal characteristic">特性</span>
+                    {{ list.characteristic.name }}
+                    <p class="mt-1">{{ list.characteristic.detail }}</p>
+                  </div>
+
+                  <v-expansion-panels
+                    class="my-2"
+                    v-if="list?.addSkill"
+                  >
+                    <v-expansion-panel bg-color="yellow-darken-1">
+                      <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
+                      <v-expansion-panel-text>
+                        <div
+                          v-for="(addSkillList, addSkillNum) of list?.addSkill"
+                          :key="addSkillNum"
+                          :class="`${addSkillNum === 0 ? '' : 'mt-2'}`"
+                        >
+                          <v-divider class="mb-3 border-opacity-50"></v-divider>
+
+                          <div>
+                            <p>
+                              <span
+                                class="specialAppeal"
+                                v-if="addSkillList?.modeName"
+                              >
+                                {{ addSkillList.modeName }}
+                              </span>
+                              <span
+                                class="specialAppeal"
+                                v-else
+                              >
+                                スキル {{ addSkillNum + 1 }}
+                              </span>
+                            <span class="mr-1">
+                              {{ addSkillList.name }}
+                            </span>
+                            <span
+                              class="AP"
+                              v-if="list?.AP"
+                            >
+                              AP{{ addSkillList.AP }}
+                            </span>
+                          </p>
+
+                          <p class="mt-1">
+                            {{ store.makeSkillText('addSkill', {
+                              addSkillNum: [i, addSkillNum]
+                            })
+                            }}
+                          </p>
+
+                          <div>
+                            <v-chip
+                              v-for="(skillID, ii) in store.skillList[addSkillList.name][addSkillList.ID].detail.type"
+                              :key="skillID"
+                              :color="store.skillColor[skillID].colorCode"
+                              :class="`chipSize mt-1 ${ii + 1 < store.skillList[addSkillList.name][addSkillList.ID].detail.type.length ? 'mr-1' : ''}`"
+                              @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'skill' })"
+                            >
+                              {{ store.skillColor[skillID].name }}
+                            </v-chip>
+                          </div>
+                        </div>
+
+                          <div
+                            class="mt-3"
+                            v-if="list?.characteristic"
+                          >
+                            <span class="specialAppeal characteristic"> 特性 {{ addSkillNum + 1 }} </span>
+                            {{ addSkillList.characteristic.name }}
+                            <p class="mt-1">{{ addSkillList.characteristic.detail }}</p>
+                          </div>
+                        </div>
+                      </v-expansion-panel-text>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                </v-tabs-window-item>
+              </template>
+            </v-tabs-window>
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
-    </div>
+    </div> -->
 
-    <div
+    <skillArea skillType="characteristic" />
+    <!-- <div
       class="mt-4"
       v-if="store.settingCardData?.characteristic"
     >
-      <div class="px-0 pt-0 pb-1"><span class="specialAppeal characteristic">特性</span>{{ store.settingCardData.characteristic.name }}</div>
+      <div class="px-0 pt-0 pb-1">
+        <span class="specialAppeal characteristic">
+          特性
+        </span>{{ store.settingCardData.characteristic.name }}
+      </div>
       <div class="pa-0">
         {{ store.settingCardData.characteristic.detail }}
       </div>
@@ -819,7 +835,7 @@
         v-if="outputAddSkillList?.characteristic"
       >
         <v-expansion-panel bg-color="yellow-darken-1">
-          <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
+          <v-expansion-panel-title>追加カード・特性/モードチェンジ詳細</v-expansion-panel-title>
           <v-expansion-panel-text>
             <div
               v-for="(list, i) of outputAddSkillList?.characteristic"
@@ -832,24 +848,18 @@
                 <span
                   class="specialAppeal"
                   v-if="list?.modeName"
-                >
-                  {{ list.modeName }}
-                </span>
+                >{{ list.modeName }}</span>
                 <span
                   class="specialAppeal"
                   v-else
-                >
-                  スキル {{ i + 1 }}
-                </span>
+                >スキル {{ i + 1 }}</span>
                 <span class="mr-1">
                   {{ list.name }}
                 </span>
                 <span
                   class="AP"
                   v-if="list?.AP"
-                >
-                  AP{{ list.AP }}
-                </span>
+                >AP{{ list.AP }}</span>
               </p>
               <p class="mt-1">
                 {{ list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail }}
@@ -862,16 +872,14 @@
                   :color="store.skillColor[skillID].colorCode"
                   :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
                   @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: 'specialAppeal' })"
-                >
-                  {{ store.skillColor[skillID].name }}
-                </v-chip>
+                >{{ store.skillColor[skillID].name }}</v-chip>
               </div>
 
               <div
                 class="mt-3"
                 v-if="list?.characteristic"
               >
-                <span class="specialAppeal characteristic"> 特性 {{ i + 1 }} </span>
+                <span class="specialAppeal characteristic">特性{{ i + 1 }}</span>
                 {{ list.characteristic.name }}
                 <p class="mt-1">{{ list.characteristic.detail }}</p>
               </div>
@@ -879,13 +887,16 @@
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
-    </div>
+    </div> -->
 
     <div
       class="mt-2 px-0 pt-0 pb-1"
       v-if="store.settingCardData.uniqueStatus?.supportSkill"
     >
-      <span class="specialAppeal supportSkill">サポートスキル</span>{{ store.settingCardData.uniqueStatus.supportSkill.supportSkillTitle }}
+      <span class="specialAppeal supportSkill">
+        サポートスキル
+      </span>
+      {{ store.settingCardData.uniqueStatus.supportSkill.supportSkillTitle }}
       <ul class="d-flex mt-2">
         <li
           v-for="(list, supportSkillName) in store.settingCardData.uniqueStatus.supportSkill.supportSkillList"
@@ -978,10 +989,10 @@
           </v-tabs-window-item>
         </v-tabs-window>
       </div>
-      <div v-else-if="openDialogName === 'skillDescription'">
+      <!-- <div v-else-if="openDialogName === 'skillDescription'">
         <h2 class="text-center mb-2">スキル詳細</h2>
         {{ store.skillColor[skillID].description }}
-      </div>
+      </div> -->
       <div v-else-if="openDialogName === 'GPPT'">
         <h2 class="text-center mb-2">解放Lv.ボーナスとは？</h2>
         <p>
@@ -1073,25 +1084,8 @@
 
 <script setup>
 import { useStoreCounter } from '@/stores/counter';
+import skillArea from './SkillAreaComponent';
 const store = useStoreCounter();
-
-const outputAddSkillList = {};
-
-if (store.settingCardData?.characteristic?.changeCharacteristic) {
-  outputAddSkillList['characteristic'] = store.settingCardData.characteristic.changeCharacteristic;
-}
-
-if (store.settingCardData?.characteristic?.addSkill) {
-  outputAddSkillList['characteristic'] = store.settingCardData.characteristic.addSkill;
-}
-
-if (store.settingCardData?.specialAppeal?.addSkill) {
-  outputAddSkillList['specialAppeal'] = store.settingCardData.specialAppeal.addSkill;
-}
-
-if (store.settingCardData?.skill?.addSkill) {
-  outputAddSkillList['skill'] = store.settingCardData.skill.addSkill;
-}
 </script>
 
 <script>
@@ -1099,6 +1093,7 @@ export default {
   name: 'CardSetting',
   data() {
     return {
+      tab_addSkill: 'one',
       dialog: false,
       openDialogName: null,
       dialogSize: 0,
@@ -1107,6 +1102,9 @@ export default {
       isAlternate: false,
       selectAddSkillDetail: 'mainSkill',
     };
+  },
+  components: {
+    skillArea: skillArea
   },
   created() {},
   mounted() {},
