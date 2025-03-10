@@ -433,7 +433,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ASTERISM',
               detail: 'ドローした時、ビートハート5回分のスキルハートを獲得、メンタルを最大値の10%回復させ、さらにこのセクション中、手札の上限枚数を1枚増加する。',
-              type: ['drew', 'heartCaptcha', 'mentalRecover', 'extendHand']
+              type: ['draw', 'heartCaptcha', 'mentalRecover', 'extendHand']
             },
           },
           'ハナムスビ': {
@@ -539,7 +539,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：バブリング',
               detail: 'ドローした時、バブルカードを1種類(合計1枚)山札に追加する。',
-              type: ['drew', 'addCard'],
+              type: ['draw', 'addCard'],
               addSkill: [
                 {
                   ID: 'bubble_minus3_ceriseBouquet_dressCard',
@@ -885,9 +885,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ハートアトラクション：梢',
-              detail: '手札にある状態で梢のスキルを使用するたび、ビートハート4回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+8%する。',
-              type: ['heartCaptcha', 'loveAttraction', 'kozue'],
+              name: 'ハートアトラクション：梢 & ドロー：APレデュース：梢',
+              detail: '手札にある状態で梢のスキルを使用するたび、ビートハート4回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+8%する。さらにドローした時、デッキにある梢のスキルの消費AP-2。',
+              type: ['heartCaptcha', 'loveAttraction', 'kozue', 'draw', 'APReduce'],
             },
           },
           'Link to the FUTURE': {
@@ -1033,7 +1033,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & チェイン：梢 & ドロー：ハッピー/アトラクトブースト：梢',
               detail: 'このスキルのムードによる効果増加量を上昇させ、梢のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に梢が使用するラブアトラクト効果を+240%する。',
-              type: ['interPretation', 'chain', 'kozue', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'chain', 'kozue', 'draw', 'boost_loveAttract'],
             },
           },
           'Trick & Cute': {
@@ -1175,7 +1175,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト & ハートブースト',
               detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+15%し、さらに次に使用するスキルハート獲得効果による獲得数を+60%する。',
-              type: ['overSection', 'loveAttract', 'boost_heartCaptcha'],
+              type: ['overSection', 'loveAttract_section', 'boost_heartCaptcha'],
             },
           },
           'SPLASH!!!!': {
@@ -1264,7 +1264,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & ドロー：アトラクトブースト：スリーズブーケ',
               detail: 'このスキルのムードによる効果増加量を上昇させる。さらにドローした時、次にスリーズブーケのメンバーが使用するラブアトラクト効果を+40%する。',
-              type: ['interPretation', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'draw', 'boost_loveAttract'],
             },
           },
           'ペンギンアイス': {
@@ -1615,7 +1615,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：APレデュース：グルーヴィ & チアフル',
               detail: 'ボルテージLv.5以上でドローした時、消費APを-2、メンタル50%以上でドローした時、消費APを-2する。',
-              type: ['drew', 'APReduce', 'groovy'],
+              type: ['draw', 'APReduce', 'groovy'],
             },
           },
           '織姫草紙': {
@@ -1809,7 +1809,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '迎春 -食-': {
-            ID: 'kh_04',
+            ID: 'kh_034',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: '迎春',
@@ -1853,9 +1853,9 @@ export const useCardStore = defineStore('cardList', {
               type: ['chill', 'mentalRecover', 'voltageGain'],
             },
             characteristic: {
-              name: 'オーバーセクション：APゲイン',
-              detail: '手札にある状態でセクションが変わるたび、APを2回復する。',
-              type: ['overSection', 'APGain'],
+              name: 'オーバーセクション：APゲイン & エクステンドハンド：1',
+              detail: '手札にある状態でセクションが変わるたび、APを2回復する。さらに手札にある間、手札の上限枚数を1枚増加する。',
+              type: ['overSection', 'APGain', 'extendHand'],
             },
           },
           '冬のおくりもの': {
@@ -2215,7 +2215,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'フェイバリット：フィーバー & ドロー：ハートブースト',
               detail: 'フィーバーセクションでドローされる確率が増加する。さらにこのステージ中、ドローした時、次に使用するスキルハート獲得効果による獲得数を+30%する。',
-              type: ['favorite', 'drew', 'boost_heartCaptcha'],
+              type: ['favorite', 'draw', 'boost_heartCaptcha'],
             },
           },
           'DEEPNESS': {
@@ -2263,7 +2263,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：さやか & ドロー：アトラクトブースト：梢',
               detail: 'さやかのスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に梢が使用するラブアトラクト効果を+75%する。',
-              type: ['chain', 'sayaka', 'drew', 'boost_loveAttract', 'kozue'],
+              type: ['chain', 'sayaka', 'draw', 'boost_loveAttract', 'kozue'],
             },
           },
           '雨と紫陽花に唄へば': {
@@ -2988,7 +2988,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'アキューミュレイト & ドロー：メロウ/リインフォース',
               detail: '使用する度に消費APが-3される。さらにムードがメロウでドローした時、スキル効果値が増加する。',
-              type: ['accumulate', 'drew', 'reinforce'],
+              type: ['accumulate', 'draw', 'reinforce'],
             },
           },
           'バアドケージ': {
@@ -3078,7 +3078,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ボルテージブースト & APレデュース：グルーヴィ & チアフル',
               detail: 'ドローした時、次に使用するボルテージゲイン効果を+16%する。さらにボルテージLv.8以上でドローした時、消費APを-5、メンタル75%以上でドローした時、消費APを-2する。',
-              type: ['drew', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful'],
+              type: ['draw', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful'],
             },
           },
           'Proof': {
@@ -3352,9 +3352,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：綴理 & ボルテージゲイン：綴理',
-              detail: '綴理のスキルを使用するたび、手札のこのスキルの消費AP-1し、ボルテージPt.を+10する。',
-              type: ['APReduce', 'voltageGain', 'tsuzuri'],
+              name: 'APレデュース：綴理 & ボルテージゲイン：綴理 & ドロー：APレデュース：綴理',
+              detail: '手札にある状態で綴理のスキルを使用するたび、手札のこのスキルの消費AP-1し、ボルテージPt.を+10する。さらにドローした時、デッキにある綴理のスキルの消費AP-2。',
+              type: ['APReduce', 'voltageGain', 'tsuzuri', 'draw'],
             },
           },
           'Link to the FUTURE': {
@@ -3500,7 +3500,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & チェイン：慈 & ドロー：ハッピー/アトラクトブースト：慈',
               detail: 'このスキルのムードによる効果増加量を上昇させ、慈のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に慈が使用するラブアトラクト効果を+240%する。',
-              type: ['interPretation', 'chain', 'megumi', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'chain', 'megumi', 'draw', 'boost_loveAttract'],
             },
           },
           '宇宙警察★うさぴょん': {
@@ -3543,7 +3543,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：瑠璃乃 & ドロー：ボルテージブースト',
               detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に使用するボルテージゲイン効果を+16%する。',
-              type: ['chain', 'rurino', 'drew', 'boost_voltageGain'],
+              type: ['chain', 'rurino', 'draw', 'boost_voltageGain'],
             },
           },
           'ゆのくにガールズ！': {
@@ -3727,7 +3727,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & ドロー：アトラクトブースト：DOLLCHESTRA',
               detail: 'このスキルのムードによる効果増加量を上昇させる。さらにドローした時、次にDOLLCHESTRAのメンバーが使用するラブアトラクト効果を+40%する。',
-              type: ['interPretation', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'draw', 'boost_loveAttract'],
             },
           },
           '朝顔令嬢': {
@@ -4311,12 +4311,11 @@ export const useCardStore = defineStore('cardList', {
               name: 'カームアトラクト',
               AP: 3,
               detail: [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]],
-              type: ['calm', 'heartCaptcha', 'loveAttract'],
             },
             characteristic: {
-              name: 'インタープリテーション＆サーチ：綴理',
-              detail: 'このスキルのムードによる効果増加量を増加させる。さらにスキル使用後、綴理のカードをドローする確率大幅アップ。',
-              type: ['interPretation', 'search', 'tsuzuri'],
+              name: 'インタープリテーション＆サーチ：綴理 & ドロー：メロウ/リインフォース',
+              detail: 'このスキルのムードによる効果増加量を上昇させ、スキル使用後、綴理のカードをドローする確率大幅アップ。さらにムードがメロウでドローした時、スキル効果値が増加する。',
+              type: ['interPretation', 'search', 'tsuzuri', 'draw', 'reinforce'],
             },
           },
           '迎春 -舞-': {
@@ -4363,9 +4362,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：メンタルリカバー',
-              detail: '手札にある状態でセクションが変わるたび、メンタルを最大値の8%回復させる。',
-              type: ['overSection', 'mentalRecover'],
+              name: 'オーバーセクション：メンタルリカバー & エクステンドハンド：1',
+              detail: '手札にある状態でセクションが変わるたび、メンタルを最大値の8%回復させる。さらに手札にある間、手札の上限枚数を1枚増加する。',
+              type: ['overSection', 'mentalRecover', 'extendHand'],
             },
           },
           'ツバサ・ラ・リベルテ': {
@@ -4636,7 +4635,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ラブアトラクト & アトラクトブースト',
               detail: 'ドローした時、このセクション中、獲得するLOVEを+7.5%する。さらにこのステージ中、次に使用するラブアトラクト効果を+10%する。',
-              type: ['draw', 'loveAttract', 'boost_loveAttract'],
+              type: ['draw', 'loveAttract_section', 'boost_loveAttract'],
             },
           },
           'ペンギンアイス': {
@@ -4722,7 +4721,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：梢 & ドロー：アトラクトブースト：花帆',
               detail: '梢のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に花帆が使用するラブアトラクト効果を+75%する。',
-              type: ['chain', 'kozue', 'drew', 'boost_loveAttract', 'kaho'],
+              type: ['chain', 'kozue', 'draw', 'boost_loveAttract', 'kaho'],
             },
           },
           'アメアガリストリート': {
@@ -5274,7 +5273,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ラブアトラクト & APレデュース：メンタル',
               detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。さらに現在のメンタルに応じてスキルの消費APダウン',
-              type: ['draw', 'loveAttract', 'APReduce', 'mental'],
+              type: ['draw', 'loveAttract_stage', 'APReduce', 'mental'],
             },
           },
         },
@@ -5460,7 +5459,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'アキューミュレイト & ドロー：ハッピー/リインフォース',
               detail: '使用する度に消費APが-3される。さらにムードがハッピーでドローした時、スキル効果値が増加する。',
-              type: ['accumulate', 'drew', 'reinforce'],
+              type: ['accumulate', 'draw', 'reinforce'],
             },
           },
           'ジョーショーキリュー': {
@@ -5577,7 +5576,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ボルテージブースト & APレデュース：グルーヴィ & チアフル',
               detail: 'ドローした時、次に使用するボルテージゲイン効果を+16%する。さらにボルテージLv.8以上でドローした時、消費APを-2、メンタル75%以上でドローした時、消費APを-5する。',
-              type: ['drew', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful'],
+              type: ['draw', 'boost_voltageGain', 'APReduce', 'groovy', 'cheerful'],
             },
           },
           'ファンファーレ！！！': {
@@ -5739,7 +5738,7 @@ export const useCardStore = defineStore('cardList', {
             },
             characteristic: {
               name: 'ジャストドロー：フィナーレ/APレデュース & アザードロー：アトラクトブースト',
-              detail: '2～4セクション目でドローした時、消費APを-10する。それ以外のセクションでドローした時、次に使用するスキルハート獲得効果による獲数を+50%する。',
+              detail: '最終セクションでドローした時、消費APを-10する。それ以外のセクションでドローした時、次に使用するラブアトラクト効果を+16%する。',
               type: ['justDrew', 'APReduce', 'otherDrew', 'boost_loveAttract'],
             },
           },
@@ -6031,9 +6030,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：慈 & メンタルリカバー：慈',
-              detail: '慈のスキルを使用するたび、手札のこのスキルの消費AP-1し、メンタルを最大値の6%回復させる。',
-              type: ['APReduce', 'mentalRecover', 'megumi'],
+              name: 'APレデュース：慈 & メンタルリカバー：慈 & ドロー：APレデュース：慈',
+              detail: '手札にある状態で慈のスキルを使用するたび、手札のこのスキルの消費AP-1し、メンタルを最大値の6%回復させる。さらにドローした時、デッキにある慈のスキルの消費AP-2。',
+              type: ['APReduce', 'mentalRecover', 'megumi', 'draw'],
             },
           },
           'ハクチューアラモード': {
@@ -6074,9 +6073,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]],
             },
             characteristic: {
-              name: 'ドロー：ハートキャプチャ',
-              detail: 'ドローした時、ビートハート5回分のスキルハートを獲得する。',
-              type: ['draw', 'heartCaptcha'],
+              name: 'ドロー：ハートキャプチャ & APゲイン：ブレイブ',
+              detail: 'ドローした時、ビートハート5回分のスキルハートを獲得する。さらにメンタルが25%以下の時にドローすると、APを1回復する。',
+              type: ['draw', 'heartCaptcha', 'APGain', 'brave'],
             },
           },
           'Link to the FUTURE': {
@@ -6392,7 +6391,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & ドロー：ハッピー/ハートブースト',
               detail: 'このスキルのムードによる効果増加量を上昇させる。さらにムードがハッピーでドローした時、次に使用するスキルハート獲得効果による獲得数を+60%する。',
-              type: ['interPretation', 'drew', 'boost_heartCaptcha'],
+              type: ['interPretation', 'draw', 'boost_heartCaptcha'],
             },
           },
           '夏めきペイン': {
@@ -6692,9 +6691,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ハートキャプチャ',
-              detail: '手札にある状態でセクションが変わるたび、ビートハート4回分のスキルハートを獲得する。',
-              type: ['overSection', 'heartCaptcha'],
+              name: 'オーバーセクション：ハートキャプチャ & エクステンドハンド：1',
+              detail: '手札にある状態でセクションが変わるたび、ビートハート4回分のスキルハートを獲得する。さらに手札にある間、手札の上限枚数を1枚増加する。',
+              type: ['overSection', 'heartCaptcha', 'extendHand'],
             },
           },
           'Secret Christmas': {
@@ -6740,7 +6739,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：慈 & ドロー：リカバーブースト：慈',
               detail: '慈のスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に慈が使用するメンタルリカバー効果を+75%する。',
-              type: ['chain', 'megumi', 'drew', 'boost_mentalRecover'],
+              type: ['chain', 'megumi', 'draw', 'boost_mentalRecover'],
             },
           },
           '冬のおくりもの': {
@@ -7008,7 +7007,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：慈 & ドロー：ボルテージブースト：慈',
               detail: '慈のスキルを使用した後、ドローされる確率が増加する。さらにドローしたとき、次に慈が使用するボルテージゲイン効果を+75%する。',
-              type: ['chain', 'megumi', 'drew', 'boost_voltageGain'],
+              type: ['chain', 'megumi', 'draw', 'boost_voltageGain'],
             },
           },
           'にゅーかまー！': {
@@ -7676,7 +7675,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'スターゲイザー',
               detail: 'ドローした時、デッキにある慈のスキルの消費AP-9。さらに手札にある状態で慈のスキルを使用するたび、このステージ中、メンタルの最大値の6%分のメンタルダメージを無効にし、ビートハート4回分のスキルハートを獲得する。',
-              type: ['drew', 'APReduce', 'protect_stage', 'heartCaptcha'],
+              type: ['draw', 'APReduce', 'protect_stage', 'heartCaptcha'],
             },
           },
           '輪廻の銀河へ': {
@@ -8351,7 +8350,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト & APレデュース',
               detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+15%し、手札のこのスキルの消費AP-4する。',
-              type: ['overSection', 'loveAttract', 'APReduce'],
+              type: ['overSection', 'loveAttract_section', 'APReduce'],
             },
           },
           'DEEPNESS': {
@@ -8443,7 +8442,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'フェイバリット：3 & ドロー：リカバーブースト',
               detail: 'フィーバーセクションを除いた3セクション目でドローされる確率が増加する。さらにこのステージ中、ドローした時、次に使用するメンタルリカバー効果を+50%する。',
-              type: ['favorite', 'drew', 'boost_mentalRecover'],
+              type: ['favorite', 'draw', 'boost_mentalRecover'],
             },
           },
           'フォーチュンムービー': {
@@ -8744,7 +8743,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'フェイバリット：スタート & オーバーセクション：APレデュース & ラブアトラクト',
               detail: '初期手札に加わる確率が大幅に増加する。さらに手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-4し、このステージ中、獲得するLOVEを+4%する。',
-              type: ['favorite', 'overSection', 'APReduce', 'loveAttract'],
+              type: ['favorite', 'overSection', 'APReduce', 'loveAttract_stage'],
             },
           },
         },
@@ -8851,7 +8850,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：バブリング',
               detail: 'ドローした時、バブルカードを1種類(合計1枚)山札に追加する。',
-              type: ['drew', 'addCard'],
+              type: ['draw', 'addCard'],
               addSkill: [
                 {
                   ID: 'bubble_minus3_ceriseBouquet_dressCard',
@@ -8999,9 +8998,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'オーバーセクション：ラブアトラクト',
-              detail: '手札にある状態でセクションが変わるたび、このステージ中、獲得するLOVEを+3.2%する。',
-              type: ['overSection', 'loveAttract'],
+              name: 'オーバーセクション：ラブアトラクト & エクステンドハンド：1',
+              detail: '手札にある状態でセクションが変わるたび、このステージ中、獲得するLOVEを+3.2%する。さらに手札にある間、手札の上限枚数を1枚増加する。',
+              type: ['overSection', 'loveAttract_stage', 'extendHand'],
             },
           },
           'Special Thanks': {
@@ -9046,9 +9045,9 @@ export const useCardStore = defineStore('cardList', {
               type: ['groovy', 'loveAttraction', 'heartBoost'],
             },
             characteristic: {
-              name: 'APレデュース：花帆 & ハートキャプチャ：花帆',
-              detail: '花帆のスキルを使用するたび、手札のこのスキルの消費AP-1し、ビートハート2回分のスキルハートを獲得する。',
-              type: ['APReduce', 'heartCaptcha', 'kaho'],
+              name: 'APレデュース：花帆 & ハートキャプチャ：花帆 & ドロー：APレデュース：花帆',
+              detail: '手札にある状態で花帆のスキルを使用するたび、手札のこのスキルの消費AP-1し、ビートハート2回分のスキルハートを獲得する。さらにドローした時、デッキにある花帆のスキルの消費AP-1。',
+              type: ['APReduce', 'heartCaptcha', 'kaho', 'draw'],
             },
           },
           'Link to the FUTURE': {
@@ -9145,7 +9144,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & チェイン：花帆 & ドロー：ハッピー/アトラクトブースト：花帆',
               detail: 'このスキルのムードによる効果増加量を上昇させ、花帆のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に花帆が使用するラブアトラクト効果を+150%する。',
-              type: ['interPretation', 'chain', 'kaho', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'chain', 'kaho', 'draw', 'boost_loveAttract'],
             },
           },
           'Trick & Cute': {
@@ -9277,7 +9276,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト & リカバーブースト',
               detail: '手札にある状態でセクションが変わるたび、このステージ中、獲得するLOVEを+3.2%し、さらに次に使用するメンタルリカバー効果を+40%する。',
-              type: ['overSection', 'loveAttract', 'boost_mentalRecover'],
+              type: ['overSection', 'loveAttract_stage', 'boost_mentalRecover'],
             },
           },
           'SPLASH!!!!': {
@@ -9363,7 +9362,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & ドロー：アトラクトブースト：スリーズブーケ',
               detail: 'このスキルのムードによる効果増加量を上昇させる。さらにドローした時、次にスリーズブーケのメンバーが使用するラブアトラクト効果を+25%する。',
-              type: ['interPretation', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'draw', 'boost_loveAttract'],
             },
           },
           '朝顔令嬢': {
@@ -10079,6 +10078,57 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'COMPASS': {
+            ID: 'tz_054',
+            styleType: 'performer',
+            mood: 'melow',
+            series: 'COMPASS',
+            kana: 'こんぱす',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.9',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4450,
+              pure: 4700,
+              cool: 5500,
+              mental: 455,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'coaching_01',
+              name: 'コーチング',
+              AP: 11,
+              detail: [
+                [36, 39.6, 43.2, 46.8, 50.4, 54, 57.6, 61.2, 64.8, 72, 75.6, 79.2, 82.8, 90],
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+              ],
+            },
+            skill: {
+              ID: 'transcend-attraction_01',
+              name: 'トランセンド▷アトラクション',
+              AP: 15,
+              detail: [
+                [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+                [91, 100, 109, 118, 127, 137, 146, 155, 164, 182, 191, 200, 209, 228],
+                [228, 251, 274, 296, 319, 342, 365, 388, 410, 456, 479, 502, 524, 570],
+                [570, 627, 684, 741, 798, 855, 912, 969, 1026, 1140, 1197, 1254, 1311, 1425],
+              ],
+            },
+            characteristic: {
+              name: 'S.I.コンダクター',
+              detail: 'このスキル使用時、手札を全て捨てて、捨て札を全て山札に戻した後、デッキから手札上限までスキルを引く。この時DOLLCHESTRAのスキルをドローする確率大幅アップ。さらにメンタルが0%でスキルを使用時、デッキにあるDOLLCHESTRAのスキルの消費AP-3、このセクション中、AP回復速度を+30%、ハート上限を+300する。',
+              type: ['reshuffle', 'APReduce', 'APQuick', 'heartLimitUp'],
+            },
+          },
           'AURORA FLOWER': {
             ID: 'tz_053',
             styleType: 'moodMaker',
@@ -10171,7 +10221,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'エンパシー',
               detail: 'ドローした時、デッキにある梢、慈のスキルの消費AP-3。さらに手札にある状態で慈のスキルを使用するたび、ボルテージPt.を+10し、ビートハート4回分のスキルハートを獲得する。',
-              type: ['drew', 'APReduce', 'voltageGain', 'heartCaptcha'],
+              type: ['draw', 'APReduce', 'voltageGain', 'heartCaptcha'],
             },
           },
           '102/R.B.P.': {
@@ -10218,7 +10268,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：R.B.P.',
               detail: 'ドローした時、次に使用するラブアトラクト効果を+16%、ボルテージPt.を+18し、さらにこのステージ中、メンタルの最大値の10%分のメンタルダメージを無効にする。',
-              type: ['drew', 'boost_loveAttract', 'boost_voltageGain', 'protect_stage']
+              type: ['draw', 'boost_loveAttract', 'boost_voltageGain', 'protect_stage']
             },
           },
           'バアドケージ': {
@@ -10278,7 +10328,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'リベレイト',
               detail: 'このスキルを3回使用するまで、スキル使用時、山札に戻る。このスキルを3回使用した時、スキル効果量が増加し、トリカゴカードを1種類(合計3枚)山札に追加する。',
-              type: ['drew', 'addCard'],
+              type: ['draw', 'addCard'],
               addSkill: [
                 {
                   ID: 'torikago',
@@ -10708,7 +10758,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ラブアトラクト',
               detail: 'ドローした時、このセクション中、獲得するLOVEを12.5%する。',
-              type: ['draw', 'loveAttract'],
+              type: ['draw', 'loveAttract_section'],
             },
           },
           '革命の舞踏会': {
@@ -11028,7 +11078,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'オーバーセクション：ラブアトラクト & APゲイン',
               detail: '手札にある状態でセクションが変わるたび、このステージ中、獲得するLOVEを+4.8%し、APを3回復する。',
-              type: ['overSection', 'loveAttract', 'APGain'],
+              type: ['overSection', 'loveAttract_stage', 'APGain'],
             },
           },
           'DEEPNESS': {
@@ -11311,7 +11361,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ヒートアップ',
               detail: 'ドローしたセクションの間、AP回復速度を+5%する。',
-              type: ['drew', 'APFast_section'],
+              type: ['draw', 'APFast_section'],
             },
           },
           '365 Days': {
@@ -11398,9 +11448,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 125]],
             },
             characteristic: {
-              name: 'オーバーセクション：ラブアトラクト',
-              detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+10%する。',
-              type: ['overSection', 'loveAttract'],
+              name: 'オーバーセクション：ラブアトラクト & エクステンドハンド：1',
+              detail: '手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+10%する。さらに手札にある間、手札の上限枚数を1枚増加する。',
+              type: ['overSection', 'loveAttract_section', 'extendHand'],
             },
           },
           '青とシャボン': {
@@ -11444,9 +11494,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：さやか & ボルテージゲイン：さやか',
-              detail: 'さやかのスキルを使用するたび、手札のこのスキルの消費AP-1し、ボルテージPt.を+6する。',
-              type: ['APReduce', 'voltageGain', 'sayaka'],
+              name: 'APレデュース：さやか & ボルテージゲイン：さやか & ドロー：APレデュース：さやか',
+              detail: '手札にある状態でさやかのスキルを使用するたび、手札のこのスキルの消費AP-1し、ボルテージPt.を+6する。さらにドローした時、デッキにあるさやかのスキルの消費AP-1。',
+              type: ['APReduce', 'voltageGain', 'sayaka', 'draw'],
             },
           },
           'Eisritter': {
@@ -11493,9 +11543,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'インタープリテーション＆サーチ：さやか',
-              detail: 'このスキルのムードによる効果増加量を増加させる。さらにスキル使用後、さやかのカードをドローする確率大幅アップ。',
-              type: ['interPretation', 'search', 'sayaka'],
+              name: 'インタープリテーション＆サーチ：さやか & ドロー：メロウ/リインフォース',
+              detail: 'このスキルのムードによる効果増加量を上昇させ、スキル使用後、さやかのカードをドローする確率大幅アップ。さらにムードがメロウでドローした時、スキル効果値が増加する。',
+              type: ['interPretation', 'search', 'sayaka', 'draw', 'reinforce'],
             },
           },
           'Link to the FUTURE': {
@@ -11593,7 +11643,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：さやか & ドロー：グルーヴィ/アトラクトブースト：さやか',
               detail: 'さやかのスキルを使用した後、ドローされる確率が増加する。さらにボルテージLv.8以上でドローした時、次にさやかが使用するラブアトラクト効果を+60%する。',
-              type: ['chain', 'sayaka', 'drew', 'groovy', 'boost_loveAttract'],
+              type: ['chain', 'sayaka', 'draw', 'groovy', 'boost_loveAttract'],
             },
           },
           'コットン=ユートピア': {
@@ -11688,7 +11738,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ラブアトラクト & ハッピー/マチュレーション',
               detail: 'ドローした時、このセクション中、獲得するLOVEを+7.5%する。さらにムードがハッピーでドローした時、スキル効果値が増加する。',
-              type: ['draw', 'loveAttract', 'maturation'],
+              type: ['draw', 'loveAttract_section', 'maturation'],
             },
           },
           '夏めきペイン': {
@@ -11823,7 +11873,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & ドロー：アトラクトブースト：DOLLCHESTRA',
               detail: 'このスキルのムードによる効果増加量を上昇させる。さらにドローした時、次にDOLLCHESTRAのメンバーが使用するラブアトラクト効果を+25%する。',
-              type: ['interPretation', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'draw', 'boost_loveAttract'],
             },
           },
           'アメアガリストリート': {
@@ -12716,7 +12766,7 @@ export const useCardStore = defineStore('cardList', {
                   characteristic: {
                     name: 'フラジール',
                     detail: 'ドローしたとき、ビートハート5回分のスキルハートを獲得、次に使用するラブアトラクト効果を+16%、ボルテージPt.を+18し、このステージ中、メンタルの最大値の10%分のメンタルダメージを無効にする。さらにこのスキルを使用すると、デッキから除外される。',
-                    type: ['drew', 'heartCaptcha', 'boost_loveAttract', 'voltageGain', 'protect_stage', 'exclusion'],
+                    type: ['draw', 'heartCaptcha', 'boost_loveAttract', 'voltageGain', 'protect_stage', 'exclusion'],
                   },
                 },
               ],
@@ -13258,7 +13308,7 @@ export const useCardStore = defineStore('cardList', {
             },
             characteristic: {
               name: 'APレデュース：ラブアトラクト',
-              detail: '手札にある状態メイン効果に獲得LOVE増加効果を持つスキル1枚につき、手札のこのスキルの消費AP-2。',
+              detail: '手札にあるメイン効果に獲得LOVE増加効果を持つスキル1枚につき、手札のこのスキルの消費AP-2。',
               type: ['APReduce', 'loveAttract'],
             },
           },
@@ -13303,9 +13353,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：ラブアトラクト',
-              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。',
-              type: ['draw', 'loveAttract'],
+              name: 'ドロー：ラブアトラクト & APゲイン：ブレイブ',
+              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。さらにメンタルが25%以下の時にドローすると、APを1回復する。',
+              type: ['draw', 'loveAttract_stage', 'APGain', 'brave'],
             },
           },
           '蓮ノ空歌留多': {
@@ -13545,7 +13595,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & チェイン：さやか & ドロー：ハッピー/アトラクトブースト：さやか',
               detail: 'このスキルのムードによる効果増加量を上昇させ、さやかのスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次にさやかが使用するラブアトラクト効果を+240%する。',
-              type: ['interPretation', 'chain', 'sayaka', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'chain', 'sayaka', 'draw', 'boost_loveAttract'],
             },
           },
           '約束の舞踏会': {
@@ -13905,9 +13955,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
             },
             characteristic: {
-              name: 'オーバーセクション：ボルテージゲイン',
-              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+12する。',
-              type: ['overSection', 'voltageGain'],
+              name: 'オーバーセクション：ボルテージゲイン & エクステンドハンド：1',
+              detail: '手札にある状態でセクションが変わるたび、ボルテージPt.を+12する。さらに手札にある間、手札の上限枚数を1枚増加する。',
+              type: ['overSection', 'voltageGain', 'extendHand'],
             },
           },
           'ミルク': {
@@ -13954,9 +14004,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'APレデュース：瑠璃乃 & メンタルリカバー：瑠璃乃',
-              detail: '瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-1し、メンタルを最大値の4%回復させる。',
-              type: ['APReduce', 'mentalRecover', 'rurino'],
+              name: 'APレデュース：瑠璃乃 & メンタルリカバー：瑠璃乃 & ドロー：APレデュース：瑠璃乃',
+              detail: '手札にある状態で瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-1し、メンタルを最大値の4%回復させる。さらにドローした時、デッキにある瑠璃乃のスキルの消費AP-1。',
+              type: ['APReduce', 'mentalRecover', 'rurino', 'draw'],
             },
           },
           'Link to the FUTURE': {
@@ -14275,7 +14325,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'インタープリテーション & ドロー：ハッピー/アトラクトブースト',
               detail: 'このスキルのムードによる効果増加量を上昇させる。さらにムードがハッピーでドローした時、次に使用するラブアトラクト効果を+20%する。',
-              type: ['interPretation', 'drew', 'boost_loveAttract'],
+              type: ['interPretation', 'draw', 'boost_loveAttract'],
             },
           },
           '世界中を夢中に': {
@@ -14323,7 +14373,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'チェイン：瑠璃乃 & ドロー：ボルテージブースト：瑠璃乃',
               detail: '瑠璃乃のスキルを使用した後、ドローされる確率が増加する。さらにドローしたとき、次に瑠璃乃が使用するボルテージゲイン効果を+75%する。',
-              type: ['chain', 'rurino', 'drew', 'boost_voltageGain'],
+              type: ['chain', 'rurino', 'draw', 'boost_voltageGain'],
             },
           },
           '@いっつぁどりーみんわーるど！': {
@@ -14669,7 +14719,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ドレス《Ether Aria》',
               detail: 'ドローした時、ドレスカード《Ether Aria》を1種類（合計3枚）山札に追加する。',
-              type: ['drew', 'addCard'],
+              type: ['draw', 'addCard'],
               addSkill: [
                 {
                   ID: 'heartGain_1',
@@ -15341,7 +15391,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：アバンダンス/エクステンドハンド',
               detail: 'ドローした時、このセクション中、手札の上限枚数を1枚増加する。さらにデッキ枚数が25枚以上のとき、このセクション中、手札の上限枚数を3枚増加する。',
-              type: ['drew', 'abunDance', 'extendHand'],
+              type: ['draw', 'abunDance', 'extendHand'],
             },
           },
           'PASSION!!!!!!': {
@@ -15813,7 +15863,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ハッピー/APレデュース',
               detail: 'ムードがハッピーでドローした時、消費APを-5する。',
-              type: ['drew', 'APReduce'],
+              type: ['draw', 'APReduce'],
             },
           },
           'アオクハルカ': {
@@ -16152,6 +16202,56 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'COMPASS': {
+            ID: 'sz_018',
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'COMPASS',
+            kana: 'こんぱす',
+            gacha: {
+              addSeason: '2024 WINTER LIMITED COLLECTION vol.9',
+              period: 'winter',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4350,
+              pure: 4900,
+              cool: 5400,
+              mental: 455,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'aggressiveExtensionBelief_01',
+              name: 'アグレッシブエクステビリーフ',
+              AP: 5,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+              ],
+            },
+            skill: {
+              ID: 'transcend-aggressive_01',
+              name: 'トランセンド▷アグレッシブ',
+              AP: 5,
+              detail: [
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [37.5, 41.3, 45, 48.8, 52.5, 56.3, 60, 63.8, 67.5, 75, 78.8, 82.5, 86.3, 93.8],
+                [52, 57, 62, 68, 73, 78, 83, 88, 94, 104, 109, 114, 120, 130],
+              ],
+            },
+            characteristic: {
+              name: 'チャレンジングアンカー',
+              detail: '4セクション目以降にこのスキルを使用した時、このステージ中、メンタルが0になってもメンタルダウンしなくなり、スキル効果値が増加する。',
+              type: ['mentalDown', 'maturation'],
+            },
+          },
           'AURORA FLOWER': {
             ID: 'sz_016',
             styleType: 'performer',

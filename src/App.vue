@@ -316,6 +316,9 @@ export default {
     pageTitle(to) {
       document.title = `${to.meta.title}${this.siteName}`;
     },
+    /**
+     * トップへ移動
+     */
     goToTop() {
       this.$vuetify.goTo(0);
     },

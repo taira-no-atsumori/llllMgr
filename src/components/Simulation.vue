@@ -1,32 +1,4 @@
 <template>
-  <div id="otherArea" v-if="false">
-    <div id="textOutputArea">
-      <label for="textOutput" class="mb-2">出力テキスト</label>
-      <textarea name="textOutput" id="textOutput" class="mb-2"></textarea>
-      <p id="textLength"></p>
-    </div>
-    <div id="possessionCardSettingArea" v-if="false">
-      <p class="mb-2">所持カード設定</p>
-      <ul id="possessionCard_header">
-        <li v-for="(name_ja, name_en) in memberName" :key="name_ja" :data-character="name_en" :data-selected="selectTab === name_en" @click="this.selectTab = name_en">
-          {{ name_ja.last }}
-        </li>
-      </ul>
-      <ul id="possessionCard_container">
-        <li v-for="(name_ja, name_en) in memberName" :key="name_en" :data-character="name_en" v-show="selectTab === name_en">
-          <dl v-for="rare in store.rarity" :key="rare" :data-rare="rare">
-            <dt>
-              {{ rare }}
-            </dt>
-            <dd>
-              <button v-for="(ary, cardName) in card[name_en][rare]" :key="ary" :data-mood="ary.mood" @click="showModalEvent('possessionCardSetting'); store.submitCardData({memberName: name_en, rare: rare, selectedCard: cardName})">{{ cardName }}</button>
-            </dd>
-          </dl>
-        </li>
-      </ul>
-    </div>
-  </div>
-
   <v-container fluid class="px-1 py-2">
     <v-row no-gutters class="mb-5">
       <v-col cols="12" class="px-1 pb-2">
@@ -200,6 +172,7 @@
               v-if="false"
               prepend-icon="mdi-crown"
               color="yellow"
+              class="mr-2 mb-2"
               :disabled="countDefaultCard(store).main + countDefaultCard(store).leaves === 18"
             >
               エースカード設定
@@ -208,8 +181,52 @@
               v-if="false"
               prepend-icon="mdi-database-sync"
               color="yellow"
+              class="mr-2 mb-2"
             >
               最新化反映
+            </v-btn>
+            <v-btn
+              v-if="false"
+              prepend-icon="mdi-rotate-3d-variant"
+              color="yellow"
+              class="mr-2 mb-2"
+            >
+              モードチェンジ
+              <v-menu
+                activator="parent"
+                transition="slide-y-transition"
+              >
+                <v-list>
+                  <v-list-item title="Live GP"></v-list-item>
+                  <v-list-group value="grade">
+                    <template v-slot:activator="{ props }">
+                      <v-list-item
+                        v-bind="props"
+                        title="Grade Quest"
+                      ></v-list-item>
+                    </template>
+
+                    <v-list-item
+                      v-for="season in Object.keys(mode.grade[store.selectDeck.period])"
+                      :key="season"
+                      :title="season"
+                    ></v-list-item>
+                  </v-list-group>
+                </v-list>
+              </v-menu>
+            </v-btn>
+            <v-btn
+              v-if="false"
+              prepend-icon="mdi-link"
+              color="green-darken-4"
+              class="mr-2 mb-2"
+              @click="
+                urlGenerate = true;
+                dialog.urlGenerate = true;
+                makeURL();
+              "
+            >
+              URL発行
             </v-btn>
           </v-col>
           <v-col cols="12" sm="1">
@@ -1201,7 +1218,10 @@
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="dialog.characterStatusSetting" max-width="700">
+  <v-dialog
+    v-model="dialog.characterStatusSetting"
+    max-width="700"
+  >
     <v-sheet class="pa-2">
       <v-row no-gutters>
         <v-col cols="12" sm="4" class="pr-sm-2">
@@ -1286,6 +1306,46 @@
     </v-sheet>
   </v-dialog>
 
+  <v-dialog
+    v-model="dialog.urlGenerate"
+    max-width="600"
+  >
+    <v-sheet class="pa-2">
+      <div
+        v-if="isUrlGenerate"
+        class="text-center"
+      >
+        <v-progress-circular
+          color="pink"
+          indeterminate
+        ></v-progress-circular>
+        <p class="mt-2">
+          URL生成中
+        </p>
+      </div>
+      <div v-else>
+        <p class="text-center mb-2">
+          URLを発行しました！
+        </p>
+        <v-text-field
+          variant="underlined"
+          append-inner-icon="mdi-content-copy"
+          @click:append-inner="snackbar.urlCopy = true"
+          color="pink"
+          readonly
+        ></v-text-field>
+        <div class="text-center mt-2">
+          <v-btn
+            prepend-icon="mdi-close"
+            @click="dialog.urlGenerate = false;"
+          >
+            CLOSE
+          </v-btn>
+        </div>
+      </div>
+    </v-sheet>
+  </v-dialog>
+
   <v-snackbar
     v-model="snackbar.makeDeck"
     color="success"
@@ -1341,18 +1401,27 @@
   >
     デッキをリセットしました
   </v-snackbar>
+
+  <v-snackbar
+    v-model="snackbar.urlCopy"
+    color="success"
+    :timeout="2000"
+  >
+    URLをコピーしました。
+  </v-snackbar>
 </template>
 
 
 <script setup>
-import { useStoreCounter } from '../stores/counter';
+import { useStoreCounter } from '@/stores/counter';
 import draggable from 'vuedraggable';
+// import axios from 'axios';
 const store = useStoreCounter();
 </script>
 
 <script>
 export default {
-  name: "FormationArea",
+  name: 'FormationArea',
   components: {
     draggable
   },
@@ -1370,10 +1439,10 @@ export default {
         releaseLevel: '解放Lv.',
       },
       bonusSkillList: [
-        "ビートハートアップ",
-        "ボルテージアップ",
-        "メンタルリカバー",
-        "LOVEボーナス",
+        'ビートハートアップ',
+        'ボルテージアップ',
+        'メンタルリカバー',
+        'LOVEボーナス',
       ],
       inputDeckName: '',
       selectDeckName: '',
@@ -1476,16 +1545,17 @@ export default {
         R: [0, 0.1, 0.15, 0.2, 0.25],
       },
       rules: {
-        inputCheck: (value) => !!value || "入力してください",
-        hankaku: (value) => !isNaN(value) || "半角数字で入力してください",
+        inputCheck: (value) => !!value || '入力してください',
+        hankaku: (value) => !isNaN(value) || '半角数字で入力してください',
       },
-      selectTab: "kaho",
+      selectTab: 'kaho',
       dialog: {
         deckList: false,
         changeDeckName: false,
         characterStatusSetting: false,
         paramSet: false,
         selectMusic: false,
+        urlGenerate: false,
       },
       snackbar: {
         makeDeck: false,
@@ -1495,16 +1565,17 @@ export default {
         copyDeck: false,
         deleteDeck: false,
         resetDeck: false,
+        urlCopy: false,
       },
       attr: [
-        "cardLevel",
-        "SALevel",
-        "SLevel",
-        "releaseLevel",
-        "smile",
-        "cool",
-        "pure",
-        "mental",
+        'cardLevel',
+        'SALevel',
+        'SLevel',
+        'releaseLevel',
+        'smile',
+        'cool',
+        'pure',
+        'mental',
       ],
       formation: {},
       formation_default: {
@@ -1554,11 +1625,85 @@ export default {
           side2: 'default',
         },
       },
+      mode: {
+        liveGP: 'ライブGP',
+        grade: {
+          103: {
+            'SPRING': {
+              spring: 30,
+              party: 20,
+              prize: 10,
+            },
+            'SUMMER': {
+              summer: 30,
+              party: 20,
+              prize: 10,
+            },
+            'AUTUMN': {
+              autumn: 30,
+              party: 20,
+              prize: 10,
+            },
+            'WINTER': {
+              winter: 30,
+              party: 20,
+              prize: 10,
+            },
+            'GRADUATION': {
+              graduation: 30,
+              normal: 30,
+              prize: 10,
+              BR: 20,
+            }
+          },
+          104: {
+            'SPRING': {
+              spring: 30,
+              party: 20,
+              prize: 10,
+            },
+            'SUMMER': {
+              summer: 30,
+              party: 20,
+              prize: 10,
+            },
+            'AUTUMN': {
+              autumn: 30,
+              party: 20,
+              prize: 10,
+            },
+            'WINTER': {
+              winter: 30,
+              party: 20,
+              prize: 10,
+            },
+            // 'GRADUATION': {
+            //   graduation: 30,
+            //   normal: 30,
+            //   prize: 10,
+            //   BR: 20,
+            // }
+          },
+        }
+      },
+      isUrlGenerate: false,
+      apiStatusCode: {
+        200: 'URL生成に成功しました。',
+        400: 'リクエストにエラーが発生しました。\nお手数ですが、表示されているエラーコードとエラーメッセージをお題箱よりお送りください。',
+        401: 'トークンが無効です。\nお手数ですが、表示されているエラーコードをお題箱よりお送りください。',
+        403: '一時的または恒久的に利用ができません。\nお手数ですが、表示されているエラーコードをお題箱よりお送りください。',
+        409: 'リクエストされた条件で短縮URLの発行ができません。\nお手数ですが、表示されているエラーコードとエラーメッセージをお題箱よりお送りください。',
+        429: 'APIの使用制限に達しました。一定時間経過後に再度試みてください。',
+        500: '一時的にシステムエラーが発生しています。一定時間経過後に再度試みてください。',
+        503: '一時的にサービスが利用できません。一定時間経過後に再度試みてください。'
+      }
     };
   },
   created() {
+    // console.log(decodeURIComponent(window.location.search.replace('?', '')));
+
     if (Object.keys(this.formation).length === 0) {
-      this.formation["新規デッキ1"] = this.makeDefaultFormation();
+      this.formation['新規デッキ1'] = this.makeDefaultFormation();
     }
   },
   mounted() {},
@@ -1899,6 +2044,7 @@ export default {
       if (selectCardName === 'default') {
         return 'カードを選択してください';
       } else {
+        store.cardList.find((v) => v.ID === store.findCardId(memberName, selectCardName)).gacha.period;
         return `[${
           store.searchRarity(store.findCardId(memberName, selectCardName))
         }] ${selectCardName}`;
@@ -1966,6 +2112,35 @@ export default {
     periodChange(store) {
       store.selectDeck.selectMusic = '';
     },
+    makeURL() {
+      this.isUrlGenerate = false;
+      // const params = {
+      //   url: 'https://taira-no-atsumori.github.io/llllMgr/?gn1=gn_001',
+      //   key: '5ebe3e98ceaf86947d93ebbe52e73070',
+      //   analytics: false
+      // };
+
+      // axios.get('https://xgd.io/V1/shorten?url=https://taira-no-atsumori.github.io/llllMgr/&key=5ebe3e98ceaf86947d93ebbe52e73070&&analytics=false')
+      //   .then(response => {// 通信成功時の処理
+      //     console.log(response);
+      //     if (response.status === 200) {
+      //       console.log(response.data);
+      //     } else {
+      //       // err();
+      //       console.log('想定外のエラーです');
+      //     }
+      //   })
+      //   .catch(error => {// エラー時の処理
+      //     console.log(error.status);
+      //   })
+      //   .finally(() => {// 成功・失敗に関わらず実行される処理
+      //     this.isUrlGenerate = false;
+      //   });
+
+      // function err() {
+      //   this.isUrlGenerate = false;
+      // }
+    }
   },
   watch: {},
 };

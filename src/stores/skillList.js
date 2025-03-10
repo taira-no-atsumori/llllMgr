@@ -811,7 +811,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブハート: {
+      'アグレッシブハート': {
         aggressiveHeart_mentalReduce10: {
           text: [
             'ビートハート',
@@ -833,7 +833,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブアトラクト: {
+      'アグレッシブアトラクト': {
         aggressiveAttract_mentalReduce15_section: {
           text: [
             'このセクション中、獲得するLOVEを+',
@@ -855,7 +855,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブアトラクション: {
+      'アグレッシブアトラクション': {
         aggressiveAttraction25_sectionAttract: {
           text: [
             'ビートハート',
@@ -868,7 +868,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブボルテージ: {
+      'アグレッシブボルテージ': {
         aggressiveVoltage_mentalReduce15: {
           text: [
             'ボルテージPt.を+',
@@ -880,7 +880,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブリゲイン: {
+      'アグレッシブリゲイン': {
         aggressiveRegain10_stageAttract: {
           text: [
             '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+',
@@ -892,7 +892,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブアトラクトブースト: {
+      'アグレッシブアトラクトブースト': {
         aggressiveAttractBoost: {
           text: [
             '5回の間ラブアトラクト効果を+',
@@ -924,7 +924,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブプロテクトブースト: {
+      'アグレッシブプロテクトブースト': {
         aggressiveProtectBoost: {
           text: [
             '5回の間スキルハート獲得効果による獲得数を+',
@@ -937,7 +937,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブハートブースト: {
+      'アグレッシブハートブースト': {
         aggressiveHeartBoost: {
           text: [
             '10回の間スキルハート獲得効果による獲得数を+',
@@ -949,7 +949,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブリゲインボルテージ: {
+      'アグレッシブリゲインボルテージ': {
         aggressiveRegainVoltage: {
           text: [
             '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
@@ -961,7 +961,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アグレッシブビリーブハート: {
+      'アグレッシブビリーブハート': {
         aggressiveBelieveHeart: {
           text: [
             'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにビートハート',
@@ -980,6 +980,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
+          },
+        },
+      },
+      'アグレッシブエクステビリーフ': {
+        aggressiveExtensionBelief_01: {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の100%減少させる。さらにこのセクション中、手札の上限枚数を3枚増加、獲得するLOVEを+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'mentalReduce', 'extendHand', 'loveAttract_section'],
           },
         },
       },
@@ -4823,7 +4835,7 @@ export const useSkillStore = defineStore('skillList', {
             '、AP回復速度を+3%し、ドリームブーケカードを1種類(合計1枚)山札に追加する。さらにデッキ枚数が27枚以上のとき、ビートハート',
             '回分のスキルハートを獲得し、デッキ枚数が39枚以上のとき、ビートハート',
             '回分のスキルハートを追加で獲得し、このステージ中、ハート上限を+',
-            '%する。'
+            'する。'
           ],
           detail: {
             attr: 'dream',
@@ -4961,6 +4973,49 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'コーチング': {
+        'coaching_01': {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなり、AP回復速度を+',
+            '%する。さらにこのステージ中、スキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['mentalDown_section', 'APQuick', 'boost_heartCaptcha'],
+          },
+        },
+      },
+      'トランセンド▷アトラクション': {
+        'transcend-attraction_01': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'し、ボルテージPt.を+',
+            'する。さらにメンタルが0%のとき、ビートハート',
+            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'transcend',
+            type: ['heartLimitUp', 'voltageGain', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
+      },
+      'トランセンド▷アグレッシブ': {
+        'transcend-aggressive_01': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'し、ボルテージPt.を+',
+            'し、メンタルを最大値の50%減少させる。さらに5回の間DOLLCHESTRAのメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%する。またメンタルが0%のとき、ビートハート',
+            '回分のスキルハートを獲得し、手札にあるDOLLCHESTRAのスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'transcend',
+            type: ['heartLimitUp', 'voltageGain', 'mentalReduce', 'boost_heartCaptcha', 'heartCaptcha', 'APReduce'],
+          },
+        },
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -5092,8 +5147,7 @@ export const useSkillStore = defineStore('skillList', {
       APReduce_heart: {
         name: '消費AP減少(ハート系)',
         colorCode: 'purple',
-        description:
-          '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
+        description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
       },
       APReduce_voltageGain: {
         name: '消費AP減少(ボルテージ系)',

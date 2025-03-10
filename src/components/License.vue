@@ -49,11 +49,11 @@
         ライブラリ
         <ul class="dot_list">
           <li>Vuetify</li>
-          <li>3.7.6</li>
+          <li>3.7.15</li>
         </ul>
         <ul class="dot_list">
           <li>pinia</li>
-          <li>2.3.0</li>
+          <li>3.0.1</li>
         </ul>
       </li>
       <li>
