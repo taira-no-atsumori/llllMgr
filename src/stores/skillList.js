@@ -1809,6 +1809,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'リカバーサポート': {
+        recoverSupport_01: {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。さらにデッキ内の梢のスキルの消費AP-6。',
+          ],
+          detail: {
+            attr: 'recover',
+            type: ['mentalRecover', 'APReduce'],
+          },
+        },
+      },
       リカバーアトラクション: {
         recoverAttraction_section: {
           text: [
@@ -1863,7 +1875,20 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      チルボルテージ: {
+      'チルアトラクトゲイン': {
+        'chillAttractGain_01': {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにボルテージLv.が3以下の時このステージ中、獲得するLOVEを+',
+            '%し、APを5回復する。',
+          ],
+          detail: {
+            attr: 'chill',
+            type: ['loveAttract_section', 'APGain'],
+          },
+        },
+      },
+      'チルボルテージ': {
         chillVoltage_under1: {
           text: [
             'ボルテージPt.を+',
@@ -1909,7 +1934,20 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      チルプロテクト: {
+      'チルボルテージゲイン': {
+        chillVoltageGain_01: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
+            'し、APを5回復する。',
+          ],
+          detail: {
+            attr: 'chill',
+            type: ['voltageGain', 'APGain'],
+          },
+        },
+      },
+      'チルプロテクト': {
         chillProtect_under3_stageProtect: {
           text: [
             'このステージ中、メンタルの最大値の',
@@ -1930,6 +1968,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'chill',
             type: ['protect_stage'],
+          },
+        },
+      },
+      'チルプロテクトゲイン': {
+        chillProtectGain_01: {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。さらにボルテージLv.が3以下の時このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にし、APを5回復する。',
+          ],
+          detail: {
+            attr: 'chill',
+            type: ['protect_stage', 'APGain'],
           },
         },
       },
@@ -2742,7 +2793,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      トリオフライト: {
+      'トリオフライト': {
         trioFlight_section: {
           text: [
             'ビートハート',
@@ -2755,7 +2806,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      トライアングルライト: {
+      'トライアングルライト': {
         triangleLight_stage: {
           text: [
             'このステージ中、獲得するLOVEを+',
@@ -2769,8 +2820,8 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      ブルーミングハート: {
-        bloomingHeart: {
+      'ブルーミングハート': {
+        'bloomingHeart': {
           text: [
             'このステージ中、メイン効果に獲得LOVE増加効果を持つスキルの消費AP-2。さらに2回の間ラブアトラクト効果を+',
             '%する。',
@@ -2781,8 +2832,8 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      ユースフルキャプチャ: {
-        youthfulCaptcha: {
+      'ユースフルキャプチャ': {
+        'youthfulCaptcha': {
           text: [
             'このステージ中、ボルテージPt.が1秒ごとに25ptずつ減少し、スキル使用時にビートハート',
             '回分のスキルハートを獲得する。消費APに応じて効果量が変化する。',
@@ -2806,41 +2857,53 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      チャウチャウパーティ: {
+      'チャウチャウパーティ': {
         chowchowParty: {
           text: [
             'チャウチャウカードを4種類(合計10枚)山札に追加する。さらにこのステージ中、手札の上限枚数を1枚減少する。',
           ],
           detail: {
-            attr: '',
+            attr: 'chowchow',
             type: ['addCard', 'cardReduce'],
           },
         },
       },
-      チャウチャウパフォーマンス: {
-        chowchowPerformance: {
-          text: ['ビートハート', '回分のスキルハートを獲得する。'],
+      'チャウチャウパフォーマンス': {
+        'chowchowPerformance': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
           detail: {
-            attr: '',
+            attr: 'chowchow',
             type: ['heartCaptcha'],
           },
         },
       },
-      チャウチャウムードメイク: {
-        chowchowMoodMake: {
-          text: ['このセクション中、獲得するLOVEを+', '%する。'],
+      'チャウチャウムードメイク': {
+        'chowchowMoodMake': {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにメンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
           detail: {
-            attr: '18',
-            type: ['loveAttract_section'],
+            attr: 'chowchow',
+            type: ['loveAttract_section', 'heartCaptcha'],
           },
         },
       },
-      チャウチャウチアリーディング: {
-        chowchowCheerLeading: {
-          text: ['メンタルを最大値の', '%回復させる。'],
+      'チャウチャウチアリーディング': {
+        'chowchowCheerLeading': {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。さらにメンタルが100%以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
           detail: {
-            attr: '14.4',
-            type: ['mentalRecover'],
+            attr: 'chowchow',
+            type: ['mentalRecover', 'heartCaptcha'],
           },
         },
       },
@@ -5016,6 +5079,160 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'トランセンド▷ブースト': {
+        'transcend-boost_01': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'する。さらに5回の間DOLLCHESTRAのメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'transcend',
+            type: ['heartLimitUp', 'voltageGain', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
+      },
+      'トランセンド▷プロテクト': {
+        'transcend-protect_01': {
+          text: [
+            'このセクション中、ハート上限を+',
+            'し、ボルテージPt.を+',
+            'する。さらにメンタルが0%のとき、ビートハート',
+            '回分のスキルハートを獲得、5回の間DOLLCHESTRAのメンバーが使用するラブアトラクト効果を+',
+            '%し、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。'
+          ],
+          detail: {
+            attr: 'transcend',
+            type: ['heartLimitUp', 'voltageGain', 'mentalReduce', 'boost_heartCaptcha', 'heartCaptcha', 'APReduce'],
+          },
+        },
+      },
+      'ワードローブ': {
+        'wardrobe_01': {
+          text: [
+            'ドレスカードのみを集めたデッキと通常のデッキが切り替えられるようになる。さらにこのステージ中、ドレスカード使用によるスキルハート獲得効果の獲得数、ラブアトラクト効果、ボルテージゲイン効果、メンタルリカバー効果、メンタルプロテクトをそれぞれ+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'wardrobe',
+            type: ['changeDeck', 'boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover', 'boost_mentalProtect'],
+          },
+        },
+      },
+      'ドレス《キセキ》': {
+        'dress_kiseki_01': {
+          text: [
+            'ドレスカード《キセキ》を3種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      '《奇跡の舞踏会》': {
+        'dress_kiseki_02': {
+          text: [
+            'このステージ中、AP回復速度を+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['APQuick', 'heartCaptcha'],
+          },
+        },
+      },
+      '《軌跡の舞踏会》': {
+        'dress_kiseki_03': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ドレスカード使用によるスキルハート獲得効果の獲得数を+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['heartLimitUp', 'boost_heartCaptcha', 'heartCaptcha'],
+          },
+        },
+      },
+      '《輝跡の舞踏会》': {
+        'dress_kiseki_04': {
+          text: [
+            'このステージ中、手札の上限枚数を1枚増加し、手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['reshuffle', 'APQuick'],
+          },
+        },
+      },
+      'スクステチャレンジ': {
+        'skstChallenge_01': {
+          text: [
+            'このステージ中、ランダムにチャレンジが発生する。チャレンジをクリアすることでLOVEを獲得し、新たなチャレンジが発生する。チャレンジのクリア回数に応じてLOVEの獲得数が増加する。'
+          ],
+          detail: {
+            attr: 'skstChallenge',
+            type: ['challenge'],
+          },
+        },
+      },
+      'スキルチャレンジ': {
+        'skillChallenge_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、ビートハート',
+            '回分のスキルハートを獲得、ボルテージPt.を+',
+            '、メンタルを最大値の',
+            '%回復させる。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にし、このセクション中、獲得するLOVEを+',
+            '%、手札の上限枚数を1枚増加、AP回復速度を+5%、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'skillChallenge',
+            type: ['reshuffle', 'heartCaptcha', 'voltageGain', 'mentalRecover', 'protect_stage', 'loveAttract_section', 'extendHand', 'APQuick', 'heartLimitUp'],
+          },
+        },
+      },
+      'ドライブイグニッション': {
+        'driveIgnition_01': {
+          text: [
+            '姫芽が《イグニッションモード》になった回数に応じて様々な効果が発動する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['driveIgnition'],
+          },
+        },
+      },
+      'リフレッシュイグニッション': {
+        'refreshIgnition_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽が《イグニッションモード》になる。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'modeChange'],
+          },
+        },
+      },
+      'リブート：みらくらぱーく！': {
+        'reboot-mirapa_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%、ラブアトラクト効果を+',
+            '%する。さらにデッキにあるみらくらぱーく！のスキルの消費AP-3し、姫芽の《イグニッションモード》を解除する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'boost_loveAttract', 'modeChange'],
+          },
+        },
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -5219,6 +5436,21 @@ export const useSkillStore = defineStore('skillList', {
         name: 'スキル使用(手札)',
         colorCode: '',
         description: '手札の他の全スキルを同時に使用する。',
+      },
+      'changeDeck': {
+        name: 'チェンジデッキ',
+        colorCode: 'purple',
+        description: 'デッキを入れ替える。',
+      },
+      'challenge': {
+        name: 'チャレンジ',
+        colorCode: '',
+        description: 'ランダムにチャレンジが発生する。',
+      },
+      'driveIgnition': {
+        name: 'ドライブイグニッション',
+        colorCode: '',
+        description: 'イグニッションモードになった回数に応じて、様々な効果が発動する。',
       },
     },
   }),

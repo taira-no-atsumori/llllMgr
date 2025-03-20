@@ -728,7 +728,7 @@ export const useCardStore = defineStore('cardList', {
               AP: 7,
               detail: [
                 [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
-                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
               ],
             },
             skill: {
@@ -1695,12 +1695,12 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'chillAttract_under3_section',
-              name: 'チルアトラクト',
+              ID: 'chillAttractGain_01',
+              name: 'チルアトラクトゲイン',
               AP: 5,
               detail: [
                 [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
-                [3.3, 3.6, 4, 4.3, 4.6, 5, 5.3, 5.6, 6, 6.6, 6.9, 7.3, 7.6, 8.3],
+                [3.3, 3.6, 4, 4.3, 4.6, 5, 5.3, 5.6, 6, 6.6, 6.9, 7.3, 7.6, 8.4],
               ],
             },
             characteristic: {
@@ -1757,9 +1757,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ハートコレクト：APレデュース & ラブアトラクト',
-              detail: '手札にある状態でハートを100個回収したとき、このスキルの消費APを-3し、このステージ中、獲得するLOVEを+3%する。',
-              type: ['heartCollect', 'APReduce', 'loveAttract_stage'],
+              name: 'ハートコレクト：APレデュース & ラブアトラクト & ワイドハート',
+              detail: '手札にある状態でハートを100個回収したとき、このスキルの消費APを-3し、このステージ中、獲得するLOVEを+3%、ハート上限を+20する。',
+              type: ['heartCollect', 'APReduce', 'loveAttract_stage', 'heartLimitUp'],
             },
           },
           'ハッピー至上主義！': {
@@ -3245,7 +3245,9 @@ export const useCardStore = defineStore('cardList', {
               ID: 'youthfulCaptcha',
               name: 'ユースフルキャプチャ',
               AP: 3,
-              detail: [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]],
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
+              ],
             },
             skill: {
               ID: 'duoAttract',
@@ -4045,6 +4047,58 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          'COMPASS': {
+            ID: 'sy_054',
+            styleType: 'cheerLeader',
+            mood: 'melow',
+            series: 'COMPASS',
+            kana: 'こんぱす',
+            gacha: {
+              addSeason: 'ライブグランプリ「104期 FinalTerm 第2回個人戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3950,
+              pure: 3800,
+              cool: 5100,
+              mental: 395,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'transcend-boost_01',
+              name: 'トランセンド▷ブースト',
+              AP: 8,
+              detail: [
+                [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+                [54, 59.4, 64.8, 70.2, 75.6, 81, 86.4, 91.8, 97.2, 108, 113.4, 118.8, 124.2, 135],
+              ],
+            },
+            skill: {
+              ID: 'transcend-protect_01',
+              name: 'トランセンド▷プロテクト',
+              AP: 10,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250],
+                [252, 277.2, 302.4, 327.6, 352.8, 378, 403.2, 428.4, 453.6, 504, 529.2, 554.4, 579.6, 630],
+                [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250],
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：ブレイブエクステブースト',
+              detail: 'ドローした時、次にDOLLCHESTRAのメンバーが使用するスキルハート獲得効果による獲得数を+75%する。さらにメンタルが0でドローした時、このセクション中、手札の上限枚数を2枚増加する。',
+              type: ['draw', 'boost_heartCaptcha', 'extendHand'],
+            },
+          },
           '魔法少女リズミックハート': {
             ID: 'sy_049',
             styleType: 'performer',
@@ -4169,8 +4223,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32]],
             },
             skill: {
-              ID: 'chillVoltage_under3',
-              name: 'チルボルテージ',
+              ID: 'chillVoltageGain_01',
+              name: 'チルボルテージゲイン',
               AP: 5,
               detail: [
                 [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 29],
@@ -4224,9 +4278,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ハートコレクト：APレデュース & ボルテージゲイン',
-              detail: '手札にある状態でハートを100個回収したとき、このスキルの消費APを-3し、ボルテージPt.を+12する。',
-              type: ['heartCollect', 'APReduce', 'voltageGain'],
+              name: 'ハートコレクト：APレデュース & ボルテージゲイン & ワイドハート',
+              detail: '手札にある状態でハートを100個回収したとき、このスキルの消費APを-3し、ボルテージPt.を+12、このセクション中、ハート上限を+100する。',
+              type: ['heartCollect', 'APReduce', 'voltageGain', 'heartLimitUp'],
             },
           },
           'Pleasure Feather': {
@@ -5832,7 +5886,10 @@ export const useCardStore = defineStore('cardList', {
                   ID: 'chowchowPerformance',
                   name: 'チャウチャウパフォーマンス',
                   AP: 1,
-                  detail: [[7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18]],
+                  detail: [
+                    [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18],
+                    [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45],
+                  ],
                   characteristic: {
                     name: 'チャウチャウフォーエバー',
                     detail: 'このカードはスキル使用時にデッキから除外されない。',
@@ -5843,22 +5900,28 @@ export const useCardStore = defineStore('cardList', {
                   ID: 'chowchowMoodMake',
                   name: 'チャウチャウムードメイク',
                   AP: 1,
-                  detail: [[18, 19.8, 21.6, 23.4, 25.2, 27, 28.8, 30.6, 32.4, 36, 37.8, 39.6, 41.4, 45]],
+                  detail: [
+                    [18, 19.8, 21.6, 23.4, 25.2, 27, 28.8, 30.6, 32.4, 36, 37.8, 39.6, 41.4, 45],
+                    [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45],
+                  ],
                   characteristic: {
                     name: 'チャウチャウフォーエバー',
-                    detail: 'このカードはスキル使用時にデッキから除外されない。',
-                    type: ['forever'],
+                    detail: 'このカードはスキル使用時にデッキから除外されない。さらにスキル使用時ボルテージLv.10以上のとき、APを1回復する。',
+                    type: ['forever', 'APGain'],
                   },
                 },
                 {
                   ID: 'chowchowCheerLeading',
                   name: 'チャウチャウチアリーディング',
                   AP: 1,
-                  detail: [[14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36]],
+                  detail: [
+                    [14.4, 15.84, 17.28, 18.72, 20.16, 21.6, 23.04, 24.48, 25.92, 28.8, 30.24, 31.68, 33.12, 36],
+                    [18, 20, 22, 23, 25, 27, 29, 31, 32, 36, 38, 40, 41, 45],
+                  ],
                   characteristic: {
                     name: 'チャウチャウフォーエバー',
-                    detail: 'このカードはスキル使用時にデッキから除外されない。',
-                    type: ['forever'],
+                    detail: 'このカードはスキル使用時にデッキから除外されない。さらにスキル使用時ボルテージLv.10以上のとき、APを1回復する。',
+                    type: ['forever', 'APGain'],
                   },
                 },
                 {
@@ -5868,8 +5931,8 @@ export const useCardStore = defineStore('cardList', {
                   detail: [[]],
                   characteristic: {
                     name: 'チャウチャウフォーエバー',
-                    detail: 'このカードはスキル使用時にデッキから除外されない。',
-                    type: ['forever'],
+                    detail: 'このカードはスキル使用時にデッキから除外されない。さらにスキル使用時ボルテージLv.10以上のとき、APを1回復する。',
+                    type: ['forever', 'APGain'],
                   },
                 },
               ],
@@ -6633,8 +6696,8 @@ export const useCardStore = defineStore('cardList', {
               detail: [[2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]],
             },
             skill: {
-              ID: 'chillProtect_under3_stageProtect',
-              name: 'チルプロテクト',
+              ID: 'chillProtectGain_01',
+              name: 'チルプロテクトゲイン',
               AP: 5,
               detail: [
                 [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8],
@@ -7960,9 +8023,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：ラブアトラクト & ショット：ラブアトラクト',
-              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。さらにスキル使用時2回まで、このセクション中、獲得するLOVEを+102%する。',
-              type: ['draw', 'loveAttract_stage', 'shot', 'loveAttract_section'],
+              name: 'ドロー：ラブアトラクト & ショット：ラブアトラクト & ワイドハート',
+              detail: 'ドローした時、このステージ中、獲得するLOVEを+4%する。さらにスキル使用時2回まで、このセクション中、獲得するLOVEを+102%し、ハート上限を+1020する。',
+              type: ['draw', 'loveAttract_stage', 'shot', 'loveAttract_section', 'heartLimitUp'],
             },
           },
           '桃節銘記': {
@@ -8013,9 +8076,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ハートコレクト：APレデュース & ハートキャプチャ',
-              detail: '手札にある状態でハートを50個回収したとき、このスキルの消費APを-3し、ビートハート4個分のスキルハートを獲得する。',
-              type: ['heartCollect', 'APReduce', 'heartCaptcha'],
+              name: 'ハートコレクト：APレデュース & ハートキャプチャ & ワイドハート',
+              detail: '手札にある状態でハートを50個回収したとき、このスキルの消費APを-3し、ビートハート4回分のスキルハートを獲得、このステージ中、ハート上限を+20する。',
+              type: ['heartCollect', 'APReduce', 'heartCaptcha', 'heartLimitUp'],
             },
           },
           'ダイヤモンドハッピー': {
@@ -8906,9 +8969,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ドロー：メンタルリカバー',
-              detail: 'ドローした時、メンタルを最大値の6%回復させる。',
-              type: ['draw', 'mentalRecover'],
+              name: 'ドロー：メンタルリカバー & APサポート：慈',
+              detail: 'ドローした時、メンタルを最大値の6%回復させ、デッキ内の慈のスキルの消費AP-3。',
+              type: ['draw', 'mentalRecover', 'APReduce', 'megumi'],
             },
           },
           'Pleasure Feather': {
@@ -10524,8 +10587,8 @@ export const useCardStore = defineStore('cardList', {
             },
             characteristic: {
               name: 'ドロー：ボルテージゲイン & ショット：ラブアトラクト',
-              detail: 'ドローした時、ボルテージPt.を+18する。さらにスキル使用時2回まで、このセクション中、獲得するLOVEを+102%する。',
-              type: ['draw', 'voltageGain', 'shot', 'loveAttract_section'],
+              detail: 'ドローした時、ボルテージPt.を+18する。さらにスキル使用時2回まで、このセクション中、獲得するLOVEを+102%し、ハート上限を+1020する。',
+              type: ['draw', 'voltageGain', 'shot', 'loveAttract_section', 'heartLimitUp'],
             },
           },
           '桃節銘記': {
@@ -10569,9 +10632,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ハートコレクト：APレデュース & ラブアトラクト',
-              detail: '手札にある状態でハートを200個回収したとき、このスキルの消費APを-6し、このセクション中、獲得するLOVEを+15%する。',
-              type: ['heartCollect', 'APReduce', 'loveAttract_section'],
+              name: 'ハートコレクト：APレデュース & ラブアトラクト & ワイドハート',
+              detail: '手札にある状態でハートを200個回収したとき、このスキルの消費APを-6し、このセクション中、獲得するLOVEを+15%、ハート上限を+300する。',
+              type: ['heartCollect', 'APReduce', 'loveAttract_section', 'heartLimitUp'],
             },
           },
           'Colorfulness': {
@@ -13212,8 +13275,8 @@ export const useCardStore = defineStore('cardList', {
             },
             characteristic: {
               name: 'ドロー：メンタルプロテクト & ショット：ラブアトラクト',
-              detail: 'ドローした時、このステージ中、メンタルの最大値の10%分のメンタルダメージを無効にする。さらにスキル使用時2回まで、このセクション中、獲得するLOVEを+102%する。',
-              type: ['draw', 'protect_stage', 'shot', 'loveAttract_section'],
+              detail: 'ドローした時、このステージ中、メンタルの最大値の10%分のメンタルダメージを無効にする。さらにスキル使用時2回まで、このセクション中、獲得するLOVEを+102%し、ハート上限を+1020する。',
+              type: ['draw', 'protect_stage', 'shot', 'loveAttract_section', 'heartLimitUp'],
             },
           },
           'おしえて♡ティーチャー': {
@@ -13248,14 +13311,12 @@ export const useCardStore = defineStore('cardList', {
               detail: [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]],
             },
             skill: {
-              ID: 'mentalRecover',
-              name: 'メンタルリカバー',
+              ID: 'recoverSupport_01',
+              name: 'リカバーサポート',
               AP: 2,
-              /*AP: {
-                max: 9,
-                min: 1
-              },*/
-              detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ],
             },
             characteristic: {
               name: 'ドロー：アグレッシブ',
@@ -14828,6 +14889,95 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '輝跡の舞踏会': {
+            ID: 'gn_019',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '舞踏会',
+            kana: 'きせきのぶとうかい',
+            gacha: {
+              addSeason: '2024 PARTY! LIMITED COLLECTION',
+              period: 'party',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3600,
+              pure: 5600,
+              cool: 5100,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'wardrobe_01',
+              name: 'ワードローブ',
+              AP: 9,
+              detail: [
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+              ],
+            },
+            skill: {
+              ID: 'dress_kiseki_01',
+              name: 'ドレス《キセキ》',
+              AP: 7,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'dress_kiseki_02',
+                  name: '《奇跡の舞踏会》',
+                  AP: 3,
+                  detail: [
+                    [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                    [62, 68, 74, 81, 87, 93, 99, 105, 112, 124, 130, 136, 143, 155],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & オーバーセクション：リシャッフル',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらに手札にある状態でセクションが変わるたび、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+                    type: ['exclusion', 'overSection', 'reshuffle'],
+                  },
+                },
+                {
+                  ID: 'dress_kiseki_03',
+                  name: '《軌跡の舞踏会》',
+                  AP: 3,
+                  detail: [
+                    [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                    [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, 4.2, 4.4, 4.6, 5],
+                    [62, 68, 74, 81, 87, 93, 99, 105, 112, 124, 130, 136, 143, 155],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & オーバーセクション：APゲイン & リシャッフル',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらに手札にある状態でセクションが変わるたび、APを7回復し、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+                    type: ['exclusion', 'overSection', 'APGain', 'reshuffle'],
+                  },
+                },
+                {
+                  ID: 'dress_kiseki_04',
+                  name: '《輝跡の舞踏会》',
+                  AP: 6,
+                  detail: [
+                    [62, 68, 74, 81, 87, 93, 99, 105, 112, 124, 130, 136, 143, 155],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & APサポート：ドレス',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらにスキル使用時、手札のドレスカードの消費AP-9。',
+                    type: ['exclusion', 'APReduce'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'テイラー',
+              detail: 'スキル使用時、次に使用するドレスカード追加スキルの追加枚数を2枚ずつ増加する。',
+              type: ['multiplyCard'],
+            },
+          },
           'ユメワズライ': {
             ID: 'gn_018',
             styleType: 'trickStar',
@@ -16202,6 +16352,56 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '探求の舞踏会': {
+            ID: 'sz_019',
+            styleType: 'performer',
+            mood: 'happy',
+            series: '舞踏会',
+            kana: 'たんきゅうのぶとうかい',
+            gacha: {
+              addSeason: '2024 PARTY! LIMITED COLLECTION',
+              period: 'party',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5700,
+              pure: 5000,
+              cool: 3900,
+              mental: 460,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'skstChallenge_01',
+              name: 'スクステチャレンジ',
+              AP: 2,
+              detail: [],
+            },
+            skill: {
+              ID: 'skillChallenge_01',
+              name: 'スキルチャレンジ',
+              AP: 15,
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32],
+                [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16],
+                [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8],
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+              ],
+            },
+            characteristic: {
+              name: 'APレデュース：DOLLCHESTRA',
+              detail: 'DOLLCHESTRAのスキルを使用するたび、手札のこのスキルの消費AP-5。',
+              type: ['APReduce'],
+            },
+          },
           'COMPASS': {
             ID: 'sz_018',
             styleType: 'moodMaker',
@@ -17111,6 +17311,68 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          '邂逅の舞踏会': {
+            ID: 'hm_019',
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: '舞踏会',
+            kana: 'かいこうのぶとうかい',
+            gacha: {
+              addSeason: '2024 PARTY! LIMITED COLLECTION',
+              period: 'party',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5700,
+              pure: 5000,
+              cool: 3900,
+              mental: 460,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'driveIgnition_01',
+              name: 'ドライブイグニッション',
+              AP: 5,
+              detail: [],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 5,
+              detail: [],
+              addSkill: [
+                {
+                  modeName: '通常モード',
+                  ID: 'refreshIgnition_01',
+                  name: 'リフレッシュイグニッション',
+                  AP: 5,
+                  detail: [],
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  ID: 'reboot-mirapa_01',
+                  name: 'リブート：みらくらぱーく！',
+                  AP: 5,
+                  detail: [
+                    [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+                    [16.8, 18.5, 20.2, 21.8, 23.5, 25.2, 26.9, 28.6, 30.2, 33.6, 35.3, 37, 38.6, 42],
+                  ],
+                },
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：モードチェンジ',
+              detail: 'ドローした時、姫芽の《イグニッションモード》の状態を変化させる。',
+              type: ['draw', 'modeChange'],
+            },
+          },
           '全方位キュン♡': {
             ID: 'hm_018',
             styleType: 'moodMaker',

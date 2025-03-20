@@ -1,6 +1,16 @@
 <template>
-<ul class="text-center">
-  <li class="mb-3">
+<v-row class="text-center">
+  <v-col cols="6">
+    <p class="mb-1">URLをコピー</p>
+    <v-btn
+      color="pink"
+      prepend-icon="mdi-content-copy"
+      @click="copyUrl();"
+    >
+      COPY
+    </v-btn>
+  </v-col>
+  <v-col cols="6">
     <p class="mb-1">Xでシェア</p>
     <v-btn
       href="https://twitter.com/share?ref_src=twsrc%5Etfw"
@@ -9,18 +19,45 @@
       data-show-count="false"
       prepend-icon="mdi-alpha-x-box-outline"
       color="black"
-    >Share</v-btn>
-  </li>
-  <li class="mb-3">
+    >
+      Share
+    </v-btn>
+  </v-col>
+  <v-col cols="12">
     <v-divider></v-divider>
-  </li>
-  <li>
+  </v-col>
+  <v-col cols="12">
     <p>QRコードでシェア</p>
     <img
       :lazy-src="require(`@/assets/QRcode.webp`)"
       :src="require(`@/assets/QRcode.webp`)"
       style="width: 310px;"
     >
-  </li>
-</ul>
+  </v-col>
+</v-row>
+
+<v-snackbar
+  v-model="snackbar"
+  timeout="2000"
+  color="success"
+>
+  URLをコピーしました
+</v-snackbar>
 </template>
+
+<script>
+export default {
+  name: 'Share',
+  data() {
+    return {
+      snackbar: false,
+    };
+  },
+  methods: {
+    copyUrl() {
+      navigator.clipboard.writeText('https://x.gd/VR5u2');
+      this.snackbar = true;
+    },
+  },
+}
+</script>

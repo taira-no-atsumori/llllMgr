@@ -181,6 +181,15 @@ export default {
   data() {
     return {
       eventList: {
+        'rengesai': {
+          title: '104期 Final Term Fes×LIVE -蓮華祭-',
+          text: '',
+          type: 'liveGP',
+          firstDay: [2025, 3, 30, 20, 0],
+          lastDay: [2025, 3, 30, 21, 0],
+          url: 'https://www.lovelive-anime.jp/hasunosora/',
+          img: '蓮華祭_logo',
+        },
         /*liveGP: {
           title: 'ライブグランプリ「104期 3rdTerm 第3回個人戦」',
           text: '',
@@ -191,22 +200,13 @@ export default {
           img: '104期 3rdTerm 第3回個人戦_logo',
         },*/
         'liveGP': {
-          title: 'ライブグランプリ「104期 FinalTerm 第1回サークル対抗戦」',
+          title: 'ライブグランプリ「104期 FinalTerm 第2回サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 2, 18, 12, 0],
-          lastDay: [2025, 2, 24, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-02-16-30-z0vs22c1bl',
-          img: '104期 FinalTerm 第1回サークル対抗戦_logo',
-        },
-        'rengesai': {
-          title: '104期 Final Term Fes×LIVE -蓮華祭-',
-          text: '',
-          type: 'liveGP',
-          firstDay: [2025, 3, 30, 20, 0],
-          lastDay: [2025, 3, 30, 21, 0],
-          url: 'https://www.lovelive-anime.jp/hasunosora/',
-          img: '蓮華祭_logo',
+          firstDay: [2025, 3, 21, 12, 0],
+          lastDay: [2025, 3, 27, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-03-19-10-rviikncrbg',
+          img: '104期 FinalTerm 第2回サークル対抗戦_logo',
         },
         '4thLiveDream_ishikawa': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
