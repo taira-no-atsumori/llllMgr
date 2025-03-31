@@ -1,10 +1,23 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-switch
-      v-model="isParamReflect"
-      label="CARD LISTのパラメータを反映する"
-      color="pink"
-    ></v-switch>
+    <div class="d-inline-block">
+      <v-switch
+        v-model="store.isParamReflect"
+        label="CARD LISTのパラメータを反映する"
+        color="pink"
+        density="compact"
+        hide-details
+      ></v-switch>
+    </div>
+    <div class="d-inline-block ml-sm-3">
+      <v-switch
+        v-model="store.isPossessionFlg"
+        label="所持済みのカードのみ表示"
+        color="pink"
+        density="compact"
+        hide-details
+      ></v-switch>
+    </div>
     <v-row
       no-gutters
       v-for="rare in store.rare"
@@ -14,54 +27,54 @@
       <!--<template>-->
         <v-col cols="12">
           <h3
-            v-if="Object.keys(store.card[store.openCard.name][rare]).length > 0"
+            v-if="outputCardList(store).filter(data => data.rare === rare).length > 0"
             class="px-1"
           >
             {{ rare }}
           </h3>
         </v-col>
         <v-col
-          v-for="(ary, cardName) in outputCardList(store, rare)"
-          :key="ary"
+          v-for="(cardData, i) in outputCardList(store).filter(data => data.rare === rare)"
+          :key="i"
           cols="6"
           sm="2"
           class="pa-1"
         >
           <v-card
-            v-if="!!searchSetCard(store, cardName)"
+            v-if="!!searchSetCard(store, cardData.ID)"
             :disabled="
-              !!searchSetCard(store, cardName)
+              !!searchSetCard(store, cardData.ID)
             "
-            @click="openCheckDialog(store, cardName, rare, ary);"
+            @click="openCheckDialog(store, cardData.cardName, rare, cardData);"
           >
             <v-img
               :src="require(
-                `@/assets/card_illust/${store.conversion(cardName)}_${
-                  makeCardMemberName(store, cardName)
+                `@/assets/card_illust/${store.conversion(cardData.cardName)}_${
+                  makeCardMemberName(store, cardData.ID)
                 }_覚醒後.webp`
               )"
               gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
               class="d-flex align-center"
             >
               <p class="text-center text-white font-weight-bold text-h6">
-                {{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>
+                {{ store.styleHeadline[searchSetCard(store, cardData.ID)] }}<br>
                 選択中
               </p>
             </v-img>
-            <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
+            <v-card-title class="px-2 py-1">{{ cardData.cardName }}</v-card-title>
           </v-card>
           <v-card
             v-else
-            @click="openCheckDialog(store, cardName, rare, ary);"
+            @click="openCheckDialog(store, cardData.cardName, rare, cardData);"
           >
             <v-img
               :src="require(
-                `@/assets/card_illust/${store.conversion(cardName)}_${
-                  makeCardMemberName(store, cardName)
+                `@/assets/card_illust/${store.conversion(cardData.cardName)}_${
+                  makeCardMemberName(store, cardData.ID)
                 }_覚醒後.webp`
               )"
             ></v-img>
-            <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
+            <v-card-title class="px-2 py-1">{{ cardData.cardName }}</v-card-title>
           </v-card>
           <!--<v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
@@ -221,8 +234,23 @@
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
-        <v-btn @click="dialog = false" class="mr-4">CANCEL</v-btn>
-        <v-btn @click="dialog = false; store.setSelectCard(selectCard); store.switchDialog(false)">OK</v-btn>
+        <v-btn
+          @click="dialog = false"
+          class="mr-4"
+        >
+          CANCEL
+        </v-btn>
+        <v-btn
+          @click="
+            dialog = false;
+            store.setSelectCard(
+              store.findCardId(store.openCard.name, selectCard)
+            );
+            store.switchDialog(false);
+          "
+        >
+          OK
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
@@ -252,9 +280,14 @@
   >
     {{ sachiMessage }}
   </v-snackbar>
-  </template>
+</template>
 
-  <script>
+<script setup>
+  import { useStoreCounter } from '../stores/counter';
+  const store = useStoreCounter();
+</script>
+
+<script>
   export default {
     name: 'selectCard',
     data() {
@@ -263,7 +296,6 @@
         selectCard: undefined,
         selectedCard: undefined,
         rarity: undefined,
-        isParamReflect: true,
         snackbar: {
           sameCard: false,
           sachi: false,
@@ -283,19 +315,49 @@
     },
     created() {},
     mounted() {},
-    computed: {},
-    methods: {
-      makeCardMemberName(store, cardName) {
-        const cardMemberName = store.findOpenCardMemberName(store.findCardId(store.openCard.name, cardName));
+    computed: {
+      outputCardList() {
+        return (store) => {
+          let result = [];
 
-        return cardMemberName === 'selaIzu' ? '桂城泉＆セラス 柳田 リリエンフェルト' : store.memberName[cardMemberName].last;
+          for (const key in store.card[store.openCard.name]) {
+            if (key !== 'default') {
+              result = result.concat([], Object.values(store.card[store.openCard.name][key]));
+            }
+          }
+
+          if (store.formationMember[104].some(name => name === store.openCard.name)) {
+            result = result.concat([], Object.values(store.card.kozutsuzumegu.UR), Object.values(store.card.selaIzu.SR));
+          }
+
+          if (store.formationMember[103].some(name => name === store.openCard.name)) {
+            result = result.concat([], Object.values(store.card.sachi.UR));
+          }
+
+          if (store.isPossessionFlg) {
+            result = result.filter((data) => data.fluctuationStatus.cardLevel > 1);
+          }
+
+          if (store.openCard.style !== 'main') {
+            return result;
+          } else {
+            return result.filter((cardData) => cardData?.specialAppeal);
+          }
+        }
       },
-      searchSetCard(store, cardName) {
+    },
+    methods: {
+      makeCardMemberName(store, cardId) {
+        const cardMemberName = store.findOpenCardMemberName(cardId);
+        
+        return cardMemberName === 'selaIzu' ? '桂城泉＆セラス 柳田 リリエンフェルト' : cardMemberName === 'kozutsuzumegu' ? '乙宗梢＆夕霧綴理＆藤島慈' : store.memberName[cardMemberName].last;
+      },
+      searchSetCard(store, cardId) {
         let result = false;
 
         for (const name in store.selectDeck.cardData) {
           for (const style in store.selectDeck.cardData[name]) {
-            if (store.searchSelectDeckCard(store.openCard.name, style) === cardName) {
+            if (store.searchSelectDeckCard(store.openCard.name, style) === cardId) {
               result = name;
               break;
             }
@@ -303,31 +365,6 @@
         }
 
         return result;
-      },
-      outputCardList(store, rare) {
-        let result = { ...store.card[store.openCard.name][rare] };
-
-        if (store.formationMember[104].some(name => name === store.openCard.name) && rare === 'SR') {
-          result = { ...result, ...store.card.selaIzu.SR };
-        }
-
-        if (store.formationMember[103].some(name => name === store.openCard.name) && rare === 'UR') {
-          result = { ...result, ...store.card.sachi.UR };
-        }
-
-        if (store.openCard.style !== 'main') {
-          return result;
-        } else {
-          let result2 = {};
-
-          for (const cardName in result) {
-            if (result[cardName]?.specialAppeal) {
-              result2[cardName] = result[cardName];
-            }
-          }
-
-          return result2;
-        }
       },
       openMemberName(store) {
         return store.openCard.name;
@@ -343,7 +380,7 @@
        */
       openCheckDialog(store, cardName, rare, ary) {
         const p = (() => {
-          if (this.isParamReflect) {
+          if (store.isParamReflect) {
             return {
               cardLevel: ary.fluctuationStatus.cardLevel,
               SALevel: ary.fluctuationStatus.SALevel,
@@ -351,9 +388,12 @@
               releaseLevel: ary.fluctuationStatus.releaseLevel,
             };
           } else {
-            return store.selectDeck.cardData[ary.memberName][store.openCard.style].param;
+            return store.selectDeck.cardData[
+              ary.memberName === store.openCard.style ? ary.memberName : store.openCard.name
+            ][store.openCard.style].param;
           }
         })();
+
         if (
           this.sameCardCheck(store, cardName)
         ) {
@@ -368,7 +408,7 @@
           } else {
             for (const name in store.selectDeck.cardData) {
               for (const style in store.selectDeck.cardData[name]) {
-                if (store.selectDeck.cardData[name][style].cardName === cardName) {
+                if (store.findCardData(store.selectDeck.cardData[name][style].id).cardName === cardName) {
                   this.sachiMessage = 'すでに編成されてるんだよねぃ';
                   this.snackbar.sachi = true;
                   return;
@@ -377,7 +417,7 @@
             }
           }
 
-          store.setSelectCard(cardName, p);
+          store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
           store.switchDialog(false);
         } else if (
           store.searchSelectDeckCard(store.openCard.name, store.openCard.style) === 'default'
@@ -387,10 +427,10 @@
             console.log(data);
             store.selectDeck.cardData[store.openCard.name][style].cardName === cardName;
           }*/
-          store.setSelectCard(cardName, p);
+          store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
           store.switchDialog(false);
         } else {
-          store.setSelectCard(cardName, p);
+          store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
           store.switchDialog(false);
           rare;
           // this.selectCard = cardName;
@@ -467,16 +507,12 @@
         const result = this.whichParam(store, attr, isBefore);
         return result < 0 ? 'down' : result > 0 ? 'up' : '';
       }
-    }
+    },
+    watch: {},
   }
-  </script>
+</script>
 
-  <script setup>
-    import { useStoreCounter } from '../stores/counter';
-    const store = useStoreCounter();
-  </script>
-
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
   .up {
     color: green;
   }
@@ -484,4 +520,4 @@
   .down {
     color: red;
   }
-  </style>
+</style>

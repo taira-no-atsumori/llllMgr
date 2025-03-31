@@ -194,12 +194,14 @@
       density="compact"
       class="d-flex flex-row align-center"
     >
-      ご意見・ご要望・バグ報告は「<a
+      ご意見・ご要望・バグ報告は「
+      <a
         href="https://odaibako.net/u/taira_no_atsumori"
         target="_blank"
         class="text-white font-weight-bold"
-        >お題箱</a
-      >」まで
+      >
+        お題箱
+      </a>」まで
     </v-bottom-navigation>
   </v-app>
 </template>

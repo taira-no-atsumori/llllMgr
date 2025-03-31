@@ -324,7 +324,11 @@
                     :data-member_name="memberName"
                   >
                     <!-- <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true"> -->
-                    <v-col cols="12" class="characterDetailArea pa-1">
+                    <v-col
+                      cols="12"
+                      class="characterDetailArea pb-1"
+                      style="padding-top: 2px;"
+                    >
                       <h2>
                         <span class="d-flex flex-row justify-center align-center">
                           <img
@@ -378,7 +382,7 @@
                     </v-col>
                     <v-col
                       cols="12"
-                      v-for="(ary, styleName) in store.styleHeadline[
+                      v-for="(ary, styleName, i) in store.styleHeadline[
                         store.selectDeck.period
                       ]"
                       :key="styleName"
@@ -395,7 +399,7 @@
                         >
                           {{ ary.split('STYLE').join('') }}
                           <v-icon
-                            v-if="store.selectDeck.cardData[memberName][styleName].cardName !== 'default'"
+                            v-if="store.selectDeck.cardData[memberName][styleName].id.split('_')[1] !== '000'"
                             :color="`${store.selectDeck.cardData[memberName][styleName].isAce ? 'yellow-accent-4' : 'grey-lighten-2'}`"
                             style="transform: rotate(180deg);"
                             @click="changeAceCard(store, memberName, styleName);"
@@ -409,6 +413,7 @@
                               store.showModalEvent('selectCard');
                               store.setOpenCard(
                                 store.findCardId(
+                                  memberName,
                                   store.selectDeck.cardData[memberName][styleName].cardName
                                 ),
                                 memberName,
@@ -420,14 +425,12 @@
                               :src="
                                 require(`@/assets/card_illust/${makeIllustCard(
                                   store,
-                                  store.selectDeck.cardData[memberName][styleName].cardName,
-                                  memberName,
+                                  store.selectDeck.cardData[memberName][styleName].id,
                                 )}.webp`)
                               "
                               :alt="makeIllustCard(
                                 store,
-                                store.selectDeck.cardData[memberName][styleName].cardName,
-                                memberName,
+                                store.selectDeck.cardData[memberName][styleName].id,
                               )"
                             ></v-img>
                           </v-card>
@@ -451,8 +454,7 @@
                               {{
                                 makeCardName(
                                   store,
-                                  store.selectDeck.cardData[memberName][styleName].cardName,
-                                  memberName
+                                  store.selectDeck.cardData[memberName][styleName].id,
                                 )
                               }}
                             </dd>
@@ -461,15 +463,13 @@
                             variant="flat"
                             @click="
                               store.setOpenCard(
-                                store.findCardId(
-                                  store.selectDeck.cardData[memberName][styleName].cardName
-                                ),
+                                store.selectDeck.cardData[memberName][styleName].id,
                                 memberName,
                                 styleName
                               );
                               dialog.paramSet = true;
                             "
-                            :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'"
+                            :disabled="store.selectDeck.cardData[memberName][styleName].id.split('_')[1] === '000'"
                           >
                             <v-row no-gutters class="pb-1">
                               <v-col cols="3">
@@ -624,7 +624,9 @@
 
                       <v-divider
                         class="mx-1"
-                        v-if="Object.keys(store.styleHeadline[store.selectDeck.period]).length > 0"
+                        v-if="
+                          Object.keys(store.styleHeadline[store.selectDeck.period]).length > i + 1
+                        "
                       ></v-divider>
                     </v-col>
                   </v-row>
@@ -638,25 +640,56 @@
           <v-col cols="12">
             <h1>想定楽曲</h1>
           </v-col>
-          <v-col cols="12" sm="4" v-if="false">
+          <v-col cols="12" sm="4">
             <v-card class="pa-2">
               <h3>センターカード</h3>
-              <v-card>
-                <v-img :src="require(`@/assets/card_illust/NO IMAGE.webp`)"></v-img>
-              </v-card>
-              <div>NO IMAGE</div>
-              <div>属性：クール</div>
-              <div></div>
+
+              <v-row>
+                <v-col cols="6">
+                  <v-card>
+                    <v-img
+                      :src="require(`@/assets/card_illust/${
+                        showCenterCard(store).id.split('_')[1] === '000' ?
+                        'NO IMAGE' :
+                        `${store.conversion(store.findCardData(showCenterCard(store).id).cardName)}_${
+                          store.memberName[store.musicList[store.selectDeck.selectMusic]?.center].last
+                        }_覚醒後`
+                      }.webp`)"
+                    ></v-img>
+                  </v-card>
+                </v-col>
+                <v-col cols="6">
+                  <div>カード名：{{
+                    store.findCardData(showCenterCard(store).id).cardName === 'default' ?
+                    '' :
+                    store.findCardData(showCenterCard(store).id).cardName
+                  }}</div>
+                  <div>タイプ：{{
+                    showCenterCard(store).id.split('_')[1] === '000' ?
+                    '' :
+                    store.styleType[store.findCardData(showCenterCard(store).id).styleType]
+                  }}</div>
+                </v-col>
+              </v-row>
             </v-card>
           </v-col>
+
           <v-col cols="12" sm="4">
-            <v-card class="pa-2" @click="dialog.selectMusic = true;">
+            <v-card class="pa-2">
+              <v-btn
+                v-if="store.selectDeck.selectMusic !== ''"
+                density="compact"
+                icon="mdi-close"
+                variant="flat"
+                class="position-absolute right-0"
+                @click="deleteSelectMusic(store);"
+              ></v-btn>
               <v-row no-gutters>
                 <v-col cols="12" class="mb-2">
                   <span class="mr-2">曲名</span>{{ store.selectDeck.selectMusic }}
                 </v-col>
                 <v-col cols="6">
-                  <v-card>
+                  <v-card @click="dialog.selectMusic = true;">
                     <v-img
                       :lazy-src="require(`@/assets/CD_jacket/${
                         store.conversion(
@@ -945,22 +978,16 @@
           <p class="text-h6 mb-8">レベル</p>
           <v-slider
             hide-details
-            v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.cardLevel"
+            v-model="store.selectDeck.cardData[
+              store.openCard.name
+            ][
+              store.openCard.style
+            ].param.cardLevel"
             :max="
               store.maxCardLevel[
-                store.searchRarity(
-                  store.findCardId(
-                    store.openCard.name,
-                    store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName
-                  )
-                )
+                store.searchRarity(store.openCard.ID)
               ][store.maxCardLevel[
-                store.searchRarity(
-                  store.findCardId(
-                    store.openCard.name,
-                    store.selectDeck.cardData[store.openCard.name][store.openCard.style].cardName
-                  )
-                )
+                store.searchRarity(store.openCard.ID)
               ].length - 1]
             "
             min="1"
@@ -1749,17 +1776,14 @@ export default {
 
         for (const memberName in store.selectDeck.cardData) {
           for (const style in store.styleHeadline[store.selectDeck.period]) {
-            if (store.selectDeck.cardData[memberName][style].cardName === 'default') {
+            if (store.selectDeck.cardData[memberName][style].id.split('_')[1] === '000') {
               continue;
             } else if (attr === 'releaseLevel') {
               if (store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
                 if (style === 'main') {
                   result += store.selectDeck.cardData[memberName][style].param.releaseLevel;
                   releasePoint += (this.releaseLv[store.searchRarity(
-                    store.findCardId(
-                      memberName,
-                      store.selectDeck.cardData[memberName][style].cardName
-                    )
+                    store.selectDeck.cardData[memberName][style].id
                   )][store.selectDeck.cardData[memberName][style].param.releaseLevel - 1]) * 100;
                 }
               }
@@ -1769,16 +1793,10 @@ export default {
               continue;
             }
 
-            let param = store.cardParam(attr, {
-              memberName: memberName,
-              rare: store.searchRarity(
-                store.findCardId(
-                  memberName,
-                  store.selectDeck.cardData[memberName][style].cardName
-                )
-              ),
-              cardName: store.selectDeck.cardData[memberName][style].cardName,
-            });
+            let param = store.cardParam(
+              attr,
+              store.selectDeck.cardData[memberName][style].id
+            );
 
             if (store.musicList[store.selectDeck.selectMusic].attribute === attr) {
               param *= 1.5;
@@ -1805,7 +1823,7 @@ export default {
         for (const memberName in store.selectDeck.cardData) {
           for (const style in store.selectDeck.cardData[memberName]) {
             if (
-              store.selectDeck.cardData[memberName][style].cardName === 'default' &&
+              store.selectDeck.cardData[memberName][style].id.split('_')[1] === '000' &&
               Object.keys(store.styleHeadline[store.selectDeck.period]).find((v) => v === style) !== undefined
             ) {
               sum[style === 'main' ? 'main' : 'side']++;
@@ -1818,6 +1836,37 @@ export default {
           leaves: sum.side,
           result: sum.side > 9 ? 95 : sum.side * 10
         };
+      }
+    },
+    showCenterCard() {
+      return (store) => {
+        if (store.selectDeck.selectMusic === '') {
+          return {
+            id: 'df_000',
+            isAce: false,
+            param: {
+              cardLevel: 1,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+            }
+          };
+        } else if (
+          store.selectDeck.cardData[store.musicList[store.selectDeck.selectMusic]?.center].main.id.split('_')[1] === '000'
+        ) {
+          return {
+            id: 'df_000',
+            isAce: false,
+            param: {
+              cardLevel: 1,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+            }
+          };
+        } else {
+          return store.selectDeck.cardData[store.musicList[store.selectDeck.selectMusic]?.center].main;
+        }
       }
     }
   },
@@ -1844,10 +1893,13 @@ export default {
 
       for (const name of store.formationMember[a.period]) {
         a.cardData[name] = {};
+        const cardId = `${Object.keys(store.memberId).find((key) => {
+          return store.memberId[key] === name
+        })}_000`;
 
         for (const style of ['main', 'side1', 'side2']) {
           a.cardData[name][style] = {
-            cardName: 'default',
+            id: cardId,
             isAce: false,
             param: {
               cardLevel: 1,
@@ -1986,17 +2038,25 @@ export default {
 
       this.isSelectedAceCard = flg;
     },
+    /**
+     * 選択中のカードを削除
+     *
+     * @param {Object} store - store
+     * @param {string} memberName - メンバー名
+     * @param {string} styleName - スタイル名
+     */
     deleteSelectCard(store, memberName, styleName) {
       if (store.selectDeck.cardData[memberName][styleName].isAce) {
         this.isSelectedAceCard = false;
       }
 
-      store.selectDeck.cardData[memberName][styleName].cardName = 'default';
       store.selectDeck.cardData[memberName][styleName].isAce = false;
-      store.selectDeck.cardData[memberName][styleName].param.cardLevel = 1;
-      store.selectDeck.cardData[memberName][styleName].param.SALevel = 1;
-      store.selectDeck.cardData[memberName][styleName].param.SLevel = 1;
-      store.selectDeck.cardData[memberName][styleName].param.releaseLevel = 1;
+      store.setSelectCard(store.makeDefaultCardId(memberName), {
+        cardLevel: 1,
+        SALevel: 1,
+        SLevel: 1,
+        releaseLevel: 1,
+      });
     },
     musicList(store) {
       const list = {};
@@ -2025,29 +2085,31 @@ export default {
         this.performance[i] = musicDataList[this.selectMusic[i]].singingMembers;
       }
     },
-    makeIllustCard(store, selectCardName, selectMemberName) {
-      if (selectCardName === 'default') {
+    makeIllustCard(store, selectCardId) {
+      if (selectCardId.split('_')[1] === '000') {
         return 'NO IMAGE';
       } else {
-        const cardId = store.findCardId(selectMemberName, selectCardName).slice(0, 2);
+        const cardId = selectCardId.split('_')[0];
 
-        return `${store.conversion(selectCardName)}_${
+        return `${store.conversion(store.findCardData(selectCardId).cardName)}_${
           cardId === 'is' ?
             '桂城泉＆セラス 柳田 リリエンフェルト' :
+          cardId === 'ktm' ?
+            '乙宗梢＆夕霧綴理＆藤島慈' :
             store.memberName[store.memberId[cardId]].last
         }_覚醒後`;
       }
     },
-    makeCardName(store, selectCardName, memberName) {
+    makeCardName(store, selectCardId) {
       // this.makeParam(store, memberName, style, this.attr);
 
-      if (selectCardName === 'default') {
+      if (selectCardId.split('_')[1] === '000') {
         return 'カードを選択してください';
       } else {
-        store.cardList.find((v) => v.ID === store.findCardId(memberName, selectCardName)).gacha.period;
+        // store.findCardData(selectCardId).gacha.period;
         return `[${
-          store.searchRarity(store.findCardId(memberName, selectCardName))
-        }] ${selectCardName}`;
+          store.searchRarity(selectCardId)
+        }] ${store.findCardData(selectCardId).cardName}`;
       }
     },
     /**
@@ -2110,6 +2172,9 @@ export default {
       return list;
     },
     periodChange(store) {
+      store.selectDeck.selectMusic = '';
+    },
+    deleteSelectMusic(store) {
       store.selectDeck.selectMusic = '';
     },
     makeURL() {

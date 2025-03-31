@@ -149,12 +149,7 @@
               :color="moodColor[cardData.mood]"
               @click="
                 store.showModalEvent('setCardData');
-                store.cardSelect(
-                  cardData.memberName,
-                  cardData.rare,
-                  cardData.cardName,
-                  cardData.ID
-                );
+                store.setSettingCard(cardData.ID);
               "
             >
               <v-img
@@ -200,15 +195,13 @@
                   <v-col cols="6" class="status">
                     <span>特訓 </span
                     >{{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.trainingLevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel
                     }}
                   </v-col>
                   <v-col cols="6" class="status">
                     <span>Level </span
                     >{{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.cardLevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.cardLevel
                     }}
                   </v-col>
                   <v-col cols="6" class="status">
@@ -234,8 +227,7 @@
                   <v-col cols="6" class="status">
                     <span>解放Lv. </span
                     >{{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.releaseLevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.releaseLevel
                     }}
                   </v-col>
                   <v-col cols="6" class="status">
@@ -249,11 +241,9 @@
                         ? "-"
                         : `+${
                             store.grandprixBonus.releaseLv[
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                .rare
+                              store.card[cardData.memberName][cardData.rare][cardData.cardName].rare
                             ][
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                .fluctuationStatus.releaseLevel - 1
+                              store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.releaseLevel - 1
                             ] * 100
                           }%`
                     }}
@@ -273,12 +263,7 @@
                     :color="moodColor[cardData.mood]"
                     @click="
                       store.showModalEvent('setCardData');
-                      store.cardSelect(
-                        cardData.memberName,
-                        cardData.rare,
-                        cardData.cardName,
-                        cardData.ID
-                      );
+                      store.setSettingCard(cardData.ID);
                     "
                   >
                     <v-img
@@ -409,31 +394,19 @@
                         <v-row no-gutters>
                           <v-col class="pa-0">スマイル</v-col>
                           <v-col class="pa-0">{{
-                            store.cardParam('smile', {
-                              memberName: cardData.memberName,
-                              rare: cardData.rare,
-                              cardName: cardData.cardName,
-                            })
+                            store.cardParam('smile', cardData.ID)
                           }}</v-col>
                         </v-row>
                         <v-row no-gutters>
                           <v-col class="pa-0">ピュア</v-col>
                           <v-col class="pa-0">{{
-                            store.cardParam('pure', {
-                              memberName: cardData.memberName,
-                              rare: cardData.rare,
-                              cardName: cardData.cardName,
-                            })
+                            store.cardParam('pure', cardData.ID)
                           }}</v-col>
                         </v-row>
                         <v-row no-gutters>
                           <v-col class="pa-0">クール</v-col>
                           <v-col class="pa-0">{{
-                            store.cardParam('cool', {
-                              memberName: cardData.memberName,
-                              rare: cardData.rare,
-                              cardName: cardData.cardName,
-                            })
+                            store.cardParam('cool', cardData.ID)
                           }}</v-col>
                         </v-row>
                       </v-col>
@@ -441,11 +414,7 @@
                         <v-row no-gutters>
                           <v-col class="pa-0">メンタル</v-col>
                           <v-col class="pa-0">{{
-                            store.cardParam('mental', {
-                              memberName: cardData.memberName,
-                              rare: cardData.rare,
-                              cardName: cardData.cardName,
-                            })
+                            store.cardParam('mental', cardData.ID)
                           }}</v-col>
                         </v-row>
                         <v-row no-gutters>
@@ -541,9 +510,7 @@
           :key="rare"
           :data-rare="rare"
         >
-          <dt>
-            {{ rare }}
-          </dt>
+          <dt>{{ rare }}</dt>
           <dd>
             <v-btn
               v-for="(ary, cardName) in store.card[name_en][rare]"
@@ -552,10 +519,11 @@
               class="abc"
               @click="
                 store.showModalEvent('setCardData');
-                store.cardSelect(name_en, rare, cardName, ID);
+                store.setSettingCard(ID);
               "
-              >{{ cardName }}</v-btn
             >
+              {{ cardName }}
+            </v-btn>
           </dd>
         </dl>
       </li>

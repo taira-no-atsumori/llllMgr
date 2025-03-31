@@ -2948,7 +2948,7 @@ export const useSkillStore = defineStore('skillList', {
             '%分のメンタルダメージを無効にする。',
           ],
           detail: {
-            attr: '',
+            attr: 'dreaming',
             type: [
               'APReduce_all',
               'loveAttract_stage',
@@ -5230,6 +5230,98 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['reshuffle', 'boost_loveAttract', 'modeChange'],
+          },
+        },
+      },
+      'グランドフィナーレ': {
+        'grandFinale_01': {
+          text: [
+            '最終セクションで使用したとき、APを',
+            '回復し、このセクション中、スキルハート獲得効果による獲得数を+',
+            '%、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'grandFinale',
+            type: ['APGain', 'boost_heartCaptcha', 'heartLimitUp'],
+          },
+        },
+      },
+      'パワーオブエール': {
+        'powerOfYell_01': {
+          text: [
+            'このステージ中、獲得するLOVEを増加し、スキルハートを獲得する。梢のMember Fan Lv.が高いほど効果量が増加する。さらに梢のMember Fan Lv.が100以上のとき、このステージ中、AP回復速度を+',
+            '%し、APを',
+            '回復する。'
+          ],
+          detail: {
+            attr: 'powerOfYell',
+            type: ['loveAttract_stage', 'APQuick', 'APGain'],
+          },
+        },
+        'powerOfYell_02': {
+          text: [
+            'ボルテージPt.を増加し、スキルハートを獲得する。綴理のMember Fan Lv.が高いほど効果量が増加する。さらに綴理のMember Fan Lv.が100以上のとき、このステージ中、AP回復速度を+',
+            '%し、APを9回復する。'
+          ],
+          detail: {
+            attr: 'powerOfYell',
+            type: ['voltageGain', 'APQuick', 'APGain'],
+          },
+        },
+        'powerOfYell_03': {
+          text: [
+            'このステージ中、メンタルの最大値の割合分のメンタルダメージを無効にし、スキルハートを獲得する。慈のMember Fan Lv.が高いほど効果量が増加する。さらに慈のMember Fan Lv.が100以上のとき、このステージ中、AP回復速度を+',
+            '%し、APを9回復する。'
+          ],
+          detail: {
+            attr: 'powerOfYell',
+            type: ['protect_stage', 'APQuick', 'APGain'],
+          },
+        },
+      },
+      'リユニオンチャーム/Kozue': {
+        'reunionCharm-kozue_01': {
+          text: [
+            '山札にあるすべてのスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'reunionCharm',
+            type: ['APReduce'],
+          },
+        },
+      },
+      'リユニオンチャーム/Tsuzuri': {
+        'reunionCharm-tsuzuri_01': {
+          text: [
+            '山札にあるすべてのスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'reunionCharm',
+            type: ['APReduce'],
+          },
+        },
+      },
+      'リユニオンチャーム/Megumi': {
+        'reunionCharm-megumi_01': {
+          text: [
+            '山札にあるすべてのスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'reunionCharm',
+            type: ['APReduce'],
+          },
+        },
+      },
+      'ドリーミングトライアングル': {
+        'dreamingTriangle_01': {
+          text: [
+            'デッキ内のすべてのスキルの消費AP3-し、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。さらにこのセクション中、AP回復速度を+',
+            '%し、メンタルが0になってもメンタルダウンしなくなる。'
+          ],
+          detail: {
+            attr: 'dreaming',
+            type: ['APReduce', 'reshuffle', 'APQuick', 'mentalDown_section'],
           },
         },
       },

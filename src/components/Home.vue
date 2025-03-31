@@ -15,7 +15,17 @@
             class="text-center"
           >
             <v-card variant="flat" rounded="0">
-              <a :href="event.url" target="_blank" class="mainVisual">
+              <v-img
+                v-if="event.type === 'other'"
+                class="white--text align-end text-center"
+                :src="require(`@/assets/event_information/${event.img}.webp`)"
+              ></v-img>
+              <a
+                v-else
+                :href="event.url"
+                target="_blank"
+                class="mainVisual"
+              >
                 <v-img
                   class="white--text align-end text-center"
                   :src="require(`@/assets/event_information/${event.img}.webp`)"
@@ -23,7 +33,10 @@
               </a>
               <v-card-title class="text-left">
                 {{ event.title }}
-                <div v-if="event.state === 'prev'">
+                <div v-if="event.type === 'other'">
+                  {{ event.text }}
+                </div>
+                <div v-else-if="event.state === 'prev'">
                   {{ event.text }}まで<span class="d-inline-block">
                     あと
                     <template v-if="event.count.day > 0">
@@ -181,15 +194,6 @@ export default {
   data() {
     return {
       eventList: {
-        'rengesai': {
-          title: '104期 Final Term Fes×LIVE -蓮華祭-',
-          text: '',
-          type: 'liveGP',
-          firstDay: [2025, 3, 30, 20, 0],
-          lastDay: [2025, 3, 30, 21, 0],
-          url: 'https://www.lovelive-anime.jp/hasunosora/',
-          img: '蓮華祭_logo',
-        },
         /*liveGP: {
           title: 'ライブグランプリ「104期 3rdTerm 第3回個人戦」',
           text: '',
@@ -198,7 +202,7 @@ export default {
           lastDay: [2025, 1, 10, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-01-03-10-lbtb4l7zf0',
           img: '104期 3rdTerm 第3回個人戦_logo',
-        },*/
+        },
         'liveGP': {
           title: 'ライブグランプリ「104期 FinalTerm 第2回サークル対抗戦」',
           text: '',
@@ -207,6 +211,14 @@ export default {
           lastDay: [2025, 3, 27, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-03-19-10-rviikncrbg',
           img: '104期 FinalTerm 第2回サークル対抗戦_logo',
+        },*/
+        'graduation': {
+          title: '梢先輩、綴理先輩、慈先輩',
+          text: 'ご卒業おめでとうございます🌸',
+          type: 'other',
+          firstDay: [2025, 3, 31, 21, 0],
+          lastDay: [2025, 4, 11, 12, 0],
+          img: 'thanks',
         },
         '4thLiveDream_ishikawa': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',

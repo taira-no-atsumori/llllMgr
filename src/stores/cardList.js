@@ -2776,7 +2776,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
-            ID: 'sy023',
+            ID: 'sy_023',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Prism Echo',
@@ -7580,6 +7580,69 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'いつでも、いつまでも': {
+            ID: 'kz_056',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'いつでも、いつまでも',
+            kana: 'いつでもいつまでも',
+            gacha: {
+              addSeason: '2024 GRADUATION LIMITED COLLECTION',
+              period: 'graduation',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5500,
+              pure: 4800,
+              cool: 4100,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'grandFinale_01',
+              name: 'グランドフィナーレ',
+              AP: 5,
+              detail: [
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                [408, 448.8, 489.6, 530.4, 571.2, 612, 652.8, 693.6, 734.4, 816, 856.8, 897.6, 938.4, 1020],
+                [408, 449, 490, 530, 571, 612, 653, 694, 734, 816, 857, 898, 938, 1020],
+              ],
+            },
+            skill: {
+              ID: 'powerOfYell_01',
+              name: 'パワーオブエール',
+              AP: 9,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, '7?', '8?', '8?', 9],
+              ],
+            },
+            characteristic: {
+              name: 'シーユーアゲイン',
+              detail: 'このスキルを3回使用すると、デッキから除外され、リユニオンチャームカードを1種類(合計1枚)山札に追加する。',
+              type: ['exclusion', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'reunionCharm-kozue_01',
+                  name: 'リユニオンチャーム/Kozue',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'プロミス',
+                    detail: 'ドローした時、このステージ中、獲得するLOVEを増加し、スキルハートを獲得する。梢のMember Fan Lv.が高いほど効果が増加する。',
+                    type: ['loveAttract_stage', 'heartCaptcha'],
+                  },
+                },
+              ],
+            },
+          },
           'ユメワズライ': {
             ID: 'kz_055',
             styleType: 'performer',
@@ -10141,6 +10204,69 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'いつでも、いつまでも': {
+            ID: 'tz_055',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'いつでも、いつまでも',
+            kana: 'いつでもいつまでも',
+            gacha: {
+              addSeason: '2024 GRADUATION LIMITED COLLECTION',
+              period: 'graduation',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4300,
+              pure: 4700,
+              cool: 5500,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'grandFinale_01',
+              name: 'グランドフィナーレ',
+              AP: 5,
+              detail: [
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                [408, 448.8, 489.6, 530.4, 571.2, 612, 652.8, 693.6, 734.4, 816, 856.8, 897.6, 938.4, 1020],
+                [408, 449, 490, 530, 571, 612, 653, 694, 734, 816, 857, 898, 938, 1020],
+              ],
+            },
+            skill: {
+              ID: 'powerOfYell_02',
+              name: 'パワーオブエール',
+              AP: 9,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, '7?', '8?', '8?', 9],
+              ],
+            },
+            characteristic: {
+              name: 'シーユーアゲイン',
+              detail: 'このスキルを3回使用すると、デッキから除外され、リユニオンチャームカードを1種類(合計1枚)山札に追加する。',
+              type: ['exclusion', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'reunionCharm-tsuzuri_01',
+                  name: 'リユニオンチャーム/Tsuzuri',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'プロミス',
+                    detail: 'ドローした時、ボルテージPt.を増加し、スキルハートを獲得する。綴理のMember Fan Lv.が高いほど効果が増加する。',
+                    type: ['voltageGain', 'heartCaptcha'],
+                  },
+                },
+              ],
+            },
+          },
           'COMPASS': {
             ID: 'tz_054',
             styleType: 'performer',
@@ -12705,6 +12831,69 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'いつでも、いつまでも': {
+            ID: 'mg_045',
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'いつでも、いつまでも',
+            kana: 'いつでもいつまでも',
+            gacha: {
+              addSeason: '2024 GRADUATION LIMITED COLLECTION',
+              period: 'graduation',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4300,
+              pure: 4700,
+              cool: 5500,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'grandFinale_01',
+              name: 'グランドフィナーレ',
+              AP: 5,
+              detail: [
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                [408, 448.8, 489.6, 530.4, 571.2, 612, 652.8, 693.6, 734.4, 816, 856.8, 897.6, 938.4, 1020],
+                [408, 449, 490, 530, 571, 612, 653, 694, 734, 816, 857, 898, 938, 1020],
+              ],
+            },
+            skill: {
+              ID: 'powerOfYell_03',
+              name: 'パワーオブエール',
+              AP: 9,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                [3, 3, 4, 4, 5, 5, 5, 6, 6, 7, '7?', '8?', '8?', 9],
+              ],
+            },
+            characteristic: {
+              name: 'シーユーアゲイン',
+              detail: 'このスキルを3回使用すると、デッキから除外され、リユニオンチャームカードを1種類(合計1枚)山札に追加する。',
+              type: ['exclusion', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'reunionCharm-megumi_01',
+                  name: 'リユニオンチャーム/Megumi',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'プロミス',
+                    detail: 'ドローした時、ステージ中、メンタルの最大値の割合分のメンタルダメージを無効にし、スキルハートを獲得する。慈のMember Fan Lv.が高いほど効果が増加する。',
+                    type: ['protect_stage', 'heartCaptcha'],
+                  },
+                },
+              ],
+            },
+          },
           '全方位キュン♡': {
             ID: 'mg_044',
             styleType: 'performer',
@@ -18479,7 +18668,7 @@ export const useCardStore = defineStore('cardList', {
                   name: 'Ritter',
                   AP: 2,
                   detail: [
-                    [178, 196, 214, 231, 249, 267, 285, 303, 320, 356, 374, 392, 409, 445],
+                    [178, 196, 214, 231, 249, 267, 285, 303, 320, 356, 374, 392, 409, 444],
                     [26.4, 29.04, 31.68, 34.32, 36.96, 39.6, 42.24, 44.88, 47.52, 52.8, 55.44, 58.08, 60.72, 66],
 
                   ],
@@ -18494,6 +18683,94 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'クローズ',
               detail: 'このスキルを使用すると、デッキから除外される。',
+              type: ['exclusion'],
+            },
+          },
+        },
+      },
+      kozutsuzumegu: {
+        default: {
+          'default': {
+            ID: 'ktm_000',
+            styleType: '',
+            mood: '',
+            kana: '',
+            gacha: {
+              addSeason: '',
+              period: '',
+            },
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
+              BP: 100,
+            },
+            specialAppeal: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            skill: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            characteristic: {
+              name: '',
+              detail: '',
+              type: [],
+            },
+          },
+        },
+        UR: {
+          '蓮ノ空女学院スクールアイドルクラブ102期生': {
+            ID: 'ktm_001',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '蓮ノ空女学院スクールアイドルクラブ102期生',
+            kana: 'はすのそらじょがくいんすくーるあいどるくらぶ102きせい',
+            gacha: {
+              addSeason: '2024 GRADUATION LIMITED COLLECTION AFTER',
+              period: 'graduation',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+            },
+            skill: {
+              ID: 'dreamingTriangle_01',
+              name: 'ドリーミングトライアングル',
+              AP: 3,
+              detail: [
+                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.8, 3, 3.2],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 16],
+                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4],
+              ],
+            },
+            characteristic: {
+              name: 'グラデュエーション',
+              detail: 'このスキルを3回使用すると、デッキから除外される。',
               type: ['exclusion'],
             },
           },

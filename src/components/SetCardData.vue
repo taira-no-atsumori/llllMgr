@@ -12,7 +12,7 @@
           <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
               <a
-                :href="makeWikiLink(store.settingCard.card, `${store.memberName[store.settingCard.name].first}${store.memberName[store.settingCard.name].last}`)"
+                :href="makeWikiLink(store)"
                 target="_blank"
                 :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
                 v-bind="props"
@@ -25,7 +25,7 @@
         </h2>
         <h3 class="hidden-sm-and-up">
           <a
-            :href="makeWikiLink(store.settingCard.card, `${store.memberName[store.settingCard.name].first}${store.memberName[store.settingCard.name].last}`)"
+            :href="makeWikiLink(store)"
             target="_blank"
             :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
           >
@@ -49,16 +49,16 @@
           height="auto"
           hide-delimiter-background
           show-arrows="hover"
-          :hide-delimiters="/^(D|B)R$/.test(store.settingCard.rare)"
+          :hide-delimiters="/^(D|B)R$/.test(store.getSettingCard.rare)"
           color="#e5762c"
         >
           <v-carousel-item
-            v-for="kakusei in /^(D|B)R$/.test(store.settingCard.rare) ? ['後'] : ['前', '後']"
+            v-for="kakusei in /^(D|B)R$/.test(store.getSettingCard.rare) ? ['後'] : ['前', '後']"
             :key="kakusei"
             :src="require(`@/assets/card_illust/${
-              store.conversion(store.settingCard.card)}_${
+              store.conversion(store.getSettingCard.cardName)}_${
               store.makeCardMemberName(
-                store.settingCard.ID
+                store.getSettingCard.ID
               )
             }_覚醒${kakusei}.webp`)"
           ></v-carousel-item>
@@ -390,10 +390,12 @@
           <h4 class="mb-4 d-flex flex-row align-center">
             解放Lv.
             <span
-              v-if="store.settingCard.rare !== 'DR' && store.settingCardData?.specialAppeal"
+              v-if="store.getSettingCard.rare !== 'DR' && store.settingCardData?.specialAppeal"
               class="ml-1"
             >
-              (最終獲得GP Pt. +<span class="text-pink"> {{ store.grandprixBonus.releaseLv[store.settingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }} </span>%)
+              (最終獲得GP Pt. +<span class="text-pink">
+                {{ store.grandprixBonus.releaseLv[store.getSettingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }}
+              </span>%)
               <v-btn
                 size="small"
                 density="compact"
@@ -1117,17 +1119,21 @@ export default {
      * @param memberName メンバー名
      * @returns string リンク
      */
-    makeWikiLink(cardName, memberName) {
-      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${cardName.replaceAll('&', '＆').replaceAll('/', '／')}］${memberName}`;
+    makeWikiLink(store) {
+      const name = {
+        first: store.memberName[store.getSettingCard.memberName].first,
+        last: store.memberName[store.getSettingCard.memberName].last
+      };
+      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${store.getSettingCard.cardName.replaceAll('&', '＆').replaceAll('/', '／')}］${name.first}${name.last}`;
     },
     /**
-     * カードネーム作成
+     * カード名作成
      *
      * @param store ストア
      * @returns string カード名
      */
     makeCardName(store) {
-      return `${store.settingCard.rare} [${store.settingCard.card}] ${store.makeFullName(store.settingCard.name)}`;
+      return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(store.getSettingCard.memberName)}`;
     },
     /**
      * サポートスキル作成
