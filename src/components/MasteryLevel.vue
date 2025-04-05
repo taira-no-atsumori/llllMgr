@@ -9,7 +9,7 @@
     >
       <img
         v-if="!store.isOtherMember(memberName)"
-        :src="require(`@/assets/member_icon/icon_SD_${memberName}.webp`)"
+        :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
         class="cursor-pointer"
         :style="`width: 10%; max-width: 45px; margin: 0 0.5%; filter: grayscale(${memberName === store.checkMasteryMember ? 0 : 1});`"
         @click="store.checkMasteryMember = memberName;"
@@ -37,7 +37,7 @@
         <div class="d-flex flex-row align-center mb-1">
           <div class="mr-1 mt-1">
             <v-img
-              :src="require(`@/assets/bonusSkill_icon/${bonusSkill}.webp`)"
+              :src="store.getImagePath('bonusSkill_icon', bonusSkill)"
               style="width: 32px; height:32px; border-radius: 3px;"
             ></v-img>
             <p class="text-center" style="font-size: 14px;">Lv.{{ store.outputBonusSkillList[bonusSkill].skillLevel }}</p>

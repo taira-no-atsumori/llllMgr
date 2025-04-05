@@ -6,7 +6,6 @@ import Dexie from 'dexie';
 
 export const useStoreCounter = defineStore('store', {
   state: () => ({
-    version: 'ζ.12(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -414,7 +413,7 @@ export const useStoreCounter = defineStore('store', {
     deck: [],
     settingCard: {
       // 何故か分からないがここを設定しないとエラーが出るため設定
-      ID: 'kh_022',
+      ID: 'kh_023',
       rare: 'DR',
       name: 'kaho',
       card: 'Prism Echo',
@@ -495,6 +494,13 @@ export const useStoreCounter = defineStore('store', {
     },
     musicList() {
       const musicStore = useMusicStore();
+      this.IDCheck(Object.keys(musicStore.musicList).map(key => {
+        return {
+          ...musicStore.musicList[key]
+        };
+      }).sort((a, b) => {
+        return a.ID.localeCompare(b.ID);
+      }), 'music');
       return musicStore.musicList;
     },
     cardList() {
@@ -532,6 +538,8 @@ export const useStoreCounter = defineStore('store', {
       for (const rare in result) {
         result2 = result2.concat(result[rare]);
       }
+
+      this.IDCheck(result2, 'card');
 
       return result2;
     },
@@ -947,15 +955,15 @@ export const useStoreCounter = defineStore('store', {
       }
 
       for (const name in this.memberName) {
-        this.supportSkill[name] = structuredClone(bonusSkillList);
+        this.supportSkill[name] = JSON.parse(JSON.stringify(bonusSkillList));
         this.memberData.centerList[name] = {
           centerMusic: [],
-          bonusSkill: structuredClone(bonusSkillList),
+          bonusSkill: JSON.parse(JSON.stringify(bonusSkillList)),
         };
       }
 
-      this.search = structuredClone(this.defaultSearch);
-      this.card = structuredClone(this.defaultCard);
+      this.search = JSON.parse(JSON.stringify(this.defaultSearch));
+      this.card = JSON.parse(JSON.stringify(this.defaultCard));
       this.getLocalStorage();
       this.setSupportSkillLevel();
       //this.makeNewDeck();
@@ -1513,7 +1521,7 @@ export const useStoreCounter = defineStore('store', {
         if (/^rare|favorite|releaseStatus$/.test(resetName)) {
           this.search.cardList[resetName] = this[resetName];
         } else if (resetName === 'memberName') {
-          this.search.cardList.memberName = structuredClone(this.memberNameList);
+          this.search.cardList.memberName = JSON.parse(JSON.stringify(this.memberNameList));
         } else {
           for (const key in this[resetName]) {
             this.search.cardList[resetName].push(key);
@@ -1526,11 +1534,11 @@ export const useStoreCounter = defineStore('store', {
     dataReset(resetList) {
       for (const iterator of resetList) {
         if (iterator === 'card') {
-          this.card = structuredClone(this.defaultCard);
+          this.card = JSON.parse(JSON.stringify(this.defaultCard));
           this.localStorageData.cardList.card = this.makeExportCardData(this.card);
           this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
         } else if (iterator === 'cardListFilter') {
-          this.search = structuredClone(this.defaultSearch);
+          this.search = JSON.parse(JSON.stringify(this.defaultSearch));
         } else if (iterator === 'musicData') {
           const bonusSkillList = {};
     
@@ -1539,8 +1547,8 @@ export const useStoreCounter = defineStore('store', {
           }
     
           for (const name in this.memberName) {
-            this.supportSkill[name] = structuredClone(bonusSkillList);
-            this.memberData.centerList[name].bonusSkill = structuredClone(bonusSkillList);
+            this.supportSkill[name] = JSON.parse(JSON.stringify(bonusSkillList));
+            this.memberData.centerList[name].bonusSkill = JSON.parse(JSON.stringify(bonusSkillList));
     
             for (const musicTitle in this.musicList) {
               this.musicList[musicTitle].level = 0;
@@ -1557,10 +1565,10 @@ export const useStoreCounter = defineStore('store', {
           };
           this.setLocalStorage('llllMgr_selectItemList', this.localStorageData.selectItemList);
         } else if (iterator === 'sortSettings_card') {
-          this.localStorageData.sortSettings.cardList = structuredClone(this.sortSettings.cardList);
+          this.localStorageData.sortSettings.cardList = JSON.parse(JSON.stringify(this.sortSettings.cardList));
           this.setLocalStorage('llllMgr_sortSettings', this.localStorageData.sortSettings);
         } else if (iterator === 'siteSettings') {
-          this.localStorageData.siteSettings = structuredClone(this.siteSettings);
+          this.localStorageData.siteSettings = JSON.parse(JSON.stringify(this.siteSettings));
           this.setLocalStorage('llllMgr_siteSettings', this.localStorageData.siteSettings);
         }
       }
@@ -1579,6 +1587,114 @@ export const useStoreCounter = defineStore('store', {
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SALevel = param.SALevel;
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SLevel = param.SLevel;
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.releaseLevel = param.releaseLevel;
+    },
+    /**
+     * @function IDCheck
+     * @description カードか楽曲リストのIDの形式が正しいか、連番になっているかをチェックする。
+     * @param {Object[]} list - The list of data to check.
+     * @param {string} type - "music" or "card".
+     * @returns {void}
+     */
+    IDCheck(list, type) {
+      const regex = type === 'music' ? /^m{1}/ : /^[a-z]{2,3}/;
+      let previousNumber = 0;
+      const errorList = [];
+
+      if (type === 'music') {
+        previousNumber = 0;
+
+        for (const musicData of list) {
+          const errorMessage = isValidAndIncremental(musicData.ID, previousNumber);
+
+          if (errorMessage === '') {
+            previousNumber = parseInt(musicData.ID.split('_')[1], 10);
+          } else {
+            errorList.push(errorMessage);
+            break;
+          }
+        }
+      } else {
+        for (const key in this.memberId) {
+          const filteringList = list.filter((data) => {
+            return data.memberName === this.memberId[key];
+          }).sort((a, b) => {
+            return a.ID.localeCompare(b.ID);
+          });
+
+          previousNumber = 0;
+
+          for (const cardData of filteringList) {
+            const errorMessage = isValidAndIncremental(cardData.ID, previousNumber);
+
+            if (errorMessage === '') {
+              previousNumber = parseInt(cardData.ID.split('_')[1], 10);
+            } else {
+              errorList.push(errorMessage);
+              break;
+            }
+          }
+        }
+      }
+
+      if (errorList.length > 0) {
+        for (let index = 0; index < errorList.length; index++) {
+          console.error(errorList[index]);
+        }
+
+        alert('ID設定に誤りがあります。\n詳しくはコンソールを確認してください。');
+      } else {
+        const idSet = new Set();
+        const duplicateIDs = [];
+      
+        for (const item of list) {
+          if (idSet.has(item.ID)) {
+            duplicateIDs.push(item.ID);
+          } else {
+            idSet.add(item.ID);
+          }
+        }
+      
+        if (duplicateIDs.length > 0) {
+          console.error(`重複しているIDがあります。\n該当ID：${duplicateIDs.join(', ')}`);
+          alert('ID設定に誤りがあります。\n詳しくはコンソールを確認してください。');
+        }
+      }
+
+      /**
+       * IDチェック
+       * @function isValidAndIncremental
+       * @description IDの形式が正しいか、連番になっているかをチェックする。\
+       * 正しくなければエラーメッセージを返す。
+       *
+       * @param {string} ID - ID
+       * @param {number} previousNumber - 現在-1のID番号
+       * @returns {string} エラーメッセージ
+       */
+      function isValidAndIncremental(ID, previousNumber) {
+        if (isNaN(ID.split('_')[1])) {
+          return `IDの番号に数字以外が入っています。\n該当ID：${ID}`;
+        } else if (ID.split('_')[1].length !== 3) {
+          return `IDの番号が3桁ではありません。\n該当ID：${ID}`;
+        } else if (!regex.test(ID)) {
+          return `形式がフォーマット通りではありません。\n該当ID：${ID}`;
+        }
+
+        const numberPart = parseInt(ID.split('_')[1], 10);
+
+        return numberPart === previousNumber + 1 ? '' : `IDが連番になっていません。\n該当ID：${ID}`;
+      }
+    },
+    /**
+     * 画像パスを返す処理
+     * 
+     * @param {string} path - その画像が入っているフォルダ名
+     * @param {string} imageName - 画像の名前
+     * @returns {string} 画像のパス
+     */
+    getImagePath(path, imageName, extension) {
+      const images = import.meta.glob('../assets/**/*', { eager: true });
+      const filePath = `../assets${path ? `/${path}` : ''}/${imageName}.${extension ?? 'webp'}`;
+      return images[filePath]?.default || '';
     },
   },
 });

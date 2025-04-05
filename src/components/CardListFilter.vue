@@ -70,7 +70,7 @@
               >
                 <template v-slot:label>
                   <v-img
-                    :src="require(`@/assets/mood_icon/icon_${moodName_en}.webp`)"
+                    :src="store.getImagePath('mood_icon', `icon_${moodName_en}`)"
                     class="icon mood"
                   ></v-img>{{ moodName_ja }}
                 </template>
@@ -111,7 +111,7 @@
           >
             <template v-slot:label>
               <v-img
-                :src="require(`@/assets/styleType_icon/icon_${styleTypeName_en}.png`)"
+                :src="store.getImagePath('styleType_icon', `icon_${styleTypeName_en}`)"
                 class="icon type"
               ></v-img>{{ styleTypeName_ja }}
             </template>
@@ -155,7 +155,7 @@
                 v-if="!store.isOtherMember(memberName)"
               >
                 <v-img
-                  :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.thisPeriod}.webp`)"
+                  :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.thisPeriod}`)"
                   class="icon member"
                 ></v-img>{{ store.makeFullName(memberName) }}
               </template>

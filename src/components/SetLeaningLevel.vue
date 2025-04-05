@@ -19,8 +19,8 @@
   <v-row no-gutters>
     <v-col class="mb-3" cols="12" sm="6">
       <v-img
-        :lazy-src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.webp`)"
-        :src="require(`@/assets/CD_jacket/${store.conversion(store.selectMusicTitle)}.webp`)"
+        :lazy-src="store.getImagePath('CD_jacket', store.conversion(store.selectMusicTitle))"
+        :src="store.getImagePath('CD_jacket', store.conversion(store.selectMusicTitle))"
         :alt="store.selectMusicTitle"
         class="mb-2"
       ></v-img>
@@ -63,7 +63,7 @@
           >
             <v-avatar left>
               <v-img
-                :src="require(`@/assets/member_icon/icon_SD_${store.musicList[store.selectMusicTitle].center}.webp`)"
+                :src="store.getImagePath('member_icon', `icon_SD_${store.musicList[store.selectMusicTitle].center}`)"
                 width="30px"
               ></v-img>
             </v-avatar>
@@ -83,7 +83,7 @@
           >
             <v-avatar left>
               <v-img
-                :src="require(`@/assets/member_icon/icon_SD_${memberName}.webp`)"
+                :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
                 width="30px"
               ></v-img>
             </v-avatar>
@@ -135,7 +135,7 @@
         <h4 class="subtitle">獲得ボーナススキル</h4>
         <div class="d-flex flex-row align-center">
           <img
-            :src="require(`@/assets/bonusSkill_icon/${store.musicList[store.selectMusicTitle].bonusSkill}.webp`)"
+            :src="store.getImagePath('bonusSkill_icon', store.musicList[store.selectMusicTitle].bonusSkill)"
             :alt="store.musicList[store.selectMusicTitle].bonusSkill"
             class="mr-1"
             style="width: 30px; border-radius: 3px;"
@@ -153,7 +153,7 @@
           >
             <v-avatar left>
               <v-img
-                :src="require(`@/assets/attribute_icon/icon_${store.musicList[store.selectMusicTitle].attribute}.webp`)"
+                :src="store.getImagePath('attribute_icon', `icon_${store.musicList[store.selectMusicTitle].attribute}`)"
               ></v-img>
             </v-avatar>
             <span class="ml-2">{{ attributeName[store.musicList[store.selectMusicTitle].attribute].name }}</span>

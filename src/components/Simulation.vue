@@ -332,7 +332,7 @@
                       <h2>
                         <span class="d-flex flex-row justify-center align-center">
                           <img
-                            :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectDeck.period}.webp`)"
+                            :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.selectDeck.period}`)"
                             class="mr-1"
                             style="width: 35px"
                             :alt="memberName"
@@ -369,7 +369,7 @@
                             class="mr-1"
                           >
                             <img
-                              :src="require(`@/assets/bonusSkill_icon/${skillName}.webp`)"
+                              :src="store.getImagePath('bonusSkill_icon', skillName)"
                               style="width: 25px;"
                             >×{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
                           </span>
@@ -423,10 +423,10 @@
                           >
                             <v-img
                               :src="
-                                require(`@/assets/card_illust/${makeIllustCard(
+                                store.getImagePath('card_illust', makeIllustCard(
                                   store,
                                   store.selectDeck.cardData[memberName][styleName].id,
-                                )}.webp`)
+                                ))
                               "
                               :alt="makeIllustCard(
                                 store,
@@ -648,13 +648,13 @@
                 <v-col cols="6">
                   <v-card>
                     <v-img
-                      :src="require(`@/assets/card_illust/${
+                      :src="store.getImagePath('card_illust', `${
                         showCenterCard(store).id.split('_')[1] === '000' ?
                         'NO IMAGE' :
                         `${store.conversion(store.findCardData(showCenterCard(store).id).cardName)}_${
                           store.memberName[store.musicList[store.selectDeck.selectMusic]?.center].last
                         }_覚醒後`
-                      }.webp`)"
+                      }`)"
                     ></v-img>
                   </v-card>
                 </v-col>
@@ -691,16 +691,18 @@
                 <v-col cols="6">
                   <v-card @click="dialog.selectMusic = true;">
                     <v-img
-                      :lazy-src="require(`@/assets/CD_jacket/${
+                      :lazy-src="store.getImagePath(
+                        'CD_jacket',
                         store.conversion(
                           store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic
                         )
-                      }.webp`)"
-                      :src="require(`@/assets/CD_jacket/${
+                      )"
+                      :src="store.getImagePath(
+                        'CD_jacket',
                         store.conversion(
                           store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic
                         )
-                      }.webp`)"
+                      )"
                       :alt="store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic"
                     ></v-img>
                   </v-card>
@@ -714,7 +716,10 @@
                     <span class="mr-2">センター</span>
                     <img
                       v-if="store.selectDeck.selectMusic !== ''"
-                      :src="require(`@/assets/member_icon/icon_illust_${store.musicList[store.selectDeck.selectMusic]?.center}_${store.selectDeck.period}.webp`)"
+                      :src="store.getImagePath(
+                        'member_icon',
+                        `icon_illust_${store.musicList[store.selectDeck.selectMusic]?.center}_${store.selectDeck.period}`
+                      )"
                       class="mr-1"
                       style="width: 35px; height: 35px;"
                       :alt="store.musicList[store.selectDeck.selectMusic]?.center"
@@ -725,7 +730,10 @@
                     <img
                       v-for="memberName in store.musicList[store.selectDeck.selectMusic]?.singingMembers"
                       :key="memberName"
-                      :src="require(`@/assets/member_icon/icon_illust_${memberName}_${store.selectDeck.period}.webp`)"
+                      :src="store.getImagePath(
+                        'member_icon',
+                        `icon_illust_${memberName}_${store.selectDeck.period}`
+                      )"
                       class="mr-1"
                       style="width: 35px"
                       :alt="memberName"
@@ -1101,6 +1109,7 @@
       <h2>デッキリスト</h2>
 
       <draggable
+        v-if="false"
         v-model="store.deck"
         item-key="cardName"
         class="d-none d-sm-flex flex-column"
@@ -1169,7 +1178,7 @@
         :key="index"
         :class="`${
           store.deck.length - 1 === index ? '' : 'mb-3 '
-        }pa-2 handle cursor-pointer d-block d-sm-none`"
+        }pa-2 handle cursor-pointer`"
         color="yellow"
       >
         <p class="text-h6 py-1 px-2">
@@ -1267,7 +1276,7 @@
             class="mr-1"
           >
             <img
-              :src="require(`@/assets/bonusSkill_icon/${skillName}.webp`)"
+              :src="store.getImagePath('bonusSkill_icon', skillName)"
               style="width: 25px"
             />×{{ 0 }}
           </span>
@@ -1309,8 +1318,8 @@
             "
           >
             <v-img
-              :lazy-src="require(`@/assets/CD_jacket/${store.conversion(title)}.webp`)"
-              :src="require(`@/assets/CD_jacket/${store.conversion(title)}.webp`)"
+              :lazy-src="store.getImagePath('CD_jacket', store.conversion(title))"
+              :src="store.getImagePath('CD_jacket', store.conversion(title))"
               :alt="title"
             ></v-img>
             <v-card-title
@@ -2071,7 +2080,7 @@ export default {
     },
     setIcon(memberName) {
       return {
-        'background-image': `url(${require(`@/assets/member_icon/icon_${memberName}.webp`)})`,
+        'background-image': `url(${store.getImagePath('member_icon', `icon_${memberName}`)})`,
         'background-position': 'center',
       };
     },

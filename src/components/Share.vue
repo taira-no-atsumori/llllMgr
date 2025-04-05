@@ -29,8 +29,8 @@
   <v-col cols="12">
     <p>QRコードでシェア</p>
     <img
-      :lazy-src="require(`@/assets/QRcode.webp`)"
-      :src="require(`@/assets/QRcode.webp`)"
+      :lazy-src="store.getImagePath(null, 'QRcode')"
+      :src="store.getImagePath(null, 'QRcode')"
       style="width: 310px;"
     >
   </v-col>
@@ -44,6 +44,11 @@
   URLをコピーしました
 </v-snackbar>
 </template>
+
+<script setup>
+  import { useStoreCounter } from '../stores/counter';
+  const store = useStoreCounter();
+</script>
 
 <script>
 export default {

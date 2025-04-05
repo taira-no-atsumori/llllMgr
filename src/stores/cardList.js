@@ -142,7 +142,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Prism Echo': {
-            ID: 'kh_022',
+            ID: 'kh_023',
             styleType: 'performer',
             mood: 'happy',
             series: 'Prism Echo',
@@ -2733,7 +2733,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
-            ID: 'sy_045',
+            ID: 'sy_044',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Ether Aria',
@@ -2821,7 +2821,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '17th Birthday': {
-            ID: 'sy_053',
+            ID: 'sy_052',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -2895,7 +2895,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'AURORA FLOWER': {
-            ID: 'sy_054',
+            ID: 'sy_053',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -2943,7 +2943,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '聖夜譚': {
-            ID: 'sy_052',
+            ID: 'sy_051',
             styleType: 'performer',
             mood: 'melow',
             series: '聖夜譚',
@@ -2992,7 +2992,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'バアドケージ': {
-            ID: 'sy_051',
+            ID: 'sy_050',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'バアドケージ',
@@ -3039,7 +3039,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '紅葉乃舞姫': {
-            ID: 'sy_050',
+            ID: 'sy_049',
             styleType: 'trickStar',
             mood: 'neutral',
             series: '紅葉乃舞姫',
@@ -3082,7 +3082,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Proof': {
-            ID: 'sy_048',
+            ID: 'sy_047',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Proof',
@@ -3131,7 +3131,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '織姫草紙': {
-            ID: 'sy_047',
+            ID: 'sy_046',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '織姫草紙',
@@ -3174,7 +3174,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'レディバグ': {
-            ID: 'sy_046',
+            ID: 'sy_045',
             styleType: 'cheerLeader',
             mood: 'melow',
             series: 'レディバグ',
@@ -3217,7 +3217,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '真実の舞踏会': {
-            ID: 'sy_040',
+            ID: 'sy_039',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '舞踏会',
@@ -3265,7 +3265,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
-            ID: 'sy_037',
+            ID: 'sy_036',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -3314,7 +3314,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '青とシャボン': {
-            ID: 'sy_036',
+            ID: 'sy_035',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '青とシャボン',
@@ -3360,7 +3360,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
-            ID: 'sy_033',
+            ID: 'sy_032',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -3410,7 +3410,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Secret Christmas': {
-            ID: 'sy_032',
+            ID: 'sy_031',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Secret Christmas',
@@ -4100,7 +4100,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '魔法少女リズミックハート': {
-            ID: 'sy_049',
+            ID: 'sy_048',
             styleType: 'performer',
             mood: 'happy',
             series: '魔法少女リズミックハート',
@@ -4146,7 +4146,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '春風ブランコ': {
-            ID: 'sy_044',
+            ID: 'sy_043',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: '春風ブランコ',
@@ -4192,7 +4192,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '抱きしめる花びら': {
-            ID: 'sy_041',
+            ID: 'sy_040',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -4238,7 +4238,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '桃節銘記': {
-            ID: 'sy_039',
+            ID: 'sy_038',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '桃節銘記',
@@ -4284,7 +4284,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Pleasure Feather': {
-            ID: 'sy_038',
+            ID: 'sy_037',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Pleasure Feather',
@@ -4327,7 +4327,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Eisprinzessin': {
-            ID: 'sy_035',
+            ID: 'sy_034',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Eisprinzessin / Eisritter',
@@ -4373,7 +4373,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '迎春 -舞-': {
-            ID: 'sy_034',
+            ID: 'sy_033',
             styleType: 'performer',
             mood: 'neutral',
             series: '迎春',
@@ -4422,7 +4422,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
-            ID: 'sy_031',
+            ID: 'sy_030',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -5044,7 +5044,7 @@ export const useCardStore = defineStore('cardList', {
         },
         R: {
           '室咲格子': {
-            ID: 'sy_043',
+            ID: 'sy_042',
             styleType: 'performer',
             mood: 'melow',
             series: '室咲格子',
@@ -5082,7 +5082,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'レインボーシフォン': {
-            ID: 'sy_042',
+            ID: 'sy_041',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'レインボーシフォン',
@@ -7406,7 +7406,7 @@ export const useCardStore = defineStore('cardList', {
         },
         DR: {
           'Ether Aria': {
-            ID: 'kz_044',
+            ID: 'kz_043',
             styleType: 'performer',
             mood: 'melow',
             series: 'Ether Aria',
@@ -7507,7 +7507,7 @@ export const useCardStore = defineStore('cardList', {
         },
         BR: {
           '18th Birthday': {
-            ID: 'kz_047',
+            ID: 'kz_046',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'Birthday',
@@ -7581,7 +7581,7 @@ export const useCardStore = defineStore('cardList', {
         },
         UR: {
           'いつでも、いつまでも': {
-            ID: 'kz_056',
+            ID: 'kz_055',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'いつでも、いつまでも',
@@ -7644,7 +7644,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ユメワズライ': {
-            ID: 'kz_055',
+            ID: 'kz_054',
             styleType: 'performer',
             mood: 'happy',
             series: 'ユメワズライ',
@@ -7713,7 +7713,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'AURORA FLOWER': {
-            ID: 'kz_054',
+            ID: 'kz_053',
             styleType: 'trickStar',
             mood: 'neutral',
             series: 'AURORA FLOWER',
@@ -7756,7 +7756,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'KEY of Like！': {
-            ID: 'kz_053',
+            ID: 'kz_052',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'KEY of Like！',
@@ -7805,7 +7805,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '輪廻の銀河へ': {
-            ID: 'kz_051',
+            ID: 'kz_050',
             styleType: 'performer',
             mood: 'melow',
             series: '銀河',
@@ -7851,7 +7851,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'PASSION!!!!!!': {
-            ID: 'kz_049',
+            ID: 'kz_048',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'PASSION!!!!!!',
@@ -7894,7 +7894,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'アオクハルカ': {
-            ID: 'kz_048',
+            ID: 'kz_047',
             styleType: 'trickStar',
             mood: 'melow',
             series: 'アオクハルカ',
@@ -7950,7 +7950,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'H.S.C.T.☆': {
-            ID: 'kz_046',
+            ID: 'kz_045',
             styleType: 'cheerLeader',
             mood: 'happy',
             series: 'hsct',
@@ -7997,7 +7997,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '365 Days': {
-            ID: 'kz_045',
+            ID: 'kz_044',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '365 Days',
@@ -8044,7 +8044,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '抱きしめる花びら': {
-            ID: 'kz_041',
+            ID: 'kz_040',
             styleType: 'performer',
             mood: 'melow',
             series: '抱きしめる花びら',
@@ -8092,7 +8092,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '桃節銘記': {
-            ID: 'kz_039',
+            ID: 'kz_038',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '桃節銘記',
@@ -8145,7 +8145,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ダイヤモンドハッピー': {
-            ID: 'kz_037',
+            ID: 'kz_036',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'アイカツ!コラボ',
@@ -8199,7 +8199,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '蓮ノ空歌留多': {
-            ID: 'kz_034',
+            ID: 'kz_033',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '蓮ノ空歌留多',
@@ -8248,7 +8248,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '冬のおくりもの': {
-            ID: 'kz_032',
+            ID: 'kz_031',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: '冬のおくりもの',
@@ -8294,7 +8294,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'ツバサ・ラ・リベルテ': {
-            ID: 'kz_031',
+            ID: 'kz_030',
             styleType: 'cheerLeader',
             mood: 'neutral',
             series: 'ツバサ・ラ・リベルテ',
@@ -8875,7 +8875,7 @@ export const useCardStore = defineStore('cardList', {
         },
         SR: {
           'ハナムスビ': {
-            ID: 'kz_052',
+            ID: 'kz_051',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'ハナムスビ',
@@ -8921,7 +8921,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '月夜見海月': {
-            ID: 'kz_050',
+            ID: 'kz_049',
             styleType: 'moodMaker',
             mood: 'melow',
             series: '月夜見海月',
@@ -8993,7 +8993,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'おしえて♡ティーチャー': {
-            ID: 'kz_040',
+            ID: 'kz_039',
             styleType: 'performer',
             mood: 'melow',
             series: 'おしえて♡ティーチャー',
@@ -9038,7 +9038,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Pleasure Feather': {
-            ID: 'kz_038',
+            ID: 'kz_037',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Pleasure Feather',
@@ -9081,7 +9081,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '節分 -魅-': {
-            ID: 'kz_036',
+            ID: 'kz_035',
             styleType: 'performer',
             mood: 'neutral',
             series: '節分',
@@ -9130,7 +9130,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Special Thanks': {
-            ID: 'kz_035',
+            ID: 'kz_034',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'Special Thanks',
@@ -9177,7 +9177,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Link to the FUTURE': {
-            ID: 'kz_033',
+            ID: 'kz_032',
             styleType: 'moodMaker',
             mood: 'happy',
             series: 'Link to the FUTURE',
@@ -9838,7 +9838,7 @@ export const useCardStore = defineStore('cardList', {
         },
         R: {
           '室咲格子': {
-            ID: 'kz_043',
+            ID: 'kz_042',
             styleType: 'performer',
             mood: 'happy',
             series: '室咲格子',
@@ -9876,7 +9876,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'レインボーシフォン': {
-            ID: 'kz_042',
+            ID: 'kz_041',
             styleType: 'moodMaker',
             mood: 'neutral',
             series: 'レインボーシフォン',
@@ -12326,7 +12326,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           '春色ニューデイズ': {
-            ID: 'kz_007',
+            ID: 'tz_007',
             styleType: 'moodMaker',
             mood: 'happy',
             series: '春色ニューデイズ',
@@ -14975,7 +14975,9 @@ export const useCardStore = defineStore('cardList', {
                   ID: 'heartGain_1',
                   name: 'ハートゲイン',
                   AP: 1,
-                  detail: [['8?', '9?', '10?', '11?', '12?', '13?', '13?', '14?', '15?', '17?', '18?', '18?', '19?', 21]],
+                  detail: [
+                    ['8?', '9?', '10?', '11?', '12?', '13?', '13?', '14?', '15?', '17?', '18?', '18?', '19?', 21]
+                  ],
                   characteristic: {
                     name: 'インスタンス',
                     detail: 'このスキルを使用すると、デッキから除外される。',
@@ -17019,7 +17021,7 @@ export const useCardStore = defineStore('cardList', {
             },
           },
           'Sparkly Spot': {
-            ID: 'sz_002',
+            ID: 'sz_004',
             styleType: 'moodMaker',
             mood: 'melow',
             series: 'Sparkly Spot',

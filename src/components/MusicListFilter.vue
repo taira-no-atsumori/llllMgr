@@ -17,7 +17,7 @@
               :color="store.memberColor[Object.keys(store.memberName)[index]]"
             >
               <v-avatar left>
-                <v-img :src="require(`@/assets/member_icon/icon_SD_${Object.keys(store.memberName)[index]}.png`)"></v-img>
+                <v-img :src="store.getImagePath('member_icon', `icon_SD_${Object.keys(store.memberName)[index]}`)"></v-img>
               </v-avatar>
               {{ item.title }}
             </v-chip>
@@ -32,7 +32,7 @@
                   v-if="!store.isOtherMember(item.title)"
                 >
                   <v-img
-                    :src="require(`@/assets/member_icon/icon_SD_${Object.keys(store.memberName)[index]}.png`)"
+                    :src="store.getImagePath('member_icon', `icon_SD_${Object.keys(store.memberName)[index]}`)"
                     class="icon member"
                   ></v-img>
                 </template>
@@ -58,7 +58,7 @@
           >
             <template v-slot:label>
               <v-img
-                :src="require(`@/assets/member_icon/icon_SD_${name_en}.png`)"
+                :src="store.getImagePath('member_icon', `icon_SD_${name_en}`)"
                 class="icon member"
               ></v-img>{{ name_ja.first }} {{ name_ja.last }}
             </template>

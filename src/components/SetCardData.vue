@@ -55,12 +55,12 @@
           <v-carousel-item
             v-for="kakusei in /^(D|B)R$/.test(store.getSettingCard.rare) ? ['後'] : ['前', '後']"
             :key="kakusei"
-            :src="require(`@/assets/card_illust/${
+            :src="store.getImagePath('card_illust', `${
               store.conversion(store.getSettingCard.cardName)}_${
               store.makeCardMemberName(
                 store.getSettingCard.ID
               )
-            }_覚醒${kakusei}.webp`)"
+            }_覚醒${kakusei}`)"
           ></v-carousel-item>
         </v-carousel>
         <v-row
@@ -76,7 +76,7 @@
             <span class="left">タイプ</span>
             <span class="right">
               <v-img
-                :src="require(`@/assets/styleType_icon/icon_${store.settingCardData.styleType}.png`)"
+                :src="store.getImagePath('styleType_icon', `icon_${store.settingCardData.styleType}`)"
                 class="icon type"
                 v-if="false"
               ></v-img
@@ -91,7 +91,7 @@
             <span class="left">ムード</span>
             <span class="right pl-1">
               <v-img
-                :src="require(`@/assets/mood_icon/icon_${store.settingCardData.mood}.png`)"
+                :src="store.getImagePath('', `icon_${store.settingCardData.mood}`)"
                 class="icon mood"
                 v-if="false"
               ></v-img>
@@ -906,7 +906,7 @@
           class="pr-2"
         >
           <img
-            :src="require(`@/assets/bonusSkill_icon/${supportSkillName}.webp`)"
+            :src="store.getImagePath('bonusSkill_icon', supportSkillName)"
             class="mr-1"
             style="width: 50px; border-radius: 5px"
           />
@@ -1086,7 +1086,7 @@
 
 <script setup>
 import { useStoreCounter } from '@/stores/counter';
-import skillArea from './SkillAreaComponent';
+import skillArea from './SkillAreaComponent.vue';
 const store = useStoreCounter();
 </script>
 

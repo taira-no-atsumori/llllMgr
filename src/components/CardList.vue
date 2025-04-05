@@ -154,14 +154,14 @@
             >
               <v-img
                 :lazy-src="
-                  require(`@/assets/card_illust/${store.conversion(
+                  store.getImagePath('card_illust', `${store.conversion(
                     cardData.cardName
-                  )}_${store.makeCardMemberName(cardData.ID)}_覚醒後.webp`)
+                  )}_${store.makeCardMemberName(cardData.ID)}_覚醒後`)
                 "
                 :src="
-                  require(`@/assets/card_illust/${store.conversion(
+                  store.getImagePath('card_illust', `${store.conversion(
                     cardData.cardName
-                  )}_${store.makeCardMemberName(cardData.ID)}_覚醒後.webp`)
+                  )}_${store.makeCardMemberName(cardData.ID)}_覚醒後`)
                 "
                 :alt="`${store.conversion(cardData.cardName)}_${
                   store.makeCardMemberName(cardData.ID)
@@ -173,7 +173,7 @@
               >
                 <img
                   :src="
-                    require(`@/assets/styleType_icon/icon_${cardData.styleType}.png`)
+                    store.getImagePath('styleType_icon', `icon_${cardData.styleType}`)
                   "
                   :alt="`${cardData.memberName}_${
                     store.makeCardMemberName(cardData.ID)
@@ -268,18 +268,18 @@
                   >
                     <v-img
                       :lazy-src="
-                        require(`@/assets/card_illust/${store.conversion(
+                        store.getImagePath('card_illust', `${store.conversion(
                           cardData.cardName
                         )}_${
                           store.makeCardMemberName(cardData.ID)
-                        }_覚醒後.webp`)
+                        }_覚醒後`)
                       "
                       :src="
-                        require(`@/assets/card_illust/${store.conversion(
+                        store.getImagePath('card_illust', `${store.conversion(
                           cardData.cardName
                         )}_${
                           store.makeCardMemberName(cardData.ID)
-                        }_覚醒後.webp`)
+                        }_覚醒後`)
                       "
                       :alt="`${store.conversion(cardData.cardName)}_${
                         store.makeCardMemberName(cardData.ID)
@@ -291,7 +291,7 @@
                     >
                       <img
                         :src="
-                          require(`@/assets/styleType_icon/icon_${cardData.styleType}.png`)
+                          store.getImagePath('styleType_icon', `icon_${cardData.styleType}`)
                         "
                         :alt="`${cardData.memberName}_${
                           store.makeCardMemberName(cardData.ID)
@@ -532,7 +532,7 @@
 </template>
 
 <script setup>
-import { useStoreCounter } from "@/stores/counter";
+import { useStoreCounter } from "@/stores/counter.js";
 const store = useStoreCounter();
 </script>
 

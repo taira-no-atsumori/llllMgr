@@ -85,7 +85,7 @@
         >
           <v-avatar left class="mr-1">
             <v-img
-              :src="require(`@/assets/trainingItem_icon/${item.title}.webp`)"
+              :src="store.getImagePath('trainingItem_icon', item.title)"
             ></v-img>
           </v-avatar>
           {{ item.title }}
@@ -104,7 +104,7 @@
             ></v-checkbox-btn>
             <v-img
               v-if="item.title !== '-'"
-              :src="require(`@/assets/trainingItem_icon/${item.title}.webp`)"
+              :src="store.getImagePath('trainingItem_icon', item.title)"
               :alt="item.title"
               style="width: 40px;"
             ></v-img>
@@ -152,7 +152,7 @@
             >
               <v-avatar left class="mr-1">
                 <v-img
-                  :src="require(`@/assets/trainingItem_icon/${item['獲得可能アイテム'][i - 1]}.webp`)"
+                  :src="store.getImagePath('trainingItem_icon', item['獲得可能アイテム'][i - 1])"
                 ></v-img>
               </v-avatar>
               {{ item['獲得可能アイテム'][i - 1] }}
@@ -2803,6 +2803,9 @@ export default {
   },
   computed: {},
   methods: {
+    getImagePath(store, title) {
+      return store.getImagePath('trainingItem_icon', title);
+    },
     filterItems(store) {
       const _this = this;
       let result = _this.allItemList;

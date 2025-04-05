@@ -1,25 +1,29 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
-import router from './router/router'
-import VueGTag from 'vue-gtag'
-
-loadFonts()
+import App from './App.vue';
+import { createVuetify } from 'vuetify';
+import WebFont from 'webfontloader';
+import router from './router/router';
+import VueGtag from 'vue-gtag-next';
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css'
 
 const app = createApp(App);
+
+WebFont.load({
+  google: {
+    families: ['Roboto:400,500,700', 'Material+Icons'], // 必要なフォントを指定
+  },
+});
+
 app.use(createPinia());
-createApp(App)
-  .use(vuetify)
-  .use(
-    VueGTag,
-    {
-      config: {
-        id: 'G-ZXJJX9H0JB'
-      }
-    },
-    router
-  )
-  .use(router)
-  .mount('#app')
+app.use(createVuetify());
+app.use(router);
+
+app.use(VueGtag, {
+  property: {
+    id: 'G-ZXJJX9H0JB',
+  },
+}, router);
+
+app.mount('#app');

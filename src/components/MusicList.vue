@@ -48,7 +48,7 @@
                   >
                     <template v-slot:selection="{ item }">
                       <v-img
-                        :src="require(`@/assets/bonusSkill_icon/${item.title}.webp`)"
+                        :src="store.getImagePath('bonusSkill_icon', item.title)"
                         style="width: 25px; border-radius: 3px"
                       ></v-img>
                     </template>
@@ -63,7 +63,7 @@
                             :model-value="selectBonusSkillList.some((elm) => elm === item.title)"
                           ></v-checkbox-btn>
                           <v-img
-                            :src="require(`@/assets/bonusSkill_icon/${item.title}.webp`)"
+                            :src="store.getImagePath('bonusSkill_icon', item.title)"
                             :alt="item.title"
                             class="mr-2"
                             style="width: 40px"
@@ -98,7 +98,7 @@
                       >
                         <template v-slot:prepend>
                           <v-img
-                            :src="require(`@/assets/member_icon/icon_SD_${item.title}.webp`)"
+                            :src="store.getImagePath('member_icon', item.title)"
                             class="icon member"
                           ></v-img>
                         </template>
@@ -146,7 +146,7 @@
                   >
                     <template v-slot:selection="{ item }">
                       <v-img
-                        :src="require(`@/assets/attribute_icon/icon_${item.title}.webp`)"
+                        :src="store.getImagePath('attribute_icon', item.title)"
                         style="width: 25px"
                       ></v-img>
                     </template>
@@ -161,7 +161,7 @@
                             :model-value="selectAttrList.some((elm) => elm === item.title)"
                           ></v-checkbox-btn>
                           <v-img
-                            :src="require(`@/assets/attribute_icon/icon_${item.title}.webp`)"
+                            :src="store.getImagePath('attribute_icon', item.title)"
                             :alt="store.attribute[item.title]"
                             class="mr-2"
                             style="width: 40px"
@@ -315,7 +315,7 @@
             >
               <h4 class="d-flex flex-row align-center">
                 <img
-                  :src="require(`@/assets/member_icon/icon_SD_${memberName}.webp`)"
+                  :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
                   style="width: 30px"
                 />
                 <span class="pt-1 pl-1"
@@ -343,7 +343,7 @@
                       style="height: 30px"
                     >
                       <img
-                        :src="require(`@/assets/bonusSkill_icon/${skillName}.webp`)"
+                        :src="store.getImagePath('bonusSkill_icon', skillName)"
                         style="width: 30px; border-radius: 3px"
                       />
                     </v-col>
@@ -417,8 +417,8 @@
           "
         >
           <v-img
-            :lazy-src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
-            :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
+            :lazy-src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
+            :src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
             :alt="songTitle"
           ></v-img>
           <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
@@ -427,21 +427,21 @@
             <ul class="d-flex">
               <li class="mr-1">
                 <v-img
-                  :src="require(`@/assets/bonusSkill_icon/${ary.bonusSkill}.webp`)"
+                  :src="store.getImagePath('bonusSkill_icon', ary.bonusSkill)"
                   :alt="ary.bonusSkill"
                   class="skillIcon"
                 ></v-img>
               </li>
               <li class="mr-1">
                 <v-img
-                  :src="require(`@/assets/attribute_icon/icon_${ary.attribute}.webp`)"
+                  :src="store.getImagePath('attribute_icon', `icon_${ary.attribute}`)"
                   :alt="ary.attribute"
                   class="skillIcon"
                 ></v-img>
               </li>
               <li class="mr-1">
                 <v-img
-                  :src="require(`@/assets/member_icon/icon_SD_${ary.center}.webp`)"
+                  :src="store.getImagePath('member_icon', `icon_SD_${ary.center}`)"
                   :alt="ary.center"
                   class="skillIcon"
                 ></v-img>
@@ -465,8 +465,8 @@
               "
             >
               <v-img
-                :lazy-src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
-                :src="require(`@/assets/CD_jacket/${store.conversion(songTitle)}.webp`)"
+                :lazy-src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
+                :src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
                 :alt="songTitle"
               ></v-img>
               <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
@@ -475,21 +475,21 @@
                 <ul class="d-flex">
                   <li class="mr-1">
                     <v-img
-                      :src="require(`@/assets/bonusSkill_icon/${ary.bonusSkill}.webp`)"
+                      :src="store.getImagePath('bonusSkill_icon', ary.bonusSkill)"
                       :alt="ary.bonusSkill"
                       class="skillIcon"
                     ></v-img>
                   </li>
                   <li class="mr-1">
                     <v-img
-                      :src="require(`@/assets/attribute_icon/icon_${ary.attribute}.webp`)"
+                      :src="store.getImagePath('attribute_icon', `icon_${ary.attribute}`)"
                       :alt="ary.attribute"
                       class="skillIcon"
                     ></v-img>
                   </li>
                   <li class="mr-1">
                     <v-img
-                      :src="require(`@/assets/member_icon/icon_SD_${ary.center}.webp`)"
+                      :src="store.getImagePath('member_icon', `icon_SD_${ary.center}`)"
                       :alt="ary.center"
                       class="skillIcon"
                     ></v-img>

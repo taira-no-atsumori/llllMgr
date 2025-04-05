@@ -18,7 +18,7 @@
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
-                :src="require(`@/assets/event_information/${event.img}.webp`)"
+                :src="store.getImagePath('event_information', event.img)"
               ></v-img>
               <a
                 v-else
@@ -28,7 +28,7 @@
               >
                 <v-img
                   class="white--text align-end text-center"
-                  :src="require(`@/assets/event_information/${event.img}.webp`)"
+                  :src="store.getImagePath('event_information', event.img)"
                 ></v-img>
               </a>
               <v-card-title class="text-left">
@@ -175,17 +175,23 @@
 
     <v-row>
       <v-col cols="12">
-        <h2>Update Information</h2>
-        下記ページにて更新情報をお知らせしています（別タブで開きます）。<br />
-        <a
-          href="https://github.com/taira-no-atsumori/llllMgr/releases"
-          target="_blank"
-          >Update Information</a
-        >
+        <iframe
+          src="https://tairanoatsumori.notion.site/ebd/1c7409d7465680edbd1bee7f2542a7a2"
+          width="100%"
+          height="600"
+          frameborder="0"
+          allowfullscreen
+        />
       </v-col>
     </v-row>
+
   </v-container>
 </template>
+
+<script setup>
+import { useStoreCounter } from '../stores/counter';
+const store = useStoreCounter();
+</script>
 
 <script>
 export default {

@@ -69,7 +69,7 @@
                     <div class="d-flex flex-row align-center justify-center">
                       <img
                         v-if="!store.isOtherMember(memberName)"
-                        :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
+                        :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.thisPeriod}`)"
                         style="width: 50px;"
                         class="ml-1 mr-2"
                       ><span class="pt-1 font-weight-bold">{{ store.makeFullName(memberName) }}</span>
@@ -129,7 +129,7 @@
                     <div class="d-flex flex-row align-center justify-center">
                       <img
                         v-if="!store.isOtherMember(memberName)"
-                        :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
+                        :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.thisPeriod}`)"
                         style="width: 50px;"
                         class="ml-1 mr-2"
                       ><span class="pt-1 font-weight-bold">{{ store.makeFullName(memberName) }}</span>
@@ -243,7 +243,7 @@
                   <div class="d-flex flex-row align-center justify-center">
                     <img
                       v-if="!store.isOtherMember(memberName)"
-                      :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
+                      :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.thisPeriod}`)"
                       :style="`width: 50px; filter: grayscale(${sendGiftPtList[i - 1].member[memberName].giftPt > 0 ? 0 : 1});`"
                       class="ml-1 mr-2"
                     ><span class="pt-1 font-weight-bold">{{ store.makeFullName(memberName) }}</span>
@@ -350,7 +350,7 @@
             <v-col cols="4" align="center" class="align-self-center">
               <v-img
                 v-if="!store.isOtherMember(memberName)"
-                :src="require(`@/assets/member_icon/icon_illust_${memberName}_104.webp`)"
+                :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.thisPeriod}`)"
                 style="width: 50px;"
               ></v-img>
               <p class="mt-1" style="font-size: 12px;">{{ store.makeFullName(memberName) }}</p>

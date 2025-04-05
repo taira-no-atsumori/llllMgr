@@ -48,10 +48,11 @@
             @click="openCheckDialog(store, cardData.cardName, rare, cardData);"
           >
             <v-img
-              :src="require(
-                `@/assets/card_illust/${store.conversion(cardData.cardName)}_${
+              :src="store.getImagePath(
+                'card_illust',
+                `${store.conversion(cardData.cardName)}_${
                   makeCardMemberName(store, cardData.ID)
-                }_覚醒後.webp`
+                }_覚醒後`
               )"
               gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
               class="d-flex align-center"
@@ -68,10 +69,11 @@
             @click="openCheckDialog(store, cardData.cardName, rare, cardData);"
           >
             <v-img
-              :src="require(
-                `@/assets/card_illust/${store.conversion(cardData.cardName)}_${
+              :src="store.getImagePath(
+                'card_illust',
+                `${store.conversion(cardData.cardName)}_${
                   makeCardMemberName(store, cardData.ID)
-                }_覚醒後.webp`
+                }_覚醒後`
               )"
             ></v-img>
             <v-card-title class="px-2 py-1">{{ cardData.cardName }}</v-card-title>
@@ -84,7 +86,7 @@
                 @click="openCheckDialog(store, cardName, rare)"
               >
                 <v-img
-                  :src="require(`@/assets/card_illust/${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+                  :src="store.getImagePath('card_illust', `${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後`)"
                   gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
                   class="d-flex align-center"
                 ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>選択中</p></v-img>
@@ -96,7 +98,7 @@
                 @click="openCheckDialog(store, cardName, rare)"
               >
                 <v-img
-                  :src="require(`@/assets/card_illust/${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+                  :src="store.getImagePath('card_illust', `${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後`)"
                 ></v-img>
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
@@ -167,7 +169,7 @@
         <v-col cols="12" sm="5">
           <v-card>
             <v-img
-              :src="require(`@/assets/card_illust/${store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+              :src="store.getImagePath('card_illust', `${store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}_${store.memberName[store.openCard.name].last}_覚醒後`)"
             ></v-img>
             <v-card-title class="pa-2">{{ store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style)) }}</v-card-title>
             <v-card-text class="px-2 pb-2">
@@ -203,7 +205,7 @@
         <v-col cols="12" sm="5">
           <v-card>
             <v-img
-              :src="require(`@/assets/card_illust/${store.conversion(selectCard)}_${store.memberName[store.openCard.name].last}_覚醒後.webp`)"
+              :src="store.getImagePath('card_illust', `${store.conversion(selectCard)}_${store.memberName[store.openCard.name].last}_覚醒後`)"
             ></v-img>
             <v-card-title class="pa-2">{{ store.conversion(selectCard) }}</v-card-title>
             <v-card-text class="px-2 pb-2">

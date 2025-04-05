@@ -2353,7 +2353,7 @@ export const useMusicStore = defineStore('musicList', {
         singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
       },
       'DEEPNESS（ReC Ver.）': {
-        ID: 'm_112',
+        ID: 'm_111',
         musicData: {
           kana: 'でぃーぷねす',
           singer: '蓮ノ空女学院スクールアイドルクラブ',
