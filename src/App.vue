@@ -24,7 +24,7 @@
           <v-list-item
             class="px-2 pt-0 pb-2"
             title="リンクラ マネージャー！"
-            :subtitle="`Ver. ${packageInfo.version}`"
+            :subtitle="`Ver. ${store.version}`"
           ></v-list-item>
 
           <v-divider class="pb-1"></v-divider>
@@ -48,7 +48,7 @@
       </v-bottom-sheet>
 
       <v-toolbar-title class="d-none d-sm-block">
-        リンクラ マネージャー！<span class="text-subtitle-2">Ver.{{ packageInfo.version }}</span>
+        リンクラ マネージャー！<span class="text-subtitle-2">Ver.{{ store.version }}</span>
       </v-toolbar-title>
       <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
 
@@ -208,7 +208,6 @@
 
 <script setup>
 import { useStoreCounter } from './stores/counter';
-import packageInfo from '../package.json';
 const store = useStoreCounter();
 store.init();
 </script>
