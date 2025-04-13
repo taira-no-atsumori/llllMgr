@@ -1776,40 +1776,40 @@ export const useStoreCounter = defineStore('store', {
       const filePath = `../assets${path ? `/${path}` : ''}/${imageName}.${extension ?? 'webp'}`;
       return images[filePath]?.default || '';
     },
-    async fetchFiles() {
-      const ACCESS_TOKEN: string = import.meta.env.VITE_DROPBOX_TOKEN;
+    // async fetchFiles() {
+    //   const ACCESS_TOKEN: string = import.meta.env.VITE_DROPBOX_TOKEN;
 
-      try {
-        const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-        const response = await dbx.filesListFolder({ path: '/CD_jacket' });
-        const files = response.result.entries;
-        const imageMimeType = ['image/webp'];
+    //   try {
+    //     const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+    //     const response = await dbx.filesListFolder({ path: '/CD_jacket' });
+    //     const files = response.result.entries;
+    //     const imageMimeType = ['image/webp'];
 
-        const imageFiles = files.filter(
-          (file) =>
-            file['.tag'] === 'file' &&
-            imageMimeType.some((type) => file.name.endsWith(type.split('/')[1]))
-        );
-        console.log('取得したファイルデータ:', imageFiles);
+    //     const imageFiles = files.filter(
+    //       (file) =>
+    //         file['.tag'] === 'file' &&
+    //         imageMimeType.some((type) => file.name.endsWith(type.split('/')[1]))
+    //     );
+    //     console.log('取得したファイルデータ:', imageFiles);
 
-        const imageUrls = await Promise.all(
-          imageFiles.map(async (file) => {
-            const linkResponse = await dbx.filesGetTemporaryLink({
-              path: file.path_lower,
-            });
-            return {
-              id: file.id,
-              name: file.name,
-              url: linkResponse.result.link,
-            };
-          })
-        );
+    //     const imageUrls = await Promise.all(
+    //       imageFiles.map(async (file) => {
+    //         const linkResponse = await dbx.filesGetTemporaryLink({
+    //           path: file.path_lower,
+    //         });
+    //         return {
+    //           id: file.id,
+    //           name: file.name,
+    //           url: linkResponse.result.link,
+    //         };
+    //       })
+    //     );
 
-        this.images = imageUrls;
-        console.log('取得した画像データ:', imageUrls);
-      } catch (error) {
-        console.error("Error fetching files:", error.error || error.message);
-      }
-    },
+    //     this.images = imageUrls;
+    //     console.log('取得した画像データ:', imageUrls);
+    //   } catch (error) {
+    //     console.error("Error fetching files:", error.error || error.message);
+    //   }
+    // },
   },
 });
