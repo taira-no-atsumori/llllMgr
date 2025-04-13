@@ -3,7 +3,7 @@ import { useCardStore } from './cardList';
 import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
 import Dexie from 'dexie';
-import { CounterState } from '@/types/counter';
+// import { CounterState } from '@/types/counter';
 // import { Dropbox } from 'dropbox';
 // import fetch from 'node-fetch';
 
