@@ -5,6 +5,7 @@ import { useMusicStore } from './musicList';
 import Dexie from 'dexie';
 import { CounterState } from '@/types/counter';
 // import { Dropbox } from 'dropbox';
+// import fetch from 'node-fetch';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
@@ -1776,40 +1777,86 @@ export const useStoreCounter = defineStore('store', {
       const filePath = `../assets${path ? `/${path}` : ''}/${imageName}.${extension ?? 'webp'}`;
       return images[filePath]?.default || '';
     },
-    // async fetchFiles() {
-    //   const ACCESS_TOKEN: string = import.meta.env.VITE_DROPBOX_TOKEN;
+    async fetchFiles() {
+      const APP_KEY = import.meta.env.VITE_DROPBOX_APP_KEY;
+      const ACCESS_APP_SECRET = import.meta.env.VITE_DROPBOX_APP_SECRET;
+      const OATH2_REFRESH_TOKEN = import.meta.env.VITE_DROPBOX_OATH2_REFRESH_TOKEN;
 
-    //   try {
-    //     const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
-    //     const response = await dbx.filesListFolder({ path: '/CD_jacket' });
-    //     const files = response.result.entries;
-    //     const imageMimeType = ['image/webp'];
+      try {
+        const dbx = new Dropbox({
+          clientId: APP_KEY,
+          clientSecret: ACCESS_APP_SECRET,
+          refreshToken: OATH2_REFRESH_TOKEN,
+        });
+        const response = await this.fetchWithBackoff(async () => {
+          return await dbx.filesListFolder({ path: '/CD_jacket' });
+        });
+        const files = response.result.entries;
+        const imageMimeType = ['image/webp'];
 
-    //     const imageFiles = files.filter(
-    //       (file) =>
-    //         file['.tag'] === 'file' &&
-    //         imageMimeType.some((type) => file.name.endsWith(type.split('/')[1]))
-    //     );
-    //     console.log('取得したファイルデータ:', imageFiles);
+        const imageFiles = files.filter(
+          (file) =>
+            file['.tag'] === 'file' &&
+            imageMimeType.some((type) => this.conversion(file.name).endsWith(type.split('/')[1]))
+        );
 
-    //     const imageUrls = await Promise.all(
-    //       imageFiles.map(async (file) => {
-    //         const linkResponse = await dbx.filesGetTemporaryLink({
-    //           path: file.path_lower,
-    //         });
-    //         return {
-    //           id: file.id,
-    //           name: file.name,
-    //           url: linkResponse.result.link,
-    //         };
-    //       })
-    //     );
+        const imageUrls = await Promise.all(
+          imageFiles.map(async (file) => {
+            return this.fetchWithBackoff(async () => {
+              const linkResponse = await dbx.filesGetTemporaryLink({
+                path: file.path_lower,
+              });
+              return {
+                id: file.id,
+                name: this.conversion(file.name.split('.webp')[0]),
+                url: linkResponse.result.link,
+              };
+            });
+          })
+        );
 
-    //     this.images = imageUrls;
-    //     console.log('取得した画像データ:', imageUrls);
-    //   } catch (error) {
-    //     console.error("Error fetching files:", error.error || error.message);
-    //   }
-    // },
+        this.images = imageUrls;
+
+        imageUrls.forEach((image) => {
+          this.imageLoaded[this.conversion(image.name)] = false;
+        });
+
+        this.loading = false;
+      } catch (error) {
+        this.dialogError = true;
+      }
+    },
+    /** 
+     * バックオフ処理を実装
+     * 
+     * @param {Function} fetchFunction - リトライ対象の関数
+     * @returns {Promise} - リトライ後の結果
+     */ 
+    async fetchWithBackoff(fetchFunction) {
+      const retries = 5;
+      const delay = 5000;
+
+      for (let i = 0; i < retries; i++) {
+        try {
+          return await fetchFunction();
+        } catch (error) {
+          if (error.status === 429 && i < retries - 1) {
+            const waitTime = delay * Math.pow(2, i);
+            console.warn(`Rate limit hit. Retrying in ${waitTime / 1000} seconds...`);
+            await new Promise((resolve) => setTimeout(resolve, waitTime));
+          } else {
+            throw error;
+          }
+        }
+      }
+      throw new Error('Failed to fetch after multiple retries.');
+    },
+    markImageLoaded(imageKey) {
+      this.imageLoaded[imageKey] = true;
+    },
+    markImageError(imageKey) {
+      console.error(`Failed to load image: ${imageKey}`);
+      this.imageLoaded[imageKey] = false;
+    },
   },
 });
