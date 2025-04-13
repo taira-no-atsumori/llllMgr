@@ -4,7 +4,7 @@ import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
 import Dexie from 'dexie';
 import { CounterState } from '@/types/counter';
-import { Dropbox } from 'dropbox';
+// import { Dropbox } from 'dropbox';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
