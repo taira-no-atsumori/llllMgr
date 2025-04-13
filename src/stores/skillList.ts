@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
+import { SkillListState } from '@/types/skillList';
 
 export const useSkillStore = defineStore('skillList', {
-  state: () => ({
+  state: (): SkillListState => ({
     skillList: {
       ハートキャプチャ: {
         heartCaptcha: {
@@ -1572,6 +1573,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'APGain'],
+          },
+        },
+      },
+      'エクステヒート': {
+        'extensionHeat_01': {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、AP回復速度を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'APQuick'],
           },
         },
       },
@@ -5325,201 +5338,308 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ボルテージバイブス': {
+        'voltageVibes_01': {
+          text: [
+            'このセクション中、ビートハートの出現個数を+',
+            'する。さらにボルテージPt.を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'vibes',
+            type: ['vibes_section', 'voltageGain'],
+          },
+        },
+      },
+      'アトラクトバイブス': {
+        'attractVibes_01': {
+          text: [
+            'このセクション中、ビートハートの出現個数を+1する。さらにこのセクション中、獲得するLOVEを+',
+            'する。',
+          ],
+          detail: {
+            attr: 'vibes',
+            type: ['vibes_section', 'loveAttract_section'],
+          },
+        },
+      },
+      'ハッピーアンビエンス': {
+        'happyAmbience_01': {
+          text: [
+            'このセクション中、ムードをハッピー方向に+',
+            'する。',
+          ],
+          detail: {
+            attr: 'ambience',
+            type: ['ambience_section'],
+          },
+        },
+      },
+      'メロウアンビエンス': {
+        'mellowAmbience_01': {
+          text: [
+            'このセクション中、ムードをメロウ方向に+',
+            'する。',
+          ],
+          detail: {
+            attr: 'ambience',
+            type: ['ambience_section'],
+          },
+        },
+      },
+      'ワイドサウンドバイブス': {
+        'wideSoundVibes_01': {
+          text: [
+            'このセクション中、ビートハートの出現個数を+2する。さらにムードがハッピー、メロウいずれか75以上のとき、このセクション中、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['vibes_section', 'heartLimitUp'],
+          },
+        },
+      },
+      'サウンドアンビエンス': {
+        'soundAmbience_01': {
+          text: [
+            'ムード値がハッピー、メロウいずれかのとき、ムード値を+',
+            'する。'
+          ],
+          detail: {
+            attr: '',
+            type: [],
+          },
+        },
+      },
+      'イミテーションハート': {
+        'imitationHeart_01': {
+          text: [
+            'カードがステージにセットされ、獲得するボルテージPt.を吸収する。ボルテージPt.を200吸収したとき、ビートハート',
+            '回分のスキルハートを獲得し、捨札に移動する。'
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'heartCaptcha'],
+          },
+        },
+        'imitationHeart_02': {
+          text: [
+            'カードがステージにセットされ、獲得するハートを吸収する。ハートを5個吸収したとき、ビートハート',
+            '回分のスキルハートを獲得し、捨札に移動する。'
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'heartCaptcha'],
+          },
+        },
+      },
+      'イミテーションアトラクト': {
+        'imitationAttract_01': {
+          text: [
+            'カードがステージにセットされ、1セクションの間獲得するラブアトラクト効果を吸収する。セクションが変わったとき、このセクションの間、吸収した効果量の',
+            '倍のラブアトラクト効果を発動し、捨札に移動する。'
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'heartCaptcha'],
+          },
+        },
+      },
     },
     skillColor: {
-      heartCaptcha: {
+      'heartCaptcha': {
         name: 'ハートキャプチャ',
         colorCode: 'red',
         description: 'ハートを獲得する。',
       },
-      loveAttract: {
+      'loveAttract': {
         name: 'ラブアトラクト',
         colorCode: 'lime-darken-3',
         description: '次回ハート回収時、獲得するLOVEが増加する。',
       },
-      loveAttract_section: {
+      'loveAttract_section': {
         name: 'ラブアトラクト(セクション)',
         colorCode: 'lime-darken-3',
         description: 'このセクション中、獲得するLOVEが増加する。',
       },
-      loveAttract_stage: {
+      'loveAttract_stage': {
         name: 'ラブアトラクト(ステージ)',
         colorCode: 'lime-darken-3',
         description: 'このステージ中、獲得するLOVEが増加する。',
       },
-      voltageGain: {
+      'voltageGain': {
         name: 'ボルテージゲイン',
         colorCode: 'lime-darken-4',
         description: 'ボルテージPt.を獲得する。',
       },
-      voltageReduce: {
+      'voltageReduce': {
         name: 'ボルテージレデュース',
         colorCode: 'lime-darken-4',
         description: 'ボルテージPt.を減らす。',
       },
-      mentalRecover: {
+      'mentalRecover': {
         name: 'メンタルリカバー',
         colorCode: 'green',
         description: 'メンタルを回復する。',
       },
-      mentalReduce: {
+      'mentalReduce': {
         name: 'メンタルレデュース',
         colorCode: 'green',
         description: 'メンタルを減らす。',
       },
-      mentalDown_section: {
+      'mentalDown_section': {
         name: 'メンタルダウン(セクション)',
         colorCode: 'green',
         description: 'メンタルが0になってもメンタルダウンしなくなる。',
       },
-      protect_section: {
+      'protect_section': {
         name: 'プロテクト(セクション)',
         colorCode: 'green',
         description: 'このセクション中、メンタル減少を一定量無効化する。',
       },
-      protect_stage: {
+      'protect_stage': {
         name: 'プロテクト(ステージ)',
         colorCode: 'green',
         description: 'このステージ中、メンタル減少を一定量無効化する。',
       },
-      reshuffle: {
+      'reshuffle': {
         name: 'リシャッフル',
         colorCode: 'purple',
         description: '手札を全て捨てて、デッキから手札上限までスキルを引く。',
       },
-      extendHand: {
+      'extendHand': {
         name: 'エクステンドハンド',
         colorCode: 'purple',
         description: '手札の上限枚数が増加する。',
       },
-      extensions_section: {
+      'extensions_section': {
         name: 'エクステンション(セクション)',
         colorCode: 'purple',
         description: 'このセクション中、手札の上限枚数が増加する(最大8枚)。',
       },
-      extensions_stage: {
+      'extensions_stage': {
         name: 'エクステンション(ステージ)',
         colorCode: 'purple',
         description: 'このステージ中、手札の上限枚数が増加する(最大8枚)。',
       },
-      cardReduce: {
+      'cardReduce': {
         name: '手札減少',
         colorCode: 'purple',
         description: 'このステージ中、手札の上限枚数が減少する。',
       },
-      boost_heartCaptcha: {
+      'boost_heartCaptcha': {
         name: 'ブースト(ハートキャプチャ)',
         colorCode: 'red',
         description:
           '次に使用するスキルハート獲得効果による獲得数を増加させる。',
       },
-      boost_loveAttract: {
+      'boost_loveAttract': {
         name: 'ブースト(ラブアトラクト)',
         colorCode: 'lime-darken-3',
         description: '次に使用するラブアトラクトの効果を増加させる。',
       },
-      boost_voltageGain: {
+      'boost_voltageGain': {
         name: 'ブースト(ボルテージゲイン)',
         colorCode: 'lime-darken-4',
         description: '次に使用するボルテージゲインの効果を増加させる。',
       },
-      boost_mentalRecover: {
+      'boost_mentalRecover': {
         name: 'ブースト(メンタルリカバー)',
         colorCode: 'green',
         description: '次に使用するメンタルリカバーの効果を増加させる。',
       },
-      boost_mentalProtect: {
+      'boost_mentalProtect': {
         name: 'ブースト(メンタルプロテクト)',
         colorCode: 'green',
         description: '次に使用するメンタルプロテクトの効果を増加させる。',
       },
-      APGain: {
+      'APGain': {
         name: 'APゲイン',
         colorCode: '',
         description: 'APを回復する。',
       },
-      APLoss: {
+      'APLoss': {
         name: 'APロス',
         colorCode: '',
         description: 'APを減少させる。',
       },
-      APReduce: {
+      'APReduce': {
         name: 'APレデュース',
         colorCode: 'purple',
         description: 'スキルの消費APを減少させる。',
       },
-      APReduce_all: {
+      'APReduce_all': {
         name: '消費AP減少',
         colorCode: 'purple',
         description: '手札の全てのスキルの消費APを減少させる。',
       },
-      APReduce_heart: {
+      'APReduce_heart': {
         name: '消費AP減少(ハート系)',
         colorCode: 'purple',
         description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
       },
-      APReduce_voltageGain: {
+      'APReduce_voltageGain': {
         name: '消費AP減少(ボルテージ系)',
         colorCode: 'purple',
         description:
           '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。',
       },
-      APReduce_deck_ceriseBouquet: {
+      'APReduce_deck_ceriseBouquet': {
         name: '消費AP減少(スリーズブーケ)',
         colorCode: 'purple',
         description: 'デッキにあるスリーズブーケのスキルの消費APを減少させる。',
       },
-      APReduce_deck_dressCard: {
+      'APReduce_deck_dressCard': {
         name: '消費AP減少(ドレスカード)',
         colorCode: 'purple',
         description: 'デッキにあるドレスカードの消費APを減少させる。',
       },
-      APQuick: {
+      'APQuick': {
         name: 'ヒートアップ',
         colorCode: 'lime-darken-3',
         description: 'AP回復速度を上昇させる。',
       },
-      APSlow: {
+      'APSlow': {
         name: 'AP回復速度低下',
         colorCode: '',
         description: 'AP回復速度を低下させる。',
       },
-      heartLimitUp: {
+      'heartLimitUp': {
         name: 'ワイドハート',
         colorCode: 'red',
         description: 'ハート数の上限を増加させる。',
       },
-      addCard: {
+      'addCard': {
         name: 'カード追加',
         colorCode: 'purple',
         description: 'カードを山札に追加する。',
       },
-      ignition: {
+      'ignition': {
         name: 'イグニッション',
         colorCode: 'purple',
         description: '特定条件で効果が変化する。',
       },
-      modeChange: {
+      'modeChange': {
         name: 'モードチェンジ',
         colorCode: 'purple',
         description: 'スキルの効果を変化させる。',
       },
-      coolTime: {
+      'coolTime': {
         name: 'クールタイム',
         colorCode: '',
         description: 'スキル使用時、クールタイムが発生する。',
       },
-      infinity_AP_stage: {
+      'infinity_AP_stage': {
         name: 'AP無限',
         colorCode: '',
         description: 'このステージ中、APを無限にする。',
       },
-      infinity_voltage_stage: {
+      'infinity_voltage_stage': {
         name: 'ボルテージ無限',
         colorCode: '',
         description: 'このステージ中、ボルテージを無限にする。',
       },
-      infinity_mental_stage: {
+      'infinity_mental_stage': {
         name: 'メンタル無限',
         colorCode: '',
         description: 'このステージ中、メンタルを無限にする。',
@@ -5543,6 +5663,31 @@ export const useSkillStore = defineStore('skillList', {
         name: 'ドライブイグニッション',
         colorCode: '',
         description: 'イグニッションモードになった回数に応じて、様々な効果が発動する。',
+      },
+      'vibes_section': {
+        name: 'バイブス(セクション)',
+        colorCode: 'lime-darken-4',
+        description: 'このセクション中、ビートハートの出現個数を増加させる。',
+      },
+      'vibes_stage': {
+        name: 'バイブス(ステージ)',
+        colorCode: 'lime-darken-4',
+        description: 'このステージ中、ビートハートの出現個数を増加させる。',
+      },
+      'ambience_section': {
+        name: 'アンビエンス(セクション)',
+        colorCode: 'lime-darken-4',
+        description: 'このセクション中、ムード値を変化させる。',
+      },
+      'ambience_stage': {
+        name: 'アンビエンス(ステージ)',
+        colorCode: 'lime-darken-4',
+        description: 'このステージ中、ムード値を変化させる。',
+      },
+      'imitation': {
+        name: 'イミテーション',
+        colorCode: 'purple',
+        description: 'カードがステージにセットされ、特定の獲得したものを吸収する。その後、特定の効果を発動し、捨札に移動する。',
       },
     },
   }),

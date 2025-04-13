@@ -155,7 +155,10 @@
                 v-if="!store.isOtherMember(memberName)"
               >
                 <v-img
-                  :src="store.getImagePath('member_icon', `icon_illust_${memberName}_${store.thisPeriod}`)"
+                  :src="store.getImagePath(
+                    'member_icon',
+                    `icon_illust_${memberName}_${/kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105}`
+                  )"
                   class="icon member"
                 ></v-img>{{ store.makeFullName(memberName) }}
               </template>

@@ -3,10 +3,12 @@ import { useCardStore } from './cardList';
 import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
 import Dexie from 'dexie';
+import { CounterState } from '@/types/counter';
+import { Dropbox } from 'dropbox';
 
 export const useStoreCounter = defineStore('store', {
-  state: () => ({
-    version: 'ζ.13(アーリーアクセス)',
+  state: (): CounterState => ({
+    version: 'ζ.14(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -54,6 +56,8 @@ export const useStoreCounter = defineStore('store', {
       ginko: 1,
       kosuzu: 1,
       hime: 1,
+      seras: 1,
+      izumi: 1,
     },
     siteSettings: {
       all: {
@@ -160,6 +164,10 @@ export const useStoreCounter = defineStore('store', {
         main: 'MAIN STYLE',
         side1: 'SIDE STYLE 1',
       },
+      // 105: {
+      //   main: 'MAIN STYLE',
+      //   side1: 'SIDE STYLE 1',
+      // },
     },
     statusName: {
       none: 'なし',
@@ -295,6 +303,14 @@ export const useStoreCounter = defineStore('store', {
         first: '安養寺',
         last: '姫芽',
       },
+      seras: {
+        first: 'セラス',
+        last: '柳田 リリエンフェルト',
+      },
+      izumi: {
+        first: '桂城',
+        last: '泉',
+      },
       sachi: {
         first: '大賀美',
         last: '沙知',
@@ -328,6 +344,8 @@ export const useStoreCounter = defineStore('store', {
       gn: 'ginko',
       sz: 'kosuzu',
       hm: 'hime',
+      sr: 'seras',
+      iz: 'izumi',
       sc: 'sachi',
       is: 'selaIzu',
       ktm: 'kozutsuzumegu',
@@ -352,6 +370,16 @@ export const useStoreCounter = defineStore('store', {
         'tsuzuri',
         'megumi'
       ],
+      // 105: [
+      //   'seras',
+      //   'izumi',
+      //   'ginko',
+      //   'kosuzu',
+      //   'hime',
+      //   'kaho',
+      //   'sayaka',
+      //   'rurino',
+      // ],
     },
     memberColor: {
       kaho: '#F8B500',
@@ -363,6 +391,8 @@ export const useStoreCounter = defineStore('store', {
       ginko: '#A2D7DD',
       kosuzu: '#FAD764',
       hime: '#9D8DE2',
+      seras: '#f56455',
+      izumi: '#1ebecd',
     },
     groupName: {
       hasunosora: '蓮ノ空女学院スクールアイドルクラブ',
@@ -946,8 +976,10 @@ export const useStoreCounter = defineStore('store', {
   actions: {
     /**
      * ページを読み込んだときに最初に行われる処理郡
+     * 
+     * @returns void
      */
-    init() {
+    init(): void {
       // this.makeDb();
       const bonusSkillList = {};
 
@@ -967,13 +999,14 @@ export const useStoreCounter = defineStore('store', {
       this.card = JSON.parse(JSON.stringify(this.defaultCard));
       this.getLocalStorage();
       this.setSupportSkillLevel();
-      //this.makeNewDeck();
+      // this.fetchFiles();
+      // this.makeNewDeck();
       // console.log(window.location.search.replace('?', ''));
       // if (window.location.search.replace('?', '') !== '') {
       //   window.location.replace('/llllMgr/musicList');
       // }
     },
-    makeNewDeck() {
+    makeNewDeck(): void {
       let a = {
         name: `新規デッキ${this.deck.length + 1}`,
         period: this.thisPeriod,
@@ -1017,8 +1050,10 @@ export const useStoreCounter = defineStore('store', {
     },
     /**
      * DB作成
+     * 
+     * @returns void
      */
-    makeDb() {
+    makeDb(): void {
       // DBのオープン
       const db = new Dexie("llllMgrDB_test");
       // バージョン1
@@ -1057,11 +1092,15 @@ export const useStoreCounter = defineStore('store', {
      *
      * @param setLocalStorageName ローカルストレージ名
      * @param value 値
+     * @returns void
      */
-    setLocalStorage(setLocalStorageName, value) {
+    setLocalStorage(
+      setLocalStorageName: string,
+      value: any
+    ): void {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },
-    getLocalStorage(importData) {
+    getLocalStorage(importData: any): void {
       const isImportData = importData !== undefined;
 
       if (localStorage.llllMgr_musicData !== undefined || (isImportData && importData.musicData !== undefined)) {
@@ -1267,7 +1306,7 @@ export const useStoreCounter = defineStore('store', {
         }
       }
     },
-    deleteLocalStorage(deleteDataName) {
+    deleteLocalStorage(deleteDataName: string): void {
       if (deleteDataName === 'music') {
         this.localStorageData.musicData.musicLevel = {};
         localStorage.removeItem('llllMgr_musicData');
@@ -1280,27 +1319,41 @@ export const useStoreCounter = defineStore('store', {
         localStorage.removeItem('llllMgr_selectItemList');
       }
     },
-    showModalEvent(showModalName) {
+    /**
+     * ダイアログを表示
+     * @param showModalName 表示するダイアログの名前
+     * @returns void
+     */
+    showModalEvent(showModalName: string): void {
       this.switchDialog(showModalName);
       this.showModalName = showModalName;
     },
-    setLevel(a, e) {
+    setLevel(a: string, e: any): void {
       this.settingCardData.fluctuationStatus[a] = e.target.value;
     },
-    setSettingCard(cardId) {
+    /**
+     * SettingCardのID、レアリティ、メンバー名、カード名を設定する
+     * @param cardId 設定するカードのID
+     * @returns void
+     */
+    setSettingCard(cardId: string): void {
       const cardData = this.findCardData(cardId);
       this.settingCard.ID = cardId;
       this.settingCard.rare = cardData.rare;
       this.settingCard.name = cardData.memberName;
       this.settingCard.card = cardData.cardName;
     },
-    toBool(value) {
+    toBool(value: string): boolean {
       return value === 'true';
     },
-    conversion(name) {
+    conversion(name: string): string {
       return /!/.test(name) ? name.replace(/!/g, '！') : /\//.test(name) ? name.replace(/\//g, '／') : name;
     },
-    setOpenCard(id, name, style) {
+    setOpenCard(
+      id: string,
+      name: string,
+      style: string
+    ): void {
       this.openCard.ID = id;
       this.openCard.name = name;
       this.openCard.style = style;
@@ -1308,34 +1361,35 @@ export const useStoreCounter = defineStore('store', {
     makeFullName(name) {
       return `${this.memberName[name].first}${/kozutsuzumegu|selaIzu/.test(name) ? '': ' '}${this.memberName[name].last}`;
     },
-    makeCardMemberName(id) {
+    /**
+     * カードIDからメンバー名を作成する関数
+     *
+     * @param id カードID
+     * @returns メンバー名
+     */
+    makeCardMemberName(id: string): string {
       if (id === 'ktm_001') {
         return `乙宗梢＆夕霧綴理＆藤島慈`;
       } else if (id === 'is_001') {
         return `${this.memberName.selaIzu.first}${this.memberName.selaIzu.last}`;
       } else {
-        return `${this.memberName[this.memberId[id.split('_')[0]]].last}`;
+        return `${this.memberName[this.memberId[id.split('_')[0]]][id.split('_')[0] === 'sr' ? 'first' : 'last']}`;
       }
     },
-    isOtherMember(name) {
+    isOtherMember(name: string): boolean {
       return name === 'special';
-    },
-    aaa() {
-      for (const rare of this.rare) {
-        if (this.deck[this.openCard.name][this.openCard.style] in this.card[this.openCard.name][rare]) {
-          this.deck[this.openCard.name][this.openCard.style] = this.card[this.openCard.name][rare][this.deck[this.openCard.name][this.openCard.style]];
-          break;
-        }
-      }
     },
     /**
      * メンバー名とカード名からカードIDを検索
      *
-     * @param {string} memberName メンバー名
-     * @param {string} cardName カード名
-     * @return {string} カードID
+     * @param memberName メンバー名
+     * @param cardName カード名
+     * @return カードID
      */
-    findCardId(memberName, cardName) {
+    findCardId(
+      memberName: string,
+      cardName: string
+    ): string {
       if (cardName === 'default') {
         return this.makeDefaultCardId(memberName);
       } else {
@@ -1350,7 +1404,13 @@ export const useStoreCounter = defineStore('store', {
           })?.ID ?? this.makeDefaultCardId(memberName);
       }
     },
-    findCardData(cardId) {
+    /**
+     * カードIDからカードデータを検索
+     *
+     * @param cardId カードID
+     * @return カードデータ
+     */
+    findCardData(cardId: string) {
       if (cardId.split('_')[1] === '000') {
         return {
           ...this.card.default,
@@ -1365,10 +1425,10 @@ export const useStoreCounter = defineStore('store', {
     /**
      * 各メンバーのデフォルトのカードIDを作成
      *
-     * @param {string} memberName - メンバー名
-     * @return {string} - デフォルトのカードID
+     * @param memberName メンバー名
+     * @return デフォルトのカードID
      */
-    makeDefaultCardId(memberName) {
+    makeDefaultCardId(memberName: string): string {
       return `${Object.keys(this.memberId).find((key) => {
         this.memberId[key] === memberName
       })}_000`;
@@ -1376,17 +1436,17 @@ export const useStoreCounter = defineStore('store', {
     /**
      * カードIDからカードのレアリティを検索
      *
-     * @param {string} cardId カードID
-     * @return {string} カードのレアリティ
+     * @param cardId カードID
+     * @return カードのレアリティ
      */
-    searchRarity(cardId) {
+    searchRarity(cardId: string): string {
       if (Number(cardId.split('_')[1]) === 0) {
         return 'default';
       } else {
         return this.cardList.find(v => v.ID === cardId)?.rare ?? '';
       }
     },
-    searchSelectDeckCard(name, style) {
+    searchSelectDeckCard(name: string, style: string) {
       return this.selectDeck.cardData[name][style].id;
     },
     makeExportCardData(data) {
@@ -1410,12 +1470,12 @@ export const useStoreCounter = defineStore('store', {
 
       return result;
     },
-    submitCardData(submitData) {
+    submitCardData(submitData: any): void {
       for (const i in submitData) {
         this.submitData[i] = submitData[i];
       }
     },
-    switchDialog(switchFlg) {
+    switchDialog(switchFlg: boolean): void {
       this.dialog = !!switchFlg;
     },
     selectMusic(a) {
@@ -1577,12 +1637,21 @@ export const useStoreCounter = defineStore('store', {
     /**
      * 設定をlocalStorageに保存
      * 
-     * @param {string} setLocalStorageName 保存する設定の名前
+     * @param setLocalStorageName 保存する設定の名前
+     * @returns void
      */
-    changeSettings(setLocalStorageName) {
+    changeSettings(setLocalStorageName: string): void {
       this.setLocalStorage(`llllMgr_${setLocalStorageName}`, this.localStorageData[setLocalStorageName]);
     },
-    setSelectCard(id, param) {
+    setSelectCard(
+      id: string,
+      param: {
+        cardLevel: number,
+        SALevel: number,
+        SLevel: number,
+        releaseLevel: number,
+      }
+    ): void {
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].id = id;
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.cardLevel = param.cardLevel;
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SALevel = param.SALevel;
@@ -1592,11 +1661,14 @@ export const useStoreCounter = defineStore('store', {
     /**
      * @function IDCheck
      * @description カードか楽曲リストのIDの形式が正しいか、連番になっているかをチェックする。
-     * @param {Object[]} list - The list of data to check.
-     * @param {string} type - "music" or "card".
-     * @returns {void}
+     * @param list リスト
+     * @param type 'music' | 'card'
+     * @returns void
      */
-    IDCheck(list, type) {
+    IDCheck(
+      list: any[],
+      type: 'music' | 'card'
+    ): void {
       const regex = type === 'music' ? /^m{1}/ : /^[a-z]{2,3}/;
       let previousNumber = 0;
       const errorList = [];
@@ -1667,11 +1739,14 @@ export const useStoreCounter = defineStore('store', {
        * @description IDの形式が正しいか、連番になっているかをチェックする。\
        * 正しくなければエラーメッセージを返す。
        *
-       * @param {string} ID - ID
-       * @param {number} previousNumber - 現在-1のID番号
-       * @returns {string} エラーメッセージ
+       * @param ID ID
+       * @param previousNumber 現在-1のID番号
+       * @returns エラーメッセージ
        */
-      function isValidAndIncremental(ID, previousNumber) {
+      function isValidAndIncremental(
+        ID: string,
+        previousNumber: number
+      ): string {
         if (isNaN(ID.split('_')[1])) {
           return `IDの番号に数字以外が入っています。\n該当ID：${ID}`;
         } else if (ID.split('_')[1].length !== 3) {
@@ -1688,14 +1763,53 @@ export const useStoreCounter = defineStore('store', {
     /**
      * 画像パスを返す処理
      * 
-     * @param {string} path - その画像が入っているフォルダ名
-     * @param {string} imageName - 画像の名前
-     * @returns {string} 画像のパス
+     * @param path その画像が入っているフォルダ名
+     * @param imageName 画像の名前
+     * @returns 画像のパス
      */
-    getImagePath(path, imageName, extension) {
+    getImagePath(
+      path: string,
+      imageName: string,
+      extension: string | undefined
+    ): string {
       const images = import.meta.glob('../assets/**/*', { eager: true });
       const filePath = `../assets${path ? `/${path}` : ''}/${imageName}.${extension ?? 'webp'}`;
       return images[filePath]?.default || '';
+    },
+    async fetchFiles() {
+      const ACCESS_TOKEN: string = import.meta.env.VITE_DROPBOX_TOKEN;
+
+      try {
+        const dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+        const response = await dbx.filesListFolder({ path: '/CD_jacket' });
+        const files = response.result.entries;
+        const imageMimeType = ['image/webp'];
+
+        const imageFiles = files.filter(
+          (file) =>
+            file['.tag'] === 'file' &&
+            imageMimeType.some((type) => file.name.endsWith(type.split('/')[1]))
+        );
+        console.log('取得したファイルデータ:', imageFiles);
+
+        const imageUrls = await Promise.all(
+          imageFiles.map(async (file) => {
+            const linkResponse = await dbx.filesGetTemporaryLink({
+              path: file.path_lower,
+            });
+            return {
+              id: file.id,
+              name: file.name,
+              url: linkResponse.result.link,
+            };
+          })
+        );
+
+        this.images = imageUrls;
+        console.log('取得した画像データ:', imageUrls);
+      } catch (error) {
+        console.error("Error fetching files:", error.error || error.message);
+      }
     },
   },
 });

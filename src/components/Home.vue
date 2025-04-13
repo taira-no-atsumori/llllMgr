@@ -19,6 +19,7 @@
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
                 :src="store.getImagePath('event_information', event.img)"
+                eager
               ></v-img>
               <a
                 v-else
@@ -200,16 +201,24 @@ export default {
   data() {
     return {
       eventList: {
-        /*liveGP: {
-          title: 'ライブグランプリ「104期 3rdTerm 第3回個人戦」',
+        /*'graduation': {
+          title: '梢先輩、綴理先輩、慈先輩',
+          text: 'ご卒業おめでとうございます🌸',
+          type: 'other',
+          firstDay: [2025, 3, 31, 21, 0],
+          lastDay: [2025, 4, 11, 12, 0],
+          img: 'thanks',
+        },*/
+        liveGP: {
+          title: 'ライブグランプリ「105期OpeningTerm 個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 1, 4, 12, 0],
-          lastDay: [2025, 1, 10, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-01-03-10-lbtb4l7zf0',
-          img: '104期 3rdTerm 第3回個人戦_logo',
+          firstDay: [2025, 4, 11, 12, 0],
+          lastDay: [2025, 4, 17, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-12-10-lax2wkj7tp',
+          img: '105期OpeningTerm 個人戦_logo',
         },
-        'liveGP': {
+        /*'liveGP': {
           title: 'ライブグランプリ「104期 FinalTerm 第2回サークル対抗戦」',
           text: '',
           type: 'liveGP',
@@ -218,14 +227,6 @@ export default {
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-03-19-10-rviikncrbg',
           img: '104期 FinalTerm 第2回サークル対抗戦_logo',
         },*/
-        'graduation': {
-          title: '梢先輩、綴理先輩、慈先輩',
-          text: 'ご卒業おめでとうございます🌸',
-          type: 'other',
-          firstDay: [2025, 3, 31, 21, 0],
-          lastDay: [2025, 4, 11, 12, 0],
-          img: 'thanks',
-        },
         '4thLiveDream_ishikawa': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
           text: '石川公演',
@@ -255,6 +256,7 @@ export default {
         },
       },
       outputEventList: {},
+      images: [],
     };
   },
   created() {
@@ -351,6 +353,7 @@ export default {
       };
     },
   },
+  mounted() {}
 };
 </script>
 

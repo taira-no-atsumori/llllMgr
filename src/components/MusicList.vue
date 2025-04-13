@@ -98,7 +98,7 @@
                       >
                         <template v-slot:prepend>
                           <v-img
-                            :src="store.getImagePath('member_icon', item.title)"
+                            :src="store.getImagePath('member_icon', `icon_SD_${item.title}`)"
                             class="icon member"
                           ></v-img>
                         </template>
@@ -146,7 +146,7 @@
                   >
                     <template v-slot:selection="{ item }">
                       <v-img
-                        :src="store.getImagePath('attribute_icon', item.title)"
+                        :src="store.getImagePath('attribute_icon', `icon_${item.title}`)"
                         style="width: 25px"
                       ></v-img>
                     </template>
@@ -161,7 +161,7 @@
                             :model-value="selectAttrList.some((elm) => elm === item.title)"
                           ></v-checkbox-btn>
                           <v-img
-                            :src="store.getImagePath('attribute_icon', item.title)"
+                            :src="store.getImagePath('attribute_icon', `icon_${item.title}`)"
                             :alt="store.attribute[item.title]"
                             class="mr-2"
                             style="width: 40px"
@@ -302,7 +302,7 @@
           cols="6"
           md="4"
           lg="2"
-          :class="`text-center ${windowSize.w > 600 ? '' : 'px-1'}`"
+          :class="`text-center align-self-end ${windowSize.w > 600 ? '' : 'px-1'}`"
         >
           <v-row
             no-gutters
@@ -318,9 +318,11 @@
                   :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
                   style="width: 30px"
                 />
-                <span class="pt-1 pl-1"
-                  >{{ store.makeFullName(memberName) }} <span class="text-body-2">(Lv.{{ store.makeTotalMasteryLv(memberName) }})</span></span
-                >
+                <span class="pt-1 pl-1" :style="`font-size: ${windowSize.w > 600 && memberName === 'seras' ? 0.8 : 1}em;`">
+                  {{ store.makeFullName(memberName) }} <span class="text-body-2">
+                    (Lv.{{ store.makeTotalMasteryLv(memberName) }})
+                  </span>
+                </span>
               </h4>
             </v-col>
             <v-col

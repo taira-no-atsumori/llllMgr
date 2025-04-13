@@ -55,12 +55,19 @@
           <v-carousel-item
             v-for="kakusei in /^(D|B)R$/.test(store.getSettingCard.rare) ? ['後'] : ['前', '後']"
             :key="kakusei"
+            :lazy-src="store.getImagePath('card_illust', `${
+              store.conversion(store.getSettingCard.cardName)}_${
+              store.makeCardMemberName(
+                store.getSettingCard.ID
+              )
+            }_覚醒${kakusei}`)"
             :src="store.getImagePath('card_illust', `${
               store.conversion(store.getSettingCard.cardName)}_${
               store.makeCardMemberName(
                 store.getSettingCard.ID
               )
             }_覚醒${kakusei}`)"
+            :aspect-ratio="1.542"
           ></v-carousel-item>
         </v-carousel>
         <v-row
@@ -1124,7 +1131,9 @@ export default {
         first: store.memberName[store.getSettingCard.memberName].first,
         last: store.memberName[store.getSettingCard.memberName].last
       };
-      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${store.getSettingCard.cardName.replaceAll('&', '＆').replaceAll('/', '／')}］${name.first}${name.last}`;
+      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${
+        store.getSettingCard.cardName.replaceAll('&', '＆').replaceAll('/', '／')
+      }］${name.first}${name.last}`;
     },
     /**
      * カード名作成

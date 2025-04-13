@@ -1,7 +1,7 @@
 {
   "name": "llll_mgr",
   "private": true,
-  "version": "ζ.13(アーリーアクセス)",
+  "version": "ζ.14(アーリーアクセス)",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@notionhq/client": "^2.3.0",
     "axios": "^1.8.4",
     "dexie": "^4.0.11",
+    "dropbox": "^10.34.0",
     "pinia": "^3.0.1",
     "vite-plugin-vuetify": "^2.1.1",
     "vue": "^3.5.13",

@@ -18488,6 +18488,373 @@ export const useCardStore = defineStore('cardList', {
           },
         },
       },
+      seras: {
+        default: {
+          'default': {
+            ID: 'sr_000',
+            styleType: '',
+            mood: '',
+            kana: '',
+            gacha: {
+              addSeason: '',
+              period: '',
+            },
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
+              BP: 100,
+            },
+            specialAppeal: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            skill: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            characteristic: {
+              name: '',
+              detail: '',
+              type: [],
+            },
+          },
+        },
+        DR: {},
+        BR: {},
+        UR: {
+          'Dream Believers': {
+            ID: 'sr_001',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'Dream Believers',
+            kana: 'どりーむびりーばーず',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 5500,
+              cool: 5000,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'wideSoundVibes_01',
+              name: 'ワイドサウンドバイブス',
+              AP: 8,
+              detail: [
+                [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 1000],
+              ],
+            },
+            skill: {
+              ID: 'soundAmbience_01',
+              name: 'サウンドアンビエンス',
+              AP: 4,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40]
+              ],
+            },
+            characteristic: {
+              name: 'サウンドバイブス',
+              detail: '手札にある間、ムードがハッピー、メロウいずれか75以上のとき、ビートハートの出現個数を+1する。',
+              type: [],
+            },
+          },
+        },
+        SR: {},
+        R: {
+          '翠鱗舞': {
+            ID: 'sr_003',
+            styleType: 'performer',
+            mood: 'happy',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 2300,
+              cool: 2100,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'attractVibes_01',
+              name: 'アトラクトバイブス',
+              AP: 6,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+              ],
+            },
+            skill: {
+              ID: 'happyAmbience_01',
+              name: 'ハッピーアンビエンス',
+              AP: 4,
+              detail: [
+                [10, 11, 12, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 24],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'sr_002',
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2200,
+              pure: 2500,
+              cool: 3100,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'voltageVibes_01',
+              name: 'ボルテージバイブス',
+              AP: 6,
+              detail: [
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+              ],
+            },
+            skill: {
+              ID: 'mellowAmbience_01',
+              name: 'メロウアンビエンス',
+              AP: 4,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+              ],
+            },
+          },
+        },
+      },
+      izumi: {
+        default: {
+          'default': {
+            ID: 'iz_000',
+            styleType: '',
+            mood: '',
+            kana: '',
+            gacha: {
+              addSeason: '',
+              period: '',
+            },
+            fluctuationStatus: {
+              possession: false,
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 30,
+              pure: 30,
+              cool: 30,
+              mental: 3,
+              BP: 100,
+            },
+            specialAppeal: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            skill: {
+              name: '',
+              AP: 1,
+              detail: {},
+            },
+            characteristic: {
+              name: '',
+              detail: '',
+              type: [],
+            },
+          },
+        },
+        DR: {},
+        BR: {},
+        UR: {
+          'Dream Believers': {
+            ID: 'iz_001',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'Dream Believers',
+            kana: 'どりーむびりーばーず',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4000,
+              pure: 5400,
+              cool: 5100,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionHeat_01',
+              name: 'エクステヒート',
+              AP: 6,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+              ],
+            },
+            skill: {
+              ID: 'imitationHeart_01',
+              name: 'イミテーションハート',
+              AP: 6,
+              detail: [
+                [480, 528, 576, 624, 672, 720, 768, 816, 864, 960, 1008, 1056, 1104, 1200],
+              ],
+            },
+            characteristic: {
+              name: 'APゲイン',
+              detail: 'スキル使用時、APを4回復する。',
+              type: ['APGain'],
+            },
+          },
+        },
+        SR: {},
+        R: {
+          '翠鱗舞': {
+            ID: 'iz_003',
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2250,
+              pure: 2800,
+              cool: 2750,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'loveAttract_section',
+              name: 'ラブアトラクト',
+              AP: 4,
+              detail: [
+                [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+              ],
+            },
+            skill: {
+              ID: 'imitationAttract_01',
+              name: 'イミテーションアトラクト',
+              AP: 4,
+              detail: [
+                [0.8, 0.88, 0.96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.6, 1.68, 1.76, 1.84, 2],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'iz_002',
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3000,
+              pure: 2200,
+              cool: 2600,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 6,
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+              ],
+            },
+            skill: {
+              ID: 'imitationHeart_02',
+              name: 'イミテーションハート',
+              AP: 2,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6],
+              ],
+            },
+          },
+        },
+      },
       sachi: {
         default: {
           'default': {
@@ -18765,9 +19132,7 @@ export const useCardStore = defineStore('cardList', {
               name: 'ドリーミングトライアングル',
               AP: 3,
               detail: [
-                [1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.8, 3, 3.2],
-                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 16],
-                [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4],
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
               ],
             },
             characteristic: {

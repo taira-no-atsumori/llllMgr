@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
+import { MusicListState } from '@/types/musicList';
 
 export const useMusicStore = defineStore('musicList', {
-  state: () => ({
+  state: (): MusicListState => ({
     musicList: {
       'Dream Believers(4人Ver.)': {
         ID: 'm_001',
@@ -4269,6 +4270,33 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kozue', 'tsuzuri', 'megumi'],
+      },
+      'Dream Believers（105期Ver.）': {
+        ID: 'm_159',
+        musicData: {
+          kana: 'どりーむびりーばーず',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2025,
+            month: 4,
+            date: 30,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
+          BPM: {
+            original: 162,
+            inGame: 162,
+          },
+          time: 139.26,
+          cover: false,
+          link: '',
+        },
+        attribute: 'smile',
+        BHcount: 92,
+        level: 1,
+        term: 105,
+        center: 'kaho',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
       },
     },
   }),
