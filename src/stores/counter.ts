@@ -82,7 +82,7 @@ export const useStoreCounter = defineStore('store', {
       },
       musicList: {
         sortType: 'default',
-        order: 'descending',
+        order: 'ascending',
       },
     },
     defaultSearch: {
