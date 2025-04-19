@@ -116,8 +116,20 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
-      リフレッシュハート: {
-        refreshHeart: {
+      'APゲイン': {
+        'APGain': {
+          text: [
+            'APを',
+            '回復させる。',
+          ],
+          detail: {
+            attr: '',
+            type: ['APGain']
+          }
+        }
+      },
+      'リフレッシュハート': {
+        'refreshHeart': {
           text: [
             '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
             '回分のスキルハートを獲得する。',
@@ -305,18 +317,25 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
-      ハートブースト: {
-        heartBoost: {
+      'ハートブースト': {
+        'heartBoost': {
           text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
-            attr: '',
+            attr: 'heartBoost',
             type: ['boost_heartCaptcha'],
           },
         },
-        heartBoost_limit5: {
+        'heartBoost_limit2': {
+          text: ['2回の間スキルハート獲得効果による獲得数を+', '%する。'],
+          detail: {
+            attr: 'heartBoost',
+            type: ['boost_heartCaptcha'],
+          },
+        },
+        'heartBoost_limit5': {
           text: ['5回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
-            attr: '',
+            attr: 'heartBoost',
             type: ['boost_heartCaptcha'],
           },
         },
@@ -328,7 +347,7 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'heartBoost',
             type: ['boost_heartCaptcha'],
           },
         },
@@ -338,7 +357,19 @@ export const useSkillStore = defineStore('skillList', {
             '%する。',
           ],
           detail: {
-            attr: '',
+            attr: 'heartBoost',
+            type: ['boost_heartCaptcha'],
+          },
+        },
+      },
+      'ハートブースト：ドレス': {
+        'heartBoost-dress_01': {
+          text: [
+            '次のドレスカード使用によるスキルハート獲得効果の獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'heartBoost',
             type: ['boost_heartCaptcha'],
           },
         },
@@ -1165,7 +1196,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      アトラクトブースト: {
+      'アトラクトブースト': {
         attractBoost1: {
           text: ['次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
@@ -1346,8 +1377,8 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      エクステアトラクト: {
-        extensions1_stageAttract_section: {
+      'エクステアトラクト': {
+        'extensions1_stageAttract_section': {
           text: [
             'このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
             '%する。',
@@ -1357,7 +1388,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_section', 'loveAttract_stage'],
           },
         },
-        extensions2_stageAttract_section: {
+        'extensions2_stageAttract_section': {
           text: [
             'このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+',
             '%する。',
@@ -1367,7 +1398,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_section', 'loveAttract_stage'],
           },
         },
-        extensions3_stageAttract_section: {
+        'extensions3_stageAttract_section': {
           text: [
             'このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+',
             '%する。',
@@ -1377,7 +1408,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_section', 'loveAttract_stage'],
           },
         },
-        extensions4_stageAttract_section: {
+        'extensions4_stageAttract_section': {
           text: [
             'このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+',
             '%する。',
@@ -1387,7 +1418,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_section', 'loveAttract_section'],
           },
         },
-        extensions1_stageAttract_stage: {
+        'extensions1_stageAttract_stage': {
           text: [
             'このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
             '%する。',
@@ -1397,7 +1428,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_stage', 'loveAttract_stage'],
           },
         },
-        extensions1_sectionAttract_section: {
+        'extensions1_sectionAttract_section': {
           text: [
             'このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+',
             '%する。',
@@ -1407,7 +1438,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_section', 'loveAttract_section'],
           },
         },
-        extensions3_sectionAttract_section: {
+        'extensions3_sectionAttract_section': {
           text: [
             'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+',
             '%する。',
@@ -1785,6 +1816,19 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'プロテクトヒート': {
+        'protectHeat_01': {
+          text: [
+            'このステージ中、AP回復速度を+',
+            '%する。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。',
+          ],
+          detail: {
+            attr: 'protect',
+            type: ['APQuick', 'protect_stage'],
+          },
+        },
+      },
       インヴォケーション: {
         invocation: {
           text: [
@@ -1823,7 +1867,7 @@ export const useSkillStore = defineStore('skillList', {
         },
       },
       'リカバーサポート': {
-        recoverSupport_01: {
+        'recoverSupport_01': {
           text: [
             'メンタルを最大値の',
             '%回復させる。さらにデッキ内の梢のスキルの消費AP-6。',
@@ -3351,6 +3395,28 @@ export const useSkillStore = defineStore('skillList', {
         dress_kagayuuzen: {
           text: [
             'ドレスカード《加賀友禅》を9種類(合計9枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      'ドレス《ノヴァホワイト》': {
+        'dress_novaWhite_01': {
+          text: [
+            'ドレスカード《ノヴァホワイト》を1種類(合計2枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      'ドレス《翠鱗舞》': {
+        'dress_suirinbu_01': {
+          text: [
+            'ドレスカード《翠鱗舞》を1種類(合計2枚)山札に追加する。',
           ],
           detail: {
             attr: 'dress',
@@ -5442,6 +5508,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'imitation',
             type: ['imitation', 'heartCaptcha'],
+          },
+        },
+      },
+      'イミテーションボルテージ': {
+        'imitationVoltage_01': {
+          text: [
+            'カードがステージにセットされ、獲得するメンタルプロテクト効果を吸収する。メンタルプロテクト効果を10%吸収したとき、ボルテージPt.を+',
+            'し、捨札に移動する。'
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'voltageGain'],
           },
         },
       },

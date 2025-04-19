@@ -204,7 +204,7 @@
           <v-row>
             <v-spacer></v-spacer>
             <v-col
-              align="center"
+              align-self="center"
               justify="center"
               class="pa-0"
             >
@@ -218,7 +218,7 @@
               {{ [0, 1, 2, 3, 4][store.settingCardData.fluctuationStatus.trainingLevel] }}
             </v-col>
             <v-col
-              align="center"
+              align-self="center"
               justify="center"
               class="pa-0"
             >
@@ -1091,13 +1091,13 @@
   </v-dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useStoreCounter } from '@/stores/counter';
 import skillArea from './SkillAreaComponent.vue';
 const store = useStoreCounter();
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'CardSetting',
   data() {
@@ -1126,14 +1126,17 @@ export default {
      * @param memberName メンバー名
      * @returns string リンク
      */
-    makeWikiLink(store) {
-      const name = {
+    makeWikiLink(store): string {
+      const name: {
+        first: string,
+        last: String,
+      } = {
         first: store.memberName[store.getSettingCard.memberName].first,
         last: store.memberName[store.getSettingCard.memberName].last
       };
       return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${
         store.getSettingCard.cardName.replaceAll('&', '＆').replaceAll('/', '／')
-      }］${name.first}${name.last}`;
+      }］${name.first}${name.first === 'セラス' ? ' ' : '' }${name.last}`;
     },
     /**
      * カード名作成
@@ -1141,7 +1144,7 @@ export default {
      * @param store ストア
      * @returns string カード名
      */
-    makeCardName(store) {
+    makeCardName(store): string {
       return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(store.getSettingCard.memberName)}`;
     },
     /**
@@ -1149,8 +1152,9 @@ export default {
      *
      * @param store ストア
      * @param supportSkillName サポートスキル名
+     * @returns number サポートスキルレベル
      */
-    makeSupportSkillLevel(store, supportSkillName) {
+    makeSupportSkillLevel(store, supportSkillName: string): number {
       const result = store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].initLevel;
 
       if (store.settingCardData.fluctuationStatus.cardLevel === 0) {
@@ -1167,8 +1171,9 @@ export default {
      * ダイアログの表示・非表示を切り替える
      *
      * @param flg フラグ
+     * @returns void
      */
-    switchDialog(flg) {
+    switchDialog(flg: null | boolean): void {
       this.dialog = flg === null ? !this.dialog : flg;
     },
     /**
@@ -1177,8 +1182,13 @@ export default {
      * @param openDialogName 開きたいダイアログ名
      * @param dialogSize ダイアログの横幅
      * @param option オプション
+     * @returns void
      */
-    openDialog(openDialogName, dialogSize, option) {
+    openDialog(
+      openDialogName: string,
+      dialogSize: number,
+      option?: any
+    ): void {
       this.targetSkill = option === null ? null : option.targetSkill;
       this.openDialogName = openDialogName;
       this.dialogSize = dialogSize;
@@ -1194,10 +1204,10 @@ export default {
      *
      * 各カードの解放Pt.の最大値を計算する。
      *
-     * @param {Object} store store
+     * @param store store
      * @returns number 最大値
      */
-    maxReleasePoint(store) {
+    maxReleasePoint(store): number {
       const point = Math.min(store.settingCardData.fluctuationStatus.releasePoint, this.limitReleasePoint(store));
       store.valueChange('releasePoint', point);
       return point;
@@ -1208,7 +1218,7 @@ export default {
      * @param {Object} store store
      * @returns string 上限値
      */
-    limitReleasePoint(store) {
+    limitReleasePoint(store): number {
       return store.releasePoint[store.settingCardData.rare].max - store.releasePoint[store.settingCardData.rare].point * (store.settingCardData.fluctuationStatus.releaseLevel - 1);
     },
   },

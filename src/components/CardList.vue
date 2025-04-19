@@ -70,6 +70,7 @@
         v-model="store.localStorageData.sortSettings.cardList.order"
         value="descending"
         class="px-0 px-sm-2"
+        @click="store.changeSettings('sortSettings');"
       >
         <v-icon>mdi-sort-descending</v-icon>
         <span class="ml-2 hidden-sm-and-down">降順</span>
@@ -78,6 +79,7 @@
         v-model="store.localStorageData.sortSettings.cardList.order"
         value="ascending"
         class="px-0 px-sm-2"
+        @click="store.changeSettings('sortSettings');"
       >
         <v-icon>mdi-sort-ascending</v-icon>
         <span class="ml-2 hidden-sm-and-down">昇順</span>

@@ -130,6 +130,8 @@
       リセット
     </v-btn>
   </v-tabs-window-item>
+
+  <v-tabs-window-item value="select" class="my-2"></v-tabs-window-item>
 </v-tabs-window>
 
 <v-snackbar
@@ -159,7 +161,8 @@ export default {
       tabs: [
         {text: 'export', value: 'export'},
         {text: 'import', value: 'import'},
-        {text: 'reset', value: 'reset'}
+        {text: 'reset', value: 'reset'},
+        // {text: 'select', value: 'select'},
       ],
       dataName: {
         card: 'カードデータ',
@@ -167,7 +170,7 @@ export default {
         musicData: 'ラーニングレベル',
         selectItemList: 'アイテム絞り込み条件',
         sortSettings_card: 'ソート設定(CARD LIST)',
-        //sortSettings_music: 'ソート設定(MUSIC LIST)',
+        sortSettings_music: 'ソート設定(MUSIC LIST)',
         //deckList: '編成リスト',
         siteSettings: 'サイト設定',
       },
@@ -176,7 +179,8 @@ export default {
       snackBar: {
         export: false,
         import: false,
-        reset: false
+        reset: false,
+        select: false,
       },
       alertContent: {
         export: {type: null, text: null},
@@ -235,7 +239,7 @@ export default {
         'musicData',
         'selectItemList',
         'sortSettings_card',
-        // 'sortSettings_music',
+        'sortSettings_music',
         //'deckList',
         'siteSettings'
       ],

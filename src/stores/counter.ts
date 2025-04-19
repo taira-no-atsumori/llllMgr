@@ -3,13 +3,12 @@ import { useCardStore } from './cardList';
 import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
 import Dexie from 'dexie';
-// import { CounterState } from '@/types/counter';
+import { CounterState } from '@/types/counter';
 // import { Dropbox } from 'dropbox';
-// import fetch from 'node-fetch';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
-    version: 'ζ.14(アーリーアクセス)',
+    version: 'ζ.15(アーリーアクセス)',
     dialog: false,
     showModalName: false,
     updateData: false,
@@ -82,7 +81,7 @@ export const useStoreCounter = defineStore('store', {
         order: 'descending',
       },
       musicList: {
-        sortType: '',
+        sortType: 'default',
         order: 'descending',
       },
     },
@@ -374,6 +373,7 @@ export const useStoreCounter = defineStore('store', {
       // 105: [
       //   'seras',
       //   'izumi',
+      //   'free',
       //   'ginko',
       //   'kosuzu',
       //   'hime',
@@ -413,7 +413,7 @@ export const useStoreCounter = defineStore('store', {
         ],
         skillLevel: 0,
         init: 11,
-        ary: [5, 10, 15, 20, 25],
+        ary: [5, 10, 15, 20, 25, 30, 40],
       },
       メンタルリカバー: {
         text: [
@@ -422,7 +422,7 @@ export const useStoreCounter = defineStore('store', {
         ],
         skillLevel: 0,
         init: 12,
-        ary: [1, 4, 9, 13],
+        ary: [1, 5, 9, 13, 17, 21, 25, 29],
       },
       ビートハートアップ: {
         text: [
@@ -710,8 +710,8 @@ export const useStoreCounter = defineStore('store', {
             result.reverse();
           }
         } else {
-          let aa;
-          let bb;
+          let aa: number;
+          let bb: number;
           const mergeList = [];
 
           if (this.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
@@ -1359,7 +1359,7 @@ export const useStoreCounter = defineStore('store', {
       this.openCard.name = name;
       this.openCard.style = style;
     },
-    makeFullName(name) {
+    makeFullName(name: string): string {
       return `${this.memberName[name].first}${/kozutsuzumegu|selaIzu/.test(name) ? '': ' '}${this.memberName[name].last}`;
     },
     /**
@@ -1771,7 +1771,7 @@ export const useStoreCounter = defineStore('store', {
     getImagePath(
       path: string,
       imageName: string,
-      extension: string | undefined
+      extension?: string
     ): string {
       const images = import.meta.glob('../assets/**/*', { eager: true });
       const filePath = `../assets${path ? `/${path}` : ''}/${imageName}.${extension ?? 'webp'}`;

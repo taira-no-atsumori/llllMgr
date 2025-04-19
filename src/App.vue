@@ -164,7 +164,7 @@
       app
       location="bottom"
       class="mb-10"
-      @click="$vuetify.goTo(0)"
+      @click="goToTop();"
     ></v-fab>
 
     <Modal />
@@ -206,14 +206,15 @@
   </v-app>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useStoreCounter } from './stores/counter';
 const store = useStoreCounter();
 store.init();
 </script>
 
-<script>
+<script lang="ts">
 import Modal from './components/ModalArea.vue';
+import { useGoTo } from 'vuetify'
 
 export default {
   name: 'App',
@@ -228,7 +229,7 @@ export default {
         'Home': {
           name_en: 'Home',
           name_ja: 'ホーム',
-          url: '/llllMgr/',
+          url: `/${import.meta.env.VITE_PATHNAME}/`,
           icon: 'home',
         },
         /*'WithStar Mgr': {
@@ -278,7 +279,7 @@ export default {
     }
 
     if (localStorage.inflow !== undefined) {
-      const pageName = localStorage.inflow;
+      const pageName: string = localStorage.inflow;
       localStorage.removeItem('inflow');
 
       for (const listName in this.pageList) {
@@ -291,14 +292,19 @@ export default {
       this.pageMove(this.pageList.Home.name_en);
     }
   },
+  setup() {
+    const goTo = useGoTo();
+    return goTo;
+  },
   mounted() {},
   methods: {
     /**
      * ページ移動
      *
      * @param movePageName 移動先ページ名
+     * @returns void
      */
-    pageMove(movePageName) {
+    pageMove(movePageName: string): void {
       // this.$router.replace(movePageName);
       this.$router.replace({
         name: movePageName,
@@ -313,19 +319,14 @@ export default {
      *
      * @param to タイトル
      */
-    pageTitle(to) {
+    pageTitle(to): void {
       document.title = `${to.meta.title}${this.siteName}`;
     },
     /**
      * トップへ移動
      */
     goToTop() {
-      this.$vuetify.goTo(0);
-    },
-  },
-  watch: {
-    $route(to) {
-      this.pageTitle(to);
+      this.goTo(0);
     },
   },
 };
@@ -365,6 +366,8 @@ $megumi: #c8c2c6;
 $ginko: #a2d7dd;
 $kosuzu: #fad664;
 $hime: #9c8de2;
+$seras: #f56455;
+$izumi: #1ebecd;
 
 /* ムードカラー */
 $happy: #ef8dc8;
@@ -484,6 +487,22 @@ main {
 
     .characterDetailArea {
       background-color: rgba($color: $hime, $alpha: 0.75);
+    }
+  }
+
+  &[data-member_name='seras'] {
+    border-color: $seras;
+
+    .characterDetailArea {
+      background-color: rgba($color: $seras, $alpha: 0.75);
+    }
+  }
+
+  &[data-member_name='izumi'] {
+    border-color: $izumi;
+
+    .characterDetailArea {
+      background-color: rgba($color: $izumi, $alpha: 0.75);
     }
   }
 }

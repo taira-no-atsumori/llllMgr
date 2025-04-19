@@ -6,7 +6,7 @@ import WebFont from 'webfontloader';
 import router from './router/router';
 import VueGtag from 'vue-gtag-next';
 import 'vuetify/styles';
-import '@mdi/font/css/materialdesignicons.css'
+import '@mdi/font/css/materialdesignicons.css';
 
 const app = createApp(App);
 
@@ -22,7 +22,7 @@ app.use(router);
 
 app.use(VueGtag, {
   property: {
-    id: 'G-ZXJJX9H0JB',
+    id: import.meta.env.VITE_GTAG_ID,
   },
 }, router);
 

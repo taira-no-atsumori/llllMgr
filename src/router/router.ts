@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import { createRouter } from 'vue-router'
 import Home from '../components/Home.vue';
 import Simulation from '../components/Simulation.vue';
 import CardList from '../components/CardList.vue';
@@ -8,11 +7,13 @@ import ItemList from '../components/ItemList.vue';
 // import WithStarMgr from '../components/WithStarMgr.vue'
 import License from '../components/License.vue';
 
+const pathname = import.meta.env.VITE_PATHNAME;
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/llllMgr/',
+      path: `/${pathname}/`,
       name: 'Home',
       component: Home,
       meta: {
@@ -20,7 +21,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/llllMgr/simulation',
+      path: `/${pathname}/simulation`,
       name: 'Simulation',
       component: Simulation,
       meta: {
@@ -28,7 +29,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/llllMgr/cardlist',
+      path: `/${pathname}/cardlist`,
       name: 'CardList',
       component: CardList,
       meta: {
@@ -36,7 +37,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/llllMgr/musicList',
+      path: `/${pathname}/musicList`,
       name: 'MusicList',
       component: MusicList,
       meta: {
@@ -44,7 +45,7 @@ const router = createRouter({
       },
     },
     {
-      path: '/llllMgr/itemList',
+      path: `/${pathname}/itemList`,
       name: 'ItemList',
       component: ItemList,
       meta: {
@@ -52,7 +53,7 @@ const router = createRouter({
       },
     },
     // {
-    //   path: '/llllMgr/withStarMgr',
+    //   path: `/${pathname}/withStarMgr`,
     //   name: 'WithStarMgr',
     //   component: WithStarMgr,
     //   meta: {
@@ -60,7 +61,7 @@ const router = createRouter({
     //   }
     // },
     {
-      path: '/llllMgr/license',
+      path: `/${pathname}/license`,
       name: 'License',
       component: License,
       meta: {

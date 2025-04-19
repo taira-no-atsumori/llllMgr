@@ -81,22 +81,34 @@
                 >
                   <h3 class="mb-2">センターで絞り込み</h3>
                   <v-select
-                    v-model="center_ja"
+                    v-model="selectCenterList"
                     clearable
                     label="センター"
                     :items="Object.keys(store.memberColor)"
                     variant="outlined"
                     color="pink"
                     hint="絞り込みたいセンターメンバーを選んでください"
+                    multiple
                     persistent-hint
                     @click:clear="selectCenter(store, null)"
                   >
+                    <template v-slot:selection="{ item }">
+                      <v-img
+                        :src="store.getImagePath('member_icon', `icon_SD_${item.title}`)"
+                        class="icon member"
+                        style="width: 25px;"
+                      ></v-img>
+                    </template>
                     <template v-slot:item="{ item }">
                       <v-list-item
                         :title="store.makeFullName(item.title)"
                         @click="selectCenter(store, item.title)"
                       >
                         <template v-slot:prepend>
+                          <v-checkbox-btn
+                            color="pink"
+                            :model-value="selectCenterList.some((elm) => elm === item.title)"
+                          ></v-checkbox-btn>
                           <v-img
                             :src="store.getImagePath('member_icon', `icon_SD_${item.title}`)"
                             class="icon member"
@@ -205,7 +217,7 @@
                   sm="5"
                 >
                   <h3>ボルテージアップ</h3>
-                  <p>
+                  <p class="mb-1">
                     ボルテージPt.を一定量獲得するごとに、1pt.追加獲得する。<br />
                     一定量は以下のとおり。
                   </p>
@@ -217,8 +229,10 @@
                         <th class="text-center">6～10</th>
                         <th class="text-center">11～15</th>
                         <th class="text-center">16～20</th>
-                        <th class="text-center">21～25?</th>
-                        <th class="text-center">26～?</th>
+                        <th class="text-center">21～25</th>
+                        <th class="text-center">26～30</th>
+                        <th class="text-center">31～39</th>
+                        <th class="text-center">40～</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -230,6 +244,8 @@
                         <td class="text-center">8</td>
                         <td class="text-center">7</td>
                         <td class="text-center">6</td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">4</td>
                       </tr>
                     </tbody>
                   </v-table>
@@ -239,7 +255,7 @@
                   sm="5"
                 >
                   <h3>メンタルリカバー</h3>
-                  <p>
+                  <p class="mb-1">
                     メンタルが一定量減少するごとに、メンタルを1回復する。<br />
                     一定量は以下のとおり。
                   </p>
@@ -251,7 +267,11 @@
                         <th class="text-center">2～4</th>
                         <th class="text-center">5～9</th>
                         <th class="text-center">10～13</th>
-                        <th class="text-center">14～?</th>
+                        <th class="text-center">14～17</th>
+                        <th class="text-center">18～21</th>
+                        <th class="text-center">22～25</th>
+                        <th class="text-center">26～29</th>
+                        <th class="text-center">30～</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -262,6 +282,10 @@
                         <td class="text-center">10</td>
                         <td class="text-center">9</td>
                         <td class="text-center">8</td>
+                        <td class="text-center">7</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">4</td>
                       </tr>
                     </tbody>
                   </v-table>
@@ -270,16 +294,14 @@
                   cols="12"
                   sm="2"
                 >
-                  <v-row>
-                    <v-col cols="12">
-                      <h3>ビートハートアップ</h3>
-                      ビートハートアップレベル×0.5%
-                    </v-col>
-                    <v-col cols="12">
-                      <h3>LOVEボーナス</h3>
-                      LOVEボーナスレベル×0.5%
-                    </v-col>
-                  </v-row>
+                  <div class="mb-3 mb-md-10">
+                    <h3>ビートハートアップ</h3>
+                    ビートハートアップレベル×0.5%
+                  </div>
+                  <div>
+                    <h3>LOVEボーナス</h3>
+                    LOVEボーナスレベル×0.5%
+                  </div>
                 </v-col>
               </v-row>
             </v-expansion-panel-text>
@@ -369,8 +391,8 @@
         cols="6"
         md="4"
         lg="2"
-        align="center"
-        class="align-self-center"
+        align-self="center"
+        class="text-center"
       >
         <v-btn
           @click="store.showModalEvent('masteryLevel')"
@@ -378,25 +400,75 @@
           詳細を見る
         </v-btn>
       </v-col>
-
-      <v-col
-        cols="6"
-        md="4"
-        lg="2"
-        align="center"
-        class="align-self-center"
-        v-if="false"
-      >
-        <v-btn
-          color="blue"
-          @click="store.showModalEvent('masteryLevel')"
-        >
-          ソート
-        </v-btn>
-      </v-col>
     </v-row>
 
-    <v-divider class="mb-3"></v-divider>
+    <v-divider class="mb-2"></v-divider>
+
+    <div class="align-self-center d-inline-block mb-2 mb-md-0">
+      <v-btn
+        color="blue"
+        class="mr-2"
+      >
+        <v-icon class="mr-2">mdi-sort</v-icon>ソート
+        <v-menu
+          activator="parent"
+          transition="slide-y-transition"
+        >
+          <v-list>
+            <v-list-item
+              v-for="(label, val) in sortTypeList"
+              :key="val"
+              :value="val"
+              @click="
+                store.localStorageData.sortSettings.musicList.sortType = val;
+                store.changeSettings('sortSettings');
+              "
+            >
+              <v-list-item-title>
+                {{ label }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-btn>
+
+      <v-btn-toggle
+        v-model="store.localStorageData.sortSettings.musicList.order"
+        density="compact"
+        variant="outlined"
+        color="pink"
+        class="mr-2"
+        mandatory
+      >
+        <v-btn
+          v-model="store.localStorageData.sortSettings.musicList.order"
+          value="descending"
+          class="px-0 px-sm-2"
+          @click="store.changeSettings('sortSettings');"
+        >
+          <v-icon>mdi-sort-descending</v-icon>
+          <span class="ml-2 hidden-sm-and-down">降順</span>
+        </v-btn>
+        <v-btn
+          v-model="store.localStorageData.sortSettings.musicList.order"
+          value="ascending"
+          class="px-0 px-sm-2"
+          @click="store.changeSettings('sortSettings');"
+        >
+          <v-icon>mdi-sort-ascending</v-icon>
+          <span class="ml-2 hidden-sm-and-down">昇順</span>
+        </v-btn>
+      </v-btn-toggle>
+    </div>
+
+    <p class="align-self-center d-block d-md-inline-block">
+      絞り込み結果：{{ Object.keys(makeMusicList(store)).length }} 曲<span class="ml-1 mr-md-1">/</span>
+    </p>
+    <p class="align-self-center d-block d-md-inline-block">
+      現在のソート：{{ sortTypeList[store.localStorageData.sortSettings.musicList.sortType] }}
+    </p>
+
+    <v-divider class="my-2"></v-divider>
 
     <ul id="CDJacketArea">
       <li
@@ -521,13 +593,13 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useStoreCounter } from '../stores/counter';
 const store = useStoreCounter();
 store.setSupportSkillLevel();
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'MusicList',
   components: {},
@@ -539,8 +611,7 @@ export default {
       },
       inputMusicTitle: null,
       masteryLv: [0, 50],
-      center_en: null,
-      center_ja: null,
+      selectCenterList: [],
       bonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
       selectBonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
       attrList: ['smile', 'pure', 'cool'],
@@ -550,46 +621,91 @@ export default {
         pure: '#A9FCC7',
         cool: '#A1BAFA',
       },
+      sortTypeList: {
+        default: '標準',
+        level: 'マスタリーレベル',
+        kana: '五十音',
+        BHcount: 'ビートハート発生回数',
+        time: '秒数',
+        releaseDate: '発売日',
+      },
     };
   },
   created() {},
   computed: {
     makeMusicList() {
-      return (store) => {
-        const list = {};
-        let targetMusicList;
+      return (store): Object => {
+        const list = Array.from(
+          Object.entries(store.musicList),
+          ([key, value]) => ({ title: key, ...value })
+        );
 
-        for (const musicTitle in store.musicList) {
-          targetMusicList = store.musicList[musicTitle];
-
-          if (typeof targetMusicList.level !== 'number') {
-            targetMusicList.level = 0;
+        const result = list.filter((musicData) => {
+          if (typeof musicData.level !== 'number') {
+            musicData.level = 0;
           }
 
-          if (targetMusicList.level < this.masteryLv[0] || targetMusicList.level > this.masteryLv[1]) {
-            continue;
+          if (
+            musicData.level < this.masteryLv[0] || musicData.level > this.masteryLv[1] ||
+            // this.inputMusicTitle && !musicData.musicData.kana.includes(this.inputMusicTitle) ||
+            this.selectCenterList.length > 0 && !this.selectCenterList.includes(musicData.center) ||
+            this.selectBonusSkillList.length > 0 && !this.selectBonusSkillList.includes(musicData.bonusSkill) ||
+            this.selectAttrList.length > 0 && !this.selectAttrList.includes(musicData.attribute)) {
+            return false;
+          } else {
+            return true;
           }
+        });
 
-          if (this.inputMusicTitle && !targetMusicList.musicData.kana.includes(this.inputMusicTitle)) {
-            continue;
+        result.sort((a, b) => {
+          switch (store.localStorageData.sortSettings.musicList.sortType) {
+            case 'level':
+            case 'BHcount':
+              return sorting(
+                store.localStorageData.sortSettings.musicList.order === 'ascending',
+                a[store.localStorageData.sortSettings.musicList.sortType],
+                b[store.localStorageData.sortSettings.musicList.sortType]
+              );
+              break;
+            case 'kana':
+            case 'time':
+              return sorting(
+                store.localStorageData.sortSettings.musicList.order === 'ascending',
+                a.musicData[store.localStorageData.sortSettings.musicList.sortType],
+                b.musicData[store.localStorageData.sortSettings.musicList.sortType]
+              );
+              break;
+            case 'releaseDate':
+              return sorting(
+                store.localStorageData.sortSettings.musicList.order === 'ascending',
+                new Date(a.musicData.releaseDate.year, a.musicData.releaseDate.month - 1, a.musicData.releaseDate.date),
+                new Date(b.musicData.releaseDate.year, b.musicData.releaseDate.month - 1, b.musicData.releaseDate.date)
+              );
+              break;
+            default:
+              return sorting(
+                store.localStorageData.sortSettings.musicList.order === 'ascending',
+                a.ID,
+                b.ID
+              );
+              break;
           }
+        });
 
-          for (const skillName of this.selectBonusSkillList) {
-            if (this.center_en !== null && targetMusicList.center !== this.center_en) {
-              continue;
-            }
+        return result.reduce((acc, curr) => {
+          const title = curr.title;
+          delete curr.title;
+          acc[title] = curr;
+          return acc;
+        }, {});
 
-            if (targetMusicList.bonusSkill === skillName) {
-              for (const attrName of this.selectAttrList) {
-                if (targetMusicList.attribute === attrName) {
-                  list[musicTitle] = targetMusicList;
-                }
-              }
-            }
+        function sorting(isAscending, aa, bb) {
+          if (isAscending) {
+            return aa < bb ? -1 : aa > bb ? 1 : 0;
+          } else {
+            return aa > bb ? -1 : aa < bb ? 1 : 0;
           }
         }
-
-        return list;
       };
     },
   },
@@ -597,12 +713,27 @@ export default {
     this.onResize();
   },
   methods: {
-    selectCenter(store, select) {
-      this.center_en = select;
-      this.center_ja = select === null ? null : store.makeFullName(select);
+    selectCenter(store, selector: string | null): void {
+      if (selector === null) {
+        this.selectCenterList = [];
+      } else if (this.selectCenterList.some((x) => x === selector)) {
+        const result = [];
+
+        for (const skill of this.selectCenterList) {
+          if (skill !== selector) {
+            result.push(skill);
+          }
+        }
+
+        this.selectCenterList = result;
+      } else {
+        this.selectCenterList.push(selector);
+      }
     },
-    selectSkill(selector) {
-      if (this.selectBonusSkillList.some((x) => x === selector)) {
+    selectSkill(selector: string | null): void {
+      if (selector === null) {
+        this.selectBonusSkillList = [];
+      } else if (this.selectBonusSkillList.some((x) => x === selector)) {
         const result = [];
 
         for (const skill of this.selectBonusSkillList) {
@@ -616,8 +747,10 @@ export default {
         this.selectBonusSkillList.push(selector);
       }
     },
-    selectAttr(selector) {
-      if (this.selectAttrList.some((x) => x === selector)) {
+    selectAttr(selector: string | null): void {
+      if (selector === null) {
+        this.selectAttrList = [];
+      } else if (this.selectAttrList.some((x) => x === selector)) {
         const result = [];
 
         for (const skill of this.selectAttrList) {
@@ -631,7 +764,7 @@ export default {
         this.selectAttrList.push(selector);
       }
     },
-    onResize() {
+    onResize(): void {
       this.windowSize = {
         w: window.innerWidth,
         h: window.innerHeight,

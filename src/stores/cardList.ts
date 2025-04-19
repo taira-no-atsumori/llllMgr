@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
+import { CardListState } from '@/types/cardList';
 
 export const useCardStore = defineStore('cardList', {
-  state: () => ({
+  state: (): CardListState => ({
     card: {
       default: {
         default: {
@@ -2534,6 +2535,90 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
+          '翠鱗舞': {
+            ID: 'kh_057',
+            styleType: 'cheerLeader',
+            mood: 'melow',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2350,
+              pure: 2350,
+              cool: 3100,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'loveAttract_section',
+              name: 'ラブアトラクト',
+              AP: 7,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+              ],
+            },
+            skill: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 2,
+              detail: [
+                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, 3.52, 3.68, 4],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'kh_056',
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3100,
+              pure: 2250,
+              cool: 2450,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'APGain',
+              name: 'APゲイン',
+              AP: 3,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+              ],
+            },
+            skill: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 4,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+              ],
+            },
+          },
           '室咲格子': {
             ID: 'kh_043',
             styleType: 'moodMaker',
@@ -5043,6 +5128,90 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
+          '翠鱗舞': {
+            ID: 'sy_056',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2800,
+              pure: 2600,
+              cool: 2500,
+              mental: 290,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 7,
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+              ],
+            },
+            skill: {
+              ID: 'attractBoost1',
+              name: 'アトラクトブースト',
+              AP: 3,
+              detail: [
+                [5.2, 5.7, 6.2, 6.8, 7.3, 7.8, 8.3, 8.8, 9.4, 10.4, 10.9, 11.4, 12, 13],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'sy_055',
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3050,
+              pure: 2350,
+              cool: 2600,
+              mental: 280,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 3,
+              detail: [
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+              ],
+            },
+            skill: {
+              ID: 'heartBoost',
+              name: 'ハートブースト',
+              AP: 3,
+              detail: [
+                [16, 17.6, 19.2, 20.8, 22.4, 24, 25.6, 27.2, 28.8, 32, 33.6, 35.2, 36.8, 40],
+              ],
+            },
+          },
           '室咲格子': {
             ID: 'sy_042',
             styleType: 'performer',
@@ -7206,6 +7375,90 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
+          '翠鱗舞': {
+            ID: 'rr_045',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3000,
+              pure: 2300,
+              cool: 2500,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'loveAttract_stage',
+              name: 'ラブアトラクト',
+              AP: 7,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+              ],
+            },
+            skill: {
+              ID: 'refreshHeart',
+              name: 'リフレッシュハート',
+              AP: 4,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'rr_044',
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2600,
+              pure: 2200,
+              cool: 2900,
+              mental: 310,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 4,
+              detail: [
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
+              ],
+            },
+            skill: {
+              ID: 'extensions1_protect',
+              name: 'エクステプロテクト',
+              AP: 4,
+              detail: [
+                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, 3.52, 3.68, 4],
+              ],
+            },
+          },
           '室咲格子': {
             ID: 'rr_031',
             styleType: 'moodMaker',
@@ -16265,6 +16518,116 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
+          '翠鱗舞': {
+            ID: 'gn_021',
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2400,
+              pure: 2900,
+              cool: 2500,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 4,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+              ],
+            },
+            skill: {
+              ID: 'dress_suirinbu_01',
+              name: 'ドレス《翠鱗舞》',
+              AP: 2,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'extensions1_stageAttract_section',
+                  name: 'エクステアトラクト',
+                  AP: 3,
+                  detail: [
+                    [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'gn_020',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2400,
+              pure: 2900,
+              cool: 2500,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'heartBoost-dress_01',
+              name: 'ハートブースト：ドレス',
+              AP: 4,
+              detail: [
+                [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60],
+              ],
+            },
+            skill: {
+              ID: 'dress_novaWhite_01',
+              name: 'ドレス《ノヴァホワイト》',
+              AP: 2,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'heartCaptcha',
+                  name: 'ハートキャプチャ',
+                  AP: 2,
+                  detail: [
+                    [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+          },
           '室咲格子': {
             ID: 'gn_003',
             styleType: 'trickStar',
@@ -17256,6 +17619,90 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
+          '翠鱗舞': {
+            ID: 'sz_021',
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2600,
+              pure: 2800,
+              cool: 2500,
+              mental: 290,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 6,
+              detail: [
+                [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+              ],
+            },
+            skill: {
+              ID: 'voltageGain',
+              name: 'ボルテージゲイン',
+              AP: 4,
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'sz_020',
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2950,
+              pure: 2350,
+              cool: 2700,
+              mental: 280,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'mentalRecover',
+              name: 'メンタルリカバー',
+              AP: 3,
+              detail: [
+                [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8],
+              ],
+            },
+            skill: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 2,
+              detail: [
+                [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 3],
+              ],
+            },
+          },
           '室咲格子': {
             ID: 'sz_003',
             styleType: 'cheerLeader',
@@ -18410,6 +18857,90 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         R: {
+          '翠鱗舞': {
+            ID: 'hm_021',
+            styleType: 'performer',
+            mood: 'happy',
+            series: '翠鱗舞',
+            kana: 'すいりんぶ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2100,
+              pure: 3100,
+              cool: 2600,
+              mental: 300,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'loveAttract_stage',
+              name: 'ラブアトラクト',
+              AP: 7,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+              ],
+            },
+            skill: {
+              ID: 'heartBoost_limit2',
+              name: 'ハートブースト',
+              AP: 4,
+              detail: [
+                [14.4, 15.8, 17.3, 18.7, 20.2, 21.6, 23, 24.5, 25.9, 28.8, 30.2, 31.7, 33.1, 36],
+              ],
+            },
+          },
+          'ノヴァホワイト': {
+            ID: 'hm_020',
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: 'ノヴァホワイト',
+            kana: 'のゔぁほわいと',
+            gacha: {
+              addSeason: '初期所持',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 2700,
+              pure: 2200,
+              cool: 2800,
+              mental: 310,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'heartCaptcha',
+              name: 'ハートキャプチャ',
+              AP: 4,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+              ],
+            },
+            skill: {
+              ID: 'refreshProtect_stage',
+              name: 'リフレッシュプロテクト',
+              AP: 4,
+              detail: [
+                [1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, 3.52, 3.68, 4],
+              ],
+            },
+          },
           '室咲格子': {
             ID: 'hm_003',
             styleType: 'moodMaker',
@@ -18592,7 +19123,7 @@ export const useCardStore = defineStore('cardList', {
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
-              addSeason: '初期所持',
+              addSeason: '2025 SPRING LIMITED COLLECTION Vol.1',
               period: 'normal',
             },
             fluctuationStatus: {
@@ -18767,7 +19298,56 @@ export const useCardStore = defineStore('cardList', {
             },
           },
         },
-        SR: {},
+        SR: {
+          'Her-bath-rium': {
+            ID: 'iz_004',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 OpeningTerm 個人戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4900,
+              pure: 4400,
+              cool: 3400,
+              mental: 410,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'protectHeat_01',
+              name: 'プロテクトヒート',
+              AP: 4,
+              detail: [
+                [2.4, 2.7, 2.9, 3.2, 3.4, 3.6, 3.9, 4.1, 4.4, 4.8, 5.1, 5.3, 5.6, 6],
+                [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8],
+              ],
+            },
+            skill: {
+              ID: 'imitationVoltage_01',
+              name: 'イミテーションボルテージ',
+              AP: 2,
+              detail: [
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+              ],
+            },
+            characteristic: {
+              name: 'サウンド：APゲイン',
+              detail: 'ムードがハッピー、メロウいずれか75以上でこのスキルを使用したとき、APを4回復する。',
+              type: ['APGain'],
+            },
+          },
+        },
         R: {
           '翠鱗舞': {
             ID: 'iz_003',

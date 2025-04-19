@@ -209,7 +209,7 @@ export default {
           lastDay: [2025, 4, 11, 12, 0],
           img: 'thanks',
         },*/
-        liveGP: {
+        /*liveGP: {
           title: 'ライブグランプリ「105期OpeningTerm 個人戦」',
           text: '',
           type: 'liveGP',
@@ -217,16 +217,16 @@ export default {
           lastDay: [2025, 4, 17, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-12-10-lax2wkj7tp',
           img: '105期OpeningTerm 個人戦_logo',
-        },
-        /*'liveGP': {
-          title: 'ライブグランプリ「104期 FinalTerm 第2回サークル対抗戦」',
+        },*/
+        'liveGP': {
+          title: 'ライブグランプリ「105期 OpeningTerm サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 3, 21, 12, 0],
-          lastDay: [2025, 3, 27, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-03-19-10-rviikncrbg',
-          img: '104期 FinalTerm 第2回サークル対抗戦_logo',
-        },*/
+          firstDay: [2025, 4, 21, 12, 0],
+          lastDay: [2025, 4, 26, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-19-10-rxb0bmpb8g',
+          img: '105期 OpeningTerm サークル対抗戦_logo',
+        },
         '4thLiveDream_ishikawa': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
           text: '石川公演',

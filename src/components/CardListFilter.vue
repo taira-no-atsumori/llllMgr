@@ -141,7 +141,7 @@
           lg="2"
           v-for="memberName in store.memberNameList"
           :key="memberName"
-          class="mb-1"
+          class="mb-1 align-self-center"
         >
           <v-checkbox
             v-model="store.search.cardList.memberName"
@@ -160,7 +160,12 @@
                     `icon_illust_${memberName}_${/kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105}`
                   )"
                   class="icon member"
-                ></v-img>{{ store.makeFullName(memberName) }}
+                ></v-img>
+                <span
+                  :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
+                >
+                  {{ store.makeFullName(memberName) }}
+                </span>
               </template>
               <template v-else>
                 特殊
@@ -646,18 +651,18 @@
 </v-window>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useStoreCounter } from '../stores/counter';
 const store = useStoreCounter();
 
-const makeSkillTypeList = [];
+const makeSkillTypeList: string[] = [];
 
 for (const key in store.skillColor) {
   makeSkillTypeList.push(store.skillColor[key].name);
 }
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'CardListFilter',
   data() {
@@ -674,15 +679,15 @@ export default {
     this.onResize();
   },
   computed: {
-    windowWidth() {
+    windowWidth(): number {
       return window.innerWidth
     },
-    windowHeight() {
+    windowHeight(): number {
       return window.innerHeight
     }
   },
   methods: {
-    onResize() {
+    onResize(): void {
       this.windowSize = {
         w: window.innerWidth,
         h: window.innerHeight

@@ -56,16 +56,16 @@
 </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
   import { useStoreCounter } from '../stores/counter';
   const store = useStoreCounter();
   
-  const makeBonusSkillDescriptionText = (bonusSkill) => {
+  const makeBonusSkillDescriptionText = (bonusSkill: string): number => {
     if (/ボルテージアップ|メンタルリカバー/.test(bonusSkill)) {
       let num = store.bonusSkillList[bonusSkill].init;
 
       for (const i of store.bonusSkillList[bonusSkill].ary) {
-        if (store.memberData.centerList[store.checkMasteryMember].bonusSkill[bonusSkill] <= i) {
+        if (store.outputBonusSkillList[bonusSkill].skillLevel <= i) {
           break;
         } else {
           num = num - 1;
@@ -74,12 +74,12 @@
 
       return num;
     } else {
-      return store.memberData.centerList[store.checkMasteryMember].bonusSkill[bonusSkill] * 0.5;
+      return store.outputBonusSkillList[bonusSkill].skillLevel * 0.5;
     }
   }
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'MasteryLevel',
   data() {
