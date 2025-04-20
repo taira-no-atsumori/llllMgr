@@ -16398,6 +16398,67 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          'Her-bath-rium': {
+            ID: 'gn_022',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.2',
+              period: 'spring',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4900,
+              pure: 4200,
+              cool: 3500,
+              mental: 420,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'refreshGain_02',
+              name: 'リフレッシュゲイン',
+              AP: 5,
+              detail: [
+                [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+              ],
+            },
+            skill: {
+              ID: 'dress_herBathRium',
+              name: 'ドレス《Her-bath-rium》',
+              AP: 4,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'Her-bath-rium',
+                  name: '《Her-bath-rium》',
+                  AP: 5,
+                  detail: [
+                    [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス & APレデュース：サウンド',
+                    detail: 'このスキルを使用すると、デッキから除外される。さらに手札にある間、ムードがハッピー、メロウいずれか75以上のとき、このスキルの消費AP-3。',
+                    type: ['exclusion', 'sound', 'APReduce'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'ドロー：サウンド/APレデュース：スリーズブーケ',
+              detail: 'ムードがハッピー、メロウいずれか75以上でドローしたとき、デッキ内のスリーズブーケのスキルの消費AP-2。',
+              type: ['draw', 'sound', 'APReduce', 'ceriseBouquet'],
+            },
+          },
           '聖夜譚': {
             ID: 'gn_015',
             styleType: 'trickStar',
@@ -16906,6 +16967,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'Her-bath-rium': {
+            ID: 'sz_022',
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.2',
+              period: 'spring',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5600,
+              pure: 5200,
+              cool: 3700,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensions1_protect',
+              name: 'エクステプロテクト',
+              AP: 5,
+              detail: [
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],
+              ],
+            },
+            skill: {
+              ID: 'soundHeart_01',
+              name: 'サウンドハート',
+              AP: 7,
+              detail: [
+                ['7?', '8?', '8?', '9?', '10?', '11?', '11?', '12?', '13?', '14?', '15?', '15?', '16?', 17],
+                [36, 40, 43, 47, 50, 54, 58, 61, 65, 72, 76, 79, 83, 90],
+              ],
+            },
+            characteristic: {
+              name: 'サウンド：リインフォース',
+              detail: 'ムードがハッピー、メロウいずれか75以上でこのスキルを使用したとき、スキルの効果が増加する。',
+              type: ['sound', 'reinforce'],
+            },
+          },
           '探求の舞踏会': {
             ID: 'sz_019',
             styleType: 'performer',
@@ -17949,6 +18058,65 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'Her-bath-rium': {
+            ID: 'hm_022',
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.2',
+              period: 'spring',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5500,
+              pure: 5200,
+              cool: 3700,
+              mental: 470,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'refreshChangeProtect_01',
+              name: 'リフレッシュチェンジプロテクト',
+              AP: 5,
+              detail: [
+                [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],
+              ],
+            },
+            skill: {
+              ID: 'soundProtect_01',
+              name: 'サウンドプロテクト',
+              AP: 3,
+              detail: [
+                [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8],
+              ],
+            },
+            characteristic: {
+              name: 'オルタネイト：イグニッション',
+              detail: '姫芽の《イグニッションモード》の状態に応じて効果が変化する。',
+              type: ['alternate'],
+              changeCharacteristic: [
+                {
+                  modeName: '通常モード',
+                  name: 'サウンド：イグニッション',
+                  detail: 'ムードがハッピー、メロウいずれか75以上でこのスキルを使用したとき、姫芽が《イグニッションモード》になる。',
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  name: 'ドロー：ヒートアップ',
+                  detail: 'ドローした時、このセクション中、AP回復速度を30%増加し、姫芽の《イグニッションモード》を解除する。',
+                },
+              ],
+            },
+          },
           '邂逅の舞踏会': {
             ID: 'hm_019',
             styleType: 'trickStar',

@@ -419,10 +419,7 @@
               v-for="(label, val) in sortTypeList"
               :key="val"
               :value="val"
-              @click="
-                store.localStorageData.sortSettings.musicList.sortType = val;
-                store.changeSettings('sortSettings');
-              "
+              @click="sortingProcess(store, 'sortType', val);"
             >
               <v-list-item-title>
                 {{ label }}
@@ -441,7 +438,6 @@
         mandatory
       >
         <v-btn
-          v-model="store.localStorageData.sortSettings.musicList.order"
           value="descending"
           class="px-0 px-sm-2"
           @click="store.changeSettings('sortSettings');"
@@ -450,7 +446,6 @@
           <span class="ml-2 hidden-sm-and-down">降順</span>
         </v-btn>
         <v-btn
-          v-model="store.localStorageData.sortSettings.musicList.order"
           value="ascending"
           class="px-0 px-sm-2"
           @click="store.changeSettings('sortSettings');"
@@ -494,6 +489,8 @@
             :lazy-src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
             :src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
             :alt="songTitle"
+            @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length)"
+            eager
           ></v-img>
           <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
           <v-divider class="mb-1 border-opacity-25"></v-divider>
@@ -542,6 +539,8 @@
                 :lazy-src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
                 :src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
                 :alt="songTitle"
+                @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length);"
+                eager
               ></v-img>
               <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
               <v-divider class="mb-1 border-opacity-25"></v-divider>
@@ -597,6 +596,7 @@
 import { useStoreCounter } from '../stores/counter';
 const store = useStoreCounter();
 store.setSupportSkillLevel();
+store.loading = true;
 </script>
 
 <script lang="ts">
@@ -629,6 +629,7 @@ export default {
         time: '秒数',
         releaseDate: '発売日',
       },
+      loadedImagesCount: 0,
     };
   },
   created() {},
@@ -769,6 +770,34 @@ export default {
         w: window.innerWidth,
         h: window.innerHeight,
       };
+    },
+    sortingProcess(
+      store: any,
+      type: 'sortType' | 'order',
+      val: string,
+    ): void {
+      if (
+        store.localStorageData.sortSettings.musicList[type] !== val
+      ) {
+        store.loading = true;
+
+        if (type === 'sortType') {
+          store.localStorageData.sortSettings.musicList[type] = val;
+        }
+
+        store.changeSettings('sortSettings');
+      }
+    },
+    checkImagesLoaded(
+      store: any,
+      totalImages: number
+    ): void {
+      this.loadedImagesCount += 1;
+
+      if (this.loadedImagesCount === totalImages) {
+        store.loading = false;
+        this.loadedImagesCount = 0;
+      }
     },
   },
 };

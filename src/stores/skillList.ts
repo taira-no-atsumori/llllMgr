@@ -201,11 +201,22 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
-      リフレッシュゲイン: {
-        refreshGain: {
+      'リフレッシュゲイン': {
+        'refreshGain': {
           text: [
             '手札を全て捨てて、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の',
             '%分のメンタルダメージを無効にする。さらにAPを7回復する。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'protect_stage', 'APGain']
+          }
+        },
+        'refreshGain_02': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にし、APを',
+            '回復する。'
           ],
           detail: {
             attr: 'refresh',
@@ -270,6 +281,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'refresh',
             type: ['modeChange', 'reshuffle', 'protect_stage']
+          }
+        }
+      },
+      'リフレッシュチェンジプロテクト': {
+        'refreshChangeProtect_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にし、姫芽の《イグニッションモード》を切り替える。'
+          ],
+          detail: {
+            attr: 'refresh',
+            type: ['reshuffle', 'modeChange', 'protect_stage']
           }
         }
       },
@@ -1491,8 +1514,8 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      エクステプロテクト: {
-        extensions1_protect: {
+      'エクステプロテクト': {
+        'extensions1_protect': {
           text: [
             'このステージ中、手札の上限枚数を1枚追加する。さらにこのステージ中、メンタルの最大値の',
             '%分のメンタルダメージを無効にする。',
@@ -1502,7 +1525,7 @@ export const useSkillStore = defineStore('skillList', {
             type: ['extensions_stage', 'protect_stage'],
           },
         },
-        extensions3_protect: {
+        'extensions3_protect': {
           text: [
             'このセクション中、手札の上限枚数を3枚追加する。さらにこのステージ中、メンタルの最大値の',
             '%分のメンタルダメージを無効にする。',
@@ -1513,8 +1536,8 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      エクステプロテクトヒート: {
-        extensions3_protect_heat: {
+      'エクステプロテクトヒート': {
+        'extensions3_protect_heat': {
           text: [
             'このセクション中、手札の上限枚数を3枚増加し、AP回復速度を+5%する。さらにこのステージ中、メンタルの最大値の',
             '%分のメンタルダメージを無効にする。',
@@ -3435,6 +3458,157 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ドレス《Her-bath-rium》': {
+        'dress_herBathRium': {
+          text: [
+            'ドレスカード《Her-bath-rium》を1種類(合計3枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      'ドレス《シュータードレス》': {
+        dress_shooterDress: {
+          text: [
+            '《シュータードレス/RIO》を1種類(合計1枚)山札に追加する。メンタルが50%以下のとき、さらに《シュータードレス/RIO》を1種類(合計1枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      '《シュータードレス/RIO》': {
+        shooterDressRio: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、AP回復速度を+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['reshuffle', 'APQuick'],
+          },
+        },
+      },
+      'ドレス《ユメワズライ》': {
+        'dress_yumewazurai_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'する。さらにドレスカード《ユメワズライ》を1種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['heartLimitUp', 'addCard'],
+          },
+        },
+      },
+      '《ユメワズライ》': {
+        'yumewazurai_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            '、AP回復速度を+3%、このセクション中、手札の上限枚数を3枚増加し、フレッシュブーケカードを1種類(合計1枚)山札に追加する。さらにデッキ枚数が27枚以上のとき、このステージ中、獲得するLOVEを+',
+            '%し、デッキ枚数が39枚以上のとき、ビートハート',
+            '回分のスキルハートを獲得し、このステージ中、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['heartLimitUp', 'APQuick', 'extendHand', 'addCard', 'loveAttract_stage', 'heartCaptcha'],
+          },
+        },
+      },
+      'フレッシュブーケ': {
+        'freshBouquet_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにこのセクション中、手札の上限枚数を1枚増加する。'
+          ],
+          detail: {
+            attr: 'bouquet',
+            type: ['heartLimitUp', 'heartCaptcha', 'extendHand'],
+          },
+        },
+      },
+      'グレイスブーケ': {
+        'graceBouquet_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキにあるスリーズブーケのカードスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: 'bouquet',
+            type: ['heartLimitUp', 'heartCaptcha', 'APReduce_deck_ceriseBouquet'],
+          },
+        },
+      },
+      'ドリームブーケ': {
+        'dreamBouquet_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+',
+            '%、AP回復速度を+3%する。'
+          ],
+          detail: {
+            attr: 'bouquet',
+            type: ['heartLimitUp', 'heartCaptcha', 'loveAttract_stage', 'APQuick'],
+          },
+        },
+      },
+      'ドレス《キセキ》': {
+        'dress_kiseki_01': {
+          text: [
+            'ドレスカード《キセキ》を3種類(合計3枚)山札に追加する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard'],
+          },
+        },
+      },
+      '《奇跡の舞踏会》': {
+        'dress_kiseki_02': {
+          text: [
+            'このステージ中、AP回復速度を+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['APQuick', 'heartCaptcha'],
+          },
+        },
+      },
+      '《軌跡の舞踏会》': {
+        'dress_kiseki_03': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'し、ドレスカード使用によるスキルハート獲得効果の獲得数を+',
+            '%する。さらにビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['heartLimitUp', 'boost_heartCaptcha', 'heartCaptcha'],
+          },
+        },
+      },
+      '《輝跡の舞踏会》': {
+        'dress_kiseki_04': {
+          text: [
+            'このステージ中、手札の上限枚数を1枚増加し、手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['reshuffle', 'APQuick'],
+          },
+        },
+      },
       '梢デザイン': {
         design_kozue: {
           text: [
@@ -3547,6 +3721,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['addCard'],
+          },
+        },
+      },
+      '《Her-bath-rium》': {
+        'Her-bath-rium': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を1枚増加し、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'extendHand', 'protect_stage'],
           },
         },
       },
@@ -4588,29 +4774,6 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      'ドレス《シュータードレス》': {
-        dress_shooterDress: {
-          text: [
-            '《シュータードレス/RIO》を1種類(合計1枚)山札に追加する。メンタルが50%以下のとき、さらに《シュータードレス/RIO》を1種類(合計1枚)山札に追加する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['addCard'],
-          },
-        },
-      },
-      '《シュータードレス/RIO》': {
-        shooterDressRio: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、AP回復速度を+',
-            '%する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['reshuffle', 'APQuick'],
-          },
-        },
-      },
       'APゲイン：メンタルリカバー & プロテクト': {
         'APGain-mentalRecover_protect': {
           text: [
@@ -5025,73 +5188,6 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      'ドレス《ユメワズライ》': {
-        'dress_yumewazurai_01': {
-          text: [
-            'このステージ中、ハート上限を+',
-            'する。さらにドレスカード《ユメワズライ》を1種類(合計3枚)山札に追加する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['heartLimitUp', 'addCard'],
-          },
-        },
-      },
-      '《ユメワズライ》': {
-        'yumewazurai_01': {
-          text: [
-            'このステージ中、ハート上限を+',
-            '、AP回復速度を+3%、このセクション中、手札の上限枚数を3枚増加し、フレッシュブーケカードを1種類(合計1枚)山札に追加する。さらにデッキ枚数が27枚以上のとき、このステージ中、獲得するLOVEを+',
-            '%し、デッキ枚数が39枚以上のとき、ビートハート',
-            '回分のスキルハートを獲得し、このステージ中、ハート上限を+',
-            'する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['heartLimitUp', 'APQuick', 'extendHand', 'addCard', 'loveAttract_stage', 'heartCaptcha'],
-          },
-        },
-      },
-      'フレッシュブーケ': {
-        'freshBouquet_01': {
-          text: [
-            'このステージ中、ハート上限を+',
-            'し、ビートハート',
-            '回分のスキルハートを獲得する。さらにこのセクション中、手札の上限枚数を1枚増加する。'
-          ],
-          detail: {
-            attr: 'bouquet',
-            type: ['heartLimitUp', 'heartCaptcha', 'extendHand'],
-          },
-        },
-      },
-      'グレイスブーケ': {
-        'graceBouquet_01': {
-          text: [
-            'このステージ中、ハート上限を+',
-            'し、ビートハート',
-            '回分のスキルハートを獲得する。さらにデッキにあるスリーズブーケのカードスキルの消費AP-3。'
-          ],
-          detail: {
-            attr: 'bouquet',
-            type: ['heartLimitUp', 'heartCaptcha', 'APReduce_deck_ceriseBouquet'],
-          },
-        },
-      },
-      'ドリームブーケ': {
-        'dreamBouquet_01': {
-          text: [
-            'このステージ中、ハート上限を+',
-            'し、ビートハート',
-            '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+',
-            '%、AP回復速度を+3%する。'
-          ],
-          detail: {
-            attr: 'bouquet',
-            type: ['heartLimitUp', 'heartCaptcha', 'loveAttract_stage', 'APQuick'],
-          },
-        },
-      },
       'フラッフィーダイナソー': {
         'fluffyDinosaur_01': {
           text: [
@@ -5196,56 +5292,6 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'wardrobe',
             type: ['changeDeck', 'boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover', 'boost_mentalProtect'],
-          },
-        },
-      },
-      'ドレス《キセキ》': {
-        'dress_kiseki_01': {
-          text: [
-            'ドレスカード《キセキ》を3種類(合計3枚)山札に追加する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['addCard'],
-          },
-        },
-      },
-      '《奇跡の舞踏会》': {
-        'dress_kiseki_02': {
-          text: [
-            'このステージ中、AP回復速度を+',
-            '%する。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['APQuick', 'heartCaptcha'],
-          },
-        },
-      },
-      '《軌跡の舞踏会》': {
-        'dress_kiseki_03': {
-          text: [
-            'このステージ中、ハート上限を+',
-            'し、ドレスカード使用によるスキルハート獲得効果の獲得数を+',
-            '%する。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['heartLimitUp', 'boost_heartCaptcha', 'heartCaptcha'],
-          },
-        },
-      },
-      '《輝跡の舞踏会》': {
-        'dress_kiseki_04': {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加し、手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
-            '回分のスキルハートを獲得する。'
-          ],
-          detail: {
-            attr: 'dress',
-            type: ['reshuffle', 'APQuick'],
           },
         },
       },
@@ -5461,7 +5507,32 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['vibes_section', 'heartLimitUp'],
+            type: ['vibes_section', 'sound', 'heartLimitUp'],
+          },
+        },
+      },
+      'サウンドハート': {
+        'soundHeart_01': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがハッピー、メロウいずれか75以上のとき、ビートハート',
+            '回分のスキルハートを獲得する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['sound', 'heartCaptcha'],
+          },
+        },
+      },
+      'サウンドプロテクト': {
+        'soundProtect_01': {
+          text: [
+            'このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。さらにムードがハッピー、メロウいずれか75以上のとき、デッキにあるみらくらぱーく！のスキルの消費AP-5。',
+          ],
+          detail: {
+            attr: '',
+            type: ['protect_stage', 'sound', 'APGain'],
           },
         },
       },
@@ -5473,7 +5544,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: [],
+            type: ['sound', 'ambience_section'],
           },
         },
       },
@@ -5766,6 +5837,11 @@ export const useSkillStore = defineStore('skillList', {
         name: 'イミテーション',
         colorCode: 'purple',
         description: 'カードがステージにセットされ、特定の獲得したものを吸収する。その後、特定の効果を発動し、捨札に移動する。',
+      },
+      'sound': {
+        name: 'サウンド',
+        colorCode: 'red',
+        description: 'ムードが一定値以上もしくは一定値以下になると、特定の効果を発動する。',
       },
     },
   }),

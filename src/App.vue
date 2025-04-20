@@ -168,6 +168,7 @@
     ></v-fab>
 
     <Modal />
+    <Loading />
 
     <v-footer color="pink" class="mb-10">
       <v-row no-gutters justify="center">
@@ -214,12 +215,14 @@ store.init();
 
 <script lang="ts">
 import Modal from './components/ModalArea.vue';
+import Loading from './components/Loading.vue';
 import { useGoTo } from 'vuetify'
 
 export default {
   name: 'App',
   components: {
     Modal,
+    Loading
   },
   data() {
     return {

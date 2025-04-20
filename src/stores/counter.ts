@@ -9,8 +9,9 @@ import { CounterState } from '@/types/counter';
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
     version: 'ζ.15(アーリーアクセス)',
+    loading: false,
     dialog: false,
-    showModalName: false,
+    dialogError: false,
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
