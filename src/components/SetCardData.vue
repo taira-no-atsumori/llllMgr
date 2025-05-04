@@ -199,25 +199,25 @@
         cols="12"
         sm="5"
       >
-        <div class="mb-4">
-          <h4 class="mb-4">特訓度</h4>
+        <div class="mb-3">
+          <h4 class="mb-3">特訓度</h4>
           <v-row>
-            <v-spacer></v-spacer>
             <v-col
+              cols="5"
               align-self="center"
-              justify="center"
-              class="pa-0"
+              class="pa-0 text-right"
             >
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.trainingLevel === 0"
                 @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel - 1)"
-                >-1
+              >-1
               </v-btn>
             </v-col>
-            <v-col class="pa-0 align-self-center text-center">
+            <v-col cols="2" align-self="center" justify="center" class="pa-0 text-center">
               {{ [0, 1, 2, 3, 4][store.settingCardData.fluctuationStatus.trainingLevel] }}
             </v-col>
             <v-col
+              cols="5"
               align-self="center"
               justify="center"
               class="pa-0"
@@ -225,63 +225,56 @@
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.trainingLevel === store.setMaxTrainingLevel"
                 @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel + 1)"
-                >+1
+              >+1
               </v-btn>
             </v-col>
-            <v-spacer></v-spacer>
           </v-row>
         </div>
-        <div class="mb-6">
-          <h4 class="mb-4">レベル</h4>
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+        <div class="mb-3">
+          <h4 class="mb-1">レベル</h4>
+          <div class="paramSetArea mb-1">
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.cardLevel === (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)"
                 @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)"
               >
                 MIN
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.cardLevel === (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)"
                 @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel - 1)"
               >
                 -1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               {{ store.settingCardData.fluctuationStatus.cardLevel }}
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
                 @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel + 1)"
               >
                 +1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
                 @click="store.valueChange('cardLevel', store.changeMaxCardLevel)"
               >
                 MAX
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
+            </div>
+          </div>
         </div>
         <div
-          class="mb-6"
+          class="mb-3"
           v-if="store.settingCardData?.specialAppeal"
         >
-          <h4 class="mb-4 d-flex flex-row align-center">
+          <h4 class="mb-1 d-flex flex-row">
             スペシャルアピール
             <v-btn
               size="small"
@@ -291,55 +284,49 @@
               @click="openDialog('skillList', 900, { targetSkill: 'specialAppeal' })"
             ></v-btn>
           </h4>
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+          <div class="paramSetArea mb-1">
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SALevel === 1"
                 @click="store.valueChange('SALevel', 1)"
               >
                 MIN
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SALevel === 1"
                 @click="store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel - 1)"
               >
                 -1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 d-flex flex-row align-center justify-center">
+            </div>
+            <div>
               {{ store.settingCardData.fluctuationStatus.SALevel }}
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel"
                 @click="store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel + 1)"
               >
                 +1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel"
                 @click="store.valueChange('SALevel', store.changeSkillLevel)"
               >
                 MAX
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
+            </div>
+          </div>
         </div>
         <div
-          class="mb-6"
+          class="mb-3"
           v-if="store.settingCardData?.skill"
         >
-          <h4 class="mb-4 d-flex flex-row align-center">
+          <h4 class="mb-1 d-flex flex-row">
             スキル
             <v-btn
               size="small"
@@ -349,59 +336,55 @@
               @click="openDialog('skillList', 900, { targetSkill: 'skill' })"
             ></v-btn>
           </h4>
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+          <div class="paramSetArea mb-1">
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
                 @click="store.valueChange('SLevel', 1)"
               >
                 MIN
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
                 @click="store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel - 1)"
               >
                 -1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               {{ store.settingCardData.fluctuationStatus.SLevel }}
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel"
                 @click="store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel + 1)"
               >
                 +1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel"
                 @click="store.valueChange('SLevel', store.changeSkillLevel)"
               >
                 MAX
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
+            </div>
+          </div>
         </div>
-        <div class="mb-6">
-          <h4 class="mb-4 d-flex flex-row align-center">
+        <div class="mb-3">
+          <h4 class="mb-1 d-flex flex-row">
             解放Lv.
             <span
               v-if="store.getSettingCard.rare !== 'DR' && store.settingCardData?.specialAppeal"
               class="ml-1"
             >
               (最終獲得GP Pt. +<span class="text-pink">
-                {{ store.grandprixBonus.releaseLv[store.getSettingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100 }}
+                {{
+                store.grandprixBonus.releaseLv[store.getSettingCard.rare][store.settingCardData.fluctuationStatus.releaseLevel - 1] * 100
+              }}
               </span>%)
               <v-btn
                 size="small"
@@ -410,11 +393,10 @@
                 class="ml-1"
                 @click="openDialog('GPPT', 600, null)"
               ></v-btn
-            ></span>
+              ></span>
           </h4>
-          <v-row>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+          <div class="paramSetArea mb-1">
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
                 @click="
@@ -424,9 +406,8 @@
               >
                 MIN
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
                 @click="
@@ -436,13 +417,11 @@
               >
                 -1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               {{ store.settingCardData.fluctuationStatus.releaseLevel }}
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
                 @click="
@@ -452,9 +431,8 @@
               >
                 +1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
                 @click="
@@ -464,12 +442,11 @@
               >
                 MAX
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
+            </div>
+          </div>
         </div>
-        <div class="mb-4">
-          <h4 class="mb-4 d-flex flex-row align-center">
+        <div>
+          <h4 class="mb-1 d-flex flex-row">
             解放Pt.
             <span class="ml-1">(上限：{{ limitReleasePoint(store) }})</span>
             <v-btn
@@ -480,49 +457,51 @@
               @click="openDialog('releasePoint', 600, null)"
             ></v-btn>
           </h4>
-          <v-row class="mb-2">
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+          <div class="paramSetArea mb-1">
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releasePoint === 0"
                 @click="store.valueChange('releasePoint', Math.max(0, store.settingCardData.fluctuationStatus.releasePoint - store.releasePoint[store.settingCardData.rare].point))"
               >
-                -{{ store.settingCardData.fluctuationStatus.releasePoint - store.releasePoint[store.settingCardData.rare].point < 0 ? store.settingCardData.fluctuationStatus.releasePoint : store.releasePoint[store.settingCardData.rare].point }}
+                -{{
+                  store.settingCardData.fluctuationStatus.releasePoint - store.releasePoint[store.settingCardData.rare].point < 0 ?
+                    store.settingCardData.fluctuationStatus.releasePoint :
+                    store.releasePoint[store.settingCardData.rare].point
+                }}
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releasePoint === 0"
                 @click="store.valueChange('releasePoint', store.settingCardData.fluctuationStatus.releasePoint - 1)"
               >
                 -1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               {{ store.settingCardData.fluctuationStatus.releasePoint }}
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)"
                 @click="store.valueChange('releasePoint', store.settingCardData.fluctuationStatus.releasePoint + 1)"
               >
                 +1
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-            <v-col class="pa-0 align-self-center text-center">
+            </div>
+            <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)"
                 @click="store.valueChange('releasePoint', Math.min(store.settingCardData.fluctuationStatus.releasePoint + store.releasePoint[store.settingCardData.rare].point, limitReleasePoint(store)))"
               >
-                +{{ store.settingCardData.fluctuationStatus.releasePoint + store.releasePoint[store.settingCardData.rare].point > limitReleasePoint(store) ? limitReleasePoint(store) - store.settingCardData.fluctuationStatus.releasePoint : store.releasePoint[store.settingCardData.rare].point }}
+                +{{
+                  store.settingCardData.fluctuationStatus.releasePoint + store.releasePoint[store.settingCardData.rare].point > limitReleasePoint(store) ?
+                    limitReleasePoint(store) - store.settingCardData.fluctuationStatus.releasePoint :
+                    store.releasePoint[store.settingCardData.rare].point
+                }}
               </v-btn>
-            </v-col>
-            <v-spacer></v-spacer>
-          </v-row>
+            </div>
+          </div>
           <v-slider
             v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5"
             hide-details
@@ -532,7 +511,8 @@
             step="1"
             color="pink"
             thumb-color="pink"
-            class="mb-4 px-2"
+            class="mb-2 px-2"
+            density="compact"
           ></v-slider>
         </div>
         <div class="mb-4">
@@ -558,7 +538,7 @@
       </v-col>
     </v-row>
 
-    <skillArea skillType="specialAppeal" />
+    <skillArea skillType="specialAppeal"/>
     <!-- <div
       class="mt-4"
       v-if="store.settingCardData?.specialAppeal"
@@ -651,7 +631,7 @@
       </v-expansion-panels>
     </div> -->
 
-    <skillArea skillType="skill" />
+    <skillArea skillType="skill"/>
     <!-- <div
       class="mt-4"
       v-if="store.settingCardData?.skill"
@@ -825,7 +805,7 @@
       </v-expansion-panels>
     </div> -->
 
-    <skillArea skillType="characteristic" />
+    <skillArea skillType="characteristic"/>
     <!-- <div
       class="mt-4"
       v-if="store.settingCardData?.characteristic"
@@ -943,7 +923,7 @@
             :key="i"
             :value="addSkillData.name"
           >
-            {{ `${addSkillData?.modeName ?? `追加スキル${i + 1}`}` }}
+            {{ `${ addSkillData?.modeName ?? `追加スキル${ i + 1 }` }` }}
           </v-tab>
         </v-tabs>
 
@@ -964,7 +944,7 @@
                 >
                   <th class="text-center px-1">{{ i }}</th>
                   <td class="px-1">
-                    {{ store.makeSkillText(targetSkill, { targetSkillLv: i - 1 }) }}
+                    {{ store.makeSkillText(targetSkill, {targetSkillLv: i - 1}) }}
                   </td>
                 </tr>
               </tbody>
@@ -990,7 +970,7 @@
                 >
                   <th class="text-center px-1">{{ skillLevel }}</th>
                   <td class="px-1">
-                    {{ store.makeSkillText(targetSkill, { targetSkillLv: skillLevel - 1, addSkillNum: i }) }}
+                    {{ store.makeSkillText(targetSkill, {targetSkillLv: skillLevel - 1, addSkillNum: i}) }}
                   </td>
                 </tr>
               </tbody>
@@ -1005,8 +985,8 @@
       <div v-else-if="openDialogName === 'GPPT'">
         <h2 class="text-center mb-2">解放Lv.ボーナスとは？</h2>
         <p>
-          楽曲の歌唱メンバーのMAIN STYLEに設定しているカードの解放Lv.を上げると、ライブグランプリのグランプリPt.を増加させることができます。<br />
-          この増加できる値のことを「解放Lv.ボーナス」と呼びます。<br />
+          楽曲の歌唱メンバーのMAIN STYLEに設定しているカードの解放Lv.を上げると、ライブグランプリのグランプリPt.を増加させることができます。<br/>
+          この増加できる値のことを「解放Lv.ボーナス」と呼びます。<br/>
           解放Lv.ボーナスは、レアリティと解放状況によって以下のように変わります。
         </p>
 
@@ -1058,24 +1038,24 @@
         <h2 class="text-center mb-2">解放Pt.とは？</h2>
 
         <p>
-          ガチャで入手したカードが重複していた場合に獲得できるのが「解放Pt.」です。<br />
-          この解放Pt.を設定していると、カード一覧のカード画像の右上に<span class="text-blue-accent-4">●</span>がつきます。<br />
-          なお、解放Lv.を上げると、現在設定されている解放Pt.から解放Lv.を上げるのに必要な解放Pt.を自動的に消費し、設定できる解放Pt.の上限も変化します。<br />
-          ※解放Lv.を下げた場合は設定できる解放Pt.の上限は上がりますが、解放Pt.は変化しません。<br /><br />
+          ガチャで入手したカードが重複していた場合に獲得できるのが「解放Pt.」です。<br/>
+          この解放Pt.を設定していると、カード一覧のカード画像の右上に<span class="text-blue-accent-4">●</span>がつきます。<br/>
+          なお、解放Lv.を上げると、現在設定されている解放Pt.から解放Lv.を上げるのに必要な解放Pt.を自動的に消費し、設定できる解放Pt.の上限も変化します。<br/>
+          ※解放Lv.を下げた場合は設定できる解放Pt.の上限は上がりますが、解放Pt.は変化しません。<br/><br/>
         </p>
         <p>
-          例1）解放Pt.を250に設定してURカードの解放Lv.を1から2に上げた場合<br />
-          設定できる解放Pt.の上限：400→300<br />
-          解放Pt.：250→150<br /><br />
+          例1）解放Pt.を250に設定してURカードの解放Lv.を1から2に上げた場合<br/>
+          設定できる解放Pt.の上限：400→300<br/>
+          解放Pt.：250→150<br/><br/>
         </p>
         <p>
-          例2）解放Pt.を150に設定してURカードの解放Lv.を2から5(MAX)に上げた場合<br />
-          設定できる解放Pt.の上限：300→0<br />
-          解放Pt.：150→0<br /><br />
+          例2）解放Pt.を150に設定してURカードの解放Lv.を2から5(MAX)に上げた場合<br/>
+          設定できる解放Pt.の上限：300→0<br/>
+          解放Pt.：150→0<br/><br/>
         </p>
         <p>
-          例3）解放Pt.を98に設定してURカードの解放Lv.を4から1(MIN)に下げた場合<br />
-          設定できる解放Pt.の上限：100→400<br />
+          例3）解放Pt.を98に設定してURカードの解放Lv.を4から1(MIN)に下げた場合<br/>
+          設定できる解放Pt.の上限：100→400<br/>
           解放Pt.：98→98
         </p>
       </div>
@@ -1092,9 +1072,11 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from '@/stores/counter';
+import { CounterState } from '../types/counter';
+import { useStoreCounter } from '../stores/counter';
 import skillArea from './SkillAreaComponent.vue';
-const store = useStoreCounter();
+
+const store: CounterState = useStoreCounter();
 </script>
 
 <script lang="ts">
@@ -1109,24 +1091,25 @@ export default {
       targetSkill: null,
       skillID: '',
       isAlternate: false,
-      selectAddSkillDetail: 'mainSkill',
+      selectAddSkillDetail: 'mainSkill'
     };
   },
   components: {
     skillArea: skillArea
   },
-  created() {},
-  mounted() {},
+  created() {
+  },
+  mounted() {
+  },
   computed: {},
   methods: {
     /**
      * リンク作成
      *
-     * @param cardName カード名
-     * @param memberName メンバー名
+     * @param store ストア
      * @returns string リンク
      */
-    makeWikiLink(store): string {
+    makeWikiLink(store: any): string {
       const name: {
         first: string,
         last: String,
@@ -1136,7 +1119,7 @@ export default {
       };
       return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${
         store.getSettingCard.cardName.replaceAll('&', '＆').replaceAll('/', '／')
-      }］${name.first}${name.first === 'セラス' ? ' ' : '' }${name.last}`;
+      }］${ name.first }${ name.first === 'セラス' ? ' ' : '' }${ name.last }`;
     },
     /**
      * カード名作成
@@ -1144,8 +1127,8 @@ export default {
      * @param store ストア
      * @returns string カード名
      */
-    makeCardName(store): string {
-      return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(store.getSettingCard.memberName)}`;
+    makeCardName(store: any): string {
+      return `${ store.getSettingCard.rare } [${ store.getSettingCard.cardName }] ${ store.makeFullName(store.getSettingCard.memberName) }`;
     },
     /**
      * サポートスキル作成
@@ -1154,7 +1137,7 @@ export default {
      * @param supportSkillName サポートスキル名
      * @returns number サポートスキルレベル
      */
-    makeSupportSkillLevel(store, supportSkillName: string): number {
+    makeSupportSkillLevel(store: any, supportSkillName: string): number {
       const result = store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].initLevel;
 
       if (store.settingCardData.fluctuationStatus.cardLevel === 0) {
@@ -1218,10 +1201,10 @@ export default {
      * @param {Object} store store
      * @returns string 上限値
      */
-    limitReleasePoint(store): number {
+    limitReleasePoint(store: any): number {
       return store.releasePoint[store.settingCardData.rare].max - store.releasePoint[store.settingCardData.rare].point * (store.settingCardData.fluctuationStatus.releaseLevel - 1);
-    },
-  },
+    }
+  }
 };
 </script>
 

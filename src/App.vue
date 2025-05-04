@@ -41,7 +41,7 @@
             "
           >
             <template v-slot:prepend>
-              <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+              <v-icon>{{ `mdi-${ arr.icon }` }}</v-icon>
             </template>
           </v-list-item>
         </v-sheet>
@@ -64,7 +64,7 @@
                   class="px-2"
                   @click="pageMove(arr.name_en)"
                 >
-                  <v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>
+                  <v-icon class="mr-1">{{ `mdi-${ arr.icon }` }}</v-icon>
                   {{ pageTitle }}
                 </v-btn>
               </li>
@@ -149,13 +149,13 @@
         @click="pageMove(arr.name_en)"
       >
         <template v-slot:prepend>
-          <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+          <v-icon>{{ `mdi-${ arr.icon }` }}</v-icon>
         </template>
       </v-list-item>
     </v-navigation-drawer>
 
     <v-main class="pb-2">
-      <router-view />
+      <router-view/>
     </v-main>
 
     <v-fab
@@ -167,8 +167,8 @@
       @click="goToTop();"
     ></v-fab>
 
-    <Modal />
-    <Loading />
+    <Modal/>
+    <Loading/>
 
     <v-footer color="pink" class="mb-10">
       <v-row no-gutters justify="center">
@@ -209,6 +209,7 @@
 
 <script setup lang="ts">
 import { useStoreCounter } from './stores/counter';
+
 const store = useStoreCounter();
 store.init();
 </script>
@@ -216,7 +217,7 @@ store.init();
 <script lang="ts">
 import Modal from './components/ModalArea.vue';
 import Loading from './components/Loading.vue';
-import { useGoTo } from 'vuetify'
+import { useGoTo } from 'vuetify';
 
 export default {
   name: 'App',
@@ -232,15 +233,15 @@ export default {
         'Home': {
           name_en: 'Home',
           name_ja: 'ホーム',
-          url: `/${import.meta.env.VITE_PATHNAME}/`,
-          icon: 'home',
+          url: `/${ import.meta.env.VITE_PATHNAME }/`,
+          icon: 'home'
         },
         /*'WithStar Mgr': {
-          name_en: 'WithStarMgr',
-          name_ja: '獲得WithStar計算ツール',
-          url: 'withStarMgr',
-          icon: 'star'
-        },*/
+         name_en: 'WithStarMgr',
+         name_ja: '獲得WithStar計算ツール',
+         url: 'withStarMgr',
+         icon: 'star'
+         },*/
         'Simulation': {
           name_en: 'Simulation',
           name_ja: '編成シミュレーション',
@@ -251,27 +252,27 @@ export default {
           name_en: 'CardList',
           name_ja: 'カード一覧 / 所持カード設定',
           url: 'cardlist',
-          icon: 'cards',
+          icon: 'cards'
         },
         'Music List': {
           name_en: 'MusicList',
           name_ja: '楽曲一覧 / 楽曲マスタリーレベル設定',
           url: 'musiclist',
-          icon: 'music',
+          icon: 'music'
         },
         'Item List': {
           name_en: 'ItemList',
           name_ja: 'スキルアップ素材獲得ステージリスト',
           url: 'Itemlist',
-          icon: 'book',
+          icon: 'book'
         },
         'License': {
           name_en: 'License',
           name_ja: 'ライセンス',
           url: 'license',
-          icon: 'text-box-outline',
-        },
-      },
+          icon: 'text-box-outline'
+        }
+      }
     };
   },
   created() {
@@ -310,7 +311,7 @@ export default {
     pageMove(movePageName: string): void {
       // this.$router.replace(movePageName);
       this.$router.replace({
-        name: movePageName,
+        name: movePageName
         // query: {
         //   page: 5
         // }
@@ -322,16 +323,16 @@ export default {
      *
      * @param to タイトル
      */
-    pageTitle(to): void {
-      document.title = `${to.meta.title}${this.siteName}`;
+    pageTitle(to: any): void {
+      document.title = `${ to.meta.title }${ this.siteName }`;
     },
     /**
      * トップへ移動
      */
     goToTop() {
       this.goTo(0);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -342,12 +343,15 @@ export default {
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
+
 .footer-link {
   display: inline-block;
   color: #fff;
@@ -572,6 +576,24 @@ main {
 
 .v-label {
   opacity: 0.8;
+}
+
+.paramSetArea {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 22.5% 22.5% 10% 22.5% 22.5%;
+  align-items: center;
+  text-align: center;
+
+  div:first-child,
+  div:nth-child(2) {
+    text-align: left;
+  }
+
+  div:nth-child(4),
+  div:last-child {
+    text-align: right;
+  }
 }
 
 @media screen and (max-width: 600px) {

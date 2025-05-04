@@ -340,18 +340,14 @@
             result = result.filter((data) => data.fluctuationStatus.cardLevel > 1);
           }
 
-          if (store.openCard.style !== 'main') {
-            return result;
-          } else {
-            return result.filter((cardData) => cardData?.specialAppeal);
-          }
+          return store.openCard.style === 'main' ? result.filter((cardData) => cardData?.specialAppeal) : result;
         }
       },
     },
     methods: {
       makeCardMemberName(store, cardId) {
         const cardMemberName = store.findOpenCardMemberName(cardId);
-        
+
         return cardMemberName === 'selaIzu' ? '桂城泉＆セラス 柳田 リリエンフェルト' : cardMemberName === 'kozutsuzumegu' ? '乙宗梢＆夕霧綴理＆藤島慈' : store.memberName[cardMemberName].last;
       },
       searchSetCard(store, cardId) {
@@ -379,6 +375,7 @@
        * @param {Object} store - vuex store
        * @param {string} cardName - 選択したカード名
        * @param {string} rare - 選択したカードのレアリティ
+       * @param {Object} ary - 選択したカードのデータ
        */
       openCheckDialog(store, cardName, rare, ary) {
         const p = (() => {
@@ -466,10 +463,10 @@
         }
       },
       culMental(isBefore) {
-        if (this.cardStatus[isBefore ? 'before' : 'after'].status.rare !== 'R') {
-          return this.getCardStatus('mental', isBefore) + this.getCardStatus('cardLevel', isBefore) * 3;
-        } else {
+        if (this.cardStatus[isBefore ? 'before' : 'after'].status.rare === 'R') {
           return this.getCardStatus('mental', isBefore) + Math.ceil((this.getCardStatus('cardLevel', isBefore) - 1) / 2) * 2  + Math.floor((this.getCardStatus('cardLevel', isBefore) - 1) / 2) * 3;
+        } else {
+          return this.getCardStatus('mental', isBefore) + this.getCardStatus('cardLevel', isBefore) * 3;
         }
       },
       makeReleaseBonus(store, isBefore) {

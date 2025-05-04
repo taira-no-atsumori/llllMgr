@@ -2,7 +2,7 @@ import { Ref } from 'vue';
 
 /**
  * メンバーの名前を表す型
- * 
+ *
  * @property first - 名
  * @property last - 姓
  */
@@ -28,27 +28,32 @@ type GroupName = Record<string, string>;
 
 /**
  * ボーナススキルの詳細を表す型
- * 
+ *
  * @property text - スキルの説明テキスト
  * @property skillLevel - スキルレベル
  * @property init - 初期値
- * @property ary - オプションの数値配列
+ * @property ary - 効果が変わるレベル
  */
 type BonusSkill = {
   text: string[];
   skillLevel: number;
-  init: number;
+  init?: number;
   ary?: number[];
 };
 
 /**
  * ボーナススキルのリストを表す型
  */
-type BonusSkillList = Record<string, BonusSkill>;
+type BonusSkillList = {
+  'ボルテージアップ': BonusSkill;
+  'メンタルリカバー': BonusSkill;
+  'ビートハートアップ': BonusSkill;
+  'LOVEボーナス': BonusSkill;
+};
 
 /**
  * カードの変動ステータスを表す型
- * 
+ *
  * @property cardLevel - カードレベル
  * @property trainingLevel - トレーニングレベル
  * @property SALevel - 特別アピールレベル
@@ -67,7 +72,7 @@ type CardFluctuationStatus = {
 
 /**
  * カードの固有ステータスを表す型
- * 
+ *
  * @property smile - スマイル値
  * @property pure - ピュア値
  * @property cool - クール値
@@ -93,7 +98,7 @@ type CardUniqueStatus = {
 
 /**
  * カードデータを表す型
- * 
+ *
  * @property ID - カードID
  * @property rare - レアリティ
  * @property cardName - カード名
@@ -133,7 +138,7 @@ type CardList = Record<string, Record<string, Record<string, CardData>>>;
 
 /**
  * サイト設定を表す型
- * 
+ *
  * @property all - 全体設定
  * @property all.headerTracking - ヘッダートラッキング設定
  * @property all.darkMode - ダークモード設定
@@ -165,7 +170,7 @@ type SiteSettings = {
 
 /**
  * ソート設定を表す型
- * 
+ *
  * @property cardList - カードリスト設定
  * @property cardList.sortType - ソートタイプ
  * @property cardList.order - ソート順序
@@ -186,7 +191,7 @@ type SortSettings = {
 
 /**
  * 検索設定を表す型
- * 
+ *
  * @property cardList - カードリスト設定
  * @property cardList.rare - レアリティフィルタ
  * @property cardList.styleType - スタイルタイプフィルタ
@@ -249,7 +254,7 @@ type SearchSettings = {
 
 /**
  * ローカルストレージデータを表す型
- * 
+ *
  * @property musicData - 楽曲データ
  * @property musicData.musicLevel - 楽曲レベル
  * @property cardList - カードリスト
@@ -279,9 +284,9 @@ type LocalStorageData = {
   sortSettings: SortSettings;
 };
 
-/** 
+/**
  * デッキを表す型
- * 
+ *
  * @property name - デッキ名
  * @property period - 期
  * @property cardData - カードデータ
@@ -289,12 +294,15 @@ type LocalStorageData = {
 type Deck = {
   name: string;
   period: number;
-  cardData: Record<string, Record<string, { cardName: string; param: CardFluctuationStatus }>>;
+  cardData: Record<string, Record<string, {
+    cardName: string;
+    param: CardFluctuationStatus
+  }>>;
 };
 
 /**
  * カウンターの状態を表す型
- * 
+ *
  * @property version - バージョン
  * @property dialog - ダイアログの状態
  * @property showModalName - 表示するモーダル名
@@ -343,7 +351,9 @@ type Deck = {
  */
 type CounterState = {
   version: string;
+  loading: boolean;
   dialog: boolean;
+  dialogError: boolean;
   showModalName: boolean;
   updateData: boolean;
   selectCharacter: string;
@@ -361,14 +371,24 @@ type CounterState = {
   siteSettings: SiteSettings;
   sortSettings: SortSettings;
   defaultSearch: SearchSettings;
-  styleHeadline: Record<number, { main: string; side1: string; side2?: string }>;
+  styleHeadline: Record<number, {
+    main: string;
+    side1: string;
+    side2?: string
+  }>;
   statusName: Record<string, string>;
   styleType: Record<string, string>;
   mood: Record<string, string>;
   attribute: Record<string, string>;
-  limited: Record<string, { filterLabel: string; cardLabel: string }>;
+  limited: Record<string, {
+    filterLabel: string;
+    cardLabel: string
+  }>;
   maxCardLevel: Record<string, number[]>;
-  releasePoint: Record<string, { point: number; max: number }>;
+  releasePoint: Record<string, {
+    point: number;
+    max: number
+  }>;
   memberName: Record<string, MemberName>;
   exclusionMember: string[];
   specialCardIdList: string[];
@@ -378,7 +398,10 @@ type CounterState = {
   groupName: GroupName;
   bonusSkillList: BonusSkillList;
   memberData: {
-    centerList: Record<string, { centerMusic: string[]; bonusSkill: Record<string, number> }>;
+    centerList: Record<string, {
+      centerMusic: string[];
+      bonusSkill: Record<string, number>
+    }>;
   };
   deck: Deck[];
   settingCard: {

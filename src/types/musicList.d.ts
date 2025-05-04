@@ -1,6 +1,6 @@
 /**
  * 曲の詳細データを表すインターフェース
- * 
+ *
  * @interface MusicData
  * @property {string} kana - 曲名のカナ表記
  * @property {string} singer - 歌手名
@@ -36,7 +36,7 @@ export interface MusicData {
 
 /**
  * 曲のアイテムデータを表すインターフェース
- * 
+ *
  * @interface MusicItem
  * @property {string} ID - 曲の一意な識別子
  * @property {MusicData} musicData - 曲の詳細データ
@@ -62,7 +62,7 @@ export interface MusicItem {
 
 /**
  * 曲リストの状態を表すインターフェース
- * 
+ *
  * @interface MusicListState
  * @property {Record<string, MusicItem>} musicList - 曲名をキーとした曲データのオブジェクト
  */

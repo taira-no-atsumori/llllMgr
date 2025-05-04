@@ -1,7 +1,7 @@
 {
   "name": "llll_mgr",
   "private": true,
-  "version": "ζ.15(アーリーアクセス)",
+  "version": "ζ.16(アーリーアクセス)",
   "type": "module",
   "scripts": {
     "dev": "vite",

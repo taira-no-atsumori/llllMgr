@@ -1,40 +1,40 @@
-interface Gacha = {
+interface Gacha {
   addSeason: string;
   period: string;
-};
+}
 
-interface FluctuationStatus = {
+interface FluctuationStatus {
   cardLevel: number;
   trainingLevel: number;
   SALevel: number;
   SLevel: number;
   releaseLevel: number;
   releasePoint: number;
-};
+}
 
-interface UniqueStatus = {
+interface UniqueStatus {
   smile: number;
   pure: number;
   cool: number;
   mental: number;
   BP: number;
-};
+}
 
-interface SpecialAppeal = {
+interface SpecialAppeal {
   ID: string;
   name: string;
   AP: number;
   detail: number[][] | Record<string, unknown>;
-  addSkill?: addCard[];
-};
+  addSkill?: AddCard[];
+}
 
-interface Skill = {
+interface Skill {
   ID: string;
   name: string;
   AP: number;
   detail: number[][] | Record<string, unknown>;
-  addSkill?: addCard[];
-};
+  addSkill?: AddCard[];
+}
 
 interface AddCard {
   ID: string;
@@ -44,14 +44,14 @@ interface AddCard {
   characteristic?: Characteristic;
 }
 
-interface Characteristic = {
+interface Characteristic {
   name: string;
   detail: string;
   interface?: string[];
-  addSkill?: addCard[];
-};
+  addSkill?: AddCard[];
+}
 
-interface Card = {
+interface CardData {
   ID: string;
   styleType: 'performer' | 'moodMaker' | 'cheerLeader' | 'trickStar';
   mood: 'happy' | 'neutral' | 'melow';
@@ -63,43 +63,43 @@ interface Card = {
   specialAppeal?: SpecialAppeal;
   skill: Skill;
   characteristic?: Characteristic;
-};
+}
 
-interface rarity = {
+interface Rarity {
   default: {
-    default: Card;
+    default: CardData;
   };
-  DR?: Record<string, Card>;
-  BR?: Record<string, Card>;
-  UR?: Record<string, Card>;
-  SR?: Record<string, Card>;
-  R?: Record<string, Card>;
-};
+  DR?: Record<string, CardData>;
+  BR?: Record<string, CardData>;
+  UR?: Record<string, CardData>;
+  SR?: Record<string, CardData>;
+  R?: Record<string, CardData>;
+}
 
 interface CardItem {
-  default: rarity;
-  kaho: rarity;
-  sayaka: rarity;
-  rurino: rarity;
-  kozue: rarity;
-  tsuzuri: rarity;
-  megumi: rarity;
-  ginko: rarity;
-  kosuzu: rarity;
-  hime: rarity;
-  seras: rarity;
-  izumi: rarity;
-  sachi: rarity;
-  selaIzu: rarity;
-  kozutsuzumegu: rarity;
+  default: Rarity;
+  kaho: Rarity;
+  sayaka: Rarity;
+  rurino: Rarity;
+  kozue: Rarity;
+  tsuzuri: Rarity;
+  megumi: Rarity;
+  ginko: Rarity;
+  kosuzu: Rarity;
+  hime: Rarity;
+  seras: Rarity;
+  izumi: Rarity;
+  sachi: Rarity;
+  selaIzu: Rarity;
+  kozutsuzumegu: Rarity;
 }
 
 /**
  * カードリストの状態を表すインターフェース
- * 
+ *
  * @interface CardListState
  * @property {Record<string, CardItem>} cardList - カード名をキーとしたカードデータのオブジェクト
  */
 export interface CardListState {
-  cardList: Record<string, CardItem>;
+  card: Record<string, CardItem>;
 }

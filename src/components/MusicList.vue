@@ -667,7 +667,6 @@ export default {
                 a[store.localStorageData.sortSettings.musicList.sortType],
                 b[store.localStorageData.sortSettings.musicList.sortType]
               );
-              break;
             case 'kana':
             case 'time':
               return sorting(
@@ -675,21 +674,18 @@ export default {
                 a.musicData[store.localStorageData.sortSettings.musicList.sortType],
                 b.musicData[store.localStorageData.sortSettings.musicList.sortType]
               );
-              break;
             case 'releaseDate':
               return sorting(
                 store.localStorageData.sortSettings.musicList.order === 'ascending',
                 new Date(a.musicData.releaseDate.year, a.musicData.releaseDate.month - 1, a.musicData.releaseDate.date),
                 new Date(b.musicData.releaseDate.year, b.musicData.releaseDate.month - 1, b.musicData.releaseDate.date)
               );
-              break;
             default:
               return sorting(
                 store.localStorageData.sortSettings.musicList.order === 'ascending',
                 a.ID,
                 b.ID
               );
-              break;
           }
         });
 
@@ -700,7 +696,7 @@ export default {
           return acc;
         }, {});
 
-        function sorting(isAscending, aa, bb) {
+        function sorting(isAscending: boolean, aa, bb) {
           if (isAscending) {
             return aa < bb ? -1 : aa > bb ? 1 : 0;
           } else {
