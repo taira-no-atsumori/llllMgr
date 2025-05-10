@@ -3726,6 +3726,43 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ドレス《Celebration!》': {
+        'dress_celebration_01': {
+          text: [
+            'ドレスカード《Celebration!》を2種類(合計2枚)山札に追加する。さらにデッキ枚数が22枚のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard', 'heartCaptcha']
+          }
+        }
+      },
+      'Celebration!': {
+        'celebration_01': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキ枚数が23枚のとき、このセクション中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'heartLimitUp']
+          }
+        },
+        'celebration_02': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。この時花帆、吟子、ドレスカード、チェリーカードをドローする確率大幅アップ。さらにデッキ枚数が24枚のとき、このセクション中、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'heartLimitUp']
+          }
+        },
+      },
       'Letzter Lied': {
         letzterLied: {
           text: [
@@ -5667,7 +5704,45 @@ export const useSkillStore = defineStore('skillList', {
             type: ['imitation', 'APQuick']
           }
         }
-      }
+      },
+      'ツインスリーズ': {
+        'twinCerise_01': {
+          text: [
+              'ハピネスチェリーカードを1種類(合計2枚)山札に追加する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard']
+          }
+        }
+      },
+      'ハピネスチェリー': {
+        'happinessCherry_01': {
+          text: [
+            'デッキにある花帆、吟子、ドレスカード、チェリーカードスキルの消費AP-3。さらにデッキ枚数が24枚のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['APReduce', 'heartCaptcha']
+          }
+        }
+      },
+      'エグザクトアトラクション': {
+        'exactAttraction_01': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が22枚のとき、ビートハート',
+            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'loveAttract_section']
+          }
+        }
+      },
     },
     skillColor: {
       'heartCaptcha': {

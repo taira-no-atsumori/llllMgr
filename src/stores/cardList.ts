@@ -261,6 +261,84 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Celebration!': {
+            ID: 'kh_058',
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'Celebration!',
+            kana: 'せれぶれーしょん',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.4',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 6050,
+              pure: 4450,
+              cool: 4000,
+              mental: 470,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'twinCerise_01',
+              name: 'ツインスリーズ',
+              AP: 4,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'happinessCherry_01',
+                  name: 'ハピネスチェリー',
+                  AP: 2,
+                  detail: [
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                  ],
+                  characteristic: {
+                    name: 'ハッピーセオリー',
+                    detail: '手札にある間、ムードがハッピーのときAP回復速度20%増加、ハッピー50以上のときハート上限を+2000、ハッピー100以上のとき花帆、吟子、ドレスカード、チェリーカードのスキルハート獲得効果による獲得数をそれぞれ+200%する。さらにこのスキルを2回使用すると、デッキから除外される。',
+                    type: ['APQuick', 'heartLimitUp', 'boost_heartCaptcha', 'exclusion']
+                  }
+                }
+              ]
+            },
+            skill: {
+              ID: 'exactAttraction_01',
+              name: 'エグザクトアトラクション',
+              AP: 5,
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+                [260, 286, 312, 338, 364, 390, 416, 442, 468, 520, 546, 572, 598, 650],
+                [600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1200, 1260, 1320, 1380, 1500],
+              ]
+            },
+            characteristic: {
+              name: 'ハッピースリーズ',
+              detail: 'ムードがハッピーでこのスキルを使用したとき、ハピネスチェリーカードを1種類(合計1枚)山札に追加する。',
+              type: ['addCard'],
+              addSkill: [
+                {
+                  ID: 'happinessCherry_01',
+                  name: 'ハピネスチェリー',
+                  AP: 2,
+                  detail: [
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                  ],
+                  characteristic: {
+                    name: 'ハッピーセオリー',
+                    detail: '手札にある間、ムードがハッピーのときAP回復速度20%増加、ハッピー50以上のときハート上限を+2000、ハッピー100以上のとき花帆、吟子、ドレスカード、チェリーカードのスキルハート獲得効果による獲得数をそれぞれ+200%する。さらにこのスキルを2回使用すると、デッキから除外される。',
+                    type: ['APQuick', 'heartLimitUp', 'boost_heartCaptcha', 'exclusion']
+                  }
+                }
+              ]
+            }
+          },
           'ユメワズライ': {
             ID: 'kh_055',
             styleType: 'moodMaker',
@@ -15381,6 +15459,97 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Celebration!': {
+            ID: 'gn_023',
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'Celebration!',
+            kana: 'せれぶれーしょん',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.4',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 6000,
+              pure: 4600,
+              cool: 3900,
+              mental: 470,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'twinCerise_01',
+              name: 'ツインスリーズ',
+              AP: 4,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'happinessCherry_01',
+                  name: 'ハピネスチェリー',
+                  AP: 2,
+                  detail: [
+                    [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                  ],
+                  characteristic: {
+                    name: 'ハッピーセオリー',
+                    detail: '手札にある間、ムードがハッピーのときAP回復速度20%増加、ハッピー50以上のときハート上限を+2000、ハッピー100以上のとき花帆、吟子、ドレスカード、チェリーカードのスキルハート獲得効果による獲得数をそれぞれ+200%する。さらにこのスキルを2回使用すると、デッキから除外される。',
+                    type: ['APQuick', 'heartLimitUp', 'boost_heartCaptcha', 'exclusion']
+                  }
+                }
+              ]
+            },
+            skill: {
+              ID: 'dress_celebration_01',
+              name: 'ドレス《Celebration!》',
+              AP: 5,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+              ],
+              addSkill: [
+                {
+                  ID: 'celebration_01',
+                  name: 'Celebration!',
+                  AP: 5,
+                  detail: [
+                    [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+                    [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 1000],
+                    [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
+                  ],
+                  characteristic: {
+                    name: 'ドロー：ハッピー/ハートキャプチャ&インスタンス',
+                    detail: 'ムードがハッピー100以上でドローした時、ビートハート150回分のスキルハートを獲得する。さらにこのスキルを使用すると、デッキから除外される。',
+                    type: ['heartCaptcha', 'exclusion']
+                  }
+                },
+                {
+                  ID: 'celebration_02',
+                  name: 'Celebration!',
+                  AP: 5,
+                  detail: [
+                    [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 1000],
+                    [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
+                  ],
+                  characteristic: {
+                    name: 'ドロー：ハッピー/ハートキャプチャ&インスタンス',
+                    detail: 'ムードがハッピー100以上でドローした時、ビートハート150回分のスキルハートを獲得する。さらにこのスキルを使用すると、デッキから除外される。',
+                    type: ['heartCaptcha', 'exclusion']
+                  }
+                }
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：ハッピー/エクステゲイン',
+              detail: 'ムードがハッピー50以上でドローしたとき、このセクション中、手札の上限枚数を3枚増加し、APを1回復する。',
+              type: ['extensions', 'APGain']
+            }
+          },
           '輝跡の舞踏会': {
             ID: 'gn_019',
             styleType: 'trickStar',

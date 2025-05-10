@@ -2,9 +2,9 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify from 'vite-plugin-vuetify';
 import path from 'path';
-import { webcrypto } from 'crypto';
+// import { webcrypto } from 'crypto';
 
-global.crypto = webcrypto;
+// global.crypto = webcrypto;
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd());

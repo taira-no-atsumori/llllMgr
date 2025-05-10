@@ -209,16 +209,16 @@ export default {
           lastDay: [2025, 4, 11, 12, 0],
           img: 'thanks',
         },*/
-        /*liveGP: {
-          title: 'ライブグランプリ「105期OpeningTerm 個人戦」',
+        liveGP: {
+          title: 'ライブグランプリ「105期1stTerm 第1回 個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 4, 11, 12, 0],
-          lastDay: [2025, 4, 17, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-12-10-lax2wkj7tp',
-          img: '105期OpeningTerm 個人戦_logo',
-        },*/
-        'liveGP': {
+          firstDay: [2025, 5, 11, 12, 0],
+          lastDay: [2025, 5, 17, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-05-09-10-y1ocdt7ulo',
+          img: '105期1stTerm 第1回 個人戦_logo',
+        },
+        /*'liveGP': {
           title: 'ライブグランプリ「105期 OpeningTerm サークル対抗戦」',
           text: '',
           type: 'liveGP',
@@ -226,16 +226,7 @@ export default {
           lastDay: [2025, 4, 26, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-19-10-rxb0bmpb8g',
           img: '105期 OpeningTerm サークル対抗戦_logo',
-        },
-        '4thLiveDream_ishikawa': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
-          text: '石川公演',
-          type: 'live',
-          firstDay: [2025, 4, 26, 0, 0],
-          lastDay: [2025, 4, 27, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
-          img: '4thLiveDream_ishikawa_logo',
-        },
+        },*/
         '4thLiveDream_hyogo': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
           text: '兵庫公演',
@@ -250,9 +241,18 @@ export default {
           text: '神奈川公演',
           type: 'live',
           firstDay: [2025, 6, 7, 0, 0],
-          lastDay: [2025, 1, 8, 23, 59],
+          lastDay: [2025, 6, 8, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
           img: '4thLiveDream_kanagawa_logo',
+        },
+        'expo2025': {
+          title: 'ライブ「ラブライブ！シリーズ EXPO 2025 STAGE ～Right now!～」',
+          text: '',
+          type: 'live',
+          firstDay: [2025, 8, 14, 0, 0],
+          lastDay: [2025, 8, 14, 23, 59],
+          url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=lovelive-expo2025',
+          img: 'expo2025_logo',
         },
       },
       outputEventList: {},

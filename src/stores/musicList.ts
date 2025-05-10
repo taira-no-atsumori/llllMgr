@@ -4459,6 +4459,33 @@ export const useMusicStore = defineStore('musicList', {
         center: 'seras',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['seras', 'izumi']
+      },
+      'ロミオとシンデレラ': {
+        ID: 'm_166',
+        musicData: {
+          kana: 'ろみおとしんでれら',
+          singer: 'セラス 柳田 リリエンフェルト',
+          releaseDate: {
+            year: 2009,
+            month: 8,
+            date: 26
+          },
+          numbering: '',
+          BPM: {
+            original: 170,
+            inGame: 170
+          },
+          time: 112,
+          cover: true,
+          link: ''
+        },
+        attribute: 'pure',
+        BHcount: 78,
+        level: 0,
+        term: 105,
+        center: 'seras',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['seras']
       }
     }
   }),
