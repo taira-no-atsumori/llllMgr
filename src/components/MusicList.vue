@@ -321,8 +321,7 @@
       >
         <v-col
           v-if="!store.isOtherMember(memberName)"
-          cols="6"
-          md="4"
+          cols="4"
           lg="2"
           :class="`text-center align-self-end ${windowSize.w > 600 ? '' : 'px-1'}`"
         >
@@ -340,10 +339,18 @@
                   :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
                   style="width: 30px"
                 />
-                <span class="pt-1 pl-1" :style="`font-size: ${windowSize.w > 600 && memberName === 'seras' ? 0.8 : 1}em;`">
-                  {{ store.makeFullName(memberName) }} <span class="text-body-2">
+                <span
+                  v-if="windowSize.w > 600"
+                  class="pt-1 pl-1"
+                  :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
+                >
+                  {{ store.makeFullName(memberName) }}
+                  <span class="text-body-2">
                     (Lv.{{ store.makeTotalMasteryLv(memberName) }})
                   </span>
+                </span>
+                <span v-else class="pt-1 pl-1 text-body-2">
+                  (Lv.{{ store.makeTotalMasteryLv(memberName) }})
                 </span>
               </h4>
             </v-col>
@@ -351,10 +358,12 @@
               cols="12"
               class="px-sm-2"
             >
-              <p class="font-weight-bold mb-2 subtitle">獲得ボーナススキル</p>
+              <p class="font-weight-bold mb-2 subtitle">
+                <span v-if="windowSize.w > 600">獲得済</span>ボーナススキル
+              </p>
               <v-row no-gutters>
                 <v-col
-                  cols="3"
+                  cols="6"
                   sm="3"
                   v-for="skillName in bonusSkillList"
                   :key="skillName"
@@ -364,20 +373,14 @@
                     <v-col
                       cols="12"
                       sm="6"
-                      style="height: 30px"
+                      style="height: 30px; font-size: 15px"
+                      :class="`d-flex align-center`"
                     >
                       <img
                         :src="store.getImagePath('bonusSkill_icon', skillName)"
                         style="width: 30px; border-radius: 3px"
                       />
-                    </v-col>
-                    <v-col
-                      cols="12"
-                      sm="6"
-                      style="font-size: 15px"
-                      :class="`d-flex align-center ${windowSize.w > 600 ? '' : 'justify-center'}`"
-                    >
-                      <span style="padding: 0 1px">×</span>{{ store.setBonusSkillLevel(memberName, skillName) }}
+                      <span style="padding: 0 1px 0 2px;">×</span>{{ store.setBonusSkillLevel(memberName, skillName) }}
                     </v-col>
                   </v-row>
                 </v-col>
@@ -388,8 +391,7 @@
       </template>
 
       <v-col
-        cols="6"
-        md="4"
+        cols="4"
         lg="2"
         align-self="center"
         class="text-center"
@@ -405,55 +407,66 @@
     <v-divider class="mb-2"></v-divider>
 
     <div class="align-self-center d-inline-block mb-2 mb-md-0">
-      <v-btn
-        color="blue"
-        class="mr-2"
-      >
-        <v-icon class="mr-2">mdi-sort</v-icon>ソート
-        <v-menu
-          activator="parent"
-          transition="slide-y-transition"
+      <div class="d-flex flex-row align-center">
+        <v-btn
+          color="blue"
+          class="mr-2"
         >
-          <v-list>
-            <v-list-item
-              v-for="(label, val) in sortTypeList"
-              :key="val"
-              :value="val"
-              @click="sortingProcess(store, 'sortType', val);"
-            >
-              <v-list-item-title>
-                {{ label }}
-              </v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-btn>
+          <v-icon class="mr-2">mdi-sort</v-icon>ソート
+          <v-menu
+            activator="parent"
+            transition="slide-y-transition"
+          >
+            <v-list>
+              <v-list-item
+                v-for="(label, val) in sortTypeList"
+                :key="val"
+                :value="val"
+                @click="sortingProcess(store, 'sortType', val);"
+              >
+                <v-list-item-title>
+                  {{ label }}
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </v-btn>
 
-      <v-btn-toggle
-        v-model="store.localStorageData.sortSettings.musicList.order"
-        density="compact"
-        variant="outlined"
-        color="pink"
-        class="mr-2"
-        mandatory
-      >
-        <v-btn
-          value="descending"
-          class="px-0 px-sm-2"
-          @click="store.changeSettings('sortSettings');"
+        <v-btn-toggle
+          v-model="store.localStorageData.sortSettings.musicList.order"
+          density="compact"
+          variant="outlined"
+          color="pink"
+          class="mr-2"
+          mandatory
         >
-          <v-icon>mdi-sort-descending</v-icon>
-          <span class="ml-2 hidden-sm-and-down">降順</span>
-        </v-btn>
-        <v-btn
-          value="ascending"
-          class="px-0 px-sm-2"
-          @click="store.changeSettings('sortSettings');"
-        >
-          <v-icon>mdi-sort-ascending</v-icon>
-          <span class="ml-2 hidden-sm-and-down">昇順</span>
-        </v-btn>
-      </v-btn-toggle>
+          <v-btn
+            value="descending"
+            class="px-0 px-sm-2"
+            @click="store.changeSettings('sortSettings');"
+          >
+            <v-icon>mdi-sort-descending</v-icon>
+            <span class="ml-2 hidden-sm-and-down">降順</span>
+          </v-btn>
+          <v-btn
+            value="ascending"
+            class="px-0 px-sm-2"
+            @click="store.changeSettings('sortSettings');"
+          >
+            <v-icon>mdi-sort-ascending</v-icon>
+            <span class="ml-2 hidden-sm-and-down">昇順</span>
+          </v-btn>
+        </v-btn-toggle>
+
+        <v-switch
+          v-model="isSchoolShow"
+          label="スクショウ"
+          density="compact"
+          hide-details
+          class="pl-2 mr-3"
+          color="pink"
+        ></v-switch>
+      </div>
     </div>
 
     <p class="align-self-center d-block d-md-inline-block">
@@ -609,6 +622,7 @@ export default {
         w: 0,
         h: 0,
       },
+      isSchoolShow: false,
       inputMusicTitle: null,
       masteryLv: [0, 50],
       selectCenterList: [],
@@ -651,10 +665,13 @@ export default {
             // this.inputMusicTitle && !musicData.musicData.kana.includes(this.inputMusicTitle) ||
             this.selectCenterList.length > 0 && !this.selectCenterList.includes(musicData.center) ||
             this.selectBonusSkillList.length > 0 && !this.selectBonusSkillList.includes(musicData.bonusSkill) ||
-            this.selectAttrList.length > 0 && !this.selectAttrList.includes(musicData.attribute)) {
+            this.selectAttrList.length > 0 && !this.selectAttrList.includes(musicData.attribute)
+          ) {
             return false;
-          } else {
+          } else if (!this.isSchoolShow) {
             return true;
+          } else {
+            return !!(musicData?.difficultyLevel ?? false)
           }
         });
 

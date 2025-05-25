@@ -9,7 +9,7 @@ import { CardData } from '@/types/cardList';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
-    version: 'ζ.17(アーリーアクセス)',
+    version: 'ζ.18(アーリーアクセス)',
     loading: false,
     dialog: false,
     dialogError: false,
@@ -438,7 +438,13 @@ export const useStoreCounter = defineStore('store', {
           'ハート回収時のLOVE獲得量+',
           '%'
         ],
-        skillLevel: 0
+        skillLevel: 0,
+        ary: [
+          { limit: 5, baseValue: 0, multiplier: 10, subtractLevel: 0 },
+          { limit: 10, baseValue: 50, multiplier: 5, subtractLevel: 5 },
+          { limit: 25, baseValue: 75, multiplier: 4, subtractLevel: 10 },
+          { limit: Infinity, baseValue: 135, multiplier: 3,  subtractLevel: 25 }
+        ]
       }
     },
     memberData: {

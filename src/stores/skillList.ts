@@ -361,6 +361,13 @@ export const useSkillStore = defineStore('skillList', {
             attr: 'heartBoost',
             type: ['boost_heartCaptcha']
           }
+        },
+        'heartBoost_section': {
+          text: ['このセクション中、スキルハート獲得効果による獲得数を+', '%する。'],
+          detail: {
+            attr: 'heartBoost',
+            type: ['boost_heartCaptcha']
+          }
         }
       },
       'ハートブースト：みらくらぱーく！': {
@@ -1194,6 +1201,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['mentalDown_section', 'mentalReduce', 'protect_stage']
+          }
+        }
+      },
+      'アグレッシブワイドビリーフ': {
+        'aggressiveWideBelief_01': {
+          text: [
+            'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのステージ中、ハート上限を+',
+            'し、メンタルを最大値の100%減少させる。'
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce']
           }
         }
       },
@@ -3220,6 +3239,32 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'ブレイブワイドアトラクション': {
+        'braveWideAttraction_01': {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが50%以下のとき、このステージ中、ハート上限を+',
+            'し、メンタルが0%以下のとき、このステージ中、獲得するLOVEを+',
+            '%する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha', 'heartLimitUp', 'loveAttract_stage']
+          }
+        },
+        'braveWideAttraction_02': {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにメンタルが50%以下のとき、このステージ中、ハート上限を+',
+            'し、メンタルが0%以下のとき、ビートハート',
+            '回分のスキルハートを獲得する。'
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['loveAttract_stage', 'heartLimitUp', 'heartCaptcha']
+          }
+        }
+      },
       ブレイブボルテックスアトラクション: {
         braveVortexAttraction_under1_under0: {
           text: [
@@ -3881,6 +3926,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['reshuffle', 'boost_loveAttract', 'APReduce']
+          }
+        }
+      },
+      'リブートマインド': {
+        'rebootMind_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中3回の間メンタルリカバー効果を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'boost_mentalRecover']
           }
         }
       },
@@ -5561,6 +5618,18 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'リフレッシュサウンドバイブス': {
+        'refreshSoundVibes_01': {
+          text: [
+            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引き、メンタルを最大値の',
+            '%回復させる。さらにムードがハッピー、メロウいずれか75以上のとき、このセクション中、ビートハートの出現個数を+1する。'
+          ],
+          detail: {
+            attr: 'vibes',
+            type: ['reshuffle', 'mentalRecover', 'heartLimitUp']
+          }
+        }
+      },
       'ワイドサウンドバイブス': {
         'wideSoundVibes_01': {
           text: [
@@ -5594,6 +5663,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'ambience',
             type: ['APSlow', 'ambience_section']
+          }
+        }
+      },
+      'スケルツォアンビエンス': {
+        'scherzoAmbience_01': {
+          text: [
+            'このセクション中、ムードがハッピーの時メロウ方向に、メロウの時ハッピー方向に+',
+            'する。'
+          ],
+          detail: {
+            attr: 'ambience',
+            type: ['ambience_section']
           }
         }
       },
@@ -5644,6 +5725,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['sound', 'ambience_section']
+          }
+        }
+      },
+      'サウンドリフレッシュマインド': {
+        'soundRefreshMind_01': {
+          text: [
+            'メンタルを最大値の',
+            '%回復させる。さらにムードがハッピー、メロウいずれか75以上のとき、手札を全て捨てて、捨て札を山札に戻した後、デッキから手札上限までスキルを引く。'
+          ],
+          detail: {
+            attr: '',
+            type: ['mentalRecover', 'sound', 'reshuffle']
           }
         }
       },
@@ -5740,6 +5833,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_section']
+          }
+        }
+      },
+      'ブルームマイセルフ': {
+        'bloomMySelf_01': {
+          text: [
+            '3回の間花帆が使用するスキルハート獲得効果による獲得数を+',
+            '%する。さらに山札にある花帆のスキルの消費AP-3。'
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha', 'APReduce']
           }
         }
       },

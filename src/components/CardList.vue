@@ -35,6 +35,16 @@
     <v-btn
       elevation="3"
       class="mb-1 mr-2 px-3"
+      @click="dialog = true"
+      color="yellow"
+    >
+      <v-icon class="mr-2">mdi-chart-box-outline</v-icon>
+      分析
+    </v-btn>
+
+    <v-btn
+      elevation="3"
+      class="mb-1 mr-2 px-3"
       color="blue"
     >
       <v-icon class="mr-2">mdi-sort</v-icon>
@@ -542,19 +552,76 @@
       </li>
     </ul>
   </v-container>
+
+  <v-dialog
+    v-model="dialog"
+    :max-width="600"
+    :height="windowSize.h * 0.5"
+  >
+    <v-sheet
+      class="pa-2 d-flex flex-column"
+      style="height: 100%;"
+    >
+      <div style="flex-grow: 1; overflow-y: auto; min-height: 0;">
+        <Chart
+          :memberNameList="chartMemberNames"
+          :cardDataLength="cardList"
+        />
+      </div>
+      <div class="mt-2 text-center">
+        <v-btn
+          prepend-icon="mdi-close"
+          :theme="store.localStorageData.siteSettings.all.darkMode"
+          @click="dialog = false"
+        >
+          CLOSE
+        </v-btn>
+      </div>
+    </v-sheet>
+  </v-dialog>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import {useStoreCounter} from '@/stores/counter.js';
+import Chart from './Chart.vue';
 
 const store = useStoreCounter();
+const memberIds = Object.keys(store.memberColor);
+
+const chartMemberNames = computed(() => {
+  return memberIds.map(memberId => {
+    return store.memberName[memberId][memberId === 'seras' ? 'first' : 'last'];
+  });
+});
+
+const cardList_max = memberIds.map(memberId => {
+  return store.cardList.filter(cardData => {
+    return cardData.memberName === memberId;
+  }).length;
+});
+
+const cardList = computed(() => {
+  return memberIds.map((memberId, i) => {
+    const a = store.cardList.filter(cardData => {
+      return cardData.memberName === memberId && cardData.fluctuationStatus.cardLevel > 0;
+    }).length;
+    
+    const percentage = (a / cardList_max[i]) * 100;
+    return Math.round(percentage * 100) / 100;
+  });
+});
 </script>
 
 <script>
 export default {
   name: 'CardList',
+  components: {
+    Chart,
+  },
   data() {
     return {
+      dialog: false,
       selectTab: 'single',
       selectTab2: 'kaho',
       tableHeaders: [

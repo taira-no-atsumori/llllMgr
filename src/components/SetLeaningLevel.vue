@@ -17,7 +17,11 @@
     </h3>
 
     <v-row no-gutters>
-      <v-col class="mb-3" cols="12" sm="6">
+      <v-col
+        cols="12"
+        sm="6"
+        class="mb-3 mb-sm-0"
+      >
         <v-img
           :lazy-src="store.getImagePath('CD_jacket', store.conversion(store.selectMusicTitle))"
           :src="store.getImagePath('CD_jacket', store.conversion(store.selectMusicTitle))"
@@ -25,6 +29,35 @@
           class="mb-2"
         ></v-img>
 
+        <div v-if="store.musicList[store.selectMusicTitle]?.difficultyLevel">
+          <h4 class="subtitle">楽曲難易度</h4>
+
+          <v-table
+            density="compact"
+            class="mb-2"
+          >
+            <thead>
+              <tr>
+                <template
+                  v-for="(difficulty, key) in store.musicList[store.selectMusicTitle].difficultyLevel"
+                  :key="key"
+                >
+                  <th class="px-1 text-center">{{ key }}</th>
+                </template>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <template
+                  v-for="(difficulty) in store.musicList[store.selectMusicTitle].difficultyLevel"
+                  :key="difficulty"
+                >
+                  <td class="px-1 text-center">{{ difficulty }}</td>
+                </template>
+              </tr>
+            </tbody>
+          </v-table>
+        </div>
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>

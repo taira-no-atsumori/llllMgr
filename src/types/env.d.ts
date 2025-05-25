@@ -10,6 +10,6 @@ interface ImportMetaEnv {
   readonly VITE_PATHNAME: string;
 }
 
-interface ImportMeta {
+export interface ImportMeta {
   readonly env: ImportMetaEnv;
 }

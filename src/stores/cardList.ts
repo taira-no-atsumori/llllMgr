@@ -187,6 +187,78 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         BR: {
+          '18th Birthday': {
+            ID: 'kh_059',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'えいてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2025 BIRTHDAY LIMITED COLLECTION -Kaho-',
+              period: 'birthday'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '18th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1
+                  }
+                }
+              }
+            },
+            specialAppeal: {
+              ID: 'heartBoost_section',
+              name: 'ハートブースト',
+              AP: 6,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+              ]
+            },
+            skill: {
+              ID: 'bloomMySelf_01',
+              name: 'ブルームマイセルフ',
+              AP: 3,
+              detail: [
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]
+              ]
+            },
+            characteristic: {
+              name: 'バースデイキャンドル',
+              detail: 'スキル使用時まで、18回までAPを3回復する。',
+              type: ['APGain']
+            }
+          },
           '17th Birthday': {
             ID: 'kh_046',
             styleType: 'trickStar',
@@ -3057,6 +3129,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'アンペア': {
+            ID: 'sy_058',
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: 'アンペア',
+            kana: 'あんぺあ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.5',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 4000,
+              cool: 6200,
+              mental: 460,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'aggressiveWideBelief_01',
+              name: 'アグレッシブワイドビリーフ',
+              AP: 6,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30]
+              ]
+            },
+            skill: {
+              ID: 'braveWideAttraction_02',
+              name: 'ブレイブワイドアトラクション',
+              AP: 2,
+              detail: [
+                [1.7, 1.9, 2, 2.2, 2.4, 2.6, 2.7, 2.9, 3.1, 3.4, 3.6, 3.7, 3.9, 4.3],
+                [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60]
+              ]
+            },
+            characteristic: {
+              name: 'UN-PAIR',
+              detail: '2,4セクション目でドローされる確率が大幅に増加する。さらにムードがメロウ50以上でこのスキル使用時、2回の間さやか、小鈴がそれぞれ使用するスキルハート獲得効果による獲得数を+67.5%し、デッキ内の小鈴のスキルの消費APを-9する。',
+              type: ['draw', 'boost_loveAttract', 'APReduce']
+            }
+          },
           'Her-bath-rium': {
             ID: 'sy_057',
             styleType: 'moodMaker',
@@ -4545,7 +4666,7 @@ export const useCardStore = defineStore('cardList', {
             kana: 'あいすぷりんせす',
             gacha: {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
-              period: 'normal'
+              period: 'winter'
             },
             fluctuationStatus: {
               cardLevel: 0,
@@ -6843,6 +6964,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         SR: {
+          'Her-bath-rium': {
+            ID: 'rr_046',
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 1stTerm 第1回個人戦」報酬',
+              period: 'prize'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4100,
+              cool: 3700,
+              mental: 420,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'rebootMind_01',
+              name: 'リブートマインド',
+              AP: 6,
+              detail: [
+                [16, 17.6, 19.2, 20.8, 22.4, 24, 25.6, 27.2, 28.8, 32, 33.6, 35.2, 36.8, 40]
+              ]
+            },
+            skill: {
+              ID: 'soundRefreshMind_01',
+              name: 'サウンドリフレッシュマインド',
+              AP: 3,
+              detail: [
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
+              ]
+            },
+            characteristic: {
+              name: 'ドロー：サウンド/エクステリカバー ',
+              detail: 'ムードがハッピー、メロウいずれか75以上でドローしたとき、メンタルを最大値の30%回復させ、このセクション中、手札の上限枚数を1枚増加する。',
+              type: ['sound', 'draw', 'mentalRecover', 'extendHand']
+            }
+          },
           '全方位キュン♡': {
             ID: 'rr_043',
             styleType: 'trickStar',
@@ -12075,7 +12243,7 @@ export const useCardStore = defineStore('cardList', {
             kana: 'あいすりったー',
             gacha: {
               addSeason: '2023 WINTER LIMITED COLLECTION vol.5',
-              period: 'normal'
+              period: 'winter'
             },
             fluctuationStatus: {
               cardLevel: 0,
@@ -17184,6 +17352,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'アンペア': {
+            ID: 'sz_023',
+            styleType: 'performer',
+            mood: 'melow',
+            series: 'アンペア',
+            kana: 'あんぺあ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.5',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4500,
+              pure: 3900,
+              cool: 6200,
+              mental: 460,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'aggressiveWideBelief_01',
+              name: 'アグレッシブワイドビリーフ',
+              AP: 10,
+              detail: [
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, 61, 64, 67, 72],
+              ]
+            },
+            skill: {
+              ID: 'braveWideAttraction_01',
+              name: 'ブレイブワイドアトラクション',
+              AP: 22,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [140, 154, 168, 182, 196, 210, 224, 238, 252, 280, 294, 308, 322, 350],
+                [358.4, 394.2, 430.1, 465.9, 501.8, 537.6, 573.4, 609.3, 645.1, 716.8, 752.6, 788.5, 824.3, 896]
+              ]
+            },
+            characteristic: {
+              name: 'UN-PAIR',
+              detail: 'さやかのスキル使用後以外はドローされず、ドローした時、2回の間さやか、小鈴がそれぞれ使用するスキルハート獲得効果による獲得数を+100%する。さらにムードがメロウ50以上のとき、このスキルの消費APを-9し、このスキル使用時、このセクション中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の100%減少させる。',
+              type: ['boost_heartCaptcha', 'APReduce', 'mentalDown_section', 'mentalReduce']
+            }
+          },
           'Her-bath-rium': {
             ID: 'sz_022',
             styleType: 'performer',
@@ -19546,7 +19763,55 @@ export const useCardStore = defineStore('cardList', {
             }
           }
         },
-        SR: {},
+        SR: {
+          'Her-bath-rium': {
+            ID: 'sr_005',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.5',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4600,
+              pure: 4000,
+              cool: 4000,
+              mental: 420,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'refreshSoundVibes_01',
+              name: 'リフレッシュサウンドバイブス',
+              AP: 6,
+              detail: [
+                [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]
+              ]
+            },
+            skill: {
+              ID: 'scherzoAmbience_01',
+              name: 'スケルツォアンビエンス',
+              AP: 4,
+              detail: [
+                [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30]
+              ]
+            },
+            characteristic: {
+              name: 'サウンド：ワイドハート',
+              detail: '手札にある間、ムードがハッピー、メロウいずれか75以上のときハート上限を+1000する。',
+              type: ['heartLimitUp', 'sound']
+            }
+          }
+        },
         R: {
           '翠鱗舞': {
             ID: 'sr_003',

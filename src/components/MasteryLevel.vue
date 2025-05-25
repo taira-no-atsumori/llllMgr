@@ -55,7 +55,9 @@
           <v-divider v-if="(i + 1) < Object.keys(store.outputBonusSkillList).length"></v-divider>
         </li>
       </template>
-      <li v-if="Object.keys(store.outputBonusSkillList).length === 0">習得済みのボーナススキルはありません。</li>
+      <li v-if="Object.keys(store.outputBonusSkillList).length === 0">
+        習得済みのボーナススキルはありません。
+      </li>
     </ul>
   </v-container>
 </template>
@@ -65,21 +67,34 @@ import { useStoreCounter } from '../stores/counter';
 
 const store = useStoreCounter();
 
-const makeBonusSkillDescriptionText = (bonusSkill: string): number => {
-  if (/ボルテージアップ|メンタルリカバー/.test(bonusSkill)) {
-    let num = store.bonusSkillList[bonusSkill].init;
+const makeBonusSkillDescriptionText = (
+  bonusSkill: string
+): number => {
+  switch (bonusSkill) {
+    case 'ビートハートアップ':
+      return store.outputBonusSkillList[bonusSkill].skillLevel * 0.5;
+    case 'LOVEボーナス':
+      const skillLevel = store.outputBonusSkillList[bonusSkill].skillLevel;
 
-    for (const i of store.bonusSkillList[bonusSkill].ary) {
-      if (store.outputBonusSkillList[bonusSkill].skillLevel <= i) {
-        break;
-      } else {
-        num -= 1;
+      for (const tier of store.bonusSkillList[bonusSkill].ary) {
+        if (skillLevel <= tier.limit) {
+          return tier.baseValue + (skillLevel - tier.subtractLevel) * tier.multiplier;
+        }
       }
-    }
 
-    return num;
-  } else {
-    return store.outputBonusSkillList[bonusSkill].skillLevel * 0.5;
+      return 0; // この行に到達することはないはずだが、万が一のためのフォールバック
+    default:
+      let num = store.bonusSkillList[bonusSkill].init;
+
+      for (const i of store.bonusSkillList[bonusSkill].ary) {
+        if (store.outputBonusSkillList[bonusSkill].skillLevel <= i) {
+          break;
+        } else {
+          num -= 1;
+        }
+      }
+
+      return num;
   }
 };
 </script>
