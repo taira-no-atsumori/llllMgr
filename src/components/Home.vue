@@ -238,7 +238,7 @@ export default {
         },
         '4thLiveDream_kanagawa': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
-          text: '神奈川公演',
+          text: '102期卒業公演',
           type: 'live',
           firstDay: [2025, 6, 7, 0, 0],
           lastDay: [2025, 6, 8, 23, 59],

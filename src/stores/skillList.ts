@@ -3868,10 +3868,20 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
-      リブートハート: {
-        rebootHeart: {
+      'リブートハート': {
+        'rebootHeart': {
           text: [
             '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'boost_heartCaptcha']
+          }
+        },
+        'rebootHeart_02': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに10回の間スキルハート獲得効果による獲得量を+',
             '%する。'
           ],
           detail: {
@@ -5618,6 +5628,30 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'エクステアンビエンス': {
+        'extensionAmbience_01': {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにムードがハッピー、メロウいずれかのとき、ムード値を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'ambience',
+            type: ['extensions_section', 'ambience_section']
+          }
+        }
+      },
+      'リピートアンビエンス': {
+        'repeatAmbience_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+            'する。'
+          ],
+          detail: {
+            attr: 'ambience',
+            type: ['reshuffle', 'ambience_section']
+          }
+        }
+      },
       'リフレッシュサウンドバイブス': {
         'refreshSoundVibes_01': {
           text: [
@@ -5691,6 +5725,34 @@ export const useSkillStore = defineStore('skillList', {
           }
         }
       },
+      'サウンドリゲイン': {
+        'soundRegain_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにムードがハッピー、メロウいずれか50以上のとき、ボルテージPt.を+',
+            'し、いずれか75以上のとき、このステージ中、ハート上限を+',
+            'し、いずれか100のとき、8回の間スキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'sound', 'voltageGain', 'heartLimitUp', 'boost_heartCaptcha']
+          }
+        }
+      },
+      'サウンドリフレッシュ': {
+        'soundRefresh_01': {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにムードがハッピー、メロウいずれか50以上のとき、このステージ中、獲得するLOVEを+',
+            'し、いずれか75以上のとき、このステージ中、ハート上限を+',
+            'し、いずれか100のとき、8回の間スキルハート獲得効果による獲得数を+',
+            '%する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'sound', 'loveAttract_stage', 'heartLimitUp', 'boost_heartCaptcha']
+          }
+        }
+      },
       'サウンドプロテクト': {
         'soundProtect_01': {
           text: [
@@ -5713,6 +5775,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['boost_heartCaptcha', 'sound']
+          }
+        }
+      },
+      'サウンドワイドハート': {
+        'soundWideHeart_01': {
+          text: [
+            'このステージ中、ハート上限を+',
+            'する。さらにムードがハッピー、メロウいずれか75以上のとき、このステージ中、ハート上限を+',
+            'する。'
+          ],
+          detail: {
+            attr: '',
+            type: ['heartLimitUp', 'sound']
           }
         }
       },

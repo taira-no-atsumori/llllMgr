@@ -42,10 +42,10 @@ interface MusicData {
  * @property {MusicData} musicData 曲の詳細データ
  * @property {'smile' | 'pure' | 'cool'} attribute 曲の属性（smile, pure, coolのいずれか）
  * @property {number} BHcount ビートハート発生回数
- * @property {number} level 楽曲マスタリーレベル
- * @property {number} term 曲のリリース期
+ * @property {0 | 1} level 楽曲マスタリーレベル
+ * @property {103 | 104 | 105} term 曲のリリース期
  * @property {string} center センターメンバーの名前
- * @property {string} bonusSkill ボーナススキル
+ * @property {'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス'} bonusSkill ボーナススキル
  * @property {string[]} singingMembers 歌唱メンバーの名前の配列
  * @property {'NORMAL' | 'HARD' | 'EXPERT' | 'MASTER'} difficultyLevel 曲の難易度
  */
@@ -54,10 +54,10 @@ interface MusicItem {
   musicData: MusicData;
   attribute: 'smile' | 'pure' | 'cool';
   BHcount: number;
-  level: number;
-  term: number;
+  level: 0 | 1;
+  term: 103 | 104 | 105;
   center: string;
-  bonusSkill: string;
+  bonusSkill: 'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス';
   singingMembers: string[];
   difficultyLevel?: 'NORMAL' | 'HARD' | 'EXPERT' | 'MASTER';
 }

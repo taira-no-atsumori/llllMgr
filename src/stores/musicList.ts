@@ -4442,6 +4442,33 @@ export const useMusicStore = defineStore('musicList', {
           MASTER: 30
         }
       },
+      'Hello, new dream!': {
+        ID: 'm_168',
+        musicData: {
+          kana: 'はろーにゅーどりーむ',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2025,
+            month: 4,
+            date: 30
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
+          BPM: {
+            original: 138,
+            inGame: 138
+          },
+          time: 126.63,
+          cover: false,
+          link: 'https://youtu.be/BegfTmDrSR8?si=aOJnxyo4NRoE87VC&t=465'
+        },
+        attribute: 'smile',
+        BHcount: 71,
+        level: 1,
+        term: 105,
+        center: 'sayaka',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
+      },
       'Edelied': {
         ID: 'm_160',
         musicData: {
@@ -4552,7 +4579,7 @@ export const useMusicStore = defineStore('musicList', {
           },
           time: 100,
           cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=QxTDDkMOTKpJok6w&t=198'
+          link: 'https://youtu.be/M_KiFNfYBf0?si=8zYaZxHztFKH1y_i'
         },
         attribute: 'cool',
         BHcount: 54,

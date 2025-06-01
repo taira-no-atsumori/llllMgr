@@ -333,6 +333,53 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'Her-bath-rium': {
+            ID: 'kh_060',
+            styleType: 'cheerLeader',
+            mood: 'neutral',
+            series: 'Her-bath-rium',
+            kana: 'はーばりうむ',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 1stTerm 第1回サークル対抗戦」報酬',
+              period: 'prize'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 5500,
+              pure: 5000,
+              cool: 3800,
+              mental: 490,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'rebootMind_01',
+              name: 'リブートマインド',
+              AP: 6,
+              detail: [
+                [16, 17.6, 19.2, 20.8, 22.4, 24, 25.6, 27.2, 28.8, 32, 33.6, 35.2, 36.8, 40]
+              ]
+            },
+            skill: {
+              ID: 'soundRefreshMind_01',
+              name: 'サウンドリフレッシュマインド',
+              AP: 3,
+              detail: [
+                [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
+              ]
+            },
+            characteristic: {
+              name: 'サウンド：ドロー：ワイドハート',
+              detail: 'ムードがハッピー、メロウいずれか75以上でドローしたとき、このステージ中、ハート上限を+36する。',
+              type: ['sound', 'heartLimitUp']
+            }
+          },
           'Celebration!': {
             ID: 'kh_058',
             styleType: 'performer',
@@ -5835,6 +5882,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'WAWO!': {
+            ID: 'rr_047',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'WAWO!',
+            kana: 'わお',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.6',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4150,
+              pure: 6000,
+              cool: 4250,
+              mental: 480,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'repeatAmbience_01',
+              name: 'リピートアンビエンス',
+              AP: 6,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+              ]
+            },
+            skill: {
+              ID: 'soundRegain_01',
+              name: 'サウンドリゲイン',
+              AP: 8,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [84, 92, 101, 109, 118, 126, 134, 143, 151, 168, 176, 185, 193, 210],
+                [210, 231, 252, 273, 294, 315, 336, 357, 378, 420, 441, 462, 483, 525]
+              ]
+            },
+            characteristic: {
+              name: 'みらくらサークル',
+              detail: 'みらくらぱーく！のスキル使用時、ドローされる確率が増加し、このスキル使用時、みらくらぱーく！のカードをドローする確率アップ。さらに手札にある間、手札の上限枚数を2枚増加し、ムードがハッピー、メロウいずれか50以上のとき、手札の上限枚数を2枚増加し、いずれか75以上のとき、このスキルの消費AP-5。',
+              type: ['draw', 'sound', 'extension', 'APReduce']
+            }
+          },
           'AURORA FLOWER': {
             ID: 'rr_042',
             styleType: 'trickStar',
@@ -18492,6 +18588,55 @@ export const useCardStore = defineStore('cardList', {
           }
         },
         UR: {
+          'WAWO!': {
+            ID: 'hm_023',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'WAWO!',
+            kana: 'わお',
+            gacha: {
+              addSeason: '2025 SPRING LIMITED COLLECTION vol.6',
+              period: 'spring'
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0
+            },
+            uniqueStatus: {
+              smile: 4200,
+              pure: 6100,
+              cool: 4100,
+              mental: 480,
+              BP: 100
+            },
+            specialAppeal: {
+              ID: 'extensionAmbience_01',
+              name: 'エクステアンビエンス',
+              AP: 6,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+              ]
+            },
+            skill: {
+              ID: 'soundRefresh_01',
+              name: 'サウンドリフレッシュ',
+              AP: 8,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [210, 231, 252, 273, 294, 315, 336, 357, 378, 420, 441, 462, 483, 525]
+              ]
+            },
+            characteristic: {
+              name: 'みらくらサークル',
+              detail: 'みらくらぱーく！のスキル使用後、ドローされる確率が増加し、このスキル使用後、みらくらぱーく！のカードをドローする確率アップ。さらに手札にある間、AP回復速度を+20%し、ムードがハッピー、メロウいずれか50以上のとき、AP回復速度を+20%、いずれか75以上のとき、このスキルの消費AP-5。',
+              type: ['draw', 'APQuick', 'sound', 'APReduce']
+            }
+          },
           'Her-bath-rium': {
             ID: 'hm_022',
             styleType: 'cheerLeader',
