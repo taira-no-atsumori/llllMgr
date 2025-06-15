@@ -12,16 +12,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 139.26,
           cover: false,
-          link: 'https://youtu.be/QUa6HMcRSnc?si=0OipC7BbXPRZoDAR'
+          link: 'https://youtu.be/QUa6HMcRSnc?si=0OipC7BbXPRZoDAR',
         },
         attribute: 'smile',
         BHcount: 92,
@@ -29,7 +29,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
       '永遠のEuphoria(4人Ver.)': {
         ID: 'm_002',
@@ -39,16 +39,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 109.63,
           cover: false,
-          link: 'https://youtu.be/rT3v54pmNXA?si=-6eg8PuAsUkwINYU&t=67'
+          link: 'https://youtu.be/rT3v54pmNXA?si=-6eg8PuAsUkwINYU&t=67',
         },
         attribute: 'smile',
         BHcount: 72,
@@ -56,7 +56,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
       'On your mark': {
         ID: 'm_003',
@@ -66,16 +66,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
           BPM: {
             original: 154,
-            inGame: 154
+            inGame: 154,
           },
           time: 96.62,
           cover: false,
-          link: 'https://youtu.be/x8QrjuoxJ-s?si=Xn91wzDfHxrhaRjI'
+          link: 'https://youtu.be/x8QrjuoxJ-s?si=Xn91wzDfHxrhaRjI',
         },
         attribute: 'cool',
         BHcount: 60,
@@ -83,9 +83,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      'DEEPNESS': {
+      DEEPNESS: {
         ID: 'm_016',
         musicData: {
           kana: 'でぃーぷねす',
@@ -93,16 +93,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'スリーズブーケ/DOLLCHESTRA 2ndシングル',
           BPM: {
             original: 136,
-            inGame: 136
+            inGame: 136,
           },
           time: 104.12,
           cover: false,
-          link: 'https://youtu.be/rFu_T2qZA-M?si=xa8doPhG2O2hCg8R'
+          link: 'https://youtu.be/rFu_T2qZA-M?si=xa8doPhG2O2hCg8R',
         },
         attribute: 'cool',
         BHcount: 57,
@@ -110,9 +110,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri'],
       },
-      '永遠のEuphoria': {
+      永遠のEuphoria: {
         ID: 'm_037',
         musicData: {
           kana: 'えいえんのゆーふぉりあ',
@@ -120,16 +120,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 109.63,
           cover: false,
-          link: 'https://youtu.be/sPORZ8XxsDA?si=sREECA9n1ZRdmB6o'
+          link: 'https://youtu.be/sPORZ8XxsDA?si=sREECA9n1ZRdmB6o',
         },
         attribute: 'smile',
         BHcount: 68,
@@ -137,9 +137,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      '夏めきペイン': {
+      夏めきペイン: {
         ID: 'm_038',
         musicData: {
           kana: 'なつめきぺいん',
@@ -147,16 +147,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 188,
-            inGame: 188
+            inGame: 188,
           },
           time: 91.92,
           cover: false,
-          link: 'https://youtu.be/nF3s1RC_HDA?si=IDw5KgeLVLS6SeKw'
+          link: 'https://youtu.be/nF3s1RC_HDA?si=IDw5KgeLVLS6SeKw',
         },
         attribute: 'pure',
         BHcount: 66,
@@ -164,7 +164,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Dream Believers': {
         ID: 'm_046',
@@ -174,16 +174,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 139.26,
           cover: false,
-          link: 'https://youtu.be/AGtF3sfx10o?si=zW00SJ_dZx1fjxBa'
+          link: 'https://youtu.be/AGtF3sfx10o?si=zW00SJ_dZx1fjxBa',
         },
         attribute: 'smile',
         BHcount: 88,
@@ -191,9 +191,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      'Legato': {
+      Legato: {
         ID: 'm_050',
         musicData: {
           kana: 'れがーと',
@@ -201,16 +201,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 160,
-            inGame: 160
+            inGame: 160,
           },
           time: 148.51,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=6f2QdaWj5lYgTWP_&t=790'
+          link: 'https://youtu.be/Xlgsd61isEk?si=6f2QdaWj5lYgTWP_&t=790',
         },
         attribute: 'smile',
         BHcount: 93,
@@ -218,7 +218,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Trick & Cute': {
         ID: 'm_051',
@@ -228,16 +228,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 1,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: {
             original: 244,
-            inGame: 122
+            inGame: 122,
           },
           time: 86.56,
           cover: false,
-          link: 'https://youtu.be/Jzg41mZGJRw?si=edZhXQbA2yBbp9AZ'
+          link: 'https://youtu.be/Jzg41mZGJRw?si=edZhXQbA2yBbp9AZ',
         },
         attribute: 'cool',
         BHcount: 42,
@@ -245,7 +245,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Yup! Yup! Yup!': {
         ID: 'm_059',
@@ -255,16 +255,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 148.23,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=1ugEBdpa2bBX7CZ5&t=103'
+          link: 'https://youtu.be/Xlgsd61isEk?si=1ugEBdpa2bBX7CZ5&t=103',
         },
         attribute: 'smile',
         BHcount: 103,
@@ -272,9 +272,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      '明日の空の僕たちへ': {
+      明日の空の僕たちへ: {
         ID: 'm_057',
         musicData: {
           kana: 'あすのそらのぼくたちへ',
@@ -282,16 +282,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 164,
-            inGame: 164
+            inGame: 164,
           },
           time: 122.93,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=MVogreQamGLHPwXx&t=707'
+          link: 'https://youtu.be/Xlgsd61isEk?si=MVogreQamGLHPwXx&t=707',
         },
         attribute: 'cool',
         BHcount: 82,
@@ -299,7 +299,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'ツバサ・ラ・リベルテ': {
         ID: 'm_060',
@@ -309,16 +309,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 1,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: {
             original: 177,
-            inGame: 177
+            inGame: 177,
           },
           time: 109.83,
           cover: false,
-          link: 'https://youtu.be/okQJ8QQRhaM?si=kcpavJGfMr4SlqUz'
+          link: 'https://youtu.be/okQJ8QQRhaM?si=kcpavJGfMr4SlqUz',
         },
         attribute: 'pure',
         BHcount: 79,
@@ -326,7 +326,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'Link to the FUTURE': {
         ID: 'm_066',
@@ -336,16 +336,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 1,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: {
             original: 183,
-            inGame: 183
+            inGame: 183,
           },
           time: 140.33,
           cover: false,
-          link: 'https://youtu.be/y7CiaEUtqeI?si=yx8YEoAqbJ5IFF_C'
+          link: 'https://youtu.be/y7CiaEUtqeI?si=yx8YEoAqbJ5IFF_C',
         },
         attribute: 'smile',
         BHcount: 105,
@@ -353,9 +353,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      '抱きしめる花びら': {
+      抱きしめる花びら: {
         ID: 'm_080',
         musicData: {
           kana: 'だきしめるはなびら',
@@ -363,16 +363,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 3
+            date: 3,
           },
           numbering: '',
           BPM: {
             original: 79,
-            inGame: 79
+            inGame: 79,
           },
           time: 136.5,
           cover: false,
-          link: 'https://youtu.be/rjInEoKntb0?si=_Cn1KNnx-ckQqsIG'
+          link: 'https://youtu.be/rjInEoKntb0?si=_Cn1KNnx-ckQqsIG',
         },
         attribute: 'pure',
         BHcount: 43,
@@ -380,7 +380,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
       'STEP UP！': {
         ID: 'm_081',
@@ -390,16 +390,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 3
+            date: 3,
           },
           numbering: '',
           BPM: {
             original: 187,
-            inGame: 187
+            inGame: 187,
           },
           time: 104.5,
           cover: false,
-          link: 'https://youtu.be/x73AT9OU_FQ?si=g9A2NymAyFc1y6Ky&t=627'
+          link: 'https://youtu.be/x73AT9OU_FQ?si=g9A2NymAyFc1y6Ky&t=627',
         },
         attribute: 'pure',
         BHcount: 83,
@@ -407,9 +407,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi'],
       },
-      '水彩世界': {
+      水彩世界: {
         ID: 'm_004',
         musicData: {
           kana: 'すいさいせかい',
@@ -417,16 +417,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: 'デビューミニアルバム',
           BPM: {
             original: '80～160',
-            inGame: 160
+            inGame: 160,
           },
           time: 97.5,
           cover: false,
-          link: 'https://youtu.be/yu3-GPN5fVE?si=bhjSkSyQjS2kmHse'
+          link: 'https://youtu.be/yu3-GPN5fVE?si=bhjSkSyQjS2kmHse',
         },
         attribute: 'cool',
         BHcount: 63,
@@ -434,7 +434,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
       'Reflection in the mirror': {
         ID: 'm_006',
@@ -444,16 +444,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'スリーズブーケ 1stシングル',
           BPM: {
             original: 175,
-            inGame: 175
+            inGame: 175,
           },
           time: 98.74,
           cover: false,
-          link: 'https://youtu.be/a5PMdCUekvw?si=B8mXWg0nD02X_88X&t=12'
+          link: 'https://youtu.be/a5PMdCUekvw?si=B8mXWg0nD02X_88X&t=12',
         },
         attribute: 'smile',
         BHcount: 70,
@@ -466,10 +466,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 10,
           HARD: 19,
           EXPERT: 25,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
-      'フォーチュンムービー': {
+      フォーチュンムービー: {
         ID: 'm_007',
         musicData: {
           kana: 'ふぉーちゅんむーびー',
@@ -477,16 +477,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'スリーズブーケ 1stシングル',
           BPM: {
             original: 220,
-            inGame: 220
+            inGame: 220,
           },
           time: 78.55,
           cover: false,
-          link: 'https://youtu.be/dFrbBRm_Ghw?si=UoxuVFfCu3aVugsN'
+          link: 'https://youtu.be/dFrbBRm_Ghw?si=UoxuVFfCu3aVugsN',
         },
         attribute: 'smile',
         BHcount: 70,
@@ -499,8 +499,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 10,
           HARD: 18,
           EXPERT: 27,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
       'Mix shake!!': {
         ID: 'm_008',
@@ -510,16 +510,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'スリーズブーケ 1stシングル',
           BPM: {
             original: 174,
-            inGame: 174
+            inGame: 174,
           },
           time: 117.58,
           cover: false,
-          link: 'https://youtu.be/a5PMdCUekvw?si=4F_--5_bD_UAwHnM&t=170'
+          link: 'https://youtu.be/a5PMdCUekvw?si=4F_--5_bD_UAwHnM&t=170',
         },
         attribute: 'pure',
         BHcount: 83,
@@ -527,9 +527,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      '謳歌爛漫': {
+      謳歌爛漫: {
         ID: 'm_013',
         musicData: {
           kana: 'おうからんまん',
@@ -537,16 +537,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 6,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ&DOLLCHESTRA ユニットスプリットシングル',
           BPM: {
             original: 104,
-            inGame: 104
+            inGame: 104,
           },
           time: 113.08,
           cover: false,
-          link: 'https://youtu.be/ScchwCmMN7k?si=81JRbsqUjcEKrZwp&t=13'
+          link: 'https://youtu.be/ScchwCmMN7k?si=81JRbsqUjcEKrZwp&t=13',
         },
         attribute: 'smile',
         BHcount: 47,
@@ -559,8 +559,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 12,
           HARD: 16,
           EXPERT: 22,
-          MASTER: 26
-        }
+          MASTER: 26,
+        },
       },
       'Holiday∞Holiday': {
         ID: 'm_012',
@@ -570,16 +570,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 6,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ&DOLLCHESTRA ユニットスプリットシングル',
           BPM: {
             original: 135,
-            inGame: 135
+            inGame: 135,
           },
           time: 94.22,
           cover: false,
-          link: 'https://youtu.be/IHSUgM4rVQg?si=bGMQLsZZ4YtPA8DE'
+          link: 'https://youtu.be/IHSUgM4rVQg?si=bGMQLsZZ4YtPA8DE',
         },
         attribute: 'pure',
         BHcount: 51,
@@ -587,9 +587,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      '眩耀夜行': {
+      眩耀夜行: {
         ID: 'm_033',
         musicData: {
           kana: 'げんようやこう',
@@ -597,16 +597,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'スリーズブーケ 2ndシングル',
           BPM: {
             original: 158,
-            inGame: 158
+            inGame: 158,
           },
           time: 97.21,
           cover: false,
-          link: 'https://youtu.be/XYKceXnAFpQ?si=yrwwcSdw09lsrWTz'
+          link: 'https://youtu.be/XYKceXnAFpQ?si=yrwwcSdw09lsrWTz',
         },
         attribute: 'smile',
         BHcount: 62,
@@ -614,7 +614,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
       'Kawaii no susume': {
         ID: 'm_035',
@@ -624,16 +624,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'スリーズブーケ 2ndシングル',
           BPM: {
             original: 132,
-            inGame: 132
+            inGame: 132,
           },
           time: 100,
           cover: false,
-          link: 'https://youtu.be/fv-oIfVdlIE?si=_OCSQWPJaTEHotf2&t=105'
+          link: 'https://youtu.be/fv-oIfVdlIE?si=_OCSQWPJaTEHotf2&t=105',
         },
         attribute: 'smile',
         BHcount: 53,
@@ -641,9 +641,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      '残陽': {
+      残陽: {
         ID: 'm_044',
         musicData: {
           kana: 'ざんよう',
@@ -651,16 +651,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 118,
-            inGame: 118
+            inGame: 118,
           },
           time: 91.53,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=7t7jhjitP-1o3O2A&t=268'
+          link: 'https://youtu.be/Xlgsd61isEk?si=7t7jhjitP-1o3O2A&t=268',
         },
         attribute: 'cool',
         BHcount: 39,
@@ -668,9 +668,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      '素顔のピクセル': {
+      素顔のピクセル: {
         ID: 'm_047',
         musicData: {
           kana: 'すがおのぴくせる',
@@ -678,16 +678,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 15
+            date: 15,
           },
           numbering: 'スリーズブーケ 3rdシングル',
           BPM: {
             original: 138,
-            inGame: 112
+            inGame: 112,
           },
           time: 107.83,
           cover: false,
-          link: 'https://youtu.be/qSA1Qwgy5iw?si=CfByaDK2YhAyhcwz&t=13'
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=CfByaDK2YhAyhcwz&t=13',
         },
         attribute: 'pure',
         BHcount: 56,
@@ -695,9 +695,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      '千変万華': {
+      千変万華: {
         ID: 'm_052',
         musicData: {
           kana: 'せんぺんばんか',
@@ -705,16 +705,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 15
+            date: 15,
           },
           numbering: 'スリーズブーケ 3rdシングル',
           BPM: {
             original: 140,
-            inGame: 140
+            inGame: 140,
           },
           time: 108,
           cover: false,
-          link: 'https://youtu.be/qSA1Qwgy5iw?si=CpiTZUTelhvpzthd&t=190'
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=CpiTZUTelhvpzthd&t=190',
         },
         attribute: 'smile',
         BHcount: 61,
@@ -722,7 +722,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
       'Dear my future': {
         ID: 'm_061',
@@ -732,16 +732,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 90,
-            inGame: 180
+            inGame: 180,
           },
           time: 101.34,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=8tJTK44nSCYYilQK&t=541'
+          link: 'https://youtu.be/Xlgsd61isEk?si=8tJTK44nSCYYilQK&t=541',
         },
         attribute: 'cool',
         BHcount: 36,
@@ -749,9 +749,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      'シュガーメルト': {
+      シュガーメルト: {
         ID: 'm_063',
         musicData: {
           kana: 'しゅがーめると',
@@ -759,16 +759,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 15
+            date: 15,
           },
           numbering: 'スリーズブーケ 3rdシングル',
           BPM: {
             original: 136,
-            inGame: 136
+            inGame: 136,
           },
           time: 104.56,
           cover: false,
-          link: 'https://youtu.be/qSA1Qwgy5iw?si=JntFsn5GFracnRnu&t=104'
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=JntFsn5GFracnRnu&t=104',
         },
         attribute: 'smile',
         BHcount: 58,
@@ -776,7 +776,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
       'Special Thanks': {
         ID: 'm_068',
@@ -786,16 +786,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 2,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 94,
           cover: false,
-          link: 'https://youtu.be/WU461Dk10EY?si=C_8005letoaSNPas'
+          link: 'https://youtu.be/WU461Dk10EY?si=C_8005letoaSNPas',
         },
         attribute: 'pure',
         BHcount: 64,
@@ -803,9 +803,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      'AWOKE': {
+      AWOKE: {
         ID: 'm_005',
         musicData: {
           kana: 'あうぉーく',
@@ -813,16 +813,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: 'デビューミニアルバム',
           BPM: {
             original: 150,
-            inGame: 150
+            inGame: 150,
           },
           time: 126.4,
           cover: false,
-          link: 'https://youtu.be/KnnSr-kI5sk?si=XOmnKcPqfz0HUfZo'
+          link: 'https://youtu.be/KnnSr-kI5sk?si=XOmnKcPqfz0HUfZo',
         },
         attribute: 'cool',
         BHcount: 80,
@@ -830,7 +830,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Sparkly Spot': {
         ID: 'm_009',
@@ -840,16 +840,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'DOLLCHESTRA 1stシングル',
           BPM: {
             original: 176,
-            inGame: 176
+            inGame: 176,
           },
           time: 94.09,
           cover: false,
-          link: 'https://youtu.be/QyQOyVTLPT0?si=dM9Glg5C3HGuK6vX&t=13'
+          link: 'https://youtu.be/QyQOyVTLPT0?si=dM9Glg5C3HGuK6vX&t=13',
         },
         attribute: 'cool',
         BHcount: 67,
@@ -862,10 +862,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 14,
           HARD: 19,
           EXPERT: 26,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
-      'ツキマカセ': {
+      ツキマカセ: {
         ID: 'm_010',
         musicData: {
           kana: 'つきまかせ',
@@ -873,16 +873,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'DOLLCHESTRA 1stシングル',
           BPM: {
             original: 220,
-            inGame: 220
+            inGame: 220,
           },
           time: 103.64,
           cover: false,
-          link: 'https://youtu.be/02SNWF91ISA?si=RpFPD8G0ru-iilI4'
+          link: 'https://youtu.be/02SNWF91ISA?si=RpFPD8G0ru-iilI4',
         },
         attribute: 'pure',
         BHcount: 93,
@@ -895,10 +895,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 13,
           HARD: 19,
           EXPERT: 27,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
-      '希望的プリズム': {
+      希望的プリズム: {
         ID: 'm_011',
         musicData: {
           kana: 'きぼうてきぷりずむ',
@@ -906,16 +906,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'DOLLCHESTRA 1stシングル',
           BPM: {
             original: 131,
-            inGame: 131
+            inGame: 131,
           },
           time: 112.38,
           cover: false,
-          link: 'https://youtu.be/QyQOyVTLPT0?si=GYUfgXMVNGx6Ho7d&t=177'
+          link: 'https://youtu.be/QyQOyVTLPT0?si=GYUfgXMVNGx6Ho7d&t=177',
         },
         attribute: 'cool',
         BHcount: 57,
@@ -923,9 +923,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      'スケイプゴート': {
+      スケイプゴート: {
         ID: 'm_015',
         musicData: {
           kana: 'すけいぷごーと',
@@ -933,16 +933,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 6,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ&DOLLCHESTRA ユニットスプリットシングル',
           BPM: {
             original: 97,
-            inGame: 97
+            inGame: 97,
           },
           time: 123.71,
           cover: false,
-          link: 'https://youtu.be/69n4Ts5uDww?si=Af_0ISZMHyxzUJG2&t=14'
+          link: 'https://youtu.be/69n4Ts5uDww?si=Af_0ISZMHyxzUJG2&t=14',
         },
         attribute: 'cool',
         BHcount: 48,
@@ -955,8 +955,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 13,
           HARD: 21,
           EXPERT: 26,
-          MASTER: 28
-        }
+          MASTER: 28,
+        },
       },
       'Tragic Drops': {
         ID: 'm_014',
@@ -966,16 +966,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 6,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ&DOLLCHESTRA ユニットスプリットシングル',
           BPM: {
             original: 110,
-            inGame: 110
+            inGame: 110,
           },
           time: 87.28,
           cover: false,
-          link: 'https://youtu.be/n8paMjvkKqw?si=wcdpzqQwSgBExJa0'
+          link: 'https://youtu.be/n8paMjvkKqw?si=wcdpzqQwSgBExJa0',
         },
         attribute: 'cool',
         BHcount: 38,
@@ -983,7 +983,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Mirage Voyage': {
         ID: 'm_034',
@@ -993,16 +993,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'DOLLCHESTRA 2ndシングル',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 118.15,
           cover: false,
-          link: 'https://youtu.be/E1sncPMb8kw?si=nQuBLQtQZ41_Eu5z'
+          link: 'https://youtu.be/E1sncPMb8kw?si=nQuBLQtQZ41_Eu5z',
         },
         attribute: 'pure',
         BHcount: 62,
@@ -1010,9 +1010,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      'ジブンダイアリー': {
+      ジブンダイアリー: {
         ID: 'm_036',
         musicData: {
           kana: 'しぶんだいありー',
@@ -1020,16 +1020,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'DOLLCHESTRA 2ndシングル',
           BPM: {
             original: 102,
-            inGame: 102
+            inGame: 102,
           },
           time: 108.24,
           cover: false,
-          link: 'https://youtu.be/DQUOMsWk7NI?si=7ICFu27WOw5Nw7Qb&t=107'
+          link: 'https://youtu.be/DQUOMsWk7NI?si=7ICFu27WOw5Nw7Qb&t=107',
         },
         attribute: 'smile',
         BHcount: 44,
@@ -1037,9 +1037,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      'パラレルダンサー': {
+      パラレルダンサー: {
         ID: 'm_045',
         musicData: {
           kana: 'ぱられるだんさー',
@@ -1047,16 +1047,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 185,
-            inGame: 92
+            inGame: 92,
           },
           time: 117.39,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=wUNDXjbbjO7lLkeG&t=632'
+          link: 'https://youtu.be/Xlgsd61isEk?si=wUNDXjbbjO7lLkeG&t=632',
         },
         attribute: 'smile',
         BHcount: 39,
@@ -1064,7 +1064,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
       'Take It Over': {
         ID: 'm_048',
@@ -1074,16 +1074,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 22
+            date: 22,
           },
           numbering: 'DOLLCHESTRA 3rdシングル',
           BPM: {
             original: 150,
-            inGame: 150
+            inGame: 150,
           },
           time: 89.6,
           cover: false,
-          link: 'https://youtu.be/1md2v9lToNE?si=tCEFP98iRkI4oYuY&t=11'
+          link: 'https://youtu.be/1md2v9lToNE?si=tCEFP98iRkI4oYuY&t=11',
         },
         attribute: 'cool',
         BHcount: 50,
@@ -1091,9 +1091,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      'KNOT': {
+      KNOT: {
         ID: 'm_053',
         musicData: {
           kana: 'のっと',
@@ -1101,16 +1101,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 22
+            date: 22,
           },
           numbering: 'DOLLCHESTRA 3rdシングル',
           BPM: {
             original: 174,
-            inGame: 174
+            inGame: 174,
           },
           time: 99.31,
           cover: false,
-          link: 'https://youtu.be/1md2v9lToNE?si=c9GihuYIGmzckTyY&t=169'
+          link: 'https://youtu.be/1md2v9lToNE?si=c9GihuYIGmzckTyY&t=169',
         },
         attribute: 'cool',
         BHcount: 70,
@@ -1118,9 +1118,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '青春の輪郭': {
+      青春の輪郭: {
         ID: 'm_058',
         musicData: {
           kana: 'せいしゅんのりんかく',
@@ -1128,16 +1128,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 176,
-            inGame: 176
+            inGame: 176,
           },
           time: 120,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=bzSdi3WqI_oMBQSx&t=345'
+          link: 'https://youtu.be/Xlgsd61isEk?si=bzSdi3WqI_oMBQSx&t=345',
         },
         attribute: 'pure',
         BHcount: 86,
@@ -1145,9 +1145,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '飴色': {
+      飴色: {
         ID: 'm_064',
         musicData: {
           kana: 'あめいろ',
@@ -1155,16 +1155,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 22
+            date: 22,
           },
           numbering: 'DOLLCHESTRA 3rdシングル',
           BPM: {
             original: 126,
-            inGame: 126
+            inGame: 126,
           },
           time: 133.33,
           cover: false,
-          link: 'https://youtu.be/1md2v9lToNE?si=agVO3PFMPkOdz5QP&t=100'
+          link: 'https://youtu.be/1md2v9lToNE?si=agVO3PFMPkOdz5QP&t=100',
         },
         attribute: 'cool',
         BHcount: 68,
@@ -1172,9 +1172,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '青とシャボン': {
+      青とシャボン: {
         ID: 'm_069',
         musicData: {
           kana: 'あおとしゃぼん',
@@ -1182,16 +1182,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 2,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
           BPM: {
             original: 127,
-            inGame: 127
+            inGame: 127,
           },
           time: 94,
           cover: false,
-          link: 'https://youtu.be/z_H1vYkJQAs?si=9yL3dXDhw3U-skba&t=89'
+          link: 'https://youtu.be/z_H1vYkJQAs?si=9yL3dXDhw3U-skba&t=89',
         },
         attribute: 'cool',
         BHcount: 48,
@@ -1199,7 +1199,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
       'ド！ド！ド！': {
         ID: 'm_039',
@@ -1209,16 +1209,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: 'デビューミニアルバム',
           BPM: {
             original: 197,
-            inGame: 197
+            inGame: 197,
           },
           time: 92.59,
           cover: false,
-          link: 'https://youtu.be/sLQEunI7p5s?si=qUp7UaRBLOMe4YKd'
+          link: 'https://youtu.be/sLQEunI7p5s?si=qUp7UaRBLOMe4YKd',
         },
         attribute: 'pure',
         BHcount: 70,
@@ -1226,9 +1226,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'ハクチューアラモード': {
+      ハクチューアラモード: {
         ID: 'm_040',
         musicData: {
           kana: 'はくちゅーあらもーど',
@@ -1236,16 +1236,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 258,
-            inGame: 129
+            inGame: 129,
           },
           time: 89.3,
           cover: false,
-          link: 'https://youtu.be/vh_aOcsfBSE?si=aEMg-2KwfrwLxOoy'
+          link: 'https://youtu.be/vh_aOcsfBSE?si=aEMg-2KwfrwLxOoy',
         },
         attribute: 'smile',
         BHcount: 42,
@@ -1253,9 +1253,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'ココン東西': {
+      ココン東西: {
         ID: 'm_041',
         musicData: {
           kana: 'ここんとうざい',
@@ -1263,16 +1263,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 160,
-            inGame: 160
+            inGame: 160,
           },
           time: 91.5,
           cover: false,
-          link: 'https://youtu.be/4TloWORhdjg?si=UFtI--W04k-VevXL'
+          link: 'https://youtu.be/4TloWORhdjg?si=UFtI--W04k-VevXL',
         },
         attribute: 'cool',
         BHcount: 55,
@@ -1280,9 +1280,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'アイデンティティ': {
+      アイデンティティ: {
         ID: 'm_049',
         musicData: {
           kana: 'あいでんてぃてぃ',
@@ -1290,16 +1290,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 29
+            date: 29,
           },
           numbering: 'みらくらぱーく！ 1stシングル',
           BPM: {
             original: 157,
-            inGame: 157
+            inGame: 157,
           },
           time: 87.69,
           cover: false,
-          link: 'https://youtu.be/RD2C_UVLjQM?si=lPXSg7xKuPePxXHL'
+          link: 'https://youtu.be/RD2C_UVLjQM?si=lPXSg7xKuPePxXHL',
         },
         attribute: 'smile',
         BHcount: 50,
@@ -1307,9 +1307,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'ノンフィクションヒーローショー': {
+      ノンフィクションヒーローショー: {
         ID: 'm_054',
         musicData: {
           kana: 'のんふぃくしょんひーろーしょー',
@@ -1317,16 +1317,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 29
+            date: 29,
           },
           numbering: 'みらくらぱーく！ 1stシングル',
           BPM: {
             original: 180,
-            inGame: 180
+            inGame: 180,
           },
           time: 142.67,
           cover: false,
-          link: 'https://youtu.be/BxYdciecJWA?si=TOcAbzLU58i5pyu8&t=179'
+          link: 'https://youtu.be/BxYdciecJWA?si=TOcAbzLU58i5pyu8&t=179',
         },
         attribute: 'pure',
         BHcount: 104,
@@ -1334,9 +1334,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      '天才なのかもしれない': {
+      天才なのかもしれない: {
         ID: 'm_065',
         musicData: {
           kana: 'てんさいなのかもしれない',
@@ -1344,16 +1344,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 29
+            date: 29,
           },
           numbering: 'みらくらぱーく！ 1stシングル',
           BPM: {
             original: 128,
-            inGame: 128
+            inGame: 128,
           },
           time: 99.38,
           cover: false,
-          link: 'https://youtu.be/BxYdciecJWA?si=bbJ1Q63ihuezoOPD&t=95'
+          link: 'https://youtu.be/BxYdciecJWA?si=bbJ1Q63ihuezoOPD&t=95',
         },
         attribute: 'pure',
         BHcount: 51,
@@ -1361,9 +1361,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'ミルク': {
+      ミルク: {
         ID: 'm_070',
         musicData: {
           kana: 'みるく',
@@ -1371,16 +1371,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 2,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
           BPM: {
             original: 79,
-            inGame: 79
+            inGame: 79,
           },
           time: 137.84,
           cover: false,
-          link: 'https://youtu.be/z_H1vYkJQAs?si=8X9jlbFa--ll80Sl&t=179'
+          link: 'https://youtu.be/z_H1vYkJQAs?si=8X9jlbFa--ll80Sl&t=179',
         },
         attribute: 'pure',
         BHcount: 42,
@@ -1388,7 +1388,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
       'BANG YOU グラビティ': {
         ID: 'm_077',
@@ -1398,16 +1398,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 27
+            date: 27,
           },
           numbering: 'みらくらぱーく！ 2ndシングル',
           BPM: {
             original: 180,
-            inGame: 180
+            inGame: 180,
           },
           time: 134.5,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 99,
@@ -1415,7 +1415,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
       '以心☆電信': {
         ID: 'm_078',
@@ -1425,16 +1425,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 27
+            date: 27,
           },
           numbering: 'みらくらぱーく！ 2ndシングル',
           BPM: {
             original: 152,
-            inGame: 152
+            inGame: 152,
           },
           time: 103.25,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 63,
@@ -1442,9 +1442,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'マハラジャンボリー': {
+      マハラジャンボリー: {
         ID: 'm_079',
         musicData: {
           kana: 'まはらじゃんぼりー',
@@ -1452,16 +1452,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 27
+            date: 27,
           },
           numbering: 'みらくらぱーく！ 2ndシングル',
           BPM: {
             original: 152,
-            inGame: 152
+            inGame: 152,
           },
           time: 104.3,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 64,
@@ -1469,7 +1469,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
       'ハッピー至上主義！': {
         ID: 'm_074',
@@ -1479,16 +1479,17 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 20
+            date: 20,
           },
-          numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+          numbering:
+            'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
           BPM: {
             original: 173,
-            inGame: 173
+            inGame: 173,
           },
           time: 113,
           cover: false,
-          link: 'https://youtu.be/4WxZVeFi0ZQ?si=agdd4M0wM2dKX3de'
+          link: 'https://youtu.be/4WxZVeFi0ZQ?si=agdd4M0wM2dKX3de',
         },
         attribute: 'smile',
         BHcount: 79,
@@ -1496,7 +1497,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'megumi']
+        singingMembers: ['kaho', 'megumi'],
       },
       'Pleasure Feather': {
         ID: 'm_075',
@@ -1506,16 +1507,17 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 20
+            date: 20,
           },
-          numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+          numbering:
+            'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 108.5,
           cover: false,
-          link: 'https://youtu.be/rqlkUrQ6YPo?si=Cy3iemgnZq-plE0t'
+          link: 'https://youtu.be/rqlkUrQ6YPo?si=Cy3iemgnZq-plE0t',
         },
         attribute: 'cool',
         BHcount: 57,
@@ -1523,9 +1525,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'kozue']
+        singingMembers: ['sayaka', 'kozue'],
       },
-      'Colorfulness': {
+      Colorfulness: {
         ID: 'm_076',
         musicData: {
           kana: 'からふるねす',
@@ -1533,16 +1535,17 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 20
+            date: 20,
           },
-          numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+          numbering:
+            'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
           BPM: {
             original: 76,
-            inGame: 76
+            inGame: 76,
           },
           time: 130.18,
           cover: false,
-          link: 'https://youtu.be/S-YvHYLPZ4k?si=4kdDben0embw6ZRI'
+          link: 'https://youtu.be/S-YvHYLPZ4k?si=4kdDben0embw6ZRI',
         },
         attribute: 'pure',
         BHcount: 40,
@@ -1550,9 +1553,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'tsuzuri']
+        singingMembers: ['rurino', 'tsuzuri'],
       },
-      'Runway': {
+      Runway: {
         ID: 'm_055',
         musicData: {
           kana: 'らんうぇい',
@@ -1560,16 +1563,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 10,
-            date: 30
+            date: 30,
           },
           numbering: '',
           BPM: {
             original: 74,
-            inGame: 74
+            inGame: 74,
           },
           time: 137.84,
           cover: false,
-          link: 'https://youtu.be/11Of9XcxMO4?si=zNdf3QNDdn7izmdD&t=4160'
+          link: 'https://youtu.be/11Of9XcxMO4?si=zNdf3QNDdn7izmdD&t=4160',
         },
         attribute: 'pure',
         BHcount: 41,
@@ -1577,7 +1580,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka']
+        singingMembers: ['sayaka'],
       },
       '僕らのLIVE 君とのLIFE': {
         ID: 'm_017',
@@ -1587,16 +1590,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2010,
             month: 8,
-            date: 13
+            date: 13,
           },
-          numbering: 'μ\'s 1stシングル',
+          numbering: "μ's 1stシングル",
           BPM: {
             original: 210,
-            inGame: 210
+            inGame: 210,
           },
           time: 145.14,
           cover: true,
-          link: 'https://youtu.be/58h9A4mtUWs?si=iJ3ZoO6RoOqt68KE'
+          link: 'https://youtu.be/58h9A4mtUWs?si=iJ3ZoO6RoOqt68KE',
         },
         attribute: 'pure',
         BHcount: 125,
@@ -1609,8 +1612,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 12,
           HARD: 21,
           EXPERT: 28,
-          MASTER: 33
-        }
+          MASTER: 33,
+        },
       },
       '君のこころは輝いてるかい？': {
         ID: 'm_018',
@@ -1620,16 +1623,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2015,
             month: 10,
-            date: 7
+            date: 7,
           },
           numbering: 'Aqours 1stシングル',
           BPM: {
             original: 182,
-            inGame: 182
+            inGame: 182,
           },
           time: 117.36,
           cover: true,
-          link: 'https://youtu.be/Hzc80Bk6SyU?si=NGtk2un_I7h5IbLm'
+          link: 'https://youtu.be/Hzc80Bk6SyU?si=NGtk2un_I7h5IbLm',
         },
         attribute: 'smile',
         BHcount: 87,
@@ -1642,10 +1645,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 12,
           HARD: 19,
           EXPERT: 25,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
-      '始まりは君の空': {
+      始まりは君の空: {
         ID: 'm_022',
         musicData: {
           kana: 'はじまりはきみのそら',
@@ -1653,16 +1656,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2021,
             month: 4,
-            date: 7
+            date: 7,
           },
           numbering: 'Liella! 1stシングル',
           BPM: {
             original: 164,
-            inGame: 164
+            inGame: 164,
           },
           time: 117.08,
           cover: true,
-          link: 'https://youtu.be/zVBCveF77as?si=14Oj8PPU8K1mmjNB'
+          link: 'https://youtu.be/zVBCveF77as?si=14Oj8PPU8K1mmjNB',
         },
         attribute: 'pure',
         BHcount: 78,
@@ -1675,8 +1678,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 12,
           HARD: 18,
           EXPERT: 26,
-          MASTER: 31
-        }
+          MASTER: 31,
+        },
       },
       'TOKIMEKI Runners': {
         ID: 'm_025',
@@ -1686,16 +1689,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2018,
             month: 11,
-            date: 21
+            date: 21,
           },
           numbering: '虹ヶ咲学園スクールアイドル同好会 1stアルバム',
           BPM: {
             original: 180,
-            inGame: 180
+            inGame: 180,
           },
           time: 94.67,
           cover: true,
-          link: 'https://youtu.be/V2tCGX7m5KE?si=k87Q4qhwsSj8s4h3'
+          link: 'https://youtu.be/V2tCGX7m5KE?si=k87Q4qhwsSj8s4h3',
         },
         attribute: 'smile',
         BHcount: 69,
@@ -1708,10 +1711,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 13,
           HARD: 19,
           EXPERT: 24,
-          MASTER: 28
-        }
+          MASTER: 28,
+        },
       },
-      'ビバハピ': {
+      ビバハピ: {
         ID: 'm_027',
         musicData: {
           kana: 'びばはぴ',
@@ -1719,16 +1722,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2013,
             month: 7,
-            date: 26
+            date: 26,
           },
           numbering: '',
           BPM: {
             original: 148,
-            inGame: 148
+            inGame: 148,
           },
           time: 94.05,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 56,
@@ -1736,9 +1739,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho']
+        singingMembers: ['kaho'],
       },
-      '深愛': {
+      深愛: {
         ID: 'm_028',
         musicData: {
           kana: 'しんあい',
@@ -1746,16 +1749,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2009,
             month: 1,
-            date: 21
+            date: 21,
           },
           numbering: '水樹奈々 19thシングル／TVアニメ「WHITE ALBUM」OPテーマ',
           BPM: {
             original: 133,
-            inGame: 133
+            inGame: 133,
           },
           time: 115.49,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 63,
@@ -1763,7 +1766,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kozue']
+        singingMembers: ['kozue'],
       },
       'Preserved Roses': {
         ID: 'm_019',
@@ -1773,16 +1776,17 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2013,
             month: 5,
-            date: 15
+            date: 15,
           },
-          numbering: 'T.M Revolution×水樹奈々 コラボシングル／TVアニメ「革命機ヴァルヴレイヴ」OPテーマ',
+          numbering:
+            'T.M Revolution×水樹奈々 コラボシングル／TVアニメ「革命機ヴァルヴレイヴ」OPテーマ',
           BPM: {
             original: 167,
-            inGame: 167
+            inGame: 167,
           },
           time: 93.41,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 63,
@@ -1795,10 +1799,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 12,
           HARD: 21,
           EXPERT: 26,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
-      'そばかす': {
+      そばかす: {
         ID: 'm_029',
         musicData: {
           kana: 'そばかす',
@@ -1806,16 +1810,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 1996,
             month: 2,
-            date: 19
+            date: 19,
           },
           numbering: 'JUDY AND MARY 9thシングル／TVアニメ「るろうに剣心 -明治剣客浪漫譚-」OPテーマ',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 94.59,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 65,
@@ -1828,10 +1832,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 10,
           HARD: 17,
           EXPERT: 23,
-          MASTER: 30
-        }
+          MASTER: 30,
+        },
       },
-      'ロストワンの号哭': {
+      ロストワンの号哭: {
         ID: 'm_030',
         musicData: {
           kana: 'ろすとわんのごうこく',
@@ -1839,16 +1843,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2013,
             month: 3,
-            date: 4
+            date: 4,
           },
           numbering: '',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 120,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 79,
@@ -1856,9 +1860,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['tsuzuri']
+        singingMembers: ['tsuzuri'],
       },
-      '名前のない怪物': {
+      名前のない怪物: {
         ID: 'm_023',
         musicData: {
           kana: 'なまえのないかいぶつ',
@@ -1866,16 +1870,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2012,
             month: 12,
-            date: 5
+            date: 5,
           },
           numbering: 'EGOIST 3rdシングル／TVアニメ「PSYCHO-PASS サイコパス」EDテーマ',
           BPM: {
             original: 180,
-            inGame: 180
+            inGame: 180,
           },
           time: 100,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 73,
@@ -1883,9 +1887,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '狙いうち': {
+      狙いうち: {
         ID: 'm_031',
         musicData: {
           kana: 'ねらいうち',
@@ -1893,16 +1897,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 1973,
             month: 2,
-            date: 25
+            date: 25,
           },
           numbering: '山本リンダ 23rdシングル',
           BPM: {
             original: 142,
-            inGame: 142
+            inGame: 142,
           },
           time: 81.6,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 49,
@@ -1910,7 +1914,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino']
+        singingMembers: ['rurino'],
       },
       '♡桃色片想い♡': {
         ID: 'm_032',
@@ -1920,16 +1924,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2002,
             month: 2,
-            date: 6
+            date: 6,
           },
           numbering: '松浦亜弥 5thシングル',
           BPM: {
             original: 154,
-            inGame: 154
+            inGame: 154,
           },
           time: 123.12,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 77,
@@ -1937,9 +1941,15 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['megumi']
+        singingMembers: ['megumi'],
+        difficultyLevel: {
+          NORMAL: 10,
+          HARD: 17,
+          EXPERT: 25,
+          MASTER: 28,
+        },
       },
-      'いーあるふぁんくらぶ': {
+      いーあるふぁんくらぶ: {
         ID: 'm_026',
         musicData: {
           kana: 'いーあるふぁんくらぶ',
@@ -1947,16 +1957,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2012,
             month: 8,
-            date: 15
+            date: 15,
           },
           numbering: '',
           BPM: {
             original: 145,
-            inGame: 145
+            inGame: 145,
           },
           time: 100.97,
           cover: true,
-          link: 'https://youtu.be/oaCnoiDmNzU?si=fLWLXI6-ClvteCl1'
+          link: 'https://youtu.be/oaCnoiDmNzU?si=fLWLXI6-ClvteCl1',
         },
         attribute: 'pure',
         BHcount: 59,
@@ -1964,9 +1974,15 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'megumi',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
+        difficultyLevel: {
+          NORMAL: 13,
+          HARD: 19,
+          EXPERT: 25,
+          MASTER: 27,
+        },
       },
-      'ハッピーシンセサイザ': {
+      ハッピーシンセサイザ: {
         ID: 'm_020',
         musicData: {
           kana: 'はっぴーしんせさいざ',
@@ -1974,16 +1990,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2010,
             month: 11,
-            date: 22
+            date: 22,
           },
           numbering: '',
           BPM: {
             original: 127,
-            inGame: 127
+            inGame: 127,
           },
           time: 92.6,
           cover: true,
-          link: 'https://youtu.be/x33KpPtOAjI?si=80SPUMebEUsbM0TY'
+          link: 'https://youtu.be/x33KpPtOAjI?si=80SPUMebEUsbM0TY',
         },
         attribute: 'pure',
         BHcount: 47,
@@ -1991,9 +2007,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      'ヴィラン': {
+      ヴィラン: {
         ID: 'm_024',
         musicData: {
           kana: 'ゔぃらん',
@@ -2001,16 +2017,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2020,
             month: 2,
-            date: 7
+            date: 7,
           },
           numbering: '',
           BPM: {
             original: 102,
-            inGame: 102
+            inGame: 102,
           },
           time: 80,
           cover: true,
-          link: 'https://youtu.be/bOat3p4nUs8?si=O4zyE5-UFt62Fc1Q'
+          link: 'https://youtu.be/bOat3p4nUs8?si=O4zyE5-UFt62Fc1Q',
         },
         attribute: 'cool',
         BHcount: 32,
@@ -2018,9 +2034,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '心予報': {
+      心予報: {
         ID: 'm_021',
         musicData: {
           kana: 'しんよほう',
@@ -2028,16 +2044,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2020,
             month: 2,
-            date: 12
+            date: 12,
           },
           numbering: 'Eve 2ndアルバム',
           BPM: {
             original: 143,
-            inGame: 143
+            inGame: 143,
           },
           time: 112.45,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 95,
@@ -2045,9 +2061,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      '威風堂々': {
+      威風堂々: {
         ID: 'm_042',
         musicData: {
           kana: 'いふうどうどう',
@@ -2055,16 +2071,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2012,
             month: 10,
-            date: 29
+            date: 29,
           },
           numbering: '',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 94.15,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 45,
@@ -2072,9 +2088,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '強風オールバック': {
+      強風オールバック: {
         ID: 'm_043',
         musicData: {
           kana: 'きょうふうおーるばっく',
@@ -2082,16 +2098,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 15
+            date: 15,
           },
           numbering: 'ゆこぴ 1stアルバム',
           BPM: {
             original: 135,
-            inGame: 135
+            inGame: 135,
           },
           time: 92.2,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 47,
@@ -2099,9 +2115,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
-      'ダンスロボットダンス': {
+      ダンスロボットダンス: {
         ID: 'm_056',
         musicData: {
           kana: 'だんすろぼっとだんす',
@@ -2109,16 +2125,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2016,
             month: 12,
-            date: 6
+            date: 6,
           },
           numbering: '',
           BPM: {
             original: 190,
-            inGame: 190
+            inGame: 190,
           },
           time: 101.05,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 78,
@@ -2126,7 +2142,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi']
+        singingMembers: ['rurino', 'megumi'],
       },
       'CHANGE!!!!': {
         ID: 'm_062',
@@ -2136,16 +2152,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2011,
             month: 11,
-            date: 9
+            date: 9,
           },
           numbering: 'THE IDOLM@STER ANIM@TION MASTER 04／TVアニメ「THE IDOLM@STER」OPテーマ',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 96,
           cover: true,
-          link: 'https://youtu.be/xHlRTA0-f2g?si=P5lzsOBrgE1sJSr5'
+          link: 'https://youtu.be/xHlRTA0-f2g?si=P5lzsOBrgE1sJSr5',
         },
         attribute: 'pure',
         BHcount: 66,
@@ -2153,9 +2169,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       },
-      '祝福': {
+      祝福: {
         ID: 'm_067',
         musicData: {
           kana: 'しゅくふく',
@@ -2163,16 +2179,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2022,
             month: 10,
-            date: 1
+            date: 1,
           },
           numbering: 'YOASOBI 2ndシングル／TVアニメ「機動戦士ガンダム 水星の魔女」OPテーマ',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 91.77,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 63,
@@ -2180,9 +2196,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri']
+        singingMembers: ['sayaka', 'tsuzuri'],
       },
-      '御旗のもとに': {
+      御旗のもとに: {
         ID: 'm_071',
         musicData: {
           kana: 'みはたのもとに',
@@ -2190,16 +2206,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2001,
             month: 3,
-            date: 22
+            date: 22,
           },
           numbering: 'ゲーム「サクラ大戦3～巴里は燃えているか～」 OPテーマ',
           BPM: {
             original: 147,
-            inGame: 147
+            inGame: 147,
           },
           time: 106,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 63,
@@ -2207,9 +2223,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue']
+        singingMembers: ['kaho', 'kozue'],
       },
-      'ダイヤモンドハッピー': {
+      ダイヤモンドハッピー: {
         ID: 'm_072',
         musicData: {
           kana: 'だいやもんどはっぴー',
@@ -2217,16 +2233,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2013,
             month: 6,
-            date: 26
+            date: 26,
           },
           numbering: 'TVアニメ「アイカツ! -アイドルカツドウ!-」 1年目後期OPテーマ',
           BPM: {
             original: 233,
-            inGame: 233
+            inGame: 233,
           },
           time: 94.21,
           cover: true,
-          link: 'https://youtu.be/Gls1MQLv5o0?si=De24u5gdA_Cjmsqd'
+          link: 'https://youtu.be/Gls1MQLv5o0?si=De24u5gdA_Cjmsqd',
         },
         attribute: 'smile',
         BHcount: 89,
@@ -2234,7 +2250,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kozue', 'tsuzuri', 'megumi']
+        singingMembers: ['kozue', 'tsuzuri', 'megumi'],
       },
       'lucky train!': {
         ID: 'm_073',
@@ -2244,16 +2260,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2015,
             month: 10,
-            date: 28
+            date: 28,
           },
           numbering: 'TVアニメ「アイカツ! -アイドルカツドウ!-」 4thシーズンEDテーマ',
           BPM: {
             original: 147,
-            inGame: 147
+            inGame: 147,
           },
           time: 93.45,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 48,
@@ -2261,7 +2277,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 103,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino']
+        singingMembers: ['kaho', 'sayaka', 'rurino'],
       },
       'Dream Believers(104期Ver.)': {
         ID: 'm_082',
@@ -2271,16 +2287,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 139.26,
           cover: false,
-          link: 'https://youtu.be/Gi4-nA4o0o4?si=pBrhLx0_XvKzly4X&t=14'
+          link: 'https://youtu.be/Gi4-nA4o0o4?si=pBrhLx0_XvKzly4X&t=14',
         },
         attribute: 'smile',
         BHcount: 92,
@@ -2288,7 +2304,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'On your mark(104期Ver.)': {
         ID: 'm_083',
@@ -2298,16 +2324,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndミニアルバム',
           BPM: {
             original: 154,
-            inGame: 154
+            inGame: 154,
           },
           time: 96.62,
           cover: false,
-          link: 'https://youtu.be/Gi4-nA4o0o4?si=SS99c11SKo1yzW3d&t=121'
+          link: 'https://youtu.be/Gi4-nA4o0o4?si=SS99c11SKo1yzW3d&t=121',
         },
         attribute: 'cool',
         BHcount: 60,
@@ -2315,13 +2341,23 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
         difficultyLevel: {
           NORMAL: 15,
           HARD: 21,
           EXPERT: 27,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
       '365 Days': {
         ID: 'm_090',
@@ -2331,16 +2367,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 7,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdシングル',
           BPM: {
             original: 159,
-            inGame: 159
+            inGame: 159,
           },
           time: 132.5,
           cover: false,
-          link: 'https://youtu.be/Pw8ogWXm9s8?si=49PpxMvPK3vuct2x'
+          link: 'https://youtu.be/Pw8ogWXm9s8?si=49PpxMvPK3vuct2x',
         },
         attribute: 'smile',
         BHcount: 59,
@@ -2348,7 +2384,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'Bloom the smile, Bloom the dream!': {
         ID: 'm_096',
@@ -2358,16 +2404,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 7,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdシングル',
           BPM: {
             original: 172,
-            inGame: 172
+            inGame: 172,
           },
           time: 100,
           cover: false,
-          link: 'https://youtu.be/huZSM7Mu0a0?si=lXEBQdVEkyJxhjIh'
+          link: 'https://youtu.be/huZSM7Mu0a0?si=lXEBQdVEkyJxhjIh',
         },
         attribute: 'smile',
         BHcount: 70,
@@ -2375,7 +2421,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       '永遠のEuphoria（104期Ver.）': {
         ID: 'm_102',
@@ -2385,16 +2441,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ デビューミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 109.63,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 68,
@@ -2402,13 +2458,23 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
         difficultyLevel: {
           NORMAL: 13,
           HARD: 20,
           EXPERT: 27,
-          MASTER: 28
-        }
+          MASTER: 28,
+        },
       },
       '夏めきペイン（104期Ver.）': {
         ID: 'm_109',
@@ -2418,16 +2484,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 188,
-            inGame: 188
+            inGame: 188,
           },
           time: 91.92,
           cover: false,
-          link: 'https://youtu.be/nF3s1RC_HDA?si=IDw5KgeLVLS6SeKw'
+          link: 'https://youtu.be/nF3s1RC_HDA?si=IDw5KgeLVLS6SeKw',
         },
         attribute: 'pure',
         BHcount: 66,
@@ -2435,13 +2501,23 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime'],
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
         difficultyLevel: {
           NORMAL: 14,
           HARD: 18,
           EXPERT: 27,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
       'DEEPNESS（ReC Ver.）': {
         ID: 'm_111',
@@ -2451,16 +2527,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 9,
-            date: 12
+            date: 12,
           },
           numbering: '',
           BPM: {
             original: 136,
-            inGame: 136
+            inGame: 136,
           },
           time: 104.12,
           cover: false,
-          link: 'https://youtu.be/Cpi7W8Ycv1Y?si=0jeKapz7_DWv5qd-'
+          link: 'https://youtu.be/Cpi7W8Ycv1Y?si=0jeKapz7_DWv5qd-',
         },
         attribute: 'cool',
         BHcount: 57,
@@ -2468,7 +2544,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi']
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       },
       'Trick & Cute（104期Ver.）': {
         ID: 'm_116',
@@ -2478,16 +2554,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 1,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: {
             original: 244,
-            inGame: 122
+            inGame: 122,
           },
           time: 86.56,
           cover: false,
-          link: 'https://youtu.be/Jzg41mZGJRw?si=edZhXQbA2yBbp9AZ'
+          link: 'https://youtu.be/Jzg41mZGJRw?si=edZhXQbA2yBbp9AZ',
         },
         attribute: 'cool',
         BHcount: 42,
@@ -2495,7 +2571,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'Link to the FUTURE（104期Ver.）': {
         ID: 'm_123',
@@ -2505,16 +2591,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 1,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: {
             original: 183,
-            inGame: 183
+            inGame: 183,
           },
           time: 140.33,
           cover: false,
-          link: 'https://youtu.be/KoHC3ZgVmDI?si=NuAfS9iRzlwbXsr0'
+          link: 'https://youtu.be/KoHC3ZgVmDI?si=NuAfS9iRzlwbXsr0',
         },
         attribute: 'smile',
         BHcount: 105,
@@ -2522,7 +2608,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'Now or Never': {
         ID: 'm_122',
@@ -2532,16 +2628,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 2,
-            date: 5
+            date: 5,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 4thシングル',
           BPM: {
             original: 140,
-            inGame: 140
+            inGame: 140,
           },
           time: 126,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 71,
@@ -2549,7 +2645,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'ツバサ・ラ・リベルテ（104期Ver.）': {
         ID: 'm_127',
@@ -2559,16 +2665,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 1,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stシングル',
           BPM: {
             original: 177,
-            inGame: 177
+            inGame: 177,
           },
           time: 109.83,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 79,
@@ -2576,7 +2682,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'KEY of Like！': {
         ID: 'm_136',
@@ -2586,16 +2702,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 2,
-            date: 5
+            date: 5,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 4thシングル',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 128,
           cover: false,
-          link: 'https://youtu.be/9bYIbe4uzIQ?si=eA-32nnoy_OcKLpO'
+          link: 'https://youtu.be/9bYIbe4uzIQ?si=eA-32nnoy_OcKLpO',
         },
         attribute: 'pure',
         BHcount: 89,
@@ -2603,7 +2719,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'AURORA FLOWER': {
         ID: 'm_138',
@@ -2613,16 +2739,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 2,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 5thシングル',
           BPM: {
             original: 191,
-            inGame: 191
+            inGame: 191,
           },
           time: 104.5,
           cover: false,
-          link: 'https://youtu.be/_Eo5v85W8tw?si=j_mfFEHi-Ox4TSOm'
+          link: 'https://youtu.be/_Eo5v85W8tw?si=j_mfFEHi-Ox4TSOm',
         },
         attribute: 'cool',
         BHcount: 81,
@@ -2630,9 +2756,19 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
-      'ゲッカビジン': {
+      ゲッカビジン: {
         ID: 'm_139',
         musicData: {
           kana: 'げっかびじん',
@@ -2640,16 +2776,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 2,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 5thシングル',
           BPM: {
             original: 140,
-            inGame: 140
+            inGame: 140,
           },
           time: 109,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 62,
@@ -2657,7 +2793,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'おいでよ！石川大観光': {
         ID: 'm_148',
@@ -2667,16 +2813,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 132,
-            inGame: 132
+            inGame: 132,
           },
           time: 116,
           cover: false,
-          link: 'https://youtu.be/W8uXUhA7dpM?si=Vv7nju8BogiNC0dr'
+          link: 'https://youtu.be/W8uXUhA7dpM?si=Vv7nju8BogiNC0dr',
         },
         attribute: 'smile',
         BHcount: 62,
@@ -2684,7 +2830,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'いつでも、いつまでも': {
         ID: 'm_153',
@@ -2694,16 +2850,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 9
+            date: 9,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 6thシングル',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 138,
           cover: false,
-          link: 'https://youtu.be/ba_6zRe902c?si=q8fLpLpwkLiRM_6Z'
+          link: 'https://youtu.be/ba_6zRe902c?si=q8fLpLpwkLiRM_6Z',
         },
         attribute: 'pure',
         BHcount: 73,
@@ -2711,9 +2867,19 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
-      'いったん': {
+      いったん: {
         ID: 'm_154',
         musicData: {
           kana: 'いったん',
@@ -2721,16 +2887,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 9
+            date: 9,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 6thシングル',
           BPM: {
             original: 128,
-            inGame: 128
+            inGame: 128,
           },
           time: 91,
           cover: false,
-          link: 'https://youtu.be/nr57JtsQ94c?si=G3B5OsTAIAWPSEPX&t=126'
+          link: 'https://youtu.be/nr57JtsQ94c?si=G3B5OsTAIAWPSEPX&t=126',
         },
         attribute: 'smile',
         BHcount: 47,
@@ -2738,7 +2904,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'Dream Believers（SAKURA Ver.）': {
         ID: 'm_158',
@@ -2748,16 +2924,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 30
+            date: 30,
           },
           numbering: '',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 198.5,
           cover: false,
-          link: 'https://youtu.be/nr57JtsQ94c?si=G3B5OsTAIAWPSEPX&t=126'
+          link: 'https://youtu.be/nr57JtsQ94c?si=G3B5OsTAIAWPSEPX&t=126',
         },
         attribute: 'smile',
         BHcount: 132,
@@ -2765,7 +2941,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'Reflection in the mirror（104期NEW Ver.）': {
         ID: 'm_084',
@@ -2775,16 +2961,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 9,
-            date: 4
+            date: 4,
           },
           numbering: 'スリーズブーケ 4thシングル',
           BPM: {
             original: 137,
-            inGame: 137
+            inGame: 137,
           },
           time: 124,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 69,
@@ -2792,7 +2978,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Mix shake!!（104期Ver.）': {
         ID: 'm_087',
@@ -2802,16 +2988,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 5,
-            date: 10
+            date: 10,
           },
           numbering: '',
           BPM: {
             original: 174,
-            inGame: 174
+            inGame: 174,
           },
           time: 117.58,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 83,
@@ -2824,8 +3010,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 11,
           HARD: 18,
           EXPERT: 27,
-          MASTER: 32
-        }
+          MASTER: 32,
+        },
       },
       '千変万華（104期Ver.）': {
         ID: 'm_093',
@@ -2835,16 +3021,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 6,
-            date: 10
+            date: 10,
           },
           numbering: '',
           BPM: {
             original: 140,
-            inGame: 140
+            inGame: 140,
           },
           time: 108,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 61,
@@ -2852,7 +3038,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '素顔のピクセル（104期Ver.）': {
         ID: 'm_118',
@@ -2862,16 +3048,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 15
+            date: 15,
           },
           numbering: 'スリーズブーケ 3rdシングル',
           BPM: {
             original: 138,
-            inGame: 112
+            inGame: 112,
           },
           time: 107.83,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 56,
@@ -2879,9 +3065,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      'アオクハルカ': {
+      アオクハルカ: {
         ID: 'm_099',
         musicData: {
           kana: 'あおくはるか',
@@ -2889,16 +3075,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndミニアルバム',
           BPM: {
             original: 145,
-            inGame: 145
+            inGame: 145,
           },
           time: 142,
           cover: false,
-          link: 'https://youtu.be/dlXhfnJxc6w?si=wPWZZ5wlBbyLstQF'
+          link: 'https://youtu.be/dlXhfnJxc6w?si=wPWZZ5wlBbyLstQF',
         },
         attribute: 'pure',
         BHcount: 84,
@@ -2906,9 +3092,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      '月夜見海月': {
+      月夜見海月: {
         ID: 'm_103',
         musicData: {
           kana: 'つくよみくらげ',
@@ -2916,16 +3102,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 9,
-            date: 4
+            date: 4,
           },
           numbering: 'スリーズブーケ 4thシングル',
           BPM: {
             original: 140,
-            inGame: 140
+            inGame: 140,
           },
           time: 115,
           cover: false,
-          link: 'https://youtu.be/TW05S9ZE434?si=WcXwaAVoR6lbqN7i&t=12'
+          link: 'https://youtu.be/TW05S9ZE434?si=WcXwaAVoR6lbqN7i&t=12',
         },
         attribute: 'cool',
         BHcount: 65,
@@ -2933,7 +3119,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '眩耀夜行（104期Ver.）': {
         ID: 'm_105',
@@ -2943,16 +3129,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'スリーズブーケ 2ndシングル',
           BPM: {
             original: 158,
-            inGame: 158
+            inGame: 158,
           },
           time: 97.21,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 62,
@@ -2960,7 +3146,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Holiday∞Holiday（104期Ver.）': {
         ID: 'm_112',
@@ -2970,16 +3156,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 6,
-            date: 14
+            date: 14,
           },
           numbering: 'スリーズブーケ&DOLLCHESTRA ユニットスプリットシングル',
           BPM: {
             original: 135,
-            inGame: 135
+            inGame: 135,
           },
           time: 94.22,
           cover: false,
-          link: 'https://youtu.be/IHSUgM4rVQg?si=bGMQLsZZ4YtPA8DE'
+          link: 'https://youtu.be/IHSUgM4rVQg?si=bGMQLsZZ4YtPA8DE',
         },
         attribute: 'pure',
         BHcount: 51,
@@ -2987,9 +3173,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      'ハナムスビ': {
+      ハナムスビ: {
         ID: 'm_130',
         musicData: {
           kana: 'はなむすび',
@@ -2997,16 +3183,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 12,
-            date: 4
+            date: 4,
           },
           numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
           BPM: {
             original: 198,
-            inGame: 198
+            inGame: 198,
           },
           time: 123,
           cover: false,
-          link: 'https://youtu.be/mbHCIgZ1cT4?si=_mtXyNESF1cMG_dG'
+          link: 'https://youtu.be/mbHCIgZ1cT4?si=_mtXyNESF1cMG_dG',
         },
         attribute: 'smile',
         BHcount: 100,
@@ -3014,7 +3200,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       '水彩世界（104期Ver.）': {
         ID: 'm_131',
@@ -3024,16 +3210,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: 'デビューミニアルバム',
           BPM: {
             original: '80～160',
-            inGame: 160
+            inGame: 160,
           },
           time: 97.5,
           cover: false,
-          link: 'https://youtu.be/yu3-GPN5fVE?si=bhjSkSyQjS2kmHse'
+          link: 'https://youtu.be/yu3-GPN5fVE?si=bhjSkSyQjS2kmHse',
         },
         attribute: 'cool',
         BHcount: 63,
@@ -3046,8 +3232,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 11,
           HARD: 16,
           EXPERT: 26,
-          MASTER: 27
-        }
+          MASTER: 27,
+        },
       },
       'シュガーメルト（104期Ver.）': {
         ID: 'm_133',
@@ -3057,16 +3243,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 15
+            date: 15,
           },
           numbering: 'スリーズブーケ 3rdシングル',
           BPM: {
             original: 136,
-            inGame: 136
+            inGame: 136,
           },
           time: 104.56,
           cover: false,
-          link: 'https://youtu.be/qSA1Qwgy5iw?si=JntFsn5GFracnRnu&t=104'
+          link: 'https://youtu.be/qSA1Qwgy5iw?si=JntFsn5GFracnRnu&t=104',
         },
         attribute: 'smile',
         BHcount: 58,
@@ -3074,9 +3260,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      'ユメワズライ': {
+      ユメワズライ: {
         ID: 'm_144',
         musicData: {
           kana: 'ゆめわずらい',
@@ -3084,16 +3270,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 19
+            date: 19,
           },
           numbering: 'スリーズブーケ 5thシングル',
           BPM: {
             original: 138,
-            inGame: 138
+            inGame: 138,
           },
           time: 116.41,
           cover: false,
-          link: 'https://youtu.be/Ubh1yr-69DM?si=rLFOJaWngsLskcv5'
+          link: 'https://youtu.be/Ubh1yr-69DM?si=rLFOJaWngsLskcv5',
         },
         attribute: 'pure',
         BHcount: 65,
@@ -3101,7 +3287,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Chu! Chocolate': {
         ID: 'm_145',
@@ -3111,16 +3297,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 19
+            date: 19,
           },
           numbering: 'スリーズブーケ 5thシングル',
           BPM: {
             original: 168,
-            inGame: 168
+            inGame: 168,
           },
           time: 119,
           cover: false,
-          link: 'https://youtu.be/XAO0Wrv0aAo?si=XXBeWYWEdZKRdG9S&t=116'
+          link: 'https://youtu.be/XAO0Wrv0aAo?si=XXBeWYWEdZKRdG9S&t=116',
         },
         attribute: 'smile',
         BHcount: 81,
@@ -3128,9 +3314,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      '恋景色昭和ロマン': {
+      恋景色昭和ロマン: {
         ID: 'm_149',
         musicData: {
           kana: 'こいけしきしょうわろまん',
@@ -3138,16 +3324,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 148,
-            inGame: 148
+            inGame: 148,
           },
           time: 103,
           cover: false,
-          link: 'https://youtu.be/W8uXUhA7dpM?si=bWHKsQSDuNQhmziv&t=106'
+          link: 'https://youtu.be/W8uXUhA7dpM?si=bWHKsQSDuNQhmziv&t=106',
         },
         attribute: 'pure',
         BHcount: 62,
@@ -3155,7 +3341,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Sparkly Spot（104期NEW Ver.）': {
         ID: 'm_085',
@@ -3165,16 +3351,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 9,
-            date: 11
+            date: 11,
           },
           numbering: 'DOLLCHESTRA 4thシングル',
           BPM: {
             original: 147,
-            inGame: 147
+            inGame: 147,
           },
           time: 114,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 68,
@@ -3182,7 +3368,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Tragic Drops（104期Ver.）': {
         ID: 'm_088',
@@ -3192,16 +3378,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 5,
-            date: 10
+            date: 10,
           },
           numbering: '',
           BPM: {
             original: 110,
-            inGame: 110
+            inGame: 110,
           },
           time: 87.28,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 38,
@@ -3209,7 +3395,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Take It Over（104期Ver.）': {
         ID: 'm_119',
@@ -3219,16 +3405,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 22
+            date: 22,
           },
           numbering: 'DOLLCHESTRA 3rdシングル',
           BPM: {
             original: 150,
-            inGame: 150
+            inGame: 150,
           },
           time: 89.6,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 50,
@@ -3236,9 +3422,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      'レディバグ': {
+      レディバグ: {
         ID: 'm_092',
         musicData: {
           kana: 'れでぃばぐ',
@@ -3246,16 +3432,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndミニアルバム',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 94.35,
           cover: false,
-          link: 'https://youtu.be/gSPYSHOANaI?si=O4pMfybieFarFLcq'
+          link: 'https://youtu.be/gSPYSHOANaI?si=O4pMfybieFarFLcq',
         },
         attribute: 'cool',
         BHcount: 49,
@@ -3263,7 +3449,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'KNOT（104期Ver.）': {
         ID: 'm_094',
@@ -3273,16 +3459,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 6,
-            date: 10
+            date: 10,
           },
           numbering: '',
           BPM: {
             original: 174,
-            inGame: 174
+            inGame: 174,
           },
           time: 99.31,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 70,
@@ -3290,7 +3476,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'Mirage Voyage（104期Ver.）': {
         ID: 'm_106',
@@ -3300,16 +3486,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 8,
-            date: 9
+            date: 9,
           },
           numbering: 'DOLLCHESTRA 2ndシングル',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 118.15,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 62,
@@ -3317,9 +3503,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      'Proof': {
+      Proof: {
         ID: 'm_110',
         musicData: {
           kana: 'ぷるーふ',
@@ -3327,16 +3513,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 9,
-            date: 11
+            date: 11,
           },
           numbering: 'DOLLCHESTRA 4thシングル',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 108,
           cover: false,
-          link: 'https://youtu.be/c7rI3Bmlwf4?si=kFjnJP59XH-nT0-4'
+          link: 'https://youtu.be/c7rI3Bmlwf4?si=kFjnJP59XH-nT0-4',
         },
         attribute: 'pure',
         BHcount: 75,
@@ -3344,7 +3530,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       '希望的プリズム（104期Ver.）': {
         ID: 'm_113',
@@ -3354,16 +3540,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 4,
-            date: 26
+            date: 26,
           },
           numbering: 'DOLLCHESTRA 1stシングル',
           BPM: {
             original: 131,
-            inGame: 131
+            inGame: 131,
           },
           time: 112.38,
           cover: false,
-          link: 'https://youtu.be/QyQOyVTLPT0?si=GYUfgXMVNGx6Ho7d&t=177'
+          link: 'https://youtu.be/QyQOyVTLPT0?si=GYUfgXMVNGx6Ho7d&t=177',
         },
         attribute: 'cool',
         BHcount: 57,
@@ -3376,10 +3562,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 10,
           HARD: 18,
           EXPERT: 24,
-          MASTER: 27
-        }
+          MASTER: 27,
+        },
       },
-      'バアドケージ': {
+      バアドケージ: {
         ID: 'm_128',
         musicData: {
           kana: 'ばあどけーじ',
@@ -3387,16 +3573,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 12,
-            date: 4
+            date: 4,
           },
           numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
           BPM: {
             original: 135,
-            inGame: 135
+            inGame: 135,
           },
           time: 104,
           cover: false,
-          link: 'https://youtu.be/WpPo3qaOrc0?si=Q5X7eSvdKhGrIzjZ'
+          link: 'https://youtu.be/WpPo3qaOrc0?si=Q5X7eSvdKhGrIzjZ',
         },
         attribute: 'pure',
         BHcount: 56,
@@ -3404,7 +3590,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'AWOKE（104期Ver.）': {
         ID: 'm_129',
@@ -3414,16 +3600,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: 'デビューミニアルバム',
           BPM: {
             original: 150,
-            inGame: 150
+            inGame: 150,
           },
           time: 126.4,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 80,
@@ -3436,8 +3622,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 13,
           HARD: 17,
           EXPERT: 25,
-          MASTER: 30
-        }
+          MASTER: 30,
+        },
       },
       '青春の輪郭（104期Ver.）': {
         ID: 'm_134',
@@ -3447,16 +3633,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 176,
-            inGame: 176
+            inGame: 176,
           },
           time: 120,
           cover: false,
-          link: 'https://youtu.be/Xlgsd61isEk?si=bzSdi3WqI_oMBQSx&t=345'
+          link: 'https://youtu.be/Xlgsd61isEk?si=bzSdi3WqI_oMBQSx&t=345',
         },
         attribute: 'pure',
         BHcount: 86,
@@ -3464,9 +3650,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      'COMPASS': {
+      COMPASS: {
         ID: 'm_146',
         musicData: {
           kana: 'こんぱす',
@@ -3474,16 +3660,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 19
+            date: 19,
           },
           numbering: 'DOLLCHESTRA 5thシングル',
           BPM: {
             original: 133,
-            inGame: 133
+            inGame: 133,
           },
           time: 104.62,
           cover: false,
-          link: 'https://youtu.be/L3s_rYPFits?si=mDUT7Mf9kDOTOQzw'
+          link: 'https://youtu.be/L3s_rYPFits?si=mDUT7Mf9kDOTOQzw',
         },
         attribute: 'cool',
         BHcount: 56,
@@ -3491,9 +3677,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      'レム': {
+      レム: {
         ID: 'm_147',
         musicData: {
           kana: 'こんぱす',
@@ -3501,16 +3687,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 19
+            date: 19,
           },
           numbering: 'DOLLCHESTRA 5thシングル',
           BPM: {
             original: 180,
-            inGame: 180
+            inGame: 180,
           },
           time: 104.25,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 76,
@@ -3518,7 +3704,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'ベジ・ラブ・ルー': {
         ID: 'm_150',
@@ -3528,16 +3714,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 175,
-            inGame: 175
+            inGame: 175,
           },
           time: 105,
           cover: false,
-          link: 'https://youtu.be/W8uXUhA7dpM?si=fJe8yUGNJtUw3nyM&t=190'
+          link: 'https://youtu.be/W8uXUhA7dpM?si=fJe8yUGNJtUw3nyM&t=190',
         },
         attribute: 'smile',
         BHcount: 75,
@@ -3545,7 +3731,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       'アイデンティティ（104期NEW Ver.）': {
         ID: 'm_086',
@@ -3555,16 +3741,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 10,
-            date: 2
+            date: 2,
           },
           numbering: 'みらくらぱーく！ 3rdシングル',
           BPM: {
             original: 202,
-            inGame: 202
+            inGame: 202,
           },
           time: 138,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 115,
@@ -3572,7 +3758,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'hime',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ココン東西（104期Ver.）': {
         ID: 'm_089',
@@ -3582,16 +3768,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 5,
-            date: 10
+            date: 10,
           },
           numbering: '',
           BPM: {
             original: 160,
-            inGame: 160
+            inGame: 160,
           },
           time: 91.5,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 55,
@@ -3604,8 +3790,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 14,
           HARD: 18,
           EXPERT: 27,
-          MASTER: 32
-        }
+          MASTER: 32,
+        },
       },
       'ノンフィクションヒーローショー（104期Ver.）': {
         ID: 'm_095',
@@ -3615,16 +3801,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 6,
-            date: 10
+            date: 10,
           },
           numbering: '',
           BPM: {
             original: 180,
-            inGame: 180
+            inGame: 180,
           },
           time: 142.67,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 104,
@@ -3632,9 +3818,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'hime',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      'みらくりえーしょん': {
+      みらくりえーしょん: {
         ID: 'm_098',
         musicData: {
           kana: 'みらくりえーしょん',
@@ -3642,16 +3828,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 4,
-            date: 17
+            date: 17,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndミニアルバム',
           BPM: {
             original: 190,
-            inGame: 190
+            inGame: 190,
           },
           time: 153,
           cover: false,
-          link: 'https://youtu.be/mWkfG12vL_0?si=PN3UeZplgHyBJQ7F'
+          link: 'https://youtu.be/mWkfG12vL_0?si=PN3UeZplgHyBJQ7F',
         },
         attribute: 'pure',
         BHcount: 119,
@@ -3659,7 +3845,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       '以心☆電信（104期Ver.）': {
         ID: 'm_108',
@@ -3669,16 +3855,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 8,
-            date: 23
+            date: 23,
           },
           numbering: '',
           BPM: {
             original: 152,
-            inGame: 152
+            inGame: 152,
           },
           time: 103.25,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 63,
@@ -3691,8 +3877,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 14,
           HARD: 18,
           EXPERT: 26,
-          MASTER: 30
-        }
+          MASTER: 30,
+        },
       },
       'ハクチューアラモード（104期Ver.）': {
         ID: 'm_114',
@@ -3702,16 +3888,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 9,
-            date: 20
+            date: 20,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
           BPM: {
             original: 258,
-            inGame: 129
+            inGame: 129,
           },
           time: 89.3,
           cover: false,
-          link: 'https://youtu.be/vh_aOcsfBSE?si=aEMg-2KwfrwLxOoy'
+          link: 'https://youtu.be/vh_aOcsfBSE?si=aEMg-2KwfrwLxOoy',
         },
         attribute: 'smile',
         BHcount: 42,
@@ -3724,8 +3910,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 13,
           HARD: 21,
           EXPERT: 25,
-          MASTER: 28
-        }
+          MASTER: 28,
+        },
       },
       'ファンファーレ！！！': {
         ID: 'm_117',
@@ -3735,16 +3921,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 10,
-            date: 2
+            date: 2,
           },
           numbering: 'みらくらぱーく！ 3rdシングル',
           BPM: {
             original: 220,
-            inGame: 110
+            inGame: 110,
           },
           time: 112.5,
           cover: false,
-          link: 'https://youtu.be/fq2KGJm8kp8?si=xnuGpgWpks-tJd31'
+          link: 'https://youtu.be/fq2KGJm8kp8?si=xnuGpgWpks-tJd31',
         },
         attribute: 'smile',
         BHcount: 98,
@@ -3752,7 +3938,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'hime',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'マハラジャンボリー（104期Ver.）': {
         ID: 'm_120',
@@ -3762,16 +3948,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 27
+            date: 27,
           },
           numbering: 'みらくらぱーく！ 2ndシングル',
           BPM: {
             original: 152,
-            inGame: 152
+            inGame: 152,
           },
           time: 104.3,
           cover: false,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 64,
@@ -3779,9 +3965,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      'ジョーショーキリュー': {
+      ジョーショーキリュー: {
         ID: 'm_125',
         musicData: {
           kana: 'じょーしょーきりゅー',
@@ -3789,17 +3975,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 12,
-            date: 4
+            date: 4,
           },
-          numbering:
-            'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
+          numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
           BPM: {
             original: 138,
-            inGame: 138
+            inGame: 138,
           },
           time: 114.63,
           cover: false,
-          link: 'https://youtu.be/r6lgUO9C3W0?si=2ffhGvb8zK6C5VMU'
+          link: 'https://youtu.be/r6lgUO9C3W0?si=2ffhGvb8zK6C5VMU',
         },
         attribute: 'cool',
         BHcount: 64,
@@ -3807,7 +3992,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ド！ド！ド！（104期Ver.）': {
         ID: 'm_126',
@@ -3817,16 +4002,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 3,
-            date: 29
+            date: 29,
           },
           numbering: 'デビューミニアルバム',
           BPM: {
             original: 197,
-            inGame: 197
+            inGame: 197,
           },
           time: 92.59,
           cover: false,
-          link: 'https://youtu.be/sLQEunI7p5s?si=qUp7UaRBLOMe4YKd'
+          link: 'https://youtu.be/sLQEunI7p5s?si=qUp7UaRBLOMe4YKd',
         },
         attribute: 'pure',
         BHcount: 70,
@@ -3839,8 +4024,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 13,
           HARD: 20,
           EXPERT: 28,
-          MASTER: 33
-        }
+          MASTER: 33,
+        },
       },
       '天才なのかもしれない（104期Ver.）': {
         ID: 'm_135',
@@ -3850,16 +4035,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2023,
             month: 11,
-            date: 29
+            date: 29,
           },
           numbering: 'みらくらぱーく！ 1stシングル',
           BPM: {
             original: 128,
-            inGame: 128
+            inGame: 128,
           },
           time: 99.38,
           cover: false,
-          link: 'https://youtu.be/BxYdciecJWA?si=bbJ1Q63ihuezoOPD&t=95'
+          link: 'https://youtu.be/BxYdciecJWA?si=bbJ1Q63ihuezoOPD&t=95',
         },
         attribute: 'pure',
         BHcount: 51,
@@ -3867,7 +4052,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       '全方位キュン♡': {
         ID: 'm_141',
@@ -3877,16 +4062,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 19
+            date: 19,
           },
           numbering: 'みらくらぱーく！ 4thシングル',
           BPM: {
             original: 190,
-            inGame: 190
+            inGame: 190,
           },
           time: 109,
           cover: false,
-          link: 'https://youtu.be/3nSkPtE56kc?si=NSma1HL3Zpd50wL1'
+          link: 'https://youtu.be/3nSkPtE56kc?si=NSma1HL3Zpd50wL1',
         },
         attribute: 'smile',
         BHcount: 87,
@@ -3894,9 +4079,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      'かくれんぼしよう': {
+      かくれんぼしよう: {
         ID: 'm_142',
         musicData: {
           kana: 'かくれんぼしよう',
@@ -3904,16 +4089,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 19
+            date: 19,
           },
           numbering: 'みらくらぱーく！ 4thシングル',
           BPM: {
             original: 96,
-            inGame: 96
+            inGame: 96,
           },
           time: 138,
           cover: false,
-          link: 'https://youtu.be/bqPxRbELzGQ?si=ZiDqUAGgISA95oHJ&t=108'
+          link: 'https://youtu.be/bqPxRbELzGQ?si=ZiDqUAGgISA95oHJ&t=108',
         },
         attribute: 'cool',
         BHcount: 53,
@@ -3921,9 +4106,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      'マハラジャンボリーⅡ': {
+      マハラジャンボリーⅡ: {
         ID: 'm_151',
         musicData: {
           kana: 'まはらじゃんぼりーつー',
@@ -3931,16 +4116,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 129,
           cover: false,
-          link: 'https://youtu.be/W8uXUhA7dpM?si=SLF-XF_UHTqhfja5&t=273'
+          link: 'https://youtu.be/W8uXUhA7dpM?si=SLF-XF_UHTqhfja5&t=273',
         },
         attribute: 'cool',
         BHcount: 68,
@@ -3948,7 +4133,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'Snow halation': {
         ID: 'm_091',
@@ -3958,16 +4143,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2010,
             month: 12,
-            date: 22
+            date: 22,
           },
-          numbering: 'μ\'s 2ndシングル',
+          numbering: "μ's 2ndシングル",
           BPM: {
             original: 173,
-            inGame: 173
+            inGame: 173,
           },
           time: 120,
           cover: true,
-          link: 'https://youtu.be/EBol1Ywt1ws?si=lvPFrr_NC7NFSGE8'
+          link: 'https://youtu.be/EBol1Ywt1ws?si=lvPFrr_NC7NFSGE8',
         },
         attribute: 'pure',
         BHcount: 84,
@@ -3975,7 +4160,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       'NEO SKY, NEO MAP!': {
         ID: 'm_097',
@@ -3985,16 +4180,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2020,
             month: 11,
-            date: 4
+            date: 4,
           },
           numbering: 'TVアニメ「虹ヶ咲学園スクールアイドル同好会」第1期EDテーマ',
           BPM: {
             original: 142,
-            inGame: 142
+            inGame: 142,
           },
           time: 90,
           cover: true,
-          link: 'https://youtu.be/azHpFol9zOQ?si=JpS3W2EK6FtRhv-N'
+          link: 'https://youtu.be/azHpFol9zOQ?si=JpS3W2EK6FtRhv-N',
         },
         attribute: 'pure',
         BHcount: 54,
@@ -4002,7 +4197,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
       'Daydream Warrior': {
         ID: 'm_100',
@@ -4012,16 +4207,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2016,
             month: 12,
-            date: 22
+            date: 22,
           },
           numbering: 'ラブライブ！サンシャイン!! アニメ1期Blu-ray第4巻 特典曲',
           BPM: {
             original: 135,
-            inGame: 135
+            inGame: 135,
           },
           time: 109,
           cover: true,
-          link: 'https://youtu.be/iVorAx5enqY?si=aCQUhLGl5JsjNVdD'
+          link: 'https://youtu.be/iVorAx5enqY?si=aCQUhLGl5JsjNVdD',
         },
         attribute: 'cool',
         BHcount: 59,
@@ -4029,7 +4224,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
       '夏色えがおで1, 2, Jump!': {
         ID: 'm_104',
@@ -4039,16 +4234,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2011,
             month: 8,
-            date: 24
+            date: 24,
           },
-          numbering: 'μ\'s 3rdシングル',
+          numbering: "μ's 3rdシングル",
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 118,
           cover: true,
-          link: 'https://youtu.be/u9g6OAbswqo?si=ndqZm-bhuSGa7jL3'
+          link: 'https://youtu.be/u9g6OAbswqo?si=ndqZm-bhuSGa7jL3',
         },
         attribute: 'smile',
         BHcount: 84,
@@ -4056,7 +4251,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'rurino',
+          'kozue',
+          'tsuzuri',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       '常夏☆サンシャイン': {
         ID: 'm_107',
@@ -4066,16 +4271,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2021,
             month: 9,
-            date: 29
+            date: 29,
           },
           numbering: 'ラブライブ!スーパースター!! 第1期第6話 劇中歌',
           BPM: {
             original: 109,
-            inGame: 109
+            inGame: 109,
           },
           time: 97,
           cover: true,
-          link: 'https://youtu.be/XR3h_agJgXQ?si=Tfw4V5DMFjfszU6D'
+          link: 'https://youtu.be/XR3h_agJgXQ?si=Tfw4V5DMFjfszU6D',
         },
         attribute: 'smile',
         BHcount: 60,
@@ -4083,7 +4288,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 155,
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'ミラクルショッピング ～ドン・キホーテのテーマ～': {
         ID: 'm_101',
@@ -4093,16 +4298,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 7,
-            date: 27
+            date: 27,
           },
           numbering: 'ドン・キホーテのテーマ',
           BPM: {
             original: 167,
-            inGame: 167
+            inGame: 167,
           },
           time: 90,
           cover: true,
-          link: 'https://youtu.be/r4QZzPCKbJM?si=1416AcrUKlg0FR4l'
+          link: 'https://youtu.be/r4QZzPCKbJM?si=1416AcrUKlg0FR4l',
         },
         attribute: 'smile',
         BHcount: 61,
@@ -4110,9 +4315,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'rurino',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
-      'ルージュの伝言': {
+      ルージュの伝言: {
         ID: 'm_115',
         musicData: {
           kana: 'るーじゅのでんごん',
@@ -4120,16 +4325,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 1975,
             month: 2,
-            date: 20
+            date: 20,
           },
           numbering: '荒井由実 5thシングル',
           BPM: {
             original: 153,
-            inGame: 153
+            inGame: 153,
           },
           time: 116.43,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'smile',
         BHcount: 72,
@@ -4137,9 +4342,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'ginko',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['ginko']
+        singingMembers: ['ginko'],
       },
-      'ビビデバ': {
+      ビビデバ: {
         ID: 'm_121',
         musicData: {
           kana: 'びびでば',
@@ -4147,16 +4352,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 3,
-            date: 23
+            date: 23,
           },
           numbering: '星街すいせい 配信限定シングル',
           BPM: {
             original: 120,
-            inGame: 120
+            inGame: 120,
           },
           time: 94,
           cover: true,
-          link: 'https://youtube.com/shorts/_NAMGHlV9co?si=ISUzBbiz9s0KiKEO'
+          link: 'https://youtube.com/shorts/_NAMGHlV9co?si=ISUzBbiz9s0KiKEO',
         },
         attribute: 'pure',
         BHcount: 45,
@@ -4164,7 +4369,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'ボルテージアップ',
-        singingMembers: ['kosuzu']
+        singingMembers: ['kosuzu'],
       },
       'This game': {
         ID: 'm_124',
@@ -4174,16 +4379,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2014,
             month: 5,
-            date: 21
+            date: 21,
           },
           numbering: '鈴木このみ 6thシングル',
           BPM: {
             original: 147,
-            inGame: 147
+            inGame: 147,
           },
           time: 138.76,
           cover: true,
-          link: 'https://youtube.com/shorts/KZ8Ddwk5sOc?si=ktg1ZDba-QGfr1_2'
+          link: 'https://youtube.com/shorts/KZ8Ddwk5sOc?si=ktg1ZDba-QGfr1_2',
         },
         attribute: 'cool',
         BHcount: 83,
@@ -4191,9 +4396,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'hime',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['hime']
+        singingMembers: ['hime'],
       },
-      'STARTLINER': {
+      STARTLINER: {
         ID: 'm_132',
         musicData: {
           kana: 'すたーとらいなー',
@@ -4201,16 +4406,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2019,
             month: 7,
-            date: 26
+            date: 26,
           },
           numbering: 'アーケードゲーム「オンゲキ(無印)」メインテーマ',
           BPM: {
             original: 135,
-            inGame: 135
+            inGame: 135,
           },
           time: 158,
           cover: true,
-          link: 'https://youtu.be/uIUsL2TKStU?si=jzWfKS9qF3bQyp-Y'
+          link: 'https://youtu.be/uIUsL2TKStU?si=jzWfKS9qF3bQyp-Y',
         },
         attribute: 'cool',
         BHcount: 87,
@@ -4218,7 +4423,17 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'hime',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'kozue', 'tsuzuri', 'rurino', 'megumi', 'ginko', 'kosuzu', 'hime']
+        singingMembers: [
+          'kaho',
+          'sayaka',
+          'kozue',
+          'tsuzuri',
+          'rurino',
+          'megumi',
+          'ginko',
+          'kosuzu',
+          'hime',
+        ],
       },
       '雑踏、僕らの街': {
         ID: 'm_137',
@@ -4228,16 +4443,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2024,
             month: 5,
-            date: 22
+            date: 22,
           },
           numbering: 'トゲナシトゲアリ 6thシングル',
           BPM: {
             original: 171,
-            inGame: 171
+            inGame: 171,
           },
           time: 100,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'cool',
         BHcount: 72,
@@ -4245,9 +4460,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu']
+        singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
       },
-      'きゅうくらりん': {
+      きゅうくらりん: {
         ID: 'm_140',
         musicData: {
           kana: 'きゅうくらりん',
@@ -4255,16 +4470,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2021,
             month: 8,
-            date: 29
+            date: 29,
           },
           numbering: 'いよわ feat. 可不',
           BPM: {
             original: 220,
-            inGame: 220
+            inGame: 220,
           },
           time: 145,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 131,
@@ -4272,7 +4487,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['rurino', 'megumi', 'hime']
+        singingMembers: ['rurino', 'megumi', 'hime'],
       },
       'Welcome!': {
         ID: 'm_143',
@@ -4282,16 +4497,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 2,
-            date: 9
+            date: 9,
           },
           numbering: 'ゲーマーズCMソング',
           BPM: {
             original: 100,
-            inGame: 100
+            inGame: 100,
           },
           time: 123.27,
           cover: true,
-          link: 'https://youtu.be/9eGkn0jhS8A?si=TW2To0acNciaA8LX'
+          link: 'https://youtu.be/9eGkn0jhS8A?si=TW2To0acNciaA8LX',
         },
         attribute: 'smile',
         BHcount: 49,
@@ -4299,9 +4514,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kozue']
+        singingMembers: ['kozue'],
       },
-      'コネクト': {
+      コネクト: {
         ID: 'm_152',
         musicData: {
           kana: 'こねくと',
@@ -4309,16 +4524,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2011,
             month: 2,
-            date: 2
+            date: 2,
           },
           numbering: 'ClariS 2ndシングル／TVアニメ「魔法少女まどか☆マギカ」OPテーマ',
           BPM: {
             original: 175,
-            inGame: 175
+            inGame: 175,
           },
           time: 123.37,
           cover: true,
-          link: 'https://youtu.be/7EuTPTVpuNI?si=IRKxtIqtOlpF2Kh6'
+          link: 'https://youtu.be/7EuTPTVpuNI?si=IRKxtIqtOlpF2Kh6',
         },
         attribute: 'smile',
         BHcount: 88,
@@ -4326,9 +4541,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['kaho', 'kozue', 'ginko']
+        singingMembers: ['kaho', 'kozue', 'ginko'],
       },
-      '恥は人生のかきすて': {
+      恥は人生のかきすて: {
         ID: 'm_155',
         musicData: {
           kana: 'はじはじんせいのかきすて',
@@ -4336,16 +4551,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 136,
-            inGame: 136
+            inGame: 136,
           },
           time: 137.5,
           cover: false,
-          link: 'https://youtu.be/4BPJbclk1wc?si=lVgs1jLNojiVq_F_'
+          link: 'https://youtu.be/4BPJbclk1wc?si=lVgs1jLNojiVq_F_',
         },
         attribute: 'cool',
         BHcount: 76,
@@ -4353,7 +4568,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
-        singingMembers: ['ginko', 'kosuzu', 'hime']
+        singingMembers: ['ginko', 'kosuzu', 'hime'],
       },
       'Love it! Wonderful Trip!': {
         ID: 'm_156',
@@ -4363,16 +4578,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 216,
-            inGame: 108
+            inGame: 108,
           },
           time: 95.43,
           cover: false,
-          link: 'https://youtu.be/W8uXUhA7dpM?si=FzN9N-jZiHlPs4PT&t=498'
+          link: 'https://youtu.be/W8uXUhA7dpM?si=FzN9N-jZiHlPs4PT&t=498',
         },
         attribute: 'smile',
         BHcount: 41,
@@ -4380,9 +4595,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'sayaka',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['kaho', 'sayaka', 'rurino']
+        singingMembers: ['kaho', 'sayaka', 'rurino'],
       },
-      'アステリズム': {
+      アステリズム: {
         ID: 'm_157',
         musicData: {
           kana: 'あすてりずむ',
@@ -4390,16 +4605,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 3,
-            date: 26
+            date: 26,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ SPECIALアルバム',
           BPM: {
             original: 146,
-            inGame: 146
+            inGame: 146,
           },
           time: 104.73,
           cover: false,
-          link: 'https://youtu.be/W8uXUhA7dpM?si=AlZ-bsIpSXbQKDCl&t=578'
+          link: 'https://youtu.be/W8uXUhA7dpM?si=AlZ-bsIpSXbQKDCl&t=578',
         },
         attribute: 'pure',
         BHcount: 62,
@@ -4407,7 +4622,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 104,
         center: 'kozue',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['kozue', 'tsuzuri', 'megumi']
+        singingMembers: ['kozue', 'tsuzuri', 'megumi'],
       },
       'Dream Believers（105期Ver.）': {
         ID: 'm_159',
@@ -4417,16 +4632,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 30
+            date: 30,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
           BPM: {
             original: 162,
-            inGame: 162
+            inGame: 162,
           },
           time: 139.26,
           cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=sQKHLOyiqHRC-Est&t=12'
+          link: 'https://youtu.be/BegfTmDrSR8?si=sQKHLOyiqHRC-Est&t=12',
         },
         attribute: 'smile',
         BHcount: 92,
@@ -4439,8 +4654,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 12,
           HARD: 20,
           EXPERT: 28,
-          MASTER: 30
-        }
+          MASTER: 30,
+        },
       },
       'Hello, new dream!': {
         ID: 'm_168',
@@ -4450,16 +4665,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 30
+            date: 30,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
           BPM: {
             original: 138,
-            inGame: 138
+            inGame: 138,
           },
           time: 126.63,
           cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=aOJnxyo4NRoE87VC&t=465'
+          link: 'https://youtu.be/BegfTmDrSR8?si=aOJnxyo4NRoE87VC&t=465',
         },
         attribute: 'smile',
         BHcount: 71,
@@ -4469,7 +4684,7 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
       },
-      'Edelied': {
+      Edelied: {
         ID: 'm_160',
         musicData: {
           kana: 'えーでりーど',
@@ -4477,16 +4692,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2099,
             month: 12,
-            date: 31
+            date: 31,
           },
           numbering: '',
           BPM: {
             original: 173,
-            inGame: 173
+            inGame: 173,
           },
           time: 91,
           cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=Irn2W27xqeDAnPT2&t=384'
+          link: 'https://youtu.be/BegfTmDrSR8?si=Irn2W27xqeDAnPT2&t=384',
         },
         attribute: 'cool',
         BHcount: 64,
@@ -4494,7 +4709,7 @@ export const useMusicStore = defineStore('musicList', {
         term: 105,
         center: 'izumi',
         bonusSkill: 'ビートハートアップ',
-        singingMembers: ['seras', 'izumi']
+        singingMembers: ['seras', 'izumi'],
       },
       '輪舞-revolution': {
         ID: 'm_161',
@@ -4504,16 +4719,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 1997,
             month: 5,
-            date: 21
+            date: 21,
           },
           numbering: '奥井雅美 10thシングル',
           BPM: {
             original: 128,
-            inGame: 128
+            inGame: 128,
           },
           time: 101,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 52,
@@ -4526,8 +4741,8 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 11,
           HARD: 18,
           EXPERT: 25,
-          MASTER: 29
-        }
+          MASTER: 29,
+        },
       },
       'Celebration!': {
         ID: 'm_162',
@@ -4537,16 +4752,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 30
+            date: 30,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
           BPM: {
             original: 198,
-            inGame: 198
+            inGame: 198,
           },
           time: 101,
           cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=w51bjbFVFPMb-6b_&t=120'
+          link: 'https://youtu.be/BegfTmDrSR8?si=w51bjbFVFPMb-6b_&t=120',
         },
         attribute: 'smile',
         BHcount: 82,
@@ -4559,10 +4774,37 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 14,
           HARD: 17,
           EXPERT: 27,
-          MASTER: 32
-        }
+          MASTER: 32,
+        },
       },
-      'アンペア': {
+      '37.5℃のファンタジー': {
+        ID: 'm_172',
+        musicData: {
+          kana: 'さんじゅうななてんごどのふぁんたじー',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2025,
+            month: 4,
+            date: 30,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
+          BPM: {
+            original: 165,
+            inGame: 165,
+          },
+          time: 97,
+          cover: false,
+          link: '',
+        },
+        attribute: 'pure',
+        BHcount: 82,
+        level: 0,
+        term: 105,
+        center: 'ginko',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'ginko'],
+      },
+      アンペア: {
         ID: 'm_163',
         musicData: {
           kana: 'あんぺあ',
@@ -4570,30 +4812,57 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 30
+            date: 30,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
           BPM: {
             original: 134,
-            inGame: 134
+            inGame: 134,
           },
           time: 100,
           cover: false,
-          link: 'https://youtu.be/M_KiFNfYBf0?si=8zYaZxHztFKH1y_i'
+          link: '',
         },
         attribute: 'cool',
         BHcount: 54,
         level: 0,
         term: 105,
-        center: 'sayaka',
+        center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'kosuzu'],
         difficultyLevel: {
           NORMAL: 15,
           HARD: 19,
           EXPERT: 27,
-          MASTER: 31
-        }
+          MASTER: 31,
+        },
+      },
+      アイマイメーデー: {
+        ID: 'm_173',
+        musicData: {
+          kana: 'あいまいめーでー',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2025,
+            month: 4,
+            date: 30,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
+          BPM: {
+            original: 160,
+            inGame: 160,
+          },
+          time: 85.25,
+          cover: false,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 54,
+        level: 0,
+        term: 105,
+        center: 'kosuzu',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['sayaka', 'kosuzu'],
       },
       'WAWO！': {
         ID: 'm_164',
@@ -4603,16 +4872,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 4,
-            date: 30
+            date: 30,
           },
           numbering: '蓮ノ空女学院スクールアイドルクラブ 3rdミニアルバム',
           BPM: {
             original: 130,
-            inGame: 130
+            inGame: 130,
           },
           time: 97,
           cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=K8rWs6n5wSC4Q-GU&t=285'
+          link: 'https://youtu.be/BegfTmDrSR8?si=K8rWs6n5wSC4Q-GU&t=285',
         },
         attribute: 'pure',
         BHcount: 51,
@@ -4625,10 +4894,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 14,
           HARD: 19,
           EXPERT: 26,
-          MASTER: 30
-        }
+          MASTER: 30,
+        },
       },
-      'Retrofuture': {
+      Retrofuture: {
         ID: 'm_165',
         musicData: {
           kana: 'れとろふゅーちゃー',
@@ -4636,16 +4905,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 5,
-            date: 21
+            date: 21,
           },
           numbering: 'Edel Note 1stシングル',
           BPM: {
             original: 152,
-            inGame: 152
+            inGame: 152,
           },
           time: 142,
           cover: false,
-          link: 'https://youtu.be/x-qbEX9nQvQ?si=tGJMzX4BWV6kPB3k'
+          link: 'https://youtu.be/x-qbEX9nQvQ?si=tGJMzX4BWV6kPB3k',
         },
         attribute: 'cool',
         BHcount: 88,
@@ -4658,10 +4927,10 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 11,
           HARD: 18,
           EXPERT: 26,
-          MASTER: 31
-        }
+          MASTER: 31,
+        },
       },
-      'ロミオとシンデレラ': {
+      ロミオとシンデレラ: {
         ID: 'm_166',
         musicData: {
           kana: 'ろみおとしんでれら',
@@ -4669,16 +4938,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2009,
             month: 8,
-            date: 26
+            date: 26,
           },
           numbering: '',
           BPM: {
             original: 170,
-            inGame: 170
+            inGame: 170,
           },
           time: 112,
           cover: true,
-          link: ''
+          link: '',
         },
         attribute: 'pure',
         BHcount: 78,
@@ -4686,9 +4955,9 @@ export const useMusicStore = defineStore('musicList', {
         term: 105,
         center: 'seras',
         bonusSkill: 'LOVEボーナス',
-        singingMembers: ['seras']
+        singingMembers: ['seras'],
       },
-      'チリコンカン': {
+      チリコンカン: {
         ID: 'm_167',
         musicData: {
           kana: 'ちりこんかん',
@@ -4696,16 +4965,16 @@ export const useMusicStore = defineStore('musicList', {
           releaseDate: {
             year: 2025,
             month: 5,
-            date: 21
+            date: 21,
           },
           numbering: 'Edel Note 1stシングル',
           BPM: {
             original: 176,
-            inGame: 176
+            inGame: 176,
           },
           time: 95,
           cover: false,
-          link: 'https://youtu.be/wvwVN9pCYNw?si=tiuUPeSNJ6aFU4lb&t=172'
+          link: 'https://youtu.be/wvwVN9pCYNw?si=tiuUPeSNJ6aFU4lb&t=172',
         },
         attribute: 'smile',
         BHcount: 68,
@@ -4718,11 +4987,146 @@ export const useMusicStore = defineStore('musicList', {
           NORMAL: 15,
           HARD: 20,
           EXPERT: 28,
-          MASTER: 30
-        }
+          MASTER: 30,
+        },
       },
-    }
+      'be proud': {
+        ID: 'm_169',
+        musicData: {
+          kana: 'びーぷらうど',
+          singer: '乙宗梢',
+          releaseDate: {
+            year: 2025,
+            month: 6,
+            date: 4,
+          },
+          numbering:
+            '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Otomune Kozue',
+          BPM: {
+            original: 178,
+            inGame: 178,
+          },
+          time: 107.46,
+          cover: false,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 78,
+        level: 1,
+        term: 105,
+        center: 'kozue',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kozue'],
+        difficultyLevel: {
+          NORMAL: 12,
+          HARD: 16,
+          EXPERT: 24,
+          MASTER: 28,
+        },
+      },
+      幸せのリボン: {
+        ID: 'm_170',
+        musicData: {
+          kana: 'しあわせのりぼん',
+          singer: '夕霧綴理',
+          releaseDate: {
+            year: 2025,
+            month: 6,
+            date: 4,
+          },
+          numbering:
+            '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Yugiri Tsuzuri',
+          BPM: {
+            original: 165,
+            inGame: 165,
+          },
+          time: 117.44,
+          cover: false,
+          link: '',
+        },
+        attribute: 'smile',
+        BHcount: 79,
+        level: 1,
+        term: 105,
+        center: 'tsuzuri',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['tsuzuri'],
+        difficultyLevel: {
+          NORMAL: 10,
+          HARD: 16,
+          EXPERT: 22,
+          MASTER: 26,
+        },
+      },
+      'やっぱ天使！': {
+        ID: 'm_171',
+        musicData: {
+          kana: 'やっぱてんし',
+          singer: '藤島慈',
+          releaseDate: {
+            year: 2025,
+            month: 6,
+            date: 4,
+          },
+          numbering:
+            '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Fujishima Megumi',
+          BPM: {
+            original: 190,
+            inGame: 190,
+          },
+          time: 97.18,
+          cover: false,
+          link: '',
+        },
+        attribute: 'pure',
+        BHcount: 75,
+        level: 1,
+        term: 105,
+        center: 'megumi',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['megumi'],
+        difficultyLevel: {
+          NORMAL: 11,
+          HARD: 17,
+          EXPERT: 25,
+          MASTER: 29,
+        },
+      },
+      '青空Jumping Heart': {
+        ID: 'm_174',
+        musicData: {
+          kana: 'あおぞらじゃんぴんぐはーと',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2016,
+            month: 7,
+            date: 20,
+          },
+          numbering: 'TVアニメ「ラブライブ！サンシャイン!!」第1期OPテーマ',
+          BPM: {
+            original: 100,
+            inGame: 100,
+          },
+          time: 93.46,
+          cover: true,
+          link: 'https://youtu.be/mO20a-BFIbA?si=tnGLShdFwhnb-I8s',
+        },
+        attribute: 'pure',
+        BHcount: 76,
+        level: 0,
+        term: 105,
+        center: 'hime',
+        bonusSkill: 'LOVEボーナス',
+        singingMembers: ['rurino', 'hime'],
+        difficultyLevel: {
+          NORMAL: 12,
+          HARD: 19,
+          EXPERT: 25,
+          MASTER: 28,
+        },
+      },
+    },
   }),
   getters: {},
-  actions: {}
+  actions: {},
 });

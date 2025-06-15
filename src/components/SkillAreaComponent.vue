@@ -5,26 +5,31 @@
   >
     <div class="mb-1">
       <span :class="`specialAppeal${skillType === 'characteristic' ? ' characteristic' : ''}`">
-        {{ skillType === 'specialAppeal' ? 'スペシャルアピール' : skillType === 'skill' ? 'スキル' : '特性' }}
-      </span>{{ store.settingCardData[skillType].name }}
-      <span class="AP" v-if="skillType !== 'characteristic'">
-        AP{{
-          store.settingCardData[skillType].AP -
-          (
-            store.settingCardData.fluctuationStatus.trainingLevel <
-            store.maxCardLevel[store.settingCardData.rare].length -
-            2 ? store.settingCardData.fluctuationStatus.trainingLevel : 2
-          )
-        }}
+        {{
+          skillType === 'specialAppeal'
+            ? 'スペシャルアピール'
+            : skillType === 'skill'
+            ? 'スキル'
+            : '特性'
+        }} </span
+      >{{ store.settingCardData[skillType].name }}
+      <span
+        class="AP"
+        v-if="skillType !== 'characteristic'"
+      >
+        AP{{ AP(store, skillType) }}
       </span>
     </div>
     <div>
       <template v-if="skillType !== 'characteristic'">
-        <span class="skillLevel">Lv {{
-            store.settingCardData.fluctuationStatus[`S${skillType === 'specialAppeal' ?
-              'A' :
-              ''}Level`]
-          }}</span>
+        <span class="skillLevel"
+          >Lv
+          {{
+            store.settingCardData.fluctuationStatus[
+              `S${skillType === 'specialAppeal' ? 'A' : ''}Level`
+            ]
+          }}</span
+        >
         {{ store.makeSkillText(skillType) }}
       </template>
       <template v-else>
@@ -33,10 +38,19 @@
     </div>
     <div v-if="skillType !== 'characteristic'">
       <v-chip
-        v-for="(skillID, i) in store.skillList[store.settingCardData[skillType].name][store.settingCardData[skillType].ID].detail.type"
+        v-for="(skillID, i) in store.skillList[store.settingCardData[skillType].name][
+          store.settingCardData[skillType].ID
+        ].detail.type"
         :key="skillID"
         :color="store.skillColor[skillID].colorCode"
-        :class="`chipSize mb-1${i + 1 < store.skillList[store.settingCardData[skillType].name][store.settingCardData[skillType].ID].detail.type.length ? ' mr-1' : ''}`"
+        :class="`chipSize mb-1${
+          i + 1 <
+          store.skillList[store.settingCardData[skillType].name][
+            store.settingCardData[skillType].ID
+          ].detail.type.length
+            ? ' mr-1'
+            : ''
+        }`"
         @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: skillType })"
       >
         {{ store.skillColor[skillID].name }}
@@ -48,9 +62,7 @@
       v-if="outputAddSkillList?.[skillType]"
     >
       <v-expansion-panel bg-color="yellow-darken-1">
-        <v-expansion-panel-title>
-          追加カード・特性/モードチェンジ詳細
-        </v-expansion-panel-title>
+        <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-tabs
             v-model="tab_addSkill"
@@ -74,7 +86,10 @@
               v-for="(list, i) of outputAddSkillList?.[skillType]"
               :key="i"
             >
-              <v-tabs-window-item :value="i" class="pt-2">
+              <v-tabs-window-item
+                :value="i"
+                class="pt-2"
+              >
                 <div>
                   <p>
                     <span
@@ -100,7 +115,7 @@
 
                   <p class="mt-1">
                     <template v-if="skillType !== 'characteristic'">
-                      {{ store.makeSkillText(skillType, {addSkillNum: i}) }}
+                      {{ store.makeSkillText(skillType, { addSkillNum: i }) }}
                     </template>
                     <template v-else>
                       {{ list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail }}
@@ -112,8 +127,17 @@
                       v-for="(skillID, ii) in store.skillList[list.name][list.ID].detail.type"
                       :key="skillID"
                       :color="store.skillColor[skillID].colorCode"
-                      :class="`chipSize mt-1 ${ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''}`"
-                      @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: skillType })"
+                      :class="`chipSize mt-1 ${
+                        ii + 1 < store.skillList[list.name][list.ID].detail.type.length
+                          ? 'mr-1'
+                          : ''
+                      }`"
+                      @click="
+                        openDialog('skillDescription', 600, {
+                          skillID: skillID,
+                          targetSkill: skillType,
+                        })
+                      "
                     >
                       {{ store.skillColor[skillID].name }}
                     </v-chip>
@@ -124,7 +148,8 @@
                   class="mt-3"
                   v-if="list?.characteristic"
                 >
-                  <span class="specialAppeal characteristic">特性</span>{{ list.characteristic.name }}
+                  <span class="specialAppeal characteristic">特性</span
+                  >{{ list.characteristic.name }}
                   <p class="mt-1">{{ list.characteristic.detail }}</p>
                 </div>
 
@@ -133,7 +158,9 @@
                   v-if="list?.addSkill"
                 >
                   <v-expansion-panel bg-color="yellow-darken-1">
-                    <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細</v-expansion-panel-title>
+                    <v-expansion-panel-title>
+                      追加カード・特性/モードチェンジ詳細</v-expansion-panel-title
+                    >
                     <v-expansion-panel-text>
                       <div
                         v-for="(addSkillList, addSkillNum) of list?.addSkill"
@@ -147,7 +174,8 @@
                             <span
                               class="specialAppeal"
                               v-if="addSkillList?.modeName"
-                            >{{ addSkillList.modeName }}</span>
+                              >{{ addSkillList.modeName }}</span
+                            >
                             <span
                               class="specialAppeal"
                               v-else
@@ -169,22 +197,37 @@
                             <template v-if="skillType !== 'characteristic'">
                               {{
                                 store.makeSkillText('addSkill', {
-                                  addSkillNum: [i, addSkillNum]
+                                  addSkillNum: [i, addSkillNum],
                                 })
                               }}
                             </template>
                             <template v-else>
-                              {{ list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail }}
+                              {{
+                                list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail
+                              }}
                             </template>
                           </p>
 
                           <div v-if="skillType !== 'characteristic'">
                             <v-chip
-                              v-for="(skillID, ii) in store.skillList[addSkillList.name][addSkillList.ID].detail.type"
+                              v-for="(skillID, ii) in store.skillList[addSkillList.name][
+                                addSkillList.ID
+                              ].detail.type"
                               :key="skillID"
                               :color="store.skillColor[skillID].colorCode"
-                              :class="`chipSize mt-1 ${ii + 1 < store.skillList[addSkillList.name][addSkillList.ID].detail.type.length ? 'mr-1' : ''}`"
-                              @click="openDialog('skillDescription', 600, { skillID: skillID, targetSkill: skillType })"
+                              :class="`chipSize mt-1 ${
+                                ii + 1 <
+                                store.skillList[addSkillList.name][addSkillList.ID].detail.type
+                                  .length
+                                  ? 'mr-1'
+                                  : ''
+                              }`"
+                              @click="
+                                openDialog('skillDescription', 600, {
+                                  skillID: skillID,
+                                  targetSkill: skillType,
+                                })
+                              "
                             >
                               {{ store.skillColor[skillID].name }}
                             </v-chip>
@@ -224,7 +267,7 @@
       <div class="mt-1 text-center">
         <v-btn
           prepend-icon="mdi-close"
-          @click="switchDialog(null);"
+          @click="switchDialog(null)"
         >
           CLOSE
         </v-btn>
@@ -234,7 +277,7 @@
 </template>
 
 <script setup>
-import {useStoreCounter} from '@/stores/counter';
+import { useStoreCounter } from '@/stores/counter';
 
 const store = useStoreCounter();
 
@@ -273,7 +316,7 @@ export default {
       targetSkill: null,
       skillID: '',
       isAlternate: false,
-      selectAddSkillDetail: 'mainSkill'
+      selectAddSkillDetail: 'mainSkill',
     };
   },
   methods: {
@@ -304,13 +347,28 @@ export default {
       }
 
       this.switchDialog(null);
-    }
+    },
+    AP(store, skillType) {
+      if (store.settingCardData[skillType]?.EXAP !== undefined) {
+        return store.settingCardData[skillType].EXAP[
+          store.settingCardData.fluctuationStatus.SALevel - 1
+        ];
+      } else {
+        return (
+          store.settingCardData[skillType].AP -
+          (store.settingCardData.fluctuationStatus.trainingLevel <
+          store.maxCardLevel[store.settingCardData.rare].length - 2
+            ? store.settingCardData.fluctuationStatus.trainingLevel
+            : 2)
+        );
+      }
+    },
   },
   watch: {
     addSkillList(newVal, oldVal) {
       console.log(`message changed from ${oldVal} to ${newVal}`);
-    }
-  }
+    },
+  },
 };
 </script>
 

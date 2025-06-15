@@ -9,7 +9,7 @@ import { CardData } from '@/types/cardList';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
-    version: 'ζ.18(アーリーアクセス)',
+    version: 'ζ.20(アーリーアクセス)',
     loading: false,
     dialog: false,
     dialogError: false,
@@ -21,33 +21,10 @@ export const useStoreCounter = defineStore('store', {
     selectDeckName: '',
     isParamReflect: true,
     isPossessionFlg: true,
-    rare: [
-      'DR',
-      'BR',
-      'UR',
-      'SR',
-      'R'
-    ],
-    favorite: [
-      'heart',
-      'circle',
-      'triangle',
-      'square',
-      'rhombus',
-      'star'
-    ],
-    releaseStatus: [
-      'none',
-      'trainingLevel',
-      'cardLevel',
-      'releaseLevel'
-    ],
-    bonusSkill: [
-      'ボルテージアップ',
-      'メンタルリカバー',
-      'ビートハートアップ',
-      'LOVEボーナス'
-    ],
+    rare: ['DR', 'LR', 'BR', 'UR', 'SR', 'R'],
+    favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
+    releaseStatus: ['none', 'trainingLevel', 'cardLevel', 'releaseLevel'],
+    bonusSkill: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
     withStar: {
       kaho: 1,
       sayaka: 1,
@@ -59,54 +36,39 @@ export const useStoreCounter = defineStore('store', {
       kosuzu: 1,
       hime: 1,
       seras: 1,
-      izumi: 1
+      izumi: 1,
     },
     siteSettings: {
       all: {
         headerTracking: '',
-        darkMode: 'light'
+        darkMode: 'light',
       },
       cardList: {
         isShowDetail: 'false',
         hover: 'true',
         dot_cardLevel: 'true',
         dot_releasePoint: 'true',
-        dot_releaseLevel: 'true'
+        dot_releaseLevel: 'true',
       },
       musicList: {
-        hover: 'true'
-      }
+        hover: 'true',
+      },
     },
     sortSettings: {
       cardList: {
         sortType: 'rare',
-        order: 'descending'
+        order: 'descending',
       },
       musicList: {
         sortType: 'default',
-        order: 'ascending'
-      }
+        order: 'ascending',
+      },
     },
     defaultSearch: {
       cardList: {
-        rare: [
-          'DR',
-          'BR',
-          'UR',
-          'SR',
-          'R'
-        ],
-        styleType: [
-          'performer',
-          'moodMaker',
-          'cheerLeader',
-          'trickStar'
-        ],
-        mood: [
-          'happy',
-          'neutral',
-          'melow'
-        ],
+        rare: ['DR', 'LR', 'BR', 'UR', 'SR', 'R'],
+        styleType: ['performer', 'moodMaker', 'cheerLeader', 'trickStar'],
+        mood: ['happy', 'neutral', 'melow'],
         limited: [
           'spring',
           'summer',
@@ -117,7 +79,7 @@ export const useStoreCounter = defineStore('store', {
           'birthday',
           'collaboration',
           'prize',
-          'normal'
+          'normal',
         ],
         cardLevel: [0, 140],
         SALevel: [1, 14],
@@ -136,36 +98,36 @@ export const useStoreCounter = defineStore('store', {
           'ginko',
           'kosuzu',
           'hime',
-          'special'
+          'special',
         ],
         favorite: [],
-        releaseStatus: 'none'
+        releaseStatus: 'none',
       },
       skillList: {
         skillFilterType: 'skillType',
         skillType: {
           specialAppeal: [],
           skill: [],
-          characteristic: []
+          characteristic: [],
         },
         skillName: {
           specialAppeal: [],
           skill: [],
-          characteristic: []
-        }
+          characteristic: [],
+        },
       },
-      cardSeries: []
+      cardSeries: [],
     },
     styleHeadline: {
       103: {
         main: 'MAIN STYLE',
         side1: 'SIDE STYLE 1',
-        side2: 'SIDE STYLE 2'
+        side2: 'SIDE STYLE 2',
       },
       104: {
         main: 'MAIN STYLE',
-        side1: 'SIDE STYLE 1'
-      }
+        side1: 'SIDE STYLE 1',
+      },
       // 105: {
       //   main: 'MAIN STYLE',
       //   side1: 'SIDE STYLE 1'
@@ -179,163 +141,160 @@ export const useStoreCounter = defineStore('store', {
       SAAP: 'スペシャルアピールAP',
       SAP: 'スキルAP',
       trainingLevel: '特訓',
-      releaseLevel: '解放 Lv.'
+      releaseLevel: '解放 Lv.',
     },
     styleType: {
       performer: 'パフォーマー',
       moodMaker: 'ムードメーカー',
       cheerLeader: 'チアリーダー',
-      trickStar: 'トリックスター'
+      trickStar: 'トリックスター',
     },
     mood: {
       happy: 'ハッピー',
       neutral: 'ニュートラル',
-      melow: 'メロウ'
+      melow: 'メロウ',
     },
     attribute: {
       smile: 'スマイル',
       pure: 'ピュア',
-      cool: 'クール'
+      cool: 'クール',
     },
     limited: {
       spring: {
         filterLabel: 'SPRING LIMITED',
-        cardLabel: '春限定'
+        cardLabel: '春限定',
       },
       summer: {
         filterLabel: 'SUMMER LIMITED',
-        cardLabel: '夏限定'
+        cardLabel: '夏限定',
       },
       autumn: {
         filterLabel: 'AUTUMN LIMITED',
-        cardLabel: '秋限定'
+        cardLabel: '秋限定',
       },
       winter: {
         filterLabel: 'WINTER LIMITED',
-        cardLabel: '冬限定'
+        cardLabel: '冬限定',
       },
       graduation: {
         filterLabel: 'GRADUATION LIMITED',
-        cardLabel: '卒業限定'
+        cardLabel: '卒業限定',
       },
       party: {
         filterLabel: 'PARTY! LIMITED',
-        cardLabel: '宴限定'
+        cardLabel: '宴限定',
       },
       birthday: {
         filterLabel: 'BIRTHDAY LIMITED',
-        cardLabel: '誕生日限定'
+        cardLabel: '誕生日限定',
       },
       collaboration: {
         filterLabel: 'コラボ',
-        cardLabel: 'コラボ限定'
+        cardLabel: 'コラボ限定',
       },
       prize: {
         filterLabel: 'GP PRIZE',
-        cardLabel: 'ライブGP報酬'
+        cardLabel: 'ライブGP報酬',
       },
       normal: {
         filterLabel: '通常',
-        cardLabel: '通常'
-      }
+        cardLabel: '通常',
+      },
     },
     maxCardLevel: {
       DR: [100, 120, 130, 140],
+      LR: [100, 120, 130, 140],
       BR: [80, 100, 110, 120],
       UR: [60, 80, 100, 110, 120],
       SR: [40, 60, 80, 90, 100],
-      R: [30, 40, 60, 70, 80]
+      R: [30, 40, 60, 70, 80],
     },
     releasePoint: {
       DR: {
         point: 100,
-        max: 400
+        max: 400,
+      },
+      LR: {
+        point: 100,
+        max: 400,
       },
       BR: {
         point: 75,
-        max: 300
+        max: 300,
       },
       UR: {
         point: 100,
-        max: 400
+        max: 400,
       },
       SR: {
         point: 50,
-        max: 200
+        max: 200,
       },
       R: {
         point: 25,
-        max: 100
-      }
+        max: 100,
+      },
     },
     memberName: {
       kaho: {
         first: '日野下',
-        last: '花帆'
+        last: '花帆',
       },
       sayaka: {
         first: '村野',
-        last: 'さやか'
+        last: 'さやか',
       },
       rurino: {
         first: '大沢',
-        last: '瑠璃乃'
+        last: '瑠璃乃',
       },
       kozue: {
         first: '乙宗',
-        last: '梢'
+        last: '梢',
       },
       tsuzuri: {
         first: '夕霧',
-        last: '綴理'
+        last: '綴理',
       },
       megumi: {
         first: '藤島',
-        last: '慈'
+        last: '慈',
       },
       ginko: {
         first: '百生',
-        last: '吟子'
+        last: '吟子',
       },
       kosuzu: {
         first: '徒町',
-        last: '小鈴'
+        last: '小鈴',
       },
       hime: {
         first: '安養寺',
-        last: '姫芽'
+        last: '姫芽',
       },
       seras: {
         first: 'セラス',
-        last: '柳田 リリエンフェルト'
+        last: '柳田 リリエンフェルト',
       },
       izumi: {
         first: '桂城',
-        last: '泉'
+        last: '泉',
       },
       sachi: {
         first: '大賀美',
-        last: '沙知'
+        last: '沙知',
       },
       selaIzu: {
         first: '桂城泉＆',
-        last: 'セラス 柳田 リリエンフェルト'
+        last: 'セラス 柳田 リリエンフェルト',
       },
       kozutsuzumegu: {
         first: '乙宗梢＆夕霧綴理＆',
-        last: '藤島慈'
-      }
+        last: '藤島慈',
+      },
     },
-    exclusionMember: [
-      'sachi',
-      'selaIzu',
-      'kozutsuzumegu'
-    ],
-    specialCardIdList: [
-      'sc_001',
-      'is_001',
-      'ktm_001'
-    ],
+    exclusionMember: ['sachi', 'selaIzu', 'kozutsuzumegu'],
+    specialCardIdList: ['sc_001', 'is_001', 'ktm_001'],
     memberId: {
       kh: 'kaho',
       sy: 'sayaka',
@@ -350,28 +309,11 @@ export const useStoreCounter = defineStore('store', {
       iz: 'izumi',
       sc: 'sachi',
       is: 'selaIzu',
-      ktm: 'kozutsuzumegu'
+      ktm: 'kozutsuzumegu',
     },
     formationMember: {
-      103: [
-        'kaho',
-        'sayaka',
-        'rurino',
-        'kozue',
-        'tsuzuri',
-        'megumi'
-      ],
-      104: [
-        'ginko',
-        'kosuzu',
-        'hime',
-        'kaho',
-        'sayaka',
-        'rurino',
-        'kozue',
-        'tsuzuri',
-        'megumi'
-      ]
+      103: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
+      104: ['ginko', 'kosuzu', 'hime', 'kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
       // 105: [
       //   'seras',
       //   'izumi',
@@ -395,7 +337,7 @@ export const useStoreCounter = defineStore('store', {
       kosuzu: '#FAD764',
       hime: '#9D8DE2',
       seras: '#f56455',
-      izumi: '#1ebecd'
+      izumi: '#1ebecd',
     },
     groupName: {
       hasunosora: '蓮ノ空女学院スクールアイドルクラブ',
@@ -405,50 +347,38 @@ export const useStoreCounter = defineStore('store', {
       kahomeguGelato: 'かほめぐ♡じぇらーと',
       hasunokyujitsu: '蓮ノ休日',
       rurinoTsuzuri: 'るりのとゆかいなつづりたち',
-      EdelNote: 'Edel Note'
+      EdelNote: 'Edel Note',
     },
     bonusSkillList: {
       ボルテージアップ: {
-        text: [
-          'ボルテージPt.を',
-          'pt.獲得するごとに、1pt.追加獲得'
-        ],
+        text: ['ボルテージPt.を', 'pt.獲得するごとに、1pt.追加獲得'],
         skillLevel: 0,
         init: 11,
-        ary: [5, 10, 15, 20, 25, 30, 40]
+        ary: [5, 10, 15, 20, 25, 30, 40],
       },
       メンタルリカバー: {
-        text: [
-          'メンタルが',
-          '減少するごとに、メンタルを1回復'
-        ],
+        text: ['メンタルが', '減少するごとに、メンタルを1回復'],
         skillLevel: 0,
         init: 12,
-        ary: [1, 5, 9, 13, 17, 21, 25, 29]
+        ary: [1, 5, 9, 13, 17, 21, 25, 29],
       },
       ビートハートアップ: {
-        text: [
-          'ビートハートの出現量+',
-          '%'
-        ],
-        skillLevel: 0
+        text: ['ビートハートの出現量+', '%'],
+        skillLevel: 0,
       },
       LOVEボーナス: {
-        text: [
-          'ハート回収時のLOVE獲得量+',
-          '%'
-        ],
+        text: ['ハート回収時のLOVE獲得量+', '%'],
         skillLevel: 0,
         ary: [
           { limit: 5, baseValue: 0, multiplier: 10, subtractLevel: 0 },
           { limit: 10, baseValue: 50, multiplier: 5, subtractLevel: 5 },
           { limit: 25, baseValue: 75, multiplier: 4, subtractLevel: 10 },
-          { limit: Infinity, baseValue: 135, multiplier: 3,  subtractLevel: 25 }
-        ]
-      }
+          { limit: Infinity, baseValue: 135, multiplier: 3, subtractLevel: 25 },
+        ],
+      },
     },
     memberData: {
-      centerList: {}
+      centerList: {},
     },
     deck: [],
     settingCard: {
@@ -456,45 +386,46 @@ export const useStoreCounter = defineStore('store', {
       ID: 'kh_023',
       rare: 'DR',
       name: 'kaho',
-      card: 'Prism Echo'
+      card: 'Prism Echo',
     },
     openCard: {
       ID: 'kh_000',
       name: 'kaho',
-      style: 'main'
+      style: 'main',
     },
     localStorageData: {
       musicData: {
-        musicLevel: {}
+        musicLevel: {},
       },
       cardList: {
         card: {},
-        cardListFilter: {}
+        cardListFilter: {},
       },
       selectItemList: {
         item1: [],
         item2: [],
-        item3: []
+        item3: [],
       },
       siteSettings: {
         all: {},
         cardList: {},
-        musicList: {}
+        musicList: {},
       },
       sortSettings: {
         cardList: {},
-        musicList: {}
-      }
+        musicList: {},
+      },
     },
     grandprixBonus: {
       clearRank: [1, 1.1, 1.2, 1.3],
       seasonFanLv: [0, 0.2, 0.275, 0.35, 0.425, 0.5, 0.55, 0.6, 0.65, 0.7],
       releaseLv: {
+        LR: [0, 0.2, 0.3, 0.35, 0.4],
         BR: [0, 0.2, 0.3, 0.35, 0.4],
         UR: [0, 0.2, 0.3, 0.35, 0.4],
         SR: [0, 0.15, 0.25, 0.3, 0.35],
-        R: [0, 0.1, 0.15, 0.2, 0.25]
-      }
+        R: [0, 0.1, 0.15, 0.2, 0.25],
+      },
     },
     supportSkill: {},
     sortTypeList: {
@@ -511,13 +442,13 @@ export const useStoreCounter = defineStore('store', {
       //pure: 'ピュア',
       //cool: 'クール',
       //mental: 'メンタル',
-      kana: '五十音'
+      kana: '五十音',
     },
     defaultCardList: [],
     windowSize: {
       w: 0,
-      h: 0
-    }
+      h: 0,
+    },
   }),
   getters: {
     defaultCard() {
@@ -534,22 +465,28 @@ export const useStoreCounter = defineStore('store', {
     },
     musicList() {
       const musicStore = useMusicStore();
-      this.IDCheck(Object.keys(musicStore.musicList).map(key => {
-        return {
-          ...musicStore.musicList[key]
-        };
-      }).sort((a, b) => {
-        return a.ID.localeCompare(b.ID);
-      }), 'music');
+      this.IDCheck(
+        Object.keys(musicStore.musicList)
+          .map((key) => {
+            return {
+              ...musicStore.musicList[key],
+            };
+          })
+          .sort((a, b) => {
+            return a.ID.localeCompare(b.ID);
+          }),
+        'music',
+      );
       return musicStore.musicList;
     },
     cardList() {
       let result = {
         DR: [],
+        LR: [],
         BR: [],
         UR: [],
         SR: [],
-        R: []
+        R: [],
       };
       let result2 = [];
 
@@ -567,7 +504,8 @@ export const useStoreCounter = defineStore('store', {
             this.card[memberName][rare][cardName].cardName = cardName;
             this.card[memberName][rare][cardName].rare = rare;
             this.card[memberName][rare][cardName].memberName = memberName;
-            this.card[memberName][rare][cardName].limited = this.card[memberName][rare][cardName].gacha.period;
+            this.card[memberName][rare][cardName].limited =
+              this.card[memberName][rare][cardName].gacha.period;
             this.card[memberName][rare][cardName].sortPoint = 0;
             this.card[memberName][rare][cardName].favorite = [];
             result[rare].push(this.card[memberName][rare][cardName]);
@@ -597,14 +535,20 @@ export const useStoreCounter = defineStore('store', {
               case 'SLevel':
               case 'releaseLevel':
               case 'trainingLevel':
-                return filterList[0] <= cardData.fluctuationStatus[searchKey] && cardData.fluctuationStatus[searchKey] <= filterList[1];
+                return (
+                  filterList[0] <= cardData.fluctuationStatus[searchKey] &&
+                  cardData.fluctuationStatus[searchKey] <= filterList[1]
+                );
               case 'SAAP':
                 if (cardData.specialAppeal === undefined) {
                   return true;
                 } else {
-                  const AP = cardData.specialAppeal.AP - (this.maxCardLevel[cardData.rare].length - 2 > cardData.fluctuationStatus.trainingLevel ?
-                    cardData.fluctuationStatus.trainingLevel :
-                    this.maxCardLevel[cardData.rare].length - 3);
+                  const AP =
+                    cardData.specialAppeal.AP -
+                    (this.maxCardLevel[cardData.rare].length - 2 >
+                    cardData.fluctuationStatus.trainingLevel
+                      ? cardData.fluctuationStatus.trainingLevel
+                      : this.maxCardLevel[cardData.rare].length - 3);
                   return filterList[0] <= AP && AP <= filterList[1];
                 }
               case 'SAP':
@@ -618,7 +562,9 @@ export const useStoreCounter = defineStore('store', {
                   return true;
                 } else {
                   return this.search.cardList.favorite.some((v) => {
-                    return cardData.favorite.length === 0 ? false : cardData.favorite.indexOf(v) > -1;
+                    return cardData.favorite.length === 0
+                      ? false
+                      : cardData.favorite.indexOf(v) > -1;
                   });
                 }
               case 'releaseStatus':
@@ -631,21 +577,32 @@ export const useStoreCounter = defineStore('store', {
                 }
 
                 if (this.search.cardList.releaseStatus === 'cardLevel') {
-                  if (this.maxCardLevel[cardData.rare][this.maxCardLevel[cardData.rare].length - 1] === cardData.fluctuationStatus.cardLevel) {
+                  if (
+                    this.maxCardLevel[cardData.rare][
+                      this.maxCardLevel[cardData.rare].length - 1
+                    ] === cardData.fluctuationStatus.cardLevel
+                  ) {
                     return false;
                   } else {
-                    return this.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] > cardData.fluctuationStatus.cardLevel;
+                    return (
+                      this.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] >
+                      cardData.fluctuationStatus.cardLevel
+                    );
                   }
                 }
 
                 if (this.search.cardList.releaseStatus === 'trainingLevel') {
                   if (
-                    this.maxCardLevel[cardData.rare][this.maxCardLevel[cardData.rare].length - 1] ===
-                    cardData.fluctuationStatus.cardLevel
+                    this.maxCardLevel[cardData.rare][
+                      this.maxCardLevel[cardData.rare].length - 1
+                    ] === cardData.fluctuationStatus.cardLevel
                   ) {
                     return false;
                   } else {
-                    return this.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] === cardData.fluctuationStatus.cardLevel;
+                    return (
+                      this.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] ===
+                      cardData.fluctuationStatus.cardLevel
+                    );
                   }
                 }
 
@@ -656,7 +613,10 @@ export const useStoreCounter = defineStore('store', {
                   ) {
                     return false;
                   } else {
-                    return this.releasePoint[cardData.rare].point <= cardData.fluctuationStatus.releasePoint;
+                    return (
+                      this.releasePoint[cardData.rare].point <=
+                      cardData.fluctuationStatus.releasePoint
+                    );
                   }
                 }
 
@@ -701,7 +661,9 @@ export const useStoreCounter = defineStore('store', {
                     }
                   }
 
-                  return this.skillList[cardData[searchKey].name][cardData[searchKey].ID].detail.type.some((key) => key === skillID);
+                  return this.skillList[cardData[searchKey].name][
+                    cardData[searchKey].ID
+                  ].detail.type.some((key) => key === skillID);
                 } else {
                   return cardData[searchKey].name === val;
                 }
@@ -752,15 +714,27 @@ export const useStoreCounter = defineStore('store', {
               bb = b.fluctuationStatus.releaseLevel - 1;
 
               if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
-                return this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ?
-                  -1 :
-                  this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
+                return this.grandprixBonus.releaseLv[a.rare][aa] <
+                  this.grandprixBonus.releaseLv[b.rare][bb]
+                  ? -1
+                  : this.grandprixBonus.releaseLv[a.rare][aa] >
+                    this.grandprixBonus.releaseLv[b.rare][bb]
+                  ? 1
+                  : 0;
               } else {
-                return this.grandprixBonus.releaseLv[a.rare][aa] > this.grandprixBonus.releaseLv[b.rare][bb] ?
-                  -1 :
-                  this.grandprixBonus.releaseLv[a.rare][aa] < this.grandprixBonus.releaseLv[b.rare][bb] ? 1 : 0;
+                return this.grandprixBonus.releaseLv[a.rare][aa] >
+                  this.grandprixBonus.releaseLv[b.rare][bb]
+                  ? -1
+                  : this.grandprixBonus.releaseLv[a.rare][aa] <
+                    this.grandprixBonus.releaseLv[b.rare][bb]
+                  ? 1
+                  : 0;
               }
-            } else if (/(card|SA|S|release|training)Level/.test(this.localStorageData.sortSettings.cardList.sortType)) {
+            } else if (
+              /(card|SA|S|release|training)Level/.test(
+                this.localStorageData.sortSettings.cardList.sortType,
+              )
+            ) {
               aa = a.fluctuationStatus[this.localStorageData.sortSettings.cardList.sortType];
               bb = b.fluctuationStatus[this.localStorageData.sortSettings.cardList.sortType];
 
@@ -790,7 +764,7 @@ export const useStoreCounter = defineStore('store', {
       this.localStorageData.cardList.cardListFilter = {
         cardList: this.search.cardList,
         skillList: this.search.skillList,
-        cardSeries: this.search.cardSeries
+        cardSeries: this.search.cardSeries,
       };
 
       this.setLocalStorage('llllMgr_cardListFilter', this.localStorageData.cardList.cardListFilter);
@@ -822,25 +796,41 @@ export const useStoreCounter = defineStore('store', {
     makeSkillText() {
       return (target: String, option?: any) => {
         let result = '';
+        const targetLevel: number =
+          option?.targetSkillLv ??
+          this.settingCardData.fluctuationStatus[`S${target === 'specialAppeal' ? 'A' : ''}Level`];
+
         const skillData = (() => {
           if (target === 'addSkill') {
-            return this.settingCardData.skill.addSkill[option.addSkillNum[0]].addSkill[option.addSkillNum[1]];
-          } else if (option !== undefined && option.addSkillNum !== undefined) {
+            return this.settingCardData.skill.addSkill[option.addSkillNum[0]].addSkill[
+              option.addSkillNum[1]
+            ];
+          } else if (option !== undefined && option?.addSkillNum !== undefined) {
             return this.settingCardData[target].addSkill[option.addSkillNum];
           } else {
             return this.settingCardData[target];
           }
         })();
 
-        const skillTextList = this.skillList[skillData.name][skillData.ID].text;
+        const skillTextList = (() => {
+          let returnText: string[] = this.skillList[skillData.name][skillData.ID].text;
+
+          if (this.skillList[skillData.name][skillData.ID]?.exText !== undefined) {
+            for (const exTextData of this.skillList[skillData.name][skillData.ID].exText) {
+              if (exTextData.level <= targetLevel + (option?.targetSkillLv === undefined ? 0 : 1)) {
+                returnText = exTextData.text;
+              }
+            }
+          }
+
+          return returnText;
+        })();
 
         for (let i = 0; i < skillTextList.length; i++) {
           result += skillTextList[i];
 
           if (i < skillTextList.length - 1) {
-            result += skillData.detail[i][option !== undefined && option.targetSkillLv !== undefined ?
-              option.targetSkillLv :
-              this.settingCardData.fluctuationStatus[`S${ target === 'specialAppeal' ? 'A' : '' }Level`] - 1];
+            result += skillData.detail[i][targetLevel];
           }
         }
 
@@ -854,13 +844,17 @@ export const useStoreCounter = defineStore('store', {
       return this.maxCardLevel[this.settingCard.rare].length - 1;
     },
     changeMaxCardLevel() {
-      return this.maxCardLevel[this.settingCard.rare][this.settingCardData.fluctuationStatus.trainingLevel];
+      return this.maxCardLevel[this.settingCard.rare][
+        this.settingCardData.fluctuationStatus.trainingLevel
+      ];
     },
     changeMinCardLevel() {
       if (this.settingCardData.fluctuationStatus.trainingLevel - 1 < 0) {
         return this.maxCardLevel[this.settingCard.rare][0];
       } else {
-        return this.maxCardLevel[this.settingCard.rare][this.settingCardData.fluctuationStatus.trainingLevel - 1];
+        return this.maxCardLevel[this.settingCard.rare][
+          this.settingCardData.fluctuationStatus.trainingLevel - 1
+        ];
       }
     },
     changeSkillLevel() {
@@ -869,24 +863,24 @@ export const useStoreCounter = defineStore('store', {
     cardParam() {
       return (style: string, cardId: string) => {
         const target = ((): {
-          memberName: string,
-          rare: string,
-          cardName: string,
-          trainingLevel?: number,
-          cardLevel?: number
+          memberName: string;
+          rare: string;
+          cardName: string;
+          trainingLevel?: number;
+          cardLevel?: number;
         } => {
           if ((cardId?.split('_')[1] ?? '000') === '000') {
             return {
               memberName: this.settingCard.name,
               rare: this.settingCard.rare,
-              cardName: this.settingCard.card
+              cardName: this.settingCard.card,
             };
           } else {
             const cardData = this.findCardData(cardId);
             return {
               memberName: cardData.memberName,
               rare: cardData.rare,
-              cardName: cardData.cardName
+              cardName: cardData.cardName,
             };
           }
         })();
@@ -897,32 +891,55 @@ export const useStoreCounter = defineStore('store', {
         const maxStatus = selectCard.uniqueStatus[style];
         const magnification = {
           DR: [0.7, 1],
+          LR: [0.7, 1],
           BR: [0.7, 1],
           UR: [0.5, 0.7, 1],
           SR: [0.5, 0.7, 1],
-          R: [0.5, 0.7, 1]
+          R: [0.5, 0.7, 1],
         };
 
         if (target.cardLevel === 0) {
           return 0;
         } else if (target.trainingLevel >= this.maxCardLevel[target.rare].length - 2) {
-          return style === 'mental' ? maxStatus : Math.ceil(maxStatus * (1 + (target.cardLevel - this.maxCardLevel[target.rare][this.maxCardLevel[target.rare].length - 3]) / 100));
+          return style === 'mental'
+            ? maxStatus
+            : Math.ceil(
+                maxStatus *
+                  (1 +
+                    (target.cardLevel -
+                      this.maxCardLevel[target.rare][this.maxCardLevel[target.rare].length - 3]) /
+                      100),
+              );
         } else if (target.trainingLevel === magnification[target.rare].length - 1) {
-          return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - (maxStatus / 100) * 1.5 * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
+          return Math.ceil(
+            maxStatus * magnification[target.rare][target.trainingLevel] -
+              (maxStatus / 100) *
+                1.5 *
+                (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel),
+          );
         } else if (target.trainingLevel === 0) {
-          if (/^(D|B)R$/.test(target.rare)) {
-            return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - ((maxStatus * magnification[target.rare][target.trainingLevel] - Math.ceil(maxStatus / (style === 'mental' ?
-              5 :
-              100))) / (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
+          if (/^(D|L|B)R$/.test(target.rare)) {
+            return Math.ceil(
+              maxStatus * magnification[target.rare][target.trainingLevel] -
+                ((maxStatus * magnification[target.rare][target.trainingLevel] -
+                  Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
+                  (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) *
+                  (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel),
+            );
           } else {
-            return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - ((maxStatus / 2 - Math.ceil(maxStatus / (style === 'mental' ?
-              5 :
-              100))) / (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
+            return Math.ceil(
+              maxStatus * magnification[target.rare][target.trainingLevel] -
+                ((maxStatus / 2 - Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
+                  (this.maxCardLevel[target.rare][target.trainingLevel] - 1)) *
+                  (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel),
+            );
           }
         } else {
-          return Math.ceil(maxStatus * magnification[target.rare][target.trainingLevel] - (maxStatus / (target.rare === 'R' ?
-            200 :
-            100)) * (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel));
+          return Math.ceil(
+            maxStatus * magnification[target.rare][target.trainingLevel] -
+              (maxStatus / (target.rare === 'R' ? 200 : 100)) *
+                (this.maxCardLevel[target.rare][target.trainingLevel] - target.cardLevel),
+          );
         }
       };
     },
@@ -933,16 +950,19 @@ export const useStoreCounter = defineStore('store', {
           ビートハートアップ: 0,
           ボルテージアップ: 0,
           メンタルリカバー: 0,
-          LOVEボーナス: 0
+          LOVEボーナス: 0,
         };
 
         for (const musicTitle of this.memberData.centerList[memberName].centerMusic) {
           result += this.musicList[musicTitle].level;
-          bonusSkill[this.musicList[musicTitle].bonusSkill] += Math.floor(this.musicList[musicTitle].level / 10);
+          bonusSkill[this.musicList[musicTitle].bonusSkill] += Math.floor(
+            this.musicList[musicTitle].level / 10,
+          );
         }
 
         for (const bonusSkillName in bonusSkill) {
-          this.memberData.centerList[memberName].bonusSkill[bonusSkillName] = bonusSkill[bonusSkillName];
+          this.memberData.centerList[memberName].bonusSkill[bonusSkillName] =
+            bonusSkill[bonusSkillName];
         }
 
         /*for (const musicTitle of this.memberData.centerList[memberName].centerMusic) {
@@ -961,21 +981,33 @@ export const useStoreCounter = defineStore('store', {
       const date = {
         year: this.musicList[this.selectMusicTitle].musicData.releaseDate.year,
         month: this.musicList[this.selectMusicTitle].musicData.releaseDate.month,
-        date: this.musicList[this.selectMusicTitle].musicData.releaseDate.date
+        date: this.musicList[this.selectMusicTitle].musicData.releaseDate.date,
       };
 
-      return `${ date.year }年${ date.month }月${ date.date }日(${ ['日', '月', '火', '水', '木', '金', '土'][new Date(date.year, date.month - 1, date.date).getDay()] })`;
+      return `${date.year}年${date.month}月${date.date}日(${
+        ['日', '月', '火', '水', '木', '金', '土'][
+          new Date(date.year, date.month - 1, date.date).getDay()
+        ]
+      })`;
     },
     setCardIllust(): string {
-      return `${ this.conversion(this.getSettingCard.card) }_${ this.memberName[this.getSettingCard.name].last }_覚醒後`;
+      return `${this.conversion(this.getSettingCard.card)}_${
+        this.memberName[this.getSettingCard.name].last
+      }_覚醒後`;
     },
     outputBonusSkillList() {
       const result = {};
 
       for (const targetBonusSkill in this.bonusSkillList) {
-        if (this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] + this.supportSkill[this.checkMasteryMember][targetBonusSkill] > 0) {
+        if (
+          this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] +
+            this.supportSkill[this.checkMasteryMember][targetBonusSkill] >
+          0
+        ) {
           result[targetBonusSkill] = this.bonusSkillList[targetBonusSkill];
-          result[targetBonusSkill].skillLevel = this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] + this.supportSkill[this.checkMasteryMember][targetBonusSkill];
+          result[targetBonusSkill].skillLevel =
+            this.memberData.centerList[this.checkMasteryMember].bonusSkill[targetBonusSkill] +
+            this.supportSkill[this.checkMasteryMember][targetBonusSkill];
         }
       }
 
@@ -989,7 +1021,7 @@ export const useStoreCounter = defineStore('store', {
     },
     getSettingCard() {
       return this.findCardData(this.settingCard.ID);
-    }
+    },
     /*makeMusicList() {
      return (selectSkillList) => {
      const list = {};
@@ -1031,7 +1063,7 @@ export const useStoreCounter = defineStore('store', {
         this.supportSkill[name] = JSON.parse(JSON.stringify(bonusSkillList));
         this.memberData.centerList[name] = {
           centerMusic: [],
-          bonusSkill: JSON.parse(JSON.stringify(bonusSkillList))
+          bonusSkill: JSON.parse(JSON.stringify(bonusSkillList)),
         };
       }
 
@@ -1048,9 +1080,9 @@ export const useStoreCounter = defineStore('store', {
     },
     makeNewDeck(): void {
       let a = {
-        name: `新規デッキ${ this.deck.length + 1 }`,
+        name: `新規デッキ${this.deck.length + 1}`,
         period: this.thisPeriod,
-        cardData: {}
+        cardData: {},
       };
 
       for (const name of this.formationMember[a.period]) {
@@ -1061,8 +1093,8 @@ export const useStoreCounter = defineStore('store', {
               level: 0,
               SA: 0,
               skill: 0,
-              release: 0
-            }
+              release: 0,
+            },
           },
           side1: {
             cardName: 'default',
@@ -1070,8 +1102,8 @@ export const useStoreCounter = defineStore('store', {
               level: 0,
               SA: 0,
               skill: 0,
-              release: 0
-            }
+              release: 0,
+            },
           },
           side2: {
             cardName: 'default',
@@ -1079,9 +1111,9 @@ export const useStoreCounter = defineStore('store', {
               level: 0,
               SA: 0,
               skill: 0,
-              release: 0
-            }
-          }
+              release: 0,
+            },
+          },
         };
       }
 
@@ -1098,33 +1130,35 @@ export const useStoreCounter = defineStore('store', {
       const db = new Dexie('llllMgrDB_test');
       // バージョン1
       db.version(1).stores({
-        notes: '++id, title, body, *tags, updated_at'
+        notes: '++id, title, body, *tags, updated_at',
       });
 
       // バージョン2 usersストアを追加
       db.version(2).stores({
         notes: '++id, title, body, *tags, updated_at',
-        users: '++id, name'
+        users: '++id, name',
       });
 
       // バージョン3 notesストアにgoodを追加
       // 更新時にtagsにgoodがあったら、新しく追加したキー「good」にtrueを入れるようにします。
-      db.version(3).stores({
-        notes: '++id, title, body, *tags, good, updated_at',
-        users: '++id, name'
-      }).upgrade(function() {
-        return db.notes.modify(function(note) {
-          if (note.tags.indexOf('good')) {
-            note.good = true;
-          }
+      db.version(3)
+        .stores({
+          notes: '++id, title, body, *tags, good, updated_at',
+          users: '++id, name',
+        })
+        .upgrade(function () {
+          return db.notes.modify(function (note) {
+            if (note.tags.indexOf('good')) {
+              note.good = true;
+            }
+          });
         });
-      });
 
       db.notes.add({
         title: 'タイトル',
         body: '本文',
         tags: ['IndexedDB', 'Dexie.js'],
-        updated_at: new Date()
+        updated_at: new Date(),
       });
     },
     /**
@@ -1134,59 +1168,71 @@ export const useStoreCounter = defineStore('store', {
      * @param value 値
      * @returns void
      */
-    setLocalStorage(
-      setLocalStorageName: string,
-      value: any
-    ): void {
+    setLocalStorage(setLocalStorageName: string, value: any): void {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },
     getLocalStorage(importData?: any): void {
       const isImportData = importData !== undefined;
 
-      if (localStorage.llllMgr_musicData !== undefined || (isImportData && importData.musicData !== undefined)) {
+      if (
+        localStorage.llllMgr_musicData !== undefined ||
+        (isImportData && importData.musicData !== undefined)
+      ) {
         if (!isImportData) {
           this.localStorageData.musicData = JSON.parse(localStorage.llllMgr_musicData);
 
           if (this.localStorageData.musicData['バアドゲージ']) {
-            this.localStorageData.musicData['バアドケージ'] = this.localStorageData.musicData['バアドゲージ'];
+            this.localStorageData.musicData['バアドケージ'] =
+              this.localStorageData.musicData['バアドゲージ'];
             delete this.localStorageData.musicData['バアドゲージ'];
           }
 
           for (const musicTitle in this.musicList) {
             if (this.localStorageData.musicData.musicLevel[musicTitle]) {
-              this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
+              this.musicList[musicTitle].level =
+                this.localStorageData.musicData.musicLevel[musicTitle];
             }
 
-            this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
+            this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(
+              musicTitle,
+            );
           }
         } else if (importData.musicData !== undefined) {
           this.localStorageData.musicData = importData.musicData;
 
           if (this.localStorageData.musicData['バアドゲージ']) {
-            this.localStorageData.musicData['バアドケージ'] = this.localStorageData.musicData['バアドゲージ'];
+            this.localStorageData.musicData['バアドケージ'] =
+              this.localStorageData.musicData['バアドゲージ'];
             delete this.localStorageData.musicData['バアドゲージ'];
           }
 
           for (const musicTitle in this.musicList) {
-            this.musicList[musicTitle].level = this.localStorageData.musicData.musicLevel[musicTitle];
+            this.musicList[musicTitle].level =
+              this.localStorageData.musicData.musicLevel[musicTitle];
           }
 
           this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
         }
       } else {
         for (const musicTitle in this.musicList) {
-          this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(musicTitle);
+          this.memberData.centerList[this.musicList[musicTitle].center].centerMusic.push(
+            musicTitle,
+          );
         }
       }
 
       if (
         localStorage.llllMgr_card !== undefined ||
-        (isImportData && importData.cardList !== undefined && importData.cardList.card !== undefined)
+        (isImportData &&
+          importData.cardList !== undefined &&
+          importData.cardList.card !== undefined)
       ) {
         let isRemakeCardData = false;
 
         if (!isImportData) {
-          this.localStorageData.cardList.card = this.makeExportCardData(JSON.parse(localStorage.llllMgr_card));
+          this.localStorageData.cardList.card = this.makeExportCardData(
+            JSON.parse(localStorage.llllMgr_card),
+          );
           isRemakeCardData = true;
         } else if (importData.cardList !== undefined && importData.cardList.card !== undefined) {
           this.localStorageData.cardList.card = this.makeExportCardData(importData.cardList.card);
@@ -1199,20 +1245,32 @@ export const useStoreCounter = defineStore('store', {
             for (const rare in this.card[memberName]) {
               if (this.localStorageData.cardList.card[memberName] !== undefined) {
                 for (let cardName in this.localStorageData.cardList.card[memberName][rare]) {
-                  this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][cardName === 'バアドゲージ' ?
-                    'バアドケージ' :
-                    cardName].fluctuationStatus = this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
+                  this.card[memberName][
+                    cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare
+                  ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].fluctuationStatus =
+                    this.localStorageData.cardList.card[memberName][rare][
+                      cardName
+                    ].fluctuationStatus;
 
-                  if (this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus.releasePoint === undefined) {
-                    this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][cardName === 'バアドゲージ' ?
-                      'バアドケージ' :
-                      cardName].fluctuationStatus.releasePoint = 0;
+                  if (
+                    this.localStorageData.cardList.card[memberName][rare][cardName]
+                      .fluctuationStatus.releasePoint === undefined
+                  ) {
+                    this.card[memberName][
+                      cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare
+                    ][
+                      cardName === 'バアドゲージ' ? 'バアドケージ' : cardName
+                    ].fluctuationStatus.releasePoint = 0;
                   }
 
-                  if (this.localStorageData.cardList.card[memberName][rare][cardName].favorite !== undefined) {
-                    this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][cardName === 'バアドゲージ' ?
-                      'バアドケージ' :
-                      cardName].favorite = this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
+                  if (
+                    this.localStorageData.cardList.card[memberName][rare][cardName].favorite !==
+                    undefined
+                  ) {
+                    this.card[memberName][
+                      cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare
+                    ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].favorite =
+                      this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
                   }
                 }
               }
@@ -1221,7 +1279,12 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (localStorage.llllMgr_cardListFilter !== undefined || (isImportData && importData.cardList !== undefined && importData.cardList.cardListFilter !== undefined)) {
+      if (
+        localStorage.llllMgr_cardListFilter !== undefined ||
+        (isImportData &&
+          importData.cardList !== undefined &&
+          importData.cardList.cardListFilter !== undefined)
+      ) {
         let isRemakeCardListFilter = false;
 
         if (!isImportData) {
@@ -1238,44 +1301,60 @@ export const useStoreCounter = defineStore('store', {
                 skillType: {
                   specialAppeal: [],
                   skill: [],
-                  characteristic: []
+                  characteristic: [],
                 },
-                skillName: localStorageData.skillList
-              }
+                skillName: localStorageData.skillList,
+              },
             };
           }
 
           isRemakeCardListFilter = true;
-        } else if (importData.cardList !== undefined && importData.cardList.cardListFilter !== undefined) {
+        } else if (
+          importData.cardList !== undefined &&
+          importData.cardList.cardListFilter !== undefined
+        ) {
           if (importData.cardList.cardListFilter.skillFilterType !== undefined) {
             this.localStorageData.cardList.cardListFilter = importData.cardList.cardListFilter;
           } else {
-            this.localStorageData.cardList.cardListFilter.cardList = importData.cardList.cardListFilter.cardList;
-            this.localStorageData.cardList.cardListFilter.cardSeries = importData.cardList.cardListFilter.cardSeries;
-            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType = importData.cardList.cardListFilter.skillList.skillFilterType;
-            this.localStorageData.cardList.cardListFilter.skillList.skillName = importData.cardList.cardListFilter.skillList.skillName;
-            this.localStorageData.cardList.cardListFilter.skillList.skillType = importData.cardList.cardListFilter.skillList.skillType;
+            this.localStorageData.cardList.cardListFilter.cardList =
+              importData.cardList.cardListFilter.cardList;
+            this.localStorageData.cardList.cardListFilter.cardSeries =
+              importData.cardList.cardListFilter.cardSeries;
+            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType =
+              importData.cardList.cardListFilter.skillList.skillFilterType;
+            this.localStorageData.cardList.cardListFilter.skillList.skillName =
+              importData.cardList.cardListFilter.skillList.skillName;
+            this.localStorageData.cardList.cardListFilter.skillList.skillType =
+              importData.cardList.cardListFilter.skillList.skillType;
           }
 
-          this.setLocalStorage('llllMgr_cardListFilter', this.localStorageData.cardList.cardListFilter);
+          this.setLocalStorage(
+            'llllMgr_cardListFilter',
+            this.localStorageData.cardList.cardListFilter,
+          );
           isRemakeCardListFilter = true;
         }
 
         if (isRemakeCardListFilter) {
           if (this.localStorageData.cardList.cardListFilter.cardList === undefined) {
             for (const filterName in this.search.cardList) {
-              this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter[filterName];
+              this.search.cardList[filterName] =
+                this.localStorageData.cardList.cardListFilter[filterName];
             }
           } else {
             for (const filterName in this.search.cardList) {
-              if (this.localStorageData.cardList.cardListFilter.cardList[filterName] !== undefined) {
-                this.search.cardList[filterName] = this.localStorageData.cardList.cardListFilter.cardList[filterName];
+              if (
+                this.localStorageData.cardList.cardListFilter.cardList[filterName] !== undefined
+              ) {
+                this.search.cardList[filterName] =
+                  this.localStorageData.cardList.cardListFilter.cardList[filterName];
               }
             }
 
             for (const filterName in this.search.skillList) {
               if (this.localStorageData.cardList.cardListFilter.skillList[filterName]) {
-                this.search.skillList[filterName] = this.localStorageData.cardList.cardListFilter.skillList[filterName];
+                this.search.skillList[filterName] =
+                  this.localStorageData.cardList.cardListFilter.skillList[filterName];
               } else {
                 this.search.skillList[filterName] = [];
               }
@@ -1286,7 +1365,10 @@ export const useStoreCounter = defineStore('store', {
         }
       }
 
-      if (localStorage.llllMgr_selectItemList !== undefined || (isImportData && importData.selectItemList !== undefined)) {
+      if (
+        localStorage.llllMgr_selectItemList !== undefined ||
+        (isImportData && importData.selectItemList !== undefined)
+      ) {
         let getSelectItemList = null;
 
         if (!isImportData) {
@@ -1298,12 +1380,15 @@ export const useStoreCounter = defineStore('store', {
 
         if (getSelectItemList !== null) {
           for (let i = 1; i <= 3; i++) {
-            this.localStorageData.selectItemList[`item${ i }`] = getSelectItemList[`item${ i }`];
+            this.localStorageData.selectItemList[`item${i}`] = getSelectItemList[`item${i}`];
           }
         }
       }
 
-      if (localStorage.llllMgr_siteSettings !== undefined || (isImportData && importData.siteSettings !== undefined)) {
+      if (
+        localStorage.llllMgr_siteSettings !== undefined ||
+        (isImportData && importData.siteSettings !== undefined)
+      ) {
         let getSiteSettings = null;
 
         if (!isImportData) {
@@ -1323,13 +1408,17 @@ export const useStoreCounter = defineStore('store', {
         if (getSiteSettings !== null) {
           for (const siteSettingCategoryName in this.siteSettings) {
             for (const settingName in this.siteSettings[siteSettingCategoryName]) {
-              this.localStorageData.siteSettings[siteSettingCategoryName][settingName] = getSiteSettings[siteSettingCategoryName][settingName];
+              this.localStorageData.siteSettings[siteSettingCategoryName][settingName] =
+                getSiteSettings[siteSettingCategoryName][settingName];
             }
           }
         }
       }
 
-      if (localStorage.llllMgr_sortSettings !== undefined || (isImportData && importData.sortSettings !== undefined)) {
+      if (
+        localStorage.llllMgr_sortSettings !== undefined ||
+        (isImportData && importData.sortSettings !== undefined)
+      ) {
         let getSortSettings = null;
 
         if (!isImportData) {
@@ -1338,8 +1427,8 @@ export const useStoreCounter = defineStore('store', {
           getSortSettings = importData.sortSettings;
 
           for (const iterator of ['card', 'music']) {
-            if (getSortSettings[`${ iterator }List`] === undefined) {
-              getSortSettings[`${ iterator }List`] = this.sortSettings[`${ iterator }List`];
+            if (getSortSettings[`${iterator}List`] === undefined) {
+              getSortSettings[`${iterator}List`] = this.sortSettings[`${iterator}List`];
             }
           }
 
@@ -1349,7 +1438,8 @@ export const useStoreCounter = defineStore('store', {
         if (getSortSettings !== null) {
           for (const sortSettingCategoryName in this.sortSettings) {
             for (const settingName in this.sortSettings[sortSettingCategoryName]) {
-              this.localStorageData.sortSettings[sortSettingCategoryName][settingName] = getSortSettings[sortSettingCategoryName][settingName];
+              this.localStorageData.sortSettings[sortSettingCategoryName][settingName] =
+                getSortSettings[sortSettingCategoryName][settingName];
             }
           }
         }
@@ -1396,19 +1486,21 @@ export const useStoreCounter = defineStore('store', {
       return value === 'true';
     },
     conversion(name: string): string {
-      return /!/.test(name) ? name.replace(/!/g, '！') : /\//.test(name) ? name.replace(/\//g, '／') : name;
+      return /!/.test(name)
+        ? name.replace(/!/g, '！')
+        : /\//.test(name)
+        ? name.replace(/\//g, '／')
+        : name;
     },
-    setOpenCard(
-      id: string,
-      name: string,
-      style: string
-    ): void {
+    setOpenCard(id: string, name: string, style: string): void {
       this.openCard.ID = id;
       this.openCard.name = name;
       this.openCard.style = style;
     },
     makeFullName(name: string): string {
-      return `${ this.memberName[name].first }${ /kozutsuzumegu|selaIzu/.test(name) ? '' : ' ' }${ this.memberName[name].last }`;
+      return `${this.memberName[name].first}${/kozutsuzumegu|selaIzu/.test(name) ? '' : ' '}${
+        this.memberName[name].last
+      }`;
     },
     /**
      * カードIDからメンバー名を作成する関数
@@ -1420,9 +1512,13 @@ export const useStoreCounter = defineStore('store', {
       if (id === 'ktm_001') {
         return `乙宗梢＆夕霧綴理＆藤島慈`;
       } else if (id === 'is_001') {
-        return `${ this.memberName.selaIzu.first }${ this.memberName.selaIzu.last }`;
+        return `${this.memberName.selaIzu.first}${this.memberName.selaIzu.last}`;
       } else {
-        return `${ this.memberName[this.memberId[id.split('_')[0]]][id.split('_')[0] === 'sr' ? 'first' : 'last'] }`;
+        return `${
+          this.memberName[this.memberId[id.split('_')[0]]][
+            id.split('_')[0] === 'sr' ? 'first' : 'last'
+          ]
+        }`;
       }
     },
     isOtherMember(name: string): boolean {
@@ -1435,10 +1531,7 @@ export const useStoreCounter = defineStore('store', {
      * @param cardName カード名
      * @return カードID
      */
-    findCardId(
-      memberName: string,
-      cardName: string
-    ): string {
+    findCardId(memberName: string, cardName: string): string {
       if (cardName === 'default') {
         return this.makeDefaultCardId(memberName);
       } else {
@@ -1446,11 +1539,11 @@ export const useStoreCounter = defineStore('store', {
           return v.cardName === cardName;
         });
 
-        return list.length === 1 ?
-          list[0].ID :
-          list.find((v) => {
-            return v.memberName === memberName;
-          })?.ID ?? this.makeDefaultCardId(memberName);
+        return list.length === 1
+          ? list[0].ID
+          : list.find((v) => {
+              return v.memberName === memberName;
+            })?.ID ?? this.makeDefaultCardId(memberName);
       }
     },
     /**
@@ -1464,8 +1557,8 @@ export const useStoreCounter = defineStore('store', {
         return {
           ...this.card.default,
           ...{
-            cardName: 'default'
-          }
+            cardName: 'default',
+          },
         };
       } else {
         return this.cardList.find((v) => v.ID === cardId);
@@ -1478,9 +1571,9 @@ export const useStoreCounter = defineStore('store', {
      * @return デフォルトのカードID
      */
     makeDefaultCardId(memberName: string): string {
-      return `${ Object.keys(this.memberId).find((key) => {
+      return `${Object.keys(this.memberId).find((key) => {
         this.memberId[key] === memberName;
-      }) }_000`;
+      })}_000`;
     },
     /**
      * カードIDからカードのレアリティを検索
@@ -1492,7 +1585,7 @@ export const useStoreCounter = defineStore('store', {
       if (Number(cardId.split('_')[1]) === 0) {
         return 'default';
       } else {
-        return this.cardList.find(v => v.ID === cardId)?.rare ?? '';
+        return this.cardList.find((v) => v.ID === cardId)?.rare ?? '';
       }
     },
     searchSelectDeckCard(name: string, style: string) {
@@ -1511,7 +1604,7 @@ export const useStoreCounter = defineStore('store', {
           for (const cardName in card[memberName][rare]) {
             result[memberName][rare][cardName] = {
               fluctuationStatus: card[memberName][rare][cardName].fluctuationStatus,
-              favorite: card[memberName][rare][cardName].favorite
+              favorite: card[memberName][rare][cardName].favorite,
             };
           }
         }
@@ -1546,7 +1639,10 @@ export const useStoreCounter = defineStore('store', {
         this.settingCardData.fluctuationStatus[target] = val;
 
         if (target === 'trainingLevel') {
-          if (this.settingCardData.fluctuationStatus.cardLevel < this.changeMinCardLevel || this.settingCardData.fluctuationStatus.cardLevel > this.changeMaxCardLevel) {
+          if (
+            this.settingCardData.fluctuationStatus.cardLevel < this.changeMinCardLevel ||
+            this.settingCardData.fluctuationStatus.cardLevel > this.changeMaxCardLevel
+          ) {
             this.settingCardData.fluctuationStatus.cardLevel = this.changeMinCardLevel;
           }
         } else if (target === 'releaseLevel') {
@@ -1583,17 +1679,25 @@ export const useStoreCounter = defineStore('store', {
           this.supportSkill[cardData.memberName][targetBonusSkill] = 0;
 
           if (cardData.fluctuationStatus.cardLevel > 0) {
-            this.supportSkill[cardData.memberName][targetBonusSkill] = cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].initLevel;
+            this.supportSkill[cardData.memberName][targetBonusSkill] =
+              cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].initLevel;
 
-            if (cardData.fluctuationStatus.releaseLevel >= cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].levelUp) {
-              this.supportSkill[cardData.memberName][targetBonusSkill] += cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].upLevel;
+            if (
+              cardData.fluctuationStatus.releaseLevel >=
+              cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].levelUp
+            ) {
+              this.supportSkill[cardData.memberName][targetBonusSkill] +=
+                cardData.uniqueStatus.supportSkill.supportSkillList[targetBonusSkill].upLevel;
             }
           }
         }
       }
     },
     setBonusSkillLevel(memberName: string, skillName: string): number {
-      return this.memberData.centerList[memberName].bonusSkill[skillName] + this.supportSkill[memberName][skillName];
+      return (
+        this.memberData.centerList[memberName].bonusSkill[skillName] +
+        this.supportSkill[memberName][skillName]
+      );
     },
     /*cardParam(style, target) {
      if (target === undefined) {
@@ -1611,7 +1715,10 @@ export const useStoreCounter = defineStore('store', {
       const result = [];
 
       for (const key of this.cardList) {
-        if (key[target] !== undefined && result.indexOf(target === 'series' ? key[target] : key[target].name) === -1) {
+        if (
+          key[target] !== undefined &&
+          result.indexOf(target === 'series' ? key[target] : key[target].name) === -1
+        ) {
           result.push(target === 'series' ? key[target] : key[target].name);
         }
       }
@@ -1626,7 +1733,10 @@ export const useStoreCounter = defineStore('store', {
     },
     resetMusicFilter(resetName) {
       if (/^(SA|S)(AP|Level)|(release|card|training)Level$/.test(resetName)) {
-        this.search.cardList[resetName] = [this.defaultSearch.cardList[resetName][0], this.defaultSearch.cardList[resetName][1]];
+        this.search.cardList[resetName] = [
+          this.defaultSearch.cardList[resetName][0],
+          this.defaultSearch.cardList[resetName][1],
+        ];
       } else if (this.search.cardList[resetName].length === 0) {
         if (/^rare|favorite|releaseStatus$/.test(resetName)) {
           this.search.cardList[resetName] = this[resetName];
@@ -1658,11 +1768,14 @@ export const useStoreCounter = defineStore('store', {
 
           for (const name in this.memberName) {
             this.supportSkill[name] = JSON.parse(JSON.stringify(bonusSkillList));
-            this.memberData.centerList[name].bonusSkill = JSON.parse(JSON.stringify(bonusSkillList));
+            this.memberData.centerList[name].bonusSkill = JSON.parse(
+              JSON.stringify(bonusSkillList),
+            );
 
             for (const musicTitle in this.musicList) {
               this.musicList[musicTitle].level = 0;
-              this.localStorageData.musicData.musicLevel[musicTitle] = this.musicList[musicTitle].level;
+              this.localStorageData.musicData.musicLevel[musicTitle] =
+                this.musicList[musicTitle].level;
             }
 
             this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
@@ -1671,11 +1784,13 @@ export const useStoreCounter = defineStore('store', {
           this.localStorageData.selectItemList = {
             item1: [],
             item2: [],
-            item3: []
+            item3: [],
           };
           this.setLocalStorage('llllMgr_selectItemList', this.localStorageData.selectItemList);
         } else if (iterator === 'sortSettings_card') {
-          this.localStorageData.sortSettings.cardList = JSON.parse(JSON.stringify(this.sortSettings.cardList));
+          this.localStorageData.sortSettings.cardList = JSON.parse(
+            JSON.stringify(this.sortSettings.cardList),
+          );
           this.setLocalStorage('llllMgr_sortSettings', this.localStorageData.sortSettings);
         } else if (iterator === 'siteSettings') {
           this.localStorageData.siteSettings = JSON.parse(JSON.stringify(this.siteSettings));
@@ -1690,22 +1805,28 @@ export const useStoreCounter = defineStore('store', {
      * @returns void
      */
     changeSettings(setLocalStorageName: string): void {
-      this.setLocalStorage(`llllMgr_${ setLocalStorageName }`, this.localStorageData[setLocalStorageName]);
+      this.setLocalStorage(
+        `llllMgr_${setLocalStorageName}`,
+        this.localStorageData[setLocalStorageName],
+      );
     },
     setSelectCard(
       id: string,
       param: {
-        cardLevel: number,
-        SALevel: number,
-        SLevel: number,
-        releaseLevel: number,
-      }
+        cardLevel: number;
+        SALevel: number;
+        SLevel: number;
+        releaseLevel: number;
+      },
     ): void {
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].id = id;
-      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.cardLevel = param.cardLevel;
-      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SALevel = param.SALevel;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.cardLevel =
+        param.cardLevel;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SALevel =
+        param.SALevel;
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.SLevel = param.SLevel;
-      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.releaseLevel = param.releaseLevel;
+      this.selectDeck.cardData[this.openCard.name][this.openCard.style].param.releaseLevel =
+        param.releaseLevel;
     },
     /**
      * @function IDCheck
@@ -1714,10 +1835,7 @@ export const useStoreCounter = defineStore('store', {
      * @param type 'music' | 'card'
      * @returns void
      */
-    IDCheck(
-      list: any[],
-      type: 'music' | 'card'
-    ): void {
+    IDCheck(list: any[], type: 'music' | 'card'): void {
       const regex = type === 'music' ? /^m{1}/ : /^[a-z]{2,3}/;
       let previousNumber = 0;
       const errorList = [];
@@ -1737,11 +1855,13 @@ export const useStoreCounter = defineStore('store', {
         }
       } else {
         for (const key in this.memberId) {
-          const filteringList = list.filter((data) => {
-            return data.memberName === this.memberId[key];
-          }).sort((a, b) => {
-            return a.ID.localeCompare(b.ID);
-          });
+          const filteringList = list
+            .filter((data) => {
+              return data.memberName === this.memberId[key];
+            })
+            .sort((a, b) => {
+              return a.ID.localeCompare(b.ID);
+            });
 
           previousNumber = 0;
 
@@ -1763,7 +1883,7 @@ export const useStoreCounter = defineStore('store', {
           console.error(errorList[index]);
         }
 
-        alert('ID設定に誤りがあります。\n詳しくはコンソールを確認してください。');
+        // alert('ID設定に誤りがあります。\n詳しくはコンソールを確認してください。');
       } else {
         const idSet = new Set();
         const duplicateIDs = [];
@@ -1777,8 +1897,8 @@ export const useStoreCounter = defineStore('store', {
         }
 
         if (duplicateIDs.length > 0) {
-          console.error(`重複しているIDがあります。\n該当ID：${ duplicateIDs.join(', ') }`);
-          alert('ID設定に誤りがあります。\n詳しくはコンソールを確認してください。');
+          console.error(`重複しているIDがあります。\n該当ID：${duplicateIDs.join(', ')}`);
+          // alert('ID設定に誤りがあります。\n詳しくはコンソールを確認してください。');
         }
       }
 
@@ -1792,21 +1912,18 @@ export const useStoreCounter = defineStore('store', {
        * @param previousNumber 現在-1のID番号
        * @returns エラーメッセージ
        */
-      function isValidAndIncremental(
-        ID: string,
-        previousNumber: number
-      ): string {
+      function isValidAndIncremental(ID: string, previousNumber: number): string {
         if (isNaN(ID.split('_')[1])) {
-          return `IDの番号に数字以外が入っています。\n該当ID：${ ID }`;
+          return `IDの番号に数字以外が入っています。\n該当ID：${ID}`;
         } else if (ID.split('_')[1].length !== 3) {
-          return `IDの番号が3桁ではありません。\n該当ID：${ ID }`;
+          return `IDの番号が3桁ではありません。\n該当ID：${ID}`;
         } else if (!regex.test(ID)) {
-          return `形式がフォーマット通りではありません。\n該当ID：${ ID }`;
+          return `形式がフォーマット通りではありません。\n該当ID：${ID}`;
         }
 
         const numberPart = parseInt(ID.split('_')[1], 10);
 
-        return numberPart === previousNumber + 1 ? '' : `IDが連番になっていません。\n該当ID：${ ID }`;
+        return numberPart === previousNumber + 1 ? '' : `IDが連番になっていません。\n該当ID：${ID}`;
       }
     },
     /**
@@ -1817,13 +1934,9 @@ export const useStoreCounter = defineStore('store', {
      * @param extension 画像の拡張子
      * @returns 画像のパス
      */
-    getImagePath(
-      path: string,
-      imageName: string,
-      extension?: string
-    ): string {
-      const images = import.meta.glob('../assets/**/*', {eager: true});
-      const filePath = `../assets${ path ? `/${ path }` : '' }/${ imageName }.${ extension ?? 'webp' }`;
+    getImagePath(path: string, imageName: string, extension?: string): string {
+      const images = import.meta.glob('../assets/**/*', { eager: true });
+      const filePath = `../assets${path ? `/${path}` : ''}/${imageName}.${extension ?? 'webp'}`;
       return images[filePath]?.default || '';
     },
     async fetchFiles() {
@@ -1835,10 +1948,10 @@ export const useStoreCounter = defineStore('store', {
         const dbx = new Dropbox({
           clientId: APP_KEY,
           clientSecret: ACCESS_APP_SECRET,
-          refreshToken: OATH2_REFRESH_TOKEN
+          refreshToken: OATH2_REFRESH_TOKEN,
         });
-        const response = await this.fetchWithBackoff(async() => {
-          return await dbx.filesListFolder({path: '/CD_jacket'});
+        const response = await this.fetchWithBackoff(async () => {
+          return await dbx.filesListFolder({ path: '/CD_jacket' });
         });
         const files = response.result.entries;
         const imageMimeType = ['image/webp'];
@@ -1846,22 +1959,22 @@ export const useStoreCounter = defineStore('store', {
         const imageFiles = files.filter(
           (file) =>
             file['.tag'] === 'file' &&
-            imageMimeType.some((type) => this.conversion(file.name).endsWith(type.split('/')[1]))
+            imageMimeType.some((type) => this.conversion(file.name).endsWith(type.split('/')[1])),
         );
 
         const imageUrls = await Promise.all(
-          imageFiles.map(async(file) => {
-            return this.fetchWithBackoff(async() => {
+          imageFiles.map(async (file) => {
+            return this.fetchWithBackoff(async () => {
               const linkResponse = await dbx.filesGetTemporaryLink({
-                path: file.path_lower
+                path: file.path_lower,
               });
               return {
                 id: file.id,
                 name: this.conversion(file.name.split('.webp')[0]),
-                url: linkResponse.result.link
+                url: linkResponse.result.link,
               };
             });
-          })
+          }),
         );
 
         this.images = imageUrls;
@@ -1891,7 +2004,7 @@ export const useStoreCounter = defineStore('store', {
         } catch (error) {
           if (error.status === 429 && i < retries - 1) {
             const waitTime = delay * Math.pow(2, i);
-            console.warn(`Rate limit hit. Retrying in ${ waitTime / 1000 } seconds...`);
+            console.warn(`Rate limit hit. Retrying in ${waitTime / 1000} seconds...`);
             await new Promise((resolve) => setTimeout(resolve, waitTime));
           } else {
             throw error;
@@ -1904,8 +2017,8 @@ export const useStoreCounter = defineStore('store', {
       this.imageLoaded[imageKey] = true;
     },
     markImageError(imageKey) {
-      console.error(`Failed to load image: ${ imageKey }`);
+      console.error(`Failed to load image: ${imageKey}`);
       this.imageLoaded[imageKey] = false;
-    }
-  }
+    },
+  },
 });

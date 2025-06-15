@@ -1,6 +1,12 @@
 <template>
-  <v-container fluid class="pa-2">
-    <v-row class="mt-0" v-if="Object.keys(outputEventList).length > 0">
+  <v-container
+    fluid
+    class="pa-2"
+  >
+    <v-row
+      class="mt-0"
+      v-if="Object.keys(outputEventList).length > 0"
+    >
       <v-col cols="12">
         <h2>ライブ・イベント情報</h2>
         <v-carousel
@@ -14,7 +20,10 @@
             :key="eventName"
             class="text-center"
           >
-            <v-card variant="flat" rounded="0">
+            <v-card
+              variant="flat"
+              rounded="0"
+            >
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
@@ -79,22 +88,38 @@
         </v-btn>
       </v-col>
       <v-col v-if="false">
-        <v-btn block prepend-icon="mdi-star" @click="pageMove('withStarMgr')">
+        <v-btn
+          block
+          prepend-icon="mdi-star"
+          @click="pageMove('withStarMgr')"
+        >
           WithStar Mgr
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-cards" @click="pageMove('cardlist')">
+        <v-btn
+          block
+          prepend-icon="mdi-cards"
+          @click="pageMove('cardlist')"
+        >
           Card List
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-music" @click="pageMove('musiclist')">
+        <v-btn
+          block
+          prepend-icon="mdi-music"
+          @click="pageMove('musiclist')"
+        >
           Music List
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-book" @click="pageMove('itemlist')">
+        <v-btn
+          block
+          prepend-icon="mdi-book"
+          @click="pageMove('itemlist')"
+        >
           Item List
         </v-btn>
       </v-col>
@@ -133,9 +158,7 @@
       </v-col>
       <v-col cols="12">
         このサイトはリンクフリーです。<br />
-        <u
-          >SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！</u
-        >
+        <u>SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！</u>
       </v-col>
     </v-row>
 
@@ -144,17 +167,20 @@
         <h2>Page Introduction</h2>
         各ページを簡単に紹介します。
       </v-col>
-      <v-col cols="12" v-if="false">
+      <v-col
+        cols="12"
+        v-if="false"
+      >
         <b>SIMULATION（獲得グランプリPt.計算ツール）</b><br />
-          獲得グランプリPt.を計算できます。<br />
-          なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
+        獲得グランプリPt.を計算できます。<br />
+        なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
       </v-col>
       <v-col cols="12">
         <b>SIMULATION（編成シミュレーション）</b><br />
-          簡単な編成シミュレーションを行えます。<br />
-          現在はおためし版となっております。<br />
-          リロードすると編成データは消えるため、ご注意ください。<br />
-          なお、このページのみ、PCからの利用を推奨しています。
+        簡単な編成シミュレーションを行えます。<br />
+        現在はおためし版となっております。<br />
+        リロードすると編成データは消えるため、ご注意ください。<br />
+        なお、このページのみ、PCからの利用を推奨しています。
       </v-col>
       <v-col cols="12">
         <b>CARD LIST（カード一覧）</b><br />
@@ -168,8 +194,7 @@
       </v-col>
       <v-col cols="12">
         <b>ITEM LIST（アイテム一覧）</b><br />
-        Quest
-        Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
+        Quest Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
       </v-col>
       <v-col cols="12"> ※機能は変更になる可能性があります。 </v-col>
     </v-row>
@@ -185,7 +210,6 @@
         />
       </v-col>
     </v-row>
-
   </v-container>
 </template>
 
@@ -196,7 +220,7 @@ const store = useStoreCounter();
 
 <script>
 export default {
-  name: "Home",
+  name: 'Home',
   components: {},
   data() {
     return {
@@ -210,13 +234,13 @@ export default {
           img: 'thanks',
         },*/
         liveGP: {
-          title: 'ライブグランプリ「105期1stTerm 第1回 個人戦」',
+          title: 'ライブグランプリ「105期1stTerm 第2回 個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 5, 11, 12, 0],
-          lastDay: [2025, 5, 17, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-05-09-10-y1ocdt7ulo',
-          img: '105期1stTerm 第1回 個人戦_logo',
+          firstDay: [2025, 6, 15, 12, 0],
+          lastDay: [2025, 6, 20, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-06-14-00-pqcwxvs5mt',
+          img: '105期1stTerm 第2回 個人戦_logo',
         },
         /*'liveGP': {
           title: 'ライブグランプリ「105期 OpeningTerm サークル対抗戦」',
@@ -227,25 +251,16 @@ export default {
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-19-10-rxb0bmpb8g',
           img: '105期 OpeningTerm サークル対抗戦_logo',
         },*/
-        '4thLiveDream_hyogo': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
-          text: '兵庫公演',
+        nadeshikosai: {
+          title: 'Fes×LIVE「105期 1stTerm Fes×LIVE -撫子祭-」',
+          text: '',
           type: 'live',
-          firstDay: [2025, 5, 31, 0, 0],
-          lastDay: [2025, 6, 1, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
-          img: '4thLiveDream_hyogo_logo',
+          firstDay: [2025, 6, 29, 20, 0],
+          lastDay: [2025, 6, 29, 21, 0],
+          url: 'https://x.com/hasunosora_SIC/status/1933856959956205839',
+          img: '105th_nadeshikosai_logo',
         },
-        '4thLiveDream_kanagawa': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 4th Live Dream ～Bloom, The Dream Believers～」',
-          text: '102期卒業公演',
-          type: 'live',
-          firstDay: [2025, 6, 7, 0, 0],
-          lastDay: [2025, 6, 8, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=BTDB',
-          img: '4thLiveDream_kanagawa_logo',
-        },
-        'expo2025': {
+        expo2025: {
           title: 'ライブ「ラブライブ！シリーズ EXPO 2025 STAGE ～Right now!～」',
           text: '',
           type: 'live',
@@ -253,6 +268,46 @@ export default {
           lastDay: [2025, 8, 14, 23, 59],
           url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=lovelive-expo2025',
           img: 'expo2025_logo',
+        },
+        '5thLive_miraCraPark': {
+          title:
+            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          text: 'みらくらぱーく！ presents Heart Stage',
+          type: 'live',
+          firstDay: [2025, 10, 4, 0, 0],
+          lastDay: [2025, 10, 5, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+          img: '5thLive_mirapa_logo',
+        },
+        '5thLive_DOLLCHESTRA': {
+          title:
+            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          text: 'DOLLCHESTRA presents Diamond Stage',
+          type: 'live',
+          firstDay: [2025, 11, 8, 0, 0],
+          lastDay: [2025, 11, 9, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+          img: '5thLive_DOLLCHESTRA_logo',
+        },
+        '5thLive_edelNote': {
+          title:
+            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          text: 'Edel Note presents Spade Stage',
+          type: 'live',
+          firstDay: [2025, 11, 19, 0, 0],
+          lastDay: [2025, 11, 20, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+          img: '5thLive_EdelNote_logo',
+        },
+        '5thLive_ceriseBouquet': {
+          title:
+            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          text: 'スリーズブーケ presents Clover Stage',
+          type: 'live',
+          firstDay: [2025, 12, 6, 0, 0],
+          lastDay: [2025, 12, 7, 23, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+          img: '5thLive_ceriseBouquet_logo',
         },
       },
       outputEventList: {},
@@ -288,7 +343,7 @@ export default {
         this.eventList[eventName].firstDay[2],
         this.eventList[eventName].firstDay[3],
         this.eventList[eventName].firstDay[4],
-        0
+        0,
       );
       const lastDay = new Date(
         this.eventList[eventName].lastDay[0],
@@ -296,25 +351,13 @@ export default {
         this.eventList[eventName].lastDay[2],
         this.eventList[eventName].lastDay[3],
         this.eventList[eventName].lastDay[4],
-        59
+        59,
       );
       const today = new Date();
 
-      const f = new Date(
-        firstDay.getFullYear(),
-        firstDay.getMonth(),
-        firstDay.getDate()
-      );
-      const l = new Date(
-        lastDay.getFullYear(),
-        lastDay.getMonth(),
-        lastDay.getDate()
-      );
-      const t = new Date(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate()
-      );
+      const f = new Date(firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate());
+      const l = new Date(lastDay.getFullYear(), lastDay.getMonth(), lastDay.getDate());
+      const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
       if (f.getTime() === t.getTime()) {
         if (today.getHours() < firstDay.getHours()) {
@@ -331,9 +374,7 @@ export default {
       } else if (f.getTime() > t.getTime()) {
         return {
           state: 'prev',
-          day: -Math.floor(
-            (today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)
-          ),
+          day: -Math.floor((today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)),
           time: 0,
         };
       } else if (t.getTime() < l.getTime()) {
@@ -353,7 +394,7 @@ export default {
       };
     },
   },
-  mounted() {}
+  mounted() {},
 };
 </script>
 

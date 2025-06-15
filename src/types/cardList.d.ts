@@ -24,6 +24,7 @@ interface SpecialAppeal {
   ID: string;
   name: string;
   AP: number;
+  EXAP?: number[];
   detail: number[][] | Record<string, unknown>;
   addSkill?: AddCard[];
 }
@@ -69,8 +70,9 @@ interface Rarity {
   default: {
     default: CardData;
   };
-  DR?: Record<string, CardData>;
   BR?: Record<string, CardData>;
+  LR?: Record<string, CardData>;
+  DR?: Record<string, CardData>;
   UR?: Record<string, CardData>;
   SR?: Record<string, CardData>;
   R?: Record<string, CardData>;
