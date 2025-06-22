@@ -673,6 +673,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      チアフルリゲインエクステンド: {
+        cheerfulRegainExtend_01: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージPt.を+',
+            'する。さらにメンタルが100%のとき、このセクション中、手札の上限枚数を1枚増加する。',
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['reshuffle', 'voltageGain', 'extendHand'],
+          },
+        },
+      },
       チアフルヒーリング: {
         cheerfulHealing: {
           text: [
@@ -782,6 +794,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'cheerful',
             type: ['boost_heartCaptcha'],
+          },
+        },
+      },
+      'チアフルブースト：みらくらぱーく！': {
+        'cheerfulBoost-miraCraPark_01': {
+          text: [
+            '3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+            '%する。さらにメンタルが100%のとき、3回の間みらくらぱーく！のメンバーが使用するラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'cheerful',
+            type: ['boost_heartCaptcha', 'boost_loveAttract'],
           },
         },
       },
@@ -1165,6 +1190,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'aggressive',
             type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce'],
+          },
+        },
+      },
+      アグレッシブブーステッドボルテージ: {
+        aggressiveBoostedVoltage_01: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにメンタルを最大値の15％減少させ、メンタルが1%以下のとき、次にさやかが使用するボルテージゲイン効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'aggressive',
+            type: ['voltageGain', 'mentalReduce', 'boost_voltageGain'],
           },
         },
       },
@@ -1599,6 +1637,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['extensions_stage', 'APQuick', 'APGain'],
+          },
+        },
+      },
+      エクステスケルツォアンビエンス: {
+        extensionScherzoAmbience_01: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、ムードがハッピーのときメロウ方向に、メロウのときハッピー方向に+',
+            'する。',
+          ],
+          detail: {
+            attr: 'extensions',
+            type: ['extensions_section', 'ambience_section'],
           },
         },
       },
@@ -2396,6 +2446,19 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      グルーヴィブーステッドアトラクト: {
+        groovyBoostedAttract_01: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにボルテージLv.が10以上のとき、次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['voltageGain', 'boost_loveAttract'],
+          },
+        },
+      },
       グルーヴィブーステッドボルテージハート: {
         'groovyBoostedVoltageHeart-over10_attract': {
           text: [
@@ -3142,6 +3205,18 @@ export const useSkillStore = defineStore('skillList', {
             type: ['loveAttract_stage', 'heartLimitUp', 'heartCaptcha'],
           },
         },
+        braveWideAttraction_03: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%する。さらにメンタルが5%以下のとき、このセクション中、獲得するLOVEを+',
+            '%し、メンタルが0%のとき、このセクション中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['loveAttract_stage', 'loveAttract_section', 'heartLimitUp'],
+          },
+        },
       },
       ブレイブボルテックスアトラクション: {
         braveVortexAttraction_under1_under0: {
@@ -3154,6 +3229,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'brave',
             type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
+          },
+        },
+        braveVortexAttraction_02: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが50%以下のとき、このセクション中、獲得するLOVEを+',
+            '%し、メンタルが1%以下のとき、ボルテージPt.を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'brave',
+            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain'],
           },
         },
       },
@@ -4039,6 +4126,15 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      ワイドヒート: {
+        wideHeat_01: {
+          text: ['このセクション中、AP回復速度を+', '%し、ハートの上限を+', 'する。'],
+          detail: {
+            attr: '',
+            type: ['APQuick', 'heartLimitUp'],
+          },
+        },
+      },
       セレブレイション: {
         celebration_heart_attract_mental: {
           text: [
@@ -4420,6 +4516,32 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'abunDance',
             type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+          },
+        },
+      },
+      アバンダンスブーステッドハート: {
+        abunDanceBoostedHeart_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキ枚数が25枚以上のとき、次のドレスカード使用によるスキルハート獲得効果の獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['heartCaptcha', 'boost_loveAttract'],
+          },
+        },
+      },
+      アバンダンスブーステッドアトラクト: {
+        abunDanceBoostedAttract_01: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が25枚以上のとき、次のドレスカード使用によるラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'abunDance',
+            type: ['loveAttract_section', 'boost_loveAttract'],
           },
         },
       },
@@ -5530,6 +5652,19 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      アンビエンスハート: {
+        ambienceHeart_01: {
+          text: [
+            'ムードがハッピー、メロウいずれかのとき、ムード値を+',
+            'する。さらにビートハート',
+            '回分のスキルハートを獲得する。',
+          ],
+          detail: {
+            attr: 'ambience',
+            type: ['ambience_section', 'heartCaptcha'],
+          },
+        },
+      },
       サウンドハート: {
         soundHeart_01: {
           text: [
@@ -5540,6 +5675,17 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['sound', 'heartCaptcha'],
+          },
+        },
+        soundHeart_02: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがハッピーのとき、このステージ中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'sound', 'heartLimitUp'],
           },
         },
       },
@@ -5606,6 +5752,56 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['heartLimitUp', 'sound'],
+          },
+        },
+      },
+      サウンドブーステッドハート: {
+        soundBoostedHeart_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがメロウのとき、次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
+          },
+        },
+        soundBoostedHeart_02: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがハッピー、メロウいずれか50以上のとき、次に使用するスキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
+          },
+        },
+      },
+      サウンドブーステッドアトラクト: {
+        soundBoostedAttract_01: {
+          text: [
+            'このセクション中、獲得するLOVEを+',
+            '%する。さらにムードがハッピー、メロウいずれか50以上のとき、次に使用するラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract', 'sound', 'boost_loveAttract'],
+          },
+        },
+      },
+      サウンドブーステッドボルテージ: {
+        soundBoostedVoltage_01: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにムードがハッピーのとき、次に使用するボルテージゲイン効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'sound', 'boost_voltageGain'],
           },
         },
       },
@@ -5685,6 +5881,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'imitation',
             type: ['imitation', 'APQuick'],
+          },
+        },
+      },
+      イミテーションワイド: {
+        imitationWide_01: {
+          text: [
+            'カードがステージにセットされ、AP回復速度増加効果を吸収する。AP回復速度増加効果を16%吸収したとき、このセクション中、ハート上限を+',
+            'し、捨札に移動する。',
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'heartLimitUp'],
           },
         },
       },
@@ -5913,6 +6121,102 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_section', 'APQuick', 'voltageGain', 'mentalReduce'],
+          },
+        },
+      },
+      Elysion: {
+        elysion_01: {
+          text: [
+            'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ビートハートの出現個数を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['APSlow', 'vibes_stage'],
+          },
+        },
+      },
+      'mode:DESTROYER': {
+        mode_destroyer_01: {
+          text: [
+            '手札を全て捨てて、捨て札を全て山札に戻した後、デッキから手札上限までスキルを引く。さらにビートハート',
+            '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
+      },
+      エクステメロウバイブス: {
+        extensionMellowVibes_01: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加し、ムード値をメロウ方向に+',
+            'する。さらにムードがメロウ100のとき、このセクション中、ビートハートの出現個数を+2する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['extensions_section', 'ambience_section', 'vibes_section'],
+          },
+        },
+      },
+      アグレッシブメロウアンビエンス: {
+        aggressiveMellowAmbience_01: {
+          text: [
+            'このセクション中、ムード値をメロウ方向に+',
+            'する。さらにメンタルを最大値の16%減少させる。',
+          ],
+          detail: {
+            attr: '',
+            type: ['ambience_section', 'mentalReduce'],
+          },
+        },
+      },
+      'みらくら・マーブル・ブースト!!': {
+        'miraCra-marvel-boost_01': {
+          text: [
+            '瑠璃乃、姫芽がそれぞれ22回の間使用するスキルハート獲得効果による獲得数を+',
+            'ラブアトラクト効果を+',
+            '%、ボルテージゲイン効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
+          },
+        },
+      },
+      ヒーローズイグニッション: {
+        heroesIgnition_01: {
+          text: [
+            '手札を全て捨てて、捨て札を全て山札に戻した後、デッキから手札上限までスキルを引く。この時、みらくらぱーく！のカードをドローする確率アップ。さらにデッキにある姫芽のスキルの消費APを-9し、姫芽が《イグニッションモード》になる。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'APReduce', 'modeChange'],
+          },
+        },
+      },
+      ブラストアトラクション: {
+        blastAttraction_01: {
+          text: [
+            'ビートハート',
+            '個分のスキルハートを獲得、このセクション中、獲得するLOVEを+',
+            '%、ボルテージPt.を+',
+            'このステージ中、ハート上限を+',
+            'する。さらにメンタルを最大値の22%させ、姫芽の《イグニッションモード》を解除する。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              'heartCaptcha',
+              'loveAttract_section',
+              'voltageGain',
+              'heartLimitUp',
+              'mentalReduce',
+              'modeChange',
+            ],
           },
         },
       },

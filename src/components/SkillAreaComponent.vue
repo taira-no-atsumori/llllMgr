@@ -276,7 +276,8 @@
   </v-dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { CounterState } from '@/types/counter';
 import { useStoreCounter } from '@/stores/counter';
 
 const store = useStoreCounter();
@@ -300,7 +301,7 @@ if (store.settingCardData?.skill?.addSkill) {
 }
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'AddCard',
   props: ['skillType'],
@@ -348,7 +349,7 @@ export default {
 
       this.switchDialog(null);
     },
-    AP(store, skillType) {
+    AP(store: CounterState, skillType: string) {
       if (store.settingCardData[skillType]?.EXAP !== undefined) {
         return store.settingCardData[skillType].EXAP[
           store.settingCardData.fluctuationStatus.SALevel - 1

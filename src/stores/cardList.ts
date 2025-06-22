@@ -920,10 +920,10 @@ export const useCardStore = defineStore('cardList', {
               detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]],
             },
             characteristic: {
-              name: 'アーリードロー：APゲイン & レイトドロー：APレデュース',
+              name: 'アーリードロー：3/APゲイン & レイトドロー：3/APレデュース & ハッピーアンビエンス',
               detail:
-                '3セクション目までにドローした時、AP+1、3セクション目以降にドローした時、消費APを-3する。',
-              type: ['earlyDraw', 'APGain', 'lateDraw', 'APReduce'],
+                '3セクション目までにドローした時、APを1回復する。3セクション目以降にドローした時、消費APを-3し、ムードをハッピー方向に+10する。',
+              type: ['earlyDraw', 'APGain', 'lateDraw', 'APReduce', 'ambience_section'],
             },
           },
           軌跡の舞踏会: {
@@ -1649,10 +1649,10 @@ export const useCardStore = defineStore('cardList', {
               detail: [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]],
             },
             characteristic: {
-              name: 'チェイン：花帆 & ジャストドロー：フィーバー/APゲイン & APゲイン',
+              name: 'チェイン：花帆 & ジャストドロー：フィーバー/APレデュース & リインフォース & APゲイン',
               detail:
-                '花帆のスキルを使用した後、ドローされる確率が増加し、FEVERセクションでドローした時、消費APを-2する。さらにスキル使用時、APを+1する。',
-              type: ['chain', 'kaho', 'justDrew', 'APGain'],
+                '花帆のスキルを使用した後、ドローされる確率が増加し、フィーバーセクションでドローした時、消費APを-2し、フィーバーセクションの間スキル効果値が増加する。さらにスキル使用時、APを1回復する。',
+              type: ['chain', 'kaho', 'justDrew', 'APReduce', 'APGain', 'reinforce'],
             },
           },
           'Rose Garden': {
@@ -1687,10 +1687,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]],
             },
             skill: {
-              ID: 'heartCaptcha',
-              name: 'ハートキャプチャ',
+              ID: 'soundBoostedHeart_02',
+              name: 'サウンドブーステッドハート',
               AP: 4,
-              detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 10]],
+              detail: [
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, '8?', '9?', '9?', 10],
+                [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250],
+              ],
             },
             characteristic: {
               name: 'チェイン：梢 & APレデュース：梢 & 花帆',
@@ -1780,9 +1783,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]],
             },
             characteristic: {
-              name: 'レイトドロー：3/APレデュース',
-              detail: '3セクション目以降にドローした時、消費APを-3する。',
-              type: ['lateDraw', 'APReduce'],
+              name: 'レイトドロー：3/APレデュース & APゲイン',
+              detail: '3セクション目以降にドローした時、消費APを-3し、APを1回復する。',
+              type: ['lateDraw', 'APReduce', 'APGain'],
             },
           },
           'Dream Believers': {
@@ -1817,16 +1820,19 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]],
             },
             skill: {
-              ID: 'heartCaptcha',
-              name: 'ハートキャプチャ',
+              ID: 'soundHeart_02',
+              name: 'サウンドハート',
               AP: 5,
-              detail: [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]],
+              detail: [
+                [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+              ],
             },
             characteristic: {
               name: 'フェイバリット：フィーバー & APレデュース：ラブアトラクト',
               detail:
                 'フィーバーセクションでドローされる確率が増加する。さらに適用されているラブアトラクト効果量が200%以上のとき、手札のこのスキルの消費AP-3。',
-              type: ['favorite', 'APReduce', 'loveAttract'],
+              type: ['favorite', 'APReduce'],
             },
           },
         },
@@ -2656,10 +2662,13 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'heartCaptcha',
-              name: 'ハートキャプチャ',
+              ID: 'soundBoostedHeart_01',
+              name: 'サウンドブーステッドハート',
               AP: 4,
-              detail: [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]],
+              detail: [
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+                [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+              ],
             },
             characteristic: {
               name: 'APレデュース：梢 & さやか',
@@ -2707,7 +2716,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'ドロー：ボルテージゲイン & アクセラレーション',
               detail:
-                'ドローした時、ボルテージ値を+12する。さらにボルテージLv.が8以上の間、消費AP-2。',
+                'ドローした時、ボルテージPt.を+12する。さらにボルテージLv.が8以上の間、消費APを-2し、ボルテージLv.が10以上の間スキルの効果値が増加する。',
               type: ['draw', 'voltageGain', 'acceleration'],
             },
           },
@@ -3731,10 +3740,10 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ハートキャプチャ：DOLLCHESTRA',
+              name: 'ハートキャプチャ & ワイドハート：DOLLCHESTRA',
               detail:
-                '手札にある状態でDOLLCHESTRAのスキルを使用するたび、ビートハート3回分のスキルハートを獲得する。',
-              type: ['heartCaptcha', 'DOLLCHESTRA'],
+                '手札にある状態でDOLLCHESTRAのスキルを使用するたび、ビートハート3回分のスキルハートを獲得し、このセクション中、ハート上限を+100する。',
+              type: ['heartCaptcha', 'heartLimitUp', 'DOLLCHESTRA'],
             },
           },
           真実の舞踏会: {
@@ -4454,10 +4463,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]],
             },
             skill: {
-              ID: 'loveAttract_section',
-              name: 'ラブアトラクト',
+              ID: 'soundBoostedAttract_01',
+              name: 'サウンドブーステッドアトラクト',
               AP: 4,
-              detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, '25?']],
+              detail: [
+                [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+                [34, 37.4, 40.8, 44.2, 47.6, 51, 54.4, 57.8, 61.2, 68, 71.4, 74.8, 78.2, 85],
+              ],
             },
             characteristic: {
               name: 'チェイン：綴理 & APレデュース：綴理 & さやか',
@@ -4551,7 +4563,7 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'フェイバリット：4 & アクセラレーション',
               detail:
-                'フィーバーセクションを除いた4セクション目でドローされる確率が増加する。さらにボルテージLv.が8以上の間、消費AP-2。',
+                'フィーバーセクションを除いた4セクション目でドローされる確率が増加する。さらにボルテージLv.が8以上の間、消費APを-2し、ボルテージLv.が10以上の間、スキルの効果値が増加する。',
               type: ['favorite', 'acceleration'],
             },
           },
@@ -4587,11 +4599,12 @@ export const useCardStore = defineStore('cardList', {
               detail: [[15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]],
             },
             skill: {
-              ID: 'loveAttract_section',
-              name: 'ラブアトラクト',
+              ID: 'groovyBoostedAttract_01',
+              name: 'グルーヴィブーステッドアトラクト',
               AP: 5,
               detail: [
                 [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                [90, 99, 108, 117, 126, 135, 144, 153, 162, 180, 189, 198, 207, 225],
               ],
             },
             characteristic: {
@@ -4747,9 +4760,10 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'レイトドロー：APレデュース',
-              detail: '3セクション目以降にドローした時、消費APを-3する。',
-              type: ['lateDraw', 'APReduce'],
+              name: 'レイトドロー：3/APレデュース & ハッピーアンビエンス',
+              detail:
+                '3セクション目以降にドローした時、消費APを-3し、ムードをハッピー方向に+5する。',
+              type: ['lateDraw', 'APReduce', 'ambience_section'],
             },
           },
           抱きしめる花びら: {
@@ -5454,9 +5468,9 @@ export const useCardStore = defineStore('cardList', {
               detail: [[6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]],
             },
             characteristic: {
-              name: 'チェイン：さやか & ジャストドロー：フィーバー/APレデュース',
+              name: 'チェイン：さやか & ジャストドロー：フィーバー/APレデュース & リインフォース',
               detail:
-                'さやかのスキルを使用した後、ドローされる確率が増加する。さらにFEVERセクションでドローした時、消費APを-2する。',
+                'さやかのスキルを使用した後、ドローされる確率が増加する。さらにフィーバーセクションでドローした時、消費APを-2し、フィーバーセクションの間、スキル効果値が増加する。',
               type: ['chain', 'sayaka', 'justDrew', 'APReduce'],
             },
           },
@@ -5492,10 +5506,13 @@ export const useCardStore = defineStore('cardList', {
               detail: [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]],
             },
             skill: {
-              ID: 'voltageGain',
-              name: 'ボルテージゲイン',
+              ID: 'soundBoostedVoltage_01',
+              name: 'サウンドブーステッドボルテージ',
               AP: 4,
-              detail: [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32]],
+              detail: [
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32],
+                [27, 29.7, 32.4, 35.1, 37.8, 40.5, 43.2, 45.9, 48.6, 54, 56.7, 59.4, 62.1, 67.5],
+              ],
             },
             characteristic: {
               name: 'APレデュース：綴理 & 花帆',
@@ -5546,9 +5563,9 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ジャストドロー：2/APレデュース',
-              detail: '2セクション目でドローした時、消費APを-3する。',
-              type: ['justDraw', 'APReduce'],
+              name: 'ジャストドロー：2/APレデュース & APゲイン',
+              detail: '2セクション目でドローした時、消費APを-3し、APを1回復する。',
+              type: ['justDraw', 'APReduce', 'APGain'],
             },
           },
           AWOKE: {
@@ -7312,8 +7329,8 @@ export const useCardStore = defineStore('cardList', {
               BP: 100,
             },
             specialAppeal: {
-              ID: 'regainAttract_section',
-              name: 'リゲインアトラクト',
+              ID: 'cheerfulRegainExtend_01',
+              name: 'チアフルリゲインエクステンド',
               AP: 6,
               detail: [[4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]],
             },
@@ -7495,9 +7512,10 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'レイトドロー：APレデュース',
-              detail: '3セクション目以降にドローした時、消費APを-3する。',
-              type: ['lateDraw', 'APReduce'],
+              name: 'レイトドロー：3/APレデュース & ハッピーアンビエンス',
+              detail:
+                '3セクション目以降にドローした時、消費APを-3し、ムードをハッピー方向に+5する。',
+              type: ['lateDraw', 'APReduce', 'ambience_section'],
             },
           },
           抱きしめる花びら: {
@@ -16501,7 +16519,7 @@ export const useCardStore = defineStore('cardList', {
             styleType: 'trickStar',
             mood: 'happy',
             series: '37.5℃のファンタジー',
-            kana: 'さんじゅうななてんごどのふぁんたじー',
+            kana: 'ななどごぶのふぁんたじー',
             gacha: {
               addSeason: '2025 SUMMER LIMITED COLLECTION vol.1',
               period: 'normal',
@@ -17638,9 +17656,10 @@ export const useCardStore = defineStore('cardList', {
                   AP: 1,
                   detail: [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]],
                   characteristic: {
-                    name: 'インスタンス',
-                    detail: 'このスキルを使用すると、デッキから除外される。',
-                    type: ['exclusion'],
+                    name: 'インスタンス & アバンダンス：APゲイン',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が25枚以上でスキル使用時、APを2回復する。',
+                    type: ['exclusion', 'APGain'],
                   },
                 },
                 {
@@ -17649,9 +17668,10 @@ export const useCardStore = defineStore('cardList', {
                   AP: 1,
                   detail: [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]],
                   characteristic: {
-                    name: 'インスタンス',
-                    detail: 'このスキルを使用すると、デッキから除外される。',
-                    type: ['exclusion'],
+                    name: 'インスタンス & アバンダンス：APゲイン',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が25枚以上でスキル使用時、APを2回復する。',
+                    type: ['exclusion', 'APGain'],
                   },
                 },
                 {
@@ -17660,9 +17680,10 @@ export const useCardStore = defineStore('cardList', {
                   AP: 1,
                   detail: [],
                   characteristic: {
-                    name: 'インスタンス',
-                    detail: 'このスキルを使用すると、デッキから除外される。',
-                    type: ['exclusion'],
+                    name: 'インスタンス & アバンダンス：APゲイン',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が25枚以上でスキル使用時、APを2回復する。',
+                    type: ['exclusion', 'APGain'],
                   },
                 },
               ],
@@ -17712,10 +17733,16 @@ export const useCardStore = defineStore('cardList', {
               detail: [],
               addSkill: [
                 {
-                  ID: 'heartCaptcha',
-                  name: 'ハートキャプチャ',
+                  ID: 'abunDanceBoostedHeart_01',
+                  name: 'アバンダンスブーステッドハート',
                   AP: 2,
-                  detail: [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]],
+                  detail: [
+                    [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+                    [
+                      750, 825, 900, 975, 1050, 1125, 1200, 1275, 1350, 1500, 1575, 1650, 1725,
+                      1875,
+                    ],
+                  ],
                   characteristic: {
                     name: 'インスタンス',
                     detail: 'このスキルを使用すると、デッキから除外される。',
@@ -17724,9 +17751,12 @@ export const useCardStore = defineStore('cardList', {
                 },
                 {
                   ID: 'loveAttract_section',
-                  name: 'ラブアトラクト',
+                  name: 'アバンダンスブーステッドアトラクト',
                   AP: 2,
-                  detail: [[15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]],
+                  detail: [
+                    [15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5],
+                    [250, 275, 300, 325, 350, 375, 400, 425, 450, 500, 525, 550, 575, 625],
+                  ],
                   characteristic: {
                     name: 'インスタンス',
                     detail: 'このスキルを使用すると、デッキから除外される。',
@@ -18978,12 +19008,13 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'braveAttraction_under5_heartCaptcha_sectionAttract',
-              name: 'ブレイブアトラクション',
+              ID: 'braveWideAttraction_03',
+              name: 'ブレイブワイドアトラクション',
               AP: 5,
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
                 [30, 33, 36, 39, 42, 45, 48, 51, 54, 60, 63, 66, 69, 75],
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
               ],
             },
             characteristic: {
@@ -19030,10 +19061,13 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'aggressiveVoltage_mentalReduce15',
-              name: 'アグレッシブボルテージ',
+              ID: 'aggressiveBoostedVoltage_01',
+              name: 'アグレッシブブーステッドボルテージ',
               AP: 5,
-              detail: [[24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60]],
+              detail: [
+                [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60],
+                [630, 693, 756, 819, 882, 945, 1008, 1071, 1134, 1260, 1323, 1386, 1449, 1575],
+              ],
             },
             characteristic: {
               name: 'チェイン：さやか & APレデュース：グルーヴィ',
@@ -19076,12 +19110,13 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'braveAttraction_under50_heartCaptcha_sectionAttract',
-              name: 'ブレイブアトラクション',
+              ID: 'braveVortexAttraction_02',
+              name: 'ブレイブボルテックスアトラクション',
               AP: 5,
               detail: [
                 [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
                 [15.6, 17.2, 18.7, 20.3, 21.8, 23.4, 25, 26.5, 28.1, 31.2, 32.8, 34.3, 35.89, 39],
+                [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250],
               ],
             },
             characteristic: {
@@ -19448,6 +19483,59 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         DR: {
+          'Oracle Étude': {
+            ID: 'hm_024',
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'Oracle Étude',
+            kana: 'おらくるえちゅーど',
+            gacha: {
+              addSeason: '「ドリームスタイルクエスト」クリア報酬',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 7000,
+              cool: 6100,
+              mental: 570,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'elysion_01',
+              name: 'Elysion',
+              AP: 1,
+              detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 99]],
+            },
+            skill: {
+              ID: 'mode_destroyer_01',
+              name: 'mode:DESTROYER',
+              AP: 1,
+              detail: [
+                [
+                  2666, 2933, 3199, 3466, 3732, 3999, 4266, 4532, 4799, 5332, 5599, 5865, 6132,
+                  6666,
+                ],
+                [
+                  2666.4, 2933, 3199.7, 3466.3, 3733, 3999.6, 4266.2, 4532.9, 4799.5, 5332.8,
+                  5599.4, 5866.1, 6132.7, 6666,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'Radioactive',
+              detail:
+                'ドローした時、AP、ボルテージPt.、メンタルを0にする。さらにこのスキルを8回使用すると、デッキから除外される。',
+              type: ['draw', 'APReduce', 'voltageReduce', 'mentalReduce', 'exclusion'],
+            },
+          },
           'Ether Aria': {
             ID: 'hm_006',
             styleType: 'moodMaker',
@@ -19619,6 +19707,81 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'BLAST!!': {
+            ID: 'hm_025',
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'BLAST!!',
+            kana: 'ぶらすと',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.2',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3100,
+              pure: 5900,
+              cool: 5200,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'miraCra-marvel-boost_01',
+              name: 'みらくら・マーブル・ブースト!!',
+              AP: 14,
+              detail: [
+                [
+                  76.5, 84.2, 91.8, 99.5, 107.1, 114.8, 122.4, 130.1, 137.7, 153, 160.7, 168.3, 176,
+                  191.3,
+                ],
+                [26, 28.6, 31.2, 33.8, 36.4, 39, 41.6, 44.2, 46.8, 52, 54.6, 57.2, 59.8, 65],
+                [26, 28.6, 31.2, 33.8, 36.4, 39, 41.6, 44.2, 46.8, 52, 54.6, 57.2, 59.8, 65],
+              ],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 12,
+              detail: [],
+              addSkill: [
+                {
+                  modeName: '通常モード',
+                  ID: 'heroesIgnition_01',
+                  name: 'ヒーローズイグニッション',
+                  AP: 12,
+                  detail: [],
+                },
+                {
+                  modeName: 'イグニッションモード',
+                  ID: 'blastAttraction_01',
+                  name: 'ブラストアトラクション',
+                  AP: 22,
+                  detail: [
+                    [89, 98, 107, 116, 125, 134, 142, 151, 160, 178, 187, 196, 205, 223],
+                    [
+                      888.8, 977.7, 1066.6, 1155.4, 1244.3, 1333.2, 1422.1, 1511, 1599.8, 1777.6,
+                      1866.5, 1955.4, 2044.2, 2222,
+                    ],
+                    [89, 98, 107, 116, 125, 134, 142, 151, 160, 178, 187, 196, 205, 223],
+                    [89, 98, 107, 116, 125, 134, 142, 151, 160, 178, 187, 196, 205, 223],
+                  ],
+                },
+              ],
+            },
+            characteristic: {
+              name: 'セインテスバディ',
+              detail:
+                'ドローしたとき、デッキにある瑠璃乃のスキルの消費AP-9。さらに手札にある状態でムードがハッピー、メロウいずれか22以上で瑠璃乃のスキルを使用したとき、このセクション中、AP回復速度を+22%する。',
+              type: ['draw', 'APReduce', 'APQuick'],
+            },
+          },
           'WAWO!': {
             ID: 'hm_023',
             styleType: 'moodMaker',
@@ -20450,8 +20613,8 @@ export const useCardStore = defineStore('cardList', {
             characteristic: {
               name: 'APレデュース：みらくらぱーく！ & アキューミュレイト',
               detail:
-                'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-1。さらにこのスキルを使用するたび、5回まで効果が増加する。',
-              type: ['APReduce', 'MiraCraPark', 'exclusion'],
+                'みらくらぱーく！のスキルを使用するたび、手札のこのスキルの消費AP-2。さらにこのスキルを使用するたび、5回まで効果が増加する。',
+              type: ['APReduce', 'MiraCraPark'],
             },
           },
           'Dream Believers': {
@@ -20486,15 +20649,18 @@ export const useCardStore = defineStore('cardList', {
               detail: [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]],
             },
             skill: {
-              ID: 'heartBoost_MiraCraPark_limit3',
-              name: 'ハートブースト：みらくらぱーく！',
+              ID: 'cheerfulBoost-miraCraPark_01',
+              name: 'チアフルブースト：みらくらぱーく！',
               AP: 6,
-              detail: [[50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 125]],
+              detail: [
+                [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 125],
+                [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+              ],
             },
             characteristic: {
               name: 'APレデュース：みらくらぱーく！',
               detail:
-                '手札にあるみらくらぱーく！のメンバーのスキル1枚につき、手札のこのスキルの消費AP-1。',
+                '手札にあるみらくらぱーく！のメンバーのスキル1枚につき、手札のこのスキルの消費AP-2。',
               type: ['APReduce', 'MiraCraPark'],
             },
           },
@@ -20896,6 +21062,50 @@ export const useCardStore = defineStore('cardList', {
         DR: {},
         BR: {},
         UR: {
+          十六夜セレーネ: {
+            ID: 'sr_007',
+            styleType: 'moodMaker',
+            mood: 'melow',
+            series: '十六夜セレーネ',
+            kana: 'いざよいせれーね',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION Vol.2',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3100,
+              pure: 5900,
+              cool: 5200,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionMellowVibes_01',
+              name: 'エクステメロウバイブス',
+              AP: 8,
+              detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]],
+            },
+            skill: {
+              ID: 'aggressiveMellowAmbience_01',
+              name: 'アグレッシブメロウアンビエンス',
+              AP: 4,
+              detail: [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]],
+            },
+            characteristic: {
+              name: 'イザヨイラバー',
+              detail:
+                'スキル使用後、泉のカードをドローする確率アップ。さらにスキル使用時、このスキルの使用回数が16回以下かつムードがメロウのとき、このセクション中、ビートハートの出現個数を+1する。',
+              type: ['draw', 'sound', 'vibes_section'],
+            },
+          },
           Retrofuture: {
             ID: 'sr_004',
             styleType: 'moodMaker',
@@ -20991,6 +21201,53 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          魔法少女リズミックハート３: {
+            ID: 'sr_006',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '魔法少女リズミックハート',
+            kana: 'まほうしょうじょりずみっくはーと',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 1stTerm 第2回 個人戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4200,
+              pure: 4500,
+              cool: 3800,
+              mental: 430,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionScherzoAmbience_01',
+              name: 'エクステスケルツォアンビエンス',
+              AP: 6,
+              detail: [[13, 15, 16, 17, 18, 20, 21, 22, 24, 26, 28, 29, 30, 33]],
+            },
+            skill: {
+              ID: 'ambienceHeart_01',
+              name: 'アンビエンスハート',
+              AP: 7,
+              detail: [
+                [13, 15, 16, 17, 18, 20, 21, 22, 24, 26, 28, 29, 30, 33],
+                [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+              ],
+            },
+            characteristic: {
+              name: 'ジャストドロー：フィーバー/リタルダンド & バイブス & アンビエンス',
+              detail:
+                'フィーバーセクションでドローした時、このセクション中、ビートハートの出現個数を+1、ムードがハッピー、メロウいずれかのとき、ムード値を+33し、AP回復速度を-33%する。',
+              type: ['justDrew', 'vibes_section', 'ambience_section', 'APSlow'],
+            },
+          },
           'Her-bath-rium': {
             ID: 'sr_005',
             styleType: 'trickStar',
@@ -21261,6 +21518,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          十六夜セレーネ: {
+            ID: 'iz_006',
+            styleType: 'trickStar',
+            mood: 'melow',
+            series: '十六夜セレーネ',
+            kana: 'いざよいせれーね',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION Vol.2',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3250,
+              pure: 4300,
+              cool: 5050,
+              mental: 420,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'wideHeat_01',
+              name: 'ワイドヒート',
+              AP: 6,
+              detail: [
+                [6.4, 7.1, 7.7, 8.4, 9, 9.6, 10.3, 10.9, 11.6, 12.8, 13.5, 14.1, 14.8, 16],
+                [640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1280, 1344, 1408, 1472, 1600],
+              ],
+            },
+            skill: {
+              ID: 'imitationWide_01',
+              name: 'イミテーションワイド',
+              AP: 2,
+              detail: [
+                [640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1280, 1344, 1408, 1472, 1600],
+              ],
+            },
+            characteristic: {
+              name: 'イザヨイラバー',
+              detail:
+                'スキル使用後、セラスのカードをドローする確率アップ。さらにスキルを使用時、16回までAPを2回復し、メンタルを16%回復する。',
+              type: ['draw', 'APGain', 'mentalRecover'],
+            },
+          },
           'Her-bath-rium': {
             ID: 'iz_004',
             styleType: 'trickStar',

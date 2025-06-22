@@ -233,7 +233,7 @@ export default {
           lastDay: [2025, 4, 11, 12, 0],
           img: 'thanks',
         },*/
-        liveGP: {
+        /*liveGP: {
           title: 'ライブグランプリ「105期1stTerm 第2回 個人戦」',
           text: '',
           type: 'liveGP',
@@ -241,16 +241,16 @@ export default {
           lastDay: [2025, 6, 20, 3, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-06-14-00-pqcwxvs5mt',
           img: '105期1stTerm 第2回 個人戦_logo',
-        },
-        /*'liveGP': {
-          title: 'ライブグランプリ「105期 OpeningTerm サークル対抗戦」',
+        },*/
+        liveGP: {
+          title: 'ライブグランプリ「105期1stTerm 第2回 サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 4, 21, 12, 0],
-          lastDay: [2025, 4, 26, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-04-19-10-rxb0bmpb8g',
-          img: '105期 OpeningTerm サークル対抗戦_logo',
-        },*/
+          firstDay: [2025, 6, 22, 12, 0],
+          lastDay: [2025, 6, 27, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-06-20-20-kzjr7d1rw8',
+          img: '105期1stTerm 第2回 サークル対抗戦_logo',
+        },
         nadeshikosai: {
           title: 'Fes×LIVE「105期 1stTerm Fes×LIVE -撫子祭-」',
           text: '',
@@ -277,7 +277,7 @@ export default {
           firstDay: [2025, 10, 4, 0, 0],
           lastDay: [2025, 10, 5, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_mirapa_logo',
+          img: '5thLive_logo',
         },
         '5thLive_DOLLCHESTRA': {
           title:
@@ -287,7 +287,7 @@ export default {
           firstDay: [2025, 11, 8, 0, 0],
           lastDay: [2025, 11, 9, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_DOLLCHESTRA_logo',
+          img: '5thLive_logo',
         },
         '5thLive_edelNote': {
           title:
@@ -297,7 +297,7 @@ export default {
           firstDay: [2025, 11, 19, 0, 0],
           lastDay: [2025, 11, 20, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_EdelNote_logo',
+          img: '5thLive_logo',
         },
         '5thLive_ceriseBouquet': {
           title:
@@ -307,7 +307,7 @@ export default {
           firstDay: [2025, 12, 6, 0, 0],
           lastDay: [2025, 12, 7, 23, 59],
           url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_ceriseBouquet_logo',
+          img: '5thLive_logo',
         },
       },
       outputEventList: {},

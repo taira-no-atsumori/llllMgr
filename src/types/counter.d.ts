@@ -1,32 +1,6 @@
 import { Ref } from 'vue';
 
 /**
- * メンバーの名前を表す型
- *
- * @property first 名
- * @property last 姓
- */
-type MemberName = {
-  first: string;
-  last: string;
-};
-
-/**
- * メンバーIDを表す型
- */
-type MemberId = Record<string, string>;
-
-/**
- * メンバーの色を表す型
- */
-type MemberColor = Record<string, string>;
-
-/**
- * グループ名を表す型
- */
-type GroupName = Record<string, string>;
-
-/**
  * ボーナススキルの詳細を表す型
  *
  * @property text スキルの説明テキスト
@@ -45,10 +19,10 @@ type BonusSkill = {
  * ボーナススキルのリストを表す型
  */
 type BonusSkillList = {
-  'ボルテージアップ': BonusSkill;
-  'メンタルリカバー': BonusSkill;
-  'ビートハートアップ': BonusSkill;
-  'LOVEボーナス': BonusSkill;
+  ボルテージアップ: BonusSkill;
+  メンタルリカバー: BonusSkill;
+  ビートハートアップ: BonusSkill;
+  LOVEボーナス: BonusSkill;
 };
 
 /**
@@ -89,11 +63,14 @@ type CardUniqueStatus = {
   cool: number;
   mental: number;
   BP: number;
-  supportSkill?: Record<string, {
-    initLevel: number;
-    levelUp: number;
-    upLevel: number
-  }>;
+  supportSkill?: Record<
+    string,
+    {
+      initLevel: number;
+      levelUp: number;
+      upLevel: number;
+    }
+  >;
 };
 
 /**
@@ -294,10 +271,16 @@ type LocalStorageData = {
 type Deck = {
   name: string;
   period: number;
-  cardData: Record<string, Record<string, {
-    cardName: string;
-    param: CardFluctuationStatus
-  }>>;
+  cardData: Record<
+    string,
+    Record<
+      string,
+      {
+        cardName: string;
+        param: CardFluctuationStatus;
+      }
+    >
+  >;
 };
 
 /**
@@ -371,37 +354,55 @@ type CounterState = {
   siteSettings: SiteSettings;
   sortSettings: SortSettings;
   defaultSearch: SearchSettings;
-  styleHeadline: Record<number, {
-    main: string;
-    side1: string;
-    side2?: string
-  }>;
+  styleHeadline: Record<
+    number,
+    {
+      main: string;
+      side1: string;
+      side2?: string;
+    }
+  >;
   statusName: Record<string, string>;
   styleType: Record<string, string>;
   mood: Record<string, string>;
   attribute: Record<string, string>;
-  limited: Record<string, {
-    filterLabel: string;
-    cardLabel: string
-  }>;
+  limited: Record<
+    string,
+    {
+      filterLabel: string;
+      cardLabel: string;
+    }
+  >;
   maxCardLevel: Record<string, number[]>;
-  releasePoint: Record<string, {
-    point: number;
-    max: number
-  }>;
-  memberName: Record<string, MemberName>;
+  releasePoint: Record<
+    string,
+    {
+      point: number;
+      max: number;
+    }
+  >;
+  memberName: Record<
+    string,
+    {
+      first: string;
+      last: string;
+    }
+  >;
   exclusionMember: string[];
   specialCardIdList: string[];
-  memberId: MemberId;
+  memberId: Record<string, string>;
   formationMember: Record<number, string[]>;
-  memberColor: MemberColor;
-  groupName: GroupName;
+  memberColor: Record<string, string>;
+  groupName: Record<string, string>;
   bonusSkillList: BonusSkillList;
   memberData: {
-    centerList: Record<string, {
-      centerMusic: string[];
-      bonusSkill: Record<string, number>
-    }>;
+    centerList: Record<
+      string,
+      {
+        centerMusic: string[];
+        bonusSkill: Record<string, number>;
+      }
+    >;
   };
   deck: Deck[];
   settingCard: {

@@ -885,11 +885,11 @@
 </template>
 
 <script setup lang="ts">
-import { CounterState } from '../types/counter';
-import { useStoreCounter } from '../stores/counter';
+import { CounterState } from '@/types/counter';
+import { useStoreCounter } from '@/stores/counter';
 import skillArea from './SkillAreaComponent.vue';
 
-const store: CounterState = useStoreCounter();
+const store = useStoreCounter();
 </script>
 
 <script lang="ts">
@@ -920,7 +920,7 @@ export default {
      * @param store ストア
      * @returns string リンク
      */
-    makeWikiLink(store: any): string {
+    makeWikiLink(store: CounterState): string {
       const name: {
         first: string;
         last: String;
@@ -938,7 +938,7 @@ export default {
      * @param store ストア
      * @returns string カード名
      */
-    makeCardName(store: any): string {
+    makeCardName(store: CounterState): string {
       return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(
         store.getSettingCard.memberName,
       )}`;
@@ -950,7 +950,7 @@ export default {
      * @param supportSkillName サポートスキル名
      * @returns number サポートスキルレベル
      */
-    makeSupportSkillLevel(store: any, supportSkillName: string): number {
+    makeSupportSkillLevel(store: CounterState, supportSkillName: string): number {
       const result =
         store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName]
           .initLevel;
@@ -1007,7 +1007,7 @@ export default {
      * @param store store
      * @returns number 最大値
      */
-    maxReleasePoint(store): number {
+    maxReleasePoint(store: CounterState): number {
       const point = Math.min(
         store.settingCardData.fluctuationStatus.releasePoint,
         this.limitReleasePoint(store),
@@ -1021,7 +1021,7 @@ export default {
      * @param {Object} store store
      * @returns string 上限値
      */
-    limitReleasePoint(store: any): number {
+    limitReleasePoint(store: CounterState): number {
       return (
         store.releasePoint[store.settingCardData.rare].max -
         store.releasePoint[store.settingCardData.rare].point *

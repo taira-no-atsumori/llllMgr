@@ -9,7 +9,7 @@ import { CardData } from '@/types/cardList';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
-    version: 'ζ.20(アーリーアクセス)',
+    version: 'ζ.21(アーリーアクセス)',
     loading: false,
     dialog: false,
     dialogError: false,
@@ -373,7 +373,8 @@ export const useStoreCounter = defineStore('store', {
           { limit: 5, baseValue: 0, multiplier: 10, subtractLevel: 0 },
           { limit: 10, baseValue: 50, multiplier: 5, subtractLevel: 5 },
           { limit: 25, baseValue: 75, multiplier: 4, subtractLevel: 10 },
-          { limit: Infinity, baseValue: 135, multiplier: 3, subtractLevel: 25 },
+          { limit: 50, baseValue: 135, multiplier: 3, subtractLevel: 25 },
+          { limit: Infinity, baseValue: 210, multiplier: 2.5, subtractLevel: 50 },
         ],
       },
     },
@@ -793,12 +794,19 @@ export const useStoreCounter = defineStore('store', {
       memberNames.push('special');
       return memberNames;
     },
+    /**
+     * スキルテキスト作成
+     *
+     * @param target specialAppeal | skill | characteristic
+     * @returns スキルテキスト
+     */
     makeSkillText() {
-      return (target: String, option?: any) => {
+      return (target: String, option?: any): string[] => {
         let result = '';
         const targetLevel: number =
           option?.targetSkillLv ??
-          this.settingCardData.fluctuationStatus[`S${target === 'specialAppeal' ? 'A' : ''}Level`];
+          this.settingCardData.fluctuationStatus[`S${target === 'specialAppeal' ? 'A' : ''}Level`] -
+            1;
 
         const skillData = (() => {
           if (target === 'addSkill') {
@@ -860,8 +868,15 @@ export const useStoreCounter = defineStore('store', {
     changeSkillLevel() {
       return this.settingCardData.fluctuationStatus.releaseLevel + 9;
     },
+    /**
+     * カードパラメータ作成
+     *
+     * @param style スタイル名
+     * @param cardId カードID
+     * @returns カードパラメータ
+     */
     cardParam() {
-      return (style: string, cardId: string) => {
+      return (style: string, cardId: string): number => {
         const target = ((): {
           memberName: string;
           rare: string;
@@ -1620,7 +1635,7 @@ export const useStoreCounter = defineStore('store', {
     switchDialog(switchFlg: boolean): void {
       this.dialog = !!switchFlg;
     },
-    selectMusic(a) {
+    selectMusic(a: string): void {
       this.selectMusicTitle = a;
     },
     closeModal() {

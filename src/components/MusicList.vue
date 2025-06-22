@@ -26,7 +26,9 @@
       >
         <v-expansion-panels>
           <v-expansion-panel>
-            <v-expansion-panel-title> <v-icon class="mr-2">mdi-filter</v-icon>絞り込み </v-expansion-panel-title>
+            <v-expansion-panel-title>
+              <v-icon class="mr-2">mdi-filter</v-icon>絞り込み
+            </v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
                 <v-col
@@ -96,7 +98,7 @@
                       <v-img
                         :src="store.getImagePath('member_icon', `icon_SD_${item.title}`)"
                         class="icon member"
-                        style="width: 25px;"
+                        style="width: 25px"
                       ></v-img>
                     </template>
                     <template v-slot:item="{ item }">
@@ -345,11 +347,12 @@
                   :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
                 >
                   {{ store.makeFullName(memberName) }}
-                  <span class="text-body-2">
-                    (Lv.{{ store.makeTotalMasteryLv(memberName) }})
-                  </span>
+                  <span class="text-body-2"> (Lv.{{ store.makeTotalMasteryLv(memberName) }}) </span>
                 </span>
-                <span v-else class="pt-1 pl-1 text-body-2">
+                <span
+                  v-else
+                  class="pt-1 pl-1 text-body-2"
+                >
                   (Lv.{{ store.makeTotalMasteryLv(memberName) }})
                 </span>
               </h4>
@@ -380,7 +383,8 @@
                         :src="store.getImagePath('bonusSkill_icon', skillName)"
                         style="width: 30px; border-radius: 3px"
                       />
-                      <span style="padding: 0 1px 0 2px;">×</span>{{ store.setBonusSkillLevel(memberName, skillName) }}
+                      <span style="padding: 0 1px 0 2px">×</span
+                      >{{ store.setBonusSkillLevel(memberName, skillName) }}
                     </v-col>
                   </v-row>
                 </v-col>
@@ -396,11 +400,7 @@
         align-self="center"
         class="text-center"
       >
-        <v-btn
-          @click="store.showModalEvent('masteryLevel')"
-        >
-          詳細を見る
-        </v-btn>
+        <v-btn @click="store.showModalEvent('masteryLevel')"> 詳細を見る </v-btn>
       </v-col>
     </v-row>
 
@@ -422,7 +422,7 @@
                 v-for="(label, val) in sortTypeList"
                 :key="val"
                 :value="val"
-                @click="sortingProcess(store, 'sortType', val);"
+                @click="sortingProcess(store, 'sortType', val)"
               >
                 <v-list-item-title>
                   {{ label }}
@@ -443,7 +443,7 @@
           <v-btn
             value="descending"
             class="px-0 px-sm-2"
-            @click="store.changeSettings('sortSettings');"
+            @click="store.changeSettings('sortSettings')"
           >
             <v-icon>mdi-sort-descending</v-icon>
             <span class="ml-2 hidden-sm-and-down">降順</span>
@@ -451,7 +451,7 @@
           <v-btn
             value="ascending"
             class="px-0 px-sm-2"
-            @click="store.changeSettings('sortSettings');"
+            @click="store.changeSettings('sortSettings')"
           >
             <v-icon>mdi-sort-ascending</v-icon>
             <span class="ml-2 hidden-sm-and-down">昇順</span>
@@ -470,7 +470,9 @@
     </div>
 
     <p class="align-self-center d-block d-md-inline-block">
-      絞り込み結果：{{ Object.keys(makeMusicList(store)).length }} 曲<span class="ml-1 mr-md-1">/</span>
+      絞り込み結果：{{ Object.keys(makeMusicList(store)).length }} 曲<span class="ml-1 mr-md-1"
+        >/</span
+      >
     </p>
     <p class="align-self-center d-block d-md-inline-block">
       現在のソート：{{ sortTypeList[store.localStorageData.sortSettings.musicList.sortType] }}
@@ -491,7 +493,9 @@
         :key="ary"
       >
         <v-card
-          v-if="store.localStorageData.siteSettings.musicList.hover === 'false' || windowSize.w <= 600"
+          v-if="
+            store.localStorageData.siteSettings.musicList.hover === 'false' || windowSize.w <= 600
+          "
           :color="attributeColor[ary.attribute]"
           @click="
             store.showModalEvent('setLeaningLevel');
@@ -505,7 +509,9 @@
             @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length)"
             eager
           ></v-img>
-          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
+          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{
+            songTitle
+          }}</v-card-title>
           <v-divider class="mb-1 border-opacity-25"></v-divider>
           <v-card-text class="pt-0 px-1 pb-1">
             <ul class="d-flex">
@@ -530,7 +536,9 @@
                   class="skillIcon"
                 ></v-img>
               </li>
-              <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
+              <li class="align-self-center text-caption">
+                MLv.{{ store.musicList[songTitle].level }}
+              </li>
             </ul>
           </v-card-text>
         </v-card>
@@ -552,10 +560,12 @@
                 :lazy-src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
                 :src="store.getImagePath('CD_jacket', store.conversion(songTitle))"
                 :alt="songTitle"
-                @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length);"
+                @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length)"
                 eager
               ></v-img>
-              <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
+              <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{
+                songTitle
+              }}</v-card-title>
               <v-divider class="mb-1 border-opacity-25"></v-divider>
               <v-card-item class="pt-0 px-1 pb-1">
                 <ul class="d-flex">
@@ -580,9 +590,7 @@
                       class="skillIcon"
                     ></v-img>
                   </li>
-                  <li
-                    class="align-self-center text-caption"
-                  >
+                  <li class="align-self-center text-caption">
                     MLv.{{ store.musicList[songTitle].level }}
                   </li>
                 </ul>
@@ -606,6 +614,7 @@
 </template>
 
 <script setup lang="ts">
+import { CounterState } from '@/types/counter';
 import { useStoreCounter } from '../stores/counter';
 const store = useStoreCounter();
 store.setSupportSkillLevel();
@@ -626,8 +635,18 @@ export default {
       inputMusicTitle: null,
       masteryLv: [0, 50],
       selectCenterList: [],
-      bonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
-      selectBonusSkillList: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
+      bonusSkillList: [
+        'ボルテージアップ',
+        'メンタルリカバー',
+        'ビートハートアップ',
+        'LOVEボーナス',
+      ],
+      selectBonusSkillList: [
+        'ボルテージアップ',
+        'メンタルリカバー',
+        'ビートハートアップ',
+        'LOVEボーナス',
+      ],
       attrList: ['smile', 'pure', 'cool'],
       selectAttrList: ['smile', 'pure', 'cool'],
       attributeColor: {
@@ -649,11 +668,11 @@ export default {
   created() {},
   computed: {
     makeMusicList() {
-      return (store): Object => {
-        const list = Array.from(
-          Object.entries(store.musicList),
-          ([key, value]) => ({ title: key, ...value })
-        );
+      return (store: CounterState): Object => {
+        const list = Array.from(Object.entries(store.musicList), ([key, value]) => ({
+          title: key,
+          ...value,
+        }));
 
         const result = list.filter((musicData) => {
           if (typeof musicData.level !== 'number') {
@@ -661,17 +680,20 @@ export default {
           }
 
           if (
-            musicData.level < this.masteryLv[0] || musicData.level > this.masteryLv[1] ||
+            musicData.level < this.masteryLv[0] ||
+            musicData.level > this.masteryLv[1] ||
             // this.inputMusicTitle && !musicData.musicData.kana.includes(this.inputMusicTitle) ||
-            this.selectCenterList.length > 0 && !this.selectCenterList.includes(musicData.center) ||
-            this.selectBonusSkillList.length > 0 && !this.selectBonusSkillList.includes(musicData.bonusSkill) ||
-            this.selectAttrList.length > 0 && !this.selectAttrList.includes(musicData.attribute)
+            (this.selectCenterList.length > 0 &&
+              !this.selectCenterList.includes(musicData.center)) ||
+            (this.selectBonusSkillList.length > 0 &&
+              !this.selectBonusSkillList.includes(musicData.bonusSkill)) ||
+            (this.selectAttrList.length > 0 && !this.selectAttrList.includes(musicData.attribute))
           ) {
             return false;
           } else if (!this.isSchoolShow) {
             return true;
           } else {
-            return !!(musicData?.difficultyLevel ?? false)
+            return !!(musicData?.difficultyLevel ?? false);
           }
         });
 
@@ -682,26 +704,34 @@ export default {
               return sorting(
                 store.localStorageData.sortSettings.musicList.order === 'ascending',
                 a[store.localStorageData.sortSettings.musicList.sortType],
-                b[store.localStorageData.sortSettings.musicList.sortType]
+                b[store.localStorageData.sortSettings.musicList.sortType],
               );
             case 'kana':
             case 'time':
               return sorting(
                 store.localStorageData.sortSettings.musicList.order === 'ascending',
                 a.musicData[store.localStorageData.sortSettings.musicList.sortType],
-                b.musicData[store.localStorageData.sortSettings.musicList.sortType]
+                b.musicData[store.localStorageData.sortSettings.musicList.sortType],
               );
             case 'releaseDate':
               return sorting(
                 store.localStorageData.sortSettings.musicList.order === 'ascending',
-                new Date(a.musicData.releaseDate.year, a.musicData.releaseDate.month - 1, a.musicData.releaseDate.date),
-                new Date(b.musicData.releaseDate.year, b.musicData.releaseDate.month - 1, b.musicData.releaseDate.date)
+                new Date(
+                  a.musicData.releaseDate.year,
+                  a.musicData.releaseDate.month - 1,
+                  a.musicData.releaseDate.date,
+                ),
+                new Date(
+                  b.musicData.releaseDate.year,
+                  b.musicData.releaseDate.month - 1,
+                  b.musicData.releaseDate.date,
+                ),
               );
             default:
               return sorting(
                 store.localStorageData.sortSettings.musicList.order === 'ascending',
                 a.ID,
-                b.ID
+                b.ID,
               );
           }
         });
@@ -727,7 +757,7 @@ export default {
     this.onResize();
   },
   methods: {
-    selectCenter(store, selector: string | null): void {
+    selectCenter(store: CounterState, selector: string | null): void {
       if (selector === null) {
         this.selectCenterList = [];
       } else if (this.selectCenterList.some((x) => x === selector)) {
@@ -784,14 +814,8 @@ export default {
         h: window.innerHeight,
       };
     },
-    sortingProcess(
-      store: any,
-      type: 'sortType' | 'order',
-      val: string,
-    ): void {
-      if (
-        store.localStorageData.sortSettings.musicList[type] !== val
-      ) {
+    sortingProcess(store: CounterState, type: 'sortType' | 'order', val: string): void {
+      if (store.localStorageData.sortSettings.musicList[type] !== val) {
         store.loading = true;
 
         if (type === 'sortType') {
@@ -801,10 +825,7 @@ export default {
         store.changeSettings('sortSettings');
       }
     },
-    checkImagesLoaded(
-      store: any,
-      totalImages: number
-    ): void {
+    checkImagesLoaded(store: CounterState, totalImages: number): void {
       this.loadedImagesCount += 1;
 
       if (this.loadedImagesCount === totalImages) {

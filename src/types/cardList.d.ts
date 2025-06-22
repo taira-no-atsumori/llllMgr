@@ -70,12 +70,12 @@ interface Rarity {
   default: {
     default: CardData;
   };
-  BR?: Record<string, CardData>;
+  BR: Record<string, CardData>;
   LR?: Record<string, CardData>;
-  DR?: Record<string, CardData>;
-  UR?: Record<string, CardData>;
-  SR?: Record<string, CardData>;
-  R?: Record<string, CardData>;
+  DR: Record<string, CardData>;
+  UR: Record<string, CardData>;
+  SR: Record<string, CardData>;
+  R: Record<string, CardData>;
 }
 
 interface CardItem {
