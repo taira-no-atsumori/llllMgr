@@ -9,7 +9,10 @@
         @click.stop="drawer = !drawer"
         class="hidden-sm-and-up"
       ></v-app-bar-nav-icon>
-      <v-bottom-sheet v-model="drawer" v-if="false">
+      <v-bottom-sheet
+        v-model="drawer"
+        v-if="false"
+      >
         <template v-slot:activator="{ props }">
           <v-icon
             v-bind="props"
@@ -41,7 +44,7 @@
             "
           >
             <template v-slot:prepend>
-              <v-icon>{{ `mdi-${ arr.icon }` }}</v-icon>
+              <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
             </template>
           </v-list-item>
         </v-sheet>
@@ -55,8 +58,14 @@
       <v-spacer></v-spacer>
 
       <ul class="d-none d-sm-flex">
-        <template v-for="(arr, pageTitle) of pageList" :key="arr">
-          <v-tooltip location="bottom" v-if="pageTitle !== 'License'">
+        <template
+          v-for="(arr, pageTitle) of pageList"
+          :key="arr"
+        >
+          <v-tooltip
+            location="bottom"
+            v-if="pageTitle !== 'License'"
+          >
             <template v-slot:activator="{ props }">
               <li style="border-right: 1px solid">
                 <v-btn
@@ -64,7 +73,7 @@
                   class="px-2"
                   @click="pageMove(arr.name_en)"
                 >
-                  <v-icon class="mr-1">{{ `mdi-${ arr.icon }` }}</v-icon>
+                  <v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>
                   {{ pageTitle }}
                 </v-btn>
               </li>
@@ -74,7 +83,10 @@
         </template>
       </ul>
 
-      <ul class="d-flex" style="height: 36px">
+      <ul
+        class="d-flex"
+        style="height: 36px"
+      >
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
@@ -90,7 +102,10 @@
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
-          <v-divider class="border-opacity-100" vertical></v-divider>
+          <v-divider
+            class="border-opacity-100"
+            vertical
+          ></v-divider>
         </li>
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
@@ -107,7 +122,10 @@
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
-          <v-divider class="border-opacity-100" vertical></v-divider>
+          <v-divider
+            class="border-opacity-100"
+            vertical
+          ></v-divider>
         </li>
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
@@ -149,13 +167,13 @@
         @click="pageMove(arr.name_en)"
       >
         <template v-slot:prepend>
-          <v-icon>{{ `mdi-${ arr.icon }` }}</v-icon>
+          <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
         </template>
       </v-list-item>
     </v-navigation-drawer>
 
     <v-main class="pb-2">
-      <router-view/>
+      <router-view />
     </v-main>
 
     <v-fab
@@ -164,15 +182,24 @@
       app
       location="bottom"
       class="mb-10"
-      @click="goToTop();"
+      @click="goToTop()"
     ></v-fab>
 
-    <Modal/>
-    <Loading/>
+    <Modal />
+    <Loading />
 
-    <v-footer color="pink" class="mb-10">
-      <v-row no-gutters justify="center">
-        <v-col cols="12" class="mx-2 text-center">
+    <v-footer
+      color="pink"
+      class="mb-10"
+    >
+      <v-row
+        no-gutters
+        justify="center"
+      >
+        <v-col
+          cols="12"
+          class="mx-2 text-center"
+        >
           <a
             v-for="(arr, pageTitle) of pageList"
             :key="arr"
@@ -183,7 +210,10 @@
             {{ pageTitle.toUpperCase() }}
           </a>
         </v-col>
-        <v-col cols="12" class="text-center">
+        <v-col
+          cols="12"
+          class="text-center"
+        >
           © 2023 - {{ new Date().getFullYear() }}
           <strong>taira no atsumori</strong>
         </v-col>
@@ -201,14 +231,15 @@
         target="_blank"
         class="text-white font-weight-bold"
       >
-        お題箱
-      </a>」まで
+        お題箱 </a
+      >」まで
     </v-bottom-navigation>
   </v-app>
 </template>
 
 <script setup lang="ts">
 import { useStoreCounter } from './stores/counter';
+const siteversion = import.meta.env.VITE_SITEVERSION;
 
 const store = useStoreCounter();
 store.init();
@@ -223,18 +254,18 @@ export default {
   name: 'App',
   components: {
     Modal,
-    Loading
+    Loading,
   },
   data() {
     return {
       drawer: false,
       siteName: 'リンクラ マネージャー！(リンマネ)',
       pageList: {
-        'Home': {
+        Home: {
           name_en: 'Home',
           name_ja: 'ホーム',
-          url: `/${ import.meta.env.VITE_PATHNAME }/`,
-          icon: 'home'
+          url: `/${import.meta.env.VITE_PATHNAME}/`,
+          icon: 'home',
         },
         /*'WithStar Mgr': {
          name_en: 'WithStarMgr',
@@ -242,44 +273,46 @@ export default {
          url: 'withStarMgr',
          icon: 'star'
          },*/
-        'Simulation': {
+        Simulation: {
           name_en: 'Simulation',
           name_ja: '編成シミュレーション',
           url: 'simulation',
-          icon: 'calculator'
+          icon: 'calculator',
         },
         'Card List': {
           name_en: 'CardList',
           name_ja: 'カード一覧 / 所持カード設定',
           url: 'cardlist',
-          icon: 'cards'
+          icon: 'cards',
         },
         'Music List': {
           name_en: 'MusicList',
           name_ja: '楽曲一覧 / 楽曲マスタリーレベル設定',
           url: 'musiclist',
-          icon: 'music'
+          icon: 'music',
         },
         'Item List': {
           name_en: 'ItemList',
           name_ja: 'スキルアップ素材獲得ステージリスト',
           url: 'Itemlist',
-          icon: 'book'
+          icon: 'book',
         },
-        'License': {
+        License: {
           name_en: 'License',
           name_ja: 'ライセンス',
           url: 'license',
-          icon: 'text-box-outline'
-        }
-      }
+          icon: 'text-box-outline',
+        },
+      },
     };
   },
   created() {
     const userAgent = window.navigator.userAgent.toLowerCase();
 
     if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
-      alert('本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。');
+      alert(
+        '本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。',
+      );
     }
 
     if (localStorage.inflow !== undefined) {
@@ -311,7 +344,7 @@ export default {
     pageMove(movePageName: string): void {
       // this.$router.replace(movePageName);
       this.$router.replace({
-        name: movePageName
+        name: movePageName,
         // query: {
         //   page: 5
         // }
@@ -324,15 +357,15 @@ export default {
      * @param to タイトル
      */
     pageTitle(to: any): void {
-      document.title = `${ to.meta.title }${ this.siteName }`;
+      document.title = `${to.meta.title}${this.siteName}`;
     },
     /**
      * トップへ移動
      */
     goToTop() {
       this.goTo(0);
-    }
-  }
+    },
+  },
 };
 </script>
 

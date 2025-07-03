@@ -649,7 +649,7 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useStoreCounter } from '@/stores/counter.js';
+import { useStoreCounter } from '@/stores/counter';
 import Chart from './Chart.vue';
 
 const store = useStoreCounter();

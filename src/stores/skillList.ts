@@ -5813,6 +5813,13 @@ export const useSkillStore = defineStore('skillList', {
             type: ['sound', 'ambience_section'],
           },
         },
+        soundAmbience_02: {
+          text: ['このステージ中、ムードがハッピー、メロウいずれかのとき、ムード値を+', 'する。'],
+          detail: {
+            attr: '',
+            type: ['sound', 'ambience_stage'],
+          },
+        },
       },
       サウンドリフレッシュマインド: {
         soundRefreshMind_01: {
@@ -5941,6 +5948,16 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['boost_heartCaptcha', 'APReduce'],
+          },
+        },
+        bloomMySelf_02: {
+          text: [
+            'このセクション中、ムードがハッピー、メロウいずれかのとき、ムード値を+',
+            'する。さらに山札にあるセラスのスキルの消費AP-1。',
+          ],
+          detail: {
+            attr: '',
+            type: ['ambience_section', 'APReduce'],
           },
         },
       },
@@ -6135,6 +6152,16 @@ export const useSkillStore = defineStore('skillList', {
             type: ['APSlow', 'vibes_stage'],
           },
         },
+        elysion_02: {
+          text: [
+            'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、メンタルが1秒ごとに最大値の',
+            '%回復する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['APSlow', 'mentalRecover'],
+          },
+        },
       },
       'mode:DESTROYER': {
         mode_destroyer_01: {
@@ -6146,6 +6173,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
+          },
+        },
+      },
+      'mode:ELIXIR': {
+        mode_elixir_01: {
+          text: [
+            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引き、このセクション中、手札の上限枚数を7枚増加する。さらにメンタルを最大値の',
+            '%回復させ、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'extendHand', 'mentalRecover', 'protect_stage'],
           },
         },
       },
@@ -6215,6 +6255,92 @@ export const useSkillStore = defineStore('skillList', {
               'voltageGain',
               'heartLimitUp',
               'mentalReduce',
+              'modeChange',
+            ],
+          },
+        },
+      },
+      'S.R.K. Link': {
+        'SRK-Link_01': {
+          text: [
+            'このステージ中、さやか/瑠璃乃/花帆のスキルを全員使用するたび、ボルテージPt.を+',
+            '、このセクション中、獲得するLOVEを+',
+            '%、ハート上限を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。消費APの合計に応じてハート上限増加効果以外の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'loveAttract_section', 'heartLimitUp', 'heartCaptcha'],
+          },
+        },
+        'SRK-Link_02': {
+          text: [
+            'このステージ中、さやか/瑠璃乃/花帆のスキルを全員使用するたび、このセクション中、獲得するLOVEを+',
+            '%、ハート上限を+',
+            '、ボルテージPt.を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。消費APの合計に応じてハート上限増加効果以外の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
+          ],
+          detail: {
+            attr: '',
+            type: ['loveAttract_section', 'heartLimitUp', 'voltageGain', 'heartCaptcha'],
+          },
+        },
+      },
+      フラワーイグニッション: {
+        flowerIgnition_01: {
+          text: [
+            '手札を全て捨てて、捨て札を全て山札に戻した後、デッキから手札上限までスキルを引く。この時さやか、瑠璃乃、花帆のスキルをドローする確率アップ。さらにデッキにあるさやか、花帆のスキルの消費APを-9し、姫芽が《イグニッションモード》になる。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'APReduce', 'modeChange'],
+          },
+        },
+      },
+      トリプレットボルテージ: {
+        tripletVoltage_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがハッピー、メロウいずれか33以上のとき、ボルテージPt.を+',
+            'し、メンタルが33%以下のとき、さやか、瑠璃乃、花帆がそれぞれ3回の間使用するスキルハート獲得効果による獲得量を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'voltageGain', 'boost_heartCaptcha'],
+          },
+        },
+        tripletVoltage_02: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがハッピー、メロウいずれか33以上のとき、このセクション中、獲得するLOVEを+',
+            '%、デッキ枚数が23枚以上のとき、さやか、瑠璃乃、花帆がそれぞれ3回の間使用するスキルハート獲得効果による獲得量を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'loveAttract_section', 'boost_heartCaptcha'],
+          },
+        },
+      },
+      トリプレットワイド: {
+        tripletWide_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにムードがハッピー、メロウいずれか33以上のとき、このセクション中、ハート上限を+',
+            'し、3回の間さやかが使用するボルテージゲイン効果を+',
+            '%、3回の間花帆が使用するラブアトラクト効果を+',
+            '%、姫芽の《イグニッションモード》を解除する。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              'heartCaptcha',
+              'heartLimitUp',
+              'boost_voltageGain',
+              'boost_loveAttract',
               'modeChange',
             ],
           },

@@ -35,10 +35,26 @@ interface MusicData {
 }
 
 /**
+ * 曲の難易度レベルを表すインターフェース
+ *
+ * @interface difficultyLevel
+ * @property {number} NORMAL ノーマルレベル
+ * @property {number} HARD ハードレベル
+ * @property {number} EXPERT エキスパートレベル
+ * @property {number} MASTER マスターレベル
+ */
+interface difficultyLevel {
+  NORMAL: number;
+  HARD: number;
+  EXPERT: number;
+  MASTER: number;
+}
+
+/**
  * 曲のアイテムデータを表すインターフェース
  *
  * @interface MusicItem
- * @property {string} ID 曲の一意な識別子
+ * @property {string} ID 曲ID（例: 'm_001'）
  * @property {MusicData} musicData 曲の詳細データ
  * @property {'smile' | 'pure' | 'cool'} attribute 曲の属性（smile, pure, coolのいずれか）
  * @property {number} BHcount ビートハート発生回数
@@ -47,7 +63,7 @@ interface MusicData {
  * @property {'kaho' | 'sayaka' | 'rurino' | 'kozue' | 'tsuduri' | 'megumi' | 'ginko' | 'kosuzu' | 'hime' | 'seras' | 'izumi'} center センターメンバーの名前
  * @property {'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス'} bonusSkill ボーナススキル
  * @property {string[]} singingMembers 歌唱メンバーの名前の配列
- * @property {'NORMAL' | 'HARD' | 'EXPERT' | 'MASTER'} difficultyLevel 曲の難易度
+ * @property {difficultyLevel} difficultyLevel 曲の難易度
  */
 interface MusicItem {
   ID: string;
@@ -70,7 +86,7 @@ interface MusicItem {
     | 'izumi';
   bonusSkill: 'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス';
   singingMembers: string[];
-  difficultyLevel?: 'NORMAL' | 'HARD' | 'EXPERT' | 'MASTER';
+  difficultyLevel?: difficultyLevel;
 }
 
 /**

@@ -8,6 +8,7 @@ interface ImportMetaEnv {
   readonly VITE_DROPBOX_OATH2_REFRESH_TOKEN: string;
   readonly VITE_GTAG_ID: string;
   readonly VITE_PATHNAME: string;
+  readonly VITE_SITEVERSION: string;
 }
 
 export interface ImportMeta {

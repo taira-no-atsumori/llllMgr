@@ -213,12 +213,12 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useStoreCounter } from '../stores/counter';
 const store = useStoreCounter();
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'Home',
   components: {},
@@ -332,11 +332,15 @@ export default {
     }
   },
   methods: {
-    pageMove(movePageName) {
+    pageMove(movePageName: string): void {
       this.$router.replace(movePageName);
       window.scrollTo(0, 0);
     },
-    countDown(eventName) {
+    countDown(eventName: string): {
+      state: string;
+      day?: number;
+      time?: number;
+    } {
       const firstDay = new Date(
         this.eventList[eventName].firstDay[0],
         this.eventList[eventName].firstDay[1] - 1,

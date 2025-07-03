@@ -329,6 +329,68 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'アイドゥーミー！': {
+            ID: 'kh_061',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'アイドゥーミー！',
+            kana: 'あいどぅーみー',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 1stTerm 第2回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5000,
+              pure: 5200,
+              cool: 5800,
+              mental: 520,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'SRK-Link_02',
+              name: 'S.R.K. Link',
+              AP: 5,
+              detail: [
+                [
+                  412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4,
+                  947.6, 1030,
+                ],
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+              ],
+            },
+            skill: {
+              ID: 'tripletVoltage_02',
+              name: 'トリプレットボルテージ',
+              AP: 33,
+              detail: [
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [
+                  4120, 4532, 4944, 5356, 5768, 6180, 6592, 7004, 7416, 8240, 8652, 9064, 9476,
+                  10300,
+                ],
+                [
+                  412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4,
+                  947.6, 1030,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'フラワーシーケンス',
+              detail:
+                'デッキ枚数が23枚以上のとき、手札にあるさやか、瑠璃乃、花帆のカード1枚につき、手札のこのスキルの消費AP-3。さらにデッキ枚数が23枚以上でスキル使用時、手札を全て捨てて、デッキから手札上限までスキルを引く。このときさやか、瑠璃乃、花帆のカードをドローする確率アップ。',
+              type: ['APReduce', 'draw', 'reshuffle'],
+            },
+          },
           'Her-bath-rium': {
             ID: 'kh_060',
             styleType: 'cheerLeader',
@@ -3259,6 +3321,65 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'アイドゥーミー！': {
+            ID: 'sy_059',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'アイドゥーミー！',
+            kana: 'あいどぅーみー',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.3',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5100,
+              pure: 5800,
+              cool: 5100,
+              mental: 520,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'SRK-Link_01',
+              name: 'S.R.K. Link',
+              AP: 5,
+              detail: [
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [
+                  133.2, 146.5, 159.8, 173.2, 186.5, 199.8, 213.1, 226.4, 239.8, 266.4, 279.7, 293,
+                  306.4, 333,
+                ],
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+              ],
+            },
+            skill: {
+              ID: 'tripletVoltage_01',
+              name: 'トリプレットボルテージ',
+              AP: 33,
+              detail: [
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [
+                  412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4,
+                  947.6, 1030,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'フラワーシーケンス',
+              detail:
+                'メンタルが33%以下のとき、手札にあるさやか、瑠璃乃、花帆のカード1枚につき、手札のこのスキルの消費AP-3。さらにメンタルが33%以下でスキル使用時、手札を全て捨てて、デッキから手札上限までスキルを引く。このときさやか、瑠璃乃、花帆のカードをドローする確率アップ。',
+              type: ['APReduce', 'draw', 'sayaka', 'rurino', 'kaho'],
+            },
+          },
           アンペア: {
             ID: 'sy_058',
             styleType: 'moodMaker',
@@ -5940,6 +6061,56 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         DR: {
+          'Oracle Étude': {
+            ID: 'rr_050',
+            styleType: 'cheerLeader',
+            mood: 'melow',
+            series: 'Oracle Étude',
+            kana: 'おらくるえちゅーど',
+            gacha: {
+              addSeason: '「ドリームスタイルクエスト」クリア報酬',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5800,
+              pure: 4500,
+              cool: 7000,
+              mental: 590,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'elysion_02',
+              name: 'Elysion',
+              AP: 2,
+              detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 99]],
+            },
+            skill: {
+              ID: 'mode_elixir_01',
+              name: 'mode:ELIXIR',
+              AP: 1,
+              detail: [
+                [30.8, 33.9, 37, 40.1, 43.2, 46.2, 49.3, 52.4, 55.5, 61.6, 64.7, 67.8, 70.9, 77],
+                [
+                  3110.8, 3421.88, 3732.96, 4044.04, 4355.12, 4666.2, 4977.28, 5288.36, 5599.44,
+                  6221.6, 6532.68, 6843.76, 7154.84, 7777,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'Radioactive',
+              detail:
+                'ドローした時、AP、ボルテージPt.、メンタルを0にする。さらにこのスキルを8回使用すると、デッキから除外される。',
+              type: ['draw', 'APReduce', 'voltageReduce', 'mentalReduce', 'exclusion'],
+            },
+          },
           'Ether Aria': {
             ID: 'rr_033',
             styleType: 'cheerLeader',
@@ -6116,6 +6287,88 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'アイドゥーミー！': {
+            ID: 'rr_049',
+            styleType: 'performer',
+            mood: 'neutral',
+            series: 'アイドゥーミー！',
+            kana: 'あいどぅーみー',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.3',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5800,
+              pure: 5300,
+              cool: 4900,
+              mental: 520,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'SRK-Link_01',
+              name: 'S.R.K. Link',
+              AP: 5,
+              detail: [
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [
+                  133.2, 146.5, 159.8, 173.2, 186.5, 199.8, 213.1, 226.4, 239.8, 266.4, 279.7, 293,
+                  306.4, 333,
+                ],
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+              ],
+            },
+            skill: {
+              ID: 'alternate_ignition_hime',
+              name: 'オルタネイト：イグニッション',
+              AP: 3,
+              detail: [],
+              addSkill: {
+                off: {
+                  modeName: '通常モード',
+                  ID: 'flowerIgnition_01',
+                  name: 'フラワーイグニッション',
+                  AP: 13,
+                  detail: [],
+                },
+                on: {
+                  modeName: 'イグニッションモード',
+                  ID: 'tripletWide_01',
+                  name: 'トリプレットワイド',
+                  AP: 33,
+                  detail: [
+                    [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                    [
+                      1333, 1466, 1600, 1733, 1866, 2000, 2133, 2266, 2399, 2666, 2799, 2933, 3066,
+                      3333,
+                    ],
+                    [
+                      133.2, 146.5, 159.8, 173.2, 186.5, 199.8, 213.1, 226.4, 239.8, 266.4, 279.7,
+                      293, 306.4, 333,
+                    ],
+                    [
+                      133.2, 146.5, 159.8, 173.2, 186.5, 199.8, 213.1, 226.4, 239.8, 266.4, 279.7,
+                      293, 306.4, 333,
+                    ],
+                  ],
+                },
+              },
+            },
+            characteristic: {
+              name: 'ゲーミングバディ',
+              detail:
+                '姫芽のスキルを使用した後、ドローされる確率が増加し、ドローした時、デッキの姫芽の消費APを-3する。さらに手札にある瑠璃乃、姫芽のカード1枚につき、このスキルの消費AP-3。',
+              type: ['draw', 'hime', 'APReduce', 'rurino'],
+            },
+          },
           'WAWO!': {
             ID: 'rr_047',
             styleType: 'moodMaker',
@@ -19511,7 +19764,7 @@ export const useCardStore = defineStore('cardList', {
             specialAppeal: {
               ID: 'elysion_01',
               name: 'Elysion',
-              AP: 1,
+              AP: 2,
               detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 99]],
             },
             skill: {
@@ -21060,7 +21313,76 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         DR: {},
-        BR: {},
+        BR: {
+          '16th Birthday': {
+            ID: 'sr_008',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: 'Birthday',
+            kana: 'しっくすてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2025 BIRTHDAY LIMITED COLLECTION -Seras-',
+              period: 'birthday',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '16th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'soundAmbience_02',
+              name: 'サウンドアンビエンス',
+              AP: 6,
+              detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]],
+            },
+            skill: {
+              ID: 'bloomMySelf_02',
+              name: 'ブルームマイセルフ',
+              AP: 1,
+              detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]],
+            },
+            characteristic: {
+              name: 'バースデイキャンドル',
+              detail: 'スキル使用時まで、18回までAPを3回復する。',
+              type: ['APGain'],
+            },
+          },
+        },
         UR: {
           十六夜セレーネ: {
             ID: 'sr_007',
