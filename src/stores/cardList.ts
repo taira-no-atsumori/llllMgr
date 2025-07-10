@@ -21384,6 +21384,53 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          天地黎明: {
+            ID: 'sr_009',
+            styleType: 'moodMaker',
+            mood: 'neutral',
+            series: '天地黎明',
+            kana: 'てんちれいめい',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.4',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5800,
+              pure: 5400,
+              cool: 3200,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'groovyAmbienceGain_01',
+              name: 'グルーヴィアンビエンスゲイン',
+              AP: 8,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+              ],
+            },
+            skill: {
+              ID: 'soundVoltageVibes_01',
+              name: 'サウンドボルテージバイブス',
+              AP: 8,
+              detail: [[168, 185, 202, 218, 235, 252, 269, 286, 302, 336, 353, 370, 386, 420]],
+            },
+            characteristic: {
+              name: 'ラブコレクト・ブレス',
+              detail:
+                '泉のスキルを使用した後、ドローされる確率が増加する。さらに手札にある状態でハートを200個回収したとき、このスキルの消費APを-7し、次に泉が使用するボルテージゲイン効果を+75%する。',
+              type: ['draw', 'izumi', 'heartCollect', 'APReduce', 'boost_voltageGain'],
+            },
+          },
           十六夜セレーネ: {
             ID: 'sr_007',
             styleType: 'moodMaker',
@@ -21744,6 +21791,57 @@ export const useCardStore = defineStore('cardList', {
         DR: {},
         BR: {},
         UR: {
+          天地黎明: {
+            ID: 'iz_007',
+            styleType: 'trickStar',
+            mood: 'neutral',
+            series: '天地黎明',
+            kana: 'てんちれいめい',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.4',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5900,
+              pure: 5200,
+              cool: 3300,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'groovyHeatVibes_01',
+              name: 'グルーヴィヒートバイブス',
+              AP: 6,
+              detail: [
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+              ],
+            },
+            skill: {
+              ID: 'imitationVoltage_01',
+              name: 'イミテーションボルテージ',
+              AP: 8,
+              detail: [
+                [
+                  1800, 1980, 2160, 2340, 2520, 2700, 2880, 3060, 3240, 3600, 3780, 3960, 4140,
+                  4500,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'サウンド・セイバー',
+              detail:
+                'ムードがハッピー、メロウいずれか75以上でこのスキルを使用したとき、次にセラスが使用するボルテージゲイン効果を+225%する。',
+              type: ['sound', 'boost_voltageGain'],
+            },
+          },
           Retrofuture: {
             ID: 'iz_005',
             styleType: 'trickStar',

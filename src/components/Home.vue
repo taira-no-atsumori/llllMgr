@@ -233,23 +233,14 @@ export default {
           lastDay: [2025, 4, 11, 12, 0],
           img: 'thanks',
         },*/
-        /*liveGP: {
-          title: 'ライブグランプリ「105期1stTerm 第2回 個人戦」',
-          text: '',
-          type: 'liveGP',
-          firstDay: [2025, 6, 15, 12, 0],
-          lastDay: [2025, 6, 20, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-06-14-00-pqcwxvs5mt',
-          img: '105期1stTerm 第2回 個人戦_logo',
-        },*/
         liveGP: {
-          title: 'ライブグランプリ「105期1stTerm 第2回 サークル対抗戦」',
+          title: 'ライブグランプリ「105期 Special Term 個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 6, 22, 12, 0],
-          lastDay: [2025, 6, 27, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-06-20-20-kzjr7d1rw8',
-          img: '105期1stTerm 第2回 サークル対抗戦_logo',
+          firstDay: [2025, 7, 10, 12, 0],
+          lastDay: [2025, 7, 15, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-07-08-10-a19pkpl7aw',
+          img: '105期 Special Term 個人戦_logo',
         },
         nadeshikosai: {
           title: 'Fes×LIVE「105期 1stTerm Fes×LIVE -撫子祭-」',

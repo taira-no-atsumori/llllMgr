@@ -462,11 +462,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kozue',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'kozue'],
-        difficultyLevel: {
-          NORMAL: 10,
-          HARD: 19,
-          EXPERT: 25,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 19,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 261,
+            HARD: 500,
+            EXPERT: 758,
+            MASTER: 1026,
+          },
         },
       },
       フォーチュンムービー: {
@@ -495,11 +503,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'kozue'],
-        difficultyLevel: {
-          NORMAL: 10,
-          HARD: 18,
-          EXPERT: 27,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 18,
+            EXPERT: 27,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 131,
+            HARD: 279,
+            EXPERT: 602,
+            MASTER: 690,
+          },
         },
       },
       'Mix shake!!': {
@@ -555,11 +571,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'kozue'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 16,
-          EXPERT: 22,
-          MASTER: 26,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 16,
+            EXPERT: 22,
+            MASTER: 26,
+          },
+          maxCombo: {
+            NORMAL: 275,
+            HARD: 435,
+            EXPERT: 607,
+            MASTER: 758,
+          },
         },
       },
       'Holiday∞Holiday': {
@@ -858,11 +882,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'sayaka',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 19,
-          EXPERT: 26,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 19,
+            EXPERT: 26,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 274,
+            HARD: 509,
+            EXPERT: 741,
+            MASTER: 893,
+          },
         },
       },
       ツキマカセ: {
@@ -891,11 +923,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 19,
-          EXPERT: 27,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 19,
+            EXPERT: 27,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 293,
+            HARD: 559,
+            EXPERT: 786,
+            MASTER: 958,
+          },
         },
       },
       希望的プリズム: {
@@ -951,11 +991,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'tsuzuri',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 21,
-          EXPERT: 26,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 21,
+            EXPERT: 26,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 298,
+            HARD: 488,
+            EXPERT: 677,
+            MASTER: 785,
+          },
         },
       },
       'Tragic Drops': {
@@ -1608,11 +1656,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'megumi',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 21,
-          EXPERT: 28,
-          MASTER: 33,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 21,
+            EXPERT: 28,
+            MASTER: 33,
+          },
+          maxCombo: {
+            NORMAL: 428,
+            HARD: 842,
+            EXPERT: 1057,
+            MASTER: 1600,
+          },
         },
       },
       '君のこころは輝いてるかい？': {
@@ -1641,11 +1697,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'kozue'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 19,
-          EXPERT: 25,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 19,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 404,
+            HARD: 679,
+            EXPERT: 908,
+            MASTER: 1152,
+          },
         },
       },
       始まりは君の空: {
@@ -1674,11 +1738,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka', 'tsuzuri'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 18,
-          EXPERT: 26,
-          MASTER: 31,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 18,
+            EXPERT: 26,
+            MASTER: 31,
+          },
+          maxCombo: {
+            NORMAL: 285,
+            HARD: 590,
+            EXPERT: 807,
+            MASTER: 1089,
+          },
         },
       },
       'TOKIMEKI Runners': {
@@ -1707,11 +1779,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 19,
-          EXPERT: 24,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 19,
+            EXPERT: 24,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 267,
+            HARD: 484,
+            EXPERT: 617,
+            MASTER: 921,
+          },
         },
       },
       ビバハピ: {
@@ -1795,11 +1875,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 21,
-          EXPERT: 26,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 21,
+            EXPERT: 26,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 337,
+            HARD: 596,
+            EXPERT: 721,
+            MASTER: 929,
+          },
         },
       },
       そばかす: {
@@ -1828,11 +1916,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['sayaka'],
-        difficultyLevel: {
-          NORMAL: 10,
-          HARD: 17,
-          EXPERT: 23,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 17,
+            EXPERT: 23,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 246,
+            HARD: 488,
+            EXPERT: 630,
+            MASTER: 920,
+          },
         },
       },
       ロストワンの号哭: {
@@ -1942,11 +2038,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'megumi',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['megumi'],
-        difficultyLevel: {
-          NORMAL: 10,
-          HARD: 17,
-          EXPERT: 25,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 17,
+            EXPERT: 25,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 258,
+            HARD: 598,
+            EXPERT: 912,
+            MASTER: 1463,
+          },
         },
       },
       いーあるふぁんくらぶ: {
@@ -1975,11 +2079,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'megumi',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 19,
-          EXPERT: 25,
-          MASTER: 27,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 19,
+            EXPERT: 25,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 244,
+            HARD: 508,
+            EXPERT: 690,
+            MASTER: 785,
+          },
         },
       },
       ハッピーシンセサイザ: {
@@ -2352,11 +2464,19 @@ export const useMusicStore = defineStore('musicList', {
           'kosuzu',
           'hime',
         ],
-        difficultyLevel: {
-          NORMAL: 15,
-          HARD: 21,
-          EXPERT: 27,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 15,
+            HARD: 21,
+            EXPERT: 27,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 311,
+            HARD: 563,
+            EXPERT: 783,
+            MASTER: 818,
+          },
         },
       },
       '365 Days': {
@@ -2469,11 +2589,19 @@ export const useMusicStore = defineStore('musicList', {
           'kosuzu',
           'hime',
         ],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 20,
-          EXPERT: 27,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 20,
+            EXPERT: 27,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 225,
+            HARD: 585,
+            EXPERT: 867,
+            MASTER: 916,
+          },
         },
       },
       '夏めきペイン（104期Ver.）': {
@@ -2512,11 +2640,19 @@ export const useMusicStore = defineStore('musicList', {
           'kosuzu',
           'hime',
         ],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 18,
-          EXPERT: 27,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 18,
+            EXPERT: 27,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 258,
+            HARD: 461,
+            EXPERT: 705,
+            MASTER: 773,
+          },
         },
       },
       'DEEPNESS（ReC Ver.）': {
@@ -3006,11 +3142,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'ginko',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'kozue', 'ginko'],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 18,
-          EXPERT: 27,
-          MASTER: 32,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 18,
+            EXPERT: 27,
+            MASTER: 32,
+          },
+          maxCombo: {
+            NORMAL: 285,
+            HARD: 591,
+            EXPERT: 950,
+            MASTER: 1206,
+          },
         },
       },
       '千変万華（104期Ver.）': {
@@ -3228,11 +3372,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'ginko',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'kozue', 'ginko'],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 16,
-          EXPERT: 26,
-          MASTER: 27,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 16,
+            EXPERT: 26,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 243,
+            HARD: 420,
+            EXPERT: 761,
+            MASTER: 916,
+          },
         },
       },
       'シュガーメルト（104期Ver.）': {
@@ -3558,11 +3710,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'tsuzuri',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
-        difficultyLevel: {
-          NORMAL: 10,
-          HARD: 18,
-          EXPERT: 24,
-          MASTER: 27,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 18,
+            EXPERT: 24,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 263,
+            HARD: 521,
+            EXPERT: 683,
+            MASTER: 890,
+          },
         },
       },
       バアドケージ: {
@@ -3618,11 +3778,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 17,
-          EXPERT: 25,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 17,
+            EXPERT: 25,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 322,
+            HARD: 511,
+            EXPERT: 787,
+            MASTER: 1075,
+          },
         },
       },
       '青春の輪郭（104期Ver.）': {
@@ -3786,11 +3954,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'hime',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi', 'hime'],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 18,
-          EXPERT: 27,
-          MASTER: 32,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 18,
+            EXPERT: 27,
+            MASTER: 32,
+          },
+          maxCombo: {
+            NORMAL: 328,
+            HARD: 459,
+            EXPERT: 720,
+            MASTER: 1077,
+          },
         },
       },
       'ノンフィクションヒーローショー（104期Ver.）': {
@@ -3873,11 +4049,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'megumi', 'hime'],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 18,
-          EXPERT: 26,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 18,
+            EXPERT: 26,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 315,
+            HARD: 517,
+            EXPERT: 793,
+            MASTER: 1012,
+          },
         },
       },
       'ハクチューアラモード（104期Ver.）': {
@@ -3906,11 +4090,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi', 'hime'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 21,
-          EXPERT: 25,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 21,
+            EXPERT: 25,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 190,
+            HARD: 448,
+            EXPERT: 639,
+            MASTER: 689,
+          },
         },
       },
       'ファンファーレ！！！': {
@@ -4020,11 +4212,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'hime',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'megumi', 'hime'],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 20,
-          EXPERT: 28,
-          MASTER: 33,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 20,
+            EXPERT: 28,
+            MASTER: 33,
+          },
+          maxCombo: {
+            NORMAL: 274,
+            HARD: 517,
+            EXPERT: 708,
+            MASTER: 1000,
+          },
         },
       },
       '天才なのかもしれない（104期Ver.）': {
@@ -4171,11 +4371,19 @@ export const useMusicStore = defineStore('musicList', {
           'kosuzu',
           'hime',
         ],
-        difficultyLevel: {
-          NORMAL: 13,
-          HARD: 19,
-          EXPERT: 27,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 19,
+            EXPERT: 27,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 347,
+            HARD: 576,
+            EXPERT: 957,
+            MASTER: 1374,
+          },
         },
       },
       'NEO SKY, NEO MAP!': {
@@ -4204,11 +4412,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'kozue', 'ginko'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 18,
-          EXPERT: 26,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 18,
+            EXPERT: 26,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 259,
+            HARD: 443,
+            EXPERT: 628,
+            MASTER: 835,
+          },
         },
       },
       'Daydream Warrior': {
@@ -4237,11 +4453,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'sayaka',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'tsuzuri', 'kosuzu'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 18,
-          EXPERT: 27,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 18,
+            EXPERT: 27,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 223,
+            HARD: 343,
+            EXPERT: 747,
+            MASTER: 1035,
+          },
         },
       },
       '夏色えがおで1, 2, Jump!': {
@@ -4280,11 +4504,19 @@ export const useMusicStore = defineStore('musicList', {
           'kosuzu',
           'hime',
         ],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 17,
-          EXPERT: 24,
-          MASTER: 27,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 24,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 448,
+            HARD: 599,
+            EXPERT: 974,
+            MASTER: 1284,
+          },
         },
       },
       '常夏☆サンシャイン': {
@@ -4313,11 +4545,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['rurino', 'megumi', 'hime'],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 17,
-          EXPERT: 25,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 222,
+            HARD: 352,
+            EXPERT: 561,
+            MASTER: 805,
+          },
         },
       },
       'ミラクルショッピング ～ドン・キホーテのテーマ～': {
@@ -4680,11 +4920,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 20,
-          EXPERT: 28,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 20,
+            EXPERT: 28,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 432,
+            HARD: 901,
+            EXPERT: 1257,
+            MASTER: 1389,
+          },
         },
       },
       'Hello, new dream!': {
@@ -4740,71 +4988,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 21,
-          EXPERT: 29,
-          MASTER: 34,
-        },
-      },
-      Edelied: {
-        ID: 'm_160',
-        musicData: {
-          kana: 'えーでりーど',
-          singer: 'Edel Note',
-          releaseDate: {
-            year: 2099,
-            month: 12,
-            date: 31,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 21,
+            EXPERT: 29,
+            MASTER: 34,
           },
-          numbering: '',
-          BPM: {
-            original: 173,
-            inGame: 173,
+          maxCombo: {
+            NORMAL: 373,
+            HARD: 774,
+            EXPERT: 1111,
+            MASTER: 1678,
           },
-          time: 91,
-          cover: false,
-          link: 'https://youtu.be/BegfTmDrSR8?si=Irn2W27xqeDAnPT2&t=384',
-        },
-        attribute: 'cool',
-        BHcount: 64,
-        level: 0,
-        term: 105,
-        center: 'izumi',
-        bonusSkill: 'ビートハートアップ',
-        singingMembers: ['seras', 'izumi'],
-      },
-      '輪舞-revolution': {
-        ID: 'm_161',
-        musicData: {
-          kana: 'ろんど',
-          singer: 'Edel Note',
-          releaseDate: {
-            year: 1997,
-            month: 5,
-            date: 21,
-          },
-          numbering: '奥井雅美 10thシングル',
-          BPM: {
-            original: 128,
-            inGame: 128,
-          },
-          time: 101,
-          cover: true,
-          link: 'https://youtube.com/shorts/hpXLjeo0XBk?si=cAsWBtK42Z2e4t7i',
-        },
-        attribute: 'pure',
-        BHcount: 52,
-        level: 0,
-        term: 105,
-        center: 'seras',
-        bonusSkill: 'メンタルリカバー',
-        singingMembers: ['seras', 'izumi'],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 18,
-          EXPERT: 25,
-          MASTER: 29,
         },
       },
       'Celebration!': {
@@ -4833,11 +5029,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kaho',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'ginko'],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 17,
-          EXPERT: 27,
-          MASTER: 32,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 17,
+            EXPERT: 27,
+            MASTER: 32,
+          },
+          maxCombo: {
+            NORMAL: 372,
+            HARD: 440,
+            EXPERT: 875,
+            MASTER: 1250,
+          },
         },
       },
       '37.5℃のファンタジー': {
@@ -4893,11 +5097,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'kosuzu'],
-        difficultyLevel: {
-          NORMAL: 15,
-          HARD: 19,
-          EXPERT: 27,
-          MASTER: 31,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 15,
+            HARD: 19,
+            EXPERT: 27,
+            MASTER: 31,
+          },
+          maxCombo: {
+            NORMAL: 360,
+            HARD: 540,
+            EXPERT: 707,
+            MASTER: 1052,
+          },
         },
       },
       アイマイメーデー: {
@@ -4953,11 +5165,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'rurino',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'hime'],
-        difficultyLevel: {
-          NORMAL: 14,
-          HARD: 19,
-          EXPERT: 26,
-          MASTER: 30,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 19,
+            EXPERT: 26,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 285,
+            HARD: 451,
+            EXPERT: 684,
+            MASTER: 1045,
+          },
         },
       },
       'BLAST！！': {
@@ -4987,6 +5207,47 @@ export const useMusicStore = defineStore('musicList', {
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'hime'],
       },
+      Edelied: {
+        ID: 'm_160',
+        musicData: {
+          kana: 'えーでりーど',
+          singer: 'Edel Note',
+          releaseDate: {
+            year: 2099,
+            month: 12,
+            date: 31,
+          },
+          numbering: '',
+          BPM: {
+            original: 173,
+            inGame: 173,
+          },
+          time: 91,
+          cover: false,
+          link: 'https://youtu.be/BegfTmDrSR8?si=Irn2W27xqeDAnPT2&t=384',
+        },
+        attribute: 'cool',
+        BHcount: 64,
+        level: 0,
+        term: 105,
+        center: 'izumi',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 18,
+            EXPERT: 28,
+            MASTER: 31,
+          },
+          maxCombo: {
+            NORMAL: 291,
+            HARD: 464,
+            EXPERT: 1010,
+            MASTER: 1124,
+          },
+        },
+      },
       Retrofuture: {
         ID: 'm_165',
         musicData: {
@@ -5013,11 +5274,60 @@ export const useMusicStore = defineStore('musicList', {
         center: 'seras',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['seras', 'izumi'],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 18,
-          EXPERT: 26,
-          MASTER: 31,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 18,
+            EXPERT: 26,
+            MASTER: 31,
+          },
+          maxCombo: {
+            NORMAL: 344,
+            HARD: 706,
+            EXPERT: 1057,
+            MASTER: 1467,
+          },
+        },
+      },
+      チリコンカン: {
+        ID: 'm_167',
+        musicData: {
+          kana: 'ちりこんかん',
+          singer: 'Edel Note',
+          releaseDate: {
+            year: 2025,
+            month: 5,
+            date: 21,
+          },
+          numbering: 'Edel Note 1stシングル',
+          BPM: {
+            original: 176,
+            inGame: 176,
+          },
+          time: 95,
+          cover: false,
+          link: 'https://youtu.be/wvwVN9pCYNw?si=tiuUPeSNJ6aFU4lb&t=172',
+        },
+        attribute: 'smile',
+        BHcount: 68,
+        level: 1,
+        term: 105,
+        center: 'izumi',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 15,
+            HARD: 20,
+            EXPERT: 28,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 290,
+            HARD: 552,
+            EXPERT: 898,
+            MASTER: 1122,
+          },
         },
       },
       十六夜セレーネ: {
@@ -5045,6 +5355,47 @@ export const useMusicStore = defineStore('musicList', {
         term: 105,
         center: 'seras',
         bonusSkill: 'ビートハートアップ',
+        singingMembers: ['seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 19,
+            EXPERT: 26,
+            MASTER: 31,
+          },
+          maxCombo: {
+            NORMAL: 362,
+            HARD: 585,
+            EXPERT: 874,
+            MASTER: 1131,
+          },
+        },
+      },
+      天地黎明: {
+        ID: 'm_179',
+        musicData: {
+          kana: 'てんちれいめい',
+          singer: 'Edel Note',
+          releaseDate: {
+            year: 2025,
+            month: 5,
+            date: 21,
+          },
+          numbering: 'Edel Note 1stシングル',
+          BPM: {
+            original: 168,
+            inGame: 168,
+          },
+          time: 117,
+          cover: false,
+          link: '',
+        },
+        attribute: 'smile',
+        BHcount: 80,
+        level: 1,
+        term: 105,
+        center: 'izumi',
+        bonusSkill: 'メンタルリカバー',
         singingMembers: ['seras', 'izumi'],
       },
       'be proud': {
@@ -5074,11 +5425,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kozue',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['kozue'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 16,
-          EXPERT: 24,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 16,
+            EXPERT: 24,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 402,
+            HARD: 422,
+            EXPERT: 695,
+            MASTER: 1019,
+          },
         },
       },
       幸せのリボン: {
@@ -5108,11 +5467,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'tsuzuri',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['tsuzuri'],
-        difficultyLevel: {
-          NORMAL: 10,
-          HARD: 16,
-          EXPERT: 22,
-          MASTER: 26,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 16,
+            EXPERT: 22,
+            MASTER: 26,
+          },
+          maxCombo: {
+            NORMAL: 267,
+            HARD: 508,
+            EXPERT: 777,
+            MASTER: 985,
+          },
         },
       },
       'やっぱ天使！': {
@@ -5142,11 +5509,19 @@ export const useMusicStore = defineStore('musicList', {
         center: 'megumi',
         bonusSkill: 'ビートハートアップ',
         singingMembers: ['megumi'],
-        difficultyLevel: {
-          NORMAL: 11,
-          HARD: 17,
-          EXPERT: 25,
-          MASTER: 29,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 237,
+            HARD: 435,
+            EXPERT: 653,
+            MASTER: 1004,
+          },
         },
       },
       '青空Jumping Heart': {
@@ -5175,12 +5550,47 @@ export const useMusicStore = defineStore('musicList', {
         center: 'hime',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['rurino', 'hime'],
-        difficultyLevel: {
-          NORMAL: 12,
-          HARD: 19,
-          EXPERT: 25,
-          MASTER: 28,
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 19,
+            EXPERT: 25,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 259,
+            HARD: 540,
+            EXPERT: 809,
+            MASTER: 1005,
+          },
         },
+      },
+      '虹色Passions!': {
+        ID: 'm_180',
+        musicData: {
+          kana: 'にじいろぱっしょんず',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2020,
+            month: 10,
+            date: 21,
+          },
+          numbering: 'TVアニメ「虹ヶ咲学園スクールアイドル同好会」第1期OPテーマ',
+          BPM: {
+            original: 180,
+            inGame: 180,
+          },
+          time: 93.46,
+          cover: true,
+          link: '',
+        },
+        attribute: 'smile',
+        BHcount: 68,
+        level: 0,
+        term: 105,
+        center: 'kosuzu',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['sayaka', 'kosuzu'],
       },
       ロミオとシンデレラ: {
         ID: 'm_166',
@@ -5208,6 +5618,47 @@ export const useMusicStore = defineStore('musicList', {
         center: 'seras',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['seras'],
+      },
+      '輪舞-revolution': {
+        ID: 'm_161',
+        musicData: {
+          kana: 'ろんど',
+          singer: 'Edel Note',
+          releaseDate: {
+            year: 1997,
+            month: 5,
+            date: 21,
+          },
+          numbering: '奥井雅美 10thシングル',
+          BPM: {
+            original: 128,
+            inGame: 128,
+          },
+          time: 101,
+          cover: true,
+          link: 'https://youtube.com/shorts/hpXLjeo0XBk?si=cAsWBtK42Z2e4t7i',
+        },
+        attribute: 'pure',
+        BHcount: 52,
+        level: 0,
+        term: 105,
+        center: 'seras',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 18,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 234,
+            HARD: 418,
+            EXPERT: 742,
+            MASTER: 1049,
+          },
+        },
       },
       月光: {
         ID: 'm_177',

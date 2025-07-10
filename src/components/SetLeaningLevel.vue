@@ -1,18 +1,21 @@
 <template>
   <v-container class="pa-0">
     <h3 class="text-center mb-2">
-      <v-tooltip location="bottom" v-if="store.musicList[store.selectMusicTitle].musicData.link !== ''">
+      <v-tooltip location="bottom">
         <template v-slot:activator="{ props }">
           <a
-            :href="store.musicList[store.selectMusicTitle].musicData.link !== '' ? store.musicList[store.selectMusicTitle].musicData.link : 'javascript:void(0)'"
+            :href="`https://wikiwiki.jp/llll_wiki/${store.selectMusicTitle
+              .replaceAll('（', '(')
+              .replaceAll('）', ')')}`"
             target="_blank"
             v-bind="props"
             :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
-          >{{ store.selectMusicTitle }}</a>
+          >
+            {{ store.selectMusicTitle }}
+          </a>
         </template>
-        YouTubeで試聴する
+        Wikiの楽曲ページを見る
       </v-tooltip>
-      <span v-else>{{ store.selectMusicTitle }}</span>
       <p>{{ store.musicList[store.selectMusicTitle].musicData.singer }}</p>
     </h3>
 
@@ -29,8 +32,8 @@
           class="mb-2"
         ></v-img>
 
-        <div v-if="store.musicList[store.selectMusicTitle]?.difficultyLevel">
-          <h4 class="subtitle">楽曲難易度</h4>
+        <div v-if="store.musicList[store.selectMusicTitle]?.scoreData">
+          <h4 class="subtitle">楽曲難易度・コンボ数</h4>
 
           <v-table
             density="compact"
@@ -38,8 +41,10 @@
           >
             <thead>
               <tr>
+                <th></th>
                 <template
-                  v-for="(difficulty, key) in store.musicList[store.selectMusicTitle].difficultyLevel"
+                  v-for="(difficulty, key) in store.musicList[store.selectMusicTitle].scoreData
+                    .difficultyLevel"
                   :key="key"
                 >
                   <th class="px-1 text-center">{{ key }}</th>
@@ -48,11 +53,22 @@
             </thead>
             <tbody>
               <tr>
+                <td>難易度</td>
                 <template
-                  v-for="(difficulty) in store.musicList[store.selectMusicTitle].difficultyLevel"
+                  v-for="difficulty in store.musicList[store.selectMusicTitle].scoreData
+                    .difficultyLevel"
                   :key="difficulty"
                 >
                   <td class="px-1 text-center">{{ difficulty }}</td>
+                </template>
+              </tr>
+              <tr>
+                <td>コンボ数</td>
+                <template
+                  v-for="maxCombo in store.musicList[store.selectMusicTitle].scoreData.maxCombo"
+                  :key="maxCombo"
+                >
+                  <td class="px-1 text-center">{{ maxCombo }}</td>
                 </template>
               </tr>
             </tbody>
@@ -63,19 +79,33 @@
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
-                <v-col cols="12" class="mb-1">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                >
                   <h4>発売(発表)日</h4>
                   {{ store.makeReleaseDate }}
                 </v-col>
-                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.numbering">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                  v-if="store.musicList[store.selectMusicTitle].musicData.numbering"
+                >
                   <h4>収録CD</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.numbering }}
                 </v-col>
-                <v-col cols="12" class="mb-1">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                >
                   <h4>原曲BPM</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.BPM.original }}
                 </v-col>
-                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.time > 0">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                  v-if="store.musicList[store.selectMusicTitle].musicData.time > 0"
+                >
                   <h4>秒数</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.time }}
                 </v-col>
@@ -85,7 +115,12 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col cols="12" sm="6" class="pl-sm-3" style="font-size: 15px;">
+      <v-col
+        cols="12"
+        sm="6"
+        class="pl-sm-3"
+        style="font-size: 15px"
+      >
         <div class="mb-2">
           <h4 class="subtitle">センター</h4>
           <div>
@@ -96,11 +131,18 @@
             >
               <v-avatar left>
                 <v-img
-                  :src="store.getImagePath('member_icon', `icon_SD_${store.musicList[store.selectMusicTitle].center}`)"
+                  :src="
+                    store.getImagePath(
+                      'member_icon',
+                      `icon_SD_${store.musicList[store.selectMusicTitle].center}`,
+                    )
+                  "
                   width="30px"
                 ></v-img>
               </v-avatar>
-              <span class="ml-1">{{ store.makeFullName(store.musicList[store.selectMusicTitle].center) }}</span>
+              <span class="ml-1">{{
+                store.makeFullName(store.musicList[store.selectMusicTitle].center)
+              }}</span>
             </v-chip>
           </div>
         </div>
@@ -130,23 +172,32 @@
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level >= 10 ? store.musicList[store.selectMusicTitle].level - 10 : 0)"
+                @click="
+                  store.valueChange(
+                    'musicLevel',
+                    store.musicList[store.selectMusicTitle].level >= 10
+                      ? store.musicList[store.selectMusicTitle].level - 10
+                      : 0,
+                  )
+                "
                 :disabled="store.musicList[store.selectMusicTitle].level === 0"
-              >{{
-                  store.musicList[store.selectMusicTitle].level >= 10 ?
-                    '-10' :
-                    store.musicList[store.selectMusicTitle].level === 0 ?
-                      0 :
-                      `-${store.musicList[store.selectMusicTitle].level}`
+                >{{
+                  store.musicList[store.selectMusicTitle].level >= 10
+                    ? '-10'
+                    : store.musicList[store.selectMusicTitle].level === 0
+                    ? 0
+                    : `-${store.musicList[store.selectMusicTitle].level}`
                 }}
               </v-btn>
             </div>
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)"
+                @click="
+                  store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)
+                "
                 :disabled="store.musicList[store.selectMusicTitle].level === 0"
-              >-1
+                >-1
               </v-btn>
             </div>
             <div>
@@ -155,22 +206,31 @@
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)"
+                @click="
+                  store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)
+                "
                 :disabled="store.musicList[store.selectMusicTitle].level === 50"
-              >+1
+                >+1
               </v-btn>
             </div>
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level <= 40 ? store.musicList[store.selectMusicTitle].level + 10 : 50)"
+                @click="
+                  store.valueChange(
+                    'musicLevel',
+                    store.musicList[store.selectMusicTitle].level <= 40
+                      ? store.musicList[store.selectMusicTitle].level + 10
+                      : 50,
+                  )
+                "
                 :disabled="store.musicList[store.selectMusicTitle].level === 50"
-              >{{
-                  store.musicList[store.selectMusicTitle].level <= 40 ?
-                    '+10' :
-                    50 - store.musicList[store.selectMusicTitle].level === 0 ?
-                      0 :
-                      `+${50 - store.musicList[store.selectMusicTitle].level}`
+                >{{
+                  store.musicList[store.selectMusicTitle].level <= 40
+                    ? '+10'
+                    : 50 - store.musicList[store.selectMusicTitle].level === 0
+                    ? 0
+                    : `+${50 - store.musicList[store.selectMusicTitle].level}`
                 }}
               </v-btn>
             </div>
@@ -180,14 +240,18 @@
           <h4 class="subtitle">獲得ボーナススキル</h4>
           <div class="d-flex flex-row align-center">
             <img
-              :src="store.getImagePath('bonusSkill_icon', store.musicList[store.selectMusicTitle].bonusSkill)"
+              :src="
+                store.getImagePath(
+                  'bonusSkill_icon',
+                  store.musicList[store.selectMusicTitle].bonusSkill,
+                )
+              "
               :alt="store.musicList[store.selectMusicTitle].bonusSkill"
               class="mr-1"
-              style="width: 30px; border-radius: 3px;"
-            >
-            {{ store.musicList[store.selectMusicTitle].bonusSkill }} × {{
-              Math.floor(store.musicList[store.selectMusicTitle].level / 10)
-            }}
+              style="width: 30px; border-radius: 3px"
+            />
+            {{ store.musicList[store.selectMusicTitle].bonusSkill }} ×
+            {{ Math.floor(store.musicList[store.selectMusicTitle].level / 10) }}
           </div>
         </div>
         <div class="mb-1">
@@ -200,10 +264,17 @@
             >
               <v-avatar left>
                 <v-img
-                  :src="store.getImagePath('attribute_icon', `icon_${store.musicList[store.selectMusicTitle].attribute}`)"
+                  :src="
+                    store.getImagePath(
+                      'attribute_icon',
+                      `icon_${store.musicList[store.selectMusicTitle].attribute}`,
+                    )
+                  "
                 ></v-img>
               </v-avatar>
-              <span class="ml-2">{{ attributeName[store.musicList[store.selectMusicTitle].attribute].name }}</span>
+              <span class="ml-2">{{
+                attributeName[store.musicList[store.selectMusicTitle].attribute].name
+              }}</span>
             </v-chip>
           </div>
         </div>
@@ -220,36 +291,35 @@
   </v-container>
 </template>
 
-<script setup>
-import {useStoreCounter} from '../stores/counter';
+<script setup lang="ts">
+import { useStoreCounter } from '@/stores/counter';
 
 const store = useStoreCounter();
 </script>
 
-<script>
+<script lang="ts">
 export default {
   data() {
     return {
       attributeName: {
         smile: {
           name: 'スマイル',
-          color: 'pink'
+          color: 'pink',
         },
         cool: {
           name: 'クール',
-          color: 'blue'
+          color: 'blue',
         },
         pure: {
           name: 'ピュア',
-          color: 'green'
-        }
-      }
+          color: 'green',
+        },
+      },
     };
   },
-  created() {
-  },
+  created() {},
   computed: {},
-  methods: {}
+  methods: {},
 };
 </script>
 

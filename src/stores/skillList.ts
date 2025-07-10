@@ -2420,6 +2420,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      グルーヴィヒートバイブス: {
+        groovyHeatVibes_01: {
+          text: [
+            'このセクション中、AP回復速度を+',
+            '%する。さらにボルテージLv.10以上のとき、このセクション中、ビートハートの出現個数を+2する。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['APQuick', 'vibes_section'],
+          },
+        },
+      },
       グルーヴィボルテックスハート: {
         'groovyVortexHeart-over5_voltageGain-over10_heartCaptcha': {
           text: [
@@ -2496,6 +2508,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'groovy',
             type: ['heartCaptcha', 'modeChange'],
+          },
+        },
+      },
+      グルーヴィアンビエンスゲイン: {
+        groovyAmbienceGain_01: {
+          text: [
+            'ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+            'する。さらにボルテージLv.が10以上の時、APを',
+            '回復する。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: ['sound', 'ambience_section', 'APGain'],
           },
         },
       },
@@ -5833,6 +5858,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      サウンドボルテージバイブス: {
+        soundVoltageVibes_01: {
+          text: [
+            'このセクション中、ビートハートの出現個数を+1する。さらにムードがハッピー、メロウいずれか75以上のとき、ボルテージPt.を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['vibes_section', 'sound', 'voltageGain'],
+          },
+        },
+      },
       イミテーションハート: {
         imitationHeart_01: {
           text: [
@@ -5871,6 +5908,16 @@ export const useSkillStore = defineStore('skillList', {
         imitationVoltage_01: {
           text: [
             'カードがステージにセットされ、獲得するメンタルプロテクト効果を吸収する。メンタルプロテクト効果を10%吸収したとき、ボルテージPt.を+',
+            'し、捨札に移動する。',
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'voltageGain'],
+          },
+        },
+        imitationVoltage_02: {
+          text: [
+            'カードがステージにセットされ、獲得するボルテージPt.を吸収する。ボルテージPt.を3000吸収したとき、ボルテージPt.を+',
             'し、捨札に移動する。',
           ],
           detail: {

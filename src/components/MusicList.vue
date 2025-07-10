@@ -216,7 +216,7 @@
               <v-row>
                 <v-col
                   cols="12"
-                  sm="5"
+                  sm="6"
                 >
                   <h3>ボルテージアップ</h3>
                   <p class="mb-1">
@@ -254,7 +254,7 @@
                 </v-col>
                 <v-col
                   cols="12"
-                  sm="5"
+                  sm="6"
                 >
                   <h3>メンタルリカバー</h3>
                   <p class="mb-1">
@@ -294,16 +294,42 @@
                 </v-col>
                 <v-col
                   cols="12"
-                  sm="2"
+                  sm="6"
                 >
-                  <div class="mb-3 mb-md-10">
-                    <h3>ビートハートアップ</h3>
-                    ビートハートアップレベル×0.5%
-                  </div>
-                  <div>
-                    <h3>LOVEボーナス</h3>
-                    LOVEボーナスレベル×0.5%
-                  </div>
+                  <h3>LOVEボーナス</h3>
+                  <p class="mb-1">
+                    LOVEボーナスレベルによって得られるLOVEが増加する。<br />
+                    増加量は以下のとおり。
+                  </p>
+                  <v-table>
+                    <thead>
+                      <tr>
+                        <th class="text-center">Lv</th>
+                        <th class="text-center">1～5</th>
+                        <th class="text-center">6～10</th>
+                        <th class="text-center">11～25</th>
+                        <th class="text-center">26～50</th>
+                        <th class="text-center">51～</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-center">増加量</td>
+                        <td class="text-center">(Lv.×10)%</td>
+                        <td class="text-center">(50+(Lv.-5)×5)%</td>
+                        <td class="text-center">(75+(Lv.-10)×4)%</td>
+                        <td class="text-center">(135+(Lv.-25)×3)%</td>
+                        <td class="text-center">(210+(Lv.-50)×2.5)%</td>
+                      </tr>
+                    </tbody>
+                  </v-table>
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
+                >
+                  <h3>ビートハートアップ</h3>
+                  ビートハートアップレベル×0.5%
                 </v-col>
               </v-row>
             </v-expansion-panel-text>
@@ -400,7 +426,7 @@
         align-self="center"
         class="text-center"
       >
-        <v-btn @click="store.showModalEvent('masteryLevel')"> 詳細を見る </v-btn>
+        <v-btn @click="store.showModalEvent('masteryLevel')">詳細を見る</v-btn>
       </v-col>
     </v-row>
 
@@ -515,26 +541,23 @@
           <v-divider class="mb-1 border-opacity-25"></v-divider>
           <v-card-text class="pt-0 px-1 pb-1">
             <ul class="d-flex">
-              <li class="mr-1">
-                <v-img
+              <li class="skillIconArea mr-1">
+                <img
                   :src="store.getImagePath('bonusSkill_icon', ary.bonusSkill)"
                   :alt="ary.bonusSkill"
-                  class="skillIcon"
-                ></v-img>
+                />
               </li>
-              <li class="mr-1">
-                <v-img
+              <li class="skillIconArea mr-1">
+                <img
                   :src="store.getImagePath('attribute_icon', `icon_${ary.attribute}`)"
                   :alt="ary.attribute"
-                  class="skillIcon"
-                ></v-img>
+                />
               </li>
-              <li class="mr-1">
-                <v-img
+              <li class="skillIconArea mr-1">
+                <img
                   :src="store.getImagePath('member_icon', `icon_SD_${ary.center}`)"
                   :alt="ary.center"
-                  class="skillIcon"
-                ></v-img>
+                />
               </li>
               <li class="align-self-center text-caption">
                 MLv.{{ store.musicList[songTitle].level }}
@@ -569,26 +592,23 @@
               <v-divider class="mb-1 border-opacity-25"></v-divider>
               <v-card-item class="pt-0 px-1 pb-1">
                 <ul class="d-flex">
-                  <li class="mr-1">
-                    <v-img
+                  <li class="skillIcon mr-1">
+                    <img
                       :src="store.getImagePath('bonusSkill_icon', ary.bonusSkill)"
                       :alt="ary.bonusSkill"
-                      class="skillIcon"
-                    ></v-img>
+                    />
                   </li>
-                  <li class="mr-1">
-                    <v-img
+                  <li class="skillIcon mr-1">
+                    <img
                       :src="store.getImagePath('attribute_icon', `icon_${ary.attribute}`)"
                       :alt="ary.attribute"
-                      class="skillIcon"
-                    ></v-img>
+                    />
                   </li>
-                  <li class="mr-1">
-                    <v-img
+                  <li class="skillIcon mr-1">
+                    <img
                       :src="store.getImagePath('member_icon', `icon_SD_${ary.center}`)"
                       :alt="ary.center"
-                      class="skillIcon"
-                    ></v-img>
+                    />
                   </li>
                   <li class="align-self-center text-caption">
                     MLv.{{ store.musicList[songTitle].level }}
@@ -615,7 +635,7 @@
 
 <script setup lang="ts">
 import { CounterState } from '@/types/counter';
-import { useStoreCounter } from '../stores/counter';
+import { useStoreCounter } from '@/stores/counter';
 const store = useStoreCounter();
 store.setSupportSkillLevel();
 store.loading = true;
@@ -693,7 +713,7 @@ export default {
           } else if (!this.isSchoolShow) {
             return true;
           } else {
-            return !!(musicData?.difficultyLevel ?? false);
+            return !!(musicData?.scoreData ?? false);
           }
         });
 
@@ -848,9 +868,14 @@ export default {
   }
 }
 
-.skillIcon {
+.skillIconArea {
   width: 28px;
-  border-radius: 3px;
+  height: 28px;
+
+  img {
+    width: 100%;
+    border-radius: 3px;
+  }
 }
 
 .member {

@@ -51,6 +51,22 @@ interface difficultyLevel {
 }
 
 /**
+ * 曲の最大コンボ数を表すインターフェース
+ *
+ * @interface maxCombo
+ * @property {number} NORMAL ノーマルレベル
+ * @property {number} HARD ハードレベル
+ * @property {number} EXPERT エキスパートレベル
+ * @property {number} MASTER マスターレベル
+ */
+interface maxCombo {
+  NORMAL: number;
+  HARD: number;
+  EXPERT: number;
+  MASTER: number;
+}
+
+/**
  * 曲のアイテムデータを表すインターフェース
  *
  * @interface MusicItem
@@ -86,7 +102,10 @@ interface MusicItem {
     | 'izumi';
   bonusSkill: 'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス';
   singingMembers: string[];
-  difficultyLevel?: difficultyLevel;
+  scoreData?: {
+    difficultyLevel: difficultyLevel;
+    maxCombo: maxCombo;
+  };
 }
 
 /**

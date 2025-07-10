@@ -928,7 +928,7 @@ export default {
         first: store.memberName[store.getSettingCard.memberName].first,
         last: store.memberName[store.getSettingCard.memberName].last,
       };
-      return `https://wikiwiki.jp/llll_wiki/スクステ/カード/［${store.getSettingCard.cardName
+      return `https://wikiwiki.jp/llll_wiki/［${store.getSettingCard.cardName
         .replaceAll('&', '＆')
         .replaceAll('/', '／')}］${name.first}${name.first === 'セラス' ? ' ' : ''}${name.last}`;
     },
