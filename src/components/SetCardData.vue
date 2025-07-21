@@ -207,7 +207,7 @@
         cols="12"
         sm="5"
       >
-        <div class="mb-3">
+        <div class="mb-5">
           <h4 class="mb-3">特訓度</h4>
           <v-row>
             <v-col
@@ -257,7 +257,7 @@
           </v-row>
         </div>
         <div class="mb-3">
-          <h4 class="mb-1">レベル</h4>
+          <h4 class="mb-1">カードレベル</h4>
           <div class="paramSetArea mb-1">
             <div>
               <v-btn
@@ -332,7 +332,7 @@
           v-if="store.settingCardData?.specialAppeal"
         >
           <h4 class="mb-1 d-flex flex-row">
-            スペシャルアピール
+            スペシャルアピール（スクステ）
             <v-btn
               size="small"
               density="compact"
@@ -392,7 +392,7 @@
           v-if="store.settingCardData?.skill"
         >
           <h4 class="mb-1 d-flex flex-row">
-            スキル
+            スキル（スクステ）
             <v-btn
               size="small"
               density="compact"
@@ -663,11 +663,29 @@
       </v-col>
     </v-row>
 
-    <skillArea skillType="specialAppeal" />
+    <v-tabs
+      v-model="gameMode"
+      color="pink"
+      grow
+    >
+      <v-tab value="stage">スクールアイドルステージ</v-tab>
+      <v-tab value="show">スクールアイドルショウ</v-tab>
+    </v-tabs>
 
-    <skillArea skillType="skill" />
+    <v-divider class="border-opacity-50"></v-divider>
 
-    <skillArea skillType="characteristic" />
+    <v-tabs-window v-model="gameMode">
+      <v-tabs-window-item value="stage">
+        <skillArea skillType="specialAppeal" />
+
+        <skillArea skillType="skill" />
+
+        <skillArea skillType="characteristic" />
+      </v-tabs-window-item>
+      <v-tabs-window-item value="show">
+        <div class="mt-4">Coming Soon...</div>
+      </v-tabs-window-item>
+    </v-tabs-window>
 
     <div
       class="mt-2 px-0 pt-0 pb-1"
@@ -905,6 +923,7 @@ export default {
       skillID: '',
       isAlternate: false,
       selectAddSkillDetail: 'mainSkill',
+      gameMode: 'stage',
     };
   },
   components: {

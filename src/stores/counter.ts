@@ -9,7 +9,7 @@ import { CardData } from '@/types/cardList';
 
 export const useStoreCounter = defineStore('store', {
   state: (): CounterState => ({
-    version: 'ζ.23(アーリーアクセス)',
+    version: 'ζ.24(アーリーアクセス)',
     loading: false,
     dialog: false,
     dialogError: false,

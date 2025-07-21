@@ -1627,6 +1627,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      エクステアトラクトブースト: {
+        extendAttractBoost: {
+          text: [
+            'このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['extendHand', 'boost_loveAttract'],
+          },
+        },
+      },
       エクステヒートゲイン: {
         extensionHeatGain_01: {
           text: [
@@ -1649,6 +1661,42 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'ambience_section'],
+          },
+        },
+      },
+      エクステメロウバイブス: {
+        extensionMellowVibes_01: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加し、ムード値をメロウ方向に+',
+            'する。さらにムードがメロウ100のとき、このセクション中、ビートハートの出現個数を+2する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['extensions_section', 'ambience_section', 'vibes_section'],
+          },
+        },
+      },
+      エクステリテイクワイド: {
+        extensionRetakeWide_01: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を2枚増加し、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'extensions_section', 'heartLimitUp'],
+          },
+        },
+      },
+      エクステリブートボルテージ: {
+        extensionRebootVoltage_01: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を2枚増加し、次に使用するボルテージゲイン効果を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'extensions_section', 'boost_voltageGain'],
           },
         },
       },
@@ -3813,6 +3861,44 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ドレス《フルーツパンチ》': {
+        dress_fruitPunch_01: {
+          text: [
+            'ドレスカード《フルーツパンチ》を2種類(合計2枚)山札に追加する。さらにデッキ枚数が21枚のとき、ビートハート',
+            '回分のスキルハートを獲得し、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。この時花帆、吟子、ドレスカード、ハートフルパンチカードをドローする確率大幅アップ。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard', 'heartCaptcha', 'reshuffle'],
+          },
+        },
+      },
+      'フルーツパンチ': {
+        fruitPunch_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、このステージ中、ドレスカードの使用によるボルテージゲイン効果を+',
+            '%する。さらにデッキ枚数が22枚のとき、このステージ中、獲得するLOVEを+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'boost_voltageGain', 'loveAttract_stage'],
+          },
+        },
+        fruitPunch_02: {
+          text: [
+            'ボルテージPt.を+',
+            'し、ビートハート',
+            '回分のスキルハートを獲得する。さらにデッキ枚数が23枚のとき、このステージ中、ドレスカードの使用によるラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
+          },
+        },
+      },
       Prinzessin: {
         prinzessin: {
           text: ['このセクション中、AP回復速度を+', '%する。'],
@@ -4050,18 +4136,6 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'blessing',
             type: ['APReduce_heart', 'boost_heartCaptcha'],
-          },
-        },
-      },
-      エクステアトラクトブースト: {
-        extendAttractBoost: {
-          text: [
-            'このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+',
-            '%する。',
-          ],
-          detail: {
-            attr: '',
-            type: ['extendHand', 'boost_loveAttract'],
           },
         },
       },
@@ -5463,6 +5537,16 @@ export const useSkillStore = defineStore('skillList', {
             type: ['reshuffle', 'boost_voltageGain'],
           },
         },
+        rebootVoltage_02: {
+          text: [
+            '次に使用するボルテージゲイン効果を+',
+            '%する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。',
+          ],
+          detail: {
+            attr: 'reboot',
+            type: ['boost_voltageGain', 'reshuffle'],
+          },
+        },
       },
       グランドフィナーレ: {
         grandFinale_01: {
@@ -5596,7 +5680,7 @@ export const useSkillStore = defineStore('skillList', {
       エクステアンビエンス: {
         extensionAmbience_01: {
           text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにムードがハッピー、メロウいずれかのとき、ムード値を+',
+            'このセクション中、手札の上限枚数を3枚増加する。さらにムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
             'する。',
           ],
           detail: {
@@ -5680,7 +5764,7 @@ export const useSkillStore = defineStore('skillList', {
       アンビエンスハート: {
         ambienceHeart_01: {
           text: [
-            'ムードがハッピー、メロウいずれかのとき、ムード値を+',
+            'ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
             'する。さらにビートハート',
             '回分のスキルハートを獲得する。',
           ],
@@ -5832,14 +5916,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       サウンドアンビエンス: {
         soundAmbience_01: {
-          text: ['ムード値がハッピー、メロウいずれかのとき、ムード値を+', 'する。'],
+          text: ['ムード値がハッピー、メロウいずれかのとき、このセクション中、ムード値を+', 'する。'],
           detail: {
             attr: '',
             type: ['sound', 'ambience_section'],
           },
         },
         soundAmbience_02: {
-          text: ['このステージ中、ムードがハッピー、メロウいずれかのとき、ムード値を+', 'する。'],
+          text: ['ムードがハッピー、メロウいずれかのとき、このステージ中、ムード値を+', 'する。'],
           detail: {
             attr: '',
             type: ['sound', 'ambience_stage'],
@@ -5971,8 +6055,8 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      エグザクトアトラクション: {
-        exactAttraction_01: {
+      イグザクトアトラクション: {
+        exhaustAttract_01: {
           text: [
             'ビートハート',
             '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
@@ -5983,6 +6067,19 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_section'],
+          },
+        },
+        exhaustAttract_02: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が21枚のとき、ビートハート',
+            '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'loveAttract_stage'],
           },
         },
       },
@@ -5999,7 +6096,7 @@ export const useSkillStore = defineStore('skillList', {
         },
         bloomMySelf_02: {
           text: [
-            'このセクション中、ムードがハッピー、メロウいずれかのとき、ムード値を+',
+            'ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
             'する。さらに山札にあるセラスのスキルの消費AP-1。',
           ],
           detail: {
@@ -6236,18 +6333,6 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      エクステメロウバイブス: {
-        extensionMellowVibes_01: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加し、ムード値をメロウ方向に+',
-            'する。さらにムードがメロウ100のとき、このセクション中、ビートハートの出現個数を+2する。',
-          ],
-          detail: {
-            attr: '',
-            type: ['extensions_section', 'ambience_section', 'vibes_section'],
-          },
-        },
-      },
       アグレッシブメロウアンビエンス: {
         aggressiveMellowAmbience_01: {
           text: [
@@ -6390,6 +6475,41 @@ export const useSkillStore = defineStore('skillList', {
               'boost_loveAttract',
               'modeChange',
             ],
+          },
+        },
+      },
+      リテイクワイド: {
+        retakeWide_01: {
+          text: [
+            'このセクション中、ハート上限を+',
+            'する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartLimitUp', 'reshuffle'],
+          },
+        },
+      },
+      ダブルパンチ: {
+        doublePunch_01: {
+          text: [
+            'ハートフルパンチカードを1種類(合計2枚)山札に追加する。さらにこのステージ中、ハートフルパンチカードの使用によるスキルハート獲得効果の獲得数を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['addCard', 'boost_heartCaptcha'],
+          },
+        },
+      },
+      ハートフルパンチ: {
+        heartfulPunch_01: {
+          text: [
+            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。この時花帆、吟子、ドレスカード、ハートフルパンチカードをドローする確率大幅アップ',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle'],
           },
         },
       },

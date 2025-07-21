@@ -249,6 +249,17 @@
                         <td class="text-center">5</td>
                         <td class="text-center">4</td>
                       </tr>
+                      <tr>
+                        <td class="text-center">一定量</td>
+                        <td class="text-center">11</td>
+                        <td class="text-center">10</td>
+                        <td class="text-center">9</td>
+                        <td class="text-center">8</td>
+                        <td class="text-center">7</td>
+                        <td class="text-center">6</td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">4</td>
+                      </tr>
                     </tbody>
                   </v-table>
                 </v-col>
@@ -443,17 +454,55 @@
             activator="parent"
             transition="slide-y-transition"
           >
-            <v-list>
-              <v-list-item
+            <v-list density="compact">
+              <template
                 v-for="(label, val) in sortTypeList"
-                :key="val"
-                :value="val"
-                @click="sortingProcess(store, 'sortType', val)"
               >
-                <v-list-item-title>
-                  {{ label }}
-                </v-list-item-title>
-              </v-list-item>
+                <v-list-item
+                  v-if="!/difficultyLevel|maxCombo/.test(val)"
+                  :key="val"
+                  :title="label"
+                  :value="val"
+                  @click="sortingProcess(store, 'sortType', val)"
+                >
+                </v-list-item>
+                <v-list-group
+                  v-if="val === 'difficultyLevel' && isSchoolShow"
+                  value="difficultyLevel"
+                >
+                  <template v-slot:activator="{ props }">
+                    <v-list-item
+                      v-bind="props"
+                      :title="label"
+                    ></v-list-item>
+                  </template>
+
+                  <v-list-item
+                    v-for="difficulty_val in ['NORMAL', 'HARD', 'EXPERT', 'MASTER']"
+                    :key="`difficultyLevel_${difficulty_val}`"
+                    :title="difficulty_val"
+                    @click="sortingProcess(store, 'sortType', `difficultyLevel_${difficulty_val}`)"
+                  ></v-list-item>
+                </v-list-group>
+                <v-list-group
+                  v-if="val === 'maxCombo' && isSchoolShow"
+                  value="maxCombo"
+                >
+                  <template v-slot:activator="{ props }">
+                    <v-list-item
+                      v-bind="props"
+                      :title="label"
+                    ></v-list-item>
+                  </template>
+
+                  <v-list-item
+                    v-for="combo_val in ['NORMAL', 'HARD', 'EXPERT', 'MASTER']"
+                    :key="`maxCombo_${combo_val}`"
+                    :title="combo_val"
+                    @click="sortingProcess(store, 'sortType', `maxCombo_${combo_val}`)"
+                  ></v-list-item>
+                </v-list-group>
+              </template>
             </v-list>
           </v-menu>
         </v-btn>
@@ -501,7 +550,7 @@
       >
     </p>
     <p class="align-self-center d-block d-md-inline-block">
-      現在のソート：{{ sortTypeList[store.localStorageData.sortSettings.musicList.sortType] }}
+      現在のソート：{{ sortTypeLabel(store, store.localStorageData.sortSettings.musicList.sortType) }}
     </p>
 
     <v-divider class="my-2"></v-divider>
@@ -592,19 +641,19 @@
               <v-divider class="mb-1 border-opacity-25"></v-divider>
               <v-card-item class="pt-0 px-1 pb-1">
                 <ul class="d-flex">
-                  <li class="skillIcon mr-1">
+                  <li class="skillIconArea mr-1">
                     <img
                       :src="store.getImagePath('bonusSkill_icon', ary.bonusSkill)"
                       :alt="ary.bonusSkill"
                     />
                   </li>
-                  <li class="skillIcon mr-1">
+                  <li class="skillIconArea mr-1">
                     <img
                       :src="store.getImagePath('attribute_icon', `icon_${ary.attribute}`)"
                       :alt="ary.attribute"
                     />
                   </li>
-                  <li class="skillIcon mr-1">
+                  <li class="skillIconArea mr-1">
                     <img
                       :src="store.getImagePath('member_icon', `icon_SD_${ary.center}`)"
                       :alt="ary.center"
@@ -681,6 +730,8 @@ export default {
         BHcount: 'ビートハート発生回数',
         time: '秒数',
         releaseDate: '発売日',
+        difficultyLevel: '難易度',
+        maxCombo: 'コンボ数',
       },
       loadedImagesCount: 0,
     };
@@ -689,6 +740,14 @@ export default {
   computed: {
     makeMusicList() {
       return (store: CounterState): Object => {
+        if (
+          !this.isSchoolShow &&
+          (store.localStorageData.sortSettings.musicList.sortType.includes('difficultyLevel') ||
+          store.localStorageData.sortSettings.musicList.sortType.includes('maxCombo'))
+        ) {
+          this.sortingProcess(store, 'sortType', 'default');
+        }
+
         const list = Array.from(Object.entries(store.musicList), ([key, value]) => ({
           title: key,
           ...value,
@@ -718,41 +777,52 @@ export default {
         });
 
         result.sort((a, b) => {
-          switch (store.localStorageData.sortSettings.musicList.sortType) {
-            case 'level':
-            case 'BHcount':
-              return sorting(
-                store.localStorageData.sortSettings.musicList.order === 'ascending',
-                a[store.localStorageData.sortSettings.musicList.sortType],
-                b[store.localStorageData.sortSettings.musicList.sortType],
-              );
-            case 'kana':
-            case 'time':
-              return sorting(
-                store.localStorageData.sortSettings.musicList.order === 'ascending',
-                a.musicData[store.localStorageData.sortSettings.musicList.sortType],
-                b.musicData[store.localStorageData.sortSettings.musicList.sortType],
-              );
-            case 'releaseDate':
-              return sorting(
-                store.localStorageData.sortSettings.musicList.order === 'ascending',
-                new Date(
-                  a.musicData.releaseDate.year,
-                  a.musicData.releaseDate.month - 1,
-                  a.musicData.releaseDate.date,
-                ),
-                new Date(
-                  b.musicData.releaseDate.year,
-                  b.musicData.releaseDate.month - 1,
-                  b.musicData.releaseDate.date,
-                ),
-              );
-            default:
-              return sorting(
-                store.localStorageData.sortSettings.musicList.order === 'ascending',
-                a.ID,
-                b.ID,
-              );
+          const sortType = store.localStorageData.sortSettings.musicList.sortType.split('_')[0];
+          const difficulty = store.localStorageData.sortSettings.musicList.sortType.split('_')[1] ?? '';
+
+          if (this.isSchoolShow && /difficultyLevel|maxCombo/.test(sortType)) {
+            return sorting(
+              store.localStorageData.sortSettings.musicList.order === 'ascending',
+              a.scoreData[sortType][difficulty],
+              b.scoreData[sortType][difficulty],
+            );
+          } else {
+            switch (sortType) {
+              case 'level':
+              case 'BHcount':
+                return sorting(
+                  store.localStorageData.sortSettings.musicList.order === 'ascending',
+                  a[store.localStorageData.sortSettings.musicList.sortType],
+                  b[store.localStorageData.sortSettings.musicList.sortType],
+                );
+              case 'kana':
+              case 'time':
+                return sorting(
+                  store.localStorageData.sortSettings.musicList.order === 'ascending',
+                  a.musicData[store.localStorageData.sortSettings.musicList.sortType],
+                  b.musicData[store.localStorageData.sortSettings.musicList.sortType],
+                );
+              case 'releaseDate':
+                return sorting(
+                  store.localStorageData.sortSettings.musicList.order === 'ascending',
+                  new Date(
+                    a.musicData.releaseDate.year,
+                    a.musicData.releaseDate.month - 1,
+                    a.musicData.releaseDate.date,
+                  ),
+                  new Date(
+                    b.musicData.releaseDate.year,
+                    b.musicData.releaseDate.month - 1,
+                    b.musicData.releaseDate.date,
+                  ),
+                );
+              default:
+                return sorting(
+                  store.localStorageData.sortSettings.musicList.order === 'ascending',
+                  a.ID,
+                  b.ID,
+                );
+            }
           }
         });
 
@@ -777,6 +847,17 @@ export default {
     this.onResize();
   },
   methods: {
+    sortingProcess(store: CounterState, type: 'sortType' | 'order', val: string): void {
+      if (store.localStorageData.sortSettings.musicList[type] !== val) {
+        store.loading = true;
+
+        if (type === 'sortType') {
+          store.localStorageData.sortSettings.musicList[type] = val;
+        }
+
+        store.changeSettings('sortSettings');
+      }
+    },
     selectCenter(store: CounterState, selector: string | null): void {
       if (selector === null) {
         this.selectCenterList = [];
@@ -834,17 +915,6 @@ export default {
         h: window.innerHeight,
       };
     },
-    sortingProcess(store: CounterState, type: 'sortType' | 'order', val: string): void {
-      if (store.localStorageData.sortSettings.musicList[type] !== val) {
-        store.loading = true;
-
-        if (type === 'sortType') {
-          store.localStorageData.sortSettings.musicList[type] = val;
-        }
-
-        store.changeSettings('sortSettings');
-      }
-    },
     checkImagesLoaded(store: CounterState, totalImages: number): void {
       this.loadedImagesCount += 1;
 
@@ -852,6 +922,14 @@ export default {
         store.loading = false;
         this.loadedImagesCount = 0;
       }
+    },
+    sortTypeLabel(store: CounterState, sortTypeValue: string): string {
+      const sortType = sortTypeValue.split('_')[0];
+      const difficulty = sortTypeValue.split('_')[1] ?? '';
+      if (this.isSchoolShow && /difficultyLevel|maxCombo/.test(sortType)) {
+        return `${this.sortTypeList[sortType]} (${difficulty})`;
+      }
+      return this.sortTypeList[sortType] || '標準';
     },
   },
 };

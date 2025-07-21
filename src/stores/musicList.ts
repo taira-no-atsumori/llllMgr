@@ -4961,6 +4961,20 @@ export const useMusicStore = defineStore('musicList', {
         center: 'sayaka',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 18,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 420,
+            HARD: 640,
+            EXPERT: 889,
+            MASTER: 1396,
+          },
+        },
       },
       'アイドゥーミー！': {
         ID: 'm_178',
@@ -5070,6 +5084,61 @@ export const useMusicStore = defineStore('musicList', {
         center: 'ginko',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['kaho', 'ginko'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 18,
+            EXPERT: 26,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 323,
+            HARD: 415,
+            EXPERT: 737,
+            MASTER: 892,
+          },
+        },
+      },
+      'フルーツパンチ': {
+        ID: 'm_181',
+        musicData: {
+          kana: 'ふるーつぱんち',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2025,
+            month: 8,
+            date: 20,
+          },
+          numbering: 'スリーズブーケ 6thシングル',
+          BPM: {
+            original: 130,
+            inGame: 130,
+          },
+          time: 106.88,
+          cover: false,
+          link: '',
+        },
+        attribute: 'pure',
+        BHcount: 82,
+        level: 1,
+        term: 105,
+        center: 'kaho',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['kaho', 'ginko'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 18,
+            EXPERT: 25,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 252,
+            HARD: 423,
+            EXPERT: 556,
+            MASTER: 862,
+          },
+        },
       },
       アンペア: {
         ID: 'm_163',
@@ -5138,6 +5207,20 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kosuzu',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['sayaka', 'kosuzu'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 19,
+            EXPERT: 27,
+            MASTER: 32,
+          },
+          maxCombo: {
+            NORMAL: 225,
+            HARD: 425,
+            EXPERT: 702,
+            MASTER: 1057,
+          },
+        },
       },
       'WAWO！': {
         ID: 'm_164',
@@ -5206,6 +5289,20 @@ export const useMusicStore = defineStore('musicList', {
         center: 'hime',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['rurino', 'hime'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 20,
+            EXPERT: 27,
+            MASTER: 32,
+          },
+          maxCombo: {
+            NORMAL: 219,
+            HARD: 469,
+            EXPERT: 656,
+            MASTER: 1219,
+          },
+        },
       },
       Edelied: {
         ID: 'm_160',
@@ -5397,6 +5494,20 @@ export const useMusicStore = defineStore('musicList', {
         center: 'izumi',
         bonusSkill: 'メンタルリカバー',
         singingMembers: ['seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 23,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 390,
+            HARD: 555,
+            EXPERT: 792,
+            MASTER: 1127,
+          },
+        },
       },
       'be proud': {
         ID: 'm_169',
@@ -5686,6 +5797,47 @@ export const useMusicStore = defineStore('musicList', {
         center: 'izumi',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['izumi'],
+      },
+      '愛♡スクリ～ム！': {
+        ID: 'm_182',
+        musicData: {
+          kana: 'あいすくりーむ',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2025,
+            month: 1,
+            date: 22,
+          },
+          numbering: '「ラブライブ！シリーズのオールナイトニッポンGOLD」より',
+          BPM: {
+            original: 132,
+            inGame: 132,
+          },
+          time: 158,
+          cover: true,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 85,
+        level: 0,
+        term: 105,
+        center: 'rurino',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'sayaka', 'rurino', 'ginko', 'kosuzu', 'hime', 'seras', 'izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 26,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 287,
+            HARD: 536,
+            EXPERT: 1278,
+            MASTER: 1857,
+          },
+        },
       },
     },
   }),

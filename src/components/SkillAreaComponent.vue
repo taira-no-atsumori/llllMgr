@@ -11,8 +11,8 @@
             : skillType === 'skill'
             ? 'スキル'
             : '特性'
-        }} </span
-      >{{ store.settingCardData[skillType].name }}
+        }}
+      </span>{{ store.settingCardData[skillType].name }}
       <span
         class="AP"
         v-if="skillType !== 'characteristic'"
@@ -22,14 +22,14 @@
     </div>
     <div>
       <template v-if="skillType !== 'characteristic'">
-        <span class="skillLevel"
-          >Lv
+        <span class="skillLevel">
+          Lv
           {{
             store.settingCardData.fluctuationStatus[
               `S${skillType === 'specialAppeal' ? 'A' : ''}Level`
             ]
-          }}</span
-        >
+          }}
+        </span>
         {{ store.makeSkillText(skillType) }}
       </template>
       <template v-else>
@@ -62,7 +62,9 @@
       v-if="outputAddSkillList?.[skillType]"
     >
       <v-expansion-panel bg-color="yellow-darken-1">
-        <v-expansion-panel-title> 追加カード・特性/モードチェンジ詳細 </v-expansion-panel-title>
+        <v-expansion-panel-title>
+          追加カード・特性／モードチェンジ詳細
+        </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-tabs
             v-model="tab_addSkill"
@@ -148,8 +150,8 @@
                   class="mt-3"
                   v-if="list?.characteristic"
                 >
-                  <span class="specialAppeal characteristic">特性</span
-                  >{{ list.characteristic.name }}
+                  <span class="specialAppeal characteristic">特性</span>
+                  {{ list.characteristic.name }}
                   <p class="mt-1">{{ list.characteristic.detail }}</p>
                 </div>
 
@@ -159,8 +161,8 @@
                 >
                   <v-expansion-panel bg-color="yellow-darken-1">
                     <v-expansion-panel-title>
-                      追加カード・特性/モードチェンジ詳細</v-expansion-panel-title
-                    >
+                      追加カード・特性／モードチェンジ詳細
+                    </v-expansion-panel-title>
                     <v-expansion-panel-text>
                       <div
                         v-for="(addSkillList, addSkillNum) of list?.addSkill"

@@ -329,6 +329,91 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'フルーツパンチ': {
+            ID: 'kh_062',
+            styleType: 'performer',
+            mood: 'happy',
+            series: 'フルーツパンチ',
+            kana: 'ふるーつぱんち',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.5',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 6300,
+              pure: 4950,
+              cool: 3050,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'doublePunch_01',
+              name: 'ダブルパンチ',
+              AP: 5,
+              detail: [
+                [
+                  412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4,
+                  947.6, 1030,
+                ],
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+              ],
+              addSkill: [
+                {
+                  ID: 'heartfulPunch_01',
+                  name: 'ハートフルパンチ',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'ラブフレーバー',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを1500個回収し、デッキ枚数が21枚以上のとき、ビートハート150回分のスキルハートを獲得、このセクション中、ビートハートの出現個数を+1し、デッキ枚数が20枚以上のとき、このセクション中、AP回復速度を+20%する。',
+                    type: ['exclusion', 'heartCaptcha', 'vibes_section', 'APQuick'],
+                  },
+                },
+              ],
+            },
+            skill: {
+              ID: 'exhaustAttract_02',
+              name: 'イグザクトアトラクション',
+              AP: 15,
+              detail: [
+                ['21?', '23?', '25?', '27?', '29?', '31?', '33?', '35?', '37?', '42?', '44?', '46?', '48?', 52],
+                [19.8, '21.8?', '23.8?', '25.7?', '27.7?', 29.7, '31.7?', '33.7?', '35.6?', 39.6, '41.6?', '43.6?', '45.5?', 49.5],
+                [1140, 1254, 1368, 1482, 1596, 1710, 1824, 1938, 2052, 2280, 2394, 2508, 2622, 2850],
+                [1100, 1210, 1320, 1430, 1540, 1650, 1760, 1870, 1980, 2200, 2310, 2420, 2530, 2750],
+              ],
+            },
+            characteristic: {
+              name: 'スウィートドリーム',
+              detail:
+                'デッキ枚数が20枚以下でドローした時、このスキルの消費APを-12する。さらにデッキ枚数が21枚以上でこのスキルを使用した時、ハートフルパンチカードを1種類(合計1枚)山札に追加する。',
+              type: ['APReduce', 'addCard'],
+              addSkill: [
+                {
+                  ID: 'heartfulPunch_01',
+                  name: 'ハートフルパンチ',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'ラブフレーバー',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを1500個回収し、デッキ枚数が21枚以上のとき、ビートハート150回分のスキルハートを獲得、このセクション中、ビートハートの出現個数を+1し、デッキ枚数が20枚以上のとき、このセクション中、AP回復速度を+20%する。',
+                    type: ['exclusion', 'heartCaptcha', 'vibes_section', 'APQuick'],
+                  },
+                },
+              ],
+            },
+          },
           'アイドゥーミー！': {
             ID: 'kh_061',
             styleType: 'moodMaker',
@@ -485,8 +570,8 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             skill: {
-              ID: 'exactAttraction_01',
-              name: 'エグザクトアトラクション',
+              ID: 'exhaustAttract_01',
+              name: 'イグザクトアトラクション',
               AP: 5,
               detail: [
                 [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
@@ -7602,6 +7687,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          '蒼のツバメ': {
+            ID: 'rr_048',
+            styleType: 'performer',
+            mood: 'happy',
+            series: '蒼のツバメ',
+            kana: 'あおのつばめ',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 Special Term 個人戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4100,
+              pure: 4550,
+              cool: 3950,
+              mental: 420,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionRetakeWide_01',
+              name: 'エクステリテイクワイド',
+              AP: 7,
+              detail: [
+                [36, 40, 43, 47, 50, 54, 58, 61, 65, 72, 76, 79, 83, 90],
+              ],
+            },
+            skill: {
+              ID: 'retakeWide_01',
+              name: 'リテイクワイド',
+              AP: 7,
+              detail: [
+                [36, 40, 43, 47, 50, 54, 58, 61, 65, 72, 76, 79, 83, 90],
+              ],
+            },
+            characteristic: {
+              name: 'ツバメガエシ ',
+              detail:
+                'スキル使用時、山札に戻り、このセクション中、AP回復速度を+20%する。さらに2～4セクション目でドローした時、消費APを-5する。',
+              type: ['APQuick', 'APReduce'],
+            },
+          },
           'Her-bath-rium': {
             ID: 'rr_046',
             styleType: 'cheerLeader',
@@ -16767,6 +16900,108 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'フルーツパンチ': {
+            ID: 'gn_025',
+            styleType: 'trickStar',
+            mood: 'happy',
+            series: 'フルーツパンチ',
+            kana: 'ふるーつぱんち',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.5',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 6400,
+              pure: 4800,
+              cool: 3100,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'doublePunch_01',
+              name: 'ダブルパンチ',
+              AP: 5,
+              detail: [
+                [
+                  412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4,
+                  947.6, 1030,
+                ],
+                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
+                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
+              ],
+              addSkill: [
+                {
+                  ID: 'heartfulPunch_01',
+                  name: 'ハートフルパンチ',
+                  AP: 3,
+                  detail: [],
+                  characteristic: {
+                    name: 'ラブフレーバー',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを1500個回収し、デッキ枚数が21枚以上のとき、ビートハート150回分のスキルハートを獲得、このセクション中、ビートハートの出現個数を+1し、デッキ枚数が20枚以上のとき、このセクション中、AP回復速度を+20%する。',
+                    type: ['exclusion', 'heartCaptcha', 'vibes_section', 'APQuick'],
+                  },
+                },
+              ],
+            },
+            skill: {
+              ID: 'dress_fruitPunch_01',
+              name: 'ドレス《フルーツパンチ》',
+              AP: 15,
+              detail: [
+                [1140, 1254, 1368, 1482, 1596, 1710, 1824, 1938, 2052, 2280, 2394, 2508, 2622, 2850],
+              ],
+              addSkill: [
+                {
+                  ID: 'fruitPunch_01',
+                  name: 'フルーツパンチ',
+                  AP: 3,
+                  detail: [
+                    [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                    [60, 66, 72, 78, 84, 90, 96, 102, 108, 120, 126, 132, 138, 150],
+                    [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス&アバンダンス：APレデュース',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が22枚でスキル使用時、デッキにある花帆、吟子、ドレスカードのスキルの消費APを-12する。',
+                    type: ['exclusion', 'APReduce'],
+                  },
+                },
+                {
+                  ID: 'fruitPunch_02',
+                  name: 'フルーツパンチ',
+                  AP: 3,
+                  detail: [
+                    [64, 70, 77, 83, 90, 96, 102, 109, 115, 128, 134, 141, 147, 160],
+                    [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+                    [880, 968, 1056, 1144, 1232, 1320, 1408, 1496, 1584, 1760, 1848, 1936, 2024, 2200],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス&アバンダンス：APレデュース',
+                    detail:
+                      'このスキルを使用すると、デッキから除外される。さらにデッキ枚数が22枚でスキル使用時、デッキにある花帆、吟子、ドレスカードのスキルの消費APを-12する。',
+                    type: ['exclusion', 'APReduce'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'スウィートトリック',
+              detail:
+                'デッキ枚数が20枚以下でドローした時、このスキルの消費APを-12する。さらにデッキ枚数が21枚以上でドローした時、このステージ中、ハート上限を+36し、このセクション中、手札の上限枚数を3枚増加する。',
+              type: ['APReduce', 'heartLimitUp', 'extensions_section'],
+            },
+          },
           '37.5℃のファンタジー': {
             ID: 'gn_024',
             styleType: 'trickStar',
@@ -20919,6 +21154,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         SR: {
+          '蒼のツバメ': {
+            ID: 'hm_026',
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: '蒼のツバメ',
+            kana: 'あおのつばめ',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.5',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4050,
+              pure: 4800,
+              cool: 3750,
+              mental: 420,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionRebootVoltage_01',
+              name: 'エクステリブートボルテージ',
+              AP: 7,
+              detail: [
+                [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+              ],
+            },
+            skill: {
+              ID: 'rebootVoltage_02',
+              name: 'リブートボルテージ',
+              AP: 7,
+              detail: [
+                [16.8, 18.5, 20.2, 21.8, 23.5, 25.2, 26.9, 28.6, 30.2, 33.6, 35.3, 37, 38.6, 42],
+              ],
+            },
+            characteristic: {
+              name: 'ツバメガエシ ',
+              detail:
+                'スキル使用時、山札に戻り、このセクション中、AP回復速度を+20%する。さらに2～4セクション目でドローした時、消費APを-5する。',
+              type: ['APQuick', 'APReduce'],
+            },
+          },
           'AURORA FLOWER': {
             ID: 'hm_017',
             styleType: 'performer',
