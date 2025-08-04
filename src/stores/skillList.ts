@@ -1,3 +1,4 @@
+// vscode:wordWrap on
 import { defineStore } from 'pinia';
 import { SkillListState } from '@/types/skillList';
 
@@ -128,10 +129,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       リフレッシュマインド: {
         refreshMind: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'refresh',
             type: ['reshuffle', 'mentalRecover'],
@@ -271,42 +269,28 @@ export const useSkillStore = defineStore('skillList', {
       },
       ハートアトラクション: {
         heartAttraction_section: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_section'],
           },
         },
         heartAttraction_stage: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_stage'],
           },
         },
         heartAttraction_50: {
-          text: [
-            '50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_section'],
           },
         },
         heartAttraction_100: {
-          text: [
-            '100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
             type: ['heartCaptcha', 'loveAttract_section'],
@@ -345,20 +329,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ハートブースト：みらくらぱーく！': {
         heartBoost_MiraCraPark_stage: {
-          text: [
-            'このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
-            '%する。',
-          ],
+          text: ['このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
             type: ['boost_heartCaptcha'],
           },
         },
         heartBoost_MiraCraPark_limit3: {
-          text: [
-            '3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
-            '%する。',
-          ],
+          text: ['3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
             type: ['boost_heartCaptcha'],
@@ -392,10 +370,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ハイアトラクト: {
         highAttract_stage: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が6以上の時APを1回復する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が6以上の時APを1回復する。'],
           detail: {
             attr: 'high',
             type: ['loveAttract_stage', 'APGain'],
@@ -404,10 +379,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ハイボルテージ: {
         highVoltage: {
-          text: [
-            'ボルテージPt.を+',
-            'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。'],
           detail: {
             attr: 'high',
             type: ['voltageGain', 'APGain'],
@@ -434,10 +406,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チアフルハート: {
         cheerfulHeart_over75_APGain: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。',
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'],
           detail: {
             attr: 'cheerful',
             type: ['heartCaptcha', 'APGain'],
@@ -491,10 +460,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
         cheerfulAttract_APGain_over75: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルが75%以上のとき、APを1回復する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、APを1回復する。'],
           detail: {
             attr: 'cheerful',
             type: ['loveAttract_stage', 'APGain'],
@@ -564,11 +530,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チアフルボルテージ: {
         cheerfulVoltage_voltageGain: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
             type: ['voltageGain'],
@@ -600,10 +562,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チアフルリカバー: {
         cheerfulRecover_upper75_APGain: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。',
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'],
           detail: {
             attr: 'cheerful',
             type: ['mentalRecover', 'APGain'],
@@ -736,11 +695,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チアフルエンデュランス: {
         cheerfulEndurance_over75: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが75%以上のとき、メンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'cheerful',
             type: ['voltageGain', 'mentalRecover'],
@@ -773,11 +728,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
         cheerfulFascinate_stage_over50: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
             type: ['loveAttract_stage', 'voltageGain'],
@@ -861,20 +812,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       アグレッシブハート: {
         aggressiveHeart_mentalReduce10: {
-          text: [
-            'ビートハート',
-            '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。',
-          ],
+          text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。'],
           detail: {
             attr: 'aggressive',
             type: ['heartCaptcha', 'mentalReduce'],
           },
         },
         aggressiveHeart_mentalReduce15: {
-          text: [
-            'ビートハート',
-            '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。',
-          ],
+          text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
             type: ['heartCaptcha', 'mentalReduce'],
@@ -883,10 +828,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       アグレッシブアトラクト: {
         aggressiveAttract_mentalReduce15_section: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルを最大値の15%減少させる。',
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
             type: ['loveAttract_section', 'mentalReduce'],
@@ -946,10 +888,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
         aggressiveAttractBoost_mentalReduce3: {
-          text: [
-            '次に使用するラブアトラクト効果を+',
-            '%する。さらにメンタルを最大値の3%減少させる。',
-          ],
+          text: ['次に使用するラブアトラクト効果を+', '%する。さらにメンタルを最大値の3%減少させる。'],
           detail: {
             attr: 'aggressive',
             type: ['boost_loveAttract', 'mentalReduce'],
@@ -978,10 +917,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       アグレッシブハートブースト: {
         aggressiveHeartBoost: {
-          text: [
-            '10回の間スキルハート獲得効果による獲得数を+',
-            '%する。さらにメンタルを最大値の50%減少させる。',
-          ],
+          text: ['10回の間スキルハート獲得効果による獲得数を+', '%する。さらにメンタルを最大値の50%減少させる。'],
           detail: {
             attr: 'aggressive',
             type: ['boost_heartCaptcha', 'mentalReduce'],
@@ -1249,10 +1185,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       リゲインボルテージ: {
         regainVoltage: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
-            'する。',
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'regain',
             type: ['reshuffle', 'voltageGain'],
@@ -1261,10 +1194,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       リゲインリカバー: {
         regainRecover: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'regain',
             type: ['reshuffle', 'mentalRecover'],
@@ -1356,20 +1286,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       エクステハート: {
         extensionsHeart_section3: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにビートハート',
-            '回分のスキルハートを獲得する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'heartCaptcha'],
           },
         },
         extensionsHeart_stage1: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加する。さらにビートハート',
-            '回分のスキルハートを獲得する。',
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_stage', 'heartCaptcha'],
@@ -1402,70 +1326,49 @@ export const useSkillStore = defineStore('skillList', {
       },
       エクステアトラクト: {
         extensions1_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'loveAttract_stage'],
           },
         },
         extensions2_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'loveAttract_stage'],
           },
         },
         extensions3_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'loveAttract_stage'],
           },
         },
         extensions4_stageAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'loveAttract_section'],
           },
         },
         extensions1_stageAttract_stage: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_stage', 'loveAttract_stage'],
           },
         },
         extensions1_sectionAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'loveAttract_section'],
           },
         },
         extensions3_sectionAttract_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'loveAttract_section'],
@@ -1538,10 +1441,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       エクステリカバー: {
         extensions3_recover_section: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'mentalRecover'],
@@ -1617,10 +1517,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       エクステヒート: {
         extensionHeat_01: {
-          text: [
-            'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、AP回復速度を+',
-            '%する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、AP回復速度を+', '%する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_section', 'APQuick'],
@@ -1629,10 +1526,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       エクステアトラクトブースト: {
         extendAttractBoost: {
-          text: [
-            'このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+',
-            '%する。',
-          ],
+          text: ['このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
             type: ['extendHand', 'boost_loveAttract'],
@@ -1641,11 +1535,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       エクステヒートゲイン: {
         extensionHeatGain_01: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚増加し、AP回復速度を+',
-            '%する。さらにAPを',
-            '回復する。',
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚増加し、AP回復速度を+', '%する。さらにAPを', '回復する。'],
           detail: {
             attr: 'extensions',
             type: ['extensions_stage', 'APQuick', 'APGain'],
@@ -1697,6 +1587,18 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['reshuffle', 'extensions_section', 'boost_voltageGain'],
+          },
+        },
+      },
+      エクステリフレッシュヒート: {
+        extensionRefreshHeat_01: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を2枚増加し、AP回復速度を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle', 'extensions_section', 'APQuick'],
           },
         },
       },
@@ -1762,44 +1664,28 @@ export const useSkillStore = defineStore('skillList', {
       },
       サポーテッドフィール: {
         supportedFeel_section: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
             type: ['mentalRecover', 'loveAttract_section'],
           },
         },
         supportedFeel_stage: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにこのステージ中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
             type: ['mentalRecover', 'loveAttract_stage'],
           },
         },
         supportedFeel_sectionAttract_mentalRecover: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。メンタルを最大値の',
-            '%回復させる。さらに',
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。メンタルを最大値の', '%回復させる。さらに'],
           detail: {
             attr: 'feel',
             type: ['loveAttract_section', 'mentalRecover'],
           },
         },
         supportedFeel_stageAttract_mentalRecover: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにメンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'feel',
             type: ['loveAttract_stage', 'mentalRecover'],
@@ -1865,20 +1751,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       プロテクトゲイン: {
         protectGain: {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '分のメンタルダメージを無効にする。さらにAPを+5する。',
-          ],
+          text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを+5する。'],
           detail: {
             attr: '',
             type: ['protect_stage', 'APGain'],
           },
         },
         'protectGain-AP9': {
-          text: [
-            'このステージ中、メンタルの最大値の',
-            '分のメンタルダメージを無効にする。さらにAPを9回復する。',
-          ],
+          text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを9回復する。'],
           detail: {
             attr: '',
             type: ['protect_stage', 'APGain'],
@@ -2005,33 +1885,21 @@ export const useSkillStore = defineStore('skillList', {
       },
       チルボルテージ: {
         chillVoltage_under1: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が1以下の時ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が1以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
             type: ['voltageGain'],
           },
         },
         chillVoltage_under3: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
             type: ['voltageGain'],
           },
         },
         chillVoltage_under5: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
             type: ['voltageGain'],
@@ -2051,11 +1919,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チルボルテージゲイン: {
         chillVoltageGain_01: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
-            'し、APを5回復する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'し、APを5回復する。'],
           detail: {
             attr: 'chill',
             type: ['voltageGain', 'APGain'],
@@ -2112,22 +1976,14 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
         chillFascinate_under2_stageAttract_voltageGain: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
             type: ['loveAttract_stage', 'voltageGain'],
           },
         },
         chillFascinate_under5_stageAttract_voltageGain: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
             type: ['loveAttract_stage', 'voltageGain'],
@@ -2136,11 +1992,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チルエンデュランス: {
         chillEndurance_mentalRecover_under5_voltageGain: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+',
-            'する。',
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
             type: ['mentalRecover', 'voltageGain'],
@@ -2322,10 +2174,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       グルーヴィハートゲイン: {
         'groovyHeartGain-over8_voltage-gain7': {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時、APを7回復する。',
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時、APを7回復する。'],
           detail: {
             attr: 'groovy',
             type: ['heartCaptcha', 'APGain'],
@@ -2421,11 +2270,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       グルーヴィファッシネイト: {
         groovyFascinate_over8_voltageGain_sectionAttract: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
-            'する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+', 'する。'],
           detail: {
             attr: 'groovy',
             type: ['voltageGain', 'loveAttract_section'],
@@ -2678,10 +2523,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       カームブースト: {
         calmBoost20: {
-          text: [
-            '次に使用するスキルハート獲得効果による獲得数を+',
-            '%する。さらにボルテージPt.を-20する。',
-          ],
+          text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
             type: ['boost_heartCaptcha', 'voltageReduce'],
@@ -2702,22 +2544,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       ヒーリングハート: {
         healingHeart_recover_heart: {
-          text: [
-            'メンタルを最大値の',
-            '%回復させる。さらにビートハート',
-            '個分のスキルハートを獲得する。',
-          ],
+          text: ['メンタルを最大値の', '%回復させる。さらにビートハート', '個分のスキルハートを獲得する。'],
           detail: {
             attr: '',
             type: ['mentalRecover', 'heartCaptcha'],
           },
         },
         healingHeart_heart_recover: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを獲得する。さらにメンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '',
             type: ['heartCaptcha', 'mentalRecover'],
@@ -2726,11 +2560,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ラブキャブティベイト: {
         loveCaptivate: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
             type: ['loveAttract_stage', 'loveAttract_section'],
@@ -2739,11 +2569,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       エンデュランス: {
         endurance_APGain: {
-          text: [
-            'ボルテージPt.を+',
-            'し、メンタルを最大値の',
-            '%回復させる。さらにAPを1回復する。',
-          ],
+          text: ['ボルテージPt.を+', 'し、メンタルを最大値の', '%回復させる。さらにAPを1回復する。'],
           detail: {
             attr: 'endurance',
             type: ['voltageGain', 'APGain'],
@@ -2866,10 +2692,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       クイックフォーム: {
         quickForm: {
-          text: [
-            'このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+',
-            '%する。',
-          ],
+          text: ['このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
             type: ['cardReduce', 'APQuick'],
@@ -2878,10 +2701,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       オールマイトヒーリング: {
         allMightHealing: {
-          text: [
-            'このステージ中、メンタルが回復した時、回復量の',
-            '%の個数のスキルハートを獲得する。',
-          ],
+          text: ['このステージ中、メンタルが回復した時、回復量の', '%の個数のスキルハートを獲得する。'],
           detail: {
             attr: 'allMight',
             type: ['heartCaptcha'],
@@ -2978,11 +2798,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       デュオアトラクト: {
         duoAttract: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにこのセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
             type: ['loveAttract_stage', 'loveAttract_section'],
@@ -3041,9 +2857,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       チャウチャウトリック: {
         chowchowTrick: {
-          text: [
-            '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。',
-          ],
+          text: ['手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。'],
           detail: {
             attr: '',
             type: ['reshuffle'],
@@ -3112,20 +2926,14 @@ export const useSkillStore = defineStore('skillList', {
       },
       ブレイブアトラクト: {
         braveAttract_under25_sectionAttract: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが25%以下のとき、APを1回復する。',
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが25%以下のとき、APを1回復する。'],
           detail: {
             attr: 'brave',
             type: ['loveAttract_section'],
           },
         },
         braveAttract_under50_sectionAttract_APGain: {
-          text: [
-            'このセクション中、獲得するLOVEを+',
-            '%する。さらにメンタルが50%以下のとき、APを1回復する。',
-          ],
+          text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが50%以下のとき、APを1回復する。'],
           detail: {
             attr: 'brave',
             type: ['loveAttract_section', 'APGain'],
@@ -3193,11 +3001,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ブレイブファッシネイト: {
         braveFascinate_under50_voltageGain_sectionAttract: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+',
-            '%する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'brave',
             type: ['voltageGain', 'loveAttract_section'],
@@ -3400,9 +3204,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ドレス《Bloom the smile, Bloom the dream!》': {
         dress_BsBd: {
-          text: [
-            'ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。',
-          ],
+          text: ['ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
             type: ['addCard'],
@@ -3583,14 +3385,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: [
-              'heartLimitUp',
-              'APQuick',
-              'extendHand',
-              'addCard',
-              'loveAttract_stage',
-              'heartCaptcha',
-            ],
+            type: ['heartLimitUp', 'APQuick', 'extendHand', 'addCard', 'loveAttract_stage', 'heartCaptcha'],
           },
         },
       },
@@ -3645,11 +3440,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       '《奇跡の舞踏会》': {
         dress_kiseki_02: {
-          text: [
-            'このステージ中、AP回復速度を+',
-            '%する。さらにビートハート',
-            '回分のスキルハートを獲得する。',
-          ],
+          text: ['このステージ中、AP回復速度を+', '%する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'dress',
             type: ['APQuick', 'heartCaptcha'],
@@ -3873,7 +3664,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
-      'フルーツパンチ': {
+      フルーツパンチ: {
         fruitPunch_01: {
           text: [
             'ビートハート',
@@ -4031,10 +3822,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ボルテージサポート: {
         voltageSupport: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。'],
           detail: {
             attr: '',
             type: ['voltageGain', 'APReduce_voltageGain'],
@@ -4043,11 +3831,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       オーバーブルーミング: {
         overBlooming_section: {
-          text: [
-            'このセクション中、ハートの上限を+',
-            'する。さらに',
-            '個のスキルハートを獲得する。',
-          ],
+          text: ['このセクション中、ハートの上限を+', 'する。さらに', '個のスキルハートを獲得する。'],
           detail: {
             attr: '',
             type: ['heartLimitUp', 'heartCaptcha'],
@@ -4056,11 +3840,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ハートスプリンクル: {
         heartSprinkles: {
-          text: [
-            '',
-            '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+',
-            '%する。',
-          ],
+          text: ['', '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
             type: ['heartCaptcha', 'boost_heartCaptcha'],
@@ -4081,10 +3861,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       フルリカバー: {
         fullRecover: {
-          text: [
-            'メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の',
-            '%回復する。',
-          ],
+          text: ['メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
           detail: {
             attr: '',
             type: ['mentalRecover'],
@@ -4206,10 +3983,7 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
         wideExtend_section4: {
-          text: [
-            'このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+',
-            'する。',
-          ],
+          text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+', 'する。'],
           detail: {
             attr: '',
             type: ['heartLimitUp', 'extendHand'],
@@ -4345,6 +4119,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      ビリーフマイセルフ: {
+        beliefMyself_01: {
+          text: [
+            'このステージ中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の100%減少させる。さらにこのステージ中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'belief',
+            type: ['mentalDown_stage', 'mentalReduce', 'heartLimitUp'],
+          },
+        },
+      },
       ブーステッドフィール: {
         boostedFeel: {
           text: [
@@ -4361,11 +4147,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ブーステッドゲイン: {
         'boostedGain-boost_recover-boost_voltage-gain7': {
-          text: [
-            '次に使用するメンタルリカバー効果を+',
-            '%、ボルテージゲイン効果を+',
-            '%する。さらにAPを7回復する。',
-          ],
+          text: ['次に使用するメンタルリカバー効果を+', '%、ボルテージゲイン効果を+', '%する。さらにAPを7回復する。'],
           detail: {
             attr: 'boost',
             type: ['boost_mentalRecover', 'boost_voltageGain', 'APGain'],
@@ -4681,10 +4463,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       タッグハート: {
         tagHeart_APReduce20_hime: {
-          text: [
-            'ビートハート',
-            '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。',
-          ],
+          text: ['ビートハート', '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。'],
           detail: {
             attr: 'tag',
             type: ['heartCaptcha', 'APReduce'],
@@ -4706,10 +4485,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       メンターリカバー: {
         mentorRecover: {
-          text: [
-            '姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の',
-            '%回復させる。',
-          ],
+          text: ['姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'mentor',
             type: ['modeChange', 'mentalRecover'],
@@ -4812,12 +4588,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'modulate',
-            type: [
-              'extensions_section',
-              'loveAttract_stage',
-              'protect_stage',
-              'boost_heartCaptcha',
-            ],
+            type: ['extensions_section', 'loveAttract_stage', 'protect_stage', 'boost_heartCaptcha'],
           },
         },
       },
@@ -4882,10 +4653,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ジャスティスアタック: {
         justiceAttack: {
-          text: [
-            'メンタルが75%以上のとき、このセクション中、スキルハート獲得効果による獲得数を+',
-            '%する。',
-          ],
+          text: ['メンタルが75%以上のとき、このセクション中、スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
             type: ['boost_heartCaptcha'],
@@ -4979,11 +4747,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ナインハート・ボルテージ': {
         nineHeart_voltage: {
-          text: [
-            'ボルテージPt.を+',
-            'する。さらにビートハート',
-            '回分のスキルハートを9回獲得する。',
-          ],
+          text: ['ボルテージPt.を+', 'する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
           detail: {
             attr: 'nineHeart',
             type: ['voltageGain', 'heartCaptcha'],
@@ -5005,11 +4769,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ナインハート・ブースト': {
         nineHeart_boost: {
-          text: [
-            '次に使用するラブアトラクト効果を+',
-            '%する。さらにビートハート',
-            '回分のスキルハートを9回獲得する。',
-          ],
+          text: ['次に使用するラブアトラクト効果を+', '%する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
           detail: {
             attr: 'nineHeart',
             type: ['boost_loveAttract', 'heartCaptcha'],
@@ -5030,11 +4790,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ナインハート・アトラクション': {
         nineHeart_attraction: {
-          text: [
-            'このステージ中、獲得するLOVEを+',
-            '%する。さらにビートハート',
-            '回分のスキルハートを9回獲得する。',
-          ],
+          text: ['このステージ中、獲得するLOVEを+', '%する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
           detail: {
             attr: 'nineHeart',
             type: ['loveAttract_stage', 'heartCaptcha'],
@@ -5068,10 +4824,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ナインハート・イグニッション': {
         nineHeart_ignition: {
-          text: [
-            'ビートハート',
-            '回分のスキルハートを9回獲得する。さらに姫芽が《イグニッションモード》になる。',
-          ],
+          text: ['ビートハート', '回分のスキルハートを9回獲得する。さらに姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: 'nineHeart',
             type: ['heartCaptcha', 'modeChange'],
@@ -5154,10 +4907,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ズッキュン♡ラブビーム': {
         zukkyunLovebeam_section: {
-          text: [
-            'このセクション中、AP回復速度を+',
-            '%する。さらに手札にある全てのスキルの消費AP-9。',
-          ],
+          text: ['このセクション中、AP回復速度を+', '%する。さらに手札にある全てのスキルの消費AP-9。'],
           detail: {
             attr: '',
             type: ['APQuick', 'APReduce_all'],
@@ -5291,10 +5041,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ハートブースト：ブーケ': {
         'heartBoost-bouquet_01': {
-          text: [
-            'このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+',
-            '%する。',
-          ],
+          text: ['このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+', '%する。'],
           detail: {
             attr: '',
             type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
@@ -5319,10 +5066,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       'ジャストゲイン：1': {
         justGain1_01: {
-          text: [
-            'このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+',
-            '%する。',
-          ],
+          text: ['このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+', '%する。'],
           detail: {
             attr: '',
             type: ['boost_heartCaptcha'],
@@ -5389,14 +5133,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'transcend',
-            type: [
-              'heartLimitUp',
-              'voltageGain',
-              'mentalReduce',
-              'boost_heartCaptcha',
-              'heartCaptcha',
-              'APReduce',
-            ],
+            type: ['heartLimitUp', 'voltageGain', 'mentalReduce', 'boost_heartCaptcha', 'heartCaptcha', 'APReduce'],
           },
         },
       },
@@ -5425,14 +5162,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'transcend',
-            type: [
-              'heartLimitUp',
-              'voltageGain',
-              'mentalReduce',
-              'boost_heartCaptcha',
-              'heartCaptcha',
-              'APReduce',
-            ],
+            type: ['heartLimitUp', 'voltageGain', 'mentalReduce', 'boost_heartCaptcha', 'heartCaptcha', 'APReduce'],
           },
         },
       },
@@ -5504,9 +5234,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       リフレッシュイグニッション: {
         refreshIgnition_01: {
-          text: [
-            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽が《イグニッションモード》になる。',
-          ],
+          text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: '',
             type: ['reshuffle', 'modeChange'],
@@ -5636,11 +5364,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       ボルテージバイブス: {
         voltageVibes_01: {
-          text: [
-            'このセクション中、ビートハートの出現個数を+',
-            'する。さらにボルテージPt.を+',
-            'する。',
-          ],
+          text: ['このセクション中、ビートハートの出現個数を+', 'する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'vibes',
             type: ['vibes_section', 'voltageGain'],
@@ -5649,10 +5373,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       アトラクトバイブス: {
         attractVibes_01: {
-          text: [
-            'このセクション中、ビートハートの出現個数を+1する。さらにこのセクション中、獲得するLOVEを+',
-            'する。',
-          ],
+          text: ['このセクション中、ビートハートの出現個数を+1する。さらにこのセクション中、獲得するLOVEを+', 'する。'],
           detail: {
             attr: 'vibes',
             type: ['vibes_section', 'loveAttract_section'],
@@ -5739,10 +5460,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       リットハッピーアンビエンス: {
         litHappyAmbience_01: {
-          text: [
-            'このセクション中、AP回復速度を-30%する。さらにこのセクション中、ムードをハッピー方向に+',
-            'する。',
-          ],
+          text: ['このセクション中、AP回復速度を-30%する。さらにこのセクション中、ムードをハッピー方向に+', 'する。'],
           detail: {
             attr: 'ambience',
             type: ['APSlow', 'ambience_section'],
@@ -5751,10 +5469,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       スケルツォアンビエンス: {
         scherzoAmbience_01: {
-          text: [
-            'このセクション中、ムードがハッピーの時メロウ方向に、メロウの時ハッピー方向に+',
-            'する。',
-          ],
+          text: ['このセクション中、ムードがハッピーの時メロウ方向に、メロウの時ハッピー方向に+', 'する。'],
           detail: {
             attr: 'ambience',
             type: ['ambience_section'],
@@ -6034,6 +5749,18 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      イミテーションリフレッシュプロテクト: {
+        imitationRefreshProtect_01: {
+          text: [
+            'カードがステージにセットされ、手札上限枚数効果を吸収する。手札上限枚数効果を2枚分吸収したとき、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引き、このステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にし、捨札に移動する。',
+          ],
+          detail: {
+            attr: 'imitation',
+            type: ['imitation', 'reshuffle', 'protect_stage'],
+          },
+        },
+      },
       ツインスリーズ: {
         twinCerise_01: {
           text: ['ハピネスチェリーカードを1種類(合計2枚)山札に追加する。'],
@@ -6214,13 +5941,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: [
-              'heartCaptcha',
-              'loveAttract_section',
-              'voltageGain',
-              'mentalRecover',
-              'voltageReduce',
-            ],
+            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain', 'mentalRecover', 'voltageReduce'],
           },
         },
       },
@@ -6247,13 +5968,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: [
-              'heartCaptcha',
-              'loveAttract_section',
-              'APQuick',
-              'protect_stage',
-              'voltageReduce',
-            ],
+            type: ['heartCaptcha', 'loveAttract_section', 'APQuick', 'protect_stage', 'voltageReduce'],
           },
         },
       },
@@ -6287,10 +6002,7 @@ export const useSkillStore = defineStore('skillList', {
       },
       Elysion: {
         elysion_01: {
-          text: [
-            'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ビートハートの出現個数を+',
-            'する。',
-          ],
+          text: ['このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ビートハートの出現個数を+', 'する。'],
           detail: {
             attr: '',
             type: ['APSlow', 'vibes_stage'],
@@ -6304,6 +6016,16 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: ['APSlow', 'mentalRecover'],
+          },
+        },
+        elysion_03: {
+          text: [
+            'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、メンタルの最大値の',
+            '%分のメンタルダメージを無効にする。',
+          ],
+          detail: {
+            attr: '',
+            type: ['APSlow', 'protect_stage'],
           },
         },
       },
@@ -6333,12 +6055,23 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'mode:DEVICE': {
+        mode_device_01: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにビートハート',
+            '回分のスキルハートを獲得し、このセクション中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['voltageGain', 'heartCaptcha', 'heartLimitUp'],
+          },
+        },
+      },
       アグレッシブメロウアンビエンス: {
         aggressiveMellowAmbience_01: {
-          text: [
-            'このセクション中、ムード値をメロウ方向に+',
-            'する。さらにメンタルを最大値の16%減少させる。',
-          ],
+          text: ['このセクション中、ムード値をメロウ方向に+', 'する。さらにメンタルを最大値の16%減少させる。'],
           detail: {
             attr: '',
             type: ['ambience_section', 'mentalReduce'],
@@ -6381,14 +6114,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: [
-              'heartCaptcha',
-              'loveAttract_section',
-              'voltageGain',
-              'heartLimitUp',
-              'mentalReduce',
-              'modeChange',
-            ],
+            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain', 'heartLimitUp', 'mentalReduce', 'modeChange'],
           },
         },
       },
@@ -6468,13 +6194,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: [
-              'heartCaptcha',
-              'heartLimitUp',
-              'boost_voltageGain',
-              'boost_loveAttract',
-              'modeChange',
-            ],
+            type: ['heartCaptcha', 'heartLimitUp', 'boost_voltageGain', 'boost_loveAttract', 'modeChange'],
           },
         },
       },
@@ -6506,6 +6226,49 @@ export const useSkillStore = defineStore('skillList', {
         heartfulPunch_01: {
           text: [
             '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。この時花帆、吟子、ドレスカード、ハートフルパンチカードをドローする確率大幅アップ',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle'],
+          },
+        },
+      },
+      レイディアントアトラクション: {
+        radiantAttraction_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得する。さらにメンタルが0かつムードがメロウ100のとき、ボルテージPt.を+',
+            '、このセクション中、獲得するLOVEを+',
+            '%し、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle'],
+          },
+        },
+      },
+      バックリットアンビエンス: {
+        radiantAttraction_01: {
+          text: [
+            'このセクション中、手札の上限枚数を3枚増加する。さらに手札を全て捨てて、デッキから手札上限までスキルを引き、このセクション中、ムード値を-',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['reshuffle'],
+          },
+        },
+      },
+      イルミネイトブースト: {
+        radiantAttraction_01: {
+          text: [
+            '次に使用するスキルハート獲得効果による獲得数を+',
+            'し、手札を全て捨てて、デッキから手札上限までスキルを引く。',
+            'さらにメンタルが0かつムードがメロウ100のとき、小鈴がそれぞれ3回の間使用するボルテージゲイン効果を+',
+            '%、ラブアトラクト効果を+',
+            '%し、ビートハート',
+            '回分のスキルハートを獲得する。',
           ],
           detail: {
             attr: '',

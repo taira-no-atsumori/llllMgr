@@ -1,9 +1,17 @@
 /**
- * スキルの詳細情報を表すインターフェース
- *
- * @interface SkillDetail
- * @property {string} attr スキルの属性
- * @property {string[]} type スキルの種類を表す文字列の配列（例: ["passive", "active"]）
+ * スキルの追加効果テキスト
+ * @property level 効果が適用されるレベル
+ * @property text 効果テキスト
+ */
+interface SkillExText {
+  level: number;
+  text: string[];
+}
+
+/**
+ * スキルの詳細情報
+ * @property attr スキルの属性
+ * @property type スキル効果の種類
  */
 interface SkillDetail {
   attr: string;
@@ -11,83 +19,41 @@ interface SkillDetail {
 }
 
 /**
- * スキルの詳細情報を表すインターフェース
- *
- * @interface ExText
- * @property {number} level スキルの属性
- * @property {string[]} text スキルの説明文を格納した文字列の配列
+ * 個々のスキル定義
+ * @property text スキル効果のテキスト
+ * @property detail スキルの詳細情報
+ * @property exText スキルレベルによって変化する追加テキスト
  */
-interface ExText {
-  level: number;
+interface SkillDefinition {
   text: string[];
-}
-
-/**
- * スキルのテキスト情報を表すインターフェース
- *
- * @interface SkillText
- * @property {string[]} text スキルの説明文を格納した文字列の配列
- * @property {ExText} [exText] 特定のスキルレベル以上でスキル内容が変化する場合のスキル説明文
- * @property {SkillDetail} detail スキルの詳細情報
- */
-interface SkillText {
-  text: string[];
-  exText?: ExText;
   detail: SkillDetail;
+  exText?: SkillExText[];
 }
 
 /**
- * スキルリストの項目を表すインターフェース
- *
- * @interface SkillListItem
- * @property {Record<string, SkillText>} [key: string] スキル名をキーとし、スキルテキスト情報を値とするオブジェクト
+ * スキルカテゴリ。スキルIDをキーとしたスキルのマップ
+ * 例: { heartCaptcha: SkillDefinition, loveAttract: SkillDefinition }
  */
-interface SkillListItem {
-  [key: string]: SkillText;
-}
+type SkillGroup = Record<string, SkillDefinition>;
 
 /**
- * スキルリスト全体を表すインターフェース
- *
- * @interface SkillList
- * @property {Record<string, SkillListItem>} [key: string] スキルカテゴリ名をキーとし、スキルリスト項目を値とするオブジェクト
+ * スキル効果の色情報
+ * @property name スキル効果の表示名
+ * @property colorCode Vuetifyの色コード
+ * @property description スキル効果の説明
  */
-interface SkillList {
-  [key: string]: SkillListItem;
-}
-
-/**
- * スキルカラー情報を表すインターフェース
- *
- * @interface SkillColor
- * @property {string} name スキル名
- * @property {string} colorCode スキルに対応するカラーコード（例: "#FF0000"）
- * @property {string} description スキルの説明
- */
-interface SkillColor {
+interface SkillColorInfo {
   name: string;
   colorCode: string;
   description: string;
 }
 
 /**
- * スキルカラーリストを表すインターフェース
- *
- * @interface SkillColorList
- * @property {Record<string, SkillColor>} [key: string] スキル名をキーとし、スキルカラー情報を値とするオブジェクト
- */
-interface SkillColorList {
-  [key: string]: SkillColor;
-}
-
-/**
- * スキルストアの状態を表すインターフェース
- *
- * @interface SkillListState
- * @property {SkillList} skillList 全スキルのリスト
- * @property {SkillColorList} skillColor スキルごとのカラー情報リスト
+ * スキルリストストアの状態
  */
 export interface SkillListState {
-  skillList: SkillList;
-  skillColor: SkillColorList;
+  /** スキルカテゴリ名をキーとしたスキルグループのマップ */
+  skillList: Record<string, SkillGroup>;
+  /** スキル効果タイプをキーとした色情報のマップ */
+  skillColor: Record<string, SkillColorInfo>;
 }

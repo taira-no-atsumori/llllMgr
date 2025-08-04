@@ -1,9 +1,20 @@
+/** ガチャの追加シーズンと期間情報 */
 interface Gacha {
   addSeason: string;
   period: string;
 }
 
-interface FluctuationStatus {
+/** 基本ステータス値 */
+interface BaseStatus {
+  smile: number;
+  pure: number;
+  cool: number;
+  mental: number;
+  BP: number;
+}
+
+/** カードの育成状況 */
+interface TrainingStatus {
   cardLevel: number;
   trainingLevel: number;
   SALevel: number;
@@ -12,61 +23,61 @@ interface FluctuationStatus {
   releasePoint: number;
 }
 
-interface UniqueStatus {
-  smile: number;
-  pure: number;
-  cool: number;
-  mental: number;
-  BP: number;
-}
-
-interface SpecialAppeal {
-  ID: string;
-  name: string;
-  AP: number;
-  EXAP?: number[];
-  detail: number[][] | Record<string, unknown>;
-  addSkill?: AddCard[];
-}
-
-interface Skill {
+/** スキル効果の詳細 */
+interface SkillDetail {
   ID: string;
   name: string;
   AP: number;
   detail: number[][] | Record<string, unknown>;
-  addSkill?: AddCard[];
 }
 
-interface AddCard {
-  ID: string;
-  name: string;
-  AP: number;
-  detail: number[][] | Record<string, unknown>;
+/** 追加スキル情報 */
+interface AdditionalSkill extends SkillDetail {
   characteristic?: Characteristic;
 }
 
+/** スペシャルアピール */
+interface SpecialAppeal extends SkillDetail {
+  EXAP?: number[];
+  addSkill?: AdditionalSkill[];
+}
+
+/** 通常スキル */
+interface Skill extends SkillDetail {
+  addSkill?: AdditionalSkill[];
+}
+
+/** キャラクター特性 */
 interface Characteristic {
   name: string;
   detail: string;
   interface?: string[];
-  addSkill?: AddCard[];
+  addSkill?: AdditionalSkill[];
 }
 
+/** スタイルタイプ定義 */
+type StyleType = 'performer' | 'moodMaker' | 'cheerLeader' | 'trickStar' | '';
+
+/** ムード定義 */
+type Mood = 'happy' | 'neutral' | 'melow' | '';
+
+/** カード基本データ */
 interface CardData {
   ID: string;
-  styleType: 'performer' | 'moodMaker' | 'cheerLeader' | 'trickStar';
-  mood: 'happy' | 'neutral' | 'melow';
+  styleType: StyleType;
+  mood: Mood;
   series?: string;
   kana: string;
   gacha: Gacha;
-  fluctuationStatus?: FluctuationStatus;
-  uniqueStatus: UniqueStatus;
+  fluctuationStatus?: TrainingStatus;
+  uniqueStatus: BaseStatus;
   specialAppeal?: SpecialAppeal;
   skill: Skill;
   characteristic?: Characteristic;
 }
 
-interface Rarity {
+/** レアリティごとのカードデータ */
+interface CardsByRarity {
   default: {
     default: CardData;
   };
@@ -78,30 +89,29 @@ interface Rarity {
   R: Record<string, CardData>;
 }
 
-interface CardItem {
-  default: Rarity;
-  kaho: Rarity;
-  sayaka: Rarity;
-  rurino: Rarity;
-  kozue: Rarity;
-  tsuzuri: Rarity;
-  megumi: Rarity;
-  ginko: Rarity;
-  kosuzu: Rarity;
-  hime: Rarity;
-  seras: Rarity;
-  izumi: Rarity;
-  sachi: Rarity;
-  selaIzu: Rarity;
-  kozutsuzumegu: Rarity;
+/** キャラクターごとのカードアイテム */
+interface CardDataByMember {
+  default: CardsByRarity;
+  kaho: CardsByRarity;
+  sayaka: CardsByRarity;
+  rurino: CardsByRarity;
+  kozue: CardsByRarity;
+  tsuzuri: CardsByRarity;
+  megumi: CardsByRarity;
+  ginko: CardsByRarity;
+  kosuzu: CardsByRarity;
+  hime: CardsByRarity;
+  seras: CardsByRarity;
+  izumi: CardsByRarity;
+  sachi: CardsByRarity;
+  selaIzu: CardsByRarity;
+  kozutsuzumegu: CardsByRarity;
 }
 
 /**
  * カードリストの状態を表すインターフェース
- *
- * @interface CardListState
- * @property {Record<string, CardItem>} cardList - カード名をキーとしたカードデータのオブジェクト
+ * @property card - メンバーごとのカードデータ
  */
 export interface CardListState {
-  card: Record<string, CardItem>;
+  card: CardDataByMember;
 }

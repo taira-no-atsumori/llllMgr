@@ -1,0 +1,182 @@
+import { describe, it, expect } from 'vitest';
+import { useCardStore } from '../src/stores/cardList';
+import { useMusicStore } from '../src/stores/musicList';
+import type { CardData } from '../src/types/cardList';
+import type { MusicData } from '../src/types/musicList';
+
+describe('データ整合性チェック', () => {
+  it('カードIDが重複していないこと', () => {
+    const cardStore = useCardStore();
+    const allCards: CardData[] = [];
+
+    // すべてのカードを一つの配列にまとめる
+    Object.values(cardStore.card).forEach((memberCards) => {
+      Object.values(memberCards).forEach((rarityCards) => {
+        Object.values(rarityCards).forEach((card) => {
+          if (card.ID && !card.ID.endsWith('_000')) {
+            allCards.push(card);
+          }
+        });
+      });
+    });
+
+    const idMap = new Map<string, string[]>();
+    allCards.forEach((card) => {
+      if (!idMap.has(card.ID)) {
+        idMap.set(card.ID, []);
+      }
+      idMap.get(card.ID)!.push(card.kana || card.ID);
+    });
+
+    const duplicates = [...idMap.entries()]
+      .filter(([, names]) => names.length > 1)
+      .map(([id, names]) => `ID: ${id} (Cards: ${names.join(', ')})`);
+
+    expect(duplicates, `カードIDが重複しています:\n${duplicates.join('\n')}`).toEqual([]);
+  });
+
+  it('カードIDの数字が連番になっていること', () => {
+    const cardStore = useCardStore();
+    const allCards: CardData[] = [];
+
+    // すべてのカードを一つの配列にまとめる
+    Object.values(cardStore.card).forEach((memberCards) => {
+      Object.values(memberCards).forEach((rarityCards) => {
+        Object.values(rarityCards).forEach((card) => {
+          if (card.ID && !card.ID.endsWith('_000')) {
+            allCards.push(card);
+          }
+        });
+      });
+    });
+
+    const idsByPrefix = new Map<string, number[]>();
+
+    // プレフィックスごとにIDの数字部分を収集
+    allCards.forEach((card) => {
+      const match = card.ID.match(/^([a-z]+)_(\d+)$/);
+      if (match) {
+        const [, prefix, numStr] = match;
+        const num = parseInt(numStr, 10);
+        if (!idsByPrefix.has(prefix)) {
+          idsByPrefix.set(prefix, []);
+        }
+        idsByPrefix.get(prefix)!.push(num);
+      }
+    });
+
+    const gapErrors: string[] = [];
+
+    // 各プレフィックスで連番になっているかチェック
+    idsByPrefix.forEach((numbers, prefix) => {
+      if (numbers.length === 0) return;
+
+      const sorted = [...new Set(numbers)].sort((a, b) => a - b);
+      const min = sorted[0];
+      const max = sorted[sorted.length - 1];
+
+      const missingNumbers: number[] = [];
+      for (let i = min; i <= max; i++) {
+        if (!sorted.includes(i)) {
+          missingNumbers.push(i);
+        }
+      }
+
+      if (missingNumbers.length > 0) {
+        gapErrors.push(`Prefix "${prefix}": 欠番があります: ${missingNumbers.join(', ')}`);
+      }
+    });
+
+    expect(gapErrors, `カードIDに欠番が見つかりました:\n${gapErrors.join('\n')}`).toEqual([]);
+  });
+
+  it('楽曲IDが重複していないこと', () => {
+    const musicStore = useMusicStore();
+    const allMusic: MusicData[] = Object.values(musicStore.musicList);
+
+    const idMap = new Map<string, string[]>();
+    allMusic.forEach((music) => {
+      if (!idMap.has(music.ID)) {
+        idMap.set(music.ID, []);
+      }
+      idMap.get(music.ID)!.push(music.musicData.kana || music.ID);
+    });
+
+    const duplicates = [...idMap.entries()]
+      .filter(([, names]) => names.length > 1)
+      .map(([id, names]) => `ID: ${id} (Music: ${names.join(', ')})`);
+
+    expect(duplicates, `楽曲IDが重複しています:\n${duplicates.join('\n')}`).toEqual([]);
+  });
+
+  it('楽曲IDの数字が連番になっていること', () => {
+    const musicStore = useMusicStore();
+    const allMusic: MusicData[] = Object.values(musicStore.musicList);
+
+    const numbers = allMusic
+      .map((music) => {
+        const match = music.ID.match(/^m_(\d+)$/);
+        return match ? parseInt(match[1], 10) : null;
+      })
+      .filter((num): num is number => num !== null);
+
+    if (numbers.length === 0) return;
+
+    const sorted = [...new Set(numbers)].sort((a, b) => a - b);
+    const min = sorted[0];
+    const max = sorted[sorted.length - 1];
+
+    const missingNumbers: number[] = [];
+    for (let i = min; i <= max; i++) {
+      if (!sorted.includes(i)) {
+        missingNumbers.push(i);
+      }
+    }
+
+    expect(missingNumbers, `楽曲IDに欠番が見つかりました: ${missingNumbers.join(', ')}`).toEqual([]);
+  });
+
+  it('カードIDのフォーマットが正しいこと', () => {
+    const cardStore = useCardStore();
+    const allCards: CardData[] = [];
+
+    // すべてのカードを一つの配列にまとめる
+    Object.values(cardStore.card).forEach((memberCards) => {
+      Object.values(memberCards).forEach((rarityCards) => {
+        Object.values(rarityCards).forEach((card) => {
+          if (card.ID && !card.ID.endsWith('_000')) {
+            allCards.push(card);
+          }
+        });
+      });
+    });
+
+    const formatErrors: string[] = [];
+
+    allCards.forEach((card) => {
+      // 基本フォーマット: 小文字アルファベット_数字3桁
+      const formatRegex = /^[a-z]+_\d{3}$/;
+      if (!formatRegex.test(card.ID)) {
+        formatErrors.push(`ID: ${card.ID} - フォーマットが不正です（小文字アルファベット_数字3桁の形式が必要）`);
+      }
+    });
+
+    expect(formatErrors, `カードIDのフォーマットエラー:\n${formatErrors.join('\n')}`).toEqual([]);
+  });
+
+  it('楽曲IDのフォーマットが正しいこと', () => {
+    const musicStore = useMusicStore();
+    const allMusic: MusicData[] = Object.values(musicStore.musicList);
+    const formatErrors: string[] = [];
+
+    allMusic.forEach((music) => {
+      // 基本フォーマット: 小文字アルファベット_数字3桁
+      const formatRegex = /^[a-z]+_\d{3}$/;
+      if (!formatRegex.test(music.ID)) {
+        formatErrors.push(`ID: ${music.ID} - フォーマットが不正です（小文字アルファベット_数字3桁の形式が必要）`);
+      }
+    });
+
+    expect(formatErrors, `楽曲IDのフォーマットエラー:\n${formatErrors.join('\n')}`).toEqual([]);
+  });
+});

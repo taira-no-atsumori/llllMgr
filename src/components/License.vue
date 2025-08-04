@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="pa-2"
-  >
+  <v-container fluid class="pa-2">
     <v-row>
       <v-col cols="12">
         <h1>LICENSE</h1>
@@ -45,18 +42,18 @@
             フレームワーク
             <ul class="dot_list">
               <li>Vue</li>
-              <li>3.5.13</li>
+              <li>3.5.18</li>
             </ul>
           </li>
           <li>
             ライブラリ
             <ul class="dot_list">
               <li>Vuetify</li>
-              <li>3.8.0</li>
+              <li>3.9.3</li>
             </ul>
             <ul class="dot_list">
               <li>pinia</li>
-              <li>3.0.1</li>
+              <li>3.0.3</li>
             </ul>
           </li>
           <li>
@@ -70,7 +67,14 @@
             ビルドツール
             <ul class="dot_list">
               <li>Vite</li>
-              <li>6.2.5</li>
+              <li>7.0.6</li>
+            </ul>
+          </li>
+          <li>
+            テストツール
+            <ul class="dot_list">
+              <li>Vitest</li>
+              <li>3.2.4</li>
             </ul>
           </li>
         </ul>
