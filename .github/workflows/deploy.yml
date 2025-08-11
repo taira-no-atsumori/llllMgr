@@ -10,8 +10,10 @@ jobs:
   update-version:
     runs-on: ubuntu-latest
     permissions:
-      # `gh variable set` を実行するために必要
+      # 変更点: より広い権限を付与
+      contents: write
       actions: write
+      repository-projects: write
     # このジョブの実行結果（新しいバージョン番号）を他のジョブに渡すために outputs を定義
     outputs:
       new_version: ${{ steps.version.outputs.new_version }}
