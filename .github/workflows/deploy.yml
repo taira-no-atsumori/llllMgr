@@ -18,6 +18,16 @@ jobs:
       new_next_version: ${{ steps.version.outputs.new_next_version }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Version Variables
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh variable set SITEVERSION --body "0.0.1"
+          gh variable set SITEVERSION_NEXT --body "0.0.2"
+          echo "GitHub repository variables updated."
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
