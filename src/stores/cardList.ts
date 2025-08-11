@@ -6199,6 +6199,77 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'Very! Very! COCO夏っ': {
+            ID: 'rr_051',
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Very! Very! COCO夏っ',
+            kana: 'べりーべりーここなつっ',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.7',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5400,
+              pure: 5050,
+              cool: 3750,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'solarCoconut_01',
+              name: 'ソーラーココナツ',
+              AP: 4,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+                [28, 30.8, 33.6, 36.4, 39.2, 42, 44.8, 47.6, 50.4, 56, 58.8, 61.6, 64.4, 70],
+                [8, 8, 9, 10, 11, 12, 12, 13, 14, 16, '16?', '17?', '18?', 20],
+              ],
+            },
+            skill: {
+              ID: 'coconutTropical_01',
+              name: 'ココナツトロピカル',
+              AP: 7,
+              detail: [
+                [
+                  7.2,
+                  '7.9?',
+                  '8.6?',
+                  '9.3?',
+                  '10?',
+                  10.8,
+                  '11.5?',
+                  '12.2?',
+                  '12.9?',
+                  14.4,
+                  '15.1?',
+                  '15.8?',
+                  '16.5?',
+                  18,
+                ],
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, 61, 64, 67, 72],
+                [220, 242, 264, 286, 308, 330, 352, 374, 396, 440, 462, 484, 506, 550],
+                [
+                  2228.8, 2451.7, 2674.6, 2897.4, 3120.3, 3343.2, 3566.1, 3789, 4011.8, 4457.6, 4680.5, 4903.4, 5126.2,
+                  5572,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'デイタイムホット',
+              detail:
+                'フィーバーを除く2～3セクション目でドローされる確率が大幅に増加し、それ以上のセクションのときドローされない。さらにフィーバーを除く2～3セクション目でドローした時、ビートハート5回分のスキルを獲得、このセクション中、手札の上限枚数を2枚増加し、フィーバーを除く2～3セクション目で手札にある状態でハートを550個獲得したとき、ビートハート72回分のスキルを獲得、次に使用するラブアトラクト効果を+55%する。',
+              type: ['draw', 'heartCaptcha', 'extendHand', 'boost_loveAttract'],
+            },
+          },
           'アイドゥーミー！': {
             ID: 'rr_049',
             styleType: 'performer',
@@ -19676,6 +19747,59 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          'Very! Very! COCO夏っ': {
+            ID: 'hm_027',
+            styleType: 'moodMaker',
+            mood: 'happy',
+            series: 'Very! Very! COCO夏っ',
+            kana: 'べりーべりーここなつっ',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.7',
+              period: 'summer',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5500,
+              pure: 4900,
+              cool: 3800,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'solarCoconut_01',
+              name: 'ソーラーココナツ',
+              AP: 4,
+              detail: [
+                [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+                [28, 30.8, 33.6, 36.4, 39.2, 42, 44.8, 47.6, 50.4, 56, 58.8, 61.6, 64.4, 70],
+                [8, 8, 9, 10, 11, 12, 12, 13, 14, 16, '16?', '17?', '18?', 20],
+              ],
+            },
+            skill: {
+              ID: 'coconutParadise_01',
+              name: 'ココナツパラダイス',
+              AP: 7,
+              detail: [
+                [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, 61, 64, 67, 72],
+                [220, 242, 264, 286, 308, 330, 352, 374, 396, 440, 462, 484, 506, 550],
+                [288, 316.8, 345.6, 374.4, 403.2, 432, 460.8, 489.6, 518.4, 576, 604.8, 633.6, 662.4, 720],
+              ],
+            },
+            characteristic: {
+              name: 'デイタイムホット',
+              detail:
+                'フィーバーを除く2～3セクション目でドローされる確率が大幅に増加し、それ以上のセクションのときドローされない。さらにフィーバーを除く2～3セクション目でドローした時、ビートハート5回分のスキルを獲得、このセクション中、AP回復速度を+22%し、フィーバーを除く2～3セクション目で手札にある状態でハートを550個獲得したとき、ビートハート72回分のスキルを獲得、次に使用するボルテージゲイン効果を+55%する。',
+              type: ['draw', 'heartCaptcha', 'APQuick', 'boost_voltageGain'],
+            },
+          },
           'BLAST!!': {
             ID: 'hm_025',
             styleType: 'performer',

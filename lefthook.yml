@@ -1,0 +1,4 @@
+pre-push:
+  commands:
+    version-check:
+      run: npx vitest run tests/pre-push.test.ts

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { useCardStore } from '../src/stores/cardList';
 import { useMusicStore } from '../src/stores/musicList';
+import { useStoreCounter } from '../src/stores/counter';
 import type { CardData } from '../src/types/cardList';
 import type { MusicData } from '../src/types/musicList';
 
@@ -88,6 +89,56 @@ describe('データ整合性チェック', () => {
     });
 
     expect(gapErrors, `カードIDに欠番が見つかりました:\n${gapErrors.join('\n')}`).toEqual([]);
+  });
+
+  it('各カードのIDが、対応するキャラクターの略称と一致していること', () => {
+    const cardStore = useCardStore();
+    const counterStore = useStoreCounter();
+
+    const { card } = cardStore;
+    const { memberId, exclusionMember } = counterStore;
+
+    const errors: string[] = [];
+
+    // cardListのキャラクターキー (kaho, sayaka など) を使ってループ
+    for (const characterKey in card) {
+      if (characterKey === 'default' || exclusionMember.includes(characterKey)) {
+        continue;
+      }
+
+      // memberId (例: { kh: 'kaho' }) から、キャラクターキー (例: 'kaho') に対応するIDプレフィックス (例: 'kh') を検索
+      const expectedPrefix = Object.keys(memberId).find((key) => memberId[key] === characterKey);
+
+      if (!expectedPrefix) {
+        errors.push(`キャラクター「${characterKey}」に対応するIDプレフィックスが memberId に見つかりません。`);
+        continue;
+      }
+
+      // レアリティごとにループ
+      for (const rarity in card[characterKey]) {
+        if (rarity === 'default') continue;
+
+        // カード名でループ
+        for (const cardName in card[characterKey][rarity]) {
+          if (cardName === 'default') continue;
+
+          const cardData = card[characterKey][rarity][cardName];
+          const cardId = cardData.ID;
+
+          if (!cardId || cardId.endsWith('_000')) continue;
+
+          const idPrefix = cardId.split('_')[0];
+
+          if (idPrefix !== expectedPrefix) {
+            errors.push(
+              `不正なIDです: カード「${cardName}」(ID: ${cardId})のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`,
+            );
+          }
+        }
+      }
+    }
+
+    expect(errors, `カードIDのプレフィックスがキャラクターの略称と一致しません:\n${errors.join('\n')}`).toEqual([]);
   });
 
   it('楽曲IDが重複していないこと', () => {

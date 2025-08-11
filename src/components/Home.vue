@@ -1,41 +1,18 @@
 <template>
-  <v-container
-    fluid
-    class="pa-2"
-  >
-    <v-row
-      class="mt-0"
-      v-if="Object.keys(outputEventList).length > 0"
-    >
+  <v-container fluid class="pa-2">
+    <v-row class="mt-0" v-if="Object.keys(outputEventList).length > 0">
       <v-col cols="12">
         <h2>ライブ・イベント情報</h2>
-        <v-carousel
-          cycle
-          hide-delimiters
-          show-arrows="hover"
-          style="max-width: 800px; height: auto; margin: 0 auto"
-        >
-          <v-carousel-item
-            v-for="(event, eventName) in outputEventList"
-            :key="eventName"
-            class="text-center"
-          >
-            <v-card
-              variant="flat"
-              rounded="0"
-            >
+        <v-carousel cycle hide-delimiters show-arrows="hover" style="max-width: 800px; height: auto; margin: 0 auto">
+          <v-carousel-item v-for="(event, eventName) in outputEventList" :key="eventName" class="text-center">
+            <v-card variant="flat" rounded="0">
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
                 :src="store.getImagePath('event_information', event.img)"
                 eager
               ></v-img>
-              <a
-                v-else
-                :href="event.url"
-                target="_blank"
-                class="mainVisual"
-              >
+              <a v-else :href="event.url" target="_blank" class="mainVisual">
                 <v-img
                   class="white--text align-end text-center"
                   :src="store.getImagePath('event_information', event.img)"
@@ -62,9 +39,7 @@
                 <div v-else>
                   {{ event.text }}
                   <span class="d-inline-block">
-                    <b class="text-red">
-                      開催<span v-if="event.type === 'live'">日</span><span v-else>中</span>
-                    </b>
+                    <b class="text-red"> 開催<span v-if="event.type === 'live'">日</span><span v-else>中</span> </b>
                   </span>
                 </div>
               </v-card-title>
@@ -79,49 +54,19 @@
         <h2>メインメニュー</h2>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-calculator"
-          @click="pageMove('simulation')"
-        >
-          Simulation
-        </v-btn>
+        <v-btn block prepend-icon="mdi-calculator" @click="pageMove('simulation')"> Simulation </v-btn>
       </v-col>
       <v-col v-if="false">
-        <v-btn
-          block
-          prepend-icon="mdi-star"
-          @click="pageMove('withStarMgr')"
-        >
-          WithStar Mgr
-        </v-btn>
+        <v-btn block prepend-icon="mdi-star" @click="pageMove('withStarMgr')"> WithStar Mgr </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-cards"
-          @click="pageMove('cardlist')"
-        >
-          Card List
-        </v-btn>
+        <v-btn block prepend-icon="mdi-cards" @click="pageMove('cardlist')"> Card List </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-music"
-          @click="pageMove('musiclist')"
-        >
-          Music List
-        </v-btn>
+        <v-btn block prepend-icon="mdi-music" @click="pageMove('musiclist')"> Music List </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-book"
-          @click="pageMove('itemlist')"
-        >
-          Item List
-        </v-btn>
+        <v-btn block prepend-icon="mdi-book" @click="pageMove('itemlist')"> Item List </v-btn>
       </v-col>
     </v-row>
 
@@ -141,9 +86,7 @@
       </v-col>
       <v-col cols="12">
         このサイトは、スクステをある程度理解している(ライブグランプリに参加するような)方に向けたサイトになります。<br />
-        「スクステってなに？」という方は、<a
-          href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C"
-          target="_blank"
+        「スクステってなに？」という方は、<a href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C" target="_blank"
           >公式のチュートリアル動画</a
         >や<a
           href="https://wikiwiki.jp/llll_wiki/%E3%82%B9%E3%82%AF%E3%82%B9%E3%83%86/%E6%94%BB%E7%95%A5/%E3%82%B9%E3%82%AF%E3%82%B9%E3%83%86%E3%81%AE%E9%81%8A%E3%81%B3%E6%96%B9"
@@ -167,10 +110,7 @@
         <h2>Page Introduction</h2>
         各ページを簡単に紹介します。
       </v-col>
-      <v-col
-        cols="12"
-        v-if="false"
-      >
+      <v-col cols="12" v-if="false">
         <b>SIMULATION（獲得グランプリPt.計算ツール）</b><br />
         獲得グランプリPt.を計算できます。<br />
         なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
@@ -234,13 +174,13 @@ export default {
           img: 'thanks',
         },*/
         liveGP: {
-          title: 'ライブグランプリ「105期 2ndTerm 第1回 サークル対抗戦」',
+          title: 'ライブグランプリ「105期 2ndTerm 第1回 個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 7, 21, 12, 0],
-          lastDay: [2025, 7, 27, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-07-19-10-tip2vwpo7g',
-          img: '105期 2ndTerm 第1回 サークル対抗戦_logo',
+          firstDay: [2025, 8, 11, 12, 0],
+          lastDay: [2025, 8, 17, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-08-09-10-dpjm9ovegk',
+          img: '105期 2ndTerm 第1回 個人戦_logo',
         },
         fesLive: {
           title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
@@ -261,8 +201,7 @@ export default {
           img: 'expo2025_logo',
         },
         '5thLive_miraCraPark': {
-          title:
-            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
           text: 'みらくらぱーく！ presents Heart Stage',
           type: 'live',
           firstDay: [2025, 10, 4, 0, 0],
@@ -271,8 +210,7 @@ export default {
           img: '5thLive_logo',
         },
         '5thLive_DOLLCHESTRA': {
-          title:
-            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
           text: 'DOLLCHESTRA presents Diamond Stage',
           type: 'live',
           firstDay: [2025, 11, 8, 0, 0],
@@ -281,8 +219,7 @@ export default {
           img: '5thLive_logo',
         },
         '5thLive_edelNote': {
-          title:
-            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
           text: 'Edel Note presents Spade Stage',
           type: 'live',
           firstDay: [2025, 11, 19, 0, 0],
@@ -291,8 +228,7 @@ export default {
           img: '5thLive_logo',
         },
         '5thLive_ceriseBouquet': {
-          title:
-            'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
           text: 'スリーズブーケ presents Clover Stage',
           type: 'live',
           firstDay: [2025, 12, 6, 0, 0],

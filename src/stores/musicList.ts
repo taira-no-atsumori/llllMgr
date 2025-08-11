@@ -5033,6 +5033,47 @@ export const useMusicStore = defineStore('musicList', {
           },
         },
       },
+      'My Lucky Clover': {
+        ID: 'm_187',
+        musicData: {
+          kana: 'まいらっきーくろーばー',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2099,
+            month: 12,
+            date: 31,
+          },
+          numbering: '',
+          BPM: {
+            original: 162,
+            inGame: 162,
+          },
+          time: 115,
+          cover: false,
+          link: '',
+        },
+        attribute: 'pure',
+        BHcount: 76,
+        level: 1,
+        term: 105,
+        center: 'kaho',
+        bonusSkill: 'ボルテージアップ',
+        singingMembers: ['kaho', 'ginko'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 25,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 328,
+            HARD: 428,
+            EXPERT: 777,
+            MASTER: 151,
+          },
+        },
+      },
       アンペア: {
         ID: 'm_163',
         musicData: {
@@ -5118,7 +5159,7 @@ export const useMusicStore = defineStore('musicList', {
       '太陽であれ！': {
         ID: 'm_184',
         musicData: {
-          kana: 'あいまいめーでー',
+          kana: 'たいようであれ',
           singer: 'DOLLCHESTRA',
           releaseDate: {
             year: 2025,
@@ -5144,7 +5185,7 @@ export const useMusicStore = defineStore('musicList', {
         scoreData: {
           difficultyLevel: {
             NORMAL: 13,
-            HARD: 12,
+            HARD: 20,
             EXPERT: 26,
             MASTER: 31,
           },
@@ -5153,6 +5194,47 @@ export const useMusicStore = defineStore('musicList', {
             HARD: 464,
             EXPERT: 742,
             MASTER: 1092,
+          },
+        },
+      },
+      diamondz: {
+        ID: 'm_188',
+        musicData: {
+          kana: 'だいあもんず',
+          singer: 'DOLLCHESTRA',
+          releaseDate: {
+            year: 2099,
+            month: 12,
+            date: 31,
+          },
+          numbering: '',
+          BPM: {
+            original: 150,
+            inGame: 150,
+          },
+          time: 92,
+          cover: false,
+          link: '',
+        },
+        attribute: 'cool',
+        BHcount: 56,
+        level: 1,
+        term: 105,
+        center: 'sayaka',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['sayaka', 'kosuzu'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 18,
+            EXPERT: 26,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 185,
+            HARD: 345,
+            EXPERT: 742,
+            MASTER: 893,
           },
         },
       },
@@ -5235,6 +5317,47 @@ export const useMusicStore = defineStore('musicList', {
             HARD: 469,
             EXPERT: 656,
             MASTER: 1219,
+          },
+        },
+      },
+      'Very! Very! COCO夏っ': {
+        ID: 'm_186',
+        musicData: {
+          kana: 'べりーべりーここなつっ',
+          singer: 'みらくらぱーく！',
+          releaseDate: {
+            year: 2099,
+            month: 12,
+            date: 31,
+          },
+          numbering: '',
+          BPM: {
+            original: 156,
+            inGame: 156,
+          },
+          time: 108.68,
+          cover: false,
+          link: '',
+        },
+        attribute: 'pure',
+        BHcount: 69,
+        level: 1,
+        term: 105,
+        center: 'hime',
+        bonusSkill: 'ビートハートアップ',
+        singingMembers: ['rurino', 'hime'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 19,
+            EXPERT: 25,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 277,
+            HARD: 439,
+            EXPERT: 660,
+            MASTER: 999,
           },
         },
       },
@@ -5618,7 +5741,7 @@ export const useMusicStore = defineStore('musicList', {
             month: 10,
             date: 21,
           },
-          numbering: 'TVアニメ「虹ヶ咲学園スクールアイドル同好会」第1期OPテーマ',
+          numbering: 'TVアニメ「ラブライブ！虹ヶ咲学園スクールアイドル同好会」第1期OPテーマ',
           BPM: {
             original: 180,
             inGame: 180,
@@ -5634,6 +5757,47 @@ export const useMusicStore = defineStore('musicList', {
         center: 'kosuzu',
         bonusSkill: 'ボルテージアップ',
         singingMembers: ['sayaka', 'kosuzu'],
+      },
+      'START!! True dreams': {
+        ID: 'm_185',
+        musicData: {
+          kana: 'すたーととぅるーどりーむ',
+          singer: 'スリーズブーケ',
+          releaseDate: {
+            year: 2021,
+            month: 7,
+            date: 21,
+          },
+          numbering: 'TVアニメ『ラブライブ!スーパースター!!』第1期OPテーマ',
+          BPM: {
+            original: 178,
+            inGame: 178,
+          },
+          time: 93,
+          cover: true,
+          link: '',
+        },
+        attribute: 'smile',
+        BHcount: 67,
+        level: 0,
+        term: 105,
+        center: 'kaho',
+        bonusSkill: 'メンタルリカバー',
+        singingMembers: ['kaho', 'ginko'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 15,
+            HARD: 20,
+            EXPERT: 27,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 357,
+            HARD: 630,
+            EXPERT: 829,
+            MASTER: 1138,
+          },
+        },
       },
       ロミオとシンデレラ: {
         ID: 'm_166',
@@ -5661,6 +5825,20 @@ export const useMusicStore = defineStore('musicList', {
         center: 'seras',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['seras'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 21,
+            EXPERT: 26,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 407,
+            HARD: 719,
+            EXPERT: 891,
+            MASTER: 1113,
+          },
+        },
       },
       '輪舞-revolution': {
         ID: 'm_161',
@@ -5713,7 +5891,7 @@ export const useMusicStore = defineStore('musicList', {
             month: 8,
             date: 9,
           },
-          numbering: '',
+          numbering: '鬼束ちひろ 2ndシングル',
           BPM: {
             original: 26,
             inGame: 26,
@@ -5729,6 +5907,20 @@ export const useMusicStore = defineStore('musicList', {
         center: 'izumi',
         bonusSkill: 'LOVEボーナス',
         singingMembers: ['izumi'],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 10,
+            HARD: 17,
+            EXPERT: 22,
+            MASTER: 26,
+          },
+          maxCombo: {
+            NORMAL: 209,
+            HARD: 412,
+            EXPERT: 567,
+            MASTER: 1252,
+          },
+        },
       },
       '愛♡スクリ～ム！': {
         ID: 'm_182',
