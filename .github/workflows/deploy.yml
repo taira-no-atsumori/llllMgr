@@ -35,7 +35,7 @@ jobs:
         id: version
         env:
           COMMIT_MSG: ${{ github.event.head_commit.message }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           # GitHub Variablesから現在のバージョンを読み込む (なければ '0.0.0' を使用)
           CURRENT_VERSION=$(gh variable get SITEVERSION) || CURRENT_VERSION="0.0.0"
@@ -66,7 +66,7 @@ jobs:
 
       - name: Update GitHub repository variables
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           gh variable set SITEVERSION --body "${{ steps.version.outputs.new_version }}"
           gh variable set SITEVERSION_NEXT --body "${{ steps.version.outputs.new_next_version }}"
