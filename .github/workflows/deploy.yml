@@ -89,7 +89,7 @@ jobs:
     needs: update-version
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write # 読み取りだけでなく書き込み権限も必要
       pages: write
       id-token: write
 
