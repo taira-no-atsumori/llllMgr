@@ -14,6 +14,9 @@ jobs:
       contents: write
       actions: write
       repository-projects: write
+      issues: write # リポジトリ変数へのアクセスに必要
+      deployments: write # リポジトリ変数へのアクセスに必要
+
     # このジョブの実行結果（新しいバージョン番号）を他のジョブに渡すために outputs を定義
     outputs:
       new_version: ${{ steps.version.outputs.new_version }}
@@ -35,7 +38,7 @@ jobs:
         id: version
         env:
           COMMIT_MSG: ${{ github.event.head_commit.message }}
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ github.token }} # PAT_TOKENからGITHUB_TOKENに変更
         run: |
           # GitHub Variablesから現在のバージョンを読み込む (なければ '0.0.0' を使用)
           CURRENT_VERSION=$(gh variable get SITEVERSION) || CURRENT_VERSION="0.0.0"
@@ -66,11 +69,19 @@ jobs:
 
       - name: Update GitHub repository variables
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh variable set SITEVERSION --body "${{ steps.version.outputs.new_version }}"
-          gh variable set SITEVERSION_NEXT --body "${{ steps.version.outputs.new_next_version }}"
-          echo "GitHub repository variables updated."
+          curl -X PATCH \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token $GH_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/actions/variables/SITEVERSION \
+            -d "{\"name\":\"SITEVERSION\",\"value\":\"${{ steps.version.outputs.new_version }}\"}"
+
+          curl -X PATCH \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token $GH_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/actions/variables/SITEVERSION_NEXT \
+            -d "{\"name\":\"SITEVERSION_NEXT\",\"value\":\"${{ steps.version.outputs.new_next_version }}\"}"
 
   # Job 2: アプリケーションをビルドしてGitHub Pagesにデプロイする
   deploy:
