@@ -9,8 +9,5 @@ interface ImportMetaEnv {
   readonly VITE_GTAG_ID: string;
   readonly VITE_PATHNAME: string;
   readonly VITE_SITEVERSION: string;
-}
-
-export interface ImportMeta {
-  readonly env: ImportMetaEnv;
+  readonly VITE_SITEVERSION_NEXT: string;
 }

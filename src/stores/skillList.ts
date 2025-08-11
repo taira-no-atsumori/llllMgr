@@ -6276,6 +6276,64 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      ソーラーココナツ: {
+        solarCoconut_01: {
+          text: [
+            'フィーバーを除く2～3セクション目のとき、このセクション中、ビートハートの出現個数を+',
+            '、手札の上限枚数を5枚増加、AP回復速度を+',
+            '%し、APを',
+            '回復する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['vibes_section', 'extendHand', 'APQuick', 'APGain'],
+          },
+        },
+      },
+      ココナツトロピカル: {
+        coconutTropical_01: {
+          text: [
+            'フィーバーを除く2～3セクション目のとき、55回の間スキルハート獲得効果による獲得数を+',
+            '%、このセクション中、ムード値を+',
+            '、手札を全て捨てて、捨札を山札に戻した後、デッキから手札上限までスキルを引き、さらにムードがハッピー100のとき、次に姫芽が使用するボルテージゲイン効果を+',
+            '%、このセクション中、獲得するLOVEを+',
+            '%する。それ以外のセクションの時、デッキ内の全てのスキルの消費APを-2する。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              'boost_heartCaptcha',
+              'ambience_section',
+              'reshuffle',
+              'boost_voltageGain',
+              'loveAttract_section',
+              'APReduce',
+            ],
+          },
+        },
+      },
+      ココナツパラダイス: {
+        coconutParadise_01: {
+          text: [
+            'フィーバーを除く2～3セクション目のとき、55回の間スキルハート獲得効果による獲得数を+',
+            '%、このセクション中、ムード値を+',
+            '、手札を全て捨てて、捨札を山札に戻した後、デッキから手札上限までスキルを引き、さらにムードがハッピー100のとき、ボルテージPt.を+',
+            '、次に瑠璃乃が使用するラブアトラクト効果を+',
+            '%する。それ以外のセクションの時、デッキ内の全てのスキルの消費APを-2する。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              'boost_heartCaptcha',
+              'ambience_section',
+              'reshuffle',
+              'voltageGain',
+              'boost_loveAttract',
+              'APReduce',
+            ],
+          },
+        },
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -6399,27 +6457,27 @@ export const useSkillStore = defineStore('skillList', {
         description: 'スキルの消費APを減少させる。',
       },
       APReduce_all: {
-        name: '消費AP減少',
+        name: 'APレデュース(手札全て)',
         colorCode: 'purple',
         description: '手札の全てのスキルの消費APを減少させる。',
       },
       APReduce_heart: {
-        name: '消費AP減少(ハート系)',
+        name: 'APレデュース(ハート系)',
         colorCode: 'purple',
         description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
       },
       APReduce_voltageGain: {
-        name: '消費AP減少(ボルテージ系)',
+        name: 'APレデュース(ボルテージ系)',
         colorCode: 'purple',
         description: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。',
       },
       APReduce_deck_ceriseBouquet: {
-        name: '消費AP減少(スリーズブーケ)',
+        name: 'APレデュース(スリーズブーケ)',
         colorCode: 'purple',
         description: 'デッキにあるスリーズブーケのスキルの消費APを減少させる。',
       },
       APReduce_deck_dressCard: {
-        name: '消費AP減少(ドレスカード)',
+        name: 'APレデュース(ドレスカード)',
         colorCode: 'purple',
         description: 'デッキにあるドレスカードの消費APを減少させる。',
       },

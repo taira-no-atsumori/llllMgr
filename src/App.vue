@@ -5,29 +5,17 @@
       density="comfortable"
       color="pink"
     >
-      <v-app-bar-nav-icon
-        @click.stop="drawer = !drawer"
-        class="hidden-sm-and-up"
-      ></v-app-bar-nav-icon>
-      <v-bottom-sheet
-        v-model="drawer"
-        v-if="false"
-      >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-sm-and-up"></v-app-bar-nav-icon>
+      <v-bottom-sheet v-model="drawer" v-if="false">
         <template v-slot:activator="{ props }">
-          <v-icon
-            v-bind="props"
-            @click="drawer = true"
-            class="ml-3 hidden-sm-and-up"
-          >
-            mdi-menu
-          </v-icon>
+          <v-icon v-bind="props" @click="drawer = true" class="ml-3 hidden-sm-and-up"> mdi-menu </v-icon>
         </template>
 
         <v-sheet class="py-2">
           <v-list-item
             class="px-2 pt-0 pb-2"
             title="リンクラ マネージャー！"
-            :subtitle="`Ver. ${store.version}`"
+            :subtitle="`Ver. ${siteVersion}`"
           ></v-list-item>
 
           <v-divider class="pb-1"></v-divider>
@@ -51,28 +39,18 @@
       </v-bottom-sheet>
 
       <v-toolbar-title class="d-none d-sm-block">
-        リンクラ マネージャー！<span class="text-subtitle-2">Ver.{{ store.version }}</span>
+        リンクラ マネージャー！<span class="text-subtitle-2">Ver.{{ siteVersion }}</span>
       </v-toolbar-title>
       <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <ul class="d-none d-sm-flex">
-        <template
-          v-for="(arr, pageTitle) of pageList"
-          :key="arr"
-        >
-          <v-tooltip
-            location="bottom"
-            v-if="pageTitle !== 'License'"
-          >
+        <template v-for="(arr, pageTitle) of pageList" :key="arr">
+          <v-tooltip location="bottom" v-if="pageTitle !== 'License'">
             <template v-slot:activator="{ props }">
               <li style="border-right: 1px solid">
-                <v-btn
-                  v-bind="props"
-                  class="px-2"
-                  @click="pageMove(arr.name_en)"
-                >
+                <v-btn v-bind="props" class="px-2" @click="pageMove(arr.name_en)">
                   <v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>
                   {{ pageTitle }}
                 </v-btn>
@@ -83,18 +61,11 @@
         </template>
       </ul>
 
-      <ul
-        class="d-flex"
-        style="height: 36px"
-      >
+      <ul class="d-flex" style="height: 36px">
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
-              <v-icon
-                v-bind="props"
-                @click="store.showModalEvent('share')"
-                class="ml-1 mr-2"
-              >
+              <v-icon v-bind="props" @click="store.showModalEvent('share')" class="ml-1 mr-2">
                 mdi-share-variant
               </v-icon>
             </template>
@@ -102,19 +73,12 @@
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
-          <v-divider
-            class="border-opacity-100"
-            vertical
-          ></v-divider>
+          <v-divider class="border-opacity-100" vertical></v-divider>
         </li>
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
-              <v-icon
-                v-bind="props"
-                @click="store.showModalEvent('backup')"
-                class="ml-1 mr-2"
-              >
+              <v-icon v-bind="props" @click="store.showModalEvent('backup')" class="ml-1 mr-2">
                 mdi-backup-restore
               </v-icon>
             </template>
@@ -122,21 +86,12 @@
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
-          <v-divider
-            class="border-opacity-100"
-            vertical
-          ></v-divider>
+          <v-divider class="border-opacity-100" vertical></v-divider>
         </li>
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
-              <v-icon
-                v-bind="props"
-                @click="store.showModalEvent('settings')"
-                class="ml-1 mr-2"
-              >
-                mdi-cog
-              </v-icon>
+              <v-icon v-bind="props" @click="store.showModalEvent('settings')" class="ml-1 mr-2"> mdi-cog </v-icon>
             </template>
             サイト設定
           </v-tooltip>
@@ -144,12 +99,7 @@
       </ul>
     </v-app-bar>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      temporary
-      class="py-2"
-      active-class="deep-purple--text text--accent-4"
-    >
+    <v-navigation-drawer v-model="drawer" temporary class="py-2" active-class="deep-purple--text text--accent-4">
       <v-list-item
         class="px-2 pt-0 pb-2"
         title="リンクラ マネージャー！"
@@ -176,30 +126,14 @@
       <router-view />
     </v-main>
 
-    <v-fab
-      v-if="false"
-      icon="mdi-arrow-up"
-      app
-      location="bottom"
-      class="mb-10"
-      @click="goToTop()"
-    ></v-fab>
+    <v-fab v-if="false" icon="mdi-arrow-up" app location="bottom" class="mb-10" @click="goToTop()"></v-fab>
 
     <Modal />
     <Loading />
 
-    <v-footer
-      color="pink"
-      class="mb-10"
-    >
-      <v-row
-        no-gutters
-        justify="center"
-      >
-        <v-col
-          cols="12"
-          class="mx-2 text-center"
-        >
+    <v-footer color="pink" class="mb-10">
+      <v-row no-gutters justify="center">
+        <v-col cols="12" class="mx-2 text-center">
           <a
             v-for="(arr, pageTitle) of pageList"
             :key="arr"
@@ -210,28 +144,16 @@
             {{ pageTitle.toUpperCase() }}
           </a>
         </v-col>
-        <v-col
-          cols="12"
-          class="text-center"
-        >
+        <v-col cols="12" class="text-center">
           © 2023 - {{ new Date().getFullYear() }}
           <strong>taira no atsumori</strong>
         </v-col>
       </v-row>
     </v-footer>
 
-    <v-bottom-navigation
-      bg-color="pink"
-      density="compact"
-      class="d-flex flex-row align-center"
-    >
+    <v-bottom-navigation bg-color="pink" density="compact" class="d-flex flex-row align-center">
       ご意見・ご要望・バグ報告は「
-      <a
-        href="https://odaibako.net/u/taira_no_atsumori"
-        target="_blank"
-        class="text-white font-weight-bold"
-      >
-        お題箱 </a
+      <a href="https://odaibako.net/u/taira_no_atsumori" target="_blank" class="text-white font-weight-bold"> お題箱 </a
       >」まで
     </v-bottom-navigation>
   </v-app>
@@ -239,7 +161,7 @@
 
 <script setup lang="ts">
 import { useStoreCounter } from './stores/counter';
-const siteversion = import.meta.env.VITE_SITEVERSION;
+const siteVersion = import.meta.env.VITE_SITEVERSION;
 
 const store = useStoreCounter();
 store.init();
@@ -310,9 +232,7 @@ export default {
     const userAgent = window.navigator.userAgent.toLowerCase();
 
     if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
-      alert(
-        '本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。',
-      );
+      alert('本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。');
     }
 
     if (localStorage.inflow !== undefined) {
@@ -362,7 +282,7 @@ export default {
     /**
      * トップへ移動
      */
-    goToTop() {
+    goToTop(): void {
       this.goTo(0);
     },
   },

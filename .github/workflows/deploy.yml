@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: CI - Update Version and Deploy
 
 on:
   push:
@@ -6,25 +6,94 @@ on:
       - main
 
 jobs:
-  deploy:
+  # Job 1: コミットメッセージに基づいてバージョンを更新する
+  update-version:
     runs-on: ubuntu-latest
+    permissions:
+      # `gh variable set` を実行するために必要
+      actions: write
+    # このジョブの実行結果（新しいバージョン番号）を他のジョブに渡すために outputs を定義
+    outputs:
+      new_version: ${{ steps.version.outputs.new_version }}
+      new_next_version: ${{ steps.version.outputs.new_next_version }}
+
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install semver
+        run: npm install -g semver
+
+      - name: Get current version and calculate next version
+        id: version
+        env:
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # GitHub Variablesから現在のバージョンを読み込む (なければ '0.0.0' を使用)
+          CURRENT_VERSION=$(gh variable get SITEVERSION) || CURRENT_VERSION="0.0.0"
+          if [[ "$CURRENT_VERSION" == "0.0.0" ]]; then
+            echo "SITEVERSION variable not found or is '0.0.0'. Using default: 0.0.0"
+          fi
+
+          echo "Current version from variable: $CURRENT_VERSION"
+          echo "Commit message: $COMMIT_MSG"
+
+          # コミットメッセージのプレフィックスに基づいて更新レベルを決定 (デフォルトは patch)
+          level="patch"
+          if [[ "$COMMIT_MSG" == major* ]]; then level="major"; fi
+          if [[ "$COMMIT_MSG" == minor* ]]; then level="minor"; fi
+          if [[ "$COMMIT_MSG" == patch* ]]; then level="patch"; fi
+          echo "Update level: $level"
+
+          # semver CLI を使ってバージョンをインクリメント
+          NEW_VERSION=$(semver -i $level $CURRENT_VERSION)
+          NEW_NEXT_VERSION=$(semver -i patch $NEW_VERSION)
+
+          echo "New version: $NEW_VERSION"
+          echo "New next version: $NEW_NEXT_VERSION"
+
+          # 後続のジョブで使えるように出力に設定
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "new_next_version=$NEW_NEXT_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Update GitHub repository variables
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh variable set SITEVERSION --body "${{ steps.version.outputs.new_version }}"
+          gh variable set SITEVERSION_NEXT --body "${{ steps.version.outputs.new_next_version }}"
+          echo "GitHub repository variables updated."
+
+  # Job 2: アプリケーションをビルドしてGitHub Pagesにデプロイする
+  deploy:
+    # `update-version` ジョブが成功した場合にのみ実行する
+    needs: update-version
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Install dependencies
         run: npm install
 
-      - name: Clear npm cache
-        run: npm cache clean --force
-
       - name: Build project
         env:
+          # `update-version` ジョブから渡された新しいバージョンをビルド時に使用する
+          VITE_SITEVERSION: ${{ needs.update-version.outputs.new_version }}
+          VITE_SITEVERSION_NEXT: ${{ needs.update-version.outputs.new_next_version }}
           VITE_DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
         run: npm run build
 
