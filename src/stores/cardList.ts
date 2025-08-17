@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { CardListState } from '@/types/cardList';
+import { STYLE_TYPE, MOOD } from '@/constants/cards';
 
 export const useCardStore = defineStore('cardList', {
   state: (): CardListState => ({
@@ -8,13 +9,13 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'df_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '',
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               cardLevel: 0,
@@ -53,12 +54,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'kh_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               cardLevel: 0,
@@ -95,8 +96,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Ether Aria': {
             ID: 'kh_045',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -144,8 +145,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Prism Echo': {
             ID: 'kh_023',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Prism Echo',
             kana: 'ぷりずむえこー',
             gacha: {
@@ -189,8 +190,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '18th Birthday': {
             ID: 'kh_059',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'えいてぃーんすばーすでー',
             gacha: {
@@ -257,8 +258,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '17th Birthday': {
             ID: 'kh_046',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'せぶんてぃーんすばーすでー',
             gacha: {
@@ -331,8 +332,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           フルーツパンチ: {
             ID: 'kh_062',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'フルーツパンチ',
             kana: 'ふるーつぱんち',
             gacha: {
@@ -413,8 +414,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'アイドゥーミー！': {
             ID: 'kh_061',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'アイドゥーミー！',
             kana: 'あいどぅーみー',
             gacha: {
@@ -466,8 +467,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'kh_060',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -509,8 +510,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Celebration!': {
             ID: 'kh_058',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Celebration!',
             kana: 'せれぶれーしょん',
             gacha: {
@@ -586,8 +587,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ユメワズライ: {
             ID: 'kh_055',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ユメワズライ',
             kana: 'ゆめわずらい',
             gacha: {
@@ -668,8 +669,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'kh_054',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -718,8 +719,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '103/ASTERISM': {
             ID: 'kh_053',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'オンゲキコラボ',
             kana: 'あすてりずむ',
             gacha: {
@@ -765,8 +766,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ハナムスビ: {
             ID: 'kh_052',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハナムスビ',
             kana: 'はなむすび',
             gacha: {
@@ -813,8 +814,8 @@ export const useCardStore = defineStore('cardList', {
           },
           月夜見海月: {
             ID: 'kh_050',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '月夜見海月',
             kana: 'つくよみくらげ',
             gacha: {
@@ -885,8 +886,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アオクハルカ: {
             ID: 'kh_049',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'アオクハルカ',
             kana: 'あおくはるか',
             gacha: {
@@ -943,8 +944,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'H.S.C.T.☆': {
             ID: 'kh_047',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'hsct',
             kana: 'hsct',
             gacha: {
@@ -987,8 +988,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春風ブランコ: {
             ID: 'kh_044',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '春風ブランコ',
             kana: 'はるかぜぶらんこ',
             gacha: {
@@ -1031,8 +1032,8 @@ export const useCardStore = defineStore('cardList', {
           },
           軌跡の舞踏会: {
             ID: 'kh_040',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '舞踏会',
             kana: 'きせきのぶとうかい',
             gacha: {
@@ -1081,8 +1082,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'lucky train!': {
             ID: 'kh_037',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'アイカツ!コラボ',
             kana: 'らっきーとれいん',
             gacha: {
@@ -1130,8 +1131,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'kh_036',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -1180,8 +1181,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Special Thanks': {
             ID: 'kh_035',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Special Thanks',
             kana: 'すぺしゃるさんくす',
             gacha: {
@@ -1227,8 +1228,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'kh_033',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -1277,8 +1278,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'コットン=ユートピア': {
             ID: 'kh_030',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'コットン=ユートピア',
             kana: 'こっとんゆーとぴあ',
             gacha: {
@@ -1327,8 +1328,8 @@ export const useCardStore = defineStore('cardList', {
           },
           喫茶ハスノソラ: {
             ID: 'kh_029',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
@@ -1374,8 +1375,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Trick & Cute': {
             ID: 'kh_028',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Trick & Cute',
             kana: 'とりっくあんどきゅーと',
             gacha: {
@@ -1423,8 +1424,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ゆのくにガールズ！': {
             ID: 'kh_025',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ゆのくにガールズ！',
             kana: 'ゆのくにがーるず',
             gacha: {
@@ -1469,8 +1470,8 @@ export const useCardStore = defineStore('cardList', {
           },
           夏めきペイン: {
             ID: 'kh_024',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '夏めきペイン',
             kana: 'なつめきぺいん',
             gacha: {
@@ -1516,8 +1517,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'SPLASH!!!!': {
             ID: 'kh_022',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'SPLASH!!!!',
             kana: 'すぷらっしゅ',
             gacha: {
@@ -1563,8 +1564,8 @@ export const useCardStore = defineStore('cardList', {
           },
           眩耀夜行: {
             ID: 'kh_019',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '眩耀夜行',
             kana: 'げんようやこう',
             gacha: {
@@ -1607,8 +1608,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ペンギンアイス: {
             ID: 'kh_016',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ペンギンアイス',
             kana: 'ぺんぎんあいす',
             gacha: {
@@ -1651,8 +1652,8 @@ export const useCardStore = defineStore('cardList', {
           },
           フォーチュンムービー: {
             ID: 'kh_014',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'フォーチュンムービー',
             kana: 'ふぉーちゅんむーびー',
             gacha: {
@@ -1697,8 +1698,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Holiday∞Holiday': {
             ID: 'kh_011',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Holiday∞Holiday',
             gacha: {
               addSeason: '2023 SPRING LIMITED COLLECTION Vol.3',
@@ -1741,8 +1742,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Rose Garden': {
             ID: 'kh_009',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Rose Garden',
             kana: 'ろーずがーでん',
             gacha: {
@@ -1788,8 +1789,8 @@ export const useCardStore = defineStore('cardList', {
           },
           薫風の調べ: {
             ID: 'kh_008',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '薫風の調べ',
             kana: 'くんぷうのしらべ',
             gacha: {
@@ -1831,8 +1832,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春色ニューデイズ: {
             ID: 'kh_006',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '春色ニューデイズ',
             kana: 'はるいろにゅーでいず',
             gacha: {
@@ -1874,8 +1875,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'kh_001',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -1923,8 +1924,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           紅葉乃舞姫: {
             ID: 'kh_051',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '紅葉乃舞姫',
             kana: 'こうようのまいひめ',
             gacha: {
@@ -1966,8 +1967,8 @@ export const useCardStore = defineStore('cardList', {
           },
           織姫草紙: {
             ID: 'kh_048',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '織姫草紙',
             kana: 'おりひめそうし',
             gacha: {
@@ -2010,8 +2011,8 @@ export const useCardStore = defineStore('cardList', {
           },
           抱きしめる花びら: {
             ID: 'kh_041',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '抱きしめる花びら',
             kana: 'だきしめるはなびら',
             gacha: {
@@ -2057,8 +2058,8 @@ export const useCardStore = defineStore('cardList', {
           },
           桃節銘記: {
             ID: 'kh_039',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '桃節銘記',
             kana: 'とうせつめいき',
             gacha: {
@@ -2111,8 +2112,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ハッピー至上主義！': {
             ID: 'kh_038',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハッピー至上主義！',
             kana: 'はっぴーしじょうしゅぎ',
             gacha: {
@@ -2157,8 +2158,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '迎春 -食-': {
             ID: 'kh_034',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '迎春',
             kana: 'げいしゅん',
             gacha: {
@@ -2208,8 +2209,8 @@ export const useCardStore = defineStore('cardList', {
           },
           冬のおくりもの: {
             ID: 'kh_032',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '冬のおくりもの',
             kana: 'ふゆのおくりもの',
             gacha: {
@@ -2255,8 +2256,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ツバサ・ラ・リベルテ': {
             ID: 'kh_031',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ツバサ・ラ・リベルテ',
             kana: 'つばさらりべるて',
             gacha: {
@@ -2302,8 +2303,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '宇宙演舞☆うさぴょん': {
             ID: 'kh_027',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'うさぴょん',
             kana: 'うちゅうえんぶうさぴょん',
             gacha: {
@@ -2349,8 +2350,8 @@ export const useCardStore = defineStore('cardList', {
           },
           素顔のピクセル: {
             ID: 'kh_026',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '素顔のピクセル',
             kana: 'すがおのぴくせる',
             gacha: {
@@ -2397,8 +2398,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ドルフィン〰ビーチ': {
             ID: 'kh_021',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ドルフィン〰ビーチ',
             kana: 'どるふぃんびーち',
             gacha: {
@@ -2442,8 +2443,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'はじける☆オレンジソーダ': {
             ID: 'kh_020',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'はじける☆ソーダ',
             kana: 'はじけるおれんじそーだ',
             gacha: {
@@ -2486,8 +2487,8 @@ export const useCardStore = defineStore('cardList', {
           },
           朝顔令嬢: {
             ID: 'kh_018',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '朝顔令嬢',
             kana: 'あさがおれいじょう',
             gacha: {
@@ -2530,8 +2531,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '金魚◎花火': {
             ID: 'kh_017',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '金魚◎花火',
             kana: 'きんぎょはなび',
             gacha: {
@@ -2574,8 +2575,8 @@ export const useCardStore = defineStore('cardList', {
           },
           DEEPNESS: {
             ID: 'kh_015',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'DEEPNESS',
             kana: 'でぃーぷねす',
             gacha: {
@@ -2619,8 +2620,8 @@ export const useCardStore = defineStore('cardList', {
           },
           雨と紫陽花に唄へば: {
             ID: 'kh_013',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '雨と紫陽花に唄へば',
             kana: 'あめとあじさいにうたへば',
             gacha: {
@@ -2663,8 +2664,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アメアガリストリート: {
             ID: 'kh_012',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'アメアガリストリート',
             kana: 'あめあがりすとりーと',
             gacha: {
@@ -2707,8 +2708,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'チェリー♫ピクニック': {
             ID: 'kh_010',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'チェリー♫ピクニック',
             kana: 'ちぇりーぴくにっく',
             gacha: {
@@ -2753,8 +2754,8 @@ export const useCardStore = defineStore('cardList', {
           },
           謳歌爛漫: {
             ID: 'kh_007',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '謳歌爛漫',
             kana: 'おうからんまん',
             gacha: {
@@ -2797,8 +2798,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Reflection in the mirror': {
             ID: 'kh_005',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Reflection in the mirror',
             kana: 'りふれくしょんいんざみらー',
             gacha: {
@@ -2841,8 +2842,8 @@ export const useCardStore = defineStore('cardList', {
           },
           水彩世界: {
             ID: 'kh_004',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '水彩世界',
             kana: 'すいさいせかい',
             gacha: {
@@ -2886,8 +2887,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'kh_057',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -2924,8 +2925,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'kh_056',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -2962,8 +2963,8 @@ export const useCardStore = defineStore('cardList', {
           },
           室咲格子: {
             ID: 'kh_043',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -3000,8 +3001,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'kh_042',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -3038,8 +3039,8 @@ export const useCardStore = defineStore('cardList', {
           },
           華紺青: {
             ID: 'kh_003',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '華紺青',
             kana: 'はなこんじょう',
             gacha: {
@@ -3076,8 +3077,8 @@ export const useCardStore = defineStore('cardList', {
           },
           オーロラスカイ: {
             ID: 'kh_002',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'オーロラスカイ',
             kana: 'おーろらすかい',
             gacha: {
@@ -3118,12 +3119,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'sy_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               cardLevel: 0,
@@ -3160,8 +3161,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Ether Aria': {
             ID: 'sy_044',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -3204,8 +3205,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Prism Echo': {
             ID: 'sy_023',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Prism Echo',
             kana: 'ぷりずむえこー',
             gacha: {
@@ -3249,8 +3250,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '17th Birthday': {
             ID: 'sy_052',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'せぶんてぃーんすばーすでー',
             gacha: {
@@ -3323,8 +3324,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           '太陽であれ！': {
             ID: 'sy_060',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '太陽であれ！',
             kana: 'たいようであれ',
             gacha: {
@@ -3347,7 +3348,7 @@ export const useCardStore = defineStore('cardList', {
               BP: 100,
             },
             specialAppeal: {
-              ID: 'radiantAttraction_01',
+              ID: 'backlitAmbience_01',
               name: 'バックリットアンビエンス',
               AP: 22,
               detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]],
@@ -3372,8 +3373,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'アイドゥーミー！': {
             ID: 'sy_059',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'アイドゥーミー！',
             kana: 'あいどぅーみー',
             gacha: {
@@ -3425,8 +3426,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アンペア: {
             ID: 'sy_058',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'アンペア',
             kana: 'あんぺあ',
             gacha: {
@@ -3473,8 +3474,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'sy_057',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -3519,8 +3520,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'sy_053',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -3565,8 +3566,8 @@ export const useCardStore = defineStore('cardList', {
           },
           聖夜譚: {
             ID: 'sy_051',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '聖夜譚',
             kana: 'せいやたん',
             gacha: {
@@ -3612,8 +3613,8 @@ export const useCardStore = defineStore('cardList', {
           },
           バアドケージ: {
             ID: 'sy_050',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'バアドケージ',
             kana: 'ばあどけーじ',
             gacha: {
@@ -3660,8 +3661,8 @@ export const useCardStore = defineStore('cardList', {
           },
           紅葉乃舞姫: {
             ID: 'sy_049',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '紅葉乃舞姫',
             kana: 'こうようのまいひめ',
             gacha: {
@@ -3704,8 +3705,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Proof: {
             ID: 'sy_047',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Proof',
             kana: 'ぷるーふ',
             gacha: {
@@ -3754,8 +3755,8 @@ export const useCardStore = defineStore('cardList', {
           },
           織姫草紙: {
             ID: 'sy_046',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '織姫草紙',
             kana: 'おりひめそうし',
             gacha: {
@@ -3798,8 +3799,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レディバグ: {
             ID: 'sy_045',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'レディバグ',
             kana: 'れでぃばぐ',
             gacha: {
@@ -3842,8 +3843,8 @@ export const useCardStore = defineStore('cardList', {
           },
           真実の舞踏会: {
             ID: 'sy_039',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '舞踏会',
             kana: 'しんじつのぶとうかい',
             gacha: {
@@ -3888,8 +3889,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'sy_036',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -3938,8 +3939,8 @@ export const useCardStore = defineStore('cardList', {
           },
           青とシャボン: {
             ID: 'sy_035',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '青とシャボン',
             kana: 'あおとしゃぼん',
             gacha: {
@@ -3985,8 +3986,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'sy_032',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -4035,8 +4036,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Secret Christmas': {
             ID: 'sy_031',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Secret Christmas',
             kana: 'しーくれっとくりすます',
             gacha: {
@@ -4086,8 +4087,8 @@ export const useCardStore = defineStore('cardList', {
           },
           喫茶ハスノソラ: {
             ID: 'sy_029',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
@@ -4133,8 +4134,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '宇宙警察★うさぴょん': {
             ID: 'sy_027',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'うさぴょん',
             kana: 'うちゅうけいさつうさぴょん',
             gacha: {
@@ -4177,8 +4178,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ゆのくにガールズ！': {
             ID: 'sy_025',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ゆのくにガールズ！',
             kana: 'ゆのくにがーるず',
             gacha: {
@@ -4223,8 +4224,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'SPLASH!!!!': {
             ID: 'sy_022',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'SPLASH!!!!',
             kana: 'すぷらっしゅ',
             gacha: {
@@ -4270,8 +4271,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ドルフィン〰ビーチ': {
             ID: 'sy_021',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ドルフィン〰ビーチ',
             kana: 'どるふぃんびーち',
             gacha: {
@@ -4317,8 +4318,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Mirage Voyage': {
             ID: 'sy_019',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Mirage Voyage',
             kana: 'みらーじゅぼやーじゅ',
             gacha: {
@@ -4364,8 +4365,8 @@ export const useCardStore = defineStore('cardList', {
           },
           朝顔令嬢: {
             ID: 'sy_018',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '朝顔令嬢',
             kana: 'あさがおれいじょう',
             gacha: {
@@ -4410,8 +4411,8 @@ export const useCardStore = defineStore('cardList', {
           },
           雨と紫陽花に唄へば: {
             ID: 'sy_014',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '雨と紫陽花に唄へば',
             kana: 'あめとあじさいにうたへば',
             gacha: {
@@ -4458,8 +4459,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ツキマカセ: {
             ID: 'sy_013',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'ツキマカセ',
             kana: 'つきまかせ',
             gacha: {
@@ -4504,8 +4505,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Rose Garden': {
             ID: 'sy_009',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Rose Garden',
             kana: 'ろーずがーでん',
             gacha: {
@@ -4551,8 +4552,8 @@ export const useCardStore = defineStore('cardList', {
           },
           薫風の調べ: {
             ID: 'sy_008',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '薫風の調べ',
             kana: 'くんぷうのしらべ',
             gacha: {
@@ -4594,8 +4595,8 @@ export const useCardStore = defineStore('cardList', {
           },
           スケイプゴート: {
             ID: 'sy_007',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'スケイプゴート',
             kana: 'すけいぷごーと',
             gacha: {
@@ -4638,8 +4639,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'sy_001',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -4687,8 +4688,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           COMPASS: {
             ID: 'sy_054',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'COMPASS',
             kana: 'こんぱす',
             gacha: {
@@ -4740,8 +4741,8 @@ export const useCardStore = defineStore('cardList', {
           },
           魔法少女リズミックハート: {
             ID: 'sy_048',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '魔法少女リズミックハート',
             kana: 'まほうしょうじょりずみっくはーと',
             gacha: {
@@ -4787,8 +4788,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春風ブランコ: {
             ID: 'sy_043',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '春風ブランコ',
             kana: 'はるかぜぶらんこ',
             gacha: {
@@ -4833,8 +4834,8 @@ export const useCardStore = defineStore('cardList', {
           },
           抱きしめる花びら: {
             ID: 'sy_040',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '抱きしめる花びら',
             kana: 'だきしめるはなびら',
             gacha: {
@@ -4880,8 +4881,8 @@ export const useCardStore = defineStore('cardList', {
           },
           桃節銘記: {
             ID: 'sy_038',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '桃節銘記',
             kana: 'とうせつめいき',
             gacha: {
@@ -4927,8 +4928,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Pleasure Feather': {
             ID: 'sy_037',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Pleasure Feather',
             kana: 'ぷれじゃーふぇざー',
             gacha: {
@@ -4971,8 +4972,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Eisprinzessin: {
             ID: 'sy_034',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Eisprinzessin / Eisritter',
             kana: 'あいすぷりんせす',
             gacha: {
@@ -5018,8 +5019,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '迎春 -舞-': {
             ID: 'sy_033',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '迎春',
             kana: 'げいしゅん',
             gacha: {
@@ -5068,8 +5069,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ツバサ・ラ・リベルテ': {
             ID: 'sy_030',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ツバサ・ラ・リベルテ',
             kana: 'つばさらりべるて',
             gacha: {
@@ -5115,8 +5116,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Trick & Cute': {
             ID: 'sy_028',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Trick & Cute',
             kana: 'とりっくあんどきゅーと',
             gacha: {
@@ -5161,8 +5162,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Take It Over': {
             ID: 'sy_026',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Take It Over',
             kana: 'ていくいっとおーばー',
             gacha: {
@@ -5208,8 +5209,8 @@ export const useCardStore = defineStore('cardList', {
           },
           夏めきペイン: {
             ID: 'sy_024',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '夏めきペイン',
             kana: 'なつめきぺいん',
             gacha: {
@@ -5255,8 +5256,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'はじける☆ブルーソーダ': {
             ID: 'sy_020',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'はじける☆ソーダ',
             kana: 'はじけるぶるーそーだ',
             gacha: {
@@ -5298,8 +5299,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '金魚◎花火': {
             ID: 'sy_017',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '金魚◎花火',
             kana: 'きんぎょはなび',
             gacha: {
@@ -5342,8 +5343,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ペンギンアイス: {
             ID: 'sy_016',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ペンギンアイス',
             kana: 'ぺんぎんあいす',
             gacha: {
@@ -5385,8 +5386,8 @@ export const useCardStore = defineStore('cardList', {
           },
           DEEPNESS: {
             ID: 'sy_015',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'DEEPNESS',
             kana: 'でぃーぷねす',
             gacha: {
@@ -5429,8 +5430,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アメアガリストリート: {
             ID: 'sy_012',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'アメアガリストリート',
             kana: 'あめあがりすとりーと',
             gacha: {
@@ -5473,8 +5474,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Tragic Drops': {
             ID: 'sy_011',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Tragic Drops',
             kana: 'とらじっくどろっぷす',
             gacha: {
@@ -5517,8 +5518,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'チェリー♫ピクニック': {
             ID: 'sy_010',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'チェリー♫ピクニック',
             kana: 'ちぇりーぴくにっく',
             gacha: {
@@ -5563,8 +5564,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春色ニューデイズ: {
             ID: 'sy_006',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '春色ニューデイズ',
             kana: 'はるいろにゅーでいず',
             gacha: {
@@ -5609,8 +5610,8 @@ export const useCardStore = defineStore('cardList', {
           },
           AWOKE: {
             ID: 'sy_004',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'AWOKE',
             kana: 'あうぉーく',
             gacha: {
@@ -5652,8 +5653,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Sparkly Spot': {
             ID: 'sy_005',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Sparkly Spot',
             kana: 'すぱーくりーすぽっと',
             gacha: {
@@ -5698,8 +5699,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'sy_056',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -5736,8 +5737,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'sy_055',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -5774,8 +5775,8 @@ export const useCardStore = defineStore('cardList', {
           },
           室咲格子: {
             ID: 'sy_042',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -5812,8 +5813,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'sy_041',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -5850,8 +5851,8 @@ export const useCardStore = defineStore('cardList', {
           },
           華紺青: {
             ID: 'sy_003',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '華紺青',
             kana: 'はなこんじょう',
             gacha: {
@@ -5888,8 +5889,8 @@ export const useCardStore = defineStore('cardList', {
           },
           オーロラスカイ: {
             ID: 'sy_002',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'オーロラスカイ',
             kana: 'おーろらすかい',
             gacha: {
@@ -5930,12 +5931,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'rr_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -5975,8 +5976,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Oracle Étude': {
             ID: 'rr_050',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'Oracle Étude',
             kana: 'おらくるえちゅーど',
             gacha: {
@@ -6025,8 +6026,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Ether Aria': {
             ID: 'rr_033',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -6068,8 +6069,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Prism Echo': {
             ID: 'rr_008',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Prism Echo',
             kana: 'ぷりずむえこー',
             gacha: {
@@ -6114,8 +6115,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '17th Birthday': {
             ID: 'rr_036',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'せぶんてぃーんすばーすでー',
             gacha: {
@@ -6201,8 +6202,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           'Very! Very! COCO夏っ': {
             ID: 'rr_051',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Very! Very! COCO夏っ',
             kana: 'べりーべりーここなつっ',
             gacha: {
@@ -6272,8 +6273,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'アイドゥーミー！': {
             ID: 'rr_049',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'アイドゥーミー！',
             kana: 'あいどぅーみー',
             gacha: {
@@ -6342,8 +6343,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'WAWO!': {
             ID: 'rr_047',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'WAWO!',
             kana: 'わお',
             gacha: {
@@ -6390,8 +6391,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'rr_042',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -6436,8 +6437,8 @@ export const useCardStore = defineStore('cardList', {
           },
           聖夜譚: {
             ID: 'rr_041',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '聖夜譚',
             kana: 'せいやたん',
             gacha: {
@@ -6483,8 +6484,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ジョーショーキリュー: {
             ID: 'rr_040',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'ジョーショーキリュー',
             kana: 'じょーしょーきりゅー',
             gacha: {
@@ -6559,8 +6560,8 @@ export const useCardStore = defineStore('cardList', {
           },
           紅葉乃舞姫: {
             ID: 'rr_039',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '紅葉乃舞姫',
             kana: 'こうようのまいひめ',
             gacha: {
@@ -6603,8 +6604,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ファンファーレ！！！': {
             ID: 'rr_038',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ファンファーレ！！！',
             kana: 'ふぁんふぁーれ',
             gacha: {
@@ -6678,8 +6679,8 @@ export const useCardStore = defineStore('cardList', {
           },
           DEEPNESS: {
             ID: 'rr_037',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'DEEPNESS',
             kana: 'でぃーぷねす',
             gacha: {
@@ -6721,8 +6722,8 @@ export const useCardStore = defineStore('cardList', {
           },
           織姫草紙: {
             ID: 'rr_035',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '織姫草紙',
             kana: 'おりひめそうし',
             gacha: {
@@ -6768,8 +6769,8 @@ export const useCardStore = defineStore('cardList', {
           },
           みらくりえーしょん: {
             ID: 'rr_034',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'みらくりえーしょん',
             kana: 'みらくりえーしょん',
             gacha: {
@@ -6824,8 +6825,8 @@ export const useCardStore = defineStore('cardList', {
           },
           悠久の舞踏会: {
             ID: 'rr_028',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '舞踏会',
             kana: 'ゆうきゅうのぶとうかい',
             gacha: {
@@ -6928,8 +6929,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Colorfulness: {
             ID: 'rr_027',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'Colorfulness',
             kana: 'からふるねす',
             gacha: {
@@ -6979,8 +6980,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'rr_026',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -7029,8 +7030,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ミルク: {
             ID: 'rr_025',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'ミルク',
             kana: 'みるく',
             gacha: {
@@ -7077,8 +7078,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ハクチューアラモード: {
             ID: 'rr_024',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハクチューアラモード',
             kana: 'はくちゅーあらもーど',
             gacha: {
@@ -7121,8 +7122,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'rr_022',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -7167,8 +7168,8 @@ export const useCardStore = defineStore('cardList', {
           },
           プチパティシエール: {
             ID: 'rr_020',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'プチパティシエール',
             kana: 'ぷちぱてぃしえーる',
             gacha: {
@@ -7210,8 +7211,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'コットン=ユートピア': {
             ID: 'rr_017',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'コットン=ユートピア',
             kana: 'こっとんゆーとぴあ',
             gacha: {
@@ -7257,8 +7258,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Trick & Cute': {
             ID: 'rr_015',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Trick & Cute',
             kana: 'とりっくあんどきゅーと',
             gacha: {
@@ -7300,8 +7301,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '宇宙警察★うさぴょん': {
             ID: 'rr_014',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'うさぴょん',
             kana: 'うちゅうけいさつうさぴょん',
             gacha: {
@@ -7347,8 +7348,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アイデンティティ: {
             ID: 'rr_012',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'アイデンティティ',
             kana: 'あいでんてぃてぃ',
             gacha: {
@@ -7394,8 +7395,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'yours ever': {
             ID: 'rr_010',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'yours ever',
             kana: 'ゆあーずえばー',
             gacha: {
@@ -7441,8 +7442,8 @@ export const useCardStore = defineStore('cardList', {
           },
           夏めきペイン: {
             ID: 'rr_009',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '夏めきペイン',
             kana: 'なつめきぺいん',
             gacha: {
@@ -7487,8 +7488,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'rr_001',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -7532,8 +7533,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           蒼のツバメ: {
             ID: 'rr_048',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '蒼のツバメ',
             kana: 'あおのつばめ',
             gacha: {
@@ -7576,8 +7577,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'rr_046',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -7620,8 +7621,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '全方位キュン♡': {
             ID: 'rr_043',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '全方位キュン♡',
             kana: 'ぜんほういきゅん',
             gacha: {
@@ -7691,8 +7692,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春風ブランコ: {
             ID: 'rr_032',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '春風ブランコ',
             kana: 'はるかぜぶらんこ',
             gacha: {
@@ -7737,8 +7738,8 @@ export const useCardStore = defineStore('cardList', {
           },
           抱きしめる花びら: {
             ID: 'rr_029',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: '抱きしめる花びら',
             kana: 'だきしめるはなびら',
             gacha: {
@@ -7784,8 +7785,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '迎春 -楽-': {
             ID: 'rr_023',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '迎春',
             kana: 'げいしゅん',
             gacha: {
@@ -7834,8 +7835,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Secret Christmas': {
             ID: 'rr_021',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Secret Christmas',
             kana: 'しーくれっとくりすます',
             gacha: {
@@ -7881,8 +7882,8 @@ export const useCardStore = defineStore('cardList', {
           },
           冬のおくりもの: {
             ID: 'rr_019',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '冬のおくりもの',
             kana: 'ふゆのおくりもの',
             gacha: {
@@ -7925,8 +7926,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ツバサ・ラ・リベルテ': {
             ID: 'rr_018',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ツバサ・ラ・リベルテ',
             kana: 'つばさらりべるて',
             gacha: {
@@ -7972,8 +7973,8 @@ export const useCardStore = defineStore('cardList', {
           },
           喫茶ハスノソラ: {
             ID: 'rr_016',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
@@ -8016,8 +8017,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Au Bord du Lac': {
             ID: 'rr_013',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Au Bord du Lac',
             kana: 'あうぼーどどぅらっく',
             gacha: {
@@ -8060,8 +8061,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ゆのくにガールズ！': {
             ID: 'rr_011',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ゆのくにガールズ！',
             kana: 'ゆのくにがーるず',
             gacha: {
@@ -8106,8 +8107,8 @@ export const useCardStore = defineStore('cardList', {
           },
           世界中を夢中に: {
             ID: 'rr_007',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '世界中を夢中に',
             kana: 'せかいじゅうをむちゅうに',
             gacha: {
@@ -8153,8 +8154,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'にゅーかまー！': {
             ID: 'rr_006',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'にゅーかまー！',
             kana: 'にゅーかまー',
             gacha: {
@@ -8196,8 +8197,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '@いっつぁどりーみんわーるど！': {
             ID: 'rr_005',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '@いっつぁどりーみんわーるど！',
             kana: 'いっつぁどりーみんわーるど',
             gacha: {
@@ -8239,8 +8240,8 @@ export const useCardStore = defineStore('cardList', {
           },
           "R's One Day": {
             ID: 'rr_004',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'One Day',
             kana: 'あーるずわんでい',
             gacha: {
@@ -8284,8 +8285,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'rr_045',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -8322,8 +8323,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'rr_044',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -8360,8 +8361,8 @@ export const useCardStore = defineStore('cardList', {
           },
           室咲格子: {
             ID: 'rr_031',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -8398,8 +8399,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'rr_030',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -8436,8 +8437,8 @@ export const useCardStore = defineStore('cardList', {
           },
           華紺青: {
             ID: 'rr_003',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '華紺青',
             kana: 'はなこんじょう',
             gacha: {
@@ -8474,8 +8475,8 @@ export const useCardStore = defineStore('cardList', {
           },
           オーロラスカイ: {
             ID: 'rr_002',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'オーロラスカイ',
             kana: 'おーろらすかい',
             gacha: {
@@ -8516,12 +8517,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'kz_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -8559,8 +8560,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Ether Aria': {
             ID: 'kz_043',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -8610,8 +8611,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Prism Echo': {
             ID: 'kz_023',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Prism Echo',
             kana: 'ぷりずむえこー',
             gacha: {
@@ -8661,8 +8662,8 @@ export const useCardStore = defineStore('cardList', {
         LR: {
           'be proud': {
             ID: 'kz_056',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'be proud',
             kana: 'びーぷろうど',
             gacha: {
@@ -8713,8 +8714,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '18th Birthday': {
             ID: 'kz_046',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'えいてぃーんばーすでー',
             gacha: {
@@ -8787,8 +8788,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           'いつでも、いつまでも': {
             ID: 'kz_055',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'いつでも、いつまでも',
             kana: 'いつでもいつまでも',
             gacha: {
@@ -8852,8 +8853,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ユメワズライ: {
             ID: 'kz_054',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ユメワズライ',
             kana: 'ゆめわずらい',
             gacha: {
@@ -8923,8 +8924,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'kz_053',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -8966,8 +8967,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'KEY of Like！': {
             ID: 'kz_052',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'KEY of Like！',
             kana: 'きーおぶらいく',
             gacha: {
@@ -9014,8 +9015,8 @@ export const useCardStore = defineStore('cardList', {
           },
           輪廻の銀河へ: {
             ID: 'kz_050',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '銀河',
             kana: 'りんねのぎんがへ',
             gacha: {
@@ -9060,8 +9061,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'PASSION!!!!!!': {
             ID: 'kz_048',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'PASSION!!!!!!',
             kana: 'ぱっしょん',
             gacha: {
@@ -9104,8 +9105,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アオクハルカ: {
             ID: 'kz_047',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'アオクハルカ',
             kana: 'あおくはるか',
             gacha: {
@@ -9162,8 +9163,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'H.S.C.T.☆': {
             ID: 'kz_045',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'hsct',
             kana: 'hsct',
             gacha: {
@@ -9209,8 +9210,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '365 Days': {
             ID: 'kz_044',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '365 Days',
             kana: 'えぶりでい',
             gacha: {
@@ -9252,8 +9253,8 @@ export const useCardStore = defineStore('cardList', {
           },
           抱きしめる花びら: {
             ID: 'kz_040',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '抱きしめる花びら',
             kana: 'だきしめるはなびら',
             gacha: {
@@ -9299,8 +9300,8 @@ export const useCardStore = defineStore('cardList', {
           },
           桃節銘記: {
             ID: 'kz_038',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '桃節銘記',
             kana: 'とうせつめいき',
             gacha: {
@@ -9353,8 +9354,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ダイヤモンドハッピー: {
             ID: 'kz_036',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'アイカツ!コラボ',
             kana: 'だいやもんどはっぴー',
             gacha: {
@@ -9407,8 +9408,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'kz_033',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -9457,8 +9458,8 @@ export const useCardStore = defineStore('cardList', {
           },
           冬のおくりもの: {
             ID: 'kz_031',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '冬のおくりもの',
             kana: 'ふゆのおくりもの',
             gacha: {
@@ -9504,8 +9505,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ツバサ・ラ・リベルテ': {
             ID: 'kz_030',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ツバサ・ラ・リベルテ',
             kana: 'つばさらりべるて',
             gacha: {
@@ -9551,8 +9552,8 @@ export const useCardStore = defineStore('cardList', {
           },
           奇跡の舞踏会: {
             ID: 'kz_027',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '舞踏会',
             kana: 'きせきのぶとうかい',
             gacha: {
@@ -9598,8 +9599,8 @@ export const useCardStore = defineStore('cardList', {
           },
           秋色カントリーロード: {
             ID: 'kz_025',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '秋色カントリーロード',
             kana: 'あきいろかんとりーろーど',
             gacha: {
@@ -9649,8 +9650,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'はじける☆メロンソーダ': {
             ID: 'kz_021',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'はじける☆ソーダ',
             kana: 'はじけるめろんそーだ',
             gacha: {
@@ -9693,8 +9694,8 @@ export const useCardStore = defineStore('cardList', {
           },
           DEEPNESS: {
             ID: 'kz_016',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'DEEPNESS',
             kana: 'でぃーぷねす',
             gacha: {
@@ -9743,8 +9744,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '金魚◎花火': {
             ID: 'kz_018',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: '金魚◎花火',
             kana: 'きんぎょはなび',
             gacha: {
@@ -9787,8 +9788,8 @@ export const useCardStore = defineStore('cardList', {
           },
           フォーチュンムービー: {
             ID: 'kz_015',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'フォーチュンムービー',
             kana: 'ふぉーちゅんむーびー',
             gacha: {
@@ -9831,8 +9832,8 @@ export const useCardStore = defineStore('cardList', {
           },
           雨と紫陽花に唄へば: {
             ID: 'kz_014',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '雨と紫陽花に唄へば',
             kana: 'あめとあじさいにうたへば',
             gacha: {
@@ -9875,8 +9876,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Holiday∞Holiday': {
             ID: 'kz_012',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Holiday∞Holiday',
             kana: 'ほりでーほりでー',
             gacha: {
@@ -9919,8 +9920,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'チェリー♫ピクニック': {
             ID: 'kz_011',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'チェリー♫ピクニック',
             kana: 'ちぇりーぴくにっく',
             gacha: {
@@ -9963,8 +9964,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Reflection in the mirror': {
             ID: 'kz_006',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Reflection in the mirror',
             kana: 'りふれくしょんいんざみらー',
             gacha: {
@@ -10007,8 +10008,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春色ニューデイズ: {
             ID: 'kz_007',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '春色ニューデイズ',
             kana: 'はるいろにゅーでいず',
             gacha: {
@@ -10050,8 +10051,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'kz_001',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -10096,8 +10097,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           ハナムスビ: {
             ID: 'kz_051',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハナムスビ',
             kana: 'はなむすび',
             gacha: {
@@ -10143,8 +10144,8 @@ export const useCardStore = defineStore('cardList', {
           },
           月夜見海月: {
             ID: 'kz_049',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '月夜見海月',
             kana: 'つくよみくらげ',
             gacha: {
@@ -10215,8 +10216,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'おしえて♡ティーチャー': {
             ID: 'kz_039',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'おしえて♡ティーチャー',
             kana: 'おしえててぃーちゃー',
             gacha: {
@@ -10258,8 +10259,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Pleasure Feather': {
             ID: 'kz_037',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Pleasure Feather',
             kana: 'ぷれじゃーふぇざー',
             gacha: {
@@ -10302,8 +10303,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '節分 -魅-': {
             ID: 'kz_035',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '節分',
             kana: 'せつぶん',
             gacha: {
@@ -10352,8 +10353,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Special Thanks': {
             ID: 'kz_034',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Special Thanks',
             kana: 'すぺしゃるさんくす',
             gacha: {
@@ -10400,8 +10401,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'kz_032',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -10450,8 +10451,8 @@ export const useCardStore = defineStore('cardList', {
           },
           喫茶ハスノソラ: {
             ID: 'kz_029',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
@@ -10497,8 +10498,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Trick & Cute': {
             ID: 'kz_028',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Trick & Cute',
             kana: 'とりっくあんどきゅーと',
             gacha: {
@@ -10541,8 +10542,8 @@ export const useCardStore = defineStore('cardList', {
           },
           素顔のピクセル: {
             ID: 'kz_026',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '素顔のピクセル',
             kana: 'すがおのぴくせる',
             gacha: {
@@ -10588,8 +10589,8 @@ export const useCardStore = defineStore('cardList', {
           },
           夏めきペイン: {
             ID: 'kz_024',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '夏めきペイン',
             kana: 'なつめきぺいん',
             gacha: {
@@ -10632,8 +10633,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'SPLASH!!!!': {
             ID: 'kz_022',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'SPLASH!!!!',
             kana: 'すぷらっしゅ',
             gacha: {
@@ -10676,8 +10677,8 @@ export const useCardStore = defineStore('cardList', {
           },
           眩耀夜行: {
             ID: 'kz_020',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '眩耀夜行',
             kana: 'げんようやこう',
             gacha: {
@@ -10720,8 +10721,8 @@ export const useCardStore = defineStore('cardList', {
           },
           朝顔令嬢: {
             ID: 'kz_019',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '朝顔令嬢',
             kana: 'あさがおれいじょう',
             gacha: {
@@ -10763,8 +10764,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ペンギンアイス: {
             ID: 'kz_017',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ペンギンアイス',
             kana: 'ぺんぎんあいす',
             gacha: {
@@ -10806,8 +10807,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アメアガリストリート: {
             ID: 'kz_013',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'アメアガリストリート',
             kana: 'あめあがりすとりーと',
             gacha: {
@@ -10850,8 +10851,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Rose Garden': {
             ID: 'kz_010',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Rose Garden',
             kana: 'ろーずがーでん',
             gacha: {
@@ -10894,8 +10895,8 @@ export const useCardStore = defineStore('cardList', {
           },
           薫風の調べ: {
             ID: 'kz_009',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '薫風の調べ',
             kana: 'くんぷうのしらべ',
             gacha: {
@@ -10937,8 +10938,8 @@ export const useCardStore = defineStore('cardList', {
           },
           謳歌爛漫: {
             ID: 'kz_008',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '謳歌爛漫',
             kana: 'おうからんまん',
             gacha: {
@@ -10981,8 +10982,8 @@ export const useCardStore = defineStore('cardList', {
           },
           水彩世界: {
             ID: 'kz_005',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '水彩世界',
             kana: 'すいさいせかい',
             gacha: {
@@ -11024,8 +11025,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Grace Phrase': {
             ID: 'kz_004',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Grace Phrase',
             kana: 'ぐれいすふれーず',
             gacha: {
@@ -11069,8 +11070,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           室咲格子: {
             ID: 'kz_042',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -11107,8 +11108,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'kz_041',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -11145,8 +11146,8 @@ export const useCardStore = defineStore('cardList', {
           },
           華紺青: {
             ID: 'kz_003',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '華紺青',
             kana: 'はなこんじょう',
             gacha: {
@@ -11183,8 +11184,8 @@ export const useCardStore = defineStore('cardList', {
           },
           オーロラスカイ: {
             ID: 'kz_002',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'オーロラスカイ',
             kana: 'おーろらすかい',
             gacha: {
@@ -11225,12 +11226,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'tz_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -11268,8 +11269,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Ether Aria': {
             ID: 'tz_043',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -11312,8 +11313,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Prism Echo': {
             ID: 'tz_023',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Prism Echo',
             kana: 'ぷりずむえこー',
             gacha: {
@@ -11363,8 +11364,8 @@ export const useCardStore = defineStore('cardList', {
         LR: {
           幸せのリボン: {
             ID: 'tz_056',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '幸せのリボン',
             kana: 'しあわせのりぼん',
             gacha: {
@@ -11415,8 +11416,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '18th Birthday': {
             ID: 'tz_049',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'えいてぃーんばーすでー',
             gacha: {
@@ -11489,8 +11490,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           'いつでも、いつまでも': {
             ID: 'tz_055',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'いつでも、いつまでも',
             kana: 'いつでもいつまでも',
             gacha: {
@@ -11554,8 +11555,8 @@ export const useCardStore = defineStore('cardList', {
           },
           COMPASS: {
             ID: 'tz_054',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'COMPASS',
             kana: 'こんぱす',
             gacha: {
@@ -11606,8 +11607,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'tz_053',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -11652,8 +11653,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'KEY of Like！': {
             ID: 'tz_052',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'KEY of Like！',
             kana: 'きーおぶらいく',
             gacha: {
@@ -11715,8 +11716,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '102/R.B.P.': {
             ID: 'tz_051',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'オンゲキコラボ',
             kana: 'あーるびーぴー',
             gacha: {
@@ -11763,8 +11764,8 @@ export const useCardStore = defineStore('cardList', {
           },
           バアドケージ: {
             ID: 'tz_050',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'バアドケージ',
             kana: 'ばあどけーじ',
             gacha: {
@@ -11837,8 +11838,8 @@ export const useCardStore = defineStore('cardList', {
           },
           福音の銀河へ: {
             ID: 'tz_048',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '銀河',
             kana: 'ふくいんのぎんがへ',
             gacha: {
@@ -11883,8 +11884,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Proof: {
             ID: 'tz_047',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Proof',
             kana: 'ぷるーふ',
             gacha: {
@@ -11930,8 +11931,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レディバグ: {
             ID: 'tz_045',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'レディバグ',
             kana: 'れでぃばぐ',
             gacha: {
@@ -11976,8 +11977,8 @@ export const useCardStore = defineStore('cardList', {
           },
           抱きしめる花びら: {
             ID: 'tz_040',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '抱きしめる花びら',
             kana: 'だきしめるはなびら',
             gacha: {
@@ -12023,8 +12024,8 @@ export const useCardStore = defineStore('cardList', {
           },
           桃節銘記: {
             ID: 'tz_039',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '桃節銘記',
             kana: 'とうせつめいき',
             gacha: {
@@ -12070,8 +12071,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Colorfulness: {
             ID: 'tz_038',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'Colorfulness',
             kana: 'からふるねす',
             gacha: {
@@ -12113,8 +12114,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'tz_034',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -12163,8 +12164,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ツバサ・ラ・リベルテ': {
             ID: 'tz_031',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ツバサ・ラ・リベルテ',
             kana: 'つばさらりべるて',
             gacha: {
@@ -12211,8 +12212,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Trick & Cute': {
             ID: 'tz_028',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Trick & Cute',
             kana: 'とりっくあんどきゅーと',
             gacha: {
@@ -12257,8 +12258,8 @@ export const useCardStore = defineStore('cardList', {
           },
           革命の舞踏会: {
             ID: 'tz_027',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '舞踏会',
             kana: 'かくめいのぶとうかい',
             gacha: {
@@ -12300,8 +12301,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Take It Over': {
             ID: 'tz_026',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Take It Over',
             kana: 'ていくいっとおーばー',
             gacha: {
@@ -12347,8 +12348,8 @@ export const useCardStore = defineStore('cardList', {
           },
           秋色カントリーロード: {
             ID: 'tz_025',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '秋色カントリーロード',
             kana: 'あきいろかんとりーろーど',
             gacha: {
@@ -12398,8 +12399,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'はじける☆スイカソーダ': {
             ID: 'tz_021',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'はじける☆ソーダ',
             kana: 'はじけるすいかそーだ',
             gacha: {
@@ -12445,8 +12446,8 @@ export const useCardStore = defineStore('cardList', {
           },
           朝顔令嬢: {
             ID: 'tz_019',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '朝顔令嬢',
             kana: 'あさがおれいじょう',
             gacha: {
@@ -12491,8 +12492,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '金魚◎花火': {
             ID: 'tz_018',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '金魚◎花火',
             kana: 'きんぎょはなび',
             gacha: {
@@ -12534,8 +12535,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ペンギンアイス: {
             ID: 'tz_017',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ペンギンアイス',
             kana: 'ぺんぎんあいす',
             gacha: {
@@ -12580,8 +12581,8 @@ export const useCardStore = defineStore('cardList', {
           },
           DEEPNESS: {
             ID: 'tz_016',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'DEEPNESS',
             kana: 'でぃーぷねす',
             gacha: {
@@ -12627,8 +12628,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ツキマカセ: {
             ID: 'tz_014',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'ツキマカセ',
             kana: 'つきまかせ',
             gacha: {
@@ -12676,8 +12677,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'チェリー♫ピクニック': {
             ID: 'tz_011',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'チェリー♫ピクニック',
             kana: 'ちぇりーぴくにっく',
             gacha: {
@@ -12720,8 +12721,8 @@ export const useCardStore = defineStore('cardList', {
           },
           スケイプゴート: {
             ID: 'tz_008',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'スケイプゴート',
             kana: 'すけいぷごーと',
             gacha: {
@@ -12770,8 +12771,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'tz_001',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -12818,8 +12819,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           'PASSION!!!!!!': {
             ID: 'tz_046',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'PASSION!!!!!!',
             kana: 'ぱっしょん',
             gacha: {
@@ -12864,8 +12865,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '365 Days': {
             ID: 'tz_044',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '365 Days',
             kana: 'えぶりでい',
             gacha: {
@@ -12907,8 +12908,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '節分 -妖-': {
             ID: 'tz_037',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '節分',
             kana: 'せつぶん',
             gacha: {
@@ -12954,8 +12955,8 @@ export const useCardStore = defineStore('cardList', {
           },
           青とシャボン: {
             ID: 'tz_036',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '青とシャボン',
             kana: 'あおとしゃぼん',
             gacha: {
@@ -13001,8 +13002,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Eisritter: {
             ID: 'tz_035',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Eisprinzessin / Eisritter',
             kana: 'あいすりったー',
             gacha: {
@@ -13051,8 +13052,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'tz_033',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -13101,8 +13102,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Secret Christmas': {
             ID: 'tz_032',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Secret Christmas',
             kana: 'しーくれっとくりすます',
             gacha: {
@@ -13151,8 +13152,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'コットン=ユートピア': {
             ID: 'tz_030',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'コットン=ユートピア',
             kana: 'こっとんゆーとぴあ',
             gacha: {
@@ -13198,8 +13199,8 @@ export const useCardStore = defineStore('cardList', {
           },
           喫茶ハスノソラ: {
             ID: 'tz_029',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
@@ -13248,8 +13249,8 @@ export const useCardStore = defineStore('cardList', {
           },
           夏めきペイン: {
             ID: 'tz_024',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '夏めきペイン',
             kana: 'なつめきぺいん',
             gacha: {
@@ -13295,8 +13296,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'SPLASH!!!!': {
             ID: 'tz_022',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'SPLASH!!!!',
             kana: 'すぷらっしゅ',
             gacha: {
@@ -13342,8 +13343,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Mirage Voyage': {
             ID: 'tz_020',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Mirage Voyage',
             kana: 'みらーじゅぼやーじゅ',
             gacha: {
@@ -13386,8 +13387,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アメアガリストリート: {
             ID: 'tz_013',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'アメアガリストリート',
             kana: 'あめあがりすとりーと',
             gacha: {
@@ -13430,8 +13431,8 @@ export const useCardStore = defineStore('cardList', {
           },
           雨と紫陽花に唄へば: {
             ID: 'tz_015',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '雨と紫陽花に唄へば',
             kana: 'あめとあじさいにうたへば',
             gacha: {
@@ -13474,8 +13475,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Tragic Drops': {
             ID: 'tz_012',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Tragic Drops',
             kana: 'とらじっくどろっぷす',
             gacha: {
@@ -13518,8 +13519,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Rose Garden': {
             ID: 'tz_010',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Rose Garden',
             kana: 'ろーずがーでん',
             gacha: {
@@ -13562,8 +13563,8 @@ export const useCardStore = defineStore('cardList', {
           },
           薫風の調べ: {
             ID: 'tz_009',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '薫風の調べ',
             kana: 'くんぷうのしらべ',
             gacha: {
@@ -13605,8 +13606,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Sparkly Spot': {
             ID: 'tz_006',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Sparkly Spot',
             kana: 'すぱーくりーすぽっと',
             gacha: {
@@ -13649,8 +13650,8 @@ export const useCardStore = defineStore('cardList', {
           },
           春色ニューデイズ: {
             ID: 'tz_007',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '春色ニューデイズ',
             kana: 'はるいろにゅーでいず',
             gacha: {
@@ -13692,8 +13693,8 @@ export const useCardStore = defineStore('cardList', {
           },
           AWOKE: {
             ID: 'tz_005',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'AWOKE',
             kana: 'あうぉーく',
             gacha: {
@@ -13735,8 +13736,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Vivid Phrase': {
             ID: 'tz_004',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Vivid Phrase',
             kana: 'ゔぃゔぃっどふれーず',
             gacha: {
@@ -13780,8 +13781,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           室咲格子: {
             ID: 'tz_042',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -13818,8 +13819,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'tz_041',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -13856,8 +13857,8 @@ export const useCardStore = defineStore('cardList', {
           },
           華紺青: {
             ID: 'tz_003',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '華紺青',
             kana: 'はなこんじょう',
             gacha: {
@@ -13894,8 +13895,8 @@ export const useCardStore = defineStore('cardList', {
           },
           オーロラスカイ: {
             ID: 'tz_002',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'オーロラスカイ',
             kana: 'おーろらすかい',
             gacha: {
@@ -13936,12 +13937,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'mg_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -13979,8 +13980,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Ether Aria': {
             ID: 'mg_032',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -14026,8 +14027,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Prism Echo': {
             ID: 'mg_007',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Prism Echo',
             kana: 'ぷりずむえこー',
             gacha: {
@@ -14078,8 +14079,8 @@ export const useCardStore = defineStore('cardList', {
         LR: {
           'やっぱ天使！': {
             ID: 'mg_046',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'やっぱ天使！',
             kana: 'やっぱてんし',
             gacha: {
@@ -14130,8 +14131,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '18th Birthday': {
             ID: 'mg_041',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'えいてぃーんばーすでー',
             gacha: {
@@ -14204,8 +14205,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           'いつでも、いつまでも': {
             ID: 'mg_045',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'いつでも、いつまでも',
             kana: 'いつでもいつまでも',
             gacha: {
@@ -14269,8 +14270,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '全方位キュン♡': {
             ID: 'mg_044',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '全方位キュン♡',
             kana: 'ぜんほういきゅん',
             gacha: {
@@ -14337,8 +14338,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'KEY of Like！': {
             ID: 'mg_042',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'KEY of Like！',
             kana: 'きーおぶらいく',
             gacha: {
@@ -14398,8 +14399,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ジョーショーキリュー: {
             ID: 'mg_040',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'ジョーショーキリュー',
             kana: 'じょーしょーきりゅー',
             gacha: {
@@ -14477,8 +14478,8 @@ export const useCardStore = defineStore('cardList', {
           },
           久遠の銀河へ: {
             ID: 'mg_039',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '銀河',
             kana: 'くえんのぎんがへ',
             gacha: {
@@ -14523,8 +14524,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ファンファーレ！！！': {
             ID: 'mg_038',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ファンファーレ！！！',
             kana: 'ふぁんふぁーれ',
             gacha: {
@@ -14602,8 +14603,8 @@ export const useCardStore = defineStore('cardList', {
           },
           DEEPNESS: {
             ID: 'mg_037',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'DEEPNESS',
             kana: 'でぃーぷねす',
             gacha: {
@@ -14649,8 +14650,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'PASSION!!!!!!': {
             ID: 'mg_036',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'PASSION!!!!!!',
             kana: 'ぱっしょん',
             gacha: {
@@ -14695,8 +14696,8 @@ export const useCardStore = defineStore('cardList', {
           },
           みらくりえーしょん: {
             ID: 'mg_035',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'みらくりえーしょん',
             kana: 'みらくりえーしょん',
             gacha: {
@@ -14754,8 +14755,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '365 Days': {
             ID: 'mg_033',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '365 Days',
             kana: 'えぶりでい',
             gacha: {
@@ -14797,8 +14798,8 @@ export const useCardStore = defineStore('cardList', {
           },
           抱きしめる花びら: {
             ID: 'mg_029',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: '抱きしめる花びら',
             kana: 'だきしめるはなびら',
             gacha: {
@@ -14844,8 +14845,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'おしえて♡ティーチャー': {
             ID: 'mg_028',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'おしえて♡ティーチャー',
             kana: 'おしえててぃーちゃー',
             gacha: {
@@ -14887,8 +14888,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ハッピー至上主義！': {
             ID: 'mg_027',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハッピー至上主義！',
             kana: 'はっぴーしじょうしゅぎ',
             gacha: {
@@ -14936,8 +14937,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ハクチューアラモード: {
             ID: 'mg_024',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハクチューアラモード',
             kana: 'はくちゅーあらもーど',
             gacha: {
@@ -14983,8 +14984,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'mg_023',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -15033,8 +15034,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Secret Christmas': {
             ID: 'mg_021',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Secret Christmas',
             kana: 'しーくれっとくりすます',
             gacha: {
@@ -15084,8 +15085,8 @@ export const useCardStore = defineStore('cardList', {
           },
           冬のおくりもの: {
             ID: 'mg_019',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '冬のおくりもの',
             kana: 'ふゆのおくりもの',
             gacha: {
@@ -15131,8 +15132,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ツバサ・ラ・リベルテ': {
             ID: 'mg_018',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ツバサ・ラ・リベルテ',
             kana: 'つばさらりべるて',
             gacha: {
@@ -15177,8 +15178,8 @@ export const useCardStore = defineStore('cardList', {
           },
           喫茶ハスノソラ: {
             ID: 'mg_016',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '喫茶ハスノソラ',
             kana: 'きっさはすのそら',
             gacha: {
@@ -15227,8 +15228,8 @@ export const useCardStore = defineStore('cardList', {
           },
           約束の舞踏会: {
             ID: 'mg_012',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '舞踏会',
             kana: 'やくそくのぶとうかい',
             gacha: {
@@ -15270,8 +15271,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アイデンティティ: {
             ID: 'mg_011',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'アイデンティティ',
             kana: 'あいでんてぃてぃ',
             gacha: {
@@ -15314,8 +15315,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Au Bord du Lac': {
             ID: 'mg_013',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Au Bord du Lac',
             kana: 'あうぼーどどぅらっく',
             gacha: {
@@ -15361,8 +15362,8 @@ export const useCardStore = defineStore('cardList', {
           },
           夏めきペイン: {
             ID: 'mg_008',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: '夏めきペイン',
             kana: 'なつめきぺいん',
             gacha: {
@@ -15408,8 +15409,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'mg_001',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -15456,8 +15457,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           'AURORA FLOWER': {
             ID: 'mg_043',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -15502,8 +15503,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'H.S.C.T.☆': {
             ID: 'mg_034',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'hsct',
             kana: 'hsct',
             gacha: {
@@ -15545,8 +15546,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '節分 -艶-': {
             ID: 'mg_026',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '節分',
             kana: 'せつぶん',
             gacha: {
@@ -15593,8 +15594,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ミルク: {
             ID: 'mg_025',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ミルク',
             kana: 'みるく',
             gacha: {
@@ -15643,8 +15644,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'mg_022',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -15690,8 +15691,8 @@ export const useCardStore = defineStore('cardList', {
           },
           プチパティシエール: {
             ID: 'mg_020',
-            styleType: 'cheerLeader',
-            mood: 'happy',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.HAPPY.en,
             series: 'プチパティシエール',
             kana: 'ぷちぱてぃしえーる',
             gacha: {
@@ -15740,8 +15741,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'コットン=ユートピア': {
             ID: 'mg_017',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'コットン=ユートピア',
             kana: 'こっとんゆーとぴあ',
             gacha: {
@@ -15784,8 +15785,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Trick & Cute': {
             ID: 'mg_015',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'Trick & Cute',
             kana: 'とりっくあんどきゅーと',
             gacha: {
@@ -15830,8 +15831,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '宇宙演舞☆うさぴょん': {
             ID: 'mg_014',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'うさぴょん',
             kana: 'うちゅうえんぶうさぴょん',
             gacha: {
@@ -15874,8 +15875,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ゆのくにガールズ！': {
             ID: 'mg_010',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ゆのくにガールズ！',
             kana: 'ゆのくにがーるず',
             gacha: {
@@ -15920,8 +15921,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'yours ever': {
             ID: 'mg_009',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'yours ever',
             kana: 'ゆあーずえばー',
             gacha: {
@@ -15967,8 +15968,8 @@ export const useCardStore = defineStore('cardList', {
           },
           世界中を夢中に: {
             ID: 'mg_006',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '世界中を夢中に',
             kana: 'せかいじゅうをむちゅうに',
             gacha: {
@@ -16014,8 +16015,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '@いっつぁどりーみんわーるど！': {
             ID: 'mg_005',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '@いっつぁどりーみんわーるど！',
             kana: 'いっつぁどりーみんわーるど',
             gacha: {
@@ -16060,8 +16061,8 @@ export const useCardStore = defineStore('cardList', {
           },
           "M's One Day": {
             ID: 'mg_004',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'One Day',
             kana: 'えむずわんでい',
             gacha: {
@@ -16105,8 +16106,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           室咲格子: {
             ID: 'mg_031',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -16143,8 +16144,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'mg_030',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -16181,8 +16182,8 @@ export const useCardStore = defineStore('cardList', {
           },
           華紺青: {
             ID: 'mg_003',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '華紺青',
             kana: 'はなこんじょう',
             gacha: {
@@ -16219,8 +16220,8 @@ export const useCardStore = defineStore('cardList', {
           },
           オーロラスカイ: {
             ID: 'mg_002',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'オーロラスカイ',
             kana: 'おーろらすかい',
             gacha: {
@@ -16261,12 +16262,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'gn_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -16304,8 +16305,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Ether Aria': {
             ID: 'gn_006',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -16396,8 +16397,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '16th Birthday': {
             ID: 'gn_012',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'しっくすてぃーんすばーすでー',
             gacha: {
@@ -16488,8 +16489,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           フルーツパンチ: {
             ID: 'gn_025',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'フルーツパンチ',
             kana: 'ふるーつぱんち',
             gacha: {
@@ -16585,8 +16586,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '37.5℃のファンタジー': {
             ID: 'gn_024',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '37.5℃のファンタジー',
             kana: 'ななどごぶのふぁんたじー',
             gacha: {
@@ -16668,8 +16669,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Celebration!': {
             ID: 'gn_023',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Celebration!',
             kana: 'せれぶれーしょん',
             gacha: {
@@ -16759,8 +16760,8 @@ export const useCardStore = defineStore('cardList', {
           },
           輝跡の舞踏会: {
             ID: 'gn_019',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '舞踏会',
             kana: 'きせきのぶとうかい',
             gacha: {
@@ -16847,8 +16848,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ユメワズライ: {
             ID: 'gn_018',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'ユメワズライ',
             kana: 'ゆめわずらい',
             gacha: {
@@ -16954,8 +16955,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'gn_017',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -17043,8 +17044,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'gn_016',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -17190,8 +17191,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ハナムスビ: {
             ID: 'gn_014',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'ハナムスビ',
             kana: 'はなむすび',
             gacha: {
@@ -17280,8 +17281,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'gn_013',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -17341,8 +17342,8 @@ export const useCardStore = defineStore('cardList', {
           },
           月夜見海月: {
             ID: 'gn_011',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '月夜見海月',
             kana: 'つくよみくらげ',
             gacha: {
@@ -17401,8 +17402,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'PASSION!!!!!!': {
             ID: 'gn_010',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'PASSION!!!!!!',
             kana: 'ぱっしょん',
             gacha: {
@@ -17458,8 +17459,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'アオクハルカ/華': {
             ID: 'gn_009',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'アオクハルカ',
             kana: 'あおくはるか',
             gacha: {
@@ -17540,8 +17541,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Bloom the smile, Bloom the dream!': {
             ID: 'gn_007',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Bloom the smile, Bloom the dream!',
             kana: 'ぶるーむざすまいるぶるーむざどりーむ',
             gacha: {
@@ -17607,8 +17608,8 @@ export const useCardStore = defineStore('cardList', {
           },
           青嵐の鯉流し: {
             ID: 'gn_005',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '青嵐の鯉流し',
             kana: 'あおあらしのこいながし',
             gacha: {
@@ -17666,8 +17667,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Reflection in the mirror': {
             ID: 'gn_004',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Reflection in the mirror',
             kana: 'りふれくしょんいんざみらー',
             gacha: {
@@ -17748,8 +17749,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'gn_001',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -17823,8 +17824,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           'Her-bath-rium': {
             ID: 'gn_022',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -17884,8 +17885,8 @@ export const useCardStore = defineStore('cardList', {
           },
           聖夜譚: {
             ID: 'gn_015',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '聖夜譚',
             kana: 'せいやたん',
             gacha: {
@@ -17946,8 +17947,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アオクハルカ: {
             ID: 'gn_008',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'アオクハルカ',
             kana: 'あおくはるか',
             gacha: {
@@ -18004,8 +18005,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'gn_021',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -18055,8 +18056,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'gn_020',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -18106,8 +18107,8 @@ export const useCardStore = defineStore('cardList', {
           },
           室咲格子: {
             ID: 'gn_003',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -18157,8 +18158,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'gn_002',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -18207,12 +18208,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'sz_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -18250,8 +18251,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Oracle Étude': {
             ID: 'sz_025',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Oracle Étude',
             kana: 'おらくるえちゅーど',
             gacha: {
@@ -18303,8 +18304,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Ether Aria': {
             ID: 'sz_006',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -18350,8 +18351,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '16th Birthday': {
             ID: 'sz_017',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'しっくすてぃーんすばーすでー',
             gacha: {
@@ -18437,8 +18438,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           '太陽であれ！': {
             ID: 'sz_026',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '太陽であれ！',
             kana: 'たいようであれ',
             gacha: {
@@ -18469,7 +18470,7 @@ export const useCardStore = defineStore('cardList', {
             skill: {
               ID: 'radiantAttraction_01',
               name: 'レイディアントアトラクション',
-              AP: 6,
+              AP: 23,
               detail: [
                 [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
                 [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
@@ -18486,8 +18487,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アイマイメーデー: {
             ID: 'sz_024',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'アイマイメーデー',
             kana: 'あいまいめーでー',
             gacha: {
@@ -18535,8 +18536,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アンペア: {
             ID: 'sz_023',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'アンペア',
             kana: 'あんぺあ',
             gacha: {
@@ -18583,8 +18584,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'sz_022',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -18629,8 +18630,8 @@ export const useCardStore = defineStore('cardList', {
           },
           探求の舞踏会: {
             ID: 'sz_019',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '舞踏会',
             kana: 'たんきゅうのぶとうかい',
             gacha: {
@@ -18679,8 +18680,8 @@ export const useCardStore = defineStore('cardList', {
           },
           COMPASS: {
             ID: 'sz_018',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'COMPASS',
             kana: 'こんぱす',
             gacha: {
@@ -18728,8 +18729,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'sz_016',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -18774,8 +18775,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'sz_015',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -18821,8 +18822,8 @@ export const useCardStore = defineStore('cardList', {
           },
           バアドケージ: {
             ID: 'sz_013',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'バアドケージ',
             kana: 'ばあどけーじ',
             gacha: {
@@ -18869,8 +18870,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'sz_012',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -18917,8 +18918,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Proof: {
             ID: 'sz_011',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Proof',
             kana: 'ぷるーふ',
             gacha: {
@@ -18964,8 +18965,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'レディバグ/麗': {
             ID: 'sz_009',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'レディバグ',
             kana: 'れでぃばぐ',
             gacha: {
@@ -19010,8 +19011,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Bloom the smile, Bloom the dream!': {
             ID: 'sz_008',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Bloom the smile, Bloom the dream!',
             kana: 'ぶるーむざすまいるぶるーむざどりーむ',
             gacha: {
@@ -19056,8 +19057,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レディバグ: {
             ID: 'sz_007',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: 'レディバグ',
             kana: 'れでぃばぐ',
             gacha: {
@@ -19106,8 +19107,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Sparkly Spot': {
             ID: 'sz_004',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Sparkly Spot',
             kana: 'すぱーくりーすぽっと',
             gacha: {
@@ -19156,8 +19157,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'sz_001',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -19205,8 +19206,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           魔法少女リズミックハート２: {
             ID: 'sz_014',
-            styleType: 'performer',
-            mood: 'melow',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.MELOW.en,
             series: '魔法少女リズミックハート',
             kana: 'まほうしょうじょりずみっくはーと',
             gacha: {
@@ -19252,8 +19253,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'PASSION!!!!!!': {
             ID: 'sz_010',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'PASSION!!!!!!',
             kana: 'ぱっしょん',
             gacha: {
@@ -19298,8 +19299,8 @@ export const useCardStore = defineStore('cardList', {
           },
           青嵐の鯉流し: {
             ID: 'sz_005',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '青嵐の鯉流し',
             kana: 'あおあらしのこいながし',
             gacha: {
@@ -19346,8 +19347,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'sz_021',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -19384,8 +19385,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'sz_020',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -19422,8 +19423,8 @@ export const useCardStore = defineStore('cardList', {
           },
           室咲格子: {
             ID: 'sz_003',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -19460,8 +19461,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'sz_002',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -19502,12 +19503,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'hm_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -19545,8 +19546,8 @@ export const useCardStore = defineStore('cardList', {
         DR: {
           'Oracle Étude': {
             ID: 'hm_024',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Oracle Étude',
             kana: 'おらくるえちゅーど',
             gacha: {
@@ -19595,8 +19596,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Ether Aria': {
             ID: 'hm_006',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'Ether Aria',
             kana: 'えーてるありあ',
             gacha: {
@@ -19675,8 +19676,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '16th Birthday': {
             ID: 'hm_011',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'しっくすてぃーんすばーすでー',
             gacha: {
@@ -19749,8 +19750,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           'Very! Very! COCO夏っ': {
             ID: 'hm_027',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Very! Very! COCO夏っ',
             kana: 'べりーべりーここなつっ',
             gacha: {
@@ -19802,8 +19803,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'BLAST!!': {
             ID: 'hm_025',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'BLAST!!',
             kana: 'ぶらすと',
             gacha: {
@@ -19874,8 +19875,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'WAWO!': {
             ID: 'hm_023',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'WAWO!',
             kana: 'わお',
             gacha: {
@@ -19922,8 +19923,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'hm_022',
-            styleType: 'cheerLeader',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -19979,8 +19980,8 @@ export const useCardStore = defineStore('cardList', {
           },
           邂逅の舞踏会: {
             ID: 'hm_019',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '舞踏会',
             kana: 'かいこうのぶとうかい',
             gacha: {
@@ -20041,8 +20042,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '全方位キュン♡': {
             ID: 'hm_018',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '全方位キュン♡',
             kana: 'ぜんほういきゅん',
             gacha: {
@@ -20104,8 +20105,8 @@ export const useCardStore = defineStore('cardList', {
           },
           蓮ノ空歌留多: {
             ID: 'hm_016',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空歌留多',
             kana: 'はすのそらかるた',
             gacha: {
@@ -20171,8 +20172,8 @@ export const useCardStore = defineStore('cardList', {
           },
           '104/⊿TRiEDGE': {
             ID: 'hm_015',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'オンゲキコラボ',
             kana: 'とらいえっじ',
             gacha: {
@@ -20249,8 +20250,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Link to the FUTURE': {
             ID: 'hm_013',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Link to the FUTURE',
             kana: 'りんくとぅーざふゅーちゃー',
             gacha: {
@@ -20297,8 +20298,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'ファンファーレ！！！': {
             ID: 'hm_012',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'ファンファーレ！！！',
             kana: 'ふぁんふぁーれ',
             gacha: {
@@ -20381,8 +20382,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'PASSION!!!!!!': {
             ID: 'hm_010',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'PASSION!!!!!!',
             kana: 'ぱっしょん',
             gacha: {
@@ -20424,8 +20425,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'みらくりえーしょん/雅': {
             ID: 'hm_009',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'みらくりえーしょん',
             kana: 'みらくりえーしょん',
             gacha: {
@@ -20498,8 +20499,8 @@ export const useCardStore = defineStore('cardList', {
           },
           みらくりえーしょん: {
             ID: 'hm_008',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'みらくりえーしょん',
             kana: 'みらくりえーしょん',
             gacha: {
@@ -20573,8 +20574,8 @@ export const useCardStore = defineStore('cardList', {
           },
           青嵐の鯉流し: {
             ID: 'hm_005',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '青嵐の鯉流し',
             kana: 'あおあらしのこいながし',
             gacha: {
@@ -20616,8 +20617,8 @@ export const useCardStore = defineStore('cardList', {
           },
           アイデンティティ: {
             ID: 'hm_004',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'アイデンティティ',
             kana: 'あいでんてぃてぃ',
             gacha: {
@@ -20663,8 +20664,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'hm_001',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -20711,8 +20712,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           蒼のツバメ: {
             ID: 'hm_026',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: '蒼のツバメ',
             kana: 'あおのつばめ',
             gacha: {
@@ -20755,8 +20756,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'AURORA FLOWER': {
             ID: 'hm_017',
-            styleType: 'performer',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'AURORA FLOWER',
             kana: 'おーろらふらわー',
             gacha: {
@@ -20814,8 +20815,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ジョーショーキリュー: {
             ID: 'hm_014',
-            styleType: 'cheerLeader',
-            mood: 'melow',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.MELOW.en,
             series: 'ジョーショーキリュー',
             kana: 'じょーしょーきりゅー',
             gacha: {
@@ -20893,8 +20894,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Bloom the smile, Bloom the dream!': {
             ID: 'hm_007',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Bloom the smile, Bloom the dream!',
             kana: 'ぶるーむざすまいるぶるーむざどりーむ',
             gacha: {
@@ -20938,8 +20939,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'hm_021',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -20976,8 +20977,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'hm_020',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -21014,8 +21015,8 @@ export const useCardStore = defineStore('cardList', {
           },
           室咲格子: {
             ID: 'hm_003',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '室咲格子',
             kana: 'むろざきこうし',
             gacha: {
@@ -21052,8 +21053,8 @@ export const useCardStore = defineStore('cardList', {
           },
           レインボーシフォン: {
             ID: 'hm_002',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: 'レインボーシフォン',
             kana: 'れいんぼーしふぉん',
             gacha: {
@@ -21094,12 +21095,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'sr_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -21138,8 +21139,8 @@ export const useCardStore = defineStore('cardList', {
         BR: {
           '16th Birthday': {
             ID: 'sr_008',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Birthday',
             kana: 'しっくすてぃーんすばーすでー',
             gacha: {
@@ -21208,8 +21209,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           天地黎明: {
             ID: 'sr_009',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '天地黎明',
             kana: 'てんちれいめい',
             gacha: {
@@ -21255,8 +21256,8 @@ export const useCardStore = defineStore('cardList', {
           },
           十六夜セレーネ: {
             ID: 'sr_007',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: '十六夜セレーネ',
             kana: 'いざよいせれーね',
             gacha: {
@@ -21299,8 +21300,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Retrofuture: {
             ID: 'sr_004',
-            styleType: 'moodMaker',
-            mood: 'happy',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
             series: 'Retrofuture',
             kana: 'れとろふゅーちゃー',
             gacha: {
@@ -21343,8 +21344,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'sr_001',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -21388,8 +21389,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           魔法少女リズミックハート３: {
             ID: 'sr_006',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: '魔法少女リズミックハート',
             kana: 'まほうしょうじょりずみっくはーと',
             gacha: {
@@ -21435,8 +21436,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'sr_005',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -21480,8 +21481,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'sr_003',
-            styleType: 'performer',
-            mood: 'happy',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.HAPPY.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -21518,8 +21519,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'sr_002',
-            styleType: 'moodMaker',
-            mood: 'melow',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.MELOW.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -21563,12 +21564,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'iz_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -21608,8 +21609,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           蒼のツバメ: {
             ID: 'iz_008',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: '蒼のツバメ',
             kana: 'あおのつばめ',
             gacha: {
@@ -21652,8 +21653,8 @@ export const useCardStore = defineStore('cardList', {
           },
           天地黎明: {
             ID: 'iz_007',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '天地黎明',
             kana: 'てんちれいめい',
             gacha: {
@@ -21696,8 +21697,8 @@ export const useCardStore = defineStore('cardList', {
           },
           Retrofuture: {
             ID: 'iz_005',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'Retrofuture',
             kana: 'れとろふゅーちゃー',
             gacha: {
@@ -21743,8 +21744,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Dream Believers': {
             ID: 'iz_001',
-            styleType: 'moodMaker',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Dream Believers',
             kana: 'どりーむびりーばーず',
             gacha: {
@@ -21788,8 +21789,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           十六夜セレーネ: {
             ID: 'iz_006',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '十六夜セレーネ',
             kana: 'いざよいせれーね',
             gacha: {
@@ -21835,8 +21836,8 @@ export const useCardStore = defineStore('cardList', {
           },
           'Her-bath-rium': {
             ID: 'iz_004',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Her-bath-rium',
             kana: 'はーばりうむ',
             gacha: {
@@ -21883,8 +21884,8 @@ export const useCardStore = defineStore('cardList', {
         R: {
           翠鱗舞: {
             ID: 'iz_003',
-            styleType: 'trickStar',
-            mood: 'melow',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
             series: '翠鱗舞',
             kana: 'すいりんぶ',
             gacha: {
@@ -21921,8 +21922,8 @@ export const useCardStore = defineStore('cardList', {
           },
           ノヴァホワイト: {
             ID: 'iz_002',
-            styleType: 'trickStar',
-            mood: 'happy',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
             series: 'ノヴァホワイト',
             kana: 'のゔぁほわいと',
             gacha: {
@@ -21963,12 +21964,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'sc_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -22006,8 +22007,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           蓮ノ空女学院スクールアイドルクラブ101期生: {
             ID: 'sc_001',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空女学院スクールアイドルクラブ101期生',
             kana: 'はすのそらじょがくいんすくーるあいどるくらぶ101きせい',
             gacha: {
@@ -22051,12 +22052,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'si_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -22094,8 +22095,8 @@ export const useCardStore = defineStore('cardList', {
         SR: {
           Edelied: {
             ID: 'is_001',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: 'Edelied',
             kana: 'えーでりーど',
             gacha: {
@@ -22162,12 +22163,12 @@ export const useCardStore = defineStore('cardList', {
         default: {
           default: {
             ID: 'ktm_000',
-            styleType: '',
-            mood: '',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
             kana: '',
             gacha: {
               addSeason: '',
-              period: '',
+              period: 'normal',
             },
             fluctuationStatus: {
               possession: false,
@@ -22205,8 +22206,8 @@ export const useCardStore = defineStore('cardList', {
         UR: {
           蓮ノ空女学院スクールアイドルクラブ102期生: {
             ID: 'ktm_001',
-            styleType: 'trickStar',
-            mood: 'neutral',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
             series: '蓮ノ空女学院スクールアイドルクラブ102期生',
             kana: 'はすのそらじょがくいんすくーるあいどるくらぶ102きせい',
             gacha: {

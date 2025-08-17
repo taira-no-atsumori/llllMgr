@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../components/Home.vue';
-import Simulation from '../components/Simulation.vue';
-import CardList from '../components/CardList.vue';
-import MusicList from '../components/MusicList.vue';
-import ItemList from '../components/ItemList.vue';
-// import WithStarMgr from '../components/WithStarMgr.vue'
-import License from '../components/License.vue';
+import Home from '@/pages/Home.vue';
+import Simulation from '@/pages/Simulation.vue';
+import CardList from '@/pages/CardList.vue';
+import MusicList from '@/pages/MusicList.vue';
+import ItemList from '@/pages/ItemList.vue';
+// import WithStarMgr from '@/pages/WithStarMgr.vue'
+import License from '@/pages/License.vue';
 
 const pathname = import.meta.env.VITE_PATHNAME;
 
@@ -17,7 +17,7 @@ const router = createRouter({
       name: 'Home',
       component: Home,
       meta: {
-        title: 'HOME | ',
+        title: 'HOME',
       },
     },
     {
@@ -25,7 +25,7 @@ const router = createRouter({
       name: 'Simulation',
       component: Simulation,
       meta: {
-        title: 'SIMULATION | ',
+        title: 'SIMULATION',
       },
     },
     {
@@ -33,7 +33,7 @@ const router = createRouter({
       name: 'CardList',
       component: CardList,
       meta: {
-        title: 'CARD LIST | ',
+        title: 'CARD LIST',
       },
     },
     {
@@ -41,7 +41,7 @@ const router = createRouter({
       name: 'MusicList',
       component: MusicList,
       meta: {
-        title: 'MUSIC LIST | ',
+        title: 'MUSIC LIST',
       },
     },
     {
@@ -49,7 +49,7 @@ const router = createRouter({
       name: 'ItemList',
       component: ItemList,
       meta: {
-        title: 'ITEM LIST | ',
+        title: 'ITEM LIST',
       },
     },
     // {
@@ -57,7 +57,7 @@ const router = createRouter({
     //   name: 'WithStarMgr',
     //   component: WithStarMgr,
     //   meta: {
-    //     title: 'WITHSTAR MGR | '
+    //     title: 'WITHSTAR MGR'
     //   }
     // },
     {
@@ -65,7 +65,7 @@ const router = createRouter({
       name: 'License',
       component: License,
       meta: {
-        title: 'LICENSE | ',
+        title: 'LICENSE',
       },
     },
   ],

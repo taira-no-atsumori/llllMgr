@@ -3,13 +3,10 @@
     <h2>獲得ボーナススキル詳細</h2>
 
     <div>
-      <template
-        v-for="memberName in store.memberNameList"
-        :key="memberName"
-      >
+      <template v-for="memberName in store.memberNameList" :key="memberName">
         <img
           v-if="!store.isOtherMember(memberName)"
-          :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
+          :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
           class="cursor-pointer"
           :style="`width: 10%; max-width: 45px; margin: 0 0.5%; filter: grayscale(${
             memberName === store.checkMasteryMember ? 0 : 1
@@ -24,13 +21,9 @@
       {{ store.makeTotalMasteryLv(store.checkMasteryMember) }}
     </div>
     <div class="mb-3">
-      {{
-        store.makeFullName(store.checkMasteryMember)
-      }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span class="text-pink">{{
-        (Math.floor(store.makeTotalMasteryLv(store.checkMasteryMember) * 0.05 * 100) / 100).toFixed(
-          2,
-        )
-      }}</span
+      {{ store.makeFullName(store.checkMasteryMember) }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span
+        class="text-pink"
+        >{{ (Math.floor(store.makeTotalMasteryLv(store.checkMasteryMember) * 0.05 * 100) / 100).toFixed(2) }}</span
       >%
     </div>
 
@@ -39,29 +32,22 @@
     </div>
 
     <ul>
-      <template
-        v-for="(ary, bonusSkill, i) in store.outputBonusSkillList"
-        :key="bonusSkill"
-      >
+      <template v-for="(ary, bonusSkill, i) in store.outputBonusSkillList" :key="bonusSkill">
         <li class="mb-1">
           <div class="d-flex flex-row align-center mb-1">
             <div class="mr-1 mt-1">
               <v-img
-                :src="store.getImagePath('bonusSkill_icon', bonusSkill)"
+                :src="store.getImagePath('icons/bonusSkill', bonusSkill)"
                 style="width: 32px; height: 32px; border-radius: 3px"
               ></v-img>
-              <p
-                class="text-center"
-                style="font-size: 14px"
-              >
+              <p class="text-center" style="font-size: 14px">
                 Lv.{{ store.outputBonusSkillList[bonusSkill].skillLevel }}
               </p>
             </div>
             <dl class="d-flex flex-column ml-1">
               <dt class="font-weight-bold">{{ bonusSkill }}</dt>
               <dd class="text-body-2">
-                {{ ary.text[0]
-                }}<span class="text-pink">{{ makeBonusSkillDescriptionText(bonusSkill) }}</span
+                {{ ary.text[0] }}<span class="text-pink">{{ makeBonusSkillDescriptionText(bonusSkill) }}</span
                 >{{ ary.text[1] }}
               </dd>
             </dl>
@@ -70,9 +56,7 @@
           <v-divider v-if="i + 1 < Object.keys(store.outputBonusSkillList).length"></v-divider>
         </li>
       </template>
-      <li v-if="Object.keys(store.outputBonusSkillList).length === 0">
-        習得済みのボーナススキルはありません。
-      </li>
+      <li v-if="Object.keys(store.outputBonusSkillList).length === 0">習得済みのボーナススキルはありません。</li>
     </ul>
   </v-container>
 </template>

@@ -1,9 +1,5 @@
 <template>
-  <v-dialog
-    v-model="store.dialog"
-    scrollable
-    :max-width="maxWidth[store.showModalName]"
-  >
+  <v-dialog v-model="store.dialog" scrollable :max-width="maxWidth[store.showModalName]">
     <v-sheet class="pa-3">
       <div v-if="store.showModalName === 'selectCard'">
         <SelectCard />
@@ -11,9 +7,9 @@
       <div v-else-if="store.showModalName === 'setCardData'">
         <SetCardData />
       </div>
-      <div v-else-if="store.showModalName === 'possessionCardSetting'">
+      <!-- <div v-else-if="store.showModalName === 'possessionCardSetting'">
         <CardList />
-      </div>
+      </div> -->
       <div v-else-if="store.showModalName === 'CardListFilter'">
         <CardListFilter />
       </div>
@@ -49,14 +45,13 @@
 </template>
 
 <script setup>
-import { useStoreCounter } from '../stores/counter';
+import { useStoreCounter } from '@/stores/counter';
 const store = useStoreCounter();
 </script>
 
 <script>
 // import CardSetting from './PossessionCardList.vue'
 import SetCardData from './SetCardData.vue';
-import CardList from './CardList.vue';
 import CardListFilter from './CardListFilter.vue';
 import SelectCard from './SelectCard.vue';
 import SetLeaningLevel from './SetLeaningLevel.vue';
@@ -70,7 +65,6 @@ export default {
   components: {
     SetCardData,
     SelectCard,
-    CardList,
     CardListFilter,
     SetLeaningLevel,
     MasteryLevel,

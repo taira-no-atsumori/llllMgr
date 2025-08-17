@@ -160,133 +160,136 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from './stores/counter';
-const siteVersion = import.meta.env.VITE_SITEVERSION;
-
-const store = useStoreCounter();
-store.init();
-</script>
-
-<script lang="ts">
-import Modal from './components/ModalArea.vue';
-import Loading from './components/Loading.vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 import { useGoTo } from 'vuetify';
+import Modal from '@/components/modal/ModalArea.vue';
+import Loading from '@/components/modal/Loading.vue';
+import { useStoreCounter } from './stores/counter';
 
-export default {
-  name: 'App',
-  components: {
-    Modal,
-    Loading,
+interface pageContents {
+  name_en: string;
+  name_ja: string;
+  url: string;
+  icon: string;
+}
+
+const siteVersion = import.meta.env.VITE_SITEVERSION;
+const store = useStoreCounter();
+const router = useRouter();
+const route = useRoute();
+const goTo = useGoTo();
+
+// 定数の定義
+const drawer = ref(false);
+const siteName = 'リンクラ マネージャー！(リンマネ)';
+const pageList: Record<string, pageContents> = {
+  Home: {
+    name_en: 'Home',
+    name_ja: 'ホーム',
+    url: `/${import.meta.env.VITE_PATHNAME}/`,
+    icon: 'home',
   },
-  data() {
-    return {
-      drawer: false,
-      siteName: 'リンクラ マネージャー！(リンマネ)',
-      pageList: {
-        Home: {
-          name_en: 'Home',
-          name_ja: 'ホーム',
-          url: `/${import.meta.env.VITE_PATHNAME}/`,
-          icon: 'home',
-        },
-        /*'WithStar Mgr': {
-         name_en: 'WithStarMgr',
-         name_ja: '獲得WithStar計算ツール',
-         url: 'withStarMgr',
-         icon: 'star'
-         },*/
-        Simulation: {
-          name_en: 'Simulation',
-          name_ja: '編成シミュレーション',
-          url: 'simulation',
-          icon: 'calculator',
-        },
-        'Card List': {
-          name_en: 'CardList',
-          name_ja: 'カード一覧 / 所持カード設定',
-          url: 'cardlist',
-          icon: 'cards',
-        },
-        'Music List': {
-          name_en: 'MusicList',
-          name_ja: '楽曲一覧 / 楽曲マスタリーレベル設定',
-          url: 'musiclist',
-          icon: 'music',
-        },
-        'Item List': {
-          name_en: 'ItemList',
-          name_ja: 'スキルアップ素材獲得ステージリスト',
-          url: 'Itemlist',
-          icon: 'book',
-        },
-        License: {
-          name_en: 'License',
-          name_ja: 'ライセンス',
-          url: 'license',
-          icon: 'text-box-outline',
-        },
-      },
-    };
+  Simulation: {
+    name_en: 'Simulation',
+    name_ja: '編成シミュレーション',
+    url: 'simulation',
+    icon: 'calculator',
   },
-  created() {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-
-    if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
-      alert('本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。');
-    }
-
-    if (localStorage.inflow !== undefined) {
-      const pageName: string = localStorage.inflow;
-      localStorage.removeItem('inflow');
-
-      for (const listName in this.pageList) {
-        if (this.pageList[listName].url.toLowerCase() === pageName.toLowerCase()) {
-          this.pageMove(this.pageList[listName].name_en);
-          return;
-        }
-      }
-
-      this.pageMove(this.pageList.Home.name_en);
-    }
+  'Card List': {
+    name_en: 'CardList',
+    name_ja: 'カード一覧 / 所持カード設定',
+    url: 'cardlist',
+    icon: 'cards',
   },
-  setup() {
-    const goTo = useGoTo();
-    return goTo;
+  'Music List': {
+    name_en: 'MusicList',
+    name_ja: '楽曲一覧 / 楽曲マスタリーレベル設定',
+    url: 'musiclist',
+    icon: 'music',
   },
-  mounted() {},
-  methods: {
-    /**
-     * ページ移動
-     *
-     * @param movePageName 移動先ページ名
-     * @returns void
-     */
-    pageMove(movePageName: string): void {
-      // this.$router.replace(movePageName);
-      this.$router.replace({
-        name: movePageName,
-        // query: {
-        //   page: 5
-        // }
-      });
-      window.scrollTo(0, 0);
-    },
-    /**
-     * ページタイトル変更
-     *
-     * @param to タイトル
-     */
-    pageTitle(to: any): void {
-      document.title = `${to.meta.title}${this.siteName}`;
-    },
-    /**
-     * トップへ移動
-     */
-    goToTop(): void {
-      this.goTo(0);
-    },
+  'Item List': {
+    name_en: 'ItemList',
+    name_ja: 'スキルアップ素材獲得ステージリスト',
+    url: 'Itemlist',
+    icon: 'book',
+  },
+  License: {
+    name_en: 'License',
+    name_ja: 'ライセンス',
+    url: 'license',
+    icon: 'text-box-outline',
   },
 };
+
+/* ----- Methods Start ----- */
+/**
+ * ページ遷移処理
+ * @param movePageName 遷移先のページ名
+ * @returns void
+ */
+const pageMove = (movePageName: string): void => {
+  router.replace({
+    name: movePageName,
+  });
+  window.scrollTo(0, 0);
+};
+
+/**
+ * ページトップへスクロール
+ * @returns void
+ */
+const goToTop = (): void => {
+  goTo(0);
+};
+/* ----- Methods End ----- */
+
+/* ----- Created Start ----- */
+const userAgent = window.navigator.userAgent.toLowerCase();
+if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
+  alert('本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。');
+}
+
+if (localStorage.inflow !== undefined) {
+  const pageName: string = localStorage.inflow;
+  localStorage.removeItem('inflow');
+
+  for (const listName in pageList.value) {
+    if (pageList.value[listName].url.toLowerCase() === pageName.toLowerCase()) {
+      pageMove(pageList.value[listName].name_en);
+      break;
+    }
+  }
+  pageMove(pageList.value.Home.name_en);
+}
+/* ----- Created End ----- */
+
+/* ----- Watch Start ----- */
+
+// ページタイトルをルートに応じて更新
+watch(
+  () => route.meta,
+  (newMeta) => {
+    if (newMeta && newMeta.title) {
+      document.title = `${newMeta.title} | ${siteName}`;
+    } else {
+      document.title = siteName;
+    }
+  },
+  { immediate: true },
+);
+
+/* ----- Watch Start ----- */
+
+store.init();
+
+onMounted(() => {
+  store.initializeWindowResize();
+});
+
+onUnmounted(() => {
+  store.cleanupWindowResize();
+});
 </script>
 
 <style scoped>

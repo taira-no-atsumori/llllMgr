@@ -1,14 +1,32 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
+import { setActivePinia, createPinia } from 'pinia';
 import { useCardStore } from '../src/stores/cardList';
 import { useMusicStore } from '../src/stores/musicList';
+import { useSkillStore } from '../src/stores/skillList';
 import { useStoreCounter } from '../src/stores/counter';
 import type { CardData } from '../src/types/cardList';
 import type { MusicData } from '../src/types/musicList';
 
 describe('データ整合性チェック', () => {
-  it('カードIDが重複していないこと', () => {
-    const cardStore = useCardStore();
-    const allCards: CardData[] = [];
+  let cardStore: ReturnType<typeof useCardStore>;
+  let musicStore: ReturnType<typeof useMusicStore>;
+  let skillStore: ReturnType<typeof useSkillStore>;
+  let counterStore: ReturnType<typeof useStoreCounter>;
+  let allCards: CardData[];
+  let allMusic: MusicData[];
+
+  beforeEach(() => {
+    // 各テストの前にPiniaを初期化
+    setActivePinia(createPinia());
+
+    // ストアのインスタンスを作成
+    cardStore = useCardStore();
+    musicStore = useMusicStore();
+    skillStore = useSkillStore();
+    counterStore = useStoreCounter();
+
+    allCards = [];
+    allMusic = Object.values(musicStore.musicList);
 
     // すべてのカードを一つの配列にまとめる
     Object.values(cardStore.card).forEach((memberCards) => {
@@ -20,7 +38,9 @@ describe('データ整合性チェック', () => {
         });
       });
     });
+  });
 
+  it('カードIDが重複していないこと', () => {
     const idMap = new Map<string, string[]>();
     allCards.forEach((card) => {
       if (!idMap.has(card.ID)) {
@@ -37,20 +57,6 @@ describe('データ整合性チェック', () => {
   });
 
   it('カードIDの数字が連番になっていること', () => {
-    const cardStore = useCardStore();
-    const allCards: CardData[] = [];
-
-    // すべてのカードを一つの配列にまとめる
-    Object.values(cardStore.card).forEach((memberCards) => {
-      Object.values(memberCards).forEach((rarityCards) => {
-        Object.values(rarityCards).forEach((card) => {
-          if (card.ID && !card.ID.endsWith('_000')) {
-            allCards.push(card);
-          }
-        });
-      });
-    });
-
     const idsByPrefix = new Map<string, number[]>();
 
     // プレフィックスごとにIDの数字部分を収集
@@ -92,9 +98,6 @@ describe('データ整合性チェック', () => {
   });
 
   it('各カードのIDが、対応するキャラクターの略称と一致していること', () => {
-    const cardStore = useCardStore();
-    const counterStore = useStoreCounter();
-
     const { card } = cardStore;
     const { memberId, exclusionMember } = counterStore;
 
@@ -142,9 +145,6 @@ describe('データ整合性チェック', () => {
   });
 
   it('楽曲IDが重複していないこと', () => {
-    const musicStore = useMusicStore();
-    const allMusic: MusicData[] = Object.values(musicStore.musicList);
-
     const idMap = new Map<string, string[]>();
     allMusic.forEach((music) => {
       if (!idMap.has(music.ID)) {
@@ -161,9 +161,6 @@ describe('データ整合性チェック', () => {
   });
 
   it('楽曲IDの数字が連番になっていること', () => {
-    const musicStore = useMusicStore();
-    const allMusic: MusicData[] = Object.values(musicStore.musicList);
-
     const numbers = allMusic
       .map((music) => {
         const match = music.ID.match(/^m_(\d+)$/);
@@ -188,20 +185,6 @@ describe('データ整合性チェック', () => {
   });
 
   it('カードIDのフォーマットが正しいこと', () => {
-    const cardStore = useCardStore();
-    const allCards: CardData[] = [];
-
-    // すべてのカードを一つの配列にまとめる
-    Object.values(cardStore.card).forEach((memberCards) => {
-      Object.values(memberCards).forEach((rarityCards) => {
-        Object.values(rarityCards).forEach((card) => {
-          if (card.ID && !card.ID.endsWith('_000')) {
-            allCards.push(card);
-          }
-        });
-      });
-    });
-
     const formatErrors: string[] = [];
 
     allCards.forEach((card) => {
@@ -216,8 +199,6 @@ describe('データ整合性チェック', () => {
   });
 
   it('楽曲IDのフォーマットが正しいこと', () => {
-    const musicStore = useMusicStore();
-    const allMusic: MusicData[] = Object.values(musicStore.musicList);
     const formatErrors: string[] = [];
 
     allMusic.forEach((music) => {
@@ -229,5 +210,39 @@ describe('データ整合性チェック', () => {
     });
 
     expect(formatErrors, `楽曲IDのフォーマットエラー:\n${formatErrors.join('\n')}`).toEqual([]);
+  });
+
+  it('各カードのspecialAppealがskillListに存在すること', () => {
+    const errors: string[] = [];
+    allCards.forEach((card) => {
+      if (card.specialAppeal?.name && card.specialAppeal?.ID) {
+        const { name, ID } = card.specialAppeal;
+        if (!skillStore.skillList[name]) {
+          errors.push(
+            `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`,
+          );
+        } else if (!skillStore.skillList[name][ID]) {
+          errors.push(
+            `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`,
+          );
+        }
+      }
+    });
+    expect(errors, `スペシャルアピールの不整合が見つかりました:\n${errors.join('\n')}`).toEqual([]);
+  });
+
+  it('各カードのskillがskillListに存在すること', () => {
+    const errors: string[] = [];
+    allCards.forEach((card) => {
+      if (card.skill?.name && card.skill?.ID) {
+        const { name, ID } = card.skill;
+        if (!skillStore.skillList[name]) {
+          errors.push(`カード [${card.ID}: ${card.kana}] のスキル名「${name}」が skillList に存在しません。`);
+        } else if (!skillStore.skillList[name][ID]) {
+          errors.push(`カード [${card.ID}: ${card.kana}] のスキルID「${ID}」が skillList.${name} に存在しません。`);
+        }
+      }
+    });
+    expect(errors, `スキルの不整合が見つかりました:\n${errors.join('\n')}`).toEqual([]);
   });
 });

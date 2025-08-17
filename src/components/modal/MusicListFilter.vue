@@ -17,22 +17,17 @@
               :color="store.memberColor[Object.keys(store.memberName)[index]]"
             >
               <v-avatar left>
-                <v-img :src="store.getImagePath('member_icon', `icon_SD_${Object.keys(store.memberName)[index]}`)"></v-img>
+                <v-img :src="store.getImagePath('icons/member', `icon_SD_${Object.keys(store.memberName)[index]}`)"></v-img>
               </v-avatar>
               {{ item.title }}
             </v-chip>
           </template>-->
           <template v-slot:item="{ item, index }">
-            <v-list-item
-              :title="item.title"
-              @click="selectCenter(item.title)"
-            >
+            <v-list-item :title="item.title" @click="selectCenter(item.title)">
               <template v-slot:prepend>
-                <template
-                  v-if="!store.isOtherMember(item.title)"
-                >
+                <template v-if="!store.isOtherMember(item.title)">
                   <v-img
-                    :src="store.getImagePath('member_icon', `icon_SD_${Object.keys(store.memberName)[index]}`)"
+                    :src="store.getImagePath('icons/member', `icon_SD_${Object.keys(store.memberName)[index]}`)"
                     class="icon member"
                   ></v-img>
                 </template>
@@ -58,7 +53,7 @@
           >
             <template v-slot:label>
               <v-img
-                :src="store.getImagePath('member_icon', `icon_SD_${name_en}`)"
+                :src="store.getImagePath('icons/member', `icon_SD_${name_en}`)"
                 class="icon member"
               ></v-img>{{ name_ja.first }} {{ name_ja.last }}
             </template>
@@ -70,13 +65,13 @@
 </template>
 
 <script setup>
-  import { useStoreCounter } from '@/stores/counter';
-  const store = useStoreCounter();
-  const memberNameList = [];
+import { useStoreCounter } from '@/stores/counter';
+const store = useStoreCounter();
+const memberNameList = [];
 
-  for (const memberName in store.memberName) {
-    memberNameList.push(`${store.memberName[memberName].first} ${store.memberName[memberName].last}`);
-  }
+for (const memberName in store.memberName) {
+  memberNameList.push(`${store.memberName[memberName].first} ${store.memberName[memberName].last}`);
+}
 </script>
 
 <script>
@@ -84,17 +79,17 @@ export default {
   name: 'MusicListFilter',
   data() {
     return {
-      center: null
-    }
+      center: null,
+    };
   },
   created() {},
   computed: {},
   methods: {
     selectCenter(select) {
       this.center = select;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

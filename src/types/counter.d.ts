@@ -1,28 +1,20 @@
 import { Ref } from 'vue';
+import { BonusSkillName } from '@/constants/music';
+import { Rare, StyleTypeEn, FavoriteIcon, ReleaseStatus, Mood, Limited } from '@/constants/cards';
 
 /**
  * ボーナススキルの詳細を表す型
  *
- * @property text スキルの説明テキスト
- * @property skillLevel スキルレベル
- * @property init 初期値
- * @property ary 効果が変わるレベル
+ * @property {string} text スキルの説明テキスト
+ * @property {number} skillLevel スキルレベル
+ * @property {number} init 初期値
+ * @property {number} ary 効果が変わるレベル
  */
-type BonusSkill = {
+type BonusSkillList = {
   text: string[];
   skillLevel: number;
   init?: number;
   ary?: number[];
-};
-
-/**
- * ボーナススキルのリストを表す型
- */
-type BonusSkillList = {
-  ボルテージアップ: BonusSkill;
-  メンタルリカバー: BonusSkill;
-  ビートハートアップ: BonusSkill;
-  LOVEボーナス: BonusSkill;
 };
 
 /**
@@ -158,11 +150,11 @@ type SiteSettings = {
 type SortSettings = {
   cardList: {
     sortType: string;
-    order: string;
+    order: 'descending' | 'ascending';
   };
   musicList: {
     sortType: string;
-    order: string;
+    order: 'descending' | 'ascending';
   };
 };
 
@@ -198,10 +190,10 @@ type SortSettings = {
  */
 type SearchSettings = {
   cardList: {
-    rare: string[];
-    styleType: string[];
-    mood: string[];
-    limited: string[];
+    rare: Rare[];
+    styleType: StyleTypeEn;
+    mood: Mood[];
+    limited: Limited[];
     cardLevel: [number, number];
     SALevel: [number, number];
     SLevel: [number, number];
@@ -210,8 +202,8 @@ type SearchSettings = {
     releaseLevel: [number, number];
     trainingLevel: [number, number];
     memberName: string[];
-    favorite: string[];
-    releaseStatus: string;
+    favorite: FavoriteIcon[];
+    releaseStatus: ReleaseStatus;
   };
   skillList: {
     skillFilterType: string;
@@ -306,10 +298,6 @@ type Deck = {
  * @property sortSettings ソート設定
  * @property defaultSearch デフォルト検索設定
  * @property styleHeadline スタイル見出し
- * @property statusName ステータス名
- * @property styleType スタイル
- * @property mood ムード
- * @property attribute 属性
  * @property limited 限定
  * @property maxCardLevel 最大カードレベル
  * @property releasePoint 解放ポイント
@@ -319,7 +307,6 @@ type Deck = {
  * @property memberId メンバーID
  * @property formationMember フォーメーションメンバー
  * @property memberColor メンバーの色
- * @property groupName グループ名
  * @property bonusSkillList ボーナススキルリスト
  * @property memberData メンバーデータ
  * @property deck デッキ
@@ -328,7 +315,6 @@ type Deck = {
  * @property localStorageData ローカルストレージデータ
  * @property grandprixBonus グランプリボーナス
  * @property supportSkill サポートスキル
- * @property sortTypeList ソートタイプリスト
  * @property defaultCardList デフォルトカードリスト
  * @property windowSize ウィンドウサイズ
  */
@@ -342,14 +328,10 @@ type CounterState = {
   selectCharacter: string;
   selectMusicTitle: string | undefined;
   checkMasteryMember: string;
-  thisPeriod: number;
+  thisPeriod: 103 | 104 | 105;
   selectDeckName: string;
   isParamReflect: boolean;
   isPossessionFlg: boolean;
-  rare: string[];
-  favorite: string[];
-  releaseStatus: string[];
-  bonusSkill: string[];
   withStar: Record<string, number>;
   siteSettings: SiteSettings;
   sortSettings: SortSettings;
@@ -360,17 +342,6 @@ type CounterState = {
       main: string;
       side1: string;
       side2?: string;
-    }
-  >;
-  statusName: Record<string, string>;
-  styleType: Record<string, string>;
-  mood: Record<string, string>;
-  attribute: Record<string, string>;
-  limited: Record<
-    string,
-    {
-      filterLabel: string;
-      cardLabel: string;
     }
   >;
   maxCardLevel: Record<string, number[]>;
@@ -393,7 +364,6 @@ type CounterState = {
   memberId: Record<string, string>;
   formationMember: Record<number, string[]>;
   memberColor: Record<string, string>;
-  groupName: Record<string, string>;
   bonusSkillList: BonusSkillList;
   memberData: {
     centerList: Record<
@@ -423,7 +393,6 @@ type CounterState = {
     releaseLv: Record<string, number[]>;
   };
   supportSkill: Record<string, Record<string, number>>;
-  sortTypeList: Record<string, string>;
   defaultCardList: any[];
   windowSize: {
     w: number;

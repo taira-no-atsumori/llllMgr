@@ -20,14 +20,10 @@
     </h3>
 
     <v-row no-gutters>
-      <v-col
-        cols="12"
-        sm="6"
-        class="mb-3 mb-sm-0"
-      >
+      <v-col cols="12" sm="6" class="mb-3 mb-sm-0">
         <v-img
-          :lazy-src="store.getImagePath('CD_jacket', store.conversion(store.selectMusicTitle))"
-          :src="store.getImagePath('CD_jacket', store.conversion(store.selectMusicTitle))"
+          :lazy-src="store.getImagePath('images/cdJacket', store.conversion(store.selectMusicTitle))"
+          :src="store.getImagePath('images/cdJacket', store.conversion(store.selectMusicTitle))"
           :alt="store.selectMusicTitle"
           class="mb-2"
         ></v-img>
@@ -35,16 +31,12 @@
         <div v-if="store.musicList[store.selectMusicTitle]?.scoreData">
           <h4 class="subtitle">楽曲難易度・コンボ数</h4>
 
-          <v-table
-            density="compact"
-            class="mb-2"
-          >
+          <v-table density="compact" class="mb-2">
             <thead>
               <tr>
                 <th></th>
                 <template
-                  v-for="(difficulty, key) in store.musicList[store.selectMusicTitle].scoreData
-                    .difficultyLevel"
+                  v-for="(difficulty, key) in store.musicList[store.selectMusicTitle].scoreData.difficultyLevel"
                   :key="key"
                 >
                   <th class="px-1 text-center">{{ key }}</th>
@@ -55,8 +47,7 @@
               <tr>
                 <td>難易度</td>
                 <template
-                  v-for="difficulty in store.musicList[store.selectMusicTitle].scoreData
-                    .difficultyLevel"
+                  v-for="difficulty in store.musicList[store.selectMusicTitle].scoreData.difficultyLevel"
                   :key="difficulty"
                 >
                   <td class="px-1 text-center">{{ difficulty }}</td>
@@ -79,33 +70,19 @@
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
-                <v-col
-                  cols="12"
-                  class="mb-1"
-                >
+                <v-col cols="12" class="mb-1">
                   <h4>発売(発表)日</h4>
                   {{ store.makeReleaseDate }}
                 </v-col>
-                <v-col
-                  cols="12"
-                  class="mb-1"
-                  v-if="store.musicList[store.selectMusicTitle].musicData.numbering"
-                >
+                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.numbering">
                   <h4>収録CD</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.numbering }}
                 </v-col>
-                <v-col
-                  cols="12"
-                  class="mb-1"
-                >
+                <v-col cols="12" class="mb-1">
                   <h4>原曲BPM</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.BPM.original }}
                 </v-col>
-                <v-col
-                  cols="12"
-                  class="mb-1"
-                  v-if="store.musicList[store.selectMusicTitle].musicData.time > 0"
-                >
+                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.time > 0">
                   <h4>秒数</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.time }}
                 </v-col>
@@ -115,34 +92,18 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col
-        cols="12"
-        sm="6"
-        class="pl-sm-3"
-        style="font-size: 15px"
-      >
+      <v-col cols="12" sm="6" class="pl-sm-3" style="font-size: 15px">
         <div class="mb-2">
           <h4 class="subtitle">センター</h4>
           <div>
-            <v-chip
-              pill
-              class="pl-0"
-              :color="store.memberColor[store.musicList[store.selectMusicTitle].center]"
-            >
+            <v-chip pill class="pl-0" :color="store.memberColor[store.musicList[store.selectMusicTitle].center]">
               <v-avatar left>
                 <v-img
-                  :src="
-                    store.getImagePath(
-                      'member_icon',
-                      `icon_SD_${store.musicList[store.selectMusicTitle].center}`,
-                    )
-                  "
+                  :src="store.getImagePath('icons/member', `icon_SD_${store.musicList[store.selectMusicTitle].center}`)"
                   width="30px"
                 ></v-img>
               </v-avatar>
-              <span class="ml-1">{{
-                store.makeFullName(store.musicList[store.selectMusicTitle].center)
-              }}</span>
+              <span class="ml-1">{{ store.makeFullName(store.musicList[store.selectMusicTitle].center) }}</span>
             </v-chip>
           </div>
         </div>
@@ -157,10 +118,7 @@
               :color="store.memberColor[memberName]"
             >
               <v-avatar left>
-                <v-img
-                  :src="store.getImagePath('member_icon', `icon_SD_${memberName}`)"
-                  width="30px"
-                ></v-img>
+                <v-img :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)" width="30px"></v-img>
               </v-avatar>
               <span class="ml-1">{{ store.makeFullName(memberName) }}</span>
             </v-chip>
@@ -193,9 +151,7 @@
             <div>
               <v-btn
                 size="small"
-                @click="
-                  store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)
-                "
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level - 1)"
                 :disabled="store.musicList[store.selectMusicTitle].level === 0"
                 >-1
               </v-btn>
@@ -206,9 +162,7 @@
             <div>
               <v-btn
                 size="small"
-                @click="
-                  store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)
-                "
+                @click="store.valueChange('musicLevel', store.musicList[store.selectMusicTitle].level + 1)"
                 :disabled="store.musicList[store.selectMusicTitle].level === 50"
                 >+1
               </v-btn>
@@ -240,12 +194,7 @@
           <h4 class="subtitle">獲得ボーナススキル</h4>
           <div class="d-flex flex-row align-center">
             <img
-              :src="
-                store.getImagePath(
-                  'bonusSkill_icon',
-                  store.musicList[store.selectMusicTitle].bonusSkill,
-                )
-              "
+              :src="store.getImagePath('icons/bonusSkill', store.musicList[store.selectMusicTitle].bonusSkill)"
               :alt="store.musicList[store.selectMusicTitle].bonusSkill"
               class="mr-1"
               style="width: 30px; border-radius: 3px"
@@ -257,24 +206,15 @@
         <div class="mb-1">
           <h4 class="subtitle">属性</h4>
           <div>
-            <v-chip
-              pill
-              class="member"
-              :color="attributeName[store.musicList[store.selectMusicTitle].attribute].color"
-            >
+            <v-chip pill class="member" :color="attributeName[store.musicList[store.selectMusicTitle].attribute].color">
               <v-avatar left>
                 <v-img
                   :src="
-                    store.getImagePath(
-                      'attribute_icon',
-                      `icon_${store.musicList[store.selectMusicTitle].attribute}`,
-                    )
+                    store.getImagePath('icons/attribute', `icon_${store.musicList[store.selectMusicTitle].attribute}`)
                   "
                 ></v-img>
               </v-avatar>
-              <span class="ml-2">{{
-                attributeName[store.musicList[store.selectMusicTitle].attribute].name
-              }}</span>
+              <span class="ml-2">{{ attributeName[store.musicList[store.selectMusicTitle].attribute].name }}</span>
             </v-chip>
           </div>
         </div>

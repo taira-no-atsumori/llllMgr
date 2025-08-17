@@ -1,12 +1,6 @@
 <template>
-  <v-container
-    fluid
-    class="pa-0"
-  >
-    <v-row
-      no-gutters
-      class="mb-1 text-center"
-    >
+  <v-container fluid class="pa-0">
+    <v-row no-gutters class="mb-1 text-center">
       <v-col class="pa-0">
         <h2 class="hidden-xs">
           <v-tooltip location="bottom">
@@ -24,26 +18,15 @@
           </v-tooltip>
         </h2>
         <h3 class="hidden-sm-and-up">
-          <a
-            :href="makeWikiLink(store)"
-            target="_blank"
-            :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
-          >
+          <a :href="makeWikiLink(store)" target="_blank" :class="`text-${store.isDarkMode ? 'white' : 'black'}`">
             {{ makeCardName(store) }}
           </a>
         </h3>
       </v-col>
     </v-row>
 
-    <v-row
-      no-gutters
-      class="mb-2"
-    >
-      <v-col
-        cols="12"
-        sm="7"
-        class="py-0 pl-0 pr-0 pr-sm-4"
-      >
+    <v-row no-gutters class="mb-2">
+      <v-col cols="12" sm="7" class="py-0 pl-0 pr-0 pr-sm-4">
         <v-carousel
           class="mb-1"
           height="auto"
@@ -57,7 +40,7 @@
             :key="kakusei"
             :lazy-src="
               store.getImagePath(
-                'card_illust',
+                'images/cardIllust',
                 `${store.conversion(store.getSettingCard.cardName)}_${store.makeCardMemberName(
                   store.getSettingCard.ID,
                 )}_覚醒${kakusei}`,
@@ -65,7 +48,7 @@
             "
             :src="
               store.getImagePath(
-                'card_illust',
+                'images/cardIllust',
                 `${store.conversion(store.getSettingCard.cardName)}_${store.makeCardMemberName(
                   store.getSettingCard.ID,
                 )}_覚醒${kakusei}`,
@@ -74,33 +57,19 @@
             :aspect-ratio="1.542"
           ></v-carousel-item>
         </v-carousel>
-        <v-row
-          no-gutters
-          id="styleAndMoodArea"
-          class="text-center"
-        >
-          <v-col
-            cols="12"
-            sm="6"
-            class="pt-2 pb-1"
-          >
+        <v-row no-gutters id="styleAndMoodArea" class="text-center">
+          <v-col cols="12" sm="6" class="pt-2 pb-1">
             <span class="left">タイプ</span>
             <span class="right">
               <v-img
-                :src="
-                  store.getImagePath('styleType_icon', `icon_${store.settingCardData.styleType}`)
-                "
+                :src="store.getImagePath('icons/styleType', `icon_${store.settingCardData.styleType}`)"
                 class="icon type"
                 v-if="false"
-              ></v-img
-              >{{ store.styleType[store.settingCardData.styleType] }}
+              ></v-img>
+              {{ convertStyleEnToJp(store.settingCardData.styleType) }}
             </span>
           </v-col>
-          <v-col
-            cols="12"
-            sm="6"
-            class="pt-2 pb-1"
-          >
+          <v-col cols="12" sm="6" class="pt-2 pb-1">
             <span class="left">ムード</span>
             <span class="right pl-1">
               <v-img
@@ -108,14 +77,11 @@
                 class="icon mood"
                 v-if="false"
               ></v-img>
-              {{ store.mood[store.settingCardData.mood] }}
+              {{ convertMoodEnToJp(store.settingCardData.mood) }}
             </span>
           </v-col>
         </v-row>
-        <v-table
-          density="compact"
-          class="mb-1"
-        >
+        <v-table density="compact" class="mb-1">
           <thead>
             <tr>
               <th
@@ -130,149 +96,76 @@
           </thead>
           <tbody>
             <tr>
-              <td
-                style="width: 80px"
-                class="px-0 text-center"
-              >
+              <td style="width: 80px" class="px-0 text-center">
                 {{ store.cardParam('smile') }}
               </td>
-              <td
-                style="width: 80px"
-                class="px-0 text-center"
-              >
+              <td style="width: 80px" class="px-0 text-center">
                 {{ store.cardParam('pure') }}
               </td>
-              <td
-                style="width: 80px"
-                class="px-0 text-center"
-              >
+              <td style="width: 80px" class="px-0 text-center">
                 {{ store.cardParam('cool') }}
               </td>
-              <td
-                style="width: 80px"
-                class="px-0 text-center"
-              >
+              <td style="width: 80px" class="px-0 text-center">
                 {{ store.cardParam('mental') }}
               </td>
-              <td
-                style="width: 50px"
-                class="px-0 text-center"
-              >
+              <td style="width: 50px" class="px-0 text-center">
                 {{ store.settingCardData.uniqueStatus.BP }}
               </td>
             </tr>
           </tbody>
         </v-table>
-        <v-row
-          no-gutters
-          class="text-center"
-        >
-          <v-col
-            cols="12"
-            sm="10"
-          >
-            <v-row
-              no-gutters
-              class="mb-2 mb-sm-0"
-            >
-              <v-col
-                cols="12"
-                class="pb-1 font-weight-bold"
-              >
-                初登場時期
-              </v-col>
+        <v-row no-gutters class="text-center">
+          <v-col cols="12" sm="10">
+            <v-row no-gutters class="mb-2 mb-sm-0">
+              <v-col cols="12" class="pb-1 font-weight-bold"> 初登場時期 </v-col>
               <v-col cols="12">{{ store.settingCardData.gacha.addSeason }}</v-col>
             </v-row>
           </v-col>
-          <v-col
-            cols="12"
-            sm="2"
-          >
+          <v-col cols="12" sm="2">
             <v-row no-gutters>
-              <v-col
-                cols="12"
-                class="pb-1 font-weight-bold"
-              >
-                入手期間
-              </v-col>
-              <v-col cols="12">{{
-                store.limited[store.settingCardData.gacha.period].cardLabel
-              }}</v-col>
+              <v-col cols="12" class="pb-1 font-weight-bold"> 入手期間 </v-col>
+              <v-col cols="12">{{ LIMITED[store.settingCardData.gacha.period].cardLabel }}</v-col>
             </v-row>
           </v-col>
         </v-row>
       </v-col>
 
-      <v-col
-        cols="12"
-        sm="5"
-      >
+      <v-col cols="12" sm="5">
         <div class="mb-5">
           <h4 class="mb-3">特訓度</h4>
           <v-row>
-            <v-col
-              cols="5"
-              align-self="center"
-              class="pa-0 text-right"
-            >
+            <v-col cols="5" align-self="center" class="pa-0 text-right">
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.trainingLevel === 0"
-                @click="
-                  store.valueChange(
-                    'trainingLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel - 1,
-                  )
-                "
+                @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel - 1)"
                 >-1
               </v-btn>
             </v-col>
-            <v-col
-              cols="2"
-              align-self="center"
-              justify="center"
-              class="pa-0 text-center"
-            >
+            <v-col cols="2" align-self="center" justify="center" class="pa-0 text-center">
               {{ [0, 1, 2, 3, 4][store.settingCardData.fluctuationStatus.trainingLevel] }}
             </v-col>
-            <v-col
-              cols="5"
-              align-self="center"
-              justify="center"
-              class="pa-0"
-            >
+            <v-col cols="5" align-self="center" justify="center" class="pa-0">
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.trainingLevel ===
-                  store.setMaxTrainingLevel
-                "
-                @click="
-                  store.valueChange(
-                    'trainingLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel + 1,
-                  )
-                "
+                :disabled="store.settingCardData.fluctuationStatus.trainingLevel === store.setMaxTrainingLevel"
+                @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel + 1)"
                 >+1
               </v-btn>
             </v-col>
           </v-row>
         </div>
         <div class="mb-3">
-          <h4 class="mb-1">カードレベル</h4>
+          <h4 class="mb-1">カードLv.</h4>
           <div class="paramSetArea mb-1">
             <div>
               <v-btn
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
-                  (store.settingCardData.fluctuationStatus.trainingLevel === 0
-                    ? 0
-                    : store.changeMinCardLevel)
+                  (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)
                 "
                 @click="
                   store.valueChange(
                     'cardLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel === 0
-                      ? 0
-                      : store.changeMinCardLevel,
+                    store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel,
                   )
                 "
               >
@@ -283,16 +176,9 @@
               <v-btn
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
-                  (store.settingCardData.fluctuationStatus.trainingLevel === 0
-                    ? 0
-                    : store.changeMinCardLevel)
+                  (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)
                 "
-                @click="
-                  store.valueChange(
-                    'cardLevel',
-                    store.settingCardData.fluctuationStatus.cardLevel - 1,
-                  )
-                "
+                @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel - 1)"
               >
                 -1
               </v-btn>
@@ -302,24 +188,15 @@
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel
-                "
-                @click="
-                  store.valueChange(
-                    'cardLevel',
-                    store.settingCardData.fluctuationStatus.cardLevel + 1,
-                  )
-                "
+                :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
+                @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel + 1)"
               >
                 +1
               </v-btn>
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel
-                "
+                :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
                 @click="store.valueChange('cardLevel', store.changeMaxCardLevel)"
               >
                 MAX
@@ -327,12 +204,9 @@
             </div>
           </div>
         </div>
-        <div
-          class="mb-3"
-          v-if="store.settingCardData?.specialAppeal"
-        >
+        <div class="mb-3" v-if="store.settingCardData?.specialAppeal">
           <h4 class="mb-1 d-flex flex-row">
-            スペシャルアピール（スクステ）
+            スペシャルアピールLv.（スクステ）
             <v-btn
               size="small"
               density="compact"
@@ -353,9 +227,7 @@
             <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SALevel === 1"
-                @click="
-                  store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel - 1)
-                "
+                @click="store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel - 1)"
               >
                 -1
               </v-btn>
@@ -365,21 +237,15 @@
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel
-                "
-                @click="
-                  store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel + 1)
-                "
+                :disabled="store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel"
+                @click="store.valueChange('SALevel', store.settingCardData.fluctuationStatus.SALevel + 1)"
               >
                 +1
               </v-btn>
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel
-                "
+                :disabled="store.settingCardData.fluctuationStatus.SALevel === store.changeSkillLevel"
                 @click="store.valueChange('SALevel', store.changeSkillLevel)"
               >
                 MAX
@@ -387,12 +253,9 @@
             </div>
           </div>
         </div>
-        <div
-          class="mb-3"
-          v-if="store.settingCardData?.skill"
-        >
+        <div class="mb-3" v-if="store.settingCardData?.skill">
           <h4 class="mb-1 d-flex flex-row">
-            スキル（スクステ）
+            スキルLv.（スクステ）
             <v-btn
               size="small"
               density="compact"
@@ -413,9 +276,7 @@
             <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
-                @click="
-                  store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel - 1)
-                "
+                @click="store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel - 1)"
               >
                 -1
               </v-btn>
@@ -425,21 +286,15 @@
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel
-                "
-                @click="
-                  store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel + 1)
-                "
+                :disabled="store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel"
+                @click="store.valueChange('SLevel', store.settingCardData.fluctuationStatus.SLevel + 1)"
               >
                 +1
               </v-btn>
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel
-                "
+                :disabled="store.settingCardData.fluctuationStatus.SLevel === store.changeSkillLevel"
                 @click="store.valueChange('SLevel', store.changeSkillLevel)"
               >
                 MAX
@@ -450,10 +305,7 @@
         <div class="mb-3">
           <h4 class="mb-1 d-flex flex-row">
             解放Lv.
-            <span
-              v-if="store.getSettingCard.rare !== 'DR' && store.settingCardData?.specialAppeal"
-              class="ml-1"
-            >
+            <span v-if="store.getSettingCard.rare !== 'DR' && store.settingCardData?.specialAppeal" class="ml-1">
               (最終獲得GP Pt. +<span class="text-pink">
                 {{
                   store.grandprixBonus.releaseLv[store.getSettingCard.rare][
@@ -486,10 +338,7 @@
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 1"
                 @click="
-                  store.valueChange(
-                    'releaseLevel',
-                    store.settingCardData.fluctuationStatus.releaseLevel - 1,
-                  );
+                  store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel - 1);
                   store.valueChange('releasePoint', maxReleasePoint(store));
                 "
               >
@@ -503,10 +352,7 @@
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releaseLevel === 5"
                 @click="
-                  store.valueChange(
-                    'releaseLevel',
-                    store.settingCardData.fluctuationStatus.releaseLevel + 1,
-                  );
+                  store.valueChange('releaseLevel', store.settingCardData.fluctuationStatus.releaseLevel + 1);
                   store.valueChange(
                     'releasePoint',
                     Math.max(
@@ -572,12 +418,7 @@
             <div>
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.releasePoint === 0"
-                @click="
-                  store.valueChange(
-                    'releasePoint',
-                    store.settingCardData.fluctuationStatus.releasePoint - 1,
-                  )
-                "
+                @click="store.valueChange('releasePoint', store.settingCardData.fluctuationStatus.releasePoint - 1)"
               >
                 -1
               </v-btn>
@@ -587,24 +428,15 @@
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)
-                "
-                @click="
-                  store.valueChange(
-                    'releasePoint',
-                    store.settingCardData.fluctuationStatus.releasePoint + 1,
-                  )
-                "
+                :disabled="store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)"
+                @click="store.valueChange('releasePoint', store.settingCardData.fluctuationStatus.releasePoint + 1)"
               >
                 +1
               </v-btn>
             </div>
             <div>
               <v-btn
-                :disabled="
-                  store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)
-                "
+                :disabled="store.settingCardData.fluctuationStatus.releasePoint === limitReleasePoint(store)"
                 @click="
                   store.valueChange(
                     'releasePoint',
@@ -620,35 +452,50 @@
                   store.settingCardData.fluctuationStatus.releasePoint +
                     store.releasePoint[store.settingCardData.rare].point >
                   limitReleasePoint(store)
-                    ? limitReleasePoint(store) -
-                      store.settingCardData.fluctuationStatus.releasePoint
+                    ? limitReleasePoint(store) - store.settingCardData.fluctuationStatus.releasePoint
                     : store.releasePoint[store.settingCardData.rare].point
                 }}
               </v-btn>
             </div>
           </div>
-          <v-slider
-            v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5"
-            hide-details
-            v-model="store.settingCardData.fluctuationStatus.releasePoint"
-            :max="limitReleasePoint(store)"
-            min="0"
-            step="1"
-            color="pink"
-            thumb-color="pink"
-            class="mb-2 px-2"
-            density="compact"
-          ></v-slider>
+          <div v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5" class="mt-2">
+            <div class="d-flex justify-space-between">
+              <template v-for="i in 6 - store.settingCardData.fluctuationStatus.releaseLevel" :key="i">
+                <p class="text-center text-body-2" :style="{ width: '2rem' }">
+                  {{ (i - 1) * store.releasePoint[store.settingCardData.rare].point }}
+                </p>
+              </template>
+            </div>
+            <div class="d-flex" style="width: 91.5%; border-bottom: 1px solid black; margin: 0 auto">
+              <div class="d-inline-flex" style="height: 10px; border-left: 1px solid black"></div>
+              <template v-for="i in 5 - store.settingCardData.fluctuationStatus.releaseLevel" :key="i">
+                <div
+                  class="d-inline-flex"
+                  :style="{
+                    width: dynamicWidth,
+                    height: '10px',
+                    borderRight: '1px solid black',
+                  }"
+                ></div>
+              </template>
+            </div>
+            <v-slider
+              hide-details
+              v-model="store.settingCardData.fluctuationStatus.releasePoint"
+              :max="limitReleasePoint(store)"
+              min="0"
+              step="1"
+              color="pink"
+              thumb-color="pink"
+              class="mb-2 px-2"
+              density="compact"
+            ></v-slider>
+          </div>
         </div>
         <div class="mb-4">
           <h4 class="mb-4">お気に入り</h4>
           <v-row class="text-center">
-            <v-col
-              cols="2"
-              v-for="favorite in store.favorite"
-              :key="favorite"
-              class="pa-0"
-            >
+            <v-col cols="2" v-for="favorite in FAVORITE" :key="favorite" class="pa-0">
               <v-btn
                 :icon="`mdi-${favorite}`"
                 variant="text"
@@ -663,11 +510,7 @@
       </v-col>
     </v-row>
 
-    <v-tabs
-      v-model="gameMode"
-      color="pink"
-      grow
-    >
+    <v-tabs v-model="gameMode" color="pink" grow>
       <v-tab value="stage">スクールアイドルステージ</v-tab>
       <v-tab value="show">スクールアイドルショウ</v-tab>
     </v-tabs>
@@ -687,46 +530,31 @@
       </v-tabs-window-item>
     </v-tabs-window>
 
-    <div
-      class="mt-2 px-0 pt-0 pb-1"
-      v-if="store.settingCardData.uniqueStatus?.supportSkill"
-    >
+    <div class="mt-2 px-0 pt-0 pb-1" v-if="store.settingCardData.uniqueStatus?.supportSkill">
       <span class="specialAppeal supportSkill"> サポートスキル </span>
       {{ store.settingCardData.uniqueStatus.supportSkill.supportSkillTitle }}
       <ul class="d-flex mt-2">
         <li
-          v-for="(list, supportSkillName) in store.settingCardData.uniqueStatus.supportSkill
-            .supportSkillList"
+          v-for="(list, supportSkillName) in store.settingCardData.uniqueStatus.supportSkill.supportSkillList"
           :key="supportSkillName"
           class="pr-2"
         >
           <img
-            :src="store.getImagePath('bonusSkill_icon', supportSkillName)"
+            :src="store.getImagePath('icons/bonusSkill', supportSkillName)"
             class="mr-1"
             style="width: 50px; border-radius: 5px"
           />
-          <span style="font-size: 18px"
-            >Lv.{{ makeSupportSkillLevel(store, supportSkillName) }}</span
-          >
+          <span style="font-size: 18px">Lv.{{ makeSupportSkillLevel(store, supportSkillName) }}</span>
         </li>
       </ul>
     </div>
   </v-container>
 
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    :max-width="dialogSize"
-  >
+  <v-dialog v-model="dialog" scrollable :max-width="dialogSize">
     <v-sheet class="pa-3">
       <div v-if="openDialogName === 'skillList'">
         <h2 class="text-center mb-2">スキル効果量一覧</h2>
-        <v-tabs
-          class="mb-2"
-          v-model="selectAddSkillDetail"
-          color="pink"
-          grow
-        >
+        <v-tabs class="mb-2" v-model="selectAddSkillDetail" color="pink" grow>
           <v-tab value="mainSkill">メインスキル</v-tab>
           <v-tab
             v-for="(addSkillData, i) in store.settingCardData[targetSkill].addSkill"
@@ -744,25 +572,14 @@
               <thead>
                 <tr>
                   <th class="text-center px-1">Lv</th>
-                  <th
-                    v-if="store.settingCardData[targetSkill]?.EXAP"
-                    class="text-center px-2"
-                  >
-                    AP
-                  </th>
+                  <th v-if="store.settingCardData[targetSkill]?.EXAP" class="text-center px-2">AP</th>
                   <th class="text-center px-1">効果</th>
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="i in 14"
-                  :key="i"
-                >
+                <tr v-for="i in 14" :key="i">
                   <th class="text-center px-1">{{ i }}</th>
-                  <th
-                    v-if="store.settingCardData[targetSkill]?.EXAP"
-                    class="text-center px-1"
-                  >
+                  <th v-if="store.settingCardData[targetSkill]?.EXAP" class="text-center px-1">
                     {{ store.settingCardData[targetSkill]?.EXAP[i - 1] }}
                   </th>
                   <td class="px-1">
@@ -772,11 +589,7 @@
               </tbody>
             </v-table>
           </v-tabs-window-item>
-          <v-tabs-window-item
-            v-for="(a, i) in store.settingCardData[targetSkill].addSkill"
-            :key="i"
-            :value="a.name"
-          >
+          <v-tabs-window-item v-for="(a, i) in store.settingCardData[targetSkill].addSkill" :key="i" :value="a.name">
             スキル名：{{ a.name }}
             <v-table density="compact">
               <thead>
@@ -786,10 +599,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="skillLevel in 14"
-                  :key="skillLevel"
-                >
+                <tr v-for="skillLevel in 14" :key="skillLevel">
                   <th class="text-center px-1">{{ skillLevel }}</th>
                   <td class="px-1">
                     {{
@@ -821,42 +631,17 @@
         <v-table>
           <thead>
             <tr>
-              <th
-                rowspan="2"
-                class="text-center"
-              >
-                レアリティ
-              </th>
-              <th
-                colspan="5"
-                class="text-center"
-              >
-                解放状況
-              </th>
+              <th rowspan="2" class="text-center">レアリティ</th>
+              <th colspan="5" class="text-center">解放状況</th>
             </tr>
             <tr>
-              <th
-                v-for="i of 5"
-                :key="i"
-                class="text-center"
-              >
-                ♪×{{ i }}
-              </th>
+              <th v-for="i of 5" :key="i" class="text-center">♪×{{ i }}</th>
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="(list, rarity) of store.grandprixBonus.releaseLv"
-              :key="rarity"
-            >
+            <tr v-for="(list, rarity) of store.grandprixBonus.releaseLv" :key="rarity">
               <th>{{ rarity }}</th>
-              <td
-                v-for="bonus of list"
-                :key="bonus"
-                class="text-center"
-              >
-                +{{ bonus * 100 }}%
-              </td>
+              <td v-for="bonus of list" :key="bonus" class="text-center">+{{ bonus * 100 }}%</td>
             </tr>
           </tbody>
         </v-table>
@@ -867,9 +652,7 @@
 
         <p>
           ガチャで入手したカードが重複していた場合に獲得できるのが「解放Pt.」です。<br />
-          この解放Pt.を設定していると、カード一覧のカード画像の右上に<span
-            class="text-blue-accent-4"
-            >●</span
+          この解放Pt.を設定していると、カード一覧のカード画像の右上に<span class="text-blue-accent-4">●</span
           >がつきます。<br />
           なお、解放Lv.を上げると、現在設定されている解放Pt.から解放Lv.を上げるのに必要な解放Pt.を自動的に消費し、設定できる解放Pt.の上限も変化します。<br />
           ※解放Lv.を下げた場合は設定できる解放Pt.の上限は上がりますが、解放Pt.は変化しません。<br /><br />
@@ -891,23 +674,26 @@
         </p>
       </div>
       <div class="mt-1 text-center">
-        <v-btn
-          prepend-icon="mdi-close"
-          @click="switchDialog(null)"
-        >
-          CLOSE
-        </v-btn>
+        <v-btn prepend-icon="mdi-close" @click="switchDialog(null)"> CLOSE </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
 </template>
 
 <script setup lang="ts">
+// import { ref } from 'vue';
+import { computed } from 'vue';
+import { STYLE_TYPE, convertStyleEnToJp, convertMoodEnToJp, FAVORITE, LIMITED } from '@/constants/cards';
 import { CounterState } from '@/types/counter';
 import { useStoreCounter } from '@/stores/counter';
-import skillArea from './SkillAreaComponent.vue';
+import skillArea from '@/components/SkillAreaComponent.vue';
 
 const store = useStoreCounter();
+
+const dynamicWidth = computed(() => {
+  const releaseLevel: number = store.settingCardData.fluctuationStatus.releaseLevel;
+  return `calc(${100 / (5 - releaseLevel)}% + ${1 / releaseLevel}px)`;
+});
 </script>
 
 <script lang="ts">
@@ -970,9 +756,7 @@ export default {
      * @returns number サポートスキルレベル
      */
     makeSupportSkillLevel(store: CounterState, supportSkillName: string): number {
-      const result =
-        store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName]
-          .initLevel;
+      const result = store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].initLevel;
 
       if (store.settingCardData.fluctuationStatus.cardLevel === 0) {
         return 0;
@@ -980,10 +764,7 @@ export default {
         store.settingCardData.fluctuationStatus.releaseLevel >=
         store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].levelUp
       ) {
-        return (
-          result +
-          store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].upLevel
-        );
+        return result + store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].upLevel;
       } else {
         return result;
       }
@@ -1027,10 +808,7 @@ export default {
      * @returns number 最大値
      */
     maxReleasePoint(store: CounterState): number {
-      const point = Math.min(
-        store.settingCardData.fluctuationStatus.releasePoint,
-        this.limitReleasePoint(store),
-      );
+      const point = Math.min(store.settingCardData.fluctuationStatus.releasePoint, this.limitReleasePoint(store));
       store.valueChange('releasePoint', point);
       return point;
     },

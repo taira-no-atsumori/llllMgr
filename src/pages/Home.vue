@@ -9,13 +9,13 @@
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
-                :src="store.getImagePath('event_information', event.img)"
+                :src="store.getImagePath('images/eventInformation', event.img)"
                 eager
               ></v-img>
               <a v-else :href="event.url" target="_blank" class="mainVisual">
                 <v-img
                   class="white--text align-end text-center"
-                  :src="store.getImagePath('event_information', event.img)"
+                  :src="store.getImagePath('images/eventInformation', event.img)"
                 ></v-img>
               </a>
               <v-card-title class="text-left">
@@ -184,21 +184,12 @@ export default {
         },
         fesLive: {
           title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
-          text: '',
+          text: '〜A Day in Summer Light〜',
           type: 'live',
-          firstDay: [2025, 6, 29, 20, 0],
-          lastDay: [2025, 6, 29, 21, 0],
-          url: 'https://x.com/hasunosora_SIC/status/1933856959956205839',
-          img: '105th_nadeshikosai_logo',
-        },
-        expo2025: {
-          title: 'ライブ「ラブライブ！シリーズ EXPO 2025 STAGE ～Right now!～」',
-          text: '',
-          type: 'live',
-          firstDay: [2025, 8, 14, 0, 0],
-          lastDay: [2025, 8, 14, 23, 59],
-          url: 'https://lovelive-anime.jp/special/live/live_detail.php?p=lovelive-expo2025',
-          img: 'expo2025_logo',
+          firstDay: [2025, 8, 29, 20, 0],
+          lastDay: [2025, 8, 29, 21, 0],
+          url: 'https://x.com/hasunosora_SIC/status/1956596788636557666',
+          img: '105期 2ndTerm Fes×LIVE_mv',
         },
         '5thLive_miraCraPark': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',

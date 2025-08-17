@@ -1,4 +1,8 @@
 import { defineStore } from 'pinia';
+import { MEMBER_NAMES } from '@/constants/memberNames';
+import { BONUS_SKILL } from '@/constants/bonusSkills';
+import { RARE, getStyleTypeListEn, getMoodListEn, RELEASE_STATUS, LIMITED } from '@/constants/cards';
+import { ATTRIBUTE } from '@/constants/music';
 import { useCardStore } from './cardList';
 import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
@@ -13,18 +17,15 @@ export const useStoreCounter = defineStore('store', {
     loading: false,
     dialog: false,
     dialogError: false,
+    showModalName: false,
     updateData: false,
     selectCharacter: '',
     selectMusicTitle: undefined,
-    checkMasteryMember: 'kaho',
+    checkMasteryMember: MEMBER_NAMES.KAHO,
     thisPeriod: 104,
     selectDeckName: '',
     isParamReflect: true,
     isPossessionFlg: true,
-    rare: ['DR', 'LR', 'BR', 'UR', 'SR', 'R'],
-    favorite: ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'],
-    releaseStatus: ['none', 'trainingLevel', 'cardLevel', 'releaseLevel'],
-    bonusSkill: ['ボルテージアップ', 'メンタルリカバー', 'ビートハートアップ', 'LOVEボーナス'],
     withStar: {
       kaho: 1,
       sayaka: 1,
@@ -66,21 +67,10 @@ export const useStoreCounter = defineStore('store', {
     },
     defaultSearch: {
       cardList: {
-        rare: ['DR', 'LR', 'BR', 'UR', 'SR', 'R'],
-        styleType: ['performer', 'moodMaker', 'cheerLeader', 'trickStar'],
-        mood: ['happy', 'neutral', 'melow'],
-        limited: [
-          'spring',
-          'summer',
-          'autumn',
-          'winter',
-          'graduation',
-          'party',
-          'birthday',
-          'collaboration',
-          'prize',
-          'normal',
-        ],
+        rare: [...RARE],
+        styleType: getStyleTypeListEn(),
+        mood: getMoodListEn(),
+        limited: Object.keys(LIMITED),
         cardLevel: [0, 140],
         SALevel: [1, 14],
         SLevel: [1, 14],
@@ -88,7 +78,18 @@ export const useStoreCounter = defineStore('store', {
         SAP: [0, 99],
         releaseLevel: [1, 5],
         trainingLevel: [0, 4],
-        memberName: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi', 'ginko', 'kosuzu', 'hime', 'special'],
+        memberName: [
+          MEMBER_NAMES.KAHO,
+          MEMBER_NAMES.SAYAKA,
+          MEMBER_NAMES.RURINO,
+          MEMBER_NAMES.KOZUE,
+          MEMBER_NAMES.TSUZURI,
+          MEMBER_NAMES.MEGUMI,
+          MEMBER_NAMES.GINKO,
+          MEMBER_NAMES.KOSUZU,
+          MEMBER_NAMES.HIME,
+          'special',
+        ],
         favorite: [],
         releaseStatus: 'none',
       },
@@ -121,74 +122,6 @@ export const useStoreCounter = defineStore('store', {
       //   main: 'MAIN STYLE',
       //   side1: 'SIDE STYLE 1'
       // }
-    },
-    statusName: {
-      none: 'なし',
-      cardLevel: 'カード Lv.',
-      SALevel: 'SA Lv.',
-      SLevel: 'スキル Lv.',
-      SAAP: 'スペシャルアピールAP',
-      SAP: 'スキルAP',
-      trainingLevel: '特訓',
-      releaseLevel: '解放 Lv.',
-    },
-    styleType: {
-      performer: 'パフォーマー',
-      moodMaker: 'ムードメーカー',
-      cheerLeader: 'チアリーダー',
-      trickStar: 'トリックスター',
-    },
-    mood: {
-      happy: 'ハッピー',
-      neutral: 'ニュートラル',
-      melow: 'メロウ',
-    },
-    attribute: {
-      smile: 'スマイル',
-      pure: 'ピュア',
-      cool: 'クール',
-    },
-    limited: {
-      spring: {
-        filterLabel: 'SPRING LIMITED',
-        cardLabel: '春限定',
-      },
-      summer: {
-        filterLabel: 'SUMMER LIMITED',
-        cardLabel: '夏限定',
-      },
-      autumn: {
-        filterLabel: 'AUTUMN LIMITED',
-        cardLabel: '秋限定',
-      },
-      winter: {
-        filterLabel: 'WINTER LIMITED',
-        cardLabel: '冬限定',
-      },
-      graduation: {
-        filterLabel: 'GRADUATION LIMITED',
-        cardLabel: '卒業限定',
-      },
-      party: {
-        filterLabel: 'PARTY! LIMITED',
-        cardLabel: '宴限定',
-      },
-      birthday: {
-        filterLabel: 'BIRTHDAY LIMITED',
-        cardLabel: '誕生日限定',
-      },
-      collaboration: {
-        filterLabel: 'コラボ',
-        cardLabel: 'コラボ限定',
-      },
-      prize: {
-        filterLabel: 'GP PRIZE',
-        cardLabel: 'ライブGP報酬',
-      },
-      normal: {
-        filterLabel: '通常',
-        cardLabel: '通常',
-      },
     },
     maxCardLevel: {
       DR: [100, 120, 130, 140],
@@ -285,77 +218,84 @@ export const useStoreCounter = defineStore('store', {
     exclusionMember: ['sachi', 'selaIzu', 'kozutsuzumegu'],
     specialCardIdList: ['sc_001', 'is_001', 'ktm_001'],
     memberId: {
-      kh: 'kaho',
-      sy: 'sayaka',
-      rr: 'rurino',
-      kz: 'kozue',
-      tz: 'tsuzuri',
-      mg: 'megumi',
-      gn: 'ginko',
-      sz: 'kosuzu',
-      hm: 'hime',
-      sr: 'seras',
-      iz: 'izumi',
+      kh: MEMBER_NAMES.KAHO,
+      sy: MEMBER_NAMES.SAYAKA,
+      rr: MEMBER_NAMES.RURINO,
+      kz: MEMBER_NAMES.KOZUE,
+      tz: MEMBER_NAMES.TSUZURI,
+      mg: MEMBER_NAMES.MEGUMI,
+      gn: MEMBER_NAMES.GINKO,
+      sz: MEMBER_NAMES.KOSUZU,
+      hm: MEMBER_NAMES.HIME,
+      sr: MEMBER_NAMES.SERAS,
+      iz: MEMBER_NAMES.IZUMI,
       sc: 'sachi',
       is: 'selaIzu',
       ktm: 'kozutsuzumegu',
     },
     formationMember: {
-      103: ['kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
-      104: ['ginko', 'kosuzu', 'hime', 'kaho', 'sayaka', 'rurino', 'kozue', 'tsuzuri', 'megumi'],
+      103: [
+        MEMBER_NAMES.KAHO,
+        MEMBER_NAMES.SAYAKA,
+        MEMBER_NAMES.RURINO,
+        MEMBER_NAMES.KOZUE,
+        MEMBER_NAMES.TSUZURI,
+        MEMBER_NAMES.MEGUMI,
+      ],
+      104: [
+        MEMBER_NAMES.GINKO,
+        MEMBER_NAMES.KOSUZU,
+        MEMBER_NAMES.HIME,
+        MEMBER_NAMES.KAHO,
+        MEMBER_NAMES.SAYAKA,
+        MEMBER_NAMES.RURINO,
+        MEMBER_NAMES.KOZUE,
+        MEMBER_NAMES.TSUZURI,
+        MEMBER_NAMES.MEGUMI,
+      ],
       // 105: [
-      //   'seras',
-      //   'izumi',
+      //   MEMBER_NAMES.SERAS,
+      //   MEMBER_NAMES.IZUMI,
       //   'free',
-      //   'ginko',
-      //   'kosuzu',
-      //   'hime',
-      //   'kaho',
-      //   'sayaka',
-      //   'rurino'
+      //   MEMBER_NAMES.GINKO,
+      //   MEMBER_NAMES.KOSUZU,
+      //   MEMBER_NAMES.HIME,
+      //   MEMBER_NAMES.KAHO,
+      //   MEMBER_NAMES.SAYAKA,
+      //   MEMBER_NAMES.RURINO
       // ]
     },
     memberColor: {
-      kaho: '#F8B500',
-      sayaka: '#5383C3',
-      rurino: '#E7609E',
-      kozue: '#68BE8D',
-      tsuzuri: '#BA2636',
-      megumi: '#C8C2C6',
-      ginko: '#A2D7DD',
-      kosuzu: '#FAD764',
-      hime: '#9D8DE2',
-      seras: '#f56455',
-      izumi: '#1ebecd',
-    },
-    groupName: {
-      hasunosora: '蓮ノ空女学院スクールアイドルクラブ',
-      CeriseBouquet: 'スリーズブーケ',
-      DOLLCHESTRA: 'DOLLCHESTRA',
-      miraCraPark: 'みらくらぱーく！',
-      kahomeguGelato: 'かほめぐ♡じぇらーと',
-      hasunokyujitsu: '蓮ノ休日',
-      rurinoTsuzuri: 'るりのとゆかいなつづりたち',
-      EdelNote: 'Edel Note',
+      [MEMBER_NAMES.KAHO]: '#F8B500',
+      [MEMBER_NAMES.SAYAKA]: '#5383C3',
+      [MEMBER_NAMES.RURINO]: '#E7609E',
+      [MEMBER_NAMES.KOZUE]: '#68BE8D',
+      [MEMBER_NAMES.TSUZURI]: '#BA2636',
+      [MEMBER_NAMES.MEGUMI]: '#C8C2C6',
+      [MEMBER_NAMES.GINKO]: '#A2D7DD',
+      [MEMBER_NAMES.KOSUZU]: '#FAD764',
+      [MEMBER_NAMES.HIME]: '#9D8DE2',
+      [MEMBER_NAMES.SERAS]: '#f56455',
+      [MEMBER_NAMES.IZUMI]: '#1ebecd',
     },
     bonusSkillList: {
-      ボルテージアップ: {
+      [BONUS_SKILL.VOLTAGE_UP]: {
         text: ['ボルテージPt.を', 'pt.獲得するごとに、1pt.追加獲得'],
         skillLevel: 0,
         init: 11,
         ary: [5, 10, 15, 20, 25, 30, 40],
       },
-      メンタルリカバー: {
+      [BONUS_SKILL.MENTAL_RECOVER]: {
         text: ['メンタルが', '減少するごとに、メンタルを1回復'],
         skillLevel: 0,
         init: 12,
         ary: [1, 5, 9, 13, 17, 21, 25, 29],
       },
-      ビートハートアップ: {
+      [BONUS_SKILL.BEAT_HEART_UP]: {
         text: ['ビートハートの出現量+', '%'],
         skillLevel: 0,
       },
-      LOVEボーナス: {
+      [BONUS_SKILL.LOVE_BONUS]: {
         text: ['ハート回収時のLOVE獲得量+', '%'],
         skillLevel: 0,
         ary: [
@@ -374,13 +314,13 @@ export const useStoreCounter = defineStore('store', {
     settingCard: {
       // 何故か分からないがここを設定しないとエラーが出るため設定
       ID: 'kh_023',
-      rare: 'DR',
-      name: 'kaho',
+      rare: RARE[0],
+      name: MEMBER_NAMES.KAHO,
       card: 'Prism Echo',
     },
     openCard: {
       ID: 'kh_000',
-      name: 'kaho',
+      name: MEMBER_NAMES.KAHO,
       style: 'main',
     },
     localStorageData: {
@@ -402,8 +342,14 @@ export const useStoreCounter = defineStore('store', {
         musicList: {},
       },
       sortSettings: {
-        cardList: {},
-        musicList: {},
+        cardList: {
+          sortType: 'rare',
+          order: 'descending',
+        },
+        musicList: {
+          sortType: 'default',
+          order: 'ascending',
+        },
       },
     },
     grandprixBonus: {
@@ -418,22 +364,6 @@ export const useStoreCounter = defineStore('store', {
       },
     },
     supportSkill: {},
-    sortTypeList: {
-      rare: 'レア度(標準)',
-      //timeline: '時系列',
-      //all: '総合',
-      cardLevel: 'カードLv.',
-      SALevel: 'SA Lv.',
-      SLevel: 'スキルLv.',
-      releaseLevel: '解放Lv.',
-      releaseBonus: '解放Lv.ボーナス',
-      trainingLevel: '特訓度',
-      //smile: 'スマイル',
-      //pure: 'ピュア',
-      //cool: 'クール',
-      //mental: 'メンタル',
-      kana: '五十音',
-    },
     defaultCardList: [],
     windowSize: {
       w: 0,
@@ -1180,24 +1110,25 @@ export const useStoreCounter = defineStore('store', {
             for (const rare in this.card[memberName]) {
               if (this.localStorageData.cardList.card[memberName] !== undefined) {
                 for (let cardName in this.localStorageData.cardList.card[memberName][rare]) {
-                  this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][
-                    cardName === 'バアドゲージ' ? 'バアドケージ' : cardName
-                  ].fluctuationStatus =
+                  this.card[memberName][
+                    cardName === 'バアドゲージ' && memberName === MEMBER_NAMES.SAYAKA ? 'UR' : rare
+                  ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].fluctuationStatus =
                     this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
 
                   if (
                     this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus.releasePoint ===
                     undefined
                   ) {
-                    this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][
-                      cardName === 'バアドゲージ' ? 'バアドケージ' : cardName
-                    ].fluctuationStatus.releasePoint = 0;
+                    this.card[memberName][
+                      cardName === 'バアドゲージ' && memberName === MEMBER_NAMES.SAYAKA ? 'UR' : rare
+                    ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].fluctuationStatus.releasePoint = 0;
                   }
 
                   if (this.localStorageData.cardList.card[memberName][rare][cardName].favorite !== undefined) {
-                    this.card[memberName][cardName === 'バアドゲージ' && memberName === 'sayaka' ? 'UR' : rare][
-                      cardName === 'バアドゲージ' ? 'バアドケージ' : cardName
-                    ].favorite = this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
+                    this.card[memberName][
+                      cardName === 'バアドゲージ' && memberName === MEMBER_NAMES.SAYAKA ? 'UR' : rare
+                    ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].favorite =
+                      this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
                   }
                 }
               }
@@ -1774,8 +1705,8 @@ export const useStoreCounter = defineStore('store', {
     /**
      * バックオフ処理を実装
      *
-     * @param {Function} fetchFunction - リトライ対象の関数
-     * @returns {Promise} - リトライ後の結果
+     * @param fetchFunction リトライ対象の関数
+     * @returns リトライ後の結果
      */
     async fetchWithBackoff(fetchFunction) {
       const retries = 5;
@@ -1802,6 +1733,57 @@ export const useStoreCounter = defineStore('store', {
     markImageError(imageKey) {
       console.error(`Failed to load image: ${imageKey}`);
       this.imageLoaded[imageKey] = false;
+    },
+    /**
+     * 画面サイズ更新処理
+     *
+     * @description
+     * 現在のウィンドウサイズを更新します。\
+     * このメソッドは、initializeWindowResizeメソッドで初期化時に呼び出されます。
+     *
+     * @return void
+     */
+    updateWindowSize() {
+      this.windowSize = {
+        w: window.innerWidth,
+        h: window.innerHeight,
+      };
+    },
+    /**
+     * 画面サイズ初期化処理
+     *
+     * @description
+     * 画面サイズの初期値を設定し、リサイズイベントリスナーを登録します。\
+     * リサイズイベントが発生するたびに画面サイズを更新します。\
+     * cleanupWindowResizeメソッドでイベントリスナーを削除できます。
+     *
+     * @return void
+     */
+    initializeWindowResize() {
+      // 初期値設定
+      this.updateWindowSize();
+
+      // リサイズイベントリスナーの登録
+      const handleResize = () => this.updateWindowSize();
+      window.addEventListener('resize', handleResize);
+
+      // イベントリスナーの参照を保持（cleanup用）
+      this._resizeHandler = handleResize;
+    },
+    /**
+     * 画面リサイズのイベントリスナー削除処理
+     *
+     * @description
+     * initializeWindowResizeメソッドで登録されたリサイズイベントリスナーを削除します。\
+     * これにより、メモリリークを防ぎ、不要なイベントリスナーの登録を避けることができます。
+     *
+     * @return void
+     */
+    cleanupWindowResize() {
+      if (this._resizeHandler) {
+        window.removeEventListener('resize', this._resizeHandler);
+        this._resizeHandler = null;
+      }
     },
   },
 });

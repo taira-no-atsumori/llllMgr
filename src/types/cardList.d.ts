@@ -1,3 +1,5 @@
+import { StyleType, Mood } from '@/constants/cards';
+
 /** ガチャの追加シーズンと期間情報 */
 interface Gacha {
   addSeason: string;
@@ -54,12 +56,6 @@ interface Characteristic {
   interface?: string[];
   addSkill?: AdditionalSkill[];
 }
-
-/** スタイルタイプ定義 */
-type StyleType = 'performer' | 'moodMaker' | 'cheerLeader' | 'trickStar' | '';
-
-/** ムード定義 */
-type Mood = 'happy' | 'neutral' | 'melow' | '';
 
 /** カード基本データ */
 interface CardData {

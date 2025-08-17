@@ -13,20 +13,12 @@
             <div class="d-flex pr-sm-3 mb-sm-1">
               レアリティ
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('rare');"
-                class="px-2"
-              >
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('rare')" class="px-2">
                 一括チェック
               </v-btn>
             </div>
             <v-row no-gutters>
-              <v-col
-                v-for="rare in store.rare"
-                :key="rare"
-              >
+              <v-col v-for="rare in RARE" :key="rare">
                 <v-checkbox
                   v-model="store.search.cardList.rare"
                   :label="rare"
@@ -45,35 +37,22 @@
             <div class="d-flex mb-1">
               ムード
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('mood');"
-                class="px-2"
-              >
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('mood')" class="px-2">
                 一括チェック
               </v-btn>
             </div>
             <v-row no-gutters>
-              <v-col
-                cols="6"
-                sm="4"
-                v-for="(moodName_ja, moodName_en) in store.mood"
-                :key="moodName_ja"
-              >
+              <v-col cols="6" sm="4" v-for="[_, mood] in Object.entries(MOOD)" :key="mood.jp">
                 <v-checkbox
                   v-model="store.search.cardList.mood"
-                  :value="moodName_en"
+                  :value="mood.en"
                   color="pink"
                   hide-details
                   density="compact"
                 >
                   <template v-slot:label>
-                    <v-img
-                      :src="store.getImagePath('mood_icon', `icon_${moodName_en}`)"
-                      class="icon mood"
-                    ></v-img>
-                    {{ moodName_ja }}
+                    <v-img :src="store.getImagePath('icons/mood', `icon_${mood.en}`)" class="icon mood"></v-img>
+                    {{ mood.jp }}
                   </template>
                 </v-checkbox>
               </v-col>
@@ -87,35 +66,21 @@
           <v-col cols="12" class="d-flex mb-1 mb-sm-0">
             タイプ
             <v-spacer></v-spacer>
-            <v-btn
-              density="compact"
-              elevation="1"
-              @click="store.resetMusicFilter('styleType');"
-              class="px-2"
-            >
+            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('styleType')" class="px-2">
               一括チェック
             </v-btn>
           </v-col>
-          <v-col
-            cols="6"
-            sm="2"
-            v-for="(styleTypeName_ja, styleTypeName_en) in store.styleType"
-            :key="styleTypeName_ja"
-            class="mb-1"
-          >
+          <v-col cols="6" sm="2" v-for="[_, style] in Object.entries(STYLE_TYPE)" :key="style.en" class="mb-1">
             <v-checkbox
               v-model="store.search.cardList.styleType"
-              :value="styleTypeName_en"
+              :value="style.en"
               color="pink"
               hide-details
               density="compact"
             >
               <template v-slot:label>
-                <v-img
-                  :src="store.getImagePath('styleType_icon', `icon_${styleTypeName_en}`)"
-                  class="icon type"
-                ></v-img>
-                {{ styleTypeName_ja }}
+                <v-img :src="store.getImagePath('icons/styleType', `icon_${style.en}`)" class="icon type"></v-img>
+                {{ style.jp }}
               </template>
             </v-checkbox>
           </v-col>
@@ -127,12 +92,7 @@
           <v-col cols="12" class="d-flex mb-1">
             メンバー
             <v-spacer></v-spacer>
-            <v-btn
-              density="compact"
-              elevation="1"
-              @click="store.resetMusicFilter('memberName');"
-              class="px-2"
-            >
+            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('memberName')" class="px-2">
               一括チェック
             </v-btn>
           </v-col>
@@ -153,25 +113,21 @@
               density="compact"
             >
               <template v-slot:label>
-                <template
-                  v-if="!store.isOtherMember(memberName)"
-                >
+                <template v-if="!store.isOtherMember(memberName)">
                   <v-img
-                    :src="store.getImagePath(
-                    'member_icon',
-                    `icon_illust_${memberName}_${/kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105}`
-                  )"
+                    :src="
+                      store.getImagePath(
+                        'icons/member',
+                        `icon_illust_${memberName}_${/kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105}`,
+                      )
+                    "
                     class="icon member"
                   ></v-img>
-                  <span
-                    :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
-                  >
-                  {{ store.makeFullName(memberName) }}
-                </span>
+                  <span :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`">
+                    {{ store.makeFullName(memberName) }}
+                  </span>
                 </template>
-                <template v-else>
-                  特殊
-                </template>
+                <template v-else> 特殊 </template>
               </template>
             </v-checkbox>
           </v-col>
@@ -183,23 +139,11 @@
           <v-col cols="12" class="d-flex">
             LIMITED
             <v-spacer></v-spacer>
-            <v-btn
-              density="compact"
-              elevation="1"
-              @click="store.resetMusicFilter('limited');"
-              class="px-2"
-            >
+            <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('limited')" class="px-2">
               一括チェック
             </v-btn>
           </v-col>
-          <v-col
-            cols="6"
-            sm="3"
-            lg="2"
-            v-for="(label, value) in store.limited"
-            :key="label"
-            class="mb-1"
-          >
+          <v-col cols="6" sm="3" lg="2" v-for="(label, value) in LIMITED" :key="label" class="mb-1">
             <v-checkbox
               v-model="store.search.cardList.limited"
               :value="value"
@@ -217,32 +161,19 @@
           <v-col cols="12" class="d-flex mb-1">
             ステータス上限
             <v-spacer></v-spacer>
-            <v-btn
-              density="compact"
-              elevation="1"
-              class="px-2"
-              @click="store.resetMusicFilter('releaseStatus');"
-            >
+            <v-btn density="compact" elevation="1" class="px-2" @click="store.resetMusicFilter('releaseStatus')">
               一括チェック
             </v-btn>
           </v-col>
-          <v-col
-            cols="12"
-            class="mb-2"
-          >
-            <v-radio-group
-              v-model="store.search.cardList.releaseStatus"
-              inline
-              density="compact"
-              hide-details
-            >
+          <v-col cols="12" class="mb-2">
+            <v-radio-group v-model="store.search.cardList.releaseStatus" inline density="compact" hide-details>
               <v-radio
                 class="radio-space"
                 :value="value"
-                :label="store.statusName[value]"
+                :label="statusName[value]"
                 color="pink"
                 hide-details
-                v-for="value in store.releaseStatus"
+                v-for="value in RELEASE_STATUS"
                 :key="value"
               ></v-radio>
             </v-radio-group>
@@ -256,22 +187,12 @@
             <div class="d-flex mb-sm-4 pr-sm-3">
               お気に入り
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('favorite');"
-                class="px-2"
-              >
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('favorite')" class="px-2">
                 一括チェック
               </v-btn>
             </div>
             <v-row no-gutters>
-              <v-col
-                cols="4"
-                sm="2"
-                v-for="favorite in store.favorite"
-                :key="favorite"
-              >
+              <v-col cols="4" sm="2" v-for="favorite in FAVORITE" :key="favorite">
                 <v-checkbox
                   v-model="store.search.cardList.favorite"
                   :value="favorite"
@@ -293,12 +214,8 @@
             <div class="d-flex mb-9">
               特訓度
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('trainingLevel');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('trainingLevel')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -324,12 +241,8 @@
             <div class="mb-9 d-flex">
               カードレベル
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('cardLevel');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('cardLevel')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -353,12 +266,8 @@
             <div class="d-flex mb-9">
               解放レベル
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('releaseLevel');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('releaseLevel')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -384,12 +293,8 @@
             <div class="d-flex mb-9">
               スペシャルアピールレベル
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('SALevel');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('SALevel')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -413,12 +318,8 @@
             <div class="d-flex mb-9">
               スキルレベル
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('SLevel');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('SLevel')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -444,12 +345,8 @@
             <div class="d-flex mb-9">
               消費AP(スペシャルアピール)
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('SAAP');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('SAAP')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -473,12 +370,8 @@
             <div class="d-flex mb-9">
               消費AP(スキル)
               <v-spacer></v-spacer>
-              <v-btn
-                density="compact"
-                elevation="1"
-                @click="store.resetMusicFilter('SAP');"
-                class="px-2"
-              >リセット
+              <v-btn density="compact" elevation="1" @click="store.resetMusicFilter('SAP')" class="px-2"
+                >リセット
               </v-btn>
             </div>
             <div class="px-1">
@@ -676,51 +569,28 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from '../stores/counter';
+import { ref, computed } from 'vue';
+import { RARE, STYLE_TYPE, MOOD, FAVORITE, RELEASE_STATUS, LIMITED } from '@/constants/cards';
+import { useStoreCounter } from '@/stores/counter';
 
 const store = useStoreCounter();
 
-const makeSkillTypeList: string[] = [];
+const tab1 = ref('filter_status');
 
-for (const key in store.skillColor) {
-  makeSkillTypeList.push(store.skillColor[key].name);
-}
-</script>
-
-<script lang="ts">
-export default {
-  name: 'CardListFilter',
-  data() {
-    return {
-      windowSize: {
-        w: 0,
-        h: 0
-      },
-      tab1: null
-    };
-  },
-  created() {},
-  mounted() {
-    this.onResize();
-  },
-  computed: {
-    windowWidth(): number {
-      return window.innerWidth;
-    },
-    windowHeight(): number {
-      return window.innerHeight;
-    }
-  },
-  methods: {
-    onResize(): void {
-      this.windowSize = {
-        w: window.innerWidth,
-        h: window.innerHeight
-      };
-    }
-  },
-  watch: {}
+const statusName = {
+  none: 'なし',
+  cardLevel: 'カード Lv.',
+  SALevel: 'SA Lv.',
+  SLevel: 'スキル Lv.',
+  SAAP: 'スペシャルアピールAP',
+  SAP: 'スキルAP',
+  trainingLevel: '特訓',
+  releaseLevel: '解放 Lv.',
 };
+
+const makeSkillTypeList = computed(() => {
+  return Object.values(store.skillColor).map((skill) => skill.name);
+});
 </script>
 
 <style lang="scss" scoped>

@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="pa-2"
-  >
+  <v-container fluid class="pa-2">
     <h1 class="mb-1">CARD LIST ～ カード一覧 / 所持カード設定 ～</h1>
 
     <v-expansion-panels class="mb-3">
@@ -22,40 +19,23 @@
       </v-expansion-panel>
     </v-expansion-panels>
 
-    <v-btn
-      elevation="3"
-      class="mb-1 mr-2 px-3"
-      @click="store.showModalEvent('CardListFilter')"
-      color="pink"
-    >
+    <v-btn elevation="3" class="mb-1 mr-2 px-3" @click="store.showModalEvent('CardListFilter')" color="pink">
       <v-icon class="mr-2">mdi-filter</v-icon>
       絞り込み
     </v-btn>
 
-    <v-btn
-      elevation="3"
-      class="mb-1 mr-2 px-3"
-      @click="dialog = true"
-      color="yellow"
-    >
+    <v-btn elevation="3" class="mb-1 mr-2 px-3" @click="dialog = true" color="yellow">
       <v-icon class="mr-2">mdi-chart-box-outline</v-icon>
       分析
     </v-btn>
 
-    <v-btn
-      elevation="3"
-      class="mb-1 mr-2 px-3"
-      color="blue"
-    >
+    <v-btn elevation="3" class="mb-1 mr-2 px-3" color="blue">
       <v-icon class="mr-2">mdi-sort</v-icon>
       ソート
-      <v-menu
-        activator="parent"
-        transition="slide-y-transition"
-      >
+      <v-menu activator="parent" transition="slide-y-transition">
         <v-list>
           <v-list-item
-            v-for="(label, val) in store.sortTypeList"
+            v-for="(label, val) in sortTypeList"
             :key="val"
             :value="val"
             @click="
@@ -79,19 +59,11 @@
       class="mb-1 mr-2"
       mandatory
     >
-      <v-btn
-        value="descending"
-        class="px-0 px-sm-2"
-        @click="store.changeSettings('sortSettings')"
-      >
+      <v-btn value="descending" class="px-0 px-sm-2" @click="store.changeSettings('sortSettings')">
         <v-icon>mdi-sort-descending</v-icon>
         <span class="ml-2 hidden-sm-and-down">降順</span>
       </v-btn>
-      <v-btn
-        value="ascending"
-        class="px-0 px-sm-2"
-        @click="store.changeSettings('sortSettings')"
-      >
+      <v-btn value="ascending" class="px-0 px-sm-2" @click="store.changeSettings('sortSettings')">
         <v-icon>mdi-sort-ascending</v-icon>
         <span class="ml-2 hidden-sm-and-down">昇順</span>
       </v-btn>
@@ -100,37 +72,24 @@
     <div class="d-inline-block mr-1">絞り込み結果：{{ store.outputCardList.length }}枚 /</div>
 
     <div class="d-inline-block">
-      現在のソート：{{ store.sortTypeList[store.localStorageData.sortSettings.cardList.sortType] }}
+      現在のソート：{{ sortTypeList[store.localStorageData.sortSettings.cardList.sortType] }}
     </div>
 
     <v-divider class="my-2"></v-divider>
 
-    <v-tabs
-      v-model="selectTab"
-      slider-color="pink"
-      density="compact"
-      v-if="false"
-    >
+    <v-tabs v-model="selectTab" slider-color="pink" density="compact" v-if="false">
       <v-tab value="single">単一選択</v-tab>
       <v-tab value="multi">一括選択</v-tab>
     </v-tabs>
 
     <v-tabs-window v-model="selectTab">
       <v-tabs-window-item value="single">
-        <ul
-          id="cardListArea"
-          class="mt-1"
-        >
+        <ul id="cardListArea" class="mt-1">
           <li v-if="store.outputCardList.length === 0">
             見つからなかったよ😢<br />
             絞り込み条件を変えてね
           </li>
-          <li
-            v-else
-            v-for="cardData in store.outputCardList"
-            :key="cardData"
-            class="card position-relative"
-          >
+          <li v-else v-for="cardData in store.outputCardList" :key="cardData" class="card position-relative">
             <p
               v-if="
                 store.toBool(store.localStorageData.siteSettings.cardList.dot_releaseLevel) &&
@@ -160,10 +119,7 @@
               class="dot bg-blue-accent-4"
             ></p>
             <v-card
-              v-if="
-                !store.toBool(store.localStorageData.siteSettings.cardList.hover) ||
-                windowSize.w <= 600
-              "
+              v-if="!store.toBool(store.localStorageData.siteSettings.cardList.hover) || windowSize.w <= 600"
               :color="moodColor[cardData.mood]"
               @click="
                 store.showModalEvent('setCardData');
@@ -173,37 +129,25 @@
               <v-img
                 :lazy-src="
                   store.getImagePath(
-                    'card_illust',
-                    `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(
-                      cardData.ID,
-                    )}_覚醒後`,
+                    'images/cardIllust',
+                    `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`,
                   )
                 "
                 :src="
                   store.getImagePath(
-                    'card_illust',
-                    `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(
-                      cardData.ID,
-                    )}_覚醒後`,
+                    'images/cardIllust',
+                    `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`,
                   )
                 "
-                :alt="`${store.conversion(cardData.cardName)}_${store.makeCardMemberName(
-                  cardData.ID,
-                )}`"
+                :alt="`${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}`"
               ></v-img>
-              <v-card-title
-                class="d-flex align-center text-subtitle-2 px-2 pt-1 hamidashi"
-                style="padding-bottom: 2px"
-              >
+              <v-card-title class="d-flex align-center text-subtitle-2 px-2 pt-1 hamidashi" style="padding-bottom: 2px">
                 <img
-                  :src="store.getImagePath('styleType_icon', `icon_${cardData.styleType}`)"
+                  :src="store.getImagePath('icons/styleType', `icon_${cardData.styleType}`)"
                   :alt="`${cardData.memberName}_${store.makeCardMemberName(cardData.ID)}`"
                   class="icon type mr-1"
                 />
-                <span
-                  style="padding-top: 2px"
-                  class="hamidashi"
-                >
+                <span style="padding-top: 2px" class="hamidashi">
                   {{ cardData.cardName }}
                 </span>
               </v-card-title>
@@ -214,84 +158,51 @@
               >
                 <v-divider opacity="100"></v-divider>
 
-                <v-row
-                  no-gutters
-                  class="pa-1"
-                >
-                  <v-col
-                    cols="6"
-                    class="status"
-                  >
+                <v-row no-gutters class="pa-1">
+                  <v-col cols="6" class="status">
                     <span>特訓 </span>
                     {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.trainingLevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel
                     }}
                   </v-col>
-                  <v-col
-                    cols="6"
-                    class="status"
-                  >
+                  <v-col cols="6" class="status">
                     <span>Level </span>
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.cardLevel
-                    }}
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.cardLevel }}
                   </v-col>
-                  <v-col
-                    cols="6"
-                    class="status"
-                  >
+                  <v-col cols="6" class="status">
                     <span>SA Lv. </span>
                     {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .specialAppeal ?? false
-                        ? store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                            .fluctuationStatus.SALevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal ?? false
+                        ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.SALevel
                         : '-'
                     }}
                   </v-col>
-                  <v-col
-                    cols="6"
-                    class="status"
-                  >
+                  <v-col cols="6" class="status">
                     <span>S Lv. </span>
                     {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName].skill ??
-                      false
-                        ? store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                            .fluctuationStatus.SLevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].skill ?? false
+                        ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.SLevel
                         : '-'
                     }}
                   </v-col>
-                  <v-col
-                    cols="6"
-                    class="status"
-                  >
+                  <v-col cols="6" class="status">
                     <span>解放Lv. </span>
                     {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.releaseLevel
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.releaseLevel
                     }}
                   </v-col>
-                  <v-col
-                    cols="6"
-                    class="status"
-                  >
+                  <v-col cols="6" class="status">
                     <span>GP Pt. </span>
                     {{
-                      /^DR$/.test(
-                        store.card[cardData.memberName][cardData.rare][cardData.cardName].rare,
-                      ) ||
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .specialAppeal === undefined
+                      /^DR$/.test(store.card[cardData.memberName][cardData.rare][cardData.cardName].rare) ||
+                      store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal === undefined
                         ? '-'
                         : `+${
                             store.grandprixBonus.releaseLv[
                               store.card[cardData.memberName][cardData.rare][cardData.cardName].rare
                             ][
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                .fluctuationStatus.releaseLevel - 1
+                              store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                                .releaseLevel - 1
                             ] * 100
                           }%`
                     }}
@@ -301,10 +212,7 @@
             </v-card>
 
             <template v-else>
-              <v-tooltip
-                location="bottom"
-                open-delay="250"
-              >
+              <v-tooltip location="bottom" open-delay="250">
                 <template v-slot:activator="{ props }">
                   <v-card
                     v-bind="props"
@@ -317,37 +225,25 @@
                     <v-img
                       :lazy-src="
                         store.getImagePath(
-                          'card_illust',
-                          `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(
-                            cardData.ID,
-                          )}_覚醒後`,
+                          'images/cardIllust',
+                          `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`,
                         )
                       "
                       :src="
                         store.getImagePath(
-                          'card_illust',
-                          `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(
-                            cardData.ID,
-                          )}_覚醒後`,
+                          'images/cardIllust',
+                          `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`,
                         )
                       "
-                      :alt="`${store.conversion(cardData.cardName)}_${store.makeCardMemberName(
-                        cardData.ID,
-                      )}`"
+                      :alt="`${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}`"
                     ></v-img>
-                    <v-card-title
-                      class="d-flex align-center text-subtitle-2 px-2 pt-1"
-                      style="padding-bottom: 2px"
-                    >
+                    <v-card-title class="d-flex align-center text-subtitle-2 px-2 pt-1" style="padding-bottom: 2px">
                       <img
-                        :src="store.getImagePath('styleType_icon', `icon_${cardData.styleType}`)"
+                        :src="store.getImagePath('icons/styleType', `icon_${cardData.styleType}`)"
                         :alt="`${cardData.memberName}_${store.makeCardMemberName(cardData.ID)}`"
                         class="icon type mr-1"
                       />
-                      <span
-                        style="padding-top: 2px"
-                        class="hamidashi"
-                      >
+                      <span style="padding-top: 2px" class="hamidashi">
                         {{ cardData.cardName }}
                       </span>
                     </v-card-title>
@@ -357,88 +253,59 @@
                     >
                       <v-divider opacity="50"></v-divider>
 
-                      <v-row
-                        no-gutters
-                        class="pa-1"
-                      >
-                        <v-col
-                          cols="6"
-                          class="status"
-                        >
+                      <v-row no-gutters class="pa-1">
+                        <v-col cols="6" class="status">
                           <span>特訓 </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                              .fluctuationStatus.trainingLevel
+                            store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                              .trainingLevel
                           }}
                         </v-col>
-                        <v-col
-                          cols="6"
-                          class="status"
-                        >
+                        <v-col cols="6" class="status">
                           <span>カードLv. </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                              .fluctuationStatus.cardLevel
+                            store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                              .cardLevel
                           }}
                         </v-col>
-                        <v-col
-                          cols="6"
-                          class="status"
-                        >
+                        <v-col cols="6" class="status">
                           <span>SA Lv. </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                              .specialAppeal ?? false
-                              ? store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                  .fluctuationStatus.SALevel
+                            store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal ?? false
+                              ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                                  .SALevel
                               : '-'
                           }}
                         </v-col>
-                        <v-col
-                          cols="6"
-                          class="status"
-                        >
+                        <v-col cols="6" class="status">
                           <span>S Lv. </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                              .skill ?? false
-                              ? store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                  .fluctuationStatus.SLevel
+                            store.card[cardData.memberName][cardData.rare][cardData.cardName].skill ?? false
+                              ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                                  .SLevel
                               : '-'
                           }}
                         </v-col>
-                        <v-col
-                          cols="6"
-                          class="status"
-                        >
+                        <v-col cols="6" class="status">
                           <span>解放Lv. </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                              .fluctuationStatus.releaseLevel
+                            store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                              .releaseLevel
                           }}
                         </v-col>
-                        <v-col
-                          cols="6"
-                          class="status"
-                        >
+                        <v-col cols="6" class="status">
                           <span>GP Pt. </span>
                           {{
-                            /^DR$/.test(
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                .rare,
-                            ) ||
-                            store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                              .specialAppeal === undefined
+                            /^DR$/.test(store.card[cardData.memberName][cardData.rare][cardData.cardName].rare) ||
+                            store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal ===
+                              undefined
                               ? '-'
                               : `+${
                                   store.grandprixBonus.releaseLv[
-                                    store.card[cardData.memberName][cardData.rare][
-                                      cardData.cardName
-                                    ].rare
+                                    store.card[cardData.memberName][cardData.rare][cardData.cardName].rare
                                   ][
-                                    store.card[cardData.memberName][cardData.rare][
-                                      cardData.cardName
-                                    ].fluctuationStatus.releaseLevel - 1
+                                    store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                                      .releaseLevel - 1
                                   ] * 100
                                 }%`
                           }}
@@ -450,23 +317,13 @@
 
                 <div>
                   <p class="mb-2">
-                    {{ cardData.rare }}{{ ['', '+', '++'][rare(store, cardData)] }} [{{
-                      cardData.cardName
-                    }}] {{ store.makeFullName(cardData.memberName) }} (Lv.
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.cardLevel
-                    }})
+                    {{ cardData.rare }}{{ ['', '+', '++'][rare(store, cardData)] }} [{{ cardData.cardName }}]
+                    {{ store.makeFullName(cardData.memberName) }} (Lv.
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.cardLevel }})
                   </p>
-                  <v-container
-                    fluid
-                    class="mb-2 pa-0"
-                  >
+                  <v-container fluid class="mb-2 pa-0">
                     <v-row no-gutters>
-                      <v-col
-                        cols="6"
-                        class="pa-0"
-                      >
+                      <v-col cols="6" class="pa-0">
                         <v-row no-gutters>
                           <v-col class="pa-0">スマイル</v-col>
                           <v-col class="pa-0">
@@ -486,10 +343,7 @@
                           </v-col>
                         </v-row>
                       </v-col>
-                      <v-col
-                        cols="6"
-                        class="pa-0"
-                      >
+                      <v-col cols="6" class="pa-0">
                         <v-row no-gutters>
                           <v-col class="pa-0">メンタル</v-col>
                           <v-col class="pa-0">
@@ -499,59 +353,27 @@
                         <v-row no-gutters>
                           <v-col class="pa-0">BP</v-col>
                           <v-col class="pa-0">
-                            {{
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                                .uniqueStatus.BP
-                            }}
+                            {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].uniqueStatus.BP }}
                           </v-col>
                         </v-row>
                       </v-col>
                     </v-row>
                   </v-container>
-                  <p
-                    v-if="
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .specialAppeal ?? false
-                    "
-                  >
+                  <p v-if="store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal ?? false">
                     <span class="mr-3">スペシャルアピール</span>
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .specialAppeal.name
-                    }}
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal.name }}
                     (Lv.
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.SALevel
-                    }})
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.SALevel }})
                   </p>
-                  <p
-                    v-if="
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName].skill ??
-                      false
-                    "
-                  >
+                  <p v-if="store.card[cardData.memberName][cardData.rare][cardData.cardName].skill ?? false">
                     <span class="mr-3">スキル</span>
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName].skill.name
-                    }}
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].skill.name }}
                     (Lv.
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .fluctuationStatus.SLevel
-                    }})
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.SLevel }})
                   </p>
-                  <p
-                    v-if="
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .characteristic ?? false
-                    "
-                  >
+                  <p v-if="store.card[cardData.memberName][cardData.rare][cardData.cardName].characteristic ?? false">
                     <span class="mr-3">特性</span>
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName]
-                        .characteristic.name
-                    }}
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].characteristic.name }}
                   </p>
                 </div>
               </v-tooltip>
@@ -561,19 +383,11 @@
       </v-tabs-window-item>
       <v-tabs-window-item value="multi">
         <v-btn class="my-2"></v-btn>
-        <v-data-table
-          density="compact"
-          :headers="tableHeaders"
-          :items="makeCardList(store)"
-          show-select
-        ></v-data-table>
+        <v-data-table density="compact" :headers="tableHeaders" :items="makeCardList(store)" show-select></v-data-table>
       </v-tabs-window-item>
     </v-tabs-window>
 
-    <ul
-      id="possessionCard_header"
-      v-if="false"
-    >
+    <ul id="possessionCard_header" v-if="false">
       <li
         v-for="(name_ja, name_en) in store.memberName"
         :key="name_ja"
@@ -584,21 +398,14 @@
         {{ name_ja.last }}
       </li>
     </ul>
-    <ul
-      id="possessionCard_container"
-      v-if="false"
-    >
+    <ul id="possessionCard_container" v-if="false">
       <li
         v-for="(name_ja, name_en) in store.memberName"
         :key="name_en"
         :data-character="name_en"
         v-show="selectTab2 === name_en"
       >
-        <dl
-          v-for="rare in store.rare"
-          :key="rare"
-          :data-rare="rare"
-        >
+        <dl v-for="rare in RARE" :key="rare" :data-rare="rare">
           <dt>{{ rare }}</dt>
           <dd>
             <v-btn
@@ -619,20 +426,10 @@
     </ul>
   </v-container>
 
-  <v-dialog
-    v-model="dialog"
-    :max-width="600"
-    :height="windowSize.h * 0.5"
-  >
-    <v-sheet
-      class="pa-2 d-flex flex-column"
-      style="height: 100%"
-    >
+  <v-dialog v-model="dialog" :max-width="600" :height="windowSize.h * 0.5">
+    <v-sheet class="pa-2 d-flex flex-column" style="height: 100%">
       <div style="flex-grow: 1; overflow-y: auto; min-height: 0">
-        <Chart
-          :memberNameList="chartMemberNames"
-          :cardDataLength="cardList"
-        />
+        <Chart :memberNameList="chartMemberNames" :cardDataLength="cardList" />
       </div>
       <div class="mt-2 text-center">
         <v-btn
@@ -649,8 +446,9 @@
 
 <script setup>
 import { computed } from 'vue';
+import { RARE } from '@/constants/cards';
 import { useStoreCounter } from '@/stores/counter';
-import Chart from './Chart.vue';
+import Chart from '@/components/modal/Chart.vue';
 
 const store = useStoreCounter();
 const memberIds = Object.keys(store.memberColor);
@@ -698,6 +496,22 @@ export default {
         { title: 'SALv.', key: 'SALevel' },
         { title: 'スキルLv.', key: 'SLevel' },
       ],
+      sortTypeList: {
+        rare: 'レア度(標準)',
+        //timeline: '時系列',
+        //all: '総合',
+        cardLevel: 'カードLv.',
+        SALevel: 'SA Lv.',
+        SLevel: 'スキルLv.',
+        releaseLevel: '解放Lv.',
+        releaseBonus: '解放Lv.ボーナス',
+        trainingLevel: '特訓度',
+        //smile: 'スマイル',
+        //pure: 'ピュア',
+        //cool: 'クール',
+        //mental: 'メンタル',
+        kana: '五十音',
+      },
       moodColor: {
         happy: '#EF8DC8',
         neutral: '#A9FCC7',
@@ -741,12 +555,11 @@ export default {
       };
     },
     rare(store, cardData) {
-      return store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
-        .trainingLevel +
+      return store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
         (cardData.rare === 'LR' ? 1 : 0) <
         3
-        ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
-            .trainingLevel + (cardData.rare === 'LR' ? 1 : 0)
+        ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
+            (cardData.rare === 'LR' ? 1 : 0)
         : 2;
     },
   },

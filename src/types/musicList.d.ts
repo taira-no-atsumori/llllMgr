@@ -1,3 +1,7 @@
+import { MemberNames } from '@/constants/memberNames';
+import { BonusSkillName } from '@/constants/bonusSkills';
+import { AttributeEn } from '@/constants/music';
+
 /**
  * 曲の詳細データを表すインターフェース
  *
@@ -14,7 +18,6 @@
  * @property {number} BPM.inGame ゲーム内で使用されるBPM
  * @property {number} time 曲の長さ（秒単位）
  * @property {boolean} cover カバー曲かどうか（trueの場合カバー曲）
- * @property {string} link 曲の関連リンク
  */
 interface MusicData {
   kana: string;
@@ -31,7 +34,6 @@ interface MusicData {
   };
   time: number;
   cover: boolean;
-  link: string;
 }
 
 /**
@@ -70,37 +72,26 @@ interface maxCombo {
  * 曲のアイテムデータを表すインターフェース
  *
  * @interface MusicItem
- * @property {string} ID 曲ID（例: 'm_001'）
+ * @property {string} ID 曲ID
  * @property {MusicData} musicData 曲の詳細データ
- * @property {'smile' | 'pure' | 'cool'} attribute 曲の属性（smile, pure, coolのいずれか）
+ * @property {AttributeEn} attribute 曲の属性
  * @property {number} BHcount ビートハート発生回数
  * @property {0 | 1} level 楽曲マスタリーレベル
  * @property {103 | 104 | 105} term 曲のリリース期
- * @property {'kaho' | 'sayaka' | 'rurino' | 'kozue' | 'tsuduri' | 'megumi' | 'ginko' | 'kosuzu' | 'hime' | 'seras' | 'izumi'} center センターメンバーの名前
- * @property {'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス'} bonusSkill ボーナススキル
+ * @property {MemberNames} center センターメンバーの名前
+ * @property {BonusSkillName} bonusSkill ボーナススキル
  * @property {string[]} singingMembers 歌唱メンバーの名前の配列
  * @property {difficultyLevel} difficultyLevel 曲の難易度
  */
 interface MusicItem {
   ID: string;
   musicData: MusicData;
-  attribute: 'smile' | 'pure' | 'cool';
+  attribute: AttributeEn;
   BHcount: number;
   level: 0 | 1;
   term: 103 | 104 | 105;
-  center:
-    | 'kaho'
-    | 'sayaka'
-    | 'rurino'
-    | 'kozue'
-    | 'tsuduri'
-    | 'megumi'
-    | 'ginko'
-    | 'kosuzu'
-    | 'hime'
-    | 'seras'
-    | 'izumi';
-  bonusSkill: 'ボルテージアップ' | 'メンタルリカバー' | 'ビートハートアップ' | 'LOVEボーナス';
+  center: MemberNames;
+  bonusSkill: BonusSkillName;
   singingMembers: string[];
   scoreData?: {
     difficultyLevel: difficultyLevel;
