@@ -278,7 +278,6 @@ type Deck = {
 /**
  * カウンターの状態を表す型
  *
- * @property version バージョン
  * @property dialog ダイアログの状態
  * @property showModalName 表示するモーダル名
  * @property updateData データ更新状態
@@ -319,7 +318,6 @@ type Deck = {
  * @property windowSize ウィンドウサイズ
  */
 type CounterState = {
-  version: string;
   loading: boolean;
   dialog: boolean;
   dialogError: boolean;

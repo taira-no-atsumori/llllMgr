@@ -103,7 +103,7 @@
       <v-list-item
         class="px-2 pt-0 pb-2"
         title="リンクラ マネージャー！"
-        :subtitle="`Ver.${store.version}`"
+        :subtitle="`Ver.${siteVersion}`"
       ></v-list-item>
 
       <v-divider class="pb-1"></v-divider>
@@ -254,13 +254,13 @@ if (localStorage.inflow !== undefined) {
   const pageName: string = localStorage.inflow;
   localStorage.removeItem('inflow');
 
-  for (const listName in pageList.value) {
-    if (pageList.value[listName].url.toLowerCase() === pageName.toLowerCase()) {
-      pageMove(pageList.value[listName].name_en);
+  for (const listName in pageList) {
+    if (pageList[listName].url.toLowerCase() === pageName.toLowerCase()) {
+      pageMove(pageList[listName].name_en);
       break;
     }
   }
-  pageMove(pageList.value.Home.name_en);
+  pageMove(pageList.Home.name_en);
 }
 /* ----- Created End ----- */
 

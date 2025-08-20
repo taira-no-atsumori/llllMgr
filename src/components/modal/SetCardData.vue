@@ -466,15 +466,28 @@
                 </p>
               </template>
             </div>
-            <div class="d-flex" style="width: 91.5%; border-bottom: 1px solid black; margin: 0 auto">
-              <div class="d-inline-flex" style="height: 10px; border-left: 1px solid black"></div>
+            <div
+              class="d-flex"
+              :style="{
+                width: '91.5%',
+                borderBottom: `1px solid ${releasePoint_underlineColor}`,
+                margin: '0 auto',
+              }"
+            >
+              <div
+                class="d-inline-flex"
+                :style="{
+                  height: '10px',
+                  borderLeft: `1px solid ${releasePoint_underlineColor}`,
+                }"
+              ></div>
               <template v-for="i in 5 - store.settingCardData.fluctuationStatus.releaseLevel" :key="i">
                 <div
                   class="d-inline-flex"
                   :style="{
                     width: dynamicWidth,
                     height: '10px',
-                    borderRight: '1px solid black',
+                    borderRight: `1px solid ${releasePoint_underlineColor}`,
                   }"
                 ></div>
               </template>
@@ -693,6 +706,10 @@ const store = useStoreCounter();
 const dynamicWidth = computed(() => {
   const releaseLevel: number = store.settingCardData.fluctuationStatus.releaseLevel;
   return `calc(${100 / (5 - releaseLevel)}% + ${1 / releaseLevel}px)`;
+});
+
+const releasePoint_underlineColor = computed(() => {
+  return store.localStorageData.siteSettings.all.darkMode === 'dark' ? 'white' : 'black';
 });
 </script>
 

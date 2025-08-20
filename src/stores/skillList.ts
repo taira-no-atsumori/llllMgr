@@ -3690,6 +3690,45 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      'ドレス《可惜夜花火》': {
+        dress_atarayoHanabi_01: {
+          text: [
+            'ドレスカード《可惜夜花火》を2種類(合計4枚)山札に追加する。さらにフィーバーを除く3～4セクション目のとき、ビートハート',
+            '回分のスキルハートを獲得し、手札を全て捨てて、デッキから手札上限までカードを引く。それ以外のセクションのとき、デッキ内の全てのスキルの消費APを-2する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: ['addCard', 'heartCaptcha', 'reshuffle', 'APReduce_deckAll'],
+          },
+        },
+      },
+      可惜夜花火: {
+        atarayoHanabi_01: {
+          text: [
+            'ビートハート',
+            '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
+            '%する。さらにデッキ枚数が23枚のとき、このステージ中、ハート上限を+',
+            'し、87回の間ドレスカードの使用によるスキルハート獲得効果の獲得数を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'atarayoHanabi',
+            type: ['heartCaptcha', 'loveAttract_stage', 'heartLimitUp', 'boost_heartCaptcha'],
+          },
+        },
+        atarayoHanabi_02: {
+          text: [
+            'このステージ中、獲得するLOVEを+',
+            '%し、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。さらに、デッキ枚数が23枚以上のとき、このステージ中、ハート上限を+',
+            'し、87回の間ドレスカードの使用によるラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'atarayoHanabi',
+            type: ['loveAttract_stage', 'reshuffle', 'heartLimitUp', 'boost_loveAttract'],
+          },
+        },
+      },
       Prinzessin: {
         prinzessin: {
           text: ['このセクション中、AP回復速度を+', '%する。'],
@@ -6334,6 +6373,81 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      サマードーン: {
+        summerDawn_01: {
+          text: [
+            'フィーバーを除く1～2セクション目のとき、このセクション中、AP回復速度を+',
+            '%、手札の上限枚数を3枚増加し、APを',
+            '回復する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['APQuick', 'extensions_section', 'APGain'],
+          },
+        },
+      },
+      アサガオデュー: {
+        asagaoDew_01: {
+          text: [
+            'フィーバーを除く1～2セクション目のとき、3回の間スキルハート獲得効果による獲得量を+',
+            '%、このセクション中、ムード値を-',
+            'し、さらにムードがメロウ50以上のとき、手札を全て捨てて、デッキから手札上限までスキルを引き、このセクション中、手札の上限枚数を2枚増加する。それ以外のセクションのとき、デッキ内の全てのスキルの消費APを-1する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_heartCaptcha', 'ambience_section', 'reshuffle', 'extensions_section', 'APReduce_deckAll'],
+          },
+        },
+        asagaoDew_02: {
+          text: [
+            'フィーバーを除く1～2セクション目のとき、3回の間ラブアトラクト効果を+',
+            '%、このセクション中、ムード値を-',
+            'し、さらにムードがメロウ50以上のとき、手札を全て捨てて、デッキから手札上限までスキルを引き、このセクション中、メンタルが0になってもメンタルダウンしなくなる。それ以外のセクションのとき、デッキ内の全てのスキルの消費APを-1する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['boost_loveAttract', 'ambience_section', 'reshuffle', 'mentalDown_section', 'APReduce_deckAll'],
+          },
+        },
+      },
+      ムーンライトブルーム: {
+        moonlightBloom_01: {
+          text: [
+            'フィーバーを除く3～4セクション目のとき、このセクション中、ビートハートの出現個数を+',
+            '、AP回復速度を+',
+            '%し、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。',
+          ],
+          detail: {
+            attr: '',
+            type: ['vibes_section', 'APQuick', 'reshuffle'],
+          },
+        },
+      },
+      ファイアフラワー: {
+        fireFlower_01: {
+          text: [
+            'フィーバーを除く3～4セクション目のとき、ビートハート',
+            '回分のスキルハートを獲得し、手札を全て捨てて、デッキから手札上限までスキルを引く。さらにデッキ枚数が23枚以上のとき、このステージ中、ハート上限を+',
+            'し、87回の間スキルハート獲得効果による獲得量を+',
+            '%する。それ以外のセクションのとき、デッキ内の全てのスキルの消費APを-2する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'reshuffle', 'heartLimitUp', 'boost_heartCaptcha', 'APReduce_deckAll'],
+          },
+        },
+      },
+      ナイトクイーン: {
+        nightQueen_01: {
+          text: [
+            'ビートハート873回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+873%し、ハート上限を+87する。',
+          ],
+          detail: {
+            attr: '',
+            type: ['heartCaptcha', 'loveAttract_stage', 'heartLimitUp'],
+          },
+        },
+      },
     },
     skillColor: {
       heartCaptcha: {
@@ -6465,6 +6579,11 @@ export const useSkillStore = defineStore('skillList', {
         name: 'APレデュース(手札全て)',
         colorCode: 'purple',
         description: '手札の全てのスキルの消費APを減少させる。',
+      },
+      APReduce_deckAll: {
+        name: 'APレデュース(デッキ内全て)',
+        colorCode: 'purple',
+        description: 'デッキ内の全てのスキルの消費APを減少させる。',
       },
       APReduce_heart: {
         name: 'APレデュース(ハート系)',

@@ -174,13 +174,13 @@ export default {
           img: 'thanks',
         },*/
         liveGP: {
-          title: 'ライブグランプリ「105期 2ndTerm 第1回 個人戦」',
+          title: 'ライブグランプリ「105期 2ndTerm 第2回 サークル対抗戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 8, 11, 12, 0],
-          lastDay: [2025, 8, 17, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-08-09-10-dpjm9ovegk',
-          img: '105期 2ndTerm 第1回 個人戦_logo',
+          firstDay: [2025, 8, 20, 12, 0],
+          lastDay: [2025, 8, 26, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-08-18-10-rrqkpss7l5',
+          img: '105期 2ndTerm 第2回 サークル対抗戦_logo',
         },
         fesLive: {
           title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
