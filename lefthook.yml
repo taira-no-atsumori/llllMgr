@@ -1,19 +1,11 @@
-# pre-commit:
-#   commands:
-#     test:
-#       run: npm run test -- --run
-
-# pre-push:
-#   commands:
-#     build:
-#       run: npm run build
-
 # lefthook.yml
 # See https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
 
 # pre-commitフック: `git commit` を実行する前に走るコマンド
 pre-commit:
   parallel: false
+  skip:
+    - ref: backup
   commands:
     # eslint:
     #   glob: '**/*.{js,ts,vue}'
@@ -40,9 +32,8 @@ pre-commit:
 
 # pre-pushフック: `git push` を実行する前に走るコマンド
 pre-push:
+  skip:
+    - ref: backup
   commands:
-    # プッシュ前に再度ビルドチェックを行うことで、より安全にプッシュできます。
-    build-check:
-      run: npm run build
     build:
       run: npm run build

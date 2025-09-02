@@ -6,11 +6,13 @@ on:
 jobs:
   # Job 1: コミットメッセージに基づいてバージョンを更新する
   update-version:
-    # mainブランチへのプッシュでのみ実行
-    if: github.ref == 'refs/heads/main'
+    # mainブランチとbackupブランチ以外へのプッシュで実行
+    if: github.ref != 'refs/heads/main' && github.ref != 'refs/heads/backup'
     runs-on: ubuntu-latest
     permissions:
-      contents: write # gh variable set と git push のために必要
+      contents: write
+      actions: write # GitHub Actions変数の操作権限を追加
+      id-token: write # 認証のために必要
 
     # このジョブの実行結果（新しいバージョン番号）を他のジョブに渡すために outputs を定義
     outputs:
@@ -60,10 +62,14 @@ jobs:
       - name: Update GitHub repository variable
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_VERSION: ${{ steps.version.outputs.new_version }}
         run: |
-          # gh CLI を使ってリポジトリ変数を更新する
-          # curl を使うよりもシンプルで推奨される方法
-          gh variable set SITEVERSION --body "${{ steps.version.outputs.new_version }}"
+          # GitHub APIを直接使用して変数を更新
+          curl -X PATCH \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/variables/SITEVERSION" \
+            -d "{\"name\":\"SITEVERSION\",\"value\":\"$NEW_VERSION\"}"
 
       - name: Update .env.public file and commit
         env:
