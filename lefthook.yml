@@ -44,3 +44,5 @@ pre-push:
     # プッシュ前に再度ビルドチェックを行うことで、より安全にプッシュできます。
     build-check:
       run: npm run build
+    build:
+      run: npm run build
