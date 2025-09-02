@@ -1,29 +1,61 @@
 <template>
   <h1>DATA BACKUP / RESET</h1>
 
-  <v-tabs v-model="tabName" :items="tabs" slider-color="pink" density="compact" grow>
+  <v-tabs
+    v-model="tabName"
+    :items="tabs"
+    slider-color="pink"
+    density="compact"
+    grow
+  >
     <template v-slot:tab="{ item }">
-      <v-tab :value="item.value" :text="item.text"></v-tab>
+      <v-tab
+        :value="item.value"
+        :text="item.text"
+      ></v-tab>
     </template>
   </v-tabs>
 
   <v-tabs-window v-model="tabName">
-    <v-tabs-window-item value="export" class="my-2">
-      <v-alert :type="alertContent.export.type" variant="tonal" class="mb-2">
+    <v-tabs-window-item
+      value="export"
+      class="my-2"
+    >
+      <v-alert
+        :type="alertContent.export.type"
+        variant="tonal"
+        class="mb-2"
+      >
         {{ alertContent.export.text }}
       </v-alert>
-      <v-alert type="warning" variant="tonal" class="mb-2">
+      <v-alert
+        type="warning"
+        variant="tonal"
+        class="mb-2"
+      >
         Discordでバックアップファイルを共有する際は、Google
         DriveなどクラウドサーバにアップしたものDiscordにアップするか、PC版のDiscordからアップしてください。
       </v-alert>
 
-      <v-btn block color="pink" prepend-icon="mdi-file-export" @click="makeBackup(store)"
-        >バックアップファイル生成</v-btn
+      <v-btn
+        block
+        color="pink"
+        prepend-icon="mdi-file-export"
+        @click="makeBackup()"
       >
+        バックアップファイル生成
+      </v-btn>
     </v-tabs-window-item>
 
-    <v-tabs-window-item value="import" class="my-2">
-      <v-alert :type="alertContent.import.type" variant="tonal" class="mb-2">
+    <v-tabs-window-item
+      value="import"
+      class="my-2"
+    >
+      <v-alert
+        :type="alertContent.import.type"
+        variant="tonal"
+        class="mb-2"
+      >
         {{ alertContent.import.text }}
       </v-alert>
       <v-file-input
@@ -40,8 +72,15 @@
 
       <h3>反映データ</h3>
 
-      <v-row no-gutters class="mb-2">
-        <v-col cols="6" v-for="(name, value) in dataName" :key="value">
+      <v-row
+        no-gutters
+        class="mb-2"
+      >
+        <v-col
+          cols="6"
+          v-for="(name, value) in dataName"
+          :key="value"
+        >
           <v-checkbox
             v-model="importData"
             density="comfortable"
@@ -51,34 +90,66 @@
             :disabled="disabled"
             @change="changeImportData()"
             hide-details
-          ></v-checkbox>
+          />
         </v-col>
       </v-row>
 
       <p>選択した反映データをサイト内に反映させます。よろしいですか？</p>
 
-      <v-radio-group inline hide-details v-model="radios" class="mb-2">
-        <v-radio label="はい" :value="true" color="pink" :disabled="isFileImportError" class="w-50"></v-radio>
-        <v-radio label="いいえ" :value="false" color="pink" :disabled="isFileImportError" class="w-50"></v-radio>
+      <v-radio-group
+        inline
+        hide-details
+        v-model="radios"
+        class="mb-2"
+      >
+        <v-radio
+          label="はい"
+          :value="true"
+          color="pink"
+          :disabled="isFileImportError"
+          class="w-50"
+        ></v-radio>
+        <v-radio
+          label="いいえ"
+          :value="false"
+          color="pink"
+          :disabled="isFileImportError"
+          class="w-50"
+        ></v-radio>
       </v-radio-group>
 
       <v-btn
         block
         color="pink"
         prepend-icon="mdi-file-import"
-        @click="setBackupData(store)"
+        @click="setBackupData()"
         :disabled="isFileImportError || !radios"
-        >反映</v-btn
       >
+        反映
+      </v-btn>
     </v-tabs-window-item>
 
-    <v-tabs-window-item value="reset" class="my-2">
-      <v-alert type="info" variant="tonal" class="mb-2">
+    <v-tabs-window-item
+      value="reset"
+      class="my-2"
+    >
+      <v-alert
+        type="info"
+        variant="tonal"
+        class="mb-2"
+      >
         リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。
       </v-alert>
 
-      <v-row no-gutters class="mb-4">
-        <v-col cols="6" v-for="(name, value) in dataName" :key="value">
+      <v-row
+        no-gutters
+        class="mb-4"
+      >
+        <v-col
+          cols="6"
+          v-for="(name, value) in dataName"
+          :key="value"
+        >
           <v-checkbox
             v-model="resetList"
             density="comfortable"
@@ -86,11 +157,15 @@
             :value="value"
             :label="name"
             hide-details
-          ></v-checkbox>
+          />
         </v-col>
       </v-row>
 
-      <v-alert class="mb-2" type="warning" variant="tonal">
+      <v-alert
+        class="mb-2"
+        type="warning"
+        variant="tonal"
+      >
         選択したデータを初期化します。実行後データは復元できません。<br />
         よろしければ、チェックを入れてください。
       </v-alert>
@@ -103,222 +178,246 @@
         label="選択したデータを初期化する。"
         hide-details
         :disabled="resetList.length === 0"
-      ></v-checkbox>
+      />
 
-      <v-btn block color="pink" prepend-icon="mdi-cached" @click="resetAction(store)" :disabled="!isReset">
+      <v-btn
+        block
+        color="pink"
+        prepend-icon="mdi-cached"
+        @click="resetAction()"
+        :disabled="!isReset"
+      >
         リセット
       </v-btn>
     </v-tabs-window-item>
 
-    <v-tabs-window-item value="select" class="my-2"></v-tabs-window-item>
+    <v-tabs-window-item
+      value="select"
+      class="my-2"
+    ></v-tabs-window-item>
   </v-tabs-window>
 
-  <v-snackbar v-model="snackBar.reset" color="success" :timeout="4000"> 選択したデータをリセットしました。 </v-snackbar>
+  <v-snackbar
+    v-model="snackBar.reset"
+    color="success"
+    :timeout="4000"
+  >
+    選択したデータをリセットしました。
+  </v-snackbar>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref, reactive, computed, onMounted } from 'vue';
 import { useStoreCounter } from '@/stores/counter';
+
 const store = useStoreCounter();
-</script>
 
-<script>
-export default {
-  name: 'Settings',
-  data() {
-    return {
-      files: [],
-      fileReader: null,
-      backupData: null,
-      disabled: true,
-      tabName: null,
-      tabs: [
-        { text: 'export', value: 'export' },
-        { text: 'import', value: 'import' },
-        { text: 'reset', value: 'reset' },
-        // {text: 'select', value: 'select'},
-      ],
-      dataName: {
-        card: 'カードデータ',
-        cardListFilter: 'カード絞り込み条件',
-        musicData: 'ラーニングレベル',
-        selectItemList: 'アイテム絞り込み条件',
-        sortSettings_card: 'ソート設定(CARD LIST)',
-        sortSettings_music: 'ソート設定(MUSIC LIST)',
-        //deckList: '編成リスト',
-        siteSettings: 'サイト設定',
-      },
-      radios: false,
-      isReset: false,
-      snackBar: {
-        export: false,
-        import: false,
-        reset: false,
-        select: false,
-      },
-      alertContent: {
-        export: { type: null, text: null },
-        import: { type: null, text: null },
-        reset: { type: null, text: null },
-      },
-      alertContentList: {
-        export: [
-          {
-            type: 'info',
-            text: '「バックアップファイル生成」ボタンを押すと、バックアップファイルがお使いの端末にダウンロードされます。',
-          },
-          {
-            type: 'success',
-            text: 'バックアップに成功しました。',
-          },
-        ],
-        import: [
-          {
-            type: 'info',
-            text: '「File Input」エリアを押して、お使いの端末からバックアップファイルをアップロードしてください（PCの場合は、ファイルをドラッグ&ドロップでもアップロードできます）。',
-          },
-          {
-            type: 'info',
-            text: '反映させたいデータを選択後、「反映」ボタンを押してください。',
-          },
-          {
-            type: 'success',
-            text: 'バックアップファイルの内容をサイト内に反映しました。',
-          },
-        ],
-        reset: [
-          {
-            type: 'info',
-            text: 'リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。',
-          },
-          {
-            type: 'success',
-            text: '選択したデータをリセットしました。',
-          },
-        ],
-      },
-      errorText: {
-        nonImportDataSelect: {
-          type: 'warning',
-          text: '反映させたいデータを選んでください。',
-        },
-        invalidFile: {
-          type: 'error',
-          text: '正しいバックアップファイルをアップロードしてください。',
-        },
-      },
-      defaultImportData: [
-        'card',
-        'cardListFilter',
-        'musicData',
-        'selectItemList',
-        'sortSettings_card',
-        'sortSettings_music',
-        //'deckList',
-        'siteSettings',
-      ],
-      importData: [],
-      resetList: [],
-    };
-  },
-  created() {
-    this.importData = this.defaultImportData;
-    this.alertContent.export = this.alertContentList.export[0];
-    this.alertContent.import = this.alertContentList.import[0];
-    this.alertContent.reset = this.alertContentList.reset[0];
-  },
-  computed: {
-    isFileImportError() {
-      return this.files === undefined
-        ? true
-        : this.files.length === 0 || this.importData.length === 0 || this.alertContent.import.type === 'error';
+const files = ref([]);
+let fileReader = null;
+const backupData = ref(null);
+const disabled = ref(true);
+const tabName = ref(null);
+const tabs = [
+  { text: 'export', value: 'export' },
+  { text: 'import', value: 'import' },
+  { text: 'reset', value: 'reset' },
+];
+const dataName = {
+  card: 'カードデータ',
+  cardListFilter: 'カード絞り込み条件',
+  musicData: 'ラーニングレベル',
+  selectItemList: 'アイテム絞り込み条件',
+  sortSettings_card: 'ソート設定(CARD LIST)',
+  sortSettings_music: 'ソート設定(MUSIC LIST)',
+  siteSettings: 'サイト設定',
+};
+const radios = ref(false);
+const isReset = ref(false);
+const snackBar = reactive({
+  export: false,
+  import: false,
+  reset: false,
+  select: false,
+});
+const alertContent = reactive({
+  export: { type: null, text: null },
+  import: { type: null, text: null },
+  reset: { type: null, text: null },
+});
+
+const alertContentList = {
+  export: [
+    {
+      type: 'info',
+      text: '「バックアップファイル生成」ボタンを押すと、バックアップファイルがお使いの端末にダウンロードされます。',
     },
-  },
-  mounted() {
-    this.fileReader = new FileReader();
-    this.fileReader.onload = (event) => {
-      if (event.target.result === '') {
-        this.alertContent.import = this.errorText.invalidFile;
-      } else {
-        this.backupData = JSON.parse(event.target.result);
-        this.disabled = false;
-      }
-    };
-  },
-  methods: {
-    makeBackup(store) {
-      const date = new Date();
-      const blob = new Blob([JSON.stringify(store.localStorageData)], { type: 'text/json' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `llllMgr_backup_${date.getFullYear().toString()}${(date.getMonth() + 1)
-        .toString()
-        .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}${date.getHours().toString()}${date
-        .getMinutes()
-        .toString()}${date.getSeconds().toString()}.json`;
-      link.click();
-      this.alertContent.export = this.alertContentList.export[1];
+    { type: 'success', text: 'バックアップに成功しました。' },
+  ],
+  import: [
+    {
+      type: 'info',
+      text: '「File Input」エリアを押して、お使いの端末からバックアップファイルをアップロードしてください（PCの場合は、ファイルをドラッグ&ドロップでもアップロードできます）。',
     },
-    readFile() {
-      if (this.files === undefined) {
-        this.alertContent.import = this.alertContentList.import[0];
-        this.disabled = true;
-        return;
-      } else if (!/json$/.test(this.files.name)) {
-        this.alertContent.import = this.errorText.invalidFile;
-        return;
-      }
+    { type: 'info', text: '反映させたいデータを選択後、「反映」ボタンを押してください。' },
+    { type: 'success', text: 'バックアップファイルの内容をサイト内に反映しました。' },
+  ],
+  reset: [
+    { type: 'info', text: 'リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。' },
+    { type: 'success', text: '選択したデータをリセットしました。' },
+  ],
+};
 
-      this.changeImportData();
-      this.fileReader.readAsText(this.files);
-    },
-    setBackupData(store) {
-      const sendData = {};
+const errorText = {
+  nonImportDataSelect: { type: 'warning', text: '反映させたいデータを選んでください。' },
+  invalidFile: { type: 'error', text: '正しいバックアップファイルをアップロードしてください。' },
+};
 
-      for (let key of this.importData) {
-        if (/^card|cardListFilter$/.test(key)) {
-          if (sendData.cardList === undefined) {
-            sendData.cardList = {};
-          }
+const defaultImportData = [
+  'card',
+  'cardListFilter',
+  'musicData',
+  'selectItemList',
+  'sortSettings_card',
+  'sortSettings_music',
+  'siteSettings',
+];
 
-          sendData.cardList[key] = this.backupData.cardList[key];
-        } else if (/^sortSettings_/.test(key)) {
-          key = key.split('_')[1];
+const importData = ref([...defaultImportData]);
+const resetList = ref([]);
 
-          if (sendData.sortSettings === undefined) {
-            sendData.sortSettings = {};
-          }
+alertContent.export = alertContentList.export[0];
+alertContent.import = alertContentList.import[0];
+alertContent.reset = alertContentList.reset[0];
 
-          if (this.backupData.sortSettings !== undefined) {
-            sendData.sortSettings[`${key}List`] = this.backupData.sortSettings[`${key}List`];
-          }
-        } else if (/^musicData|selectItemList|siteSettings$/.test(key)) {
-          sendData[key] = this.backupData[key] === undefined ? {} : this.backupData[key];
+const isFileImportError = computed(
+  () =>
+    !files.value || files.value.length === 0 || importData.value.length === 0 || alertContent.import.type === 'error'
+);
+
+onMounted(() => {
+  if (!fileReader) {
+    fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      try {
+        const result = event.target?.result;
+        if (typeof result !== 'string' || result === '') {
+          throw new Error('Invalid file content');
         }
+        backupData.value = JSON.parse(result);
+        disabled.value = false;
+      } catch (e) {
+        alertContent.import = errorText.invalidFile;
+        backupData.value = null;
+        disabled.value = true;
+      }
+    };
+  }
+});
+
+const makeBackup = () => {
+  const date = new Date();
+  const blob = new Blob([JSON.stringify(store.localStorageData)], { type: 'text/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `llllMgr_backup_${date.getFullYear().toString()}${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}${date.getHours().toString()}${date
+    .getMinutes()
+    .toString()}${date.getSeconds().toString()}.json`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+  alertContent.export = alertContentList.export[1];
+};
+
+const readFile = () => {
+  const file = files.value;
+
+  if (!file) {
+    alertContent.import = alertContentList.import[0];
+    disabled.value = true;
+    backupData.value = null;
+    return;
+  }
+
+  if (!file.name.endsWith('.json')) {
+    alertContent.import = errorText.invalidFile;
+    disabled.value = true;
+    backupData.value = null;
+    return;
+  }
+
+  // FileReaderが初期化されていることを確認
+  if (!fileReader) {
+    fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      try {
+        const result = event.target?.result;
+        if (typeof result !== 'string' || result === '') {
+          throw new Error('Invalid file content');
+        }
+        backupData.value = JSON.parse(result);
+        disabled.value = false;
+        changeImportData();
+      } catch (e) {
+        alertContent.import = errorText.invalidFile;
+        backupData.value = null;
+        disabled.value = true;
+      }
+    };
+  }
+
+  fileReader.readAsText(file);
+  changeImportData();
+};
+
+const setBackupData = () => {
+  const sendData = {};
+
+  for (let key of importData.value) {
+    if (/^card|cardListFilter$/.test(key)) {
+      if (sendData.cardList === undefined) {
+        sendData.cardList = {};
       }
 
-      if (Object.keys(sendData).length === 0) {
-        this.alertContent.import = this.errorText.invalidFile;
-        return;
+      if (backupData.value?.cardList?.[key]) {
+        sendData.cardList[key] = backupData.value.cardList[key];
+      }
+    } else if (/^sortSettings_/.test(key)) {
+      const newKey = key.split('_')[1];
+      if (sendData.sortSettings === undefined) {
+        sendData.sortSettings = {};
       }
 
-      store.getLocalStorage(sendData);
-      this.importData = this.defaultImportData;
-      this.files = [];
-      this.disabled = true;
-      this.radios = false;
-      this.alertContent.import = this.alertContentList.import[2];
-    },
-    changeImportData() {
-      this.alertContent.import =
-        this.importData.length === 0 ? this.errorText.nonImportDataSelect : this.alertContentList.import[1];
-    },
-    resetAction(store) {
-      store.dataReset(this.resetList);
-      this.resetList = [];
-      this.alertContent.reset = this.alertContentList.reset[1];
-      this.snackBar.reset = true;
-      this.isReset = false;
-    },
-  },
+      if (backupData.value?.sortSettings?.[`${newKey}List`]) {
+        sendData.sortSettings[`${newKey}List`] = backupData.value.sortSettings[`${newKey}List`];
+      }
+    } else if (/^musicData|selectItemList|siteSettings$/.test(key)) {
+      sendData[key] = backupData.value?.[key] ?? {};
+    }
+  }
+
+  if (Object.keys(sendData).length === 0) {
+    alertContent.import = errorText.invalidFile;
+    return;
+  }
+
+  store.getLocalStorage(sendData);
+  importData.value = [...defaultImportData];
+  files.value = [];
+  disabled.value = true;
+  radios.value = false;
+  alertContent.import = alertContentList.import[2];
+};
+
+const changeImportData = () => {
+  alertContent.import = importData.value.length === 0 ? errorText.nonImportDataSelect : alertContentList.import[1];
+};
+
+const resetAction = () => {
+  store.dataReset(resetList.value);
+  resetList.value = [];
+  alertContent.reset = alertContentList.reset[1];
+  snackBar.reset = true;
+  isReset.value = false;
 };
 </script>

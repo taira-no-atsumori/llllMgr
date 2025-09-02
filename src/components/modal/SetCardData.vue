@@ -1,6 +1,12 @@
 <template>
-  <v-container fluid class="pa-0">
-    <v-row no-gutters class="mb-1 text-center">
+  <v-container
+    fluid
+    class="pa-0"
+  >
+    <v-row
+      no-gutters
+      class="mb-1 text-center"
+    >
       <v-col class="pa-0">
         <h2 class="hidden-xs">
           <v-tooltip location="bottom">
@@ -18,15 +24,26 @@
           </v-tooltip>
         </h2>
         <h3 class="hidden-sm-and-up">
-          <a :href="makeWikiLink(store)" target="_blank" :class="`text-${store.isDarkMode ? 'white' : 'black'}`">
+          <a
+            :href="makeWikiLink(store)"
+            target="_blank"
+            :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
+          >
             {{ makeCardName(store) }}
           </a>
         </h3>
       </v-col>
     </v-row>
 
-    <v-row no-gutters class="mb-2">
-      <v-col cols="12" sm="7" class="py-0 pl-0 pr-0 pr-sm-4">
+    <v-row
+      no-gutters
+      class="mb-2"
+    >
+      <v-col
+        cols="12"
+        sm="7"
+        class="py-0 pl-0 pr-0 pr-sm-4"
+      >
         <v-carousel
           class="mb-1"
           height="auto"
@@ -42,23 +59,31 @@
               store.getImagePath(
                 'images/cardIllust',
                 `${store.conversion(store.getSettingCard.cardName)}_${store.makeCardMemberName(
-                  store.getSettingCard.ID,
-                )}_覚醒${kakusei}`,
+                  store.getSettingCard.ID
+                )}_覚醒${kakusei}`
               )
             "
             :src="
               store.getImagePath(
                 'images/cardIllust',
                 `${store.conversion(store.getSettingCard.cardName)}_${store.makeCardMemberName(
-                  store.getSettingCard.ID,
-                )}_覚醒${kakusei}`,
+                  store.getSettingCard.ID
+                )}_覚醒${kakusei}`
               )
             "
             :aspect-ratio="1.542"
           ></v-carousel-item>
         </v-carousel>
-        <v-row no-gutters id="styleAndMoodArea" class="text-center">
-          <v-col cols="12" sm="6" class="pt-2 pb-1">
+        <v-row
+          no-gutters
+          id="styleAndMoodArea"
+          class="text-center"
+        >
+          <v-col
+            cols="12"
+            sm="6"
+            class="pt-2 pb-1"
+          >
             <span class="left">タイプ</span>
             <span class="right">
               <v-img
@@ -69,7 +94,11 @@
               {{ convertStyleEnToJp(store.settingCardData.styleType) }}
             </span>
           </v-col>
-          <v-col cols="12" sm="6" class="pt-2 pb-1">
+          <v-col
+            cols="12"
+            sm="6"
+            class="pt-2 pb-1"
+          >
             <span class="left">ムード</span>
             <span class="right pl-1">
               <v-img
@@ -81,7 +110,10 @@
             </span>
           </v-col>
         </v-row>
-        <v-table density="compact" class="mb-1">
+        <v-table
+          density="compact"
+          class="mb-1"
+        >
           <thead>
             <tr>
               <th
@@ -96,55 +128,109 @@
           </thead>
           <tbody>
             <tr>
-              <td style="width: 80px" class="px-0 text-center">
+              <td
+                style="width: 80px"
+                class="px-0 text-center"
+              >
                 {{ store.cardParam('smile') }}
               </td>
-              <td style="width: 80px" class="px-0 text-center">
+              <td
+                style="width: 80px"
+                class="px-0 text-center"
+              >
                 {{ store.cardParam('pure') }}
               </td>
-              <td style="width: 80px" class="px-0 text-center">
+              <td
+                style="width: 80px"
+                class="px-0 text-center"
+              >
                 {{ store.cardParam('cool') }}
               </td>
-              <td style="width: 80px" class="px-0 text-center">
+              <td
+                style="width: 80px"
+                class="px-0 text-center"
+              >
                 {{ store.cardParam('mental') }}
               </td>
-              <td style="width: 50px" class="px-0 text-center">
+              <td
+                style="width: 50px"
+                class="px-0 text-center"
+              >
                 {{ store.settingCardData.uniqueStatus.BP }}
               </td>
             </tr>
           </tbody>
         </v-table>
-        <v-row no-gutters class="text-center">
-          <v-col cols="12" sm="10">
-            <v-row no-gutters class="mb-2 mb-sm-0">
-              <v-col cols="12" class="pb-1 font-weight-bold"> 初登場時期 </v-col>
+        <v-row
+          no-gutters
+          class="text-center"
+        >
+          <v-col
+            cols="12"
+            sm="10"
+          >
+            <v-row
+              no-gutters
+              class="mb-2 mb-sm-0"
+            >
+              <v-col
+                cols="12"
+                class="pb-1 font-weight-bold"
+              >
+                初登場時期
+              </v-col>
               <v-col cols="12">{{ store.settingCardData.gacha.addSeason }}</v-col>
             </v-row>
           </v-col>
-          <v-col cols="12" sm="2">
+          <v-col
+            cols="12"
+            sm="2"
+          >
             <v-row no-gutters>
-              <v-col cols="12" class="pb-1 font-weight-bold"> 入手期間 </v-col>
+              <v-col
+                cols="12"
+                class="pb-1 font-weight-bold"
+              >
+                入手期間
+              </v-col>
               <v-col cols="12">{{ LIMITED[store.settingCardData.gacha.period].cardLabel }}</v-col>
             </v-row>
           </v-col>
         </v-row>
       </v-col>
 
-      <v-col cols="12" sm="5">
+      <v-col
+        cols="12"
+        sm="5"
+      >
         <div class="mb-5">
           <h4 class="mb-3">特訓度</h4>
           <v-row>
-            <v-col cols="5" align-self="center" class="pa-0 text-right">
+            <v-col
+              cols="5"
+              align-self="center"
+              class="pa-0 text-right"
+            >
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.trainingLevel === 0"
                 @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel - 1)"
                 >-1
               </v-btn>
             </v-col>
-            <v-col cols="2" align-self="center" justify="center" class="pa-0 text-center">
+            <v-col
+              cols="2"
+              align-self="center"
+              justify="center"
+              class="pa-0 text-center"
+            >
               {{ [0, 1, 2, 3, 4][store.settingCardData.fluctuationStatus.trainingLevel] }}
             </v-col>
-            <v-col cols="5" align-self="center" justify="center" class="pa-0">
+            <v-col
+              cols="5"
+              align-self="center"
+              justify="center"
+              class="pa-0"
+            >
               <v-btn
                 :disabled="store.settingCardData.fluctuationStatus.trainingLevel === store.setMaxTrainingLevel"
                 @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel + 1)"
@@ -165,7 +251,7 @@
                 @click="
                   store.valueChange(
                     'cardLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel,
+                    store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel
                   )
                 "
               >
@@ -204,7 +290,10 @@
             </div>
           </div>
         </div>
-        <div class="mb-3" v-if="store.settingCardData?.specialAppeal">
+        <div
+          class="mb-3"
+          v-if="store.settingCardData?.specialAppeal"
+        >
           <h4 class="mb-1 d-flex flex-row">
             スペシャルアピールLv.（スクステ）
             <v-btn
@@ -253,7 +342,10 @@
             </div>
           </div>
         </div>
-        <div class="mb-3" v-if="store.settingCardData?.skill">
+        <div
+          class="mb-3"
+          v-if="store.settingCardData?.skill"
+        >
           <h4 class="mb-1 d-flex flex-row">
             スキルLv.（スクステ）
             <v-btn
@@ -305,7 +397,10 @@
         <div class="mb-3">
           <h4 class="mb-1 d-flex flex-row">
             解放Lv.
-            <span v-if="store.getSettingCard.rare !== 'DR' && store.settingCardData?.specialAppeal" class="ml-1">
+            <span
+              v-if="store.getSettingCard.rare !== 'DR' && store.settingCardData?.specialAppeal"
+              class="ml-1"
+            >
               (最終獲得GP Pt. +<span class="text-pink">
                 {{
                   store.grandprixBonus.releaseLv[store.getSettingCard.rare][
@@ -358,8 +453,8 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        store.releasePoint[store.settingCardData.rare].point,
-                    ),
+                        store.releasePoint[store.settingCardData.rare].point
+                    )
                   );
                 "
               >
@@ -379,7 +474,10 @@
             </div>
           </div>
         </div>
-        <div>
+        <div
+          v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5"
+          class="mb-3"
+        >
           <h4 class="mb-1 d-flex flex-row">
             解放Pt.
             <span class="ml-1">(上限：{{ limitReleasePoint(store) }})</span>
@@ -401,8 +499,8 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        store.releasePoint[store.settingCardData.rare].point,
-                    ),
+                        store.releasePoint[store.settingCardData.rare].point
+                    )
                   )
                 "
               >
@@ -443,8 +541,8 @@
                     Math.min(
                       store.settingCardData.fluctuationStatus.releasePoint +
                         store.releasePoint[store.settingCardData.rare].point,
-                      limitReleasePoint(store),
-                    ),
+                      limitReleasePoint(store)
+                    )
                   )
                 "
               >
@@ -458,10 +556,19 @@
               </v-btn>
             </div>
           </div>
-          <div v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5" class="mt-2">
+          <div
+            v-if="store.settingCardData.fluctuationStatus.releaseLevel < 5"
+            class="mt-2"
+          >
             <div class="d-flex justify-space-between">
-              <template v-for="i in 6 - store.settingCardData.fluctuationStatus.releaseLevel" :key="i">
-                <p class="text-center text-body-2" :style="{ width: '2rem' }">
+              <template
+                v-for="i in 6 - store.settingCardData.fluctuationStatus.releaseLevel"
+                :key="i"
+              >
+                <p
+                  class="text-center text-body-2"
+                  :style="{ width: '2rem' }"
+                >
                   {{ (i - 1) * store.releasePoint[store.settingCardData.rare].point }}
                 </p>
               </template>
@@ -481,7 +588,10 @@
                   borderLeft: `1px solid ${releasePoint_underlineColor}`,
                 }"
               ></div>
-              <template v-for="i in 5 - store.settingCardData.fluctuationStatus.releaseLevel" :key="i">
+              <template
+                v-for="i in 5 - store.settingCardData.fluctuationStatus.releaseLevel"
+                :key="i"
+              >
                 <div
                   class="d-inline-flex"
                   :style="{
@@ -508,7 +618,12 @@
         <div class="mb-4">
           <h4 class="mb-4">お気に入り</h4>
           <v-row class="text-center">
-            <v-col cols="2" v-for="favorite in FAVORITE" :key="favorite" class="pa-0">
+            <v-col
+              cols="2"
+              v-for="favorite in FAVORITE"
+              :key="favorite"
+              class="pa-0"
+            >
               <v-btn
                 :icon="`mdi-${favorite}`"
                 variant="text"
@@ -523,7 +638,11 @@
       </v-col>
     </v-row>
 
-    <v-tabs v-model="gameMode" color="pink" grow>
+    <v-tabs
+      v-model="gameMode"
+      color="pink"
+      grow
+    >
       <v-tab value="stage">スクールアイドルステージ</v-tab>
       <v-tab value="show">スクールアイドルショウ</v-tab>
     </v-tabs>
@@ -543,8 +662,11 @@
       </v-tabs-window-item>
     </v-tabs-window>
 
-    <div class="mt-2 px-0 pt-0 pb-1" v-if="store.settingCardData.uniqueStatus?.supportSkill">
-      <span class="specialAppeal supportSkill"> サポートスキル </span>
+    <div
+      class="mt-2 px-0 pt-0 pb-1"
+      v-if="store.settingCardData.uniqueStatus?.supportSkill"
+    >
+      <span class="specialAppeal supportSkill">サポートスキル</span>
       {{ store.settingCardData.uniqueStatus.supportSkill.supportSkillTitle }}
       <ul class="d-flex mt-2">
         <li
@@ -563,11 +685,20 @@
     </div>
   </v-container>
 
-  <v-dialog v-model="dialog" scrollable :max-width="dialogSize">
+  <v-dialog
+    v-model="dialog"
+    scrollable
+    :max-width="dialogSize"
+  >
     <v-sheet class="pa-3">
       <div v-if="openDialogName === 'skillList'">
         <h2 class="text-center mb-2">スキル効果量一覧</h2>
-        <v-tabs class="mb-2" v-model="selectAddSkillDetail" color="pink" grow>
+        <v-tabs
+          class="mb-2"
+          v-model="selectAddSkillDetail"
+          color="pink"
+          grow
+        >
           <v-tab value="mainSkill">メインスキル</v-tab>
           <v-tab
             v-for="(addSkillData, i) in store.settingCardData[targetSkill].addSkill"
@@ -585,14 +716,25 @@
               <thead>
                 <tr>
                   <th class="text-center px-1">Lv</th>
-                  <th v-if="store.settingCardData[targetSkill]?.EXAP" class="text-center px-2">AP</th>
+                  <th
+                    v-if="store.settingCardData[targetSkill]?.EXAP"
+                    class="text-center px-2"
+                  >
+                    AP
+                  </th>
                   <th class="text-center px-1">効果</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="i in 14" :key="i">
+                <tr
+                  v-for="i in 14"
+                  :key="i"
+                >
                   <th class="text-center px-1">{{ i }}</th>
-                  <th v-if="store.settingCardData[targetSkill]?.EXAP" class="text-center px-1">
+                  <th
+                    v-if="store.settingCardData[targetSkill]?.EXAP"
+                    class="text-center px-1"
+                  >
                     {{ store.settingCardData[targetSkill]?.EXAP[i - 1] }}
                   </th>
                   <td class="px-1">
@@ -602,7 +744,11 @@
               </tbody>
             </v-table>
           </v-tabs-window-item>
-          <v-tabs-window-item v-for="(a, i) in store.settingCardData[targetSkill].addSkill" :key="i" :value="a.name">
+          <v-tabs-window-item
+            v-for="(a, i) in store.settingCardData[targetSkill].addSkill"
+            :key="i"
+            :value="a.name"
+          >
             スキル名：{{ a.name }}
             <v-table density="compact">
               <thead>
@@ -612,7 +758,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="skillLevel in 14" :key="skillLevel">
+                <tr
+                  v-for="skillLevel in 14"
+                  :key="skillLevel"
+                >
                   <th class="text-center px-1">{{ skillLevel }}</th>
                   <td class="px-1">
                     {{
@@ -644,17 +793,42 @@
         <v-table>
           <thead>
             <tr>
-              <th rowspan="2" class="text-center">レアリティ</th>
-              <th colspan="5" class="text-center">解放状況</th>
+              <th
+                rowspan="2"
+                class="text-center"
+              >
+                レアリティ
+              </th>
+              <th
+                colspan="5"
+                class="text-center"
+              >
+                解放状況
+              </th>
             </tr>
             <tr>
-              <th v-for="i of 5" :key="i" class="text-center">♪×{{ i }}</th>
+              <th
+                v-for="i of 5"
+                :key="i"
+                class="text-center"
+              >
+                ♪×{{ i }}
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(list, rarity) of store.grandprixBonus.releaseLv" :key="rarity">
+            <tr
+              v-for="(list, rarity) of store.grandprixBonus.releaseLv"
+              :key="rarity"
+            >
               <th>{{ rarity }}</th>
-              <td v-for="bonus of list" :key="bonus" class="text-center">+{{ bonus * 100 }}%</td>
+              <td
+                v-for="bonus of list"
+                :key="bonus"
+                class="text-center"
+              >
+                +{{ bonus * 100 }}%
+              </td>
             </tr>
           </tbody>
         </v-table>
@@ -687,7 +861,12 @@
         </p>
       </div>
       <div class="mt-1 text-center">
-        <v-btn prepend-icon="mdi-close" @click="switchDialog(null)"> CLOSE </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="switchDialog(null)"
+        >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
@@ -762,7 +941,7 @@ export default {
      */
     makeCardName(store: CounterState): string {
       return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(
-        store.getSettingCard.memberName,
+        store.getSettingCard.memberName
       )}`;
     },
     /**

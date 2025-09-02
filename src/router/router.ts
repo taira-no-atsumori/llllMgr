@@ -29,7 +29,7 @@ const router = createRouter({
       },
     },
     {
-      path: `/${pathname}/cardlist`,
+      path: `/${pathname}/cardList`,
       name: 'CardList',
       component: CardList,
       meta: {

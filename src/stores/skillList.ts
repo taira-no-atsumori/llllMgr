@@ -1,6 +1,7 @@
 // vscode:wordWrap on
 import { defineStore } from 'pinia';
 import { SkillListState } from '@/types/skillList';
+import { SKILL_DETAIL } from '@/constants/skillDetail';
 
 export const useSkillStore = defineStore('skillList', {
   state: (): SkillListState => ({
@@ -10,7 +11,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -19,21 +20,21 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次のハート回収時、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT],
           },
         },
         loveAttract_section: {
           text: ['このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         loveAttract_stage: {
           text: ['このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -42,7 +43,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -51,7 +52,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、ボルテージゲイン効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_voltageGain'],
+            type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
       },
@@ -60,7 +61,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -73,14 +74,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'protect_section'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_SECTION],
           },
         },
         mentalProtect_stageProtect: {
           text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: '',
-            type: ['protect_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -89,7 +90,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、手札の上限枚数を1枚増加する。'],
           detail: {
             attr: '',
-            type: ['extendHand'],
+            type: [SKILL_DETAIL.EXTEND_HAND],
           },
         },
       },
@@ -98,7 +99,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['APを', '回復させる。'],
           detail: {
             attr: '',
-            type: ['APGain'],
+            type: [SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -110,7 +111,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'heartCaptcha'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -123,7 +124,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover', 'voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -132,7 +133,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
         refreshMind_stageProtect: {
@@ -143,7 +144,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -155,7 +156,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -168,7 +169,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -180,7 +181,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'protect_stage', 'APGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
         refreshGain_02: {
@@ -191,7 +192,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'protect_stage', 'APGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -203,7 +204,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'mentalRecover', 'addCard'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -215,7 +216,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extendHand', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -227,7 +228,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -239,7 +240,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'heartLimitUp'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -251,7 +252,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['modeChange', 'reshuffle', 'protect_stage'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -263,7 +264,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'refresh',
-            type: ['reshuffle', 'modeChange', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -272,28 +273,28 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         heartAttraction_stage: {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         heartAttraction_50: {
           text: ['50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         heartAttraction_100: {
           text: ['100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -302,28 +303,28 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         heartBoost_limit2: {
           text: ['2回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         heartBoost_limit5: {
           text: ['5回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         heartBoost_section: {
           text: ['このセクション中、スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -332,14 +333,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         heartBoost_MiraCraPark_limit3: {
           text: ['3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -348,7 +349,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次のドレスカード使用によるスキルハート獲得効果の獲得数を+', '%する。'],
           detail: {
             attr: 'heartBoost',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -357,14 +358,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにAPを1回復する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'APGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
           },
         },
         heartGain_3: {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにAPを3回復する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'APGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -373,7 +374,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が6以上の時APを1回復する。'],
           detail: {
             attr: 'high',
-            type: ['loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -382,14 +383,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。'],
           detail: {
             attr: 'high',
-            type: ['voltageGain', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
           },
         },
         highVoltage_ver2: {
           text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が6以上の時APを1回復する。'],
           detail: {
             attr: 'high',
-            type: ['voltageGain', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
           },
         },
         highVoltage_heartCaptcha: {
@@ -400,7 +401,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'high',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -409,7 +410,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'APGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
           },
         },
         cheerfulHeart_over75_heartCaptcha: {
@@ -420,7 +421,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         cheerfulHeart_over100_heartCaptcha: {
@@ -431,7 +432,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         cheerfulHeart_over75_heartCaptcha_over100_heartCaptcha: {
@@ -443,7 +444,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -456,14 +457,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         cheerfulAttract_APGain_over75: {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、APを1回復する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
         cheerfulAttract_loveAttract_over50: {
@@ -474,7 +475,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         cheerfulAttract_over75_stageAttract_over100_stageAttract: {
@@ -486,7 +487,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -499,7 +500,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         cheerfulAttraction_over100_stage: {
@@ -510,7 +511,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         'cheerfulAttraction-sectionAttract-over50_heart-over75_heart-over100_heart': {
@@ -524,7 +525,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -533,7 +534,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         cheerfulVoltage_voltageGain_over75_over100: {
@@ -545,7 +546,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         cheerfulVoltage_heartCaptcha: {
@@ -556,7 +557,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -565,7 +566,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'APGain'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
           },
         },
         cheerfulRecover_upper100_stageProtect: {
@@ -576,7 +577,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'APGain'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -590,7 +591,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['heartCaptcha', 'mentalRecover'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -603,7 +604,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'protect_stage'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -616,7 +617,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['protect_stage', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -628,7 +629,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['reshuffle', 'voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -640,7 +641,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['reshuffle', 'voltageGain', 'extendHand'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.EXTEND_HAND],
           },
         },
       },
@@ -653,7 +654,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'heartCaptcha'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -666,7 +667,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'loveAttract_section'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         cheerfulSupport_over75_stage: {
@@ -677,7 +678,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         cheerfulSupport_over75_section_over100: {
@@ -689,7 +690,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['mentalRecover', 'loveAttract_section', 'protect_stage'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -698,7 +699,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain', 'mentalRecover'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -711,7 +712,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['voltageGain', 'protect_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -724,14 +725,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_section', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         cheerfulFascinate_stage_over50: {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'cheerful',
-            type: ['loveAttract_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -744,7 +745,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -757,7 +758,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['boost_heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -770,7 +771,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'cheerful',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -782,7 +783,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'fulness',
-            type: ['extendHand', 'heartCaptcha'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -794,7 +795,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'fulness',
-            type: ['extendHand', 'voltageGain'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -806,7 +807,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'fulness',
-            type: ['extendHand', 'protect_section'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_SECTION],
           },
         },
       },
@@ -815,14 +816,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveHeart_mentalReduce15: {
           text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -831,7 +832,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_section', 'mentalReduce'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveAttract_mentalReduce25_stage: {
@@ -841,7 +842,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_stage', 'mentalReduce', 'APReduce'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -854,7 +855,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'loveAttract_section', 'mentalReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -863,7 +864,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにメンタルを最大値の15%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['voltageGain', 'mentalReduce'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -875,7 +876,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['reshuffle', 'loveAttract_stage', 'mentalReduce'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -884,21 +885,21 @@ export const useSkillStore = defineStore('skillList', {
           text: ['5回の間ラブアトラクト効果を+', '%する。さらにメンタルを最大値の25%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveAttractBoost_mentalReduce3: {
           text: ['次に使用するラブアトラクト効果を+', '%する。さらにメンタルを最大値の3%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveAttractBoost_mentalReduce10: {
           text: ['2回の間ラブアトラクト効果を+', '%する。さらにメンタルを最大値の10%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -911,7 +912,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -920,7 +921,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['10回の間スキルハート獲得効果による獲得数を+', '%する。さらにメンタルを最大値の50%減少させる。'],
           detail: {
             attr: 'aggressive',
-            type: ['boost_heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -932,7 +933,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['reshuffle', 'voltageGain', 'mentalReduce'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -944,7 +945,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveBelieveHeart_reduce100: {
@@ -954,7 +955,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -966,7 +967,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'mentalReduce', 'extendHand', 'loveAttract_section'],
+            type: [
+              SKILL_DETAIL.MENTAL_DOWN_SECTION,
+              SKILL_DETAIL.MENTAL_REDUCE,
+              SKILL_DETAIL.EXTEND_HAND,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+            ],
           },
         },
       },
@@ -979,7 +985,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'boost_heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -992,7 +998,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveBraveHeart_under1_under0: {
@@ -1004,7 +1010,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -1017,7 +1023,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_section', 'mentalReduce', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -1030,7 +1036,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['loveAttract_section', 'mentalReduce', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1043,7 +1049,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['boost_loveAttract', 'mentalReduce', 'loveAttract_section'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -1055,7 +1061,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['extendHand', 'protect_stage', 'mentalReduce'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -1067,7 +1073,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['protect_stage', 'mentalReduce'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -1079,7 +1085,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
         aggressiveBeliefBoost_heatUp_minus100: {
@@ -1089,7 +1095,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'APQuick', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -1101,7 +1107,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'voltageGain', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -1113,7 +1119,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'mentalReduce', 'protect_stage'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1125,7 +1131,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -1138,7 +1144,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'aggressive',
-            type: ['voltageGain', 'mentalReduce', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
       },
@@ -1147,14 +1153,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにAPを3回復する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
         'attractGain-stageAttract-APGain7': {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにAPを7回復する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1163,14 +1169,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
         attractBoost2: {
           text: ['2回の間ラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -1179,7 +1185,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_loveAttract'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -1188,7 +1194,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1197,7 +1203,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'mentalRecover'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -1209,7 +1215,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'loveAttract_section'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         regainAttract_stage: {
@@ -1219,7 +1225,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -1232,7 +1238,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'loveAttract_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1244,7 +1250,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'extendHand', 'voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1256,7 +1262,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'extendHand', 'voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1268,7 +1274,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'voltageGain', 'addCard'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -1280,7 +1286,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'regain',
-            type: ['reshuffle', 'voltageGain', 'modeChange'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -1289,14 +1295,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'heartCaptcha'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         extensionsHeart_stage1: {
           text: ['このステージ中、手札の上限枚数を1枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'heartCaptcha'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -1308,7 +1314,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -1320,7 +1326,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'extensions_section', 'modeChange'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -1329,49 +1335,49 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         extensions2_stageAttract_section: {
           text: ['このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         extensions3_stageAttract_section: {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         extensions4_stageAttract_section: {
           text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_section'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         extensions1_stageAttract_stage: {
           text: ['このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         extensions1_sectionAttract_section: {
           text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_section'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         extensions3_sectionAttract_section: {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'loveAttract_section'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -1380,28 +1386,28 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'voltageGain'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         extensions3_voltage_section: {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'voltageGain'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         extensions1_voltage_stage: {
           text: ['このステージ中、手札の上限枚数を1枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         extensions2_voltage_stage: {
           text: ['このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1413,7 +1419,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'protect_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
         extensions3_protect: {
@@ -1423,7 +1429,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'protect_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1435,7 +1441,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'APQuick', 'protect_stage'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1444,7 +1450,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'mentalRecover'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -1456,7 +1462,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'APQuick', 'mentalRecover'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -1468,7 +1474,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['modeChange', 'extensions_stage', 'mentalRecover'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -1480,7 +1486,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'boost_heartCaptcha', 'APQuick'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.AP_QUICK],
           },
         },
         'extensions_stage-boost_loveAttract-heatUp_section': {
@@ -1490,7 +1496,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'boost_loveAttract', 'APQuick'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -1502,7 +1508,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'voltageGain', 'addCard'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -1511,7 +1517,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにAPを', '回復する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'APGain'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1520,7 +1526,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、AP回復速度を+', '%する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'APQuick'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -1529,7 +1535,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: '',
-            type: ['extendHand', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -1538,7 +1544,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、手札の上限枚数を1枚増加し、AP回復速度を+', '%する。さらにAPを', '回復する。'],
           detail: {
             attr: 'extensions',
-            type: ['extensions_stage', 'APQuick', 'APGain'],
+            type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1550,7 +1556,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'extensions',
-            type: ['extensions_section', 'ambience_section'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -1562,7 +1568,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['extensions_section', 'ambience_section', 'vibes_section'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.VIBES_SECTION],
           },
         },
       },
@@ -1574,7 +1580,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extensions_section', 'heartLimitUp'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -1586,7 +1592,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extensions_section', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
       },
@@ -1598,7 +1604,19 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extensions_section', 'APQuick'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK],
+          },
+        },
+      },
+      エクステリフレッシュゲイン: {
+        extensionRefreshGain_01: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、手札の上限枚数を3枚増加し、APを',
+            '回復する。',
+          ],
+          detail: {
+            attr: '',
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1612,28 +1630,28 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'fascination',
-            type: ['voltageGain', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         fascination_voltageGain: {
           text: ['ボルテージPt.を+', 'する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'fascination',
-            type: ['voltageGain', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         fascination_section: {
           text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'fascination',
-            type: ['loveAttract_section', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         fascination_stage: {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'fascination',
-            type: ['loveAttract_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         fascination_stageAttract_stageProtect: {
@@ -1645,7 +1663,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'fascination',
-            type: ['loveAttract_stage', 'voltageGain', 'protect_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1658,7 +1676,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'replay',
-            type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -1667,28 +1685,28 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
-            type: ['mentalRecover', 'loveAttract_section'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         supportedFeel_stage: {
           text: ['メンタルを最大値の', '%回復させる。さらにこのステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'feel',
-            type: ['mentalRecover', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         supportedFeel_sectionAttract_mentalRecover: {
           text: ['このセクション中、獲得するLOVEを+', '%する。メンタルを最大値の', '%回復させる。さらに'],
           detail: {
             attr: 'feel',
-            type: ['loveAttract_section', 'mentalRecover'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
         supportedFeel_stageAttract_mentalRecover: {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'feel',
-            type: ['loveAttract_stage', 'mentalRecover'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -1701,7 +1719,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
         protectFeel_sectionAttract: {
@@ -1712,7 +1730,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_section'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         protectFeel_stageAttract: {
@@ -1723,7 +1741,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         protectFeel_sectionAttract_stageProtect: {
@@ -1734,7 +1752,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'feel',
-            type: ['protect_stage', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         protectFeel_stageAttract_stageProtect: {
@@ -1745,7 +1763,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'feel',
-            type: ['loveAttract_stage', 'protect_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1754,14 +1772,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを+5する。'],
           detail: {
             attr: '',
-            type: ['protect_stage', 'APGain'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
         'protectGain-AP9': {
           text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを9回復する。'],
           detail: {
             attr: '',
-            type: ['protect_stage', 'APGain'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1774,7 +1792,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'protect',
-            type: ['APQuick', 'protect_stage'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1787,7 +1805,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'invocation',
-            type: ['voltageGain', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -1796,14 +1814,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         voltageHeart_voltageGain_heartCaptcha: {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'voltageGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1812,7 +1830,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。さらにデッキ内の梢のスキルの消費AP-6。'],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'APReduce'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -1826,7 +1844,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -1835,14 +1853,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。さらにAPを+5する。'],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'APGain'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
           },
         },
         recoverGain_gain3: {
           text: ['メンタルを最大値の', '%回復させる。さらにAPを+3する。'],
           detail: {
             attr: 'recover',
-            type: ['mentalRecover', 'APGain'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1855,7 +1873,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         chillAttract_under3_stage: {
@@ -1866,7 +1884,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -1879,7 +1897,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_section', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1888,21 +1906,21 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が1以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         chillVoltage_under3: {
           text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         chillVoltage_under5: {
           text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         chillVoltage_under5_heartCaptcha: {
@@ -1913,7 +1931,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['heartCaptcha', 'voltageGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1922,7 +1940,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'し、APを5回復する。'],
           detail: {
             attr: 'chill',
-            type: ['voltageGain', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1935,7 +1953,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['protect_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE],
           },
         },
         chillProtect_under5_stageProtect: {
@@ -1946,7 +1964,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['protect_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -1959,7 +1977,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['protect_stage', 'APGain'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -1972,21 +1990,21 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['voltageGain', 'loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
         chillFascinate_under2_stageAttract_voltageGain: {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         chillFascinate_under5_stageAttract_voltageGain: {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['loveAttract_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -1995,7 +2013,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'chill',
-            type: ['mentalRecover', 'voltageGain'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -2008,7 +2026,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chill',
-            type: ['mentalRecover', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -2021,7 +2039,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         groovyAttract_stage_over6_stageAttract: {
@@ -2032,7 +2050,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         groovyAttract_section_over6_sectionAttract: {
@@ -2043,7 +2061,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         groovyAttract_stage_over10_stageAttract: {
@@ -2054,7 +2072,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -2067,7 +2085,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_section', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         groovyAttraction_section_over8_heartCaptcha: {
@@ -2078,7 +2096,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_section', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         groovyAttraction_stage_over8_heartCaptcha: {
@@ -2089,7 +2107,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         groovyAttraction_over8_heartCaptcha_sectionAttract: {
@@ -2100,7 +2118,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         groovyAttraction_section_over10_heartCaptcha_sectionAttract: {
@@ -2111,7 +2129,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2124,7 +2142,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'mentalRecover'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
         groovyHeart_over8_heartCaptcha: {
@@ -2135,7 +2153,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         groovyHeart_over8_voltageGain_heartCaptcha: {
@@ -2146,7 +2164,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         groovyHeart_over10_voltageGain_heartCaptcha: {
@@ -2157,7 +2175,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         groovyHeart_over8_mentalRecover_heartCaptcha: {
@@ -2168,7 +2186,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['mentalRecover', 'heartCaptcha'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2177,7 +2195,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時、APを7回復する。'],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'APGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -2190,7 +2208,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         'groovyVoltage-voltageOver8_heartCaptcha-voltageOver10_heartCaptcha': {
@@ -2202,7 +2220,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2215,7 +2233,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
         'groovyRecover-voltageOver8_mentalRecover-voltageOver10_mentalRecover': {
@@ -2227,7 +2245,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -2240,7 +2258,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['loveAttract_stage', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         groovyBoost_over10_boost_heartCaptcha: {
@@ -2251,7 +2269,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['boost_heartCaptcha', 'heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2264,7 +2282,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'protect_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -2273,7 +2291,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+', 'する。'],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'loveAttract_section'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         groovyFascinate_over10_voltageGain_sectionAttract: {
@@ -2284,7 +2302,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'loveAttract_section'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2297,7 +2315,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['protect_stage', 'loveAttract_section'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2309,7 +2327,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['APQuick', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -2321,7 +2339,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['APQuick', 'vibes_section'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.VIBES_SECTION],
           },
         },
       },
@@ -2335,7 +2353,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'voltageGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -2347,7 +2365,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'mentalDown_section'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_DOWN_SECTION],
           },
         },
       },
@@ -2360,7 +2378,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -2374,7 +2392,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -2386,7 +2404,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['modeChange', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -2400,7 +2418,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['heartCaptcha', 'modeChange'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -2413,7 +2431,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'groovy',
-            type: ['sound', 'ambience_section', 'APGain'],
+            type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -2426,7 +2444,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'switch',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2440,7 +2458,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'switch',
-            type: ['loveAttract_stage', 'heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         switchAttraction_basis5_voltageGain_heartCaptcha_sectionAttract: {
@@ -2452,7 +2470,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'switch',
-            type: ['voltageGain', 'heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2465,7 +2483,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'switch',
-            type: ['protect_stage', 'loveAttract_section'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2474,7 +2492,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
-            type: ['heartCaptcha', 'voltageReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
       },
@@ -2483,7 +2501,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を-30する。'],
           detail: {
             attr: 'calm',
-            type: ['loveAttract_section', 'voltageReduce'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
         calmAttract20_sectionExtensions2: {
@@ -2493,7 +2511,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'calm',
-            type: ['extensions_section', 'loveAttract_section', 'voltageReduce'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
       },
@@ -2506,7 +2524,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'calm',
-            type: ['heartCaptcha', 'loveAttract_stage', 'voltageReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
         calmAttraction30_heartCaptcha_sectionAttract: {
@@ -2517,7 +2535,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'calm',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
       },
@@ -2526,7 +2544,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにボルテージPt.を-20する。'],
           detail: {
             attr: 'calm',
-            type: ['boost_heartCaptcha', 'voltageReduce'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
       },
@@ -2538,7 +2556,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'calm',
-            type: ['protect_stage', 'voltageReduce'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
       },
@@ -2547,14 +2565,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。さらにビートハート', '個分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'heartCaptcha'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         healingHeart_heart_recover: {
           text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'mentalRecover'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -2563,7 +2581,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2572,21 +2590,21 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'し、メンタルを最大値の', '%回復させる。さらにAPを1回復する。'],
           detail: {
             attr: 'endurance',
-            type: ['voltageGain', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
           },
         },
         endurance_mentalVoltage: {
           text: ['メンタルを最大値の', '%回復させる。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'endurance',
-            type: ['mentalRecover', 'voltageGain'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         endurance_voltageMental: {
           text: ['ボルテージPt.を+', 'する。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'endurance',
-            type: ['voltageGain', 'mentalRecover'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -2599,7 +2617,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'low',
-            type: ['protect_stage', 'mentalRecover'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -2612,7 +2630,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'initiative',
-            type: ['voltageGain', 'protect_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -2625,7 +2643,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'clutch',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -2639,7 +2657,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'vortex',
-            type: ['voltageGain', 'APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2653,7 +2671,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'vortex',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         vortexAttraction_stage: {
@@ -2665,7 +2683,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'vortex',
-            type: ['heartCaptcha', 'loveAttract_stage', 'voltageGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -2674,7 +2692,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにAPを9回復する。'],
           detail: {
             attr: 'vortex',
-            type: ['voltageGain', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -2686,7 +2704,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'vortex',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2695,7 +2713,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['cardReduce', 'APQuick'],
+            type: [SKILL_DETAIL.CARD_REDUCE, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -2704,7 +2722,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、メンタルが回復した時、回復量の', '%の個数のスキルハートを獲得する。'],
           detail: {
             attr: 'allMight',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2717,7 +2735,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'APGain', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2729,7 +2747,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['extendHand', 'loveAttract_stage', 'APQuick'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -2741,7 +2759,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2754,7 +2772,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'trio',
-            type: ['heartCaptcha', 'loveAttract_section', 'reshuffle'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -2768,7 +2786,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'triangle',
-            type: ['loveAttract_stage', 'voltageGain', 'protect_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -2780,7 +2798,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['APSlow', 'boost_heartCaptcha', 'heartLimitUp'],
+            type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -2792,7 +2810,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'voltageReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
           },
         },
       },
@@ -2801,7 +2819,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -2812,7 +2830,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chowchow',
-            type: ['addCard', 'cardReduce'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.CARD_REDUCE],
           },
         },
       },
@@ -2825,7 +2843,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chowchow',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2838,7 +2856,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chowchow',
-            type: ['loveAttract_section', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2851,7 +2869,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'chowchow',
-            type: ['mentalRecover', 'heartCaptcha'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -2860,7 +2878,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。'],
           detail: {
             attr: '',
-            type: ['reshuffle'],
+            type: [SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -2869,7 +2887,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['チャウチャウカードを1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -2881,7 +2899,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extensions_section', 'mentalRecover'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -2895,7 +2913,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dreaming',
-            type: ['APReduce_all', 'loveAttract_stage', 'voltageGain', 'protect_stage'],
+            type: [
+              SKILL_DETAIL.AP_REDUCE_ALL,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.PROTECT_STAGE,
+            ],
           },
         },
       },
@@ -2908,7 +2931,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         braveHeart_under50_under25: {
@@ -2920,7 +2943,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'modeChange'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -2929,14 +2952,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが25%以下のとき、APを1回復する。'],
           detail: {
             attr: 'brave',
-            type: ['loveAttract_section'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         braveAttract_under50_sectionAttract_APGain: {
           text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが50%以下のとき、APを1回復する。'],
           detail: {
             attr: 'brave',
-            type: ['loveAttract_section', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -2949,7 +2972,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         braveAttraction_under5_heartCaptcha_sectionAttract: {
@@ -2960,7 +2983,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         braveAttraction_under25_sectionAttract_heartCaptcha: {
@@ -2971,7 +2994,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         braveAttraction_under50_heartCaptcha_sectionAttract: {
@@ -2982,7 +3005,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         braveAttraction_sectionAttract_under50_heartCaptcha_under25_heartCaptcha: {
@@ -2995,7 +3018,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -3004,7 +3027,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'loveAttract_section'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -3017,7 +3040,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         braveVoltageHeart_under10: {
@@ -3028,7 +3051,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3040,7 +3063,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'extensions_section'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
           },
         },
       },
@@ -3053,7 +3076,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartLimitUp', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -3067,7 +3090,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'heartLimitUp', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         braveWideAttraction_02: {
@@ -3079,7 +3102,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['loveAttract_stage', 'heartLimitUp', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         braveWideAttraction_03: {
@@ -3091,7 +3114,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['loveAttract_stage', 'loveAttract_section', 'heartLimitUp'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -3105,7 +3128,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         braveVortexAttraction_02: {
@@ -3117,7 +3140,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -3131,7 +3154,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['voltageGain', 'heartCaptcha', 'loveAttract'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, 'loveAttract'],
           },
         },
       },
@@ -3144,7 +3167,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'brave',
-            type: ['boost_loveAttract', 'mentalRecover'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -3153,7 +3176,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《室咲格子》を山札に1枚追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3162,7 +3185,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《レインボーシフォン》を山札に1枚追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3171,7 +3194,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《Dream Believers》を2種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3180,7 +3203,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《Reflection in the mirror》を3種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3189,7 +3212,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《青嵐の鯉流し》を1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3198,7 +3221,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《Ether Aria》を1種類(合計9枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3207,7 +3230,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3216,21 +3239,21 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
         dress_aokuharuka_kozue: {
           text: ['ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
         dress_aokuharuka_ginko: {
           text: ['ドレスカード《アオクハルカ》を1種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3239,7 +3262,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《PASSION!!!!!!》を1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3248,7 +3271,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《16th Birthday》を1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3259,7 +3282,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3268,7 +3291,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《Link to the FUTURE》を1種類(合計3枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3279,7 +3302,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['addCard', 'reshuffle'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -3288,7 +3311,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《聖夜譚》を1種類(合計5枚)山札に追加する。'],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3297,7 +3320,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《加賀友禅》を9種類(合計9枚)山札に追加する。'],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3306,7 +3329,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《ノヴァホワイト》を1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3315,7 +3338,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《翠鱗舞》を1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3326,7 +3349,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['addCard', 'reshuffle'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -3335,7 +3358,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《Her-bath-rium》を1種類(合計3枚)山札に追加する。'],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3346,7 +3369,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3358,7 +3381,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['reshuffle', 'APQuick'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -3370,7 +3393,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['heartLimitUp', 'addCard'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3385,7 +3408,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['heartLimitUp', 'APQuick', 'extendHand', 'addCard', 'loveAttract_stage', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.EXTEND_HAND,
+              SKILL_DETAIL.ADD_CARD,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -3398,7 +3428,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'bouquet',
-            type: ['heartLimitUp', 'heartCaptcha', 'extendHand'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.EXTEND_HAND],
           },
         },
       },
@@ -3411,7 +3441,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'bouquet',
-            type: ['heartLimitUp', 'heartCaptcha', 'APReduce_deck_ceriseBouquet'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET],
           },
         },
       },
@@ -3425,7 +3455,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'bouquet',
-            type: ['heartLimitUp', 'heartCaptcha', 'loveAttract_stage', 'APQuick'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.AP_QUICK,
+            ],
           },
         },
       },
@@ -3434,7 +3469,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ドレスカード《キセキ》を3種類(合計3枚)山札に追加する。'],
           detail: {
             attr: 'dress',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3443,7 +3478,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、AP回復速度を+', '%する。さらにビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'dress',
-            type: ['APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3457,7 +3492,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['heartLimitUp', 'boost_heartCaptcha', 'heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3469,7 +3504,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['reshuffle', 'APQuick'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -3478,7 +3513,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、AP回復速度を+3%する。'],
           detail: {
             attr: 'design',
-            type: ['APQuick'],
+            type: [SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -3487,7 +3522,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。'],
           detail: {
             attr: 'design',
-            type: ['voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -3496,7 +3531,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'design',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -3505,7 +3540,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: 'design',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3514,7 +3549,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次に使用するラブアトラクト効果を+', '%する。'],
           detail: {
             attr: 'design',
-            type: ['boost_loveAttract'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -3523,7 +3558,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。'],
           detail: {
             attr: 'design',
-            type: ['reshuffle'],
+            type: [SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -3532,7 +3567,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、手札の上限枚数を1枚増加する。'],
           detail: {
             attr: 'design',
-            type: ['extendHand'],
+            type: [SKILL_DETAIL.EXTEND_HAND],
           },
         },
       },
@@ -3541,7 +3576,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
           detail: {
             attr: 'design',
-            type: ['protect_stage'],
+            type: [SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -3550,7 +3585,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['姫芽の《イグニッションモード》の状態を切り替える。'],
           detail: {
             attr: 'design',
-            type: ['modeChange'],
+            type: [SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -3562,7 +3597,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['addCard', 'heartCaptcha'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3576,7 +3611,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'heartLimitUp'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
         celebration_02: {
@@ -3587,7 +3622,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'heartLimitUp'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -3599,7 +3634,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['addCard', 'heartCaptcha', 'reshuffle'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -3613,7 +3648,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'heartLimitUp', 'heartCaptcha', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
         '375fantasy_02': {
@@ -3627,7 +3667,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'heartLimitUp'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -3636,7 +3676,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['エーデルカードを2種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -3648,7 +3688,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extendHand', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -3660,7 +3700,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['addCard', 'heartCaptcha', 'reshuffle'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -3674,7 +3714,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'boost_voltageGain', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
         fruitPunch_02: {
@@ -3686,7 +3726,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -3698,7 +3738,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dress',
-            type: ['addCard', 'heartCaptcha', 'reshuffle', 'APReduce_deckAll'],
+            type: [
+              SKILL_DETAIL.ADD_CARD,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+            ],
           },
         },
       },
@@ -3713,7 +3758,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'atarayoHanabi',
-            type: ['heartCaptcha', 'loveAttract_stage', 'heartLimitUp', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
         atarayoHanabi_02: {
@@ -3725,7 +3775,36 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'atarayoHanabi',
-            type: ['loveAttract_stage', 'reshuffle', 'heartLimitUp', 'boost_loveAttract'],
+            type: [
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+            ],
+          },
+        },
+      },
+      'ドレス《蒼のツバメ》': {
+        dress_aonotsubame_01: {
+          text: [
+            'このセクション中、手札の上限枚数を2枚増加する。さらにドレスカード《蒼のツバメ》を1種類(合計2枚)山札に追加する。',
+          ],
+          detail: {
+            attr: 'dress',
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.ADD_CARD],
+          },
+        },
+      },
+      蒼のツバメ: {
+        aonotsubame_01: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに次に使用するボルテージゲイン効果を+',
+            '%し、ビートハート',
+            '回分のスキルハートを獲得する。',
+          ],
+          detail: {
+            attr: '',
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3734,7 +3813,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['APQuick'],
+            type: [SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -3747,7 +3826,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['voltageGain', 'protect_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -3760,7 +3839,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['extendHand', 'reshuffle', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -3772,7 +3851,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'extendHand', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -3784,7 +3863,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         rebootHeart_02: {
@@ -3794,7 +3873,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -3806,7 +3885,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -3818,7 +3897,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -3831,7 +3910,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -3843,7 +3922,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_loveAttract', 'APReduce'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -3855,7 +3934,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'boost_mentalRecover'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
           },
         },
       },
@@ -3864,7 +3943,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。'],
           detail: {
             attr: '',
-            type: ['voltageGain', 'APReduce_voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_REDUCE_VOLTAGE_GAIN],
           },
         },
       },
@@ -3873,7 +3952,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ハートの上限を+', 'する。さらに', '個のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3882,7 +3961,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['', '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -3894,7 +3973,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -3903,7 +3982,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -3912,7 +3991,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
           detail: {
             attr: '',
-            type: ['mentalRecover'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -3925,7 +4004,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -3939,7 +4018,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'tuning',
-            type: ['boost_heartCaptcha', 'loveAttract_section', 'heartLimitUp'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -3951,7 +4030,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'blessing',
-            type: ['APReduce_heart', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.AP_REDUCE_HEART, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -3965,7 +4044,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'gift',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'heartLimitUp'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -3977,7 +4056,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'blessing',
-            type: ['APReduce_all', 'protect_stage'],
+            type: [SKILL_DETAIL.AP_REDUCE_ALL, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -3986,7 +4065,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージLv.を10にし、このステージ中、獲得するLOVEを+', '%する。'],
           detail: {
             attr: 'apex',
-            type: ['voltageGain', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -3995,7 +4074,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、ハートの上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -4004,28 +4083,28 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ハート上限を+', 'し、手札の上限枚数を3枚増加する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
           },
         },
         wideExtend_stage1: {
           text: ['このステージ中、ハート上限を+', 'し、手札の上限枚数を1枚増加する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
           },
         },
         wideExtend_stage1_2: {
           text: ['このステージ中、手札の上限枚数を1枚増加し、ハート上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
           },
         },
         wideExtend_section4: {
           text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'extendHand'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
           },
         },
       },
@@ -4034,7 +4113,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ハートの上限を+', 'する。さらにAPを+5する。'],
           detail: {
             attr: 'wide',
-            type: ['heartLimitUp', 'APGain'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4043,7 +4122,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、AP回復速度を+', '%し、ハートの上限を+', 'する。'],
           detail: {
             attr: '',
-            type: ['APQuick', 'heartLimitUp'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -4057,7 +4136,11 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_mentalRecover'],
+            type: [
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+            ],
           },
         },
         celebration_heart_attract_protect: {
@@ -4069,7 +4152,11 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_mentalProtect'],
+            type: [
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+            ],
           },
         },
         celebration_attract_voltage_mental: {
@@ -4081,7 +4168,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
           },
         },
         celebration_voltage_mental_heart: {
@@ -4093,7 +4180,11 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_voltageGain', 'boost_mentalRecover', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+              SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
         celebration_heart_attract_voltage: {
@@ -4105,7 +4196,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
         celebration_attract_voltage_protect: {
@@ -4117,7 +4208,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalProtect'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.BOOST_MENTAL_PROTECT],
           },
         },
         celebration_heart_recover_protect: {
@@ -4129,7 +4220,11 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'celebration',
-            type: ['boost_loveAttract', 'boost_mentalRecover', 'boost_mentalProtect'],
+            type: [
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+              SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+            ],
           },
         },
       },
@@ -4142,7 +4237,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'belief',
-            type: ['mentalDown_section', 'boost_heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4154,7 +4249,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'belief',
-            type: ['mentalDown_section', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4166,7 +4261,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'belief',
-            type: ['mentalDown_stage', 'mentalReduce', 'heartLimitUp'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_STAGE, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -4180,7 +4275,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'voltageGain', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4189,7 +4284,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次に使用するメンタルリカバー効果を+', '%、ボルテージゲイン効果を+', '%する。さらにAPを7回復する。'],
           detail: {
             attr: 'boost',
-            type: ['boost_mentalRecover', 'boost_voltageGain', 'APGain'],
+            type: [SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4201,7 +4296,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'boost',
-            type: ['boost_voltageGain', 'extendHand', 'APGain'],
+            type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.AP_GAIN],
           },
         },
         'boostedExtendGain-boost_recover-addCard1_stage-gain10': {
@@ -4211,7 +4306,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'boost',
-            type: ['boost_mentalRecover', 'extendHand', 'APGain'],
+            type: [SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4220,14 +4315,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['APQuick'],
+            type: [SKILL_DETAIL.AP_QUICK],
           },
         },
         heatUp_stage: {
           text: ['このステージ中、AP回復速度を+', '%する。'],
           detail: {
             attr: '',
-            type: ['APQuick'],
+            type: [SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -4239,7 +4334,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'alternate',
-            type: ['modeChange', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         ignitionBoost_mentalRecover: {
@@ -4249,7 +4344,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'alternate',
-            type: ['modeChange', 'boost_mentalRecover'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
           },
         },
       },
@@ -4258,7 +4353,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['姫芽が《イグニッションモード》になる。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: '',
-            type: ['modeChange', 'voltageGain'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -4270,7 +4365,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['modeChange', 'protect_stage'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -4279,7 +4374,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['姫芽の《イグニッションモード》の状態に応じて効果が変化する。'],
           detail: {
             attr: 'alternate',
-            type: ['ignition'],
+            type: [SKILL_DETAIL.IGNITION],
           },
         },
       },
@@ -4291,7 +4386,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'mentalRecover', 'modeChange'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -4304,7 +4399,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'voltageGain', 'modeChange'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -4317,7 +4412,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'voltageGain', 'modeChange'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -4331,7 +4426,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'triangle',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
       },
@@ -4344,7 +4439,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         abunDanceAttraction_over30_stage_over33: {
@@ -4356,7 +4451,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4370,7 +4465,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abundance',
-            type: ['heartCaptcha', 'voltageGain', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -4383,7 +4478,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -4396,7 +4491,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['voltageGain', 'APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4409,7 +4504,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['protect_stage', 'APGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4422,7 +4517,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['reshuffle', 'heartCaptcha', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -4435,7 +4530,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4448,7 +4543,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4461,7 +4556,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_section', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4475,7 +4570,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['mentalRecover', 'heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
         abunDanceAttraction_over30_stage_over33: {
@@ -4487,7 +4582,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'abunDance',
-            type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4496,7 +4591,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。'],
           detail: {
             attr: 'bubble',
-            type: ['APReduce_deck_ceriseBouquet', 'APReduce_deck_dressCard'],
+            type: [SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET, SKILL_DETAIL.AP_REDUCE_DECK_DRESS_CARD],
           },
         },
       },
@@ -4505,7 +4600,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。'],
           detail: {
             attr: 'tag',
-            type: ['heartCaptcha', 'APReduce'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -4518,7 +4613,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'tag',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'APReduce'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -4527,7 +4622,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の', '%回復させる。'],
           detail: {
             attr: 'mentor',
-            type: ['modeChange', 'mentalRecover'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
       },
@@ -4540,7 +4635,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'mentor',
-            type: ['modeChange', 'boost_heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4553,7 +4648,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'modeChange'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -4565,8 +4660,8 @@ export const useSkillStore = defineStore('skillList', {
             'する。',
           ],
           detail: {
-            attr: 'modeChange',
-            type: ['modeChange', 'mentalRecover', 'voltageGain'],
+            attr: SKILL_DETAIL.MODE_CHANGE,
+            type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -4577,7 +4672,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'infinity',
-            type: ['infinity_AP_stage', 'coolTime'],
+            type: [SKILL_DETAIL.INFINITY_AP_STAGE, SKILL_DETAIL.COOL_TIME],
           },
         },
       },
@@ -4588,7 +4683,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'infinity',
-            type: ['infinity_voltage_stage', 'loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.INFINITY_VOLTAGE_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4599,7 +4694,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'infinity',
-            type: ['infinity_mental_stage', 'heartCaptcha', 'APGain'],
+            type: ['infinity_mental_stage', SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4613,7 +4708,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'modulate',
-            type: ['voltageGain', 'mentalReduce', 'APGain', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.MENTAL_REDUCE,
+              SKILL_DETAIL.AP_GAIN,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -4627,7 +4727,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'modulate',
-            type: ['extensions_section', 'loveAttract_stage', 'protect_stage', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.EXTENSIONS_SECTION,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.PROTECT_STAGE,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -4640,7 +4745,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'upDraft',
-            type: ['boost_loveAttract', 'reshuffle', 'heartCaptcha', 'mentalReduce'],
+            type: [
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.MENTAL_REDUCE,
+            ],
           },
         },
       },
@@ -4653,7 +4763,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'upDraft',
-            type: ['boost_loveAttract', 'reshuffle', 'loveAttract_stage', 'mentalReduce'],
+            type: [
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.MENTAL_REDUCE,
+            ],
           },
         },
       },
@@ -4664,7 +4779,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'torikago',
-            type: ['mentalDown_section', 'APQuick', 'mentalDown_section'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_DOWN_SECTION],
           },
         },
       },
@@ -4677,7 +4792,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'tokinoito',
-            type: ['reshuffle', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4686,7 +4801,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -4695,7 +4810,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['メンタルが75%以上のとき、このセクション中、スキルハート獲得効果による獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -4708,7 +4823,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['loveAttract_section', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4721,7 +4836,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'boost_loveAttract', 'reshuffle'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -4732,7 +4847,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['APGain'],
+            type: [SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4745,7 +4860,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -4756,7 +4871,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['APReduce_all', 'APQuick', 'extendHand'],
+            type: [SKILL_DETAIL.AP_REDUCE_ALL, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.EXTEND_HAND],
           },
         },
       },
@@ -4768,7 +4883,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4780,7 +4895,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'nineHeart',
-            type: ['skillUse-handsCard', 'heartCaptcha'],
+            type: [SKILL_DETAIL.SKILL_USE_HANDS_CARD, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4789,7 +4904,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ボルテージPt.を+', 'する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
           detail: {
             attr: 'nineHeart',
-            type: ['voltageGain', 'heartCaptcha'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4802,7 +4917,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'nineHeart',
-            type: ['protect_stage', 'heartCaptcha'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4811,7 +4926,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['次に使用するラブアトラクト効果を+', '%する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
           detail: {
             attr: 'nineHeart',
-            type: ['boost_loveAttract', 'heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4823,7 +4938,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'nineHeart',
-            type: ['extendHand', 'heartCaptcha'],
+            type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4832,7 +4947,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、獲得するLOVEを+', '%する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
           detail: {
             attr: 'nineHeart',
-            type: ['loveAttract_stage', 'heartCaptcha'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4844,7 +4959,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'nineHeart',
-            type: ['heartCaptcha', 'addCard'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -4857,7 +4972,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'nineHeart',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4866,7 +4981,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ビートハート', '回分のスキルハートを9回獲得する。さらに姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: 'nineHeart',
-            type: ['heartCaptcha', 'modeChange'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -4878,7 +4993,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'nineHeart',
-            type: ['heartCaptcha', 'reshuffle', 'modeChange'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -4892,7 +5007,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'auroraFlower',
-            type: ['heartCaptcha', 'loveAttract_stage', 'APGain'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -4906,7 +5021,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'auroraFlower',
-            type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -4919,7 +5034,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'auroraFlower',
-            type: ['reshuffle', 'heartCaptcha', 'protect_stage'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -4928,7 +5043,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、スキル使用時にビートハート', '回分のスキルハートを獲得する。'],
           detail: {
             attr: '',
-            type: ['heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -4940,7 +5055,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha', 'APReduce_all'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE_ALL],
           },
         },
       },
@@ -4949,7 +5064,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、AP回復速度を+', '%する。さらに手札にある全てのスキルの消費AP-9。'],
           detail: {
             attr: '',
-            type: ['APQuick', 'APReduce_all'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_REDUCE_ALL],
           },
         },
       },
@@ -4964,7 +5079,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'APQuick', 'voltageGain', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -4979,7 +5099,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'APQuick', 'modeChange', 'heartCaptcha', 'loveAttract_section'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.MODE_CHANGE,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+            ],
           },
         },
       },
@@ -4992,7 +5118,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'reshuffle', 'protect_stage'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -5005,7 +5131,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'protect_stage'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -5018,7 +5144,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'reshuffle', 'protect_stage'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
           },
         },
       },
@@ -5032,7 +5158,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'boost_heartCaptcha', 'boost_loveAttract', 'APGain'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.AP_GAIN,
+            ],
           },
         },
       },
@@ -5045,7 +5176,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'allRange',
-            type: ['heartLimitUp', 'reshuffle', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -5059,7 +5190,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.RESHUFFLE,
+            ],
           },
         },
       },
@@ -5074,7 +5210,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dream',
-            type: ['heartLimitUp', 'APQuick', 'addCard', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.ADD_CARD,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5083,7 +5224,12 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.RESHUFFLE,
+            ],
           },
         },
       },
@@ -5099,7 +5245,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dream',
-            type: ['heartLimitUp', 'boost_heartCaptcha', 'addCard', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.ADD_CARD,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5108,7 +5259,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+', '%する。'],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -5117,7 +5268,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ダイナソーカードを1種類(合計1枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -5129,7 +5280,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dinosaur',
-            type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -5142,7 +5293,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalDown_section', 'APQuick', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -5157,7 +5308,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'transcend',
-            type: ['heartLimitUp', 'voltageGain', 'heartCaptcha', 'loveAttract_section'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+            ],
           },
         },
       },
@@ -5172,7 +5328,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'transcend',
-            type: ['heartLimitUp', 'voltageGain', 'mentalReduce', 'boost_heartCaptcha', 'heartCaptcha', 'APReduce'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.MENTAL_REDUCE,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.AP_REDUCE,
+            ],
           },
         },
       },
@@ -5185,7 +5348,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'transcend',
-            type: ['heartLimitUp', 'voltageGain', 'heartCaptcha', 'loveAttract_section'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+            ],
           },
         },
       },
@@ -5201,7 +5369,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'transcend',
-            type: ['heartLimitUp', 'voltageGain', 'mentalReduce', 'boost_heartCaptcha', 'heartCaptcha', 'APReduce'],
+            type: [
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.MENTAL_REDUCE,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.AP_REDUCE,
+            ],
           },
         },
       },
@@ -5214,12 +5389,12 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'wardrobe',
             type: [
-              'changeDeck',
-              'boost_heartCaptcha',
-              'boost_loveAttract',
-              'boost_voltageGain',
-              'boost_mentalRecover',
-              'boost_mentalProtect',
+              SKILL_DETAIL.CHANGE_DECK,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+              SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+              SKILL_DETAIL.BOOST_MENTAL_PROTECT,
             ],
           },
         },
@@ -5231,7 +5406,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'skstChallenge',
-            type: ['challenge'],
+            type: [SKILL_DETAIL.CHALLENGE],
           },
         },
       },
@@ -5249,15 +5424,15 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: 'skillChallenge',
             type: [
-              'reshuffle',
-              'heartCaptcha',
-              'voltageGain',
-              'mentalRecover',
-              'protect_stage',
-              'loveAttract_section',
-              'extendHand',
-              'APQuick',
-              'heartLimitUp',
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.MENTAL_RECOVER,
+              SKILL_DETAIL.PROTECT_STAGE,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.EXTEND_HAND,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.HEART_LIMIT_UP,
             ],
           },
         },
@@ -5267,7 +5442,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['姫芽が《イグニッションモード》になった回数に応じて様々な効果が発動する。'],
           detail: {
             attr: '',
-            type: ['driveIgnition'],
+            type: [SKILL_DETAIL.DRIVE_IGNITION],
           },
         },
       },
@@ -5276,7 +5451,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽が《イグニッションモード》になる。'],
           detail: {
             attr: '',
-            type: ['reshuffle', 'modeChange'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -5289,7 +5464,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'reboot',
-            type: ['reshuffle', 'boost_loveAttract', 'modeChange'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -5301,7 +5476,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'reboot',
-            type: ['reshuffle', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
         rebootVoltage_02: {
@@ -5311,7 +5486,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'reboot',
-            type: ['boost_voltageGain', 'reshuffle'],
+            type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -5325,7 +5500,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'grandFinale',
-            type: ['APGain', 'boost_heartCaptcha', 'heartLimitUp'],
+            type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -5338,7 +5513,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'powerOfYell',
-            type: ['loveAttract_stage', 'APQuick', 'APGain'],
+            type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
           },
         },
         powerOfYell_02: {
@@ -5348,7 +5523,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'powerOfYell',
-            type: ['voltageGain', 'APQuick', 'APGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
           },
         },
         powerOfYell_03: {
@@ -5358,7 +5533,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'powerOfYell',
-            type: ['protect_stage', 'APQuick', 'APGain'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -5367,7 +5542,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['山札にあるすべてのスキルの消費AP-3。'],
           detail: {
             attr: 'reunionCharm',
-            type: ['APReduce'],
+            type: [SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -5376,7 +5551,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['山札にあるすべてのスキルの消費AP-3。'],
           detail: {
             attr: 'reunionCharm',
-            type: ['APReduce'],
+            type: [SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -5385,7 +5560,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['山札にあるすべてのスキルの消費AP-3。'],
           detail: {
             attr: 'reunionCharm',
-            type: ['APReduce'],
+            type: [SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -5397,7 +5572,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'dreaming',
-            type: ['APReduce', 'reshuffle', 'APQuick', 'mentalDown_section'],
+            type: [
+              SKILL_DETAIL.AP_REDUCE,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.MENTAL_DOWN_SECTION,
+            ],
           },
         },
       },
@@ -5406,7 +5586,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ビートハートの出現個数を+', 'する。さらにボルテージPt.を+', 'する。'],
           detail: {
             attr: 'vibes',
-            type: ['vibes_section', 'voltageGain'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -5415,7 +5595,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ビートハートの出現個数を+1する。さらにこのセクション中、獲得するLOVEを+', 'する。'],
           detail: {
             attr: 'vibes',
-            type: ['vibes_section', 'loveAttract_section'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -5424,7 +5604,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ムードをハッピー方向に+', 'する。'],
           detail: {
             attr: 'ambience',
-            type: ['ambience_section'],
+            type: [SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5433,7 +5613,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ムードをメロウ方向に+', 'する。'],
           detail: {
             attr: 'ambience',
-            type: ['ambience_section'],
+            type: [SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5445,7 +5625,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'ambience',
-            type: ['extensions_section', 'ambience_section'],
+            type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5457,7 +5637,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'ambience',
-            type: ['reshuffle', 'ambience_section'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5469,7 +5649,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'vibes',
-            type: ['reshuffle', 'mentalRecover', 'heartLimitUp'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -5481,7 +5661,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['vibes_section', 'sound', 'heartLimitUp'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -5493,7 +5673,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'vibes',
-            type: ['vibes_section', 'heartLimitUp'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -5502,7 +5682,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、AP回復速度を-30%する。さらにこのセクション中、ムードをハッピー方向に+', 'する。'],
           detail: {
             attr: 'ambience',
-            type: ['APSlow', 'ambience_section'],
+            type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5511,7 +5691,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ムードがハッピーの時メロウ方向に、メロウの時ハッピー方向に+', 'する。'],
           detail: {
             attr: 'ambience',
-            type: ['ambience_section'],
+            type: [SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5524,7 +5704,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'ambience',
-            type: ['ambience_section', 'heartCaptcha'],
+            type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -5537,7 +5717,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['sound', 'heartCaptcha'],
+            type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         soundHeart_02: {
@@ -5548,7 +5728,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'sound', 'heartLimitUp'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -5562,7 +5742,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'sound', 'voltageGain', 'heartLimitUp', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.SOUND,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5576,7 +5762,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'sound', 'loveAttract_stage', 'heartLimitUp', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.SOUND,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5588,7 +5780,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['protect_stage', 'sound', 'APGain'],
+            type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.SOUND, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -5601,7 +5793,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha', 'sound'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.SOUND],
           },
         },
       },
@@ -5614,7 +5806,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'sound'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.SOUND],
           },
         },
       },
@@ -5627,7 +5819,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         soundBoostedHeart_02: {
@@ -5638,7 +5830,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -5651,7 +5843,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['loveAttract', 'sound', 'boost_loveAttract'],
+            type: ['loveAttract', SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -5664,7 +5856,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['voltageGain', 'sound', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
       },
@@ -5673,14 +5865,14 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ムード値がハッピー、メロウいずれかのとき、このセクション中、ムード値を+', 'する。'],
           detail: {
             attr: '',
-            type: ['sound', 'ambience_section'],
+            type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
         soundAmbience_02: {
           text: ['ムードがハッピー、メロウいずれかのとき、このステージ中、ムード値を+', 'する。'],
           detail: {
             attr: '',
-            type: ['sound', 'ambience_stage'],
+            type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_STAGE],
           },
         },
       },
@@ -5692,7 +5884,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalRecover', 'sound', 'reshuffle'],
+            type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.SOUND, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -5704,7 +5896,28 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['vibes_section', 'sound', 'voltageGain'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.SOUND, SKILL_DETAIL.VOLTAGE_GAIN],
+          },
+        },
+      },
+      サウンドフュージョン: {
+        soundFusion_01: {
+          text: [
+            'ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+            'する。さらにフィーバーセクションのとき、ビートハート',
+            '回分のスキルハートを獲得、9回の間スキルハート獲得効果による獲得数を+',
+            '%し、手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。それ以外のセクションのとき、このセクション中、AP回復速度を-5%し、メンタルを最大値の5%減少させる。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.AP_SLOW,
+              SKILL_DETAIL.MENTAL_REDUCE,
+            ],
           },
         },
       },
@@ -5716,7 +5929,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'heartCaptcha'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
         imitationHeart_02: {
@@ -5726,7 +5939,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'heartCaptcha'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -5738,7 +5951,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'heartCaptcha'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -5750,7 +5963,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'voltageGain'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
         imitationVoltage_02: {
@@ -5760,7 +5973,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'voltageGain'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.VOLTAGE_GAIN],
           },
         },
       },
@@ -5772,7 +5985,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'APQuick'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.AP_QUICK],
           },
         },
       },
@@ -5784,7 +5997,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'heartLimitUp'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
@@ -5796,7 +6009,19 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'imitation',
-            type: ['imitation', 'reshuffle', 'protect_stage'],
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
+          },
+        },
+      },
+      イミテーションライト: {
+        imitationLight_01: {
+          text: [
+            'カードがステージにセットされ、1セクションの間ムード値変動効果を吸収する。セクションが変わったとき、このセクションの間、吸収した効果量の',
+            '倍のムード値変動効果を発動し、捨札に移動する。',
+          ],
+          detail: {
+            attr: 'imitation',
+            type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.AMBIENCE_SECTION],
           },
         },
       },
@@ -5805,7 +6030,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['ハピネスチェリーカードを1種類(合計2枚)山札に追加する。'],
           detail: {
             attr: '',
-            type: ['addCard'],
+            type: [SKILL_DETAIL.ADD_CARD],
           },
         },
       },
@@ -5817,7 +6042,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['APReduce', 'heartCaptcha'],
+            type: [SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.HEART_CAPTCHA],
           },
         },
       },
@@ -5832,7 +6057,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
         exhaustAttract_02: {
@@ -5845,7 +6070,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
           },
         },
       },
@@ -5856,8 +6081,8 @@ export const useSkillStore = defineStore('skillList', {
             '%する。さらに山札にある花帆のスキルの消費AP-3。',
           ],
           detail: {
-            attr: '',
-            type: ['boost_heartCaptcha', 'APReduce'],
+            attr: 'bloomMySelf',
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE],
           },
         },
         bloomMySelf_02: {
@@ -5866,8 +6091,18 @@ export const useSkillStore = defineStore('skillList', {
             'する。さらに山札にあるセラスのスキルの消費AP-1。',
           ],
           detail: {
-            attr: '',
-            type: ['ambience_section', 'APReduce'],
+            attr: 'bloomMySelf',
+            type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.AP_REDUCE],
+          },
+        },
+        bloomMySelf_03: {
+          text: [
+            '手札を全て捨てて、デッキから手札上限までスキルを引く。この時瑠璃乃のカードをドローする確率大幅アップ。さらに3回の間瑠璃乃が使用するメンタルリカバー効果を',
+            '%し、山札にある瑠璃乃のスキルの消費AP-3。',
+          ],
+          detail: {
+            attr: 'bloomMySelf',
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -5879,7 +6114,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['mentalDown_section', 'heartLimitUp', 'APReduce'],
+            type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_REDUCE],
           },
         },
       },
@@ -5894,7 +6129,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['protect_stage', 'boost_heartCaptcha', 'heartLimitUp', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.PROTECT_STAGE,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5912,7 +6152,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'timeless',
-            type: ['infinity_AP_section', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.INFINITY_AP_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -5932,7 +6172,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'timeless',
-            type: ['infinity_voltage_section', 'loveAttract_stage', 'APGain', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.INFINITY_VOLTAGE_SECTION,
+              SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+              SKILL_DETAIL.AP_GAIN,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5952,7 +6197,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: 'timeless',
-            type: ['infinity_mental_section', 'heartCaptcha', 'APGain', 'boost_heartCaptcha'],
+            type: [
+              SKILL_DETAIL.INFINITY_MENTAL_SECTION,
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.AP_GAIN,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -5980,7 +6230,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain', 'mentalRecover', 'voltageReduce'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.MENTAL_RECOVER,
+              SKILL_DETAIL.VOLTAGE_REDUCE,
+            ],
           },
         },
       },
@@ -6007,7 +6263,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'APQuick', 'protect_stage', 'voltageReduce'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.PROTECT_STAGE,
+              SKILL_DETAIL.VOLTAGE_REDUCE,
+            ],
           },
         },
       },
@@ -6035,7 +6297,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'APQuick', 'voltageGain', 'mentalReduce'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.MENTAL_REDUCE,
+            ],
           },
         },
       },
@@ -6043,8 +6311,8 @@ export const useSkillStore = defineStore('skillList', {
         elysion_01: {
           text: ['このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ビートハートの出現個数を+', 'する。'],
           detail: {
-            attr: '',
-            type: ['APSlow', 'vibes_stage'],
+            attr: 'Elysion',
+            type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.VIBES_STAGE],
           },
         },
         elysion_02: {
@@ -6053,8 +6321,8 @@ export const useSkillStore = defineStore('skillList', {
             '%回復する。',
           ],
           detail: {
-            attr: '',
-            type: ['APSlow', 'mentalRecover'],
+            attr: 'Elysion',
+            type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.MENTAL_RECOVER],
           },
         },
         elysion_03: {
@@ -6063,8 +6331,18 @@ export const useSkillStore = defineStore('skillList', {
             '%分のメンタルダメージを無効にする。',
           ],
           detail: {
-            attr: '',
-            type: ['APSlow', 'protect_stage'],
+            attr: 'Elysion',
+            type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.PROTECT_STAGE],
+          },
+        },
+        elysion_04: {
+          text: [
+            'このステージ中、AP回復速度を-9999%する。さらにムードがハッピー、メロウいずれかのとき、このステージ中、ムード値を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'Elysion',
+            type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.AMBIENCE_STAGE],
           },
         },
       },
@@ -6076,8 +6354,8 @@ export const useSkillStore = defineStore('skillList', {
             'する。',
           ],
           detail: {
-            attr: '',
-            type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
+            attr: 'mode',
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
           },
         },
       },
@@ -6089,8 +6367,13 @@ export const useSkillStore = defineStore('skillList', {
             '%分のメンタルダメージを無効にする。',
           ],
           detail: {
-            attr: '',
-            type: ['reshuffle', 'extendHand', 'mentalRecover', 'protect_stage'],
+            attr: 'mode',
+            type: [
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.EXTEND_HAND,
+              SKILL_DETAIL.MENTAL_RECOVER,
+              SKILL_DETAIL.PROTECT_STAGE,
+            ],
           },
         },
       },
@@ -6103,8 +6386,22 @@ export const useSkillStore = defineStore('skillList', {
             'する。',
           ],
           detail: {
-            attr: '',
-            type: ['voltageGain', 'heartCaptcha', 'heartLimitUp'],
+            attr: 'mode',
+            type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+          },
+        },
+      },
+      'mode:FUTURE': {
+        mode_future_01: {
+          text: [
+            'ムードがハッピー、メロウいずれかのとき、このステージ中、ムード値を+',
+            'する。さらにこのステージ中、ビートハートの出現個数を+',
+            'し、88回の間ラブアトラクト効果を+',
+            '%する。',
+          ],
+          detail: {
+            attr: 'mode',
+            type: [SKILL_DETAIL.AMBIENCE_STAGE, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
           },
         },
       },
@@ -6113,7 +6410,7 @@ export const useSkillStore = defineStore('skillList', {
           text: ['このセクション中、ムード値をメロウ方向に+', 'する。さらにメンタルを最大値の16%減少させる。'],
           detail: {
             attr: '',
-            type: ['ambience_section', 'mentalReduce'],
+            type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
           },
         },
       },
@@ -6127,7 +6424,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
+            type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
           },
         },
       },
@@ -6138,7 +6435,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'APReduce', 'modeChange'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -6153,7 +6450,14 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'voltageGain', 'heartLimitUp', 'mentalReduce', 'modeChange'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.MENTAL_REDUCE,
+              SKILL_DETAIL.MODE_CHANGE,
+            ],
           },
         },
       },
@@ -6168,7 +6472,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['voltageGain', 'loveAttract_section', 'heartLimitUp', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
         'SRK-Link_02': {
@@ -6181,7 +6490,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['loveAttract_section', 'heartLimitUp', 'voltageGain', 'heartCaptcha'],
+            type: [
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.HEART_CAPTCHA,
+            ],
           },
         },
       },
@@ -6192,7 +6506,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle', 'APReduce', 'modeChange'],
+            type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.MODE_CHANGE],
           },
         },
       },
@@ -6206,7 +6520,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'voltageGain', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
         tripletVoltage_02: {
@@ -6218,7 +6532,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_section', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -6233,7 +6547,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'heartLimitUp', 'boost_voltageGain', 'boost_loveAttract', 'modeChange'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.MODE_CHANGE,
+            ],
           },
         },
       },
@@ -6245,7 +6565,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartLimitUp', 'reshuffle'],
+            type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -6257,7 +6577,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['addCard', 'boost_heartCaptcha'],
+            type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
           },
         },
       },
@@ -6268,7 +6588,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle'],
+            type: [SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -6283,7 +6603,12 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'voltageGain', 'loveAttract_section', 'heartLimitUp'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+            ],
           },
         },
       },
@@ -6295,7 +6620,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle'],
+            type: [SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -6311,7 +6636,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['reshuffle'],
+            type: [SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -6325,7 +6650,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['vibes_section', 'extendHand', 'APQuick', 'APGain'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -6341,12 +6666,12 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: [
-              'boost_heartCaptcha',
-              'ambience_section',
-              'reshuffle',
-              'boost_voltageGain',
-              'loveAttract_section',
-              'APReduce',
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+              SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+              SKILL_DETAIL.AP_REDUCE,
             ],
           },
         },
@@ -6363,12 +6688,12 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: [
-              'boost_heartCaptcha',
-              'ambience_section',
-              'reshuffle',
-              'voltageGain',
-              'boost_loveAttract',
-              'APReduce',
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.AP_REDUCE,
             ],
           },
         },
@@ -6382,7 +6707,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['APQuick', 'extensions_section', 'APGain'],
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
           },
         },
       },
@@ -6395,7 +6720,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['boost_heartCaptcha', 'ambience_section', 'reshuffle', 'extensions_section', 'APReduce_deckAll'],
+            type: [
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.EXTENSIONS_SECTION,
+              SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+            ],
           },
         },
         asagaoDew_02: {
@@ -6406,7 +6737,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['boost_loveAttract', 'ambience_section', 'reshuffle', 'mentalDown_section', 'APReduce_deckAll'],
+            type: [
+              SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.MENTAL_DOWN_SECTION,
+              SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+            ],
           },
         },
       },
@@ -6419,7 +6756,7 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['vibes_section', 'APQuick', 'reshuffle'],
+            type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.RESHUFFLE],
           },
         },
       },
@@ -6433,7 +6770,13 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'reshuffle', 'heartLimitUp', 'boost_heartCaptcha', 'APReduce_deckAll'],
+            type: [
+              SKILL_DETAIL.HEART_CAPTCHA,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+              SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+            ],
           },
         },
       },
@@ -6444,282 +6787,35 @@ export const useSkillStore = defineStore('skillList', {
           ],
           detail: {
             attr: '',
-            type: ['heartCaptcha', 'loveAttract_stage', 'heartLimitUp'],
+            type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_LIMIT_UP],
           },
         },
       },
-    },
-    skillColor: {
-      heartCaptcha: {
-        name: 'ハートキャプチャ',
-        colorCode: 'red',
-        description: 'ハートを獲得する。',
-      },
-      loveAttract: {
-        name: 'ラブアトラクト',
-        colorCode: 'lime-darken-3',
-        description: '次回ハート回収時、獲得するLOVEが増加する。',
-      },
-      loveAttract_section: {
-        name: 'ラブアトラクト(セクション)',
-        colorCode: 'lime-darken-3',
-        description: 'このセクション中、獲得するLOVEが増加する。',
-      },
-      loveAttract_stage: {
-        name: 'ラブアトラクト(ステージ)',
-        colorCode: 'lime-darken-3',
-        description: 'このステージ中、獲得するLOVEが増加する。',
-      },
-      voltageGain: {
-        name: 'ボルテージゲイン',
-        colorCode: 'lime-darken-4',
-        description: 'ボルテージPt.を獲得する。',
-      },
-      voltageReduce: {
-        name: 'ボルテージレデュース',
-        colorCode: 'lime-darken-4',
-        description: 'ボルテージPt.を減らす。',
-      },
-      mentalRecover: {
-        name: 'メンタルリカバー',
-        colorCode: 'green',
-        description: 'メンタルを回復する。',
-      },
-      mentalReduce: {
-        name: 'メンタルレデュース',
-        colorCode: 'green',
-        description: 'メンタルを減らす。',
-      },
-      mentalDown_section: {
-        name: 'メンタルダウン(セクション)',
-        colorCode: 'green',
-        description: 'メンタルが0になってもメンタルダウンしなくなる。',
-      },
-      mentalDown_stage: {
-        name: 'メンタルダウン(ステージ)',
-        colorCode: 'green',
-        description: 'メンタルが0になってもメンタルダウンしなくなる。',
-      },
-      protect_section: {
-        name: 'プロテクト(セクション)',
-        colorCode: 'green',
-        description: 'このセクション中、メンタル減少を一定量無効化する。',
-      },
-      protect_stage: {
-        name: 'プロテクト(ステージ)',
-        colorCode: 'green',
-        description: 'このステージ中、メンタル減少を一定量無効化する。',
-      },
-      reshuffle: {
-        name: 'リシャッフル',
-        colorCode: 'purple',
-        description: '手札を全て捨てて、デッキから手札上限までスキルを引く。',
-      },
-      extendHand: {
-        name: 'エクステンドハンド',
-        colorCode: 'purple',
-        description: '手札の上限枚数が増加する。',
-      },
-      extensions_section: {
-        name: 'エクステンション(セクション)',
-        colorCode: 'purple',
-        description: 'このセクション中、手札の上限枚数が増加する(最大8枚)。',
-      },
-      extensions_stage: {
-        name: 'エクステンション(ステージ)',
-        colorCode: 'purple',
-        description: 'このステージ中、手札の上限枚数が増加する(最大8枚)。',
-      },
-      cardReduce: {
-        name: '手札減少',
-        colorCode: 'purple',
-        description: 'このステージ中、手札の上限枚数が減少する。',
-      },
-      boost_heartCaptcha: {
-        name: 'ブースト(ハートキャプチャ)',
-        colorCode: 'red',
-        description: '次に使用するスキルハート獲得効果による獲得数を増加させる。',
-      },
-      boost_loveAttract: {
-        name: 'ブースト(ラブアトラクト)',
-        colorCode: 'lime-darken-3',
-        description: '次に使用するラブアトラクトの効果を増加させる。',
-      },
-      boost_voltageGain: {
-        name: 'ブースト(ボルテージゲイン)',
-        colorCode: 'lime-darken-4',
-        description: '次に使用するボルテージゲインの効果を増加させる。',
-      },
-      boost_mentalRecover: {
-        name: 'ブースト(メンタルリカバー)',
-        colorCode: 'green',
-        description: '次に使用するメンタルリカバーの効果を増加させる。',
-      },
-      boost_mentalProtect: {
-        name: 'ブースト(メンタルプロテクト)',
-        colorCode: 'green',
-        description: '次に使用するメンタルプロテクトの効果を増加させる。',
-      },
-      APGain: {
-        name: 'APゲイン',
-        colorCode: '',
-        description: 'APを回復する。',
-      },
-      APLoss: {
-        name: 'APロス',
-        colorCode: '',
-        description: 'APを減少させる。',
-      },
-      APReduce: {
-        name: 'APレデュース',
-        colorCode: 'purple',
-        description: 'スキルの消費APを減少させる。',
-      },
-      APReduce_all: {
-        name: 'APレデュース(手札全て)',
-        colorCode: 'purple',
-        description: '手札の全てのスキルの消費APを減少させる。',
-      },
-      APReduce_deckAll: {
-        name: 'APレデュース(デッキ内全て)',
-        colorCode: 'purple',
-        description: 'デッキ内の全てのスキルの消費APを減少させる。',
-      },
-      APReduce_heart: {
-        name: 'APレデュース(ハート系)',
-        colorCode: 'purple',
-        description: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
-      },
-      APReduce_voltageGain: {
-        name: 'APレデュース(ボルテージ系)',
-        colorCode: 'purple',
-        description: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。',
-      },
-      APReduce_deck_ceriseBouquet: {
-        name: 'APレデュース(スリーズブーケ)',
-        colorCode: 'purple',
-        description: 'デッキにあるスリーズブーケのスキルの消費APを減少させる。',
-      },
-      APReduce_deck_dressCard: {
-        name: 'APレデュース(ドレスカード)',
-        colorCode: 'purple',
-        description: 'デッキにあるドレスカードの消費APを減少させる。',
-      },
-      APQuick: {
-        name: 'ヒートアップ',
-        colorCode: 'lime-darken-3',
-        description: 'AP回復速度を上昇させる。',
-      },
-      APSlow: {
-        name: 'AP回復速度低下',
-        colorCode: '',
-        description: 'AP回復速度を低下させる。',
-      },
-      heartLimitUp: {
-        name: 'ワイドハート',
-        colorCode: 'red',
-        description: 'ハート数の上限を増加させる。',
-      },
-      addCard: {
-        name: 'カード追加',
-        colorCode: 'purple',
-        description: 'カードを山札に追加する。',
-      },
-      ignition: {
-        name: 'イグニッション',
-        colorCode: 'purple',
-        description: '特定条件で効果が変化する。',
-      },
-      modeChange: {
-        name: 'モードチェンジ',
-        colorCode: 'purple',
-        description: 'スキルの効果を変化させる。',
-      },
-      coolTime: {
-        name: 'クールタイム',
-        colorCode: '',
-        description: 'スキル使用時、クールタイムが発生する。',
-      },
-      infinity_AP_section: {
-        name: 'AP無限(セクション)',
-        colorCode: '',
-        description: 'このセクション中、APを無限にする。',
-      },
-      infinity_AP_stage: {
-        name: 'AP無限(ステージ)',
-        colorCode: '',
-        description: 'このステージ中、APを無限にする。',
-      },
-      infinity_voltage_section: {
-        name: 'ボルテージ無限(セクション)',
-        colorCode: '',
-        description: 'このセクション中、ボルテージを無限にする。',
-      },
-      infinity_voltage_stage: {
-        name: 'ボルテージ無限(ステージ)',
-        colorCode: '',
-        description: 'このステージ中、ボルテージを無限にする。',
-      },
-      infinity_mental_section: {
-        name: 'メンタル無限(セクション)',
-        colorCode: '',
-        description: 'このセクション中、メンタルを無限にする。',
-      },
-      infinity_mental_stage: {
-        name: 'メンタル無限(ステージ)',
-        colorCode: '',
-        description: 'このステージ中、メンタルを無限にする。',
-      },
-      'skillUse-handsCard': {
-        name: 'スキル使用(手札)',
-        colorCode: '',
-        description: '手札の他の全スキルを同時に使用する。',
-      },
-      changeDeck: {
-        name: 'チェンジデッキ',
-        colorCode: 'purple',
-        description: 'デッキを入れ替える。',
-      },
-      challenge: {
-        name: 'チャレンジ',
-        colorCode: '',
-        description: 'ランダムにチャレンジが発生する。',
-      },
-      driveIgnition: {
-        name: 'ドライブイグニッション',
-        colorCode: '',
-        description: 'イグニッションモードになった回数に応じて、様々な効果が発動する。',
-      },
-      vibes_section: {
-        name: 'バイブス(セクション)',
-        colorCode: 'lime-darken-4',
-        description: 'このセクション中、ビートハートの出現個数を増加させる。',
-      },
-      vibes_stage: {
-        name: 'バイブス(ステージ)',
-        colorCode: 'lime-darken-4',
-        description: 'このステージ中、ビートハートの出現個数を増加させる。',
-      },
-      ambience_section: {
-        name: 'アンビエンス(セクション)',
-        colorCode: 'lime-darken-4',
-        description: 'このセクション中、ムード値を変化させる。',
-      },
-      ambience_stage: {
-        name: 'アンビエンス(ステージ)',
-        colorCode: 'lime-darken-4',
-        description: 'このステージ中、ムード値を変化させる。',
-      },
-      imitation: {
-        name: 'イミテーション',
-        colorCode: 'purple',
-        description:
-          'カードがステージにセットされ、特定の獲得したものを吸収する。その後、特定の効果を発動し、捨札に移動する。',
-      },
-      sound: {
-        name: 'サウンド',
-        colorCode: 'red',
-        description: 'ムードが一定値以上もしくは一定値以下になると、特定の効果を発動する。',
+      サマーマジックアワー: {
+        summerMagicHour_01: {
+          text: [
+            'フィーバーセクションのとき、ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+            'し、ビートハートの出現個数を+',
+            'する。さらにこのステージ中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.HEART_LIMIT_UP],
+          },
+        },
+        summerMagicHour_02: {
+          text: [
+            'フィーバーセクションのとき、このセクション中、AP回復速度を+',
+            '%し、ビートハートの出現個数を+',
+            'する。さらにこのステージ中、獲得するLOVEを+',
+            '%する。',
+          ],
+          detail: {
+            attr: '',
+            type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+          },
+        },
       },
     },
   }),

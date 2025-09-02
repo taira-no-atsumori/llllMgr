@@ -1,5 +1,29 @@
 import { StyleType, Mood } from '@/constants/cards';
 
+/**
+ * サポートスキルの詳細情報
+ *
+ * @interface SupportSkillList
+ * @property initLevel - サポートスキルの初期レベル
+ * @property levelUp - サポートスキルが上がるレベルの閾値
+ * @property upLevel - サポートスキルの上がるレベル
+ */
+interface SupportSkillList {
+  initLevel: number;
+  levelUp: number;
+  upLevel: number;
+}
+
+/**
+ * サポートスキル情報
+ * @property supportSkillTitle サポートスキルのタイトル
+ * @property supportSkillList サポートスキルの詳細リスト
+ */
+interface SupportSkill {
+  supportSkillTitle: string;
+  supportSkillList: Record<string, SupportSkillList>;
+}
+
 /** ガチャの追加シーズンと期間情報 */
 interface Gacha {
   addSeason: string;
@@ -13,6 +37,7 @@ interface BaseStatus {
   cool: number;
   mental: number;
   BP: number;
+  supportSkill?: SupportSkill;
 }
 
 /** カードの育成状況 */

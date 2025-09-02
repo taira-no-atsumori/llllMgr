@@ -730,6 +730,20 @@ export const useMusicStore = defineStore('musicList', {
         center: MEMBER_NAMES.KOZUE,
         bonusSkill: BONUS_SKILL.LOVE_BONUS,
         singingMembers: [MEMBER_NAMES.KAHO, MEMBER_NAMES.KOZUE],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 13,
+            HARD: 20,
+            EXPERT: 25,
+            MASTER: 30,
+          },
+          maxCombo: {
+            NORMAL: 256,
+            HARD: 487,
+            EXPERT: 546,
+            MASTER: 1056,
+          },
+        },
       },
       残陽: {
         ID: 'm_044',
@@ -1136,6 +1150,20 @@ export const useMusicStore = defineStore('musicList', {
         center: MEMBER_NAMES.TSUZURI,
         bonusSkill: BONUS_SKILL.VOLTAGE_UP,
         singingMembers: [MEMBER_NAMES.SAYAKA, MEMBER_NAMES.TSUZURI],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 26,
+            MASTER: 28,
+          },
+          maxCombo: {
+            NORMAL: 141,
+            HARD: 232,
+            EXPERT: 596,
+            MASTER: 947,
+          },
+        },
       },
       パラレルダンサー: {
         ID: 'm_045',
@@ -1903,6 +1931,20 @@ export const useMusicStore = defineStore('musicList', {
         center: MEMBER_NAMES.KOZUE,
         bonusSkill: BONUS_SKILL.MENTAL_RECOVER,
         singingMembers: [MEMBER_NAMES.KOZUE],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 18,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 240,
+            HARD: 430,
+            EXPERT: 848,
+            MASTER: 1135,
+          },
+        },
       },
       'Preserved Roses': {
         ID: 'm_019',
@@ -2061,6 +2103,20 @@ export const useMusicStore = defineStore('musicList', {
         center: MEMBER_NAMES.RURINO,
         bonusSkill: BONUS_SKILL.VOLTAGE_UP,
         singingMembers: [MEMBER_NAMES.RURINO],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 21,
+            EXPERT: 25,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 174,
+            HARD: 366,
+            EXPERT: 692,
+            MASTER: 740,
+          },
+        },
       },
       '♡桃色片想い♡': {
         ID: 'm_032',
@@ -2725,6 +2781,20 @@ export const useMusicStore = defineStore('musicList', {
           MEMBER_NAMES.TSUZURI,
           MEMBER_NAMES.MEGUMI,
         ],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 12,
+            HARD: 19,
+            EXPERT: 27,
+            MASTER: 32,
+          },
+          maxCombo: {
+            NORMAL: 231,
+            HARD: 457,
+            EXPERT: 719,
+            MASTER: 999,
+          },
+        },
       },
       'Trick & Cute（104期Ver.）': {
         ID: 'm_116',
@@ -4053,6 +4123,20 @@ export const useMusicStore = defineStore('musicList', {
         center: MEMBER_NAMES.HIME,
         bonusSkill: BONUS_SKILL.VOLTAGE_UP,
         singingMembers: [MEMBER_NAMES.RURINO, MEMBER_NAMES.MEGUMI, MEMBER_NAMES.HIME],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 15,
+            HARD: 21,
+            EXPERT: 28,
+            MASTER: 31,
+          },
+          maxCombo: {
+            NORMAL: 472,
+            HARD: 765,
+            EXPERT: 1207,
+            MASTER: 2112,
+          },
+        },
       },
       みらくりえーしょん: {
         ID: 'm_098',
@@ -4973,6 +5057,41 @@ export const useMusicStore = defineStore('musicList', {
           },
         },
       },
+      '夏めきペイン（105期Ver.）': {
+        ID: 'm_191',
+        musicData: {
+          kana: 'なつめきぺいん',
+          singer: '蓮ノ空女学院スクールアイドルクラブ',
+          releaseDate: {
+            year: 2023,
+            month: 9,
+            date: 20,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 1stアルバム',
+          BPM: {
+            original: 188,
+            inGame: 188,
+          },
+          time: 91.92,
+          cover: false,
+        },
+        attribute: ATTRIBUTE.PURE.en,
+        BHcount: 66,
+        level: 1,
+        term: 105,
+        center: MEMBER_NAMES.RURINO,
+        bonusSkill: BONUS_SKILL.VOLTAGE_UP,
+        singingMembers: [
+          MEMBER_NAMES.KAHO,
+          MEMBER_NAMES.SAYAKA,
+          MEMBER_NAMES.RURINO,
+          MEMBER_NAMES.GINKO,
+          MEMBER_NAMES.KOSUZU,
+          MEMBER_NAMES.HIME,
+          MEMBER_NAMES.SERAS,
+          MEMBER_NAMES.IZUMI,
+        ],
+      },
       'Hello, new dream!': {
         ID: 'm_168',
         musicData: {
@@ -5840,6 +5959,46 @@ export const useMusicStore = defineStore('musicList', {
           },
         },
       },
+      フュージョンクラスト: {
+        ID: 'm_192',
+        musicData: {
+          kana: 'ふゅーじょんくらすと',
+          singer: 'Edel Note',
+          releaseDate: {
+            year: 2025,
+            month: 9,
+            date: 3,
+          },
+          numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+          BPM: {
+            original: 104,
+            inGame: 104,
+          },
+          time: 128,
+          cover: false,
+        },
+        attribute: ATTRIBUTE.PURE.en,
+        BHcount: 54,
+        level: 1,
+        term: 105,
+        center: MEMBER_NAMES.SERAS,
+        bonusSkill: BONUS_SKILL.BEAT_HEART_UP,
+        singingMembers: [MEMBER_NAMES.SERAS, MEMBER_NAMES.IZUMI],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 11,
+            HARD: 17,
+            EXPERT: 24,
+            MASTER: 27,
+          },
+          maxCombo: {
+            NORMAL: 222,
+            HARD: 510,
+            EXPERT: 645,
+            MASTER: 851,
+          },
+        },
+      },
       'be proud': {
         ID: 'm_169',
         musicData: {
@@ -6026,6 +6185,20 @@ export const useMusicStore = defineStore('musicList', {
         center: MEMBER_NAMES.KOSUZU,
         bonusSkill: BONUS_SKILL.VOLTAGE_UP,
         singingMembers: [MEMBER_NAMES.SAYAKA, MEMBER_NAMES.KOSUZU],
+        scoreData: {
+          difficultyLevel: {
+            NORMAL: 14,
+            HARD: 21,
+            EXPERT: 28,
+            MASTER: 29,
+          },
+          maxCombo: {
+            NORMAL: 297,
+            HARD: 678,
+            EXPERT: 1057,
+            MASTER: 1206,
+          },
+        },
       },
       'START!! True dreams': {
         ID: 'm_185',

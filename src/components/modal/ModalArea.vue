@@ -44,52 +44,30 @@
   </v-dialog>
 </template>
 
-<script setup>
-import { useStoreCounter } from '@/stores/counter';
-const store = useStoreCounter();
-</script>
+<script setup lang="ts">
+  import { useStoreCounter } from '@/stores/counter';
+  // import { CardSetting } from './PossessionCardList.vue'
+  import SetCardData from './SetCardData.vue';
+  import CardListFilter from './CardListFilter.vue';
+  import SelectCard from './SelectCard.vue';
+  import SetLeaningLevel from './SetLeaningLevel.vue';
+  import MasteryLevel from './MasteryLevel.vue';
+  import Share from './Share.vue';
+  import Backup from './Backup.vue';
+  import Settings from './Settings.vue';
 
-<script>
-// import CardSetting from './PossessionCardList.vue'
-import SetCardData from './SetCardData.vue';
-import CardListFilter from './CardListFilter.vue';
-import SelectCard from './SelectCard.vue';
-import SetLeaningLevel from './SetLeaningLevel.vue';
-import MasteryLevel from './MasteryLevel.vue';
-import Share from './Share.vue';
-import Backup from './Backup.vue';
-import Settings from './Settings.vue';
+  const store = useStoreCounter();
 
-export default {
-  name: 'ModalArea',
-  components: {
-    SetCardData,
-    SelectCard,
-    CardListFilter,
-    SetLeaningLevel,
-    MasteryLevel,
-    Share,
-    Backup,
-    Settings,
-  },
-  data() {
-    return {
-      maxWidth: {
-        selectCard: 1600,
-        setCardData: 900,
-        possessionCardSetting: 'auto',
-        CardListFilter: 1600,
-        MusicListFilter: 1600,
-        masteryLevel: 600,
-        setLeaningLevel: 600,
-        share: 400,
-        backup: 600,
-        settings: 600,
-      },
-    };
-  },
-  created() {},
-  computed: {},
-  methods: {},
-};
+  const maxWidth = {
+    selectCard: 1600,
+    setCardData: 900,
+    possessionCardSetting: 'auto',
+    CardListFilter: 1600,
+    MusicListFilter: 1600,
+    masteryLevel: 600,
+    setLeaningLevel: 600,
+    share: 400,
+    backup: 600,
+    settings: 600,
+  };
 </script>

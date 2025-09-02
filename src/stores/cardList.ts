@@ -6273,6 +6273,74 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         BR: {
+          '18th Birthday': {
+            ID: 'rr_052',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
+            series: 'Birthday',
+            kana: 'えいてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2025 BIRTHDAY LIMITED COLLECTION -Rurino-',
+              period: 'birthday',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '18th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'solas',
+              name: 'ソラス',
+              AP: 4,
+              detail: [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]],
+            },
+            skill: {
+              ID: 'bloomMySelf_01',
+              name: 'ブルームマイセルフ',
+              AP: 3,
+              detail: [[32, 35.2, 38.4, 41.6, 44.8, 48, 51.2, 54.4, 57.6, 64, 67.2, 70.4, 73.6, 80]],
+            },
+            characteristic: {
+              name: 'バースデイキャンドル',
+              detail: 'スキル使用時まで、18回までAPを3回復する。',
+              type: ['APGain'],
+            },
+          },
           '17th Birthday': {
             ID: 'rr_036',
             styleType: STYLE_TYPE.TRICK_STAR.en,
@@ -16647,6 +16715,65 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          蒼のツバメ: {
+            ID: 'gn_027',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.HAPPY.en,
+            series: '蒼のツバメ',
+            kana: 'あおのつばめ',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 2ndTerm 第2回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5200,
+              pure: 5750,
+              cool: 3500,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'extensionRefreshGain_01',
+              name: 'エクステリフレッシュゲイン',
+              AP: 7,
+              detail: [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]],
+            },
+            skill: {
+              ID: 'dress_aonotsubame_01',
+              name: 'ドレス《蒼のツバメ》',
+              AP: 7,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'aonotsubame_01',
+                  name: '蒼のツバメ',
+                  AP: 5,
+                  detail: [
+                    [113.2, 124.5, 135.8, 147.2, 158.5, 169.8, 181.1, 192.4, 203.8, 226.4, 237.7, 249, 260.4, 283],
+                  ],
+                  characteristic: {
+                    name: 'インスタンス',
+                    detail: 'このスキルを使用すると、デッキから除外される。',
+                    type: ['exclusion'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'ツバメガエシ ',
+              detail:
+                'スキル使用時、山札に戻り、このセクション中、AP回復速度を+20%する。さらに2～4セクション目でドローした時、消費APを-5する。',
+              type: ['APQuick', 'APReduce'],
+            },
+          },
           可惜夜花火: {
             ID: 'gn_026',
             styleType: STYLE_TYPE.TRICK_STAR.en,
@@ -21564,7 +21691,76 @@ export const useCardStore = defineStore('cardList', {
             },
           },
         },
-        DR: {},
+        DR: {
+          'Oracle Étude': {
+            ID: 'sr_010',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.HAPPY.en,
+            series: 'Oracle Étude',
+            kana: 'おらくるえちゅーど',
+            gacha: {
+              addSeason: '「ドリームスタイルクエスト」クリア報酬',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 7200,
+              pure: 4300,
+              cool: 5900,
+              mental: 580,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'elysion_04',
+              name: 'Elysion',
+              AP: 2,
+              detail: [
+                [
+                  3999.6, 4399.56, 4799.52, 5199.48, 5599.44, 5999.4, 6399.36, 6799.32, 7199.28, 7999.2, 8399.16,
+                  8799.12, 9199.08, 9999,
+                ],
+              ],
+            },
+            skill: {
+              ID: 'mode_future_01',
+              name: 'mode:FUTURE',
+              AP: 1,
+              detail: [
+                ['3?', '3?', '4?', '4?', '4?', '5?', '5?', '5?', '5?', '6?', '6?', '7?', '7?', 8],
+                ['3?', '3?', '4?', '4?', '4?', '5?', '5?', '5?', '5?', '6?', '6?', '7?', '7?', 8],
+                [
+                  '355?',
+                  '390.5?',
+                  '426?',
+                  '461.5?',
+                  '497?',
+                  '532.5?',
+                  '568?',
+                  '603.5?',
+                  '639?',
+                  '710?',
+                  '745.5?',
+                  '781?',
+                  '816.5?',
+                  888,
+                ],
+              ],
+            },
+            characteristic: {
+              name: 'Radioactive',
+              detail:
+                'ドローした時、AP、ボルテージPt.、メンタルを0にする。さらにこのスキルを8回使用すると、デッキから除外される。',
+              type: ['draw', 'APLoss', 'voltageReduce', 'mentalReduce', 'exclusion'],
+            },
+          },
+        },
         BR: {
           '16th Birthday': {
             ID: 'sr_008',
@@ -21636,6 +21832,58 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          フュージョンクラスト: {
+            ID: 'sr_011',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: 'フュージョンクラスト',
+            kana: 'ふゅーじょんくらすと',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.9',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 5700,
+              cool: 5300,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'summerMagicHour_01',
+              name: 'サマーマジックアワー',
+              AP: 11,
+              detail: [
+                [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+                [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 1000],
+              ],
+            },
+            skill: {
+              ID: 'soundFusion_01',
+              name: 'サウンドフュージョン',
+              AP: 7,
+              detail: [
+                [29, 32, 35, 38, 41, 44, 46, 49, 52, 58, 61, 64, 67, 72],
+                [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 1000],
+                [14.4, 15.8, 17.3, 18.7, 20.2, 21.6, 23, 24.5, 25.9, 28.8, 30.2, 31.7, 33.1, 36],
+              ],
+            },
+            characteristic: {
+              name: 'サンセットライト',
+              detail:
+                'ドローした時、ムードがハッピー、メロウいずれかのとき、ムード値を+7する。さらにフィーバーセクションでドローされる確率が大幅に増加し、フィーバーセクションでドローしたとき、ビートハート99回分のスキルハートを獲得し、このステージ中、ハート上限を+99する。',
+              type: ['draw', 'ambience_section', 'heartCaptcha', 'heartLimitUp'],
+            },
+          },
           天地黎明: {
             ID: 'sr_009',
             styleType: STYLE_TYPE.MOOD_MAKER.en,
@@ -22036,6 +22284,57 @@ export const useCardStore = defineStore('cardList', {
         DR: {},
         BR: {},
         UR: {
+          フュージョンクラスト: {
+            ID: 'iz_009',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
+            series: 'フュージョンクラスト',
+            kana: 'ふゅーじょんくらすと',
+            gacha: {
+              addSeason: '2025 SUMMER LIMITED COLLECTION vol.9',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3200,
+              pure: 5700,
+              cool: 5550,
+              mental: 480,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'summerMagicHour_01',
+              name: 'サマーマジックアワー',
+              AP: 11,
+              detail: [
+                [39.6, 43.6, 47.5, 51.5, 55.4, 59.4, 63.4, 67.3, 71.3, 79.2, 83.2, 87.1, 91.1, 99],
+                [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+                [
+                  3999.6, 4399.6, 4799.5, 5199.5, 5599.4, 5999.4, 6399.4, 6799.3, 7199.3, 7999.2, 8399.2, 8799.1,
+                  9199.1, 9999,
+                ],
+              ],
+            },
+            skill: {
+              ID: 'imitationLight_01',
+              name: 'イミテーションライト',
+              AP: 7,
+              detail: [[0.48, 0.53, 0.58, 0.63, 0.68, 0.72, 0.77, 0.82, 0.87, 0.96, 1.1, 1.06, 1.11, 1.2]],
+            },
+            characteristic: {
+              name: 'サンセットスター',
+              detail:
+                'スキル使用時、このセクション中、ビートハートの出現個数を+2する。さらにフィーバーセクションでドローされる確率が大幅に増加し、フィーバーセクションでドローしたとき、このセクション中、ビートハートの出現個数を+1、フィーバーセクションでスキル使用時、このセクション中、ビートハートの出現個数を+9する。',
+              type: ['vibes_section', 'draw', 'heartCaptcha', 'heartLimitUp'],
+            },
+          },
           蒼のツバメ: {
             ID: 'iz_008',
             styleType: STYLE_TYPE.TRICK_STAR.en,

@@ -1,3 +1,5 @@
+import { SKILL_DETAIL } from '@/constants/skillDetail';
+
 /**
  * スキルの追加効果テキスト
  * @property level 効果が適用されるレベル
@@ -15,7 +17,7 @@ interface SkillExText {
  */
 interface SkillDetail {
   attr: string;
-  type: string[];
+  type: (typeof SKILL_DETAIL)[keyof typeof SKILL_DETAIL][];
 }
 
 /**
