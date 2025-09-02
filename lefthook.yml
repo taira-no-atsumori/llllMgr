@@ -1,9 +1,46 @@
+# pre-commit:
+#   commands:
+#     test:
+#       run: npm run test -- --run
+
+# pre-push:
+#   commands:
+#     build:
+#       run: npm run build
+
+# lefthook.yml
+# See https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
+
+# pre-commitフック: `git commit` を実行する前に走るコマンド
 pre-commit:
+  parallel: false
   commands:
+    # eslint:
+    #   glob: '**/*.{js,ts,vue}'
+    #   run: npx eslint --fix {staged_files} --fix --max-warnings 0 --no-warn-ignored
+    #   exclude: '*.config.{js,mjs,cjs}'
+    # prettier:
+    #   glob: "*.{js,ts,vue,css,scss,json,md}"
+    #   run: npx prettier --write {staged_files}
+
+    # コミット前にビルドが通るかを確認します。
+    # これにより、ビルドエラーを含むコードのコミットを防ぎます。
+    build-check:
+      run: npm run build
     test:
       run: npm run test -- --run
+      skip_output: false
+      # 警告のみの場合はコミットを許可
+      fail_on_warnings: false
+    # lint:
+    #   run: npm run lint
+    #   skip_output: false
+    #   # 警告のみの場合はコミットを許可
+    #   fail_on_warnings: false
 
+# pre-pushフック: `git push` を実行する前に走るコマンド
 pre-push:
   commands:
-    build:
+    # プッシュ前に再度ビルドチェックを行うことで、より安全にプッシュできます。
+    build-check:
       run: npm run build
