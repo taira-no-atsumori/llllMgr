@@ -1,7 +1,13 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container
+    fluid
+    class="pa-0"
+  >
     <v-row no-gutters>
-      <v-col cols="12" class="pa-0">
+      <v-col
+        cols="12"
+        class="pa-0"
+      >
         センター
         <v-select
           v-model="center"
@@ -23,7 +29,10 @@
             </v-chip>
           </template>-->
           <template v-slot:item="{ item, index }">
-            <v-list-item :title="item.title" @click="selectCenter(item.title)">
+            <v-list-item
+              :title="item.title"
+              @click="selectCenter(item.title)"
+            >
               <template v-slot:prepend>
                 <template v-if="!store.isOtherMember(item.title)">
                   <v-img
@@ -65,8 +74,8 @@
 </template>
 
 <script setup>
-import { useStoreCounter } from '@/stores/counter';
-const store = useStoreCounter();
+import { useStateStore } from '@/stores/stateStore';
+const store = useStateStore();
 const memberNameList = [];
 
 for (const memberName in store.memberName) {

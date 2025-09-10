@@ -264,14 +264,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
 
 const props = defineProps<{
   skillType: string;
 }>();
 
-const store = useStoreCounter();
+const store = useStateStore();
 
 const outputAddSkillList = computed(() => {
   const list: Record<string, any[]> = {};

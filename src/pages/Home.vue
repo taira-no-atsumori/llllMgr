@@ -1,18 +1,41 @@
 <template>
-  <v-container fluid class="pa-2">
-    <v-row class="mt-0" v-if="Object.keys(outputEventList).length > 0">
+  <v-container
+    fluid
+    class="pa-2"
+  >
+    <v-row
+      class="mt-0"
+      v-if="Object.keys(outputEventList).length > 0"
+    >
       <v-col cols="12">
         <h2>ライブ・イベント情報</h2>
-        <v-carousel cycle hide-delimiters show-arrows="hover" style="max-width: 800px; height: auto; margin: 0 auto">
-          <v-carousel-item v-for="(event, eventName) in outputEventList" :key="eventName" class="text-center">
-            <v-card variant="flat" rounded="0">
+        <v-carousel
+          cycle
+          hide-delimiters
+          show-arrows="hover"
+          style="max-width: 800px; height: auto; margin: 0 auto"
+        >
+          <v-carousel-item
+            v-for="(event, eventName) in outputEventList"
+            :key="eventName"
+            class="text-center"
+          >
+            <v-card
+              variant="flat"
+              rounded="0"
+            >
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
                 :src="store.getImagePath('images/eventInformation', event.img)"
                 eager
               ></v-img>
-              <a v-else :href="event.url" target="_blank" class="mainVisual">
+              <a
+                v-else
+                :href="event.url"
+                target="_blank"
+                class="mainVisual"
+              >
                 <v-img
                   class="white--text align-end text-center"
                   :src="store.getImagePath('images/eventInformation', event.img)"
@@ -54,19 +77,49 @@
         <h2>メインメニュー</h2>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-calculator" @click="pageMove('simulation')"> Simulation </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-calculator"
+          @click="pageMove('simulation')"
+        >
+          Simulation
+        </v-btn>
       </v-col>
       <v-col v-if="false">
-        <v-btn block prepend-icon="mdi-star" @click="pageMove('withStarMgr')"> WithStar Mgr </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-star"
+          @click="pageMove('withStarMgr')"
+        >
+          WithStar Mgr
+        </v-btn>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-cards" @click="pageMove('cardlist')"> Card List </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-cards"
+          @click="pageMove('cardlist')"
+        >
+          Card List
+        </v-btn>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-music" @click="pageMove('musiclist')"> Music List </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-music"
+          @click="pageMove('musiclist')"
+        >
+          Music List
+        </v-btn>
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-book" @click="pageMove('itemlist')"> Item List </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-book"
+          @click="pageMove('itemlist')"
+        >
+          Item List
+        </v-btn>
       </v-col>
     </v-row>
 
@@ -86,7 +139,9 @@
       </v-col>
       <v-col cols="12">
         このサイトは、スクステをある程度理解している(ライブグランプリに参加するような)方に向けたサイトになります。<br />
-        「スクステってなに？」という方は、<a href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C" target="_blank"
+        「スクステってなに？」という方は、<a
+          href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C"
+          target="_blank"
           >公式のチュートリアル動画</a
         >や<a
           href="https://wikiwiki.jp/llll_wiki/%E3%82%B9%E3%82%AF%E3%82%B9%E3%83%86/%E6%94%BB%E7%95%A5/%E3%82%B9%E3%82%AF%E3%82%B9%E3%83%86%E3%81%AE%E9%81%8A%E3%81%B3%E6%96%B9"
@@ -110,7 +165,10 @@
         <h2>Page Introduction</h2>
         各ページを簡単に紹介します。
       </v-col>
-      <v-col cols="12" v-if="false">
+      <v-col
+        cols="12"
+        v-if="false"
+      >
         <b>SIMULATION（獲得グランプリPt.計算ツール）</b><br />
         獲得グランプリPt.を計算できます。<br />
         なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
@@ -154,8 +212,8 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from '../stores/counter';
-const store = useStoreCounter();
+import { useStateStore } from '@/stores/stateStore';
+const store = useStateStore();
 </script>
 
 <script lang="ts">
@@ -165,7 +223,7 @@ export default {
   data() {
     return {
       eventList: {
-        /*'graduation': {
+        /*graduation: {
           title: '梢先輩、綴理先輩、慈先輩',
           text: 'ご卒業おめでとうございます🌸',
           type: 'other',
@@ -174,15 +232,15 @@ export default {
           img: 'thanks',
         },*/
         liveGP: {
-          title: 'ライブグランプリ「105期 2ndTerm 第2回 サークル対抗戦」',
+          title: 'ライブグランプリ「105期 3rdTerm 第1回 個人戦」',
           text: '',
           type: 'liveGP',
-          firstDay: [2025, 8, 20, 12, 0],
-          lastDay: [2025, 8, 26, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-08-18-10-rrqkpss7l5',
-          img: '105期 2ndTerm 第2回 サークル対抗戦_logo',
+          firstDay: [2025, 9, 10, 12, 0],
+          lastDay: [2025, 9, 16, 3, 59],
+          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-09-08-10-lkjv9xi0jf',
+          img: '105期 3rdTerm 第1回 個人戦_logo',
         },
-        fesLive: {
+        /*fesLive: {
           title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
           text: '〜A Day in Summer Light〜',
           type: 'live',
@@ -190,7 +248,7 @@ export default {
           lastDay: [2025, 8, 29, 21, 0],
           url: 'https://x.com/hasunosora_SIC/status/1956596788636557666',
           img: '105期 2ndTerm Fes×LIVE_mv',
-        },
+        },*/
         '5thLive_miraCraPark': {
           title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
           text: 'みらくらぱーく！ presents Heart Stage',
@@ -265,7 +323,7 @@ export default {
         this.eventList[eventName].firstDay[2],
         this.eventList[eventName].firstDay[3],
         this.eventList[eventName].firstDay[4],
-        0,
+        0
       );
       const lastDay = new Date(
         this.eventList[eventName].lastDay[0],
@@ -273,7 +331,7 @@ export default {
         this.eventList[eventName].lastDay[2],
         this.eventList[eventName].lastDay[3],
         this.eventList[eventName].lastDay[4],
-        59,
+        59
       );
       const today = new Date();
 

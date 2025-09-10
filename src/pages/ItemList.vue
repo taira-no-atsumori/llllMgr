@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="pa-2">
+  <v-container
+    fluid
+    class="pa-2"
+  >
     <h1 class="mb-1">ITEM LIST ～ スキルアップ素材獲得ステージリスト ～</h1>
 
     <v-expansion-panels class="mb-5">
@@ -56,7 +59,12 @@
           clearable
         ></v-select>
       </v-col>-->
-      <v-col v-for="(v, i) in ['技能書', 'ピース', 'チャーム']" :key="i" cols="12" class="mb-5">
+      <v-col
+        v-for="(v, i) in ['技能書', 'ピース', 'チャーム']"
+        :key="i"
+        cols="12"
+        class="mb-5"
+      >
         <v-select
           v-model="store.localStorageData.selectItemList[`item${i + 1}`]"
           :items="filterItemList[`item${i + 1}`]"
@@ -72,8 +80,16 @@
           persistent-hint
         >
           <template v-slot:chip="{ item }">
-            <v-chip v-if="item.title !== '-'" pill class="pl-0" :color="searchColor(item.title)">
-              <v-avatar left class="mr-1">
+            <v-chip
+              v-if="item.title !== '-'"
+              pill
+              class="pl-0"
+              :color="searchColor(item.title)"
+            >
+              <v-avatar
+                left
+                class="mr-1"
+              >
                 <v-img :src="store.getImagePath('icons/trainingItem', item.title)"></v-img>
               </v-avatar>
               {{ item.title }}
@@ -81,7 +97,10 @@
             <v-chip v-else>{{ item.title }}</v-chip>
           </template>
           <template v-slot:item="{ item }">
-            <v-list-item :title="item.title" @click="selectItem(store, item.title, i + 1)">
+            <v-list-item
+              :title="item.title"
+              @click="selectItem(store, item.title, i + 1)"
+            >
               <template v-slot:prepend>
                 <v-checkbox-btn
                   color="pink"
@@ -125,14 +144,20 @@
               <td>{{ item.name }}</td>
               <td>{{ item.area }}</td>
               <td>{{ item.stage }}</td>
-              <td v-for="i in 3" :key="i">
+              <td
+                v-for="i in 3"
+                :key="i"
+              >
                 <v-chip
                   v-if="item['獲得可能アイテム'][i - 1] !== '-'"
                   pill
                   class="pl-0"
                   :color="searchColor(item['獲得可能アイテム'][i - 1])"
                 >
-                  <v-avatar left class="mr-1">
+                  <v-avatar
+                    left
+                    class="mr-1"
+                  >
                     <v-img :src="store.getImagePath('icons/trainingItem', item['獲得可能アイテム'][i - 1])"></v-img>
                   </v-avatar>
                   {{ item['獲得可能アイテム'][i - 1] }}
@@ -148,10 +173,10 @@
 </template>
 
 <script setup lang="ts">
-import { CounterState } from '@/types/counter';
-import { useStoreCounter } from '../stores/counter';
+import { StoreState } from '@/types/store';
+import { useStateStore } from '../stores/stateStore';
 
-const store = useStoreCounter();
+const store = useStateStore();
 </script>
 
 <script lang="ts">
@@ -231,13 +256,13 @@ export default {
         { title: '獲得可能アイテム(ピース系)', value: '獲得可能アイテム2' },
         { title: '獲得可能アイテム(チャーム系)', value: '獲得可能アイテム3' },
         /*{
-         title: '獲得可能アイテム',
-         children: [
-         { title: '技能書系', value: '獲得可能アイテム1' },
-         { title: 'ピース系', value: '獲得可能アイテム2' },
-         { title: 'チャーム系', value: '獲得可能アイテム3' }
-         ]
-         },*/
+          title: '獲得可能アイテム',
+          children: [
+            { title: '技能書系', value: '獲得可能アイテム1' },
+            { title: 'ピース系', value: '獲得可能アイテム2' },
+            { title: 'チャーム系', value: '獲得可能アイテム3' }
+          ]
+        },*/
         //{ title: '低確率獲得可能アイテム', value: '低確率獲得可能アイテム' },
       ],
       list: {
@@ -3411,7 +3436,7 @@ export default {
   },
   computed: {},
   methods: {
-    filterItems(store: CounterState) {
+    filterItems(store: StoreState) {
       const _this = this;
       let result = _this.allItemList;
 
@@ -3422,7 +3447,7 @@ export default {
             store.localStorageData.selectItemList[`item${i}`].length < _this.filterItemList[`item${i}`].length
           ) {
             const regex = new RegExp(
-              store.localStorageData.selectItemList[`item${i}`].join('|').replace(/\(/g, '\\(').replace(/\)/g, '\\)'),
+              store.localStorageData.selectItemList[`item${i}`].join('|').replace(/\(/g, '\\(').replace(/\)/g, '\\)')
             );
             return result.filter((arr) => regex.test(arr['獲得可能アイテム'][i - 1]));
           } else {
@@ -3451,10 +3476,10 @@ export default {
 
       return color;
     },
-    selectItem(store: CounterState, selector: string, i: number) {
+    selectItem(store: StoreState, selector: string, i: number) {
       if (store.localStorageData.selectItemList[`item${i}`].some((x) => x === selector)) {
         store.localStorageData.selectItemList[`item${i}`] = store.localStorageData.selectItemList[`item${i}`].filter(
-          (item) => item !== selector,
+          (item) => item !== selector
         );
       } else {
         store.localStorageData.selectItemList[`item${i}`].push(selector);

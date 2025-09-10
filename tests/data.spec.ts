@@ -3,7 +3,7 @@ import { setActivePinia, createPinia } from 'pinia';
 import { useCardStore } from '../src/stores/cardList';
 import { useMusicStore } from '../src/stores/musicList';
 import { useSkillStore } from '../src/stores/skillList';
-import { useStoreCounter } from '../src/stores/counter';
+import { useStateStore } from '../src/stores/stateStore';
 import type { CardData } from '../src/types/cardList';
 import type { MusicData } from '../src/types/musicList';
 
@@ -11,7 +11,7 @@ describe('データ整合性チェック', () => {
   let cardStore: ReturnType<typeof useCardStore>;
   let musicStore: ReturnType<typeof useMusicStore>;
   let skillStore: ReturnType<typeof useSkillStore>;
-  let counterStore: ReturnType<typeof useStoreCounter>;
+  let stateStore: ReturnType<typeof useStateStore>;
   let allCards: CardData[];
   let allMusic: MusicData[];
 
@@ -23,7 +23,7 @@ describe('データ整合性チェック', () => {
     cardStore = useCardStore();
     musicStore = useMusicStore();
     skillStore = useSkillStore();
-    counterStore = useStoreCounter();
+    stateStore = useStateStore();
 
     allCards = [];
     allMusic = Object.values(musicStore.musicList);
@@ -99,7 +99,7 @@ describe('データ整合性チェック', () => {
 
   it('各カードのIDが、対応するキャラクターの略称と一致していること', () => {
     const { card } = cardStore;
-    const { memberId, exclusionMember } = counterStore;
+    const { memberId, exclusionMember } = stateStore;
 
     const errors: string[] = [];
 
@@ -134,7 +134,7 @@ describe('データ整合性チェック', () => {
 
           if (idPrefix !== expectedPrefix) {
             errors.push(
-              `不正なIDです: カード「${cardName}」(ID: ${cardId})のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`,
+              `不正なIDです: カード「${cardName}」(ID: ${cardId})のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`
             );
           }
         }
@@ -219,11 +219,11 @@ describe('データ整合性チェック', () => {
         const { name, ID } = card.specialAppeal;
         if (!skillStore.skillList[name]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`,
+            `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`
           );
         } else if (!skillStore.skillList[name][ID]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`,
+            `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`
           );
         }
       }

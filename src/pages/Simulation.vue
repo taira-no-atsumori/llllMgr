@@ -1,10 +1,22 @@
 <template>
-  <v-container fluid class="px-1 py-2">
-    <v-row no-gutters class="mb-5">
-      <v-col cols="12" class="px-1 pb-2">
+  <v-container
+    fluid
+    class="px-1 py-2"
+  >
+    <v-row
+      no-gutters
+      class="mb-5"
+    >
+      <v-col
+        cols="12"
+        class="px-1 pb-2"
+      >
         <h1>SIMULATION（おためし版）</h1>
       </v-col>
-      <v-col cols="12" class="pb-2">
+      <v-col
+        cols="12"
+        class="pb-2"
+      >
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
@@ -108,33 +120,77 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </v-col>
-      <v-col cols="12" v-if="store.deck.length === 0">
-        <v-row no-gutters class="mt-5">
-          <v-col cols="2" class="d-none d-sm-block"></v-col>
-          <v-col cols="12" sm="3">
-            <v-card class="py-10 py-sm-16 text-center mb-10 mb-sm-0" color="light-blue" @click="makeNewDeck(store)">
-              <v-icon size="x-large" class="mb-2"> mdi-plus </v-icon>
+      <v-col
+        cols="12"
+        v-if="store.deck.length === 0"
+      >
+        <v-row
+          no-gutters
+          class="mt-5"
+        >
+          <v-col
+            cols="2"
+            class="d-none d-sm-block"
+          ></v-col>
+          <v-col
+            cols="12"
+            sm="3"
+          >
+            <v-card
+              class="py-10 py-sm-16 text-center mb-10 mb-sm-0"
+              color="light-blue"
+              @click="makeNewDeck(store)"
+            >
+              <v-icon
+                size="x-large"
+                class="mb-2"
+              >
+                mdi-plus
+              </v-icon>
               <p class="text-h5">デッキを新規作成</p>
             </v-card>
           </v-col>
-          <v-col cols="2" class="d-none d-sm-block"></v-col>
-          <v-col cols="12" sm="3">
+          <v-col
+            cols="2"
+            class="d-none d-sm-block"
+          ></v-col>
+          <v-col
+            cols="12"
+            sm="3"
+          >
             <v-card
               class="py-10 py-sm-16 text-center"
               color="indigo"
               @click="dialog.deckList = true"
               :disabled="store.selectDeck === undefined"
             >
-              <v-icon size="x-large" class="mb-2"> mdi-folder-open </v-icon>
+              <v-icon
+                size="x-large"
+                class="mb-2"
+              >
+                mdi-folder-open
+              </v-icon>
               <p class="text-h5">デッキ選択</p>
             </v-card>
           </v-col>
-          <v-col cols="2" class="d-none d-sm-block"></v-col>
+          <v-col
+            cols="2"
+            class="d-none d-sm-block"
+          ></v-col>
         </v-row>
       </v-col>
-      <v-col cols="12" v-else>
-        <v-row no-gutters class="mb-3">
-          <v-col cols="12" sm="11">
+      <v-col
+        cols="12"
+        v-else
+      >
+        <v-row
+          no-gutters
+          class="mb-3"
+        >
+          <v-col
+            cols="12"
+            sm="11"
+          >
             <v-btn
               color="light-blue"
               prepend-icon="mdi-plus"
@@ -146,10 +202,20 @@
             >
               デッキを新規作成
             </v-btn>
-            <v-btn prepend-icon="mdi-folder-open" color="indigo" @click="dialog.deckList = true" class="mr-2 mb-2">
+            <v-btn
+              prepend-icon="mdi-folder-open"
+              color="indigo"
+              @click="dialog.deckList = true"
+              class="mr-2 mb-2"
+            >
               デッキ選択
             </v-btn>
-            <v-btn prepend-icon="mdi-rotate-right" color="red" @click="makeNewDeck(store, true)" class="mr-2 mb-2">
+            <v-btn
+              prepend-icon="mdi-rotate-right"
+              color="red"
+              @click="makeNewDeck(store, true)"
+              class="mr-2 mb-2"
+            >
               デッキリセット
             </v-btn>
             <v-btn
@@ -161,15 +227,33 @@
             >
               エースカード設定
             </v-btn>
-            <v-btn v-if="false" prepend-icon="mdi-database-sync" color="yellow" class="mr-2 mb-2"> 最新化反映 </v-btn>
-            <v-btn v-if="false" prepend-icon="mdi-rotate-3d-variant" color="yellow" class="mr-2 mb-2">
+            <v-btn
+              v-if="false"
+              prepend-icon="mdi-database-sync"
+              color="yellow"
+              class="mr-2 mb-2"
+            >
+              最新化反映
+            </v-btn>
+            <v-btn
+              v-if="false"
+              prepend-icon="mdi-rotate-3d-variant"
+              color="yellow"
+              class="mr-2 mb-2"
+            >
               モードチェンジ
-              <v-menu activator="parent" transition="slide-y-transition">
+              <v-menu
+                activator="parent"
+                transition="slide-y-transition"
+              >
                 <v-list>
                   <v-list-item title="Live GP"></v-list-item>
                   <v-list-group value="grade">
                     <template v-slot:activator="{ props }">
-                      <v-list-item v-bind="props" title="Grade Quest"></v-list-item>
+                      <v-list-item
+                        v-bind="props"
+                        title="Grade Quest"
+                      ></v-list-item>
                     </template>
 
                     <v-list-item
@@ -195,7 +279,10 @@
               URL発行
             </v-btn>
           </v-col>
-          <v-col cols="12" sm="1">
+          <v-col
+            cols="12"
+            sm="1"
+          >
             <v-select
               v-model="store.selectDeck.period"
               label="期"
@@ -203,10 +290,18 @@
               :update:modelValue="(store.selectDeck.selectMusic = '')"
             ></v-select>
           </v-col>
-          <v-col cols="12" class="pa-0">
+          <v-col
+            cols="12"
+            class="pa-0"
+          >
             <v-row no-gutters>
               <v-col cols="12">
-                <v-alert v-if="countDefaultCard(store).result > 0" type="warning" variant="outlined" class="mb-2">
+                <v-alert
+                  v-if="countDefaultCard(store).result > 0"
+                  type="warning"
+                  variant="outlined"
+                  class="mb-2"
+                >
                   SIDE STYLEに未設定カードがあるため、AP回復速度が{{ countDefaultCard(store).result }}%低下します
                 </v-alert>
                 <v-alert
@@ -217,12 +312,21 @@
                 >
                   エースカードが未設定です
                 </v-alert>
-                <v-alert v-if="false" type="info" variant="outlined" class="mb-2">
+                <v-alert
+                  v-if="false"
+                  type="info"
+                  variant="outlined"
+                  class="mb-2"
+                >
                   エースカードを設定してください
                 </v-alert>
               </v-col>
 
-              <v-col cols="12" id="deckNameArea" class="mt-1 mb-2">
+              <v-col
+                cols="12"
+                id="deckNameArea"
+                class="mt-1 mb-2"
+              >
                 <span class="deckNameTitle"> デッキ名 </span>
                 <span>
                   <!-- <v-text-field
@@ -248,8 +352,16 @@
               </v-col>
 
               <v-col cols="12">
-                <v-row no-gutters class="px-1">
-                  <v-col v-for="(v, k) in attrName" :key="v" cols="4" sm="2">
+                <v-row
+                  no-gutters
+                  class="px-1"
+                >
+                  <v-col
+                    v-for="(v, k) in attrName"
+                    :key="v"
+                    cols="4"
+                    sm="2"
+                  >
                     総{{ v }}：{{ totalParam(store, k) }}
                   </v-col>
                 </v-row>
@@ -263,15 +375,26 @@
                 class="pa-1"
               >
                 <v-card elevation="2">
-                  <v-row v-if="memberName === 'free'" no-gutters class="memberArea">
+                  <v-row
+                    v-if="memberName === 'free'"
+                    no-gutters
+                    class="memberArea"
+                  >
                     <!-- <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true"> -->
-                    <v-col cols="12" class="characterDetailArea pb-1" style="padding-top: 2px">
+                    <v-col
+                      cols="12"
+                      class="characterDetailArea pb-1"
+                      style="padding-top: 2px"
+                    >
                       <h2>
                         <span class="d-flex flex-row justify-center align-center">
                           <span style="margin-top: 2px">free</span>
                         </span>
                       </h2>
-                      <v-row no-gutters v-if="false">
+                      <v-row
+                        no-gutters
+                        v-if="false"
+                      >
                         <v-col cols="4">
                           <dl>
                             <dt>合計マスタリーLv.</dt>
@@ -280,10 +403,15 @@
                         </v-col>
                         <v-col cols="5">
                           <h3>ボーナススキル</h3>
-                          <span v-for="skillName in bonusSkillList" :key="skillName" class="mr-1">
-                            <img :src="store.getImagePath('icons/bonusSkill', skillName)" style="width: 25px" />×{{
-                              store.memberData.centerList[memberName].bonusSkill[skillName]
-                            }}
+                          <span
+                            v-for="skillName in bonusSkillList"
+                            :key="skillName"
+                            class="mr-1"
+                          >
+                            <img
+                              :src="store.getImagePath('icons/bonusSkill', skillName)"
+                              style="width: 25px"
+                            />×{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
                           </span>
                         </v-col>
                         <v-col cols="3">
@@ -299,7 +427,10 @@
                       :data-style="styleName"
                       class="pa-1"
                     >
-                      <v-row no-gutters class="mb-2">
+                      <v-row
+                        no-gutters
+                        class="mb-2"
+                      >
                         <h3
                           style="
                             writing-mode: vertical-rl; /*text-orientation: upright; */
@@ -324,7 +455,7 @@
                               store.setOpenCard(
                                 store.findCardId(memberName, store.selectDeck.cardData[memberName][styleName].cardName),
                                 memberName,
-                                styleName,
+                                styleName
                               );
                             "
                           >
@@ -332,14 +463,17 @@
                               :src="
                                 store.getImagePath(
                                   'images/cardIllust',
-                                  makeIllustCard(store, store.selectDeck.cardData[memberName][styleName].id),
+                                  makeIllustCard(store, store.selectDeck.cardData[memberName][styleName].id)
                                 )
                               "
                               :alt="makeIllustCard(store, store.selectDeck.cardData[memberName][styleName].id)"
                             ></v-img>
                           </v-card>
                         </v-col>
-                        <v-col style="font-size: 15px" class="pl-2 position-relative">
+                        <v-col
+                          style="font-size: 15px"
+                          class="pl-2 position-relative"
+                        >
                           <v-row no-gutters>
                             <v-btn
                               density="compact"
@@ -361,13 +495,16 @@
                               store.setOpenCard(
                                 store.selectDeck.cardData[memberName][styleName].id,
                                 memberName,
-                                styleName,
+                                styleName
                               );
                               dialog.paramSet = true;
                             "
                             :disabled="store.selectDeck.cardData[memberName][styleName].id.split('_')[1] === '000'"
                           >
-                            <v-row no-gutters class="pb-1">
+                            <v-row
+                              no-gutters
+                              class="pb-1"
+                            >
                               <v-col cols="3">
                                 <dl>
                                   <dt>レベル</dt>
@@ -400,7 +537,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>スマイル</dt>
                                   <dd>
@@ -408,7 +548,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>クール</dt>
                                   <dd>
@@ -416,7 +559,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>ピュア</dt>
                                   <dd>
@@ -424,7 +570,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>メンタル</dt>
                                   <dd>
@@ -440,7 +589,10 @@
                             :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'"
                             v-if="false"
                           >
-                            <v-row no-gutters class="pb-1">
+                            <v-row
+                              no-gutters
+                              class="pb-1"
+                            >
                               <v-col cols="3">
                                 <dl>
                                   <dt>レベル</dt>
@@ -500,9 +652,18 @@
                       ></v-divider>
                     </v-col>
                   </v-row>
-                  <v-row v-else no-gutters class="memberArea" :data-member_name="memberName">
+                  <v-row
+                    v-else
+                    no-gutters
+                    class="memberArea"
+                    :data-member_name="memberName"
+                  >
                     <!-- <v-col cols="12" class="characterDetailArea pa-1 cursor-pointer" @click="dialog.characterStatusSetting = true"> -->
-                    <v-col cols="12" class="characterDetailArea pb-1" style="padding-top: 2px">
+                    <v-col
+                      cols="12"
+                      class="characterDetailArea pb-1"
+                      style="padding-top: 2px"
+                    >
                       <h2>
                         <span class="d-flex flex-row justify-center align-center">
                           <img
@@ -530,7 +691,10 @@
                           </v-icon>
                         </span>
                       </h2>
-                      <v-row no-gutters v-if="false">
+                      <v-row
+                        no-gutters
+                        v-if="false"
+                      >
                         <v-col cols="4">
                           <dl>
                             <dt>合計マスタリーLv.</dt>
@@ -539,10 +703,15 @@
                         </v-col>
                         <v-col cols="5">
                           <h3>ボーナススキル</h3>
-                          <span v-for="skillName in bonusSkillList" :key="skillName" class="mr-1">
-                            <img :src="store.getImagePath('icons/bonusSkill', skillName)" style="width: 25px" />×{{
-                              store.memberData.centerList[memberName].bonusSkill[skillName]
-                            }}
+                          <span
+                            v-for="skillName in bonusSkillList"
+                            :key="skillName"
+                            class="mr-1"
+                          >
+                            <img
+                              :src="store.getImagePath('icons/bonusSkill', skillName)"
+                              style="width: 25px"
+                            />×{{ store.memberData.centerList[memberName].bonusSkill[skillName] }}
                           </span>
                         </v-col>
                         <v-col cols="3">
@@ -558,7 +727,10 @@
                       :data-style="styleName"
                       class="pa-1"
                     >
-                      <v-row no-gutters class="mb-2">
+                      <v-row
+                        no-gutters
+                        class="mb-2"
+                      >
                         <h3
                           style="
                             writing-mode: vertical-rl; /*text-orientation: upright; */
@@ -587,7 +759,7 @@
                               store.setOpenCard(
                                 store.findCardId(memberName, store.selectDeck.cardData[memberName][styleName].cardName),
                                 memberName,
-                                styleName,
+                                styleName
                               );
                             "
                           >
@@ -595,14 +767,17 @@
                               :src="
                                 store.getImagePath(
                                   'images/cardIllust',
-                                  makeIllustCard(store, store.selectDeck.cardData[memberName][styleName].id),
+                                  makeIllustCard(store, store.selectDeck.cardData[memberName][styleName].id)
                                 )
                               "
                               :alt="makeIllustCard(store, store.selectDeck.cardData[memberName][styleName].id)"
                             ></v-img>
                           </v-card>
                         </v-col>
-                        <v-col style="font-size: 15px" class="pl-2 position-relative">
+                        <v-col
+                          style="font-size: 15px"
+                          class="pl-2 position-relative"
+                        >
                           <v-row no-gutters>
                             <v-btn
                               density="compact"
@@ -624,13 +799,16 @@
                               store.setOpenCard(
                                 store.selectDeck.cardData[memberName][styleName].id,
                                 memberName,
-                                styleName,
+                                styleName
                               );
                               dialog.paramSet = true;
                             "
                             :disabled="store.selectDeck.cardData[memberName][styleName].id.split('_')[1] === '000'"
                           >
-                            <v-row no-gutters class="pb-1">
+                            <v-row
+                              no-gutters
+                              class="pb-1"
+                            >
                               <v-col cols="3">
                                 <dl>
                                   <dt>レベル</dt>
@@ -663,7 +841,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>スマイル</dt>
                                   <dd>
@@ -671,7 +852,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>クール</dt>
                                   <dd>
@@ -679,7 +863,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>ピュア</dt>
                                   <dd>
@@ -687,7 +874,10 @@
                                   </dd>
                                 </dl>
                               </v-col>
-                              <v-col cols="3" v-if="false">
+                              <v-col
+                                cols="3"
+                                v-if="false"
+                              >
                                 <dl>
                                   <dt>メンタル</dt>
                                   <dd>
@@ -703,7 +893,10 @@
                             :disabled="store.selectDeck.cardData[memberName][styleName].cardName === 'default'"
                             v-if="false"
                           >
-                            <v-row no-gutters class="pb-1">
+                            <v-row
+                              no-gutters
+                              class="pb-1"
+                            >
                               <v-col cols="3">
                                 <dl>
                                   <dt>レベル</dt>
@@ -773,7 +966,10 @@
           <v-col cols="12">
             <h1>想定楽曲</h1>
           </v-col>
-          <v-col cols="12" sm="4">
+          <v-col
+            cols="12"
+            sm="4"
+          >
             <v-card class="pa-2">
               <h3>センターカード</h3>
 
@@ -790,7 +986,7 @@
                               : `${store.conversion(store.findCardData(showCenterCard(store).id).cardName)}_${
                                   store.memberName[store.musicList[store.selectDeck.selectMusic]?.center].last
                                 }_覚醒後`
-                          }`,
+                          }`
                         )
                       "
                     ></v-img>
@@ -816,7 +1012,10 @@
             </v-card>
           </v-col>
 
-          <v-col cols="12" sm="4">
+          <v-col
+            cols="12"
+            sm="4"
+          >
             <v-card class="pa-2">
               <v-btn
                 v-if="store.selectDeck.selectMusic !== ''"
@@ -827,7 +1026,12 @@
                 @click="store.selectDeck.selectMusic = ''"
               ></v-btn>
               <v-row no-gutters>
-                <v-col cols="12" class="mb-2"> <span class="mr-2">曲名</span>{{ store.selectDeck.selectMusic }} </v-col>
+                <v-col
+                  cols="12"
+                  class="mb-2"
+                >
+                  <span class="mr-2">曲名</span>{{ store.selectDeck.selectMusic }}
+                </v-col>
                 <v-col cols="6">
                   <v-card @click="dialog.selectMusic = true">
                     <v-img
@@ -835,23 +1039,26 @@
                         store.getImagePath(
                           'images/cdJacket',
                           store.conversion(
-                            store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic,
-                          ),
+                            store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic
+                          )
                         )
                       "
                       :src="
                         store.getImagePath(
                           'images/cdJacket',
                           store.conversion(
-                            store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic,
-                          ),
+                            store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic
+                          )
                         )
                       "
                       :alt="store.selectDeck.selectMusic === '' ? 'NO IMAGE' : store.selectDeck.selectMusic"
                     ></v-img>
                   </v-card>
                 </v-col>
-                <v-col cols="6" class="pl-4">
+                <v-col
+                  cols="6"
+                  class="pl-4"
+                >
                   <div class="mb-2">
                     <span class="mr-2">属性</span>
                     {{ convertAttributeEnToJp(store.musicList[store.selectDeck.selectMusic]?.attribute) ?? '' }}
@@ -865,7 +1072,7 @@
                           'icons/member',
                           `icon_illust_${store.musicList[store.selectDeck.selectMusic]?.center}_${
                             store.selectDeck.period
-                          }`,
+                          }`
                         )
                       "
                       class="mr-1"
@@ -888,7 +1095,10 @@
               </v-row>
             </v-card>
           </v-col>
-          <v-col cols="6" v-if="false">
+          <v-col
+            cols="6"
+            v-if="false"
+          >
             <v-card class="pa-2">
               <h3>シミュレーション結果</h3>
               <p>ハート1個あたりのLOVE値：{{ Math.ceil((120 * totalParam(store, 'smile') * 1.5) / 6 / 90) }}</p>
@@ -898,7 +1108,11 @@
       </v-col>
     </v-row>
 
-    <v-alert type="warning" variant="outlined" class="mt-7">
+    <v-alert
+      type="warning"
+      variant="outlined"
+      class="mt-7"
+    >
       このページは現在、おためし版となっております。<br />
       おためし版は、以下のような仕様となっております。<br />
       <br />
@@ -924,12 +1138,22 @@
     </v-alert>
   </v-container>
 
-  <v-container fluid class="pa-2" v-if="false">
+  <v-container
+    fluid
+    class="pa-2"
+    v-if="false"
+  >
     <v-row>
-      <v-col cols="12" class="pb-3">
+      <v-col
+        cols="12"
+        class="pb-3"
+      >
         <h1>SIMULATION ～ 獲得グランプリPt.計算ツール ～</h1>
       </v-col>
-      <v-col cols="12" class="pt-0 pb-3">
+      <v-col
+        cols="12"
+        class="pt-0 pb-3"
+      >
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
@@ -967,7 +1191,10 @@
                 <h2>予想獲得グランプリPt. {{ GPpt(i - 1) }}</h2>
               </v-col>
 
-              <v-col cols="12" sm="6">
+              <v-col
+                cols="12"
+                sm="6"
+              >
                 <v-text-field
                   v-model="score[i - 1]"
                   label="スコア"
@@ -979,7 +1206,11 @@
                 ></v-text-field>
               </v-col>
 
-              <v-col cols="12" sm="6" class="mb-5">
+              <v-col
+                cols="12"
+                sm="6"
+                class="mb-5"
+              >
                 <v-select
                   v-model="clearStage[i - 1]"
                   :items="[1, 2, 3, 4]"
@@ -992,7 +1223,10 @@
               </v-col>
             </v-row>
 
-            <div v-for="memberName in store.memberNameList" :key="memberName">
+            <div
+              v-for="memberName in store.memberNameList"
+              :key="memberName"
+            >
               <v-checkbox
                 v-model="performance[i - 1]"
                 :label="arr.last"
@@ -1003,8 +1237,16 @@
 
               <v-row no-gutters>
                 <v-col cols="2">レア度</v-col>
-                <v-col cols="5" class="text-center">Season Fan Lv.</v-col>
-                <v-col cols="5" class="text-center">解放Lv.</v-col>
+                <v-col
+                  cols="5"
+                  class="text-center"
+                  >Season Fan Lv.</v-col
+                >
+                <v-col
+                  cols="5"
+                  class="text-center"
+                  >解放Lv.</v-col
+                >
                 <v-col cols="2">
                   <v-select
                     v-model="bonus.rare[i - 1][memberName]"
@@ -1017,7 +1259,11 @@
                 <v-col cols="5">
                   <v-row no-gutters>
                     <v-spacer></v-spacer>
-                    <v-col align-self="center" justify="center" class="pa-0">
+                    <v-col
+                      align-self="center"
+                      justify="center"
+                      class="pa-0"
+                    >
                       <v-btn
                         x-small
                         :disabled="bonus.seasonFan[i - 1][memberName] === 1"
@@ -1026,10 +1272,18 @@
                         -1
                       </v-btn>
                     </v-col>
-                    <v-col align="center" justify="center" class="px-0 pt-1 pb-0">
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="px-0 pt-1 pb-0"
+                    >
                       {{ bonus.seasonFan[i - 1][memberName] }}
                     </v-col>
-                    <v-col align="center" justify="center" class="pa-0">
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
                       <v-btn
                         x-small
                         :disabled="bonus.seasonFan[i - 1][memberName] === 10"
@@ -1043,7 +1297,11 @@
                 <v-col cols="5">
                   <v-row no-gutters>
                     <v-spacer></v-spacer>
-                    <v-col align="center" justify="center" class="pa-0">
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
                       <v-btn
                         x-small
                         :disabled="
@@ -1053,10 +1311,18 @@
                         >-1
                       </v-btn>
                     </v-col>
-                    <v-col align="center" justify="center" class="px-0 pt-1 pb-0">
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="px-0 pt-1 pb-0"
+                    >
                       {{ bonus.release[i - 1][memberName] }}
                     </v-col>
-                    <v-col align="center" justify="center" class="pa-0">
+                    <v-col
+                      align="center"
+                      justify="center"
+                      class="pa-0"
+                    >
                       <v-btn
                         x-small
                         :disabled="
@@ -1077,7 +1343,10 @@
     </v-row>
   </v-container>
 
-  <v-dialog v-model="dialog.paramSet" max-width="600">
+  <v-dialog
+    v-model="dialog.paramSet"
+    max-width="600"
+  >
     <v-sheet class="pa-2">
       <v-row no-gutters>
         <v-col cols="12">
@@ -1098,7 +1367,10 @@
             class="px-3"
           ></v-slider>
         </v-col>
-        <v-col cols="12" class="mt-2">
+        <v-col
+          cols="12"
+          class="mt-2"
+        >
           <p class="text-h6 mb-8">SA</p>
           <v-slider
             hide-details
@@ -1112,7 +1384,10 @@
             class="px-3"
           ></v-slider>
         </v-col>
-        <v-col cols="12" class="mt-2">
+        <v-col
+          cols="12"
+          class="mt-2"
+        >
           <p class="text-h6 mb-8">スキル</p>
           <v-slider
             hide-details
@@ -1126,7 +1401,10 @@
             class="px-3"
           ></v-slider>
         </v-col>
-        <v-col cols="12" class="mt-2">
+        <v-col
+          cols="12"
+          class="mt-2"
+        >
           <p class="text-h6 mb-8">解放Lv.</p>
           <v-slider
             hide-details
@@ -1143,15 +1421,27 @@
       </v-row>
 
       <div class="mt-3 text-center">
-        <v-btn prepend-icon="mdi-close" @click="dialog.paramSet = false" class="mr-4"> CLOSE </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.paramSet = false"
+          class="mr-4"
+        >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="dialog.changeDeckName" max-width="600">
+  <v-dialog
+    v-model="dialog.changeDeckName"
+    max-width="600"
+  >
     <v-sheet class="pa-2">
       <v-row no-gutters>
-        <v-col cols="12" class="mb-2">
+        <v-col
+          cols="12"
+          class="mb-2"
+        >
           <h3>デッキ名を変更</h3>
         </v-col>
         <v-col cols="12">
@@ -1168,7 +1458,13 @@
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
-        <v-btn prepend-icon="mdi-close" @click="dialog.changeDeckName = false" class="mr-4"> CLOSE </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.changeDeckName = false"
+          class="mr-4"
+        >
+          CLOSE
+        </v-btn>
         <v-btn
           color="light-blue"
           prepend-icon="mdi-content-save"
@@ -1181,7 +1477,10 @@
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="dialog.deckList" max-width="600">
+  <v-dialog
+    v-model="dialog.deckList"
+    max-width="600"
+  >
     <v-sheet class="pa-2">
       <h2>デッキリスト</h2>
 
@@ -1193,14 +1492,20 @@
         style="gap: 12px"
       >
         <template #item="{ element }">
-          <v-card class="pa-2 handle cursor-pointer" color="yellow">
+          <v-card
+            class="pa-2 handle cursor-pointer"
+            color="yellow"
+          >
             <p class="text-h6 py-1 px-2">
               {{ element.name }}
             </p>
 
             <v-divider class="mb-2"></v-divider>
 
-            <v-row no-gutters class="text-center">
+            <v-row
+              no-gutters
+              class="text-center"
+            >
               <v-col cols="4">
                 <v-btn
                   color="success"
@@ -1253,7 +1558,10 @@
 
         <v-divider class="mb-2"></v-divider>
 
-        <v-row no-gutters class="text-center">
+        <v-row
+          no-gutters
+          class="text-center"
+        >
           <v-col cols="3">
             <v-btn
               color="success"
@@ -1304,39 +1612,84 @@
         </v-row>
       </v-card>
       <div class="text-center mt-2">
-        <v-btn prepend-icon="mdi-close" @click="dialog.deckList = false"> CLOSE </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.deckList = false"
+        >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="dialog.characterStatusSetting" max-width="700">
+  <v-dialog
+    v-model="dialog.characterStatusSetting"
+    max-width="700"
+  >
     <v-sheet class="pa-2">
       <v-row no-gutters>
-        <v-col cols="12" sm="4" class="pr-sm-2">
+        <v-col
+          cols="12"
+          sm="4"
+          class="pr-sm-2"
+        >
           <h3>合計マスタリーLv.</h3>
-          <v-text-field :rules="rules.hankaku" maxlength="3" density="compact"></v-text-field>
+          <v-text-field
+            :rules="rules.hankaku"
+            maxlength="3"
+            density="compact"
+          ></v-text-field>
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col
+          cols="12"
+          sm="4"
+        >
           <h3>獲得済みボーナススキル</h3>
-          <span v-for="skillName in bonusSkillList" :key="skillName" class="mr-1">
-            <img :src="store.getImagePath('icons/bonusSkill', skillName)" style="width: 25px" />×{{ 0 }}
+          <span
+            v-for="skillName in bonusSkillList"
+            :key="skillName"
+            class="mr-1"
+          >
+            <img
+              :src="store.getImagePath('icons/bonusSkill', skillName)"
+              style="width: 25px"
+            />×{{ 0 }}
           </span>
         </v-col>
-        <v-col cols="12" sm="4" class="pl-sm-2">
+        <v-col
+          cols="12"
+          sm="4"
+          class="pl-sm-2"
+        >
           <h3>Season Fan Lv.</h3>
-          <v-text-field :rules="rules.hankaku" maxlength="2" density="compact"></v-text-field>
+          <v-text-field
+            :rules="rules.hankaku"
+            maxlength="2"
+            density="compact"
+          ></v-text-field>
         </v-col>
       </v-row>
       <div class="text-center">
-        <v-btn prepend-icon="mdi-close" @click="dialog.characterStatusSetting = false"> CLOSE </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.characterStatusSetting = false"
+        >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="dialog.selectMusic" max-width="1600">
+  <v-dialog
+    v-model="dialog.selectMusic"
+    max-width="1600"
+  >
     <v-sheet class="pa-2">
       <ul id="musicList">
-        <li v-for="(data, title) in musicList(store)" :key="title">
+        <li
+          v-for="(data, title) in musicList(store)"
+          :key="title"
+        >
           <v-card
             @click="
               store.selectDeck.selectMusic = title;
@@ -1356,15 +1709,29 @@
       </ul>
 
       <div class="mt-3 text-center">
-        <v-btn prepend-icon="mdi-close" @click="dialog.selectMusic = false"> CLOSE </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          @click="dialog.selectMusic = false"
+        >
+          CLOSE
+        </v-btn>
       </div>
     </v-sheet>
   </v-dialog>
 
-  <v-dialog v-model="dialog.urlGenerate" max-width="600">
+  <v-dialog
+    v-model="dialog.urlGenerate"
+    max-width="600"
+  >
     <v-sheet class="pa-2">
-      <div v-if="isUrlGenerate" class="text-center">
-        <v-progress-circular color="pink" indeterminate></v-progress-circular>
+      <div
+        v-if="isUrlGenerate"
+        class="text-center"
+      >
+        <v-progress-circular
+          color="pink"
+          indeterminate
+        ></v-progress-circular>
         <p class="mt-2">URL生成中</p>
       </div>
       <div v-else>
@@ -1377,44 +1744,89 @@
           readonly
         ></v-text-field>
         <div class="text-center mt-2">
-          <v-btn prepend-icon="mdi-close" @click="dialog.urlGenerate = false"> CLOSE </v-btn>
+          <v-btn
+            prepend-icon="mdi-close"
+            @click="dialog.urlGenerate = false"
+          >
+            CLOSE
+          </v-btn>
         </div>
       </div>
     </v-sheet>
   </v-dialog>
 
-  <v-snackbar v-model="snackbar.makeDeck" color="success" :timeout="2000"> デッキを新規作成しました </v-snackbar>
+  <v-snackbar
+    v-model="snackbar.makeDeck"
+    color="success"
+    :timeout="2000"
+  >
+    デッキを新規作成しました
+  </v-snackbar>
 
-  <v-snackbar v-model="snackbar.nameSave" color="success" :timeout="2000"> デッキ名を変更しました </v-snackbar>
+  <v-snackbar
+    v-model="snackbar.nameSave"
+    color="success"
+    :timeout="2000"
+  >
+    デッキ名を変更しました
+  </v-snackbar>
 
-  <v-snackbar v-model="snackbar.openDeck" color="success" :timeout="2000">
+  <v-snackbar
+    v-model="snackbar.openDeck"
+    color="success"
+    :timeout="2000"
+  >
     {{ store.selectDeck.name }}を開きました
   </v-snackbar>
 
-  <v-snackbar v-model="snackbar.copyDeck" :color="copyDeckMessage.color" :timeout="copyDeckMessage.time">
+  <v-snackbar
+    v-model="snackbar.copyDeck"
+    :color="copyDeckMessage.color"
+    :timeout="copyDeckMessage.time"
+  >
     {{ copyDeckMessage.text }}
   </v-snackbar>
 
-  <v-snackbar v-model="snackbar.shiftDeck" :color="shiftDeckMessage.color" :timeout="shiftDeckMessage.time">
+  <v-snackbar
+    v-model="snackbar.shiftDeck"
+    :color="shiftDeckMessage.color"
+    :timeout="shiftDeckMessage.time"
+  >
     {{ shiftDeckMessage.text }}
   </v-snackbar>
 
-  <v-snackbar v-model="snackbar.deleteDeck" color="success" :timeout="2000">
+  <v-snackbar
+    v-model="snackbar.deleteDeck"
+    color="success"
+    :timeout="2000"
+  >
     {{ deleteDeckName }}を削除しました
   </v-snackbar>
 
-  <v-snackbar v-model="snackbar.resetDeck" color="success" :timeout="2000"> デッキをリセットしました </v-snackbar>
+  <v-snackbar
+    v-model="snackbar.resetDeck"
+    color="success"
+    :timeout="2000"
+  >
+    デッキをリセットしました
+  </v-snackbar>
 
-  <v-snackbar v-model="snackbar.urlCopy" color="success" :timeout="2000"> URLをコピーしました。 </v-snackbar>
+  <v-snackbar
+    v-model="snackbar.urlCopy"
+    color="success"
+    :timeout="2000"
+  >
+    URLをコピーしました。
+  </v-snackbar>
 </template>
 
 <script setup>
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 import draggable from 'vuedraggable';
 import { convertStyleEnToJp } from '@/constants/cards';
 import { convertAttributeEnToJp } from '@/constants/music';
 // import axios from 'axios';
-const store = useStoreCounter();
+const store = useStateStore();
 </script>
 
 <script>
@@ -1712,7 +2124,7 @@ export default {
         }
 
         return Math.ceil(
-          this.score[target] * this.clearRank[this.clearStage[target] - 1] * (1 + releaseLv) * (1 + seasonFanLv),
+          this.score[target] * this.clearRank[this.clearStage[target] - 1] * (1 + releaseLv) * (1 + seasonFanLv)
         ).toLocaleString();
       };
     },

@@ -6428,6 +6428,58 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          ニャオシグニャル: {
+            ID: 'rr_053',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: 'ニャオシグニャル',
+            kana: 'にゃおしぐなる',
+            gacha: {
+              addSeason: '2025 AUTUMN LIMITED COLLECTION vol.1',
+              period: 'autumn',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3300,
+              pure: 4700,
+              cool: 6200,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'dreamJockey_01',
+              name: 'ドリームジョッキー',
+              AP: 10,
+              detail: [
+                [26, 29, 31, 34, 36, 39, 42, 44, 47, 52, 55, 57, 60, 64],
+                [128, 141, 154, 166, 179, 192, 205, 218, 230, 256, 269, 282, 294, 320],
+                [168, 185, 202, 218, 235, 252, 269, 286, 302, 336, 353, 370, 386, 420],
+              ],
+            },
+            skill: {
+              ID: 'groovySignyal_01',
+              name: 'グルーヴィシグニャル',
+              AP: 16,
+              detail: [
+                [102, 112, 122, 133, 143, 153, 163, 173, 184, 204, 214, 224, 235, 256],
+                [409.6, 450.6, 491.5, 532.5, 573.4, 614.4, 655.4, 696.3, 737.3, 819.2, 860.2, 901.1, 942.1, 1024],
+                [410, 451, 492, 533, 574, 615, 656, 697, 738, 820, 861, 902, 943, 1024],
+              ],
+            },
+            characteristic: {
+              name: 'サウンドグルーヴィハート',
+              detail:
+                '手札にある状態でムードがハッピー、メロウいずれか64以上のとき、このスキルの消費APを-8する。さらにドローした時、ボルテージLv.に応じて最大ビートハート1024回分のスキルハートを獲得する。',
+              type: ['draw', 'APReduce', 'heartCaptcha'],
+            },
+          },
           'Very! Very! COCO夏っ': {
             ID: 'rr_051',
             styleType: STYLE_TYPE.MOOD_MAKER.en,
@@ -20304,6 +20356,60 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          ニャオシグニャル: {
+            ID: 'hm_028',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: 'ニャオシグニャル',
+            kana: 'にゃおしぐなる',
+            gacha: {
+              addSeason: '2025 AUTUMN LIMITED COLLECTION vol.1',
+              period: 'autumn',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3400,
+              pure: 4800,
+              cool: 6000,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'dreamJockey_02',
+              name: 'ドリームジョッキー',
+              AP: 10,
+              detail: [
+                [8.8, 9.7, 10.6, 11.4, 12.3, 13.2, 14.1, 15, 15.8, 17.6, 18.5, 19.4, 20.2, 22],
+                [26, 29, 31, 34, 36, 39, 42, 44, 47, 52, 55, 57, 60, 64],
+                [128, 141, 154, 166, 179, 192, 205, 218, 230, 256, 269, 282, 294, 320],
+                [168, 185, 202, 218, 235, 252, 269, 286, 302, 336, 353, 370, 386, 420],
+              ],
+            },
+            skill: {
+              ID: 'groovySignyal_02',
+              name: 'グルーヴィシグニャル',
+              AP: 16,
+              detail: [
+                [102, 112, 122, 133, 143, 153, 163, 173, 184, 204, 214, 224, 235, 256],
+                [8.8, 9.7, 10.6, 11.4, 12.3, 13.2, 14.1, 15, 15.8, 17.6, 18.5, 19.4, 20.2, 22],
+                [409.6, 450.6, 491.5, 532.5, 573.4, 614.4, 655.4, 696.3, 737.3, 819.2, 860.2, 901.1, 942.1, 1024],
+                [410, 451, 492, 533, 574, 615, 656, 697, 738, 820, 861, 902, 943, 1024],
+              ],
+            },
+            characteristic: {
+              name: 'サウンドグルーヴィハート',
+              detail:
+                '手札にある状態でムードがハッピー、メロウいずれか64以上のとき、このスキルの消費APを-8する。さらにドローした時、ボルテージLv.に応じて最大ビートハート1024回分のスキルハートを獲得する。',
+              type: ['draw', 'APReduce', 'heartCaptcha'],
+            },
+          },
           'Very! Very! COCO夏っ': {
             ID: 'hm_027',
             styleType: STYLE_TYPE.MOOD_MAKER.en,

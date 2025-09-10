@@ -1,7 +1,14 @@
 <template>
   <h1>SITE SETTINGS</h1>
 
-  <v-tabs v-model="pageName" :items="tabs" slider-color="pink" density="compact" grow class="mb-2">
+  <v-tabs
+    v-model="pageName"
+    :items="tabs"
+    slider-color="pink"
+    density="compact"
+    grow
+    class="mb-2"
+  >
     <template v-slot:tab="{ item }">
       <v-tab
         :value="item.value"
@@ -41,7 +48,10 @@
       <div class="mb-3">
         <p class="font-weight-bold">ドット表示</p>
         <v-row no-gutters>
-          <v-col cols="12" sm="4">
+          <v-col
+            cols="12"
+            sm="4"
+          >
             <v-switch
               v-model="store.localStorageData.siteSettings.cardList.dot_cardLevel"
               color="pink"
@@ -54,7 +64,10 @@
               @change="store.changeSettings('siteSettings')"
             ></v-switch>
           </v-col>
-          <v-col cols="12" sm="4">
+          <v-col
+            cols="12"
+            sm="4"
+          >
             <v-switch
               v-model="store.localStorageData.siteSettings.cardList.dot_releaseLevel"
               color="pink"
@@ -67,7 +80,10 @@
               @change="store.changeSettings('siteSettings')"
             ></v-switch>
           </v-col>
-          <v-col cols="12" sm="4">
+          <v-col
+            cols="12"
+            sm="4"
+          >
             <v-switch
               v-model="store.localStorageData.siteSettings.cardList.dot_releasePoint"
               color="pink"
@@ -127,8 +143,8 @@
 </template>
 
 <script setup>
-import { useStoreCounter } from '@/stores/counter';
-const store = useStoreCounter();
+import { useStateStore } from '@/stores/stateStore';
+const store = useStateStore();
 </script>
 
 <script>

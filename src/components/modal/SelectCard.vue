@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="pa-0">
+  <v-container
+    fluid
+    class="pa-0"
+  >
     <div class="d-inline-block">
       <v-switch
         v-model="store.isParamReflect"
@@ -18,10 +21,18 @@
         hide-details
       ></v-switch>
     </div>
-    <v-row no-gutters v-for="rare in RARE" :key="rare" :class="rare !== 'R' ? 'mb-3' : ''">
+    <v-row
+      no-gutters
+      v-for="rare in RARE"
+      :key="rare"
+      :class="rare !== 'R' ? 'mb-3' : ''"
+    >
       <!--<template>-->
       <v-col cols="12">
-        <h3 v-if="outputCardList(store).filter((data) => data.rare === rare).length > 0" class="px-1">
+        <h3
+          v-if="outputCardList(store).filter((data) => data.rare === rare).length > 0"
+          class="px-1"
+        >
           {{ rare }}
         </h3>
       </v-col>
@@ -41,7 +52,7 @@
             :src="
               store.getImagePath(
                 'images/cardIllust',
-                `${store.conversion(cardData.cardName)}_${makeCardMemberName(store, cardData.ID)}_覚醒後`,
+                `${store.conversion(cardData.cardName)}_${makeCardMemberName(store, cardData.ID)}_覚醒後`
               )
             "
             gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
@@ -54,12 +65,15 @@
           </v-img>
           <v-card-title class="px-2 py-1">{{ cardData.cardName }}</v-card-title>
         </v-card>
-        <v-card v-else @click="openCheckDialog(store, cardData.cardName, rare, cardData)">
+        <v-card
+          v-else
+          @click="openCheckDialog(store, cardData.cardName, rare, cardData)"
+        >
           <v-img
             :src="
               store.getImagePath(
                 'images/cardIllust',
-                `${store.conversion(cardData.cardName)}_${makeCardMemberName(store, cardData.ID)}_覚醒後`,
+                `${store.conversion(cardData.cardName)}_${makeCardMemberName(store, cardData.ID)}_覚醒後`
               )
             "
           ></v-img>
@@ -134,14 +148,25 @@
     </v-row>
   </v-container>
 
-  <v-dialog v-model="dialog" max-width="600">
+  <v-dialog
+    v-model="dialog"
+    max-width="600"
+  >
     <v-sheet class="pa-2">
       <div class="text-center mb-2">カードを入れ替えますか？</div>
-      <v-alert v-if="rarity === 'DR'" type="warning" variant="outlined" class="mb-2">
+      <v-alert
+        v-if="rarity === 'DR'"
+        type="warning"
+        variant="outlined"
+        class="mb-2"
+      >
         ドリームスタイル(DR)のカードはライブグランプリでは使用できません。
       </v-alert>
       <v-row no-gutters>
-        <v-col cols="12" sm="5">
+        <v-col
+          cols="12"
+          sm="5"
+        >
           <v-card>
             <v-img
               :src="
@@ -149,7 +174,7 @@
                   'images/cardIllust',
                   `${store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}_${
                     store.memberName[store.openCard.name].last
-                  }_覚醒後`,
+                  }_覚醒後`
                 )
               "
             ></v-img>
@@ -162,45 +187,76 @@
                 <v-col cols="6">{{ getCardStatus('cardLevel', true) }}</v-col>
                 <v-col cols="6">解放Lv.</v-col>
                 <v-col cols="3">{{ getCardStatus('releaseLevel', true) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'releaseLevel', true)">{{
-                  makeWhichText(store, 'releaseLevel', true)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'releaseLevel', true)"
+                  >{{ makeWhichText(store, 'releaseLevel', true) }}</v-col
+                >
                 <v-col cols="6">解放Lv.ボーナス</v-col>
                 <v-col cols="3">{{ makeReleaseBonus(store, true) }}%</v-col>
-                <v-col cols="3" :class="makeClass(store, 'releaseBonus', true)"
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'releaseBonus', true)"
                   >{{ makeWhichText(store, 'releaseBonus', true) }}%</v-col
                 >
                 <v-col cols="6">スマイル</v-col>
                 <v-col cols="3">{{ getCardStatus('smile', true) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'smile', true)">{{
-                  makeWhichText(store, 'smile', true)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'smile', true)"
+                  >{{ makeWhichText(store, 'smile', true) }}</v-col
+                >
                 <v-col cols="6">クール</v-col>
                 <v-col cols="3">{{ getCardStatus('cool', true) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'cool', true)">{{ makeWhichText(store, 'cool', true) }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'cool', true)"
+                  >{{ makeWhichText(store, 'cool', true) }}</v-col
+                >
                 <v-col cols="6">ピュア</v-col>
                 <v-col cols="3">{{ getCardStatus('pure', true) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'pure', true)">{{ makeWhichText(store, 'pure', true) }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'pure', true)"
+                  >{{ makeWhichText(store, 'pure', true) }}</v-col
+                >
                 <v-col cols="6">メンタル</v-col>
                 <v-col cols="3">{{ culMental(true) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'mental', true)">{{
-                  makeWhichText(store, 'mental', true)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'mental', true)"
+                  >{{ makeWhichText(store, 'mental', true) }}</v-col
+                >
               </v-row>
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12" sm="2" class="d-flex align-center">
-          <v-icon class="my-0 mx-auto pc" style="font-size: 50px">mdi-arrow-right-bold</v-icon>
-          <v-icon class="my-0 mx-auto sp" style="font-size: 50px">mdi-arrow-down-bold</v-icon>
+        <v-col
+          cols="12"
+          sm="2"
+          class="d-flex align-center"
+        >
+          <v-icon
+            class="my-0 mx-auto pc"
+            style="font-size: 50px"
+            >mdi-arrow-right-bold</v-icon
+          >
+          <v-icon
+            class="my-0 mx-auto sp"
+            style="font-size: 50px"
+            >mdi-arrow-down-bold</v-icon
+          >
         </v-col>
-        <v-col cols="12" sm="5">
+        <v-col
+          cols="12"
+          sm="5"
+        >
           <v-card>
             <v-img
               :src="
                 store.getImagePath(
                   'images/cardIllust',
-                  `${store.conversion(selectCard)}_${store.memberName[store.openCard.name].last}_覚醒後`,
+                  `${store.conversion(selectCard)}_${store.memberName[store.openCard.name].last}_覚醒後`
                 )
               "
             ></v-img>
@@ -211,41 +267,58 @@
                 <v-col cols="6">{{ getCardStatus('cardLevel', false) }}</v-col>
                 <v-col cols="6">解放Lv.</v-col>
                 <v-col cols="3">{{ getCardStatus('releaseLevel', false) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'releaseLevel', false)">{{
-                  makeWhichText(store, 'releaseLevel', false)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'releaseLevel', false)"
+                  >{{ makeWhichText(store, 'releaseLevel', false) }}</v-col
+                >
                 <v-col cols="6">解放Lv.ボーナス</v-col>
                 <v-col cols="3">{{ makeReleaseBonus(store, false) }}%</v-col>
-                <v-col cols="3" :class="makeClass(store, 'releaseBonus', false)"
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'releaseBonus', false)"
                   >{{ makeWhichText(store, 'releaseBonus', false) }}%</v-col
                 >
                 <v-col cols="6">スマイル</v-col>
                 <v-col cols="3">{{ getCardStatus('smile', false) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'smile', false)">{{
-                  makeWhichText(store, 'smile', false)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'smile', false)"
+                  >{{ makeWhichText(store, 'smile', false) }}</v-col
+                >
                 <v-col cols="6">クール</v-col>
                 <v-col cols="3">{{ getCardStatus('cool', false) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'cool', false)">{{
-                  makeWhichText(store, 'cool', false)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'cool', false)"
+                  >{{ makeWhichText(store, 'cool', false) }}</v-col
+                >
                 <v-col cols="6">ピュア</v-col>
                 <v-col cols="3">{{ getCardStatus('pure', false) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'pure', false)">{{
-                  makeWhichText(store, 'pure', false)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'pure', false)"
+                  >{{ makeWhichText(store, 'pure', false) }}</v-col
+                >
                 <v-col cols="6">メンタル</v-col>
                 <v-col cols="3">{{ culMental(false) }}</v-col>
-                <v-col cols="3" :class="makeClass(store, 'mental', false)">{{
-                  makeWhichText(store, 'mental', false)
-                }}</v-col>
+                <v-col
+                  cols="3"
+                  :class="makeClass(store, 'mental', false)"
+                  >{{ makeWhichText(store, 'mental', false) }}</v-col
+                >
               </v-row>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
-        <v-btn @click="dialog = false" class="mr-4"> CANCEL </v-btn>
+        <v-btn
+          @click="dialog = false"
+          class="mr-4"
+        >
+          CANCEL
+        </v-btn>
         <v-btn
           @click="
             dialog = false;
@@ -261,9 +334,20 @@
 
   <div v-if="false">
     <label for="cardList">カード名</label>
-    <select v-model="store.selectCard[store.openCard.name][store.openCard.style]" name="cardList" id="cardList">
-      <option label="" value="default"></option>
-      <optgroup v-for="rare in store.rarity" :key="rare" :label="rare">
+    <select
+      v-model="store.selectCard[store.openCard.name][store.openCard.style]"
+      name="cardList"
+      id="cardList"
+    >
+      <option
+        label=""
+        value="default"
+      ></option>
+      <optgroup
+        v-for="rare in store.rarity"
+        :key="rare"
+        :label="rare"
+      >
         <option
           v-for="(ary, cardName) in store.card[store.openCard.name][rare]"
           :key="ary"
@@ -274,9 +358,19 @@
     </select>
   </div>
 
-  <v-snackbar v-model="snackbar.sameCard" color="warning" :timeout="2000"> すでに編成済みです </v-snackbar>
+  <v-snackbar
+    v-model="snackbar.sameCard"
+    color="warning"
+    :timeout="2000"
+  >
+    すでに編成済みです
+  </v-snackbar>
 
-  <v-snackbar v-model="snackbar.sachi" color="light-green-darken-4" :timeout="3000">
+  <v-snackbar
+    v-model="snackbar.sachi"
+    color="light-green-darken-4"
+    :timeout="3000"
+  >
     {{ sachiMessage }}
   </v-snackbar>
 </template>
@@ -284,8 +378,8 @@
 <script setup>
 // import { ref } from 'vue';
 import { RARE } from '@/constants/cards';
-import { useStoreCounter } from '@/stores/counter';
-const store = useStoreCounter();
+import { useStateStore } from '@/stores/stateStore';
+const store = useStateStore();
 </script>
 
 <script>
@@ -484,8 +578,8 @@ export default {
               store.searchRarity(
                 store.findCardId(
                   store.openCard.name,
-                  store.searchSelectDeckCard(store.openCard.name, store.openCard.style),
-                ),
+                  store.searchSelectDeckCard(store.openCard.name, store.openCard.style)
+                )
               )
             ][this.getCardStatus('releaseLevel', true) - 1]) *
           100

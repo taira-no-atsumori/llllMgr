@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="px-2 pt-2 pb-0">
+  <v-container
+    fluid
+    class="px-2 pt-2 pb-0"
+  >
     <h1 class="mb-1">WITH STAR MGR ～ 獲得With Star管理ツール ～</h1>
 
     <v-expansion-panels class="mb-2">
@@ -20,7 +23,11 @@
           :disabled="sendGiftPtList.length === 1"
         ></v-btn>
         {{ sendGiftPtList.length }}
-        <v-btn density="compact" icon="mdi-plus" @click="makeList(true)"></v-btn>
+        <v-btn
+          density="compact"
+          icon="mdi-plus"
+          @click="makeList(true)"
+        ></v-btn>
       </v-col>
       <v-col cols="12">
         <v-stepper prev-text="prev">
@@ -30,7 +37,10 @@
                 v-for="(title, i) of ['配信日選択', 'メンバー選択', 'With Star割り振り', '結果表示']"
                 :key="title"
               >
-                <v-stepper-item :title="title" :value="i + 1"></v-stepper-item>
+                <v-stepper-item
+                  :title="title"
+                  :value="i + 1"
+                ></v-stepper-item>
                 <v-divider v-if="i + 1 < 4"></v-divider>
               </template>
               <!--<v-stepper-item title="配信日選択" value="1"></v-stepper-item>
@@ -56,8 +66,17 @@
 
               <v-stepper-window-item value="2">
                 <v-row no-gutters>
-                  <template v-for="memberName in store.memberNameList" :key="memberName">
-                    <v-col v-if="!store.isOtherMember(memberName)" cols="6" md="4" lg="2" class="mt-2 px-1">
+                  <template
+                    v-for="memberName in store.memberNameList"
+                    :key="memberName"
+                  >
+                    <v-col
+                      v-if="!store.isOtherMember(memberName)"
+                      cols="6"
+                      md="4"
+                      lg="2"
+                      class="mt-2 px-1"
+                    >
                       <v-card class="pa-2">
                         <div class="d-flex flex-row align-center justify-center">
                           <img
@@ -99,11 +118,25 @@
               <v-stepper-window-item value="3">
                 <div class="text-center">
                   <p>獲得予定のWith Star</p>
-                  <v-rating active-color="pink" color="orange-lighten-1" density="compact" size="large"></v-rating>
+                  <v-rating
+                    active-color="pink"
+                    color="orange-lighten-1"
+                    density="compact"
+                    size="large"
+                  ></v-rating>
                 </div>
                 <v-row no-gutters>
-                  <template v-for="memberName in store.memberName" :key="memberName">
-                    <v-col v-if="!store.isOtherMember(memberName)" cols="6" md="4" lg="2" class="mt-2 px-1">
+                  <template
+                    v-for="memberName in store.memberName"
+                    :key="memberName"
+                  >
+                    <v-col
+                      v-if="!store.isOtherMember(memberName)"
+                      cols="6"
+                      md="4"
+                      lg="2"
+                      class="mt-2 px-1"
+                    >
                       <v-card class="pa-2">
                         <div class="d-flex flex-row align-center justify-center">
                           <img
@@ -116,13 +149,33 @@
 
                         <v-divider class="my-2"></v-divider>
 
-                        <v-row no-gutters class="mb-3">
-                          <v-col cols="4" align="center">
-                            <v-btn density="compact" icon="mdi-minus"></v-btn>
+                        <v-row
+                          no-gutters
+                          class="mb-3"
+                        >
+                          <v-col
+                            cols="4"
+                            align="center"
+                          >
+                            <v-btn
+                              density="compact"
+                              icon="mdi-minus"
+                            ></v-btn>
                           </v-col>
-                          <v-col cols="4" align="center" class="pt-1">0</v-col>
-                          <v-col cols="4" align="center">
-                            <v-btn density="compact" icon="mdi-plus"></v-btn>
+                          <v-col
+                            cols="4"
+                            align="center"
+                            class="pt-1"
+                            >0</v-col
+                          >
+                          <v-col
+                            cols="4"
+                            align="center"
+                          >
+                            <v-btn
+                              density="compact"
+                              icon="mdi-plus"
+                            ></v-btn>
                           </v-col>
                         </v-row>
                       </v-card>
@@ -134,20 +187,35 @@
               <v-stepper-window-item value="4">test</v-stepper-window-item>
             </v-stepper-window>
 
-            <v-stepper-actions prev-text="prev" @click:next="next" @click:prev="prev"></v-stepper-actions>
+            <v-stepper-actions
+              prev-text="prev"
+              @click:next="next"
+              @click:prev="prev"
+            ></v-stepper-actions>
           </template>
         </v-stepper>
       </v-col>
 
       <v-divider class="my-2"></v-divider>
 
-      <v-col cols="12" v-for="i in sendGiftPtList.length" :key="i" class="mb-1">
+      <v-col
+        cols="12"
+        v-for="i in sendGiftPtList.length"
+        :key="i"
+        class="mb-1"
+      >
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>配信日：{{ liveStreamingDate(i - 1) }}</v-expansion-panel-title>
             <v-expansion-panel-text id="withStarMgrArea">
-              <v-row no-gutters class="px-1">
-                <v-col cols="2" class="text-center">
+              <v-row
+                no-gutters
+                class="px-1"
+              >
+                <v-col
+                  cols="2"
+                  class="text-center"
+                >
                   <p>獲得予定のWith Star</p>
                   <v-rating
                     v-model="sendGiftPtList[i - 1].sendGiftPt"
@@ -158,10 +226,22 @@
                   ></v-rating>
                 </v-col>
                 <v-col cols="4">
-                  <v-btn @click="resetGiftPt(i - 1)" class="mr-2" prepend-icon="mdi-star-remove">Reset</v-btn>
-                  <v-btn @click="dialog.calendar = true" class="mr-2" prepend-icon="mdi-calendar-month">
+                  <v-btn
+                    @click="resetGiftPt(i - 1)"
+                    class="mr-2"
+                    prepend-icon="mdi-star-remove"
+                    >Reset</v-btn
+                  >
+                  <v-btn
+                    @click="dialog.calendar = true"
+                    class="mr-2"
+                    prepend-icon="mdi-calendar-month"
+                  >
                     Calendar
-                    <v-dialog v-model="dialog.calendar" max-width="328">
+                    <v-dialog
+                      v-model="dialog.calendar"
+                      max-width="328"
+                    >
                       <v-date-picker
                         v-model="sendGiftPtList[i - 1].selectDate"
                         color="pink"
@@ -173,11 +253,19 @@
                       ></v-date-picker>
                     </v-dialog>
                   </v-btn>
-                  <v-btn @click="dialog.paste = true" class="mr-2" prepend-icon="mdi-content-paste">Paste</v-btn>
+                  <v-btn
+                    @click="dialog.paste = true"
+                    class="mr-2"
+                    prepend-icon="mdi-content-paste"
+                    >Paste</v-btn
+                  >
                   <v-btn prepend-icon="mdi-delete">Delete</v-btn>
                 </v-col>
                 <v-col cols="6">
-                  <v-alert v-if="sendGiftPtList[i - 1].sendGiftPt === 0" type="info" variant="tonal"
+                  <v-alert
+                    v-if="sendGiftPtList[i - 1].sendGiftPt === 0"
+                    type="info"
+                    variant="tonal"
                     >獲得予定のWith Starを選択してください。</v-alert
                   >
                   <v-alert
@@ -198,8 +286,17 @@
               <v-divider class="mt-2 mx-1"></v-divider>
 
               <v-row no-gutters>
-                <template v-for="(arr, memberName) in sendGiftPtList[i - 1].member" :key="memberName">
-                  <v-col v-if="!store.isOtherMember(memberName)" cols="6" md="4" lg="2" class="mt-2 px-1">
+                <template
+                  v-for="(arr, memberName) in sendGiftPtList[i - 1].member"
+                  :key="memberName"
+                >
+                  <v-col
+                    v-if="!store.isOtherMember(memberName)"
+                    cols="6"
+                    md="4"
+                    lg="2"
+                    class="mt-2 px-1"
+                  >
                     <v-card class="pa-2">
                       <div class="d-flex flex-row align-center justify-center">
                         <img
@@ -214,8 +311,14 @@
 
                       <v-divider class="my-2"></v-divider>
 
-                      <v-row no-gutters class="mb-3">
-                        <v-col cols="4" align="center">
+                      <v-row
+                        no-gutters
+                        class="mb-3"
+                      >
+                        <v-col
+                          cols="4"
+                          align="center"
+                        >
                           <v-btn
                             density="compact"
                             icon="mdi-minus"
@@ -229,10 +332,17 @@
                             "
                           ></v-btn>
                         </v-col>
-                        <v-col cols="4" align="center" class="pt-1">
+                        <v-col
+                          cols="4"
+                          align="center"
+                          class="pt-1"
+                        >
                           {{ sendGiftPtList[i - 1].member[memberName].giftPt }}
                         </v-col>
-                        <v-col cols="4" align="center">
+                        <v-col
+                          cols="4"
+                          align="center"
+                        >
                           <v-btn
                             density="compact"
                             icon="mdi-plus"
@@ -248,24 +358,50 @@
                         </v-col>
                       </v-row>
 
-                      <v-row no-gutters class="text-center">
-                        <v-col cols="12" v-if="false">Fan Lv.</v-col>
-                        <v-col cols="12" class="mb-2">
+                      <v-row
+                        no-gutters
+                        class="text-center"
+                      >
+                        <v-col
+                          cols="12"
+                          v-if="false"
+                          >Fan Lv.</v-col
+                        >
+                        <v-col
+                          cols="12"
+                          class="mb-2"
+                        >
                           <p>Season Fan Lv.</p>
                           <span class="text-h6 mr-2">10 / 10</span>
                           <!--<span class="text-caption">(1160 / {{ 120 * (9 - 1) + 200 }})</span>-->
-                          <v-progress-linear model-value="1040" max="6120" color="blue" height="18" rounded
+                          <v-progress-linear
+                            model-value="1040"
+                            max="6120"
+                            color="blue"
+                            height="18"
+                            rounded
                             ><span class="text-caption">1040 / 6120</span></v-progress-linear
                           >
-                          <v-progress-circular model-value="20" :size="50" :width="5" color="blue"
+                          <v-progress-circular
+                            model-value="20"
+                            :size="50"
+                            :width="5"
+                            color="blue"
                             >10</v-progress-circular
                           >
                           <v-icon icon="mdi-menu-right"></v-icon>
-                          <v-progress-circular model-value="60" :size="50" :width="5" color="blue"
+                          <v-progress-circular
+                            model-value="60"
+                            :size="50"
+                            :width="5"
+                            color="blue"
                             >10</v-progress-circular
                           >
                         </v-col>
-                        <v-col cols="12" class="mb-2">
+                        <v-col
+                          cols="12"
+                          class="mb-2"
+                        >
                           <p>Member Fan Lv.</p>
                           <span class="text-h6 mr-1">100</span>
                           <span class="text-caption">(1080 / 1330)</span>
@@ -282,7 +418,11 @@
     </v-row>
   </v-container>
 
-  <v-dialog v-model="dialog.paste" max-width="1600" scrollable>
+  <v-dialog
+    v-model="dialog.paste"
+    max-width="1600"
+    scrollable
+  >
     <v-sheet class="pa-3">
       <h2>Fan Lv.の複製</h2>
       <v-card
@@ -296,7 +436,10 @@
         <v-divider></v-divider>
 
         <v-row no-gutters>
-          <template v-for="(arr, memberName, ii) in outputList.member" :key="memberName">
+          <template
+            v-for="(arr, memberName, ii) in outputList.member"
+            :key="memberName"
+          >
             <v-col
               v-if="!store.isOtherMember(memberName)"
               cols="12"
@@ -307,16 +450,28 @@
               }`"
             >
               <v-row no-gutters>
-                <v-col cols="4" align="center" class="align-self-center">
+                <v-col
+                  cols="4"
+                  align="center"
+                  class="align-self-center"
+                >
                   <v-img
                     v-if="!store.isOtherMember(memberName)"
                     :src="store.getImagePath('icons/member', `icon_illust_${memberName}_${store.thisPeriod}`)"
                     style="width: 50px"
                   ></v-img>
-                  <p class="mt-1" style="font-size: 12px">{{ store.makeFullName(memberName) }}</p>
+                  <p
+                    class="mt-1"
+                    style="font-size: 12px"
+                  >
+                    {{ store.makeFullName(memberName) }}
+                  </p>
                 </v-col>
                 <v-col cols="8">
-                  <v-row no-gutters class="text-center">
+                  <v-row
+                    no-gutters
+                    class="text-center"
+                  >
                     <v-col cols="12">Fan Lv.</v-col>
                     <v-col cols="6">
                       <p>Season</p>
@@ -341,15 +496,15 @@
 </template>
 
 <script setup>
-//import { useStoreCounter } from '../stores/counter';
-//const store = useStoreCounter();
+//import { useStateStore } from '@/stores/store';
+//const store = useStateStore();
 </script>
 
 <script>
 import { createPinia } from 'pinia';
-import { useStoreCounter } from '../stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 const pinia = createPinia();
-const store = useStoreCounter(pinia);
+const store = useStateStore(pinia);
 
 export default {
   name: 'WithStarMgr',
