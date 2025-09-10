@@ -876,11 +876,11 @@
 // import { ref } from 'vue';
 import { computed } from 'vue';
 import { STYLE_TYPE, convertStyleEnToJp, convertMoodEnToJp, FAVORITE, LIMITED } from '@/constants/cards';
-import { CounterState } from '@/types/counter';
-import { useStoreCounter } from '@/stores/counter';
+import { StoreState } from '@/types/store';
+import { useStateStore } from '@/stores/stateStore';
 import skillArea from '@/components/SkillAreaComponent.vue';
 
-const store = useStoreCounter();
+const store = useStateStore();
 
 const dynamicWidth = computed(() => {
   const releaseLevel: number = store.settingCardData.fluctuationStatus.releaseLevel;
@@ -921,7 +921,7 @@ export default {
      * @param store ストア
      * @returns string リンク
      */
-    makeWikiLink(store: CounterState): string {
+    makeWikiLink(store: StoreState): string {
       const name: {
         first: string;
         last: String;
@@ -939,7 +939,7 @@ export default {
      * @param store ストア
      * @returns string カード名
      */
-    makeCardName(store: CounterState): string {
+    makeCardName(store: StoreState): string {
       return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(
         store.getSettingCard.memberName
       )}`;
@@ -951,7 +951,7 @@ export default {
      * @param supportSkillName サポートスキル名
      * @returns number サポートスキルレベル
      */
-    makeSupportSkillLevel(store: CounterState, supportSkillName: string): number {
+    makeSupportSkillLevel(store: StoreState, supportSkillName: string): number {
       const result = store.settingCardData.uniqueStatus.supportSkill.supportSkillList[supportSkillName].initLevel;
 
       if (store.settingCardData.fluctuationStatus.cardLevel === 0) {
@@ -1003,7 +1003,7 @@ export default {
      * @param store store
      * @returns number 最大値
      */
-    maxReleasePoint(store: CounterState): number {
+    maxReleasePoint(store: StoreState): number {
       const point = Math.min(store.settingCardData.fluctuationStatus.releasePoint, this.limitReleasePoint(store));
       store.valueChange('releasePoint', point);
       return point;
@@ -1014,7 +1014,7 @@ export default {
      * @param {Object} store store
      * @returns string 上限値
      */
-    limitReleasePoint(store: CounterState): number {
+    limitReleasePoint(store: StoreState): number {
       return (
         store.releasePoint[store.settingCardData.rare].max -
         store.releasePoint[store.settingCardData.rare].point *

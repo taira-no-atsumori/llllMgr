@@ -1,8 +1,16 @@
 <template>
-  <v-dialog v-model="store.loading" :max-width="400" persistent>
+  <v-dialog
+    v-model="store.loading"
+    :max-width="400"
+    persistent
+  >
     <v-sheet class="pa-3">
       <p class="mb-3">Now Loading…</p>
-      <v-progress-linear v-if="!store.dialogError" color="pink" indeterminate></v-progress-linear>
+      <v-progress-linear
+        v-if="!store.dialogError"
+        color="pink"
+        indeterminate
+      ></v-progress-linear>
       <div v-else>
         <v-alert type="error">
           データの取得に失敗しました。<br />
@@ -23,8 +31,8 @@
 </template>
 
 <script setup>
-import { useStoreCounter } from '@/stores/counter';
-const store = useStoreCounter();
+import { useStateStore } from '@/stores/stateStore';
+const store = useStateStore();
 </script>
 
 <script>

@@ -20,7 +20,11 @@
     </h3>
 
     <v-row no-gutters>
-      <v-col cols="12" sm="6" class="mb-3 mb-sm-0">
+      <v-col
+        cols="12"
+        sm="6"
+        class="mb-3 mb-sm-0"
+      >
         <v-img
           :lazy-src="store.getImagePath('images/cdJacket', store.conversion(store.selectMusicTitle))"
           :src="store.getImagePath('images/cdJacket', store.conversion(store.selectMusicTitle))"
@@ -31,7 +35,10 @@
         <div v-if="store.musicList[store.selectMusicTitle]?.scoreData">
           <h4 class="subtitle">楽曲難易度・コンボ数</h4>
 
-          <v-table density="compact" class="mb-2">
+          <v-table
+            density="compact"
+            class="mb-2"
+          >
             <thead>
               <tr>
                 <th></th>
@@ -70,19 +77,33 @@
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
-                <v-col cols="12" class="mb-1">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                >
                   <h4>発売(発表)日</h4>
                   {{ store.makeReleaseDate }}
                 </v-col>
-                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.numbering">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                  v-if="store.musicList[store.selectMusicTitle].musicData.numbering"
+                >
                   <h4>収録CD</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.numbering }}
                 </v-col>
-                <v-col cols="12" class="mb-1">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                >
                   <h4>原曲BPM</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.BPM.original }}
                 </v-col>
-                <v-col cols="12" class="mb-1" v-if="store.musicList[store.selectMusicTitle].musicData.time > 0">
+                <v-col
+                  cols="12"
+                  class="mb-1"
+                  v-if="store.musicList[store.selectMusicTitle].musicData.time > 0"
+                >
                   <h4>秒数</h4>
                   {{ store.musicList[store.selectMusicTitle].musicData.time }}
                 </v-col>
@@ -92,11 +113,20 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col cols="12" sm="6" class="pl-sm-3" style="font-size: 15px">
+      <v-col
+        cols="12"
+        sm="6"
+        class="pl-sm-3"
+        style="font-size: 15px"
+      >
         <div class="mb-2">
           <h4 class="subtitle">センター</h4>
           <div>
-            <v-chip pill class="pl-0" :color="store.memberColor[store.musicList[store.selectMusicTitle].center]">
+            <v-chip
+              pill
+              class="pl-0"
+              :color="store.memberColor[store.musicList[store.selectMusicTitle].center]"
+            >
               <v-avatar left>
                 <v-img
                   :src="store.getImagePath('icons/member', `icon_SD_${store.musicList[store.selectMusicTitle].center}`)"
@@ -118,7 +148,10 @@
               :color="store.memberColor[memberName]"
             >
               <v-avatar left>
-                <v-img :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)" width="30px"></v-img>
+                <v-img
+                  :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
+                  width="30px"
+                ></v-img>
               </v-avatar>
               <span class="ml-1">{{ store.makeFullName(memberName) }}</span>
             </v-chip>
@@ -135,7 +168,7 @@
                     'musicLevel',
                     store.musicList[store.selectMusicTitle].level >= 10
                       ? store.musicList[store.selectMusicTitle].level - 10
-                      : 0,
+                      : 0
                   )
                 "
                 :disabled="store.musicList[store.selectMusicTitle].level === 0"
@@ -175,7 +208,7 @@
                     'musicLevel',
                     store.musicList[store.selectMusicTitle].level <= 40
                       ? store.musicList[store.selectMusicTitle].level + 10
-                      : 50,
+                      : 50
                   )
                 "
                 :disabled="store.musicList[store.selectMusicTitle].level === 50"
@@ -206,7 +239,11 @@
         <div class="mb-1">
           <h4 class="subtitle">属性</h4>
           <div>
-            <v-chip pill class="member" :color="attributeName[store.musicList[store.selectMusicTitle].attribute].color">
+            <v-chip
+              pill
+              class="member"
+              :color="attributeName[store.musicList[store.selectMusicTitle].attribute].color"
+            >
               <v-avatar left>
                 <v-img
                   :src="
@@ -232,9 +269,9 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 
-const store = useStoreCounter();
+const store = useStateStore();
 </script>
 
 <script lang="ts">

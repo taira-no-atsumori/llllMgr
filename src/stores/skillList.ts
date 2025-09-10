@@ -2435,6 +2435,45 @@ export const useSkillStore = defineStore('skillList', {
           },
         },
       },
+      グルーヴィシグニャル: {
+        groovySignyal_01: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにボルテージLv.4以上の時、このセクション中、手札の上限枚数を2枚増加、ボルテージLv.8以上の時、4回の間瑠璃乃が使用するボルテージゲイン効果を+',
+            '%、ボルテージLv.16以上の時、手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージLv.32以上の時、このステージ中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: [
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.EXTENSIONS_SECTION,
+              SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+            ],
+          },
+        },
+        groovySignyal_02: {
+          text: [
+            'ボルテージPt.を+',
+            'する。さらにボルテージLv.4以上の時、このセクション中、AP回復速度を+',
+            '%、ボルテージLv.8以上の時、4回の間瑠璃乃が使用するボルテージゲイン効果を+',
+            '%、ボルテージLv.16以上の時、手札を全て捨てて、デッキから手札上限までスキルを引き、ボルテージLv.32以上の時、このステージ中、ハート上限を+',
+            'する。',
+          ],
+          detail: {
+            attr: 'groovy',
+            type: [
+              SKILL_DETAIL.VOLTAGE_GAIN,
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+              SKILL_DETAIL.RESHUFFLE,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+            ],
+          },
+        },
+      },
       スイッチボルテージ: {
         switchVoltage: {
           text: [
@@ -6814,6 +6853,43 @@ export const useSkillStore = defineStore('skillList', {
           detail: {
             attr: '',
             type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+          },
+        },
+      },
+      ドリームジョッキー: {
+        dreamJockey_01: {
+          text: [
+            'このステージ中、手札の上限枚数を2枚増加し、ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+            'する。さらにムードがハッピー、メロウいずれか64以上のとき、このステージ中、ハート上限を+',
+            'し、ボルテージPt.を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              SKILL_DETAIL.EXTENSIONS_STAGE,
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+            ],
+          },
+        },
+        dreamJockey_02: {
+          text: [
+            'このステージ中、AP回復速度を+',
+            '%し、ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+            'する。さらにムードがハッピー、メロウいずれか64以上のとき、このステージ中、ハート上限を+',
+            'し、ボルテージPt.を+',
+            'する。',
+          ],
+          detail: {
+            attr: '',
+            type: [
+              SKILL_DETAIL.AP_QUICK,
+              SKILL_DETAIL.AMBIENCE_SECTION,
+              SKILL_DETAIL.HEART_LIMIT_UP,
+              SKILL_DETAIL.VOLTAGE_GAIN,
+            ],
           },
         },
       },

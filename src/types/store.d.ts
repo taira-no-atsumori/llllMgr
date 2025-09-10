@@ -317,7 +317,7 @@ type Deck = {
  * @property defaultCardList デフォルトカードリスト
  * @property windowSize ウィンドウサイズ
  */
-type CounterState = {
+type StoreState = {
   loading: boolean;
   dialog: boolean;
   dialogError: boolean;
@@ -398,8 +398,8 @@ type CounterState = {
   };
 };
 
-export type CounterStore = {
-  state: Ref<CounterState>;
+export type StoreStore = {
+  state: Ref<StoreState>;
   getters: Record<string, any>;
   actions: Record<string, (...args: any[]) => any>;
 };

@@ -2,7 +2,13 @@
   <v-row class="text-center">
     <v-col cols="6">
       <p class="mb-1">URLをコピー</p>
-      <v-btn color="pink" prepend-icon="mdi-content-copy" @click="copyUrl()"> COPY </v-btn>
+      <v-btn
+        color="pink"
+        prepend-icon="mdi-content-copy"
+        @click="copyUrl()"
+      >
+        COPY
+      </v-btn>
     </v-col>
     <v-col cols="6">
       <p class="mb-1">Xでシェア</p>
@@ -30,13 +36,19 @@
     </v-col>
   </v-row>
 
-  <v-snackbar v-model="snackbar" timeout="2000" color="success"> URLをコピーしました </v-snackbar>
+  <v-snackbar
+    v-model="snackbar"
+    timeout="2000"
+    color="success"
+  >
+    URLをコピーしました
+  </v-snackbar>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStoreCounter } from '@/stores/counter';
-const store = useStoreCounter();
+import { useStateStore } from '@/stores/stateStore';
+const store = useStateStore();
 
 const snackbar = ref(false);
 

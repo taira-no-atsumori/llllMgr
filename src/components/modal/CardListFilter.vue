@@ -621,11 +621,11 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { RARE, STYLE_TYPE, MOOD, FAVORITE, RELEASE_STATUS, LIMITED } from '@/constants/cards';
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
 import CardFilterSlider from '@/components/CardFilterSliderComponent.vue';
 
-const store = useStoreCounter();
+const store = useStateStore();
 
 const tab1 = ref('filter_status');
 

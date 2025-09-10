@@ -208,9 +208,9 @@
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue';
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 
-const store = useStoreCounter();
+const store = useStateStore();
 
 const files = ref([]);
 let fileReader = null;

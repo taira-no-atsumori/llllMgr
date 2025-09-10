@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 
 const props = defineProps<{
   label: string;
@@ -36,5 +36,5 @@ const props = defineProps<{
   max: number;
 }>();
 
-const store = useStoreCounter();
+const store = useStateStore();
 </script>

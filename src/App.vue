@@ -243,7 +243,7 @@ import { useRouter, useRoute } from 'vue-router';
 import { useGoTo } from 'vuetify';
 import Modal from '@/components/modal/ModalArea.vue';
 import Loading from '@/components/modal/Loading.vue';
-import { useStoreCounter } from './stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 
 interface pageContents {
   name_en: string;
@@ -253,7 +253,7 @@ interface pageContents {
 }
 
 const siteVersion = ref(import.meta.env.VITE_SITEVERSION || '0.0.0');
-const store = useStoreCounter();
+const store = useStateStore();
 const router = useRouter();
 const route = useRoute();
 const goTo = useGoTo();

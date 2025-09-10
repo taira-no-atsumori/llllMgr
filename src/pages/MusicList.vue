@@ -1,5 +1,8 @@
 <template>
-  <v-container fluid class="px-2 px-sm-0 pt-2 pb-0">
+  <v-container
+    fluid
+    class="px-2 px-sm-0 pt-2 pb-0"
+  >
     <h1 class="mb-1">MUSIC LIST ～ 楽曲一覧 / 楽曲マスタリーレベル設定 ～</h1>
 
     <v-expansion-panels class="mb-2">
@@ -13,14 +16,24 @@
       </v-expansion-panel>
     </v-expansion-panels>
 
-    <v-row no-gutters class="mb-3">
-      <v-col cols="12" class="mb-2">
+    <v-row
+      no-gutters
+      class="mb-3"
+    >
+      <v-col
+        cols="12"
+        class="mb-2"
+      >
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title> <v-icon class="mr-2">mdi-filter</v-icon>絞り込み </v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
-                <v-col cols="12" sm="3" class="pr-2 mb-3 mb-sm-0">
+                <v-col
+                  cols="12"
+                  sm="3"
+                  class="pr-2 mb-3 mb-sm-0"
+                >
                   <h3 class="mb-2">獲得ボーナススキルで絞り込み</h3>
                   <v-select
                     v-model="selectBonusSkillList"
@@ -40,7 +53,10 @@
                       ></v-img>
                     </template>
                     <template v-slot:item="{ item }">
-                      <v-list-item :title="item.title" @click="selectSkill(item.title)">
+                      <v-list-item
+                        :title="item.title"
+                        @click="selectSkill(item.title)"
+                      >
                         <template v-slot:prepend>
                           <v-checkbox-btn
                             color="pink"
@@ -58,7 +74,11 @@
                   </v-select>
                 </v-col>
 
-                <v-col cols="12" sm="3" class="px-sm-2 mb-3 mb-sm-0">
+                <v-col
+                  cols="12"
+                  sm="3"
+                  class="px-sm-2 mb-3 mb-sm-0"
+                >
                   <h3 class="mb-2">センターで絞り込み</h3>
                   <v-select
                     v-model="selectCenterList"
@@ -80,7 +100,10 @@
                       ></v-img>
                     </template>
                     <template v-slot:item="{ item }">
-                      <v-list-item :title="store.makeFullName(item.title)" @click="selectCenter(store, item.title)">
+                      <v-list-item
+                        :title="store.makeFullName(item.title)"
+                        @click="selectCenter(store, item.title)"
+                      >
                         <template v-slot:prepend>
                           <v-checkbox-btn
                             color="pink"
@@ -97,7 +120,11 @@
                   </v-select>
                 </v-col>
 
-                <v-col cols="12" sm="3" class="px-sm-2 mb-3 mb-sm-0">
+                <v-col
+                  cols="12"
+                  sm="3"
+                  class="px-sm-2 mb-3 mb-sm-0"
+                >
                   <h3>マスタリーLv.で絞り込み</h3>
                   <v-range-slider
                     v-model="masteryLv"
@@ -113,7 +140,11 @@
                   ></v-range-slider>
                 </v-col>
 
-                <v-col cols="12" sm="3" class="pl-sm-2">
+                <v-col
+                  cols="12"
+                  sm="3"
+                  class="pl-sm-2"
+                >
                   <h3 class="mb-2">楽曲属性で絞り込み</h3>
                   <v-select
                     v-model="selectAttrList"
@@ -133,7 +164,10 @@
                       ></v-img>
                     </template>
                     <template v-slot:item="{ item }">
-                      <v-list-item :title="convertAttributeEnToJp(item.title)" @click="selectAttr(item.title)">
+                      <v-list-item
+                        :title="convertAttributeEnToJp(item.title)"
+                        @click="selectAttr(item.title)"
+                      >
                         <template v-slot:prepend>
                           <v-checkbox-btn
                             color="pink"
@@ -151,7 +185,12 @@
                   </v-select>
                 </v-col>
 
-                <v-col cols="12" sm="3" class="pl-sm-2" v-if="false">
+                <v-col
+                  cols="12"
+                  sm="3"
+                  class="pl-sm-2"
+                  v-if="false"
+                >
                   <h3 class="mb-2">曲名で絞り込み</h3>
                   <v-text-field
                     v-model="inputMusicTitle"
@@ -174,7 +213,10 @@
             <v-expansion-panel-title>楽曲マスタリーボーナス効果量一覧</v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row>
-                <v-col cols="12" sm="6">
+                <v-col
+                  cols="12"
+                  sm="6"
+                >
                   <h3>ボルテージアップ</h3>
                   <p class="mb-1">
                     ボルテージPt.を一定量獲得するごとに、1pt.追加獲得する。<br />
@@ -220,7 +262,10 @@
                     </tbody>
                   </v-table>
                 </v-col>
-                <v-col cols="12" sm="6">
+                <v-col
+                  cols="12"
+                  sm="6"
+                >
                   <h3>メンタルリカバー</h3>
                   <p class="mb-1">
                     メンタルが一定量減少するごとに、メンタルを1回復する。<br />
@@ -257,7 +302,10 @@
                     </tbody>
                   </v-table>
                 </v-col>
-                <v-col cols="12" sm="6">
+                <v-col
+                  cols="12"
+                  sm="6"
+                >
                   <h3>LOVEボーナス</h3>
                   <p class="mb-1">
                     LOVEボーナスレベルによって得られるLOVEが増加する。<br />
@@ -286,7 +334,10 @@
                     </tbody>
                   </v-table>
                 </v-col>
-                <v-col cols="12" sm="6">
+                <v-col
+                  cols="12"
+                  sm="6"
+                >
                   <h3>ビートハートアップ</h3>
                   ビートハートアップレベル×0.5%
                 </v-col>
@@ -302,17 +353,30 @@
         <h3 class="mb-1">各メンバーのボーナス</h3>
       </v-col>
 
-      <template v-for="memberName in store.memberNameList" :key="memberName">
+      <template
+        v-for="memberName in store.memberNameList"
+        :key="memberName"
+      >
         <v-col
           v-if="!store.isOtherMember(memberName)"
           cols="4"
           lg="2"
           :class="`text-center align-self-end ${windowSize.w > 600 ? '' : 'px-1'}`"
         >
-          <v-row no-gutters class="mb-1">
-            <v-col v-resize="onResize" cols="12" class="d-flex flex-row align-center justify-center mb-1">
+          <v-row
+            no-gutters
+            class="mb-1"
+          >
+            <v-col
+              v-resize="onResize"
+              cols="12"
+              class="d-flex flex-row align-center justify-center mb-1"
+            >
               <h4 class="d-flex flex-row align-center">
-                <img :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)" style="width: 30px" />
+                <img
+                  :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
+                  style="width: 30px"
+                />
                 <span
                   v-if="windowSize.w > 600"
                   class="pt-1 pl-1"
@@ -321,10 +385,18 @@
                   {{ store.makeFullName(memberName) }}
                   <span class="text-body-2"> (Lv.{{ store.makeTotalMasteryLv(memberName) }}) </span>
                 </span>
-                <span v-else class="pt-1 pl-1 text-body-2"> (Lv.{{ store.makeTotalMasteryLv(memberName) }}) </span>
+                <span
+                  v-else
+                  class="pt-1 pl-1 text-body-2"
+                >
+                  (Lv.{{ store.makeTotalMasteryLv(memberName) }})
+                </span>
               </h4>
             </v-col>
-            <v-col cols="12" class="px-sm-2">
+            <v-col
+              cols="12"
+              class="px-sm-2"
+            >
               <p class="font-weight-bold mb-2 subtitle"><span v-if="windowSize.w > 600">獲得済</span>ボーナススキル</p>
               <v-row no-gutters>
                 <v-col
@@ -335,7 +407,12 @@
                   class="d-flex flex-row justify-center align-center mb-1"
                 >
                   <v-row no-gutters>
-                    <v-col cols="12" sm="6" style="height: 30px; font-size: 15px" :class="`d-flex align-center`">
+                    <v-col
+                      cols="12"
+                      sm="6"
+                      style="height: 30px; font-size: 15px"
+                      :class="`d-flex align-center`"
+                    >
                       <img
                         :src="store.getImagePath('icons/bonusSkill', skillName)"
                         style="width: 30px; border-radius: 3px"
@@ -350,7 +427,12 @@
         </v-col>
       </template>
 
-      <v-col cols="4" lg="2" align-self="center" class="text-center">
+      <v-col
+        cols="4"
+        lg="2"
+        align-self="center"
+        class="text-center"
+      >
         <v-btn @click="store.showModalEvent('masteryLevel')">詳細を見る</v-btn>
       </v-col>
     </v-row>
@@ -359,9 +441,15 @@
 
     <div class="align-self-center d-inline-block mb-2 mb-md-0">
       <div class="d-flex flex-row align-center">
-        <v-btn color="blue" class="mr-2">
+        <v-btn
+          color="blue"
+          class="mr-2"
+        >
           <v-icon class="mr-2">mdi-sort</v-icon>ソート
-          <v-menu activator="parent" transition="slide-y-transition">
+          <v-menu
+            activator="parent"
+            transition="slide-y-transition"
+          >
             <v-list density="compact">
               <template v-for="(label, val) in sortTypeList">
                 <v-list-item
@@ -372,9 +460,15 @@
                   @click="sortingProcess(store, 'sortType', val)"
                 >
                 </v-list-item>
-                <v-list-group v-if="val === 'difficultyLevel' && isSchoolShow" value="difficultyLevel">
+                <v-list-group
+                  v-if="val === 'difficultyLevel' && isSchoolShow"
+                  value="difficultyLevel"
+                >
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" :title="label"></v-list-item>
+                    <v-list-item
+                      v-bind="props"
+                      :title="label"
+                    ></v-list-item>
                   </template>
 
                   <v-list-item
@@ -384,9 +478,15 @@
                     @click="sortingProcess(store, 'sortType', `difficultyLevel_${difficulty_val}`)"
                   ></v-list-item>
                 </v-list-group>
-                <v-list-group v-if="val === 'maxCombo' && isSchoolShow" value="maxCombo">
+                <v-list-group
+                  v-if="val === 'maxCombo' && isSchoolShow"
+                  value="maxCombo"
+                >
                   <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" :title="label"></v-list-item>
+                    <v-list-item
+                      v-bind="props"
+                      :title="label"
+                    ></v-list-item>
                   </template>
 
                   <v-list-item
@@ -409,11 +509,19 @@
           class="mr-2"
           mandatory
         >
-          <v-btn value="descending" class="px-0 px-sm-2" @click="store.changeSettings('sortSettings')">
+          <v-btn
+            value="descending"
+            class="px-0 px-sm-2"
+            @click="store.changeSettings('sortSettings')"
+          >
             <v-icon>mdi-sort-descending</v-icon>
             <span class="ml-2 hidden-sm-and-down">降順</span>
           </v-btn>
-          <v-btn value="ascending" class="px-0 px-sm-2" @click="store.changeSettings('sortSettings')">
+          <v-btn
+            value="ascending"
+            class="px-0 px-sm-2"
+            @click="store.changeSettings('sortSettings')"
+          >
             <v-icon>mdi-sort-ascending</v-icon>
             <span class="ml-2 hidden-sm-and-down">昇順</span>
           </v-btn>
@@ -440,8 +548,17 @@
     <v-divider class="my-2"></v-divider>
 
     <ul id="CDJacketArea">
-      <li v-if="Object.keys(makeMusicList(store)).length === 0" class="w-100">見つかりませんでした…</li>
-      <li v-else v-for="(ary, songTitle) in makeMusicList(store)" :key="ary">
+      <li
+        v-if="Object.keys(makeMusicList(store)).length === 0"
+        class="w-100"
+      >
+        見つかりませんでした…
+      </li>
+      <li
+        v-else
+        v-for="(ary, songTitle) in makeMusicList(store)"
+        :key="ary"
+      >
         <v-card
           v-if="store.localStorageData.siteSettings.musicList.hover === 'false' || windowSize.w <= 600"
           :color="attributeColor[ary.attribute]"
@@ -462,20 +579,32 @@
           <v-card-text class="pt-0 px-1 pb-1">
             <ul class="d-flex">
               <li class="skillIconArea mr-1">
-                <img :src="store.getImagePath('icons/bonusSkill', ary.bonusSkill)" :alt="ary.bonusSkill" />
+                <img
+                  :src="store.getImagePath('icons/bonusSkill', ary.bonusSkill)"
+                  :alt="ary.bonusSkill"
+                />
               </li>
               <li class="skillIconArea mr-1">
-                <img :src="store.getImagePath('icons/attribute', `icon_${ary.attribute}`)" :alt="ary.attribute" />
+                <img
+                  :src="store.getImagePath('icons/attribute', `icon_${ary.attribute}`)"
+                  :alt="ary.attribute"
+                />
               </li>
               <li class="skillIconArea mr-1">
-                <img :src="store.getImagePath('icons/member', `icon_SD_${ary.center}`)" :alt="ary.center" />
+                <img
+                  :src="store.getImagePath('icons/member', `icon_SD_${ary.center}`)"
+                  :alt="ary.center"
+                />
               </li>
               <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
             </ul>
           </v-card-text>
         </v-card>
 
-        <v-tooltip location="bottom" v-else>
+        <v-tooltip
+          location="bottom"
+          v-else
+        >
           <template v-slot:activator="{ props }">
             <v-card
               :color="attributeColor[ary.attribute]"
@@ -497,13 +626,22 @@
               <v-card-item class="pt-0 px-1 pb-1">
                 <ul class="d-flex">
                   <li class="skillIconArea mr-1">
-                    <img :src="store.getImagePath('icons/bonusSkill', ary.bonusSkill)" :alt="ary.bonusSkill" />
+                    <img
+                      :src="store.getImagePath('icons/bonusSkill', ary.bonusSkill)"
+                      :alt="ary.bonusSkill"
+                    />
                   </li>
                   <li class="skillIconArea mr-1">
-                    <img :src="store.getImagePath('icons/attribute', `icon_${ary.attribute}`)" :alt="ary.attribute" />
+                    <img
+                      :src="store.getImagePath('icons/attribute', `icon_${ary.attribute}`)"
+                      :alt="ary.attribute"
+                    />
                   </li>
                   <li class="skillIconArea mr-1">
-                    <img :src="store.getImagePath('icons/member', `icon_SD_${ary.center}`)" :alt="ary.center" />
+                    <img
+                      :src="store.getImagePath('icons/member', `icon_SD_${ary.center}`)"
+                      :alt="ary.center"
+                    />
                   </li>
                   <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
                 </ul>
@@ -516,17 +654,22 @@
           獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(ary.level / 10) }}
         </v-tooltip>
       </li>
-      <li v-if="Object.keys(makeMusicList(store)).length === 0" class="w-100">見つかりませんでした…</li>
+      <li
+        v-if="Object.keys(makeMusicList(store)).length === 0"
+        class="w-100"
+      >
+        見つかりませんでした…
+      </li>
     </ul>
   </v-container>
 </template>
 
 <script setup lang="ts">
-import { CounterState } from '@/types/counter';
-import { useStoreCounter } from '@/stores/counter';
+import { StoreState } from '@/types/store';
+import { useStateStore } from '@/stores/stateStore';
 import { convertAttributeEnToJp } from '@/constants/music';
 
-const store = useStoreCounter();
+const store = useStateStore();
 store.setSupportSkillLevel();
 store.loading = true;
 </script>
@@ -574,7 +717,7 @@ export default {
   created() {},
   computed: {
     makeMusicList() {
-      return (store: CounterState): Object => {
+      return (store: StoreState): Object => {
         if (
           !this.isSchoolShow &&
           (store.localStorageData.sortSettings.musicList?.sortType?.includes('difficultyLevel') ||
@@ -617,7 +760,7 @@ export default {
             return sorting(
               store.localStorageData.sortSettings.musicList.order === 'ascending',
               a.scoreData[sortType][difficulty],
-              b.scoreData[sortType][difficulty],
+              b.scoreData[sortType][difficulty]
             );
           } else {
             switch (sortType) {
@@ -626,14 +769,14 @@ export default {
                 return sorting(
                   store.localStorageData.sortSettings.musicList.order === 'ascending',
                   a[store.localStorageData.sortSettings.musicList.sortType],
-                  b[store.localStorageData.sortSettings.musicList.sortType],
+                  b[store.localStorageData.sortSettings.musicList.sortType]
                 );
               case 'kana':
               case 'time':
                 return sorting(
                   store.localStorageData.sortSettings.musicList.order === 'ascending',
                   a.musicData[store.localStorageData.sortSettings.musicList.sortType],
-                  b.musicData[store.localStorageData.sortSettings.musicList.sortType],
+                  b.musicData[store.localStorageData.sortSettings.musicList.sortType]
                 );
               case 'releaseDate':
                 return sorting(
@@ -641,13 +784,13 @@ export default {
                   new Date(
                     a.musicData.releaseDate.year,
                     a.musicData.releaseDate.month - 1,
-                    a.musicData.releaseDate.date,
+                    a.musicData.releaseDate.date
                   ),
                   new Date(
                     b.musicData.releaseDate.year,
                     b.musicData.releaseDate.month - 1,
-                    b.musicData.releaseDate.date,
-                  ),
+                    b.musicData.releaseDate.date
+                  )
                 );
               default:
                 return sorting(store.localStorageData.sortSettings.musicList?.order === 'ascending', a.ID, b.ID);
@@ -676,7 +819,7 @@ export default {
     this.onResize();
   },
   methods: {
-    sortingProcess(store: CounterState, type: 'sortType' | 'order', val: string): void {
+    sortingProcess(store: StoreState, type: 'sortType' | 'order', val: string): void {
       if (store.localStorageData.sortSettings.musicList[type] !== val) {
         store.loading = true;
 
@@ -687,7 +830,7 @@ export default {
         store.changeSettings('sortSettings');
       }
     },
-    selectCenter(store: CounterState, selector: string | null): void {
+    selectCenter(store: StoreState, selector: string | null): void {
       if (selector === null) {
         this.selectCenterList = [];
       } else if (this.selectCenterList.some((x) => x === selector)) {
@@ -744,7 +887,7 @@ export default {
         h: window.innerHeight,
       };
     },
-    checkImagesLoaded(store: CounterState, totalImages: number): void {
+    checkImagesLoaded(store: StoreState, totalImages: number): void {
       this.loadedImagesCount += 1;
 
       if (this.loadedImagesCount === totalImages) {
@@ -752,7 +895,7 @@ export default {
         this.loadedImagesCount = 0;
       }
     },
-    sortTypeLabel(store: CounterState, sortTypeValue: string): string {
+    sortTypeLabel(store: StoreState, sortTypeValue: string): string {
       const sortType = sortTypeValue.split('_')[0];
       const difficulty = sortTypeValue.split('_')[1] ?? '';
       if (this.isSchoolShow && /difficultyLevel|maxCombo/.test(sortType)) {

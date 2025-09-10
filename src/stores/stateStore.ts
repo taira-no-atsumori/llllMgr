@@ -7,13 +7,13 @@ import { useCardStore } from './cardList';
 import { useSkillStore } from './skillList';
 import { useMusicStore } from './musicList';
 import Dexie from 'dexie';
-import { CounterState } from '@/types/counter';
+import { StoreState } from '@/types/store';
 import { CardData } from '@/types/cardList';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
 // import { Dropbox } from 'dropbox';
 
-export const useStoreCounter = defineStore('store', {
-  state: (): CounterState => ({
+export const useStateStore = defineStore('store', {
+  state: (): StoreState => ({
     loading: false,
     dialog: false,
     dialogError: false,

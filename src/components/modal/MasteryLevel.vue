@@ -3,7 +3,10 @@
     <h2>獲得ボーナススキル詳細</h2>
 
     <div>
-      <template v-for="memberName in store.memberNameList" :key="memberName">
+      <template
+        v-for="memberName in store.memberNameList"
+        :key="memberName"
+      >
         <img
           v-if="!store.isOtherMember(memberName)"
           :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
@@ -32,7 +35,10 @@
     </div>
 
     <ul>
-      <template v-for="(ary, bonusSkill, i) in store.outputBonusSkillList" :key="bonusSkill">
+      <template
+        v-for="(ary, bonusSkill, i) in store.outputBonusSkillList"
+        :key="bonusSkill"
+      >
         <li class="mb-1">
           <div class="d-flex flex-row align-center mb-1">
             <div class="mr-1 mt-1">
@@ -40,7 +46,10 @@
                 :src="store.getImagePath('icons/bonusSkill', bonusSkill)"
                 style="width: 32px; height: 32px; border-radius: 3px"
               ></v-img>
-              <p class="text-center" style="font-size: 14px">
+              <p
+                class="text-center"
+                style="font-size: 14px"
+              >
                 Lv.{{ store.outputBonusSkillList[bonusSkill].skillLevel }}
               </p>
             </div>
@@ -62,9 +71,9 @@
 </template>
 
 <script setup lang="ts">
-import { useStoreCounter } from '@/stores/counter';
+import { useStateStore } from '@/stores/stateStore';
 
-const store = useStoreCounter();
+const store = useStateStore();
 
 const makeBonusSkillDescriptionText = (bonusSkill: string): number => {
   switch (bonusSkill) {
