@@ -186,3 +186,44 @@ export const LIMITED = {
   },
 } as const;
 export type Limited = keyof typeof LIMITED;
+
+/**
+ * レア度ごとの最大レベル
+ */
+export const MAX_CARD_LEVEL = {
+  DR: [100, 120, 130, 140],
+  LR: [100, 120, 130, 140],
+  BR: [80, 100, 110, 120],
+  UR: [60, 80, 100, 110, 120],
+  SR: [40, 60, 80, 90, 100],
+  R: [30, 40, 60, 70, 80],
+} as const;
+export type MaxCardLevel = (typeof MAX_CARD_LEVEL)[keyof typeof MAX_CARD_LEVEL];
+
+export const RELEASE_POINT = {
+  DR: {
+    point: 100,
+    max: 400,
+  },
+  LR: {
+    point: 100,
+    max: 400,
+  },
+  BR: {
+    point: 75,
+    max: 300,
+  },
+  UR: {
+    point: 100,
+    max: 400,
+  },
+  SR: {
+    point: 50,
+    max: 200,
+  },
+  R: {
+    point: 25,
+    max: 100,
+  },
+} as const;
+export type ReleasePoint = (typeof RELEASE_POINT)[keyof typeof RELEASE_POINT];

@@ -213,169 +213,154 @@
 
 <script setup lang="ts">
 import { useStateStore } from '@/stores/stateStore';
+import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
+
 const store = useStateStore();
-</script>
+const router = useRouter();
 
-<script lang="ts">
-export default {
-  name: 'Home',
-  components: {},
-  data() {
-    return {
-      eventList: {
-        /*graduation: {
-          title: '梢先輩、綴理先輩、慈先輩',
-          text: 'ご卒業おめでとうございます🌸',
-          type: 'other',
-          firstDay: [2025, 3, 31, 21, 0],
-          lastDay: [2025, 4, 11, 12, 0],
-          img: 'thanks',
-        },*/
-        liveGP: {
-          title: 'ライブグランプリ「105期 3rdTerm 第1回 個人戦」',
-          text: '',
-          type: 'liveGP',
-          firstDay: [2025, 9, 10, 12, 0],
-          lastDay: [2025, 9, 16, 3, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-09-08-10-lkjv9xi0jf',
-          img: '105期 3rdTerm 第1回 個人戦_logo',
-        },
-        /*fesLive: {
-          title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
-          text: '〜A Day in Summer Light〜',
-          type: 'live',
-          firstDay: [2025, 8, 29, 20, 0],
-          lastDay: [2025, 8, 29, 21, 0],
-          url: 'https://x.com/hasunosora_SIC/status/1956596788636557666',
-          img: '105期 2ndTerm Fes×LIVE_mv',
-        },*/
-        '5thLive_miraCraPark': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-          text: 'みらくらぱーく！ presents Heart Stage',
-          type: 'live',
-          firstDay: [2025, 10, 4, 0, 0],
-          lastDay: [2025, 10, 5, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_logo',
-        },
-        '5thLive_DOLLCHESTRA': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-          text: 'DOLLCHESTRA presents Diamond Stage',
-          type: 'live',
-          firstDay: [2025, 11, 8, 0, 0],
-          lastDay: [2025, 11, 9, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_logo',
-        },
-        '5thLive_edelNote': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-          text: 'Edel Note presents Spade Stage',
-          type: 'live',
-          firstDay: [2025, 11, 19, 0, 0],
-          lastDay: [2025, 11, 20, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_logo',
-        },
-        '5thLive_ceriseBouquet': {
-          title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-          text: 'スリーズブーケ presents Clover Stage',
-          type: 'live',
-          firstDay: [2025, 12, 6, 0, 0],
-          lastDay: [2025, 12, 7, 23, 59],
-          url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-          img: '5thLive_logo',
-        },
-      },
-      outputEventList: {},
-      images: [],
-    };
+const eventList = {
+  /*graduation: {
+    title: '梢先輩、綴理先輩、慈先輩',
+    text: 'ご卒業おめでとうございます🌸',
+    type: 'other',
+    firstDay: [2025, 3, 31, 21, 0],
+    lastDay: [2025, 4, 11, 12, 0],
+    img: 'thanks',
+  },*/
+  liveGP: {
+    title: 'ライブグランプリ「105期 3rdTerm 第1回 サークル対抗戦」',
+    text: '',
+    type: 'liveGP',
+    firstDay: [2025, 9, 20, 12, 0],
+    lastDay: [2025, 9, 26, 3, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-09-18-10-h5mhahecgl',
+    img: '105期 3rdTerm 第1回 サークル対抗戦_logo',
   },
-  created() {
-    for (const key in this.eventList) {
-      const arr = this.countDown(key);
-
-      if (arr.state !== 'after') {
-        this.outputEventList[key] = this.eventList[key];
-        this.outputEventList[key].state = arr.state;
-
-        if (arr.state === 'prev') {
-          this.outputEventList[key].count = {
-            day: arr.day,
-            time: arr.time,
-          };
-        }
-      }
-    }
+  /*fesLive: {
+    title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
+    text: '〜A Day in Summer Light〜',
+    type: 'live',
+    firstDay: [2025, 8, 29, 20, 0],
+    lastDay: [2025, 8, 29, 21, 0],
+    url: 'https://x.com/hasunosora_SIC/status/1956596788636557666',
+    img: '105期 2ndTerm Fes×LIVE_mv',
+  },*/
+  '5thLive_miraCraPark': {
+    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    text: 'みらくらぱーく！ presents Heart Stage',
+    type: 'live',
+    firstDay: [2025, 10, 4, 0, 0],
+    lastDay: [2025, 10, 5, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+    img: '5thLive_logo',
   },
-  methods: {
-    pageMove(movePageName: string): void {
-      this.$router.replace(movePageName);
-      window.scrollTo(0, 0);
-    },
-    countDown(eventName: string): {
-      state: string;
-      day?: number;
-      time?: number;
-    } {
-      const firstDay = new Date(
-        this.eventList[eventName].firstDay[0],
-        this.eventList[eventName].firstDay[1] - 1,
-        this.eventList[eventName].firstDay[2],
-        this.eventList[eventName].firstDay[3],
-        this.eventList[eventName].firstDay[4],
-        0
-      );
-      const lastDay = new Date(
-        this.eventList[eventName].lastDay[0],
-        this.eventList[eventName].lastDay[1] - 1,
-        this.eventList[eventName].lastDay[2],
-        this.eventList[eventName].lastDay[3],
-        this.eventList[eventName].lastDay[4],
-        59
-      );
-      const today = new Date();
-
-      const f = new Date(firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate());
-      const l = new Date(lastDay.getFullYear(), lastDay.getMonth(), lastDay.getDate());
-      const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-
-      if (f.getTime() === t.getTime()) {
-        if (today.getHours() < firstDay.getHours()) {
-          return {
-            state: 'prev',
-            day: 0,
-            time: firstDay.getHours() - today.getHours(),
-          };
-        } else {
-          return {
-            state: 'now',
-          };
-        }
-      } else if (f.getTime() > t.getTime()) {
-        return {
-          state: 'prev',
-          day: -Math.floor((today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)),
-          time: 0,
-        };
-      } else if (t.getTime() < l.getTime()) {
-        return {
-          state: 'now',
-        };
-      } else if (l.getTime() === t.getTime()) {
-        if (today.getTime() <= lastDay.getTime()) {
-          return {
-            state: 'now',
-          };
-        }
-      }
-
-      return {
-        state: 'after',
-      };
-    },
+  '5thLive_DOLLCHESTRA': {
+    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    text: 'DOLLCHESTRA presents Diamond Stage',
+    type: 'live',
+    firstDay: [2025, 11, 8, 0, 0],
+    lastDay: [2025, 11, 9, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+    img: '5thLive_logo',
   },
-  mounted() {},
+  '5thLive_edelNote': {
+    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    text: 'Edel Note presents Spade Stage',
+    type: 'live',
+    firstDay: [2025, 11, 19, 0, 0],
+    lastDay: [2025, 11, 20, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+    img: '5thLive_logo',
+  },
+  '5thLive_ceriseBouquet': {
+    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    text: 'スリーズブーケ presents Clover Stage',
+    type: 'live',
+    firstDay: [2025, 12, 6, 0, 0],
+    lastDay: [2025, 12, 7, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
+    img: '5thLive_logo',
+  },
 };
+
+const outputEventList = reactive<Record<string, any>>({});
+
+function pageMove(movePageName: string): void {
+  router.replace(movePageName);
+  window.scrollTo(0, 0);
+}
+
+function countDown(eventName: string): {
+  state: string;
+  day?: number;
+  time?: number;
+} {
+  const event = eventList[eventName as keyof typeof eventList];
+  const firstDay = new Date(
+    event.firstDay[0],
+    event.firstDay[1] - 1,
+    event.firstDay[2],
+    event.firstDay[3],
+    event.firstDay[4],
+    0
+  );
+  const lastDay = new Date(
+    event.lastDay[0],
+    event.lastDay[1] - 1,
+    event.lastDay[2],
+    event.lastDay[3],
+    event.lastDay[4],
+    59
+  );
+  const today = new Date();
+
+  const f = new Date(firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate());
+  const l = new Date(lastDay.getFullYear(), lastDay.getMonth(), lastDay.getDate());
+  const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+  if (f.getTime() === t.getTime()) {
+    if (today.getHours() < firstDay.getHours()) {
+      return {
+        state: 'prev',
+        day: 0,
+        time: firstDay.getHours() - today.getHours(),
+      };
+    } else {
+      return { state: 'now' };
+    }
+  } else if (f.getTime() > t.getTime()) {
+    return {
+      state: 'prev',
+      day: -Math.floor((today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)),
+      time: 0,
+    };
+  } else if (t.getTime() < l.getTime()) {
+    return { state: 'now' };
+  } else if (l.getTime() === t.getTime()) {
+    if (today.getTime() <= lastDay.getTime()) {
+      return { state: 'now' };
+    }
+  }
+
+  return { state: 'after' };
+}
+
+for (const key in eventList) {
+  const arr = countDown(key);
+
+  if (arr.state !== 'after') {
+    outputEventList[key] = eventList[key as keyof typeof eventList];
+    outputEventList[key].state = arr.state;
+
+    if (arr.state === 'prev') {
+      outputEventList[key].count = {
+        day: arr.day,
+        time: arr.time,
+      };
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

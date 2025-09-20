@@ -258,7 +258,6 @@ const router = useRouter();
 const route = useRoute();
 const goTo = useGoTo();
 
-// 定数の定義
 const drawer = ref(false);
 const siteName = 'リンクラ マネージャー！(リンマネ)';
 const pageList: Record<string, pageContents> = {
@@ -333,12 +332,11 @@ if (localStorage.inflow !== undefined) {
   localStorage.removeItem('inflow');
 
   for (const listName in pageList) {
-    if (pageList[listName].url.toLowerCase() === pageName.toLowerCase()) {
+    if (pageList[listName].name_en.toLowerCase() === pageName.toLowerCase()) {
       pageMove(pageList[listName].name_en);
       break;
     }
   }
-  pageMove(pageList.Home.name_en);
 }
 /* ----- Created End ----- */
 

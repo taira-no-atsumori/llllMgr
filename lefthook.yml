@@ -24,6 +24,8 @@ pre-commit:
       skip_output: false
       # 警告のみの場合はコミットを許可
       fail_on_warnings: false
+    build:
+      run: npm run build
     # lint:
     #   run: npm run lint
     #   skip_output: false

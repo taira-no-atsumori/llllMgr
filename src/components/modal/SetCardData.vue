@@ -232,7 +232,7 @@
               class="pa-0"
             >
               <v-btn
-                :disabled="store.settingCardData.fluctuationStatus.trainingLevel === store.setMaxTrainingLevel"
+                :disabled="store.settingCardData.fluctuationStatus.trainingLevel === store.maxTrainingLevel"
                 @click="store.valueChange('trainingLevel', store.settingCardData.fluctuationStatus.trainingLevel + 1)"
                 >+1
               </v-btn>
@@ -246,12 +246,12 @@
               <v-btn
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
-                  (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)
+                  (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.minCardLevel)
                 "
                 @click="
                   store.valueChange(
                     'cardLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel
+                    store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.minCardLevel
                   )
                 "
               >
@@ -262,7 +262,7 @@
               <v-btn
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
-                  (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.changeMinCardLevel)
+                  (store.settingCardData.fluctuationStatus.trainingLevel === 0 ? 0 : store.minCardLevel)
                 "
                 @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel - 1)"
               >
@@ -274,7 +274,7 @@
             </div>
             <div>
               <v-btn
-                :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
+                :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.maxCardLevel"
                 @click="store.valueChange('cardLevel', store.settingCardData.fluctuationStatus.cardLevel + 1)"
               >
                 +1
@@ -282,8 +282,8 @@
             </div>
             <div>
               <v-btn
-                :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.changeMaxCardLevel"
-                @click="store.valueChange('cardLevel', store.changeMaxCardLevel)"
+                :disabled="store.settingCardData.fluctuationStatus.cardLevel === store.maxCardLevel"
+                @click="store.valueChange('cardLevel', store.maxCardLevel)"
               >
                 MAX
               </v-btn>
@@ -453,7 +453,7 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        store.releasePoint[store.settingCardData.rare].point
+                        RELEASE_POINT[store.settingCardData.rare].point
                     )
                   );
                 "
@@ -499,17 +499,17 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        store.releasePoint[store.settingCardData.rare].point
+                        RELEASE_POINT[store.settingCardData.rare].point
                     )
                   )
                 "
               >
                 -{{
                   store.settingCardData.fluctuationStatus.releasePoint -
-                    store.releasePoint[store.settingCardData.rare].point <
+                    RELEASE_POINT[store.settingCardData.rare].point <
                   0
                     ? store.settingCardData.fluctuationStatus.releasePoint
-                    : store.releasePoint[store.settingCardData.rare].point
+                    : RELEASE_POINT[store.settingCardData.rare].point
                 }}
               </v-btn>
             </div>
@@ -540,7 +540,7 @@
                     'releasePoint',
                     Math.min(
                       store.settingCardData.fluctuationStatus.releasePoint +
-                        store.releasePoint[store.settingCardData.rare].point,
+                        RELEASE_POINT[store.settingCardData.rare].point,
                       limitReleasePoint(store)
                     )
                   )
@@ -548,10 +548,10 @@
               >
                 +{{
                   store.settingCardData.fluctuationStatus.releasePoint +
-                    store.releasePoint[store.settingCardData.rare].point >
+                    RELEASE_POINT[store.settingCardData.rare].point >
                   limitReleasePoint(store)
                     ? limitReleasePoint(store) - store.settingCardData.fluctuationStatus.releasePoint
-                    : store.releasePoint[store.settingCardData.rare].point
+                    : RELEASE_POINT[store.settingCardData.rare].point
                 }}
               </v-btn>
             </div>
@@ -569,7 +569,7 @@
                   class="text-center text-body-2"
                   :style="{ width: '2rem' }"
                 >
-                  {{ (i - 1) * store.releasePoint[store.settingCardData.rare].point }}
+                  {{ (i - 1) * RELEASE_POINT[store.settingCardData.rare].point }}
                 </p>
               </template>
             </div>
@@ -738,7 +738,7 @@
                     {{ store.settingCardData[targetSkill]?.EXAP[i - 1] }}
                   </th>
                   <td class="px-1">
-                    {{ store.makeSkillText(targetSkill, { targetSkillLv: i - 1 }) }}
+                    {{ store.skillText(targetSkill, { targetSkillLv: i - 1 }) }}
                   </td>
                 </tr>
               </tbody>
@@ -765,7 +765,7 @@
                   <th class="text-center px-1">{{ skillLevel }}</th>
                   <td class="px-1">
                     {{
-                      store.makeSkillText(targetSkill, {
+                      store.skillText(targetSkill, {
                         targetSkillLv: skillLevel - 1,
                         addSkillNum: i,
                       })
@@ -876,8 +876,9 @@
 // import { ref } from 'vue';
 import { computed } from 'vue';
 import { STYLE_TYPE, convertStyleEnToJp, convertMoodEnToJp, FAVORITE, LIMITED } from '@/constants/cards';
-import { StoreState } from '@/types/store';
+import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
+import { RELEASE_POINT } from '@/constants/cards';
 import skillArea from '@/components/SkillAreaComponent.vue';
 
 const store = useStateStore();
@@ -940,7 +941,7 @@ export default {
      * @returns string カード名
      */
     makeCardName(store: StoreState): string {
-      return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.makeFullName(
+      return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.fullName(
         store.getSettingCard.memberName
       )}`;
     },
@@ -1016,9 +1017,8 @@ export default {
      */
     limitReleasePoint(store: StoreState): number {
       return (
-        store.releasePoint[store.settingCardData.rare].max -
-        store.releasePoint[store.settingCardData.rare].point *
-          (store.settingCardData.fluctuationStatus.releaseLevel - 1)
+        RELEASE_POINT[store.settingCardData.rare].max -
+        RELEASE_POINT[store.settingCardData.rare].point * (store.settingCardData.fluctuationStatus.releaseLevel - 1)
       );
     },
   },

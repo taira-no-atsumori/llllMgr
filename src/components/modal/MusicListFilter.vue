@@ -73,7 +73,8 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 const store = useStateStore();
 const memberNameList = [];
@@ -81,24 +82,12 @@ const memberNameList = [];
 for (const memberName in store.memberName) {
   memberNameList.push(`${store.memberName[memberName].first} ${store.memberName[memberName].last}`);
 }
-</script>
 
-<script>
-export default {
-  name: 'MusicListFilter',
-  data() {
-    return {
-      center: null,
-    };
-  },
-  created() {},
-  computed: {},
-  methods: {
-    selectCenter(select) {
-      this.center = select;
-    },
-  },
-};
+const center = ref<string | null>(null);
+
+function selectCenter(select: string | null) {
+  center.value = select;
+}
 </script>
 
 <style lang="scss" scoped>

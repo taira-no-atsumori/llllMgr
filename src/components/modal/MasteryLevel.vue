@@ -24,7 +24,7 @@
       {{ store.makeTotalMasteryLv(store.checkMasteryMember) }}
     </div>
     <div class="mb-3">
-      {{ store.makeFullName(store.checkMasteryMember) }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span
+      {{ store.fullName(store.checkMasteryMember) }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span
         class="text-pink"
         >{{ (Math.floor(store.makeTotalMasteryLv(store.checkMasteryMember) * 0.05 * 100) / 100).toFixed(2) }}</span
       >%

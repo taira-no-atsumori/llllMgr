@@ -135,9 +135,9 @@
               v-if="
                 store.toBool(store.localStorageData.siteSettings.cardList.dot_releaseLevel) &&
                 cardData.fluctuationStatus.cardLevel > 0 &&
-                store.maxCardLevel[cardData.rare][store.maxCardLevel[cardData.rare].length - 1] >
+                MAX_CARD_LEVEL[cardData.rare][MAX_CARD_LEVEL[cardData.rare].length - 1] >
                   cardData.fluctuationStatus.cardLevel &&
-                store.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] ===
+                MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] ===
                   cardData.fluctuationStatus.cardLevel
               "
               class="dot bg-green-accent-4"
@@ -146,7 +146,7 @@
               v-if="
                 store.toBool(store.localStorageData.siteSettings.cardList.dot_cardLevel) &&
                 cardData.fluctuationStatus.cardLevel > 0 &&
-                store.maxCardLevel[cardData.rare][cardData.fluctuationStatus.trainingLevel] >
+                MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] >
                   cardData.fluctuationStatus.cardLevel
               "
               class="dot bg-red-accent-3"
@@ -155,7 +155,7 @@
               v-if="
                 store.toBool(store.localStorageData.siteSettings.cardList.dot_releasePoint) &&
                 cardData.fluctuationStatus.cardLevel > 0 &&
-                store.releasePoint[cardData.rare].point <= cardData.fluctuationStatus.releasePoint
+                RELEASE_POINT[cardData.rare].point <= cardData.fluctuationStatus.releasePoint
               "
               class="dot bg-blue-accent-4"
             ></p>
@@ -416,7 +416,7 @@
                 <div>
                   <p class="mb-2">
                     {{ cardData.rare }}{{ ['', '+', '++'][rare(store, cardData)] }} [{{ cardData.cardName }}]
-                    {{ store.makeFullName(cardData.memberName) }} (Lv.
+                    {{ store.fullName(cardData.memberName) }} (Lv.
                     {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.cardLevel }})
                   </p>
                   <v-container
@@ -576,18 +576,21 @@
   </v-dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { RARE } from '@/constants/cards';
+import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
 import Chart from '@/components/modal/Chart.vue';
+import { MAX_CARD_LEVEL, RELEASE_POINT } from '@/constants/cards';
+import { MEMBER_NAMES } from '@/constants/memberNames';
 
 const store = useStateStore();
 const memberIds = Object.keys(store.memberColor);
 
 const chartMemberNames = computed(() => {
   return memberIds.map((memberId) => {
-    return store.memberName[memberId][memberId === 'seras' ? 'first' : 'last'];
+    return store.memberName[memberId][memberId === MEMBER_NAMES.SERAS ? 'first' : 'last'];
   });
 });
 
@@ -609,7 +612,7 @@ const cardList = computed(() => {
 });
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'CardList',
   components: {
@@ -661,16 +664,16 @@ export default {
   },
   computed: {},
   methods: {
-    changeTab(selectCharacter) {
+    changeTab(selectCharacter: string) {
       this.selectTab2 = selectCharacter;
     },
-    makeCardList(store) {
+    makeCardList(store: StoreState) {
       const list = [];
 
       for (const cardData of store.outputCardList) {
         list.push({
           cardName: cardData.cardName,
-          memberName: store.makeFullName(cardData.memberName),
+          memberName: store.fullName(cardData.memberName),
           rare: cardData.rare,
           cardLevel: cardData.fluctuationStatus.cardLevel,
           SALevel: cardData.fluctuationStatus.SALevel,
@@ -686,7 +689,7 @@ export default {
         h: window.innerHeight,
       };
     },
-    rare(store, cardData) {
+    rare(store: StoreState, cardData: any) {
       return store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
         (cardData.rare === 'LR' ? 1 : 0) <
         3

@@ -1,131 +1,163 @@
-export const ITEM_NONE = '-' as const;
-export type ItemNone = typeof ITEM_NONE;
+export const PIECE_NAME = {
+  GARNET: 'ガーネットピース',
+  CARNELIAN: 'カーネリアンピース',
+  EMERALD: 'エメラルドピース',
+  DIA: 'ダイヤピース',
+  PERIDOT: 'ペリドットピース',
+  RUBY: 'ルビーピース',
+  SAPPHIRE: 'サファイアピース',
+  TOPAZ: 'トパーズピース',
+  TURQUOISE: 'ターコイズピース',
+  AMETHYST: 'アメジストピース',
+  SOL: 'ソルピース',
+  LUNA: 'ルナピース',
+  STELLA: 'ステラピース',
+  CRYSTAL: 'クリスタル',
+} as const;
+export type PieceName = (typeof PIECE_NAME)[keyof typeof PIECE_NAME];
 
-export const SKILL_BOOK = {
+export const CHARM_NAME = {
+  SOL: 'ソルチャーム',
+  LUNA: 'ルナチャーム',
+  STELLA: 'ステラチャーム',
+  CRYSTAL: 'クリスタルチャーム',
+} as const;
+export type CharmName = (typeof CHARM_NAME)[keyof typeof CHARM_NAME];
+
+const ITEM_NONE = '-' as const;
+type ItemNone = typeof ITEM_NONE;
+
+const SKILL_BOOK = {
   LOW: '技能書(初等)',
   MEDIUM: '技能書(中等)',
   HIGH: '技能書(高等)',
 } as const;
-export type SkillBook = (typeof SKILL_BOOK)[keyof typeof SKILL_BOOK];
+type SkillBook = (typeof SKILL_BOOK)[keyof typeof SKILL_BOOK];
 
-export const PIECE_GARNET = {
-  R1: 'ガーネットピース(R1)',
-  R2: 'ガーネットピース(R2)',
-  R3: 'ガーネットピース(R3)',
-  R4: 'ガーネットピース(R4)',
+const PIECE_GARNET = {
+  R1: `${PIECE_NAME.GARNET}(R1)`,
+  R2: `${PIECE_NAME.GARNET}(R2)`,
+  R3: `${PIECE_NAME.GARNET}(R3)`,
+  R4: `${PIECE_NAME.GARNET}(R4)`,
 } as const;
-export type GarnetPiece = (typeof PIECE_GARNET)[keyof typeof PIECE_GARNET];
+type GarnetPiece = (typeof PIECE_GARNET)[keyof typeof PIECE_GARNET];
 
-export const PIECE_CARNELIAN = {
-  R1: 'カーネリアンピース(R1)',
-  R2: 'カーネリアンピース(R2)',
-  R3: 'カーネリアンピース(R3)',
-  R4: 'カーネリアンピース(R4)',
+const PIECE_CARNELIAN = {
+  R1: `${PIECE_NAME.CARNELIAN}(R1)`,
+  R2: `${PIECE_NAME.CARNELIAN}(R2)`,
+  R3: `${PIECE_NAME.CARNELIAN}(R3)`,
+  R4: `${PIECE_NAME.CARNELIAN}(R4)`,
 } as const;
-export type CarnelianPiece = (typeof PIECE_CARNELIAN)[keyof typeof PIECE_CARNELIAN];
+type CarnelianPiece = (typeof PIECE_CARNELIAN)[keyof typeof PIECE_CARNELIAN];
 
-export const PIECE_EMERALD: {
-  R1: 'エメラルドピース(R1)',
-  R2: 'エメラルドピース(R2)',
-  R3: 'エメラルドピース(R3)',
-  R4: 'エメラルドピース(R4)',
+const PIECE_EMERALD = {
+  R1: `${PIECE_NAME.EMERALD}(R1)`,
+  R2: `${PIECE_NAME.EMERALD}(R2)`,
+  R3: `${PIECE_NAME.EMERALD}(R3)`,
+  R4: `${PIECE_NAME.EMERALD}(R4)`,
 } as const;
-export type EmeraldPiece = (typeof PIECE_EMERALD)[keyof typeof PIECE_EMERALD];
+type EmeraldPiece = (typeof PIECE_EMERALD)[keyof typeof PIECE_EMERALD];
 
-export const PIECE_DIA: {
-  R1: 'ダイアピース(R1)',
-  R2: 'ダイアピース(R2)',
-  R3: 'ダイアピース(R3)',
-  R4: 'ダイアピース(R4)',
+const PIECE_DIA = {
+  R1: `${PIECE_NAME.DIA}(R1)`,
+  R2: `${PIECE_NAME.DIA}(R2)`,
+  R3: `${PIECE_NAME.DIA}(R3)`,
+  R4: `${PIECE_NAME.DIA}(R4)`,
 } as const;
-export type DiaPiece = (typeof PIECE_DIA)[keyof typeof PIECE_DIA];
+type DiaPiece = (typeof PIECE_DIA)[keyof typeof PIECE_DIA];
 
-export const PIECE_PERIDOT: {
-  R1: 'ペリドットピース(R1)',
-  R2: 'ペリドットピース(R2)',
-  R3: 'ペリドットピース(R3)',
-  R4: 'ペリドットピース(R4)',
+const PIECE_PERIDOT = {
+  R1: `${PIECE_NAME.PERIDOT}(R1)`,
+  R2: `${PIECE_NAME.PERIDOT}(R2)`,
+  R3: `${PIECE_NAME.PERIDOT}(R3)`,
+  R4: `${PIECE_NAME.PERIDOT}(R4)`,
 } as const;
-export type PeridotPiece = (typeof PIECE_PERIDOT)[keyof typeof PIECE_PERIDOT];
+type PeridotPiece = (typeof PIECE_PERIDOT)[keyof typeof PIECE_PERIDOT];
 
-export const PIECE_RUBY = {
-  R1: 'ルビーピース(R1)',
-  R2: 'ルビーピース(R2)',
-  R3: 'ルビーピース(R3)',
-  R4: 'ルビーピース(R4)',
+const PIECE_RUBY = {
+  R1: `${PIECE_NAME.RUBY}(R1)`,
+  R2: `${PIECE_NAME.RUBY}(R2)`,
+  R3: `${PIECE_NAME.RUBY}(R3)`,
+  R4: `${PIECE_NAME.RUBY}(R4)`,
 } as const;
-export type RubyPiece = (typeof PIECE_RUBY)[keyof typeof PIECE_RUBY];
+type RubyPiece = (typeof PIECE_RUBY)[keyof typeof PIECE_RUBY];
 
-export const PIECE_SAPPHIRE = {
-  R1: 'サファイアピース(R1)',
-  R2: 'サファイアピース(R2)',
-  R3: 'サファイアピース(R3)',
-  R4: 'サファイアピース(R4)',
+const PIECE_SAPPHIRE = {
+  R1: `${PIECE_NAME.SAPPHIRE}(R1)`,
+  R2: `${PIECE_NAME.SAPPHIRE}(R2)`,
+  R3: `${PIECE_NAME.SAPPHIRE}(R3)`,
+  R4: `${PIECE_NAME.SAPPHIRE}(R4)`,
 } as const;
-export type SapphirePiece = (typeof PIECE_SAPPHIRE)[keyof typeof PIECE_SAPPHIRE];
+type SapphirePiece = (typeof PIECE_SAPPHIRE)[keyof typeof PIECE_SAPPHIRE];
 
-export const PIECE_TOPAZ = {
-  R1: 'トパーズピース(R1)',
-  R2: 'トパーズピース(R2)',
-  R3: 'トパーズピース(R3)',
-  R4: 'トパーズピース(R4)',
+const PIECE_TOPAZ = {
+  R1: `${PIECE_NAME.TOPAZ}(R1)`,
+  R2: `${PIECE_NAME.TOPAZ}(R2)`,
+  R3: `${PIECE_NAME.TOPAZ}(R3)`,
+  R4: `${PIECE_NAME.TOPAZ}(R4)`,
 } as const;
-export type TopazPiece = (typeof PIECE_TOPAZ)[keyof typeof PIECE_TOPAZ];
+type TopazPiece = (typeof PIECE_TOPAZ)[keyof typeof PIECE_TOPAZ];
 
-export const PIECE_TURQUOISE = {
-  R1: 'ターコイズピース(R1)',
-  R2: 'ターコイズピース(R2)',
-  R3: 'ターコイズピース(R3)',
-  R4: 'ターコイズピース(R4)',
+const PIECE_TURQUOISE = {
+  R1: `${PIECE_NAME.TURQUOISE}(R1)`,
+  R2: `${PIECE_NAME.TURQUOISE}(R2)`,
+  R3: `${PIECE_NAME.TURQUOISE}(R3)`,
+  R4: `${PIECE_NAME.TURQUOISE}(R4)`,
 } as const;
-export type TurquoisePiece = (typeof PIECE_TURQUOISE)[keyof typeof PIECE_TURQUOISE];
+type TurquoisePiece = (typeof PIECE_TURQUOISE)[keyof typeof PIECE_TURQUOISE];
 
-export const PIECE_AMETHYST = {
-  R1: 'アメジストピース(R1)',
-  R2: 'アメジストピース(R2)',
-  R3: 'アメジストピース(R3)',
-  R4: 'アメジストピース(R4)',
+const PIECE_AMETHYST = {
+  R1: `${PIECE_NAME.AMETHYST}(R1)`,
+  R2: `${PIECE_NAME.AMETHYST}(R2)`,
+  R3: `${PIECE_NAME.AMETHYST}(R3)`,
+  R4: `${PIECE_NAME.AMETHYST}(R4)`,
 } as const;
-export type AmethystPiece = (typeof PIECE_AMETHYST)[keyof typeof PIECE_AMETHYST];
+type AmethystPiece = (typeof PIECE_AMETHYST)[keyof typeof PIECE_AMETHYST];
 
-export const PIECE_SOL = {
-  R3: 'ソルピース(R3)',
-  R4: 'ソルピース(R4)',
+const PIECE_SOL = {
+  R1: `${PIECE_NAME.SOL}(R1)`,
+  R2: `${PIECE_NAME.SOL}(R2)`,
+  R3: `${PIECE_NAME.SOL}(R3)`,
+  R4: `${PIECE_NAME.SOL}(R4)`,
 } as const;
-export type SolPiece = (typeof PIECE_SOL)[keyof typeof PIECE_SOL];
+type SolPiece = (typeof PIECE_SOL)[keyof typeof PIECE_SOL];
 
-export const PIECE_MOON = {
-  R3: 'ムーンピース(R3)',
-  R4: 'ムーンピース(R4)',
+const PIECE_LUNA = {
+  R1: `${PIECE_NAME.LUNA}(R1)`,
+  R2: `${PIECE_NAME.LUNA}(R2)`,
+  R3: `${PIECE_NAME.LUNA}(R3)`,
+  R4: `${PIECE_NAME.LUNA}(R4)`,
 } as const;
-export type MoonPiece = (typeof PIECE_MOON)[keyof typeof PIECE_MOON];
+type LunaPiece = (typeof PIECE_LUNA)[keyof typeof PIECE_LUNA];
 
-export const PIECE_STELLA = {
-  R3: 'ステラピース(R3)',
-  R4: 'ステラピース(R4)',
+const PIECE_STELLA = {
+  R1: `${PIECE_NAME.STELLA}(R1)`,
+  R2: `${PIECE_NAME.STELLA}(R2)`,
+  R3: `${PIECE_NAME.STELLA}(R3)`,
+  R4: `${PIECE_NAME.STELLA}(R4)`,
 } as const;
-export type StellaPiece = (typeof PIECE_STELLA)[keyof typeof PIECE_STELLA];
+type StellaPiece = (typeof PIECE_STELLA)[keyof typeof PIECE_STELLA];
 
-export const CHARM_SOL = {
-  R3: 'ソルチャーム(R3)',
-  R4: 'ソルチャーム(R4)',
+const CHARM_SOL = {
+  R3: `${CHARM_NAME.SOL}(R3)`,
+  R4: `${CHARM_NAME.SOL}(R4)`,
 } as const;
-export type SolCharm = (typeof CHARM_SOL)[keyof typeof CHARM_SOL];
+type SolCharm = (typeof CHARM_SOL)[keyof typeof CHARM_SOL];
 
-export const CHARM_MOON = {
-  R3: 'ムーンチャーム(R3)',
-  R4: 'ムーンチャーム(R4)',
+const CHARM_LUNA = {
+  R3: `${CHARM_NAME.LUNA}(R3)`,
+  R4: `${CHARM_NAME.LUNA}(R4)`,
 } as const;
-export type MoonCharm = (typeof CHARM_MOON)[keyof typeof CHARM_MOON];
+type LunaCharm = (typeof CHARM_LUNA)[keyof typeof CHARM_LUNA];
 
-export const CHARM_STELLA = {
-  R3: 'ステラチャーム(R3)',
-  R4: 'ステラチャーム(R4)',
+const CHARM_STELLA = {
+  R3: `${CHARM_NAME.STELLA}(R3)`,
+  R4: `${CHARM_NAME.STELLA}(R4)`,
 } as const;
-export type StellaCharm = (typeof CHARM_STELLA)[keyof typeof CHARM_STELLA];
+type StellaCharm = (typeof CHARM_STELLA)[keyof typeof CHARM_STELLA];
 
-export const CHARM_CRYSTAL = 'クリスタルチャーム' as const;
-export type CrystalCharm = typeof CHARM_CRYSTAL;
+const CHARM_CRYSTAL = `${CHARM_NAME.CRYSTAL}` as const;
+type CrystalCharm = typeof CHARM_CRYSTAL;
 
 export const ITEMS = {
   NONE: ITEM_NONE,
@@ -141,35 +173,15 @@ export const ITEMS = {
     TOPAZ: PIECE_TOPAZ,
     TURQUOISE: PIECE_TURQUOISE,
     AMETHYST: PIECE_AMETHYST,
-    SOL: PIECE_SOL
-    MOON: PIECE_MOON
-    STELLA: PIECE_STELLA
+    SOL: PIECE_SOL,
+    LUNA: PIECE_LUNA,
+    STELLA: PIECE_STELLA,
   },
   CHARM: {
     SOL: CHARM_SOL,
-    MOON: CHARM_MOON,
+    LUNA: CHARM_LUNA,
     STELLA: CHARM_STELLA,
-    CRYSTAL: CHARM_CRYSTAL
+    CRYSTAL: CHARM_CRYSTAL,
   },
 } as const;
-
-export type Items =
-  | ItemNone
-  | SkillBook
-  | GarnetPiece
-  | CarnelianPiece
-  | EmeraldPiece
-  | DiaPiece
-  | PeridotPiece
-  | RubyPiece
-  | SapphirePiece
-  | TopazPiece
-  | TurquoisePiece
-  | AmethystPiece
-  | SolPiece
-  | MoonPiece
-  | StellaPiece
-  | SolCharm
-  | MoonCharm
-  | StellaCharm
-  | CrystalCharm;
+export type Items = typeof ITEMS;
