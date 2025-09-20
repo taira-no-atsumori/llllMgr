@@ -84,7 +84,7 @@
                             :src="store.getImagePath('icons/member', `icon_illust_${memberName}_${store.thisPeriod}`)"
                             style="width: 50px"
                             class="ml-1 mr-2"
-                          /><span class="pt-1 font-weight-bold">{{ store.makeFullName(memberName) }}</span>
+                          /><span class="pt-1 font-weight-bold">{{ store.fullName(memberName) }}</span>
                         </div>
 
                         <v-divider class="my-2"></v-divider>
@@ -144,7 +144,7 @@
                             :src="store.getImagePath('icons/member', `icon_illust_${memberName}_${store.thisPeriod}`)"
                             style="width: 50px"
                             class="ml-1 mr-2"
-                          /><span class="pt-1 font-weight-bold">{{ store.makeFullName(memberName) }}</span>
+                          /><span class="pt-1 font-weight-bold">{{ store.fullName(memberName) }}</span>
                         </div>
 
                         <v-divider class="my-2"></v-divider>
@@ -306,7 +306,7 @@
                             sendGiftPtList[i - 1].member[memberName].giftPt > 0 ? 0 : 1
                           });`"
                           class="ml-1 mr-2"
-                        /><span class="pt-1 font-weight-bold">{{ store.makeFullName(memberName) }}</span>
+                        /><span class="pt-1 font-weight-bold">{{ store.fullName(memberName) }}</span>
                       </div>
 
                       <v-divider class="my-2"></v-divider>
@@ -464,7 +464,7 @@
                     class="mt-1"
                     style="font-size: 12px"
                   >
-                    {{ store.makeFullName(memberName) }}
+                    {{ store.fullName(memberName) }}
                   </p>
                 </v-col>
                 <v-col cols="8">

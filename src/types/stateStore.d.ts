@@ -1,6 +1,7 @@
 import { Ref } from 'vue';
 import { BonusSkillName } from '@/constants/music';
 import { Rare, StyleTypeEn, FavoriteIcon, ReleaseStatus, Mood, Limited } from '@/constants/cards';
+import { musicList } from '../constants/musicList';
 
 /**
  * ボーナススキルの詳細を表す型
@@ -298,7 +299,6 @@ type Deck = {
  * @property defaultSearch デフォルト検索設定
  * @property styleHeadline スタイル見出し
  * @property limited 限定
- * @property maxCardLevel 最大カードレベル
  * @property releasePoint 解放ポイント
  * @property memberName メンバー名
  * @property exclusionMember 除外メンバー
@@ -342,7 +342,6 @@ type StoreState = {
       side2?: string;
     }
   >;
-  maxCardLevel: Record<string, number[]>;
   releasePoint: Record<
     string,
     {
@@ -396,6 +395,7 @@ type StoreState = {
     w: number;
     h: number;
   };
+  musicLevel: Record<string, number>;
 };
 
 export type StoreStore = {

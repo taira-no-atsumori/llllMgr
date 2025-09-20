@@ -15,23 +15,23 @@ export type BonusSkillName = (typeof BONUS_SKILL_NAME)[keyof typeof BONUS_SKILL_
 export const ATTRIBUTE = {
   SMILE: {
     en: 'smile',
-    jp: 'スマイル',
+    ja: 'スマイル',
   },
   PURE: {
     en: 'pure',
-    jp: 'ピュア',
+    ja: 'ピュア',
   },
   COOL: {
     en: 'cool',
-    jp: 'クール',
+    ja: 'クール',
   },
 } as const;
 
 /** EN表記の型 */
 export type AttributeEn = (typeof ATTRIBUTE)[keyof typeof ATTRIBUTE]['en'];
 
-/** JP表記の型 */
-export type AttributeJp = (typeof ATTRIBUTE)[keyof typeof ATTRIBUTE]['jp'];
+/** JA表記の型 */
+export type AttributeJa = (typeof ATTRIBUTE)[keyof typeof ATTRIBUTE]['ja'];
 
 /**
  *
@@ -43,28 +43,28 @@ export const getAttributeListEn = (): AttributeEn[] => {
 
 /**
  *
- * @returns JP表記のスタイルタイプのリスト
+ * @returns JA表記のスタイルタイプのリスト
  */
-export const getAttributeListJp = (): AttributeJp[] => {
-  return Object.values(ATTRIBUTE).map((attribute) => attribute.jp);
+export const getAttributeListJa = (): AttributeJa[] => {
+  return Object.values(ATTRIBUTE).map((attribute) => attribute.ja);
 };
 
 /**
- * EN → JP の変換
+ * EN → JA の変換
  * @param en
  * @returns
  */
-export const convertAttributeEnToJp = (en: AttributeEn): AttributeJp | undefined => {
+export const convertAttributeEnToJa = (en: AttributeEn): AttributeJa | undefined => {
   const entry = Object.values(ATTRIBUTE).find((attribute) => attribute.en === en);
-  return entry?.jp;
+  return entry?.ja;
 };
 
 /**
- * JP → EN の変換
- * @param jp
+ * JA → EN の変換
+ * @param ja
  * @returns
  */
-export const convertAttributeJpToEn = (jp: AttributeJp): AttributeEn | undefined => {
-  const entry = Object.values(ATTRIBUTE).find((attribute) => attribute.jp === jp);
+export const convertAttributeJaToEn = (ja: AttributeJa): AttributeEn | undefined => {
+  const entry = Object.values(ATTRIBUTE).find((attribute) => attribute.ja === ja);
   return entry?.en;
 };

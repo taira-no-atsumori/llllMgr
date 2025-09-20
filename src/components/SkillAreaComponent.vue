@@ -20,7 +20,7 @@
         <span class="skillLevel">
           Lv{{ store.settingCardData.fluctuationStatus[`S${skillType === 'specialAppeal' ? 'A' : ''}Level`] }}
         </span>
-        {{ store.makeSkillText(skillType) }}
+        {{ store.skillText(skillType) }}
       </template>
       <template v-else>
         {{ store.settingCardData.characteristic.detail }}
@@ -28,14 +28,13 @@
     </div>
     <div v-if="skillType !== 'characteristic'">
       <v-chip
-        v-for="(skillID, i) in store.skillList[store.settingCardData[skillType].name][
-          store.settingCardData[skillType].ID
-        ].detail.type"
+        v-for="(skillID, i) in SKILL_LIST[store.settingCardData[skillType].name][store.settingCardData[skillType].ID]
+          .detail.type"
         :key="skillID"
         :color="skillID.COLOR_CODE"
         :class="`chipSize mb-1${
           i + 1 <
-          store.skillList[store.settingCardData[skillType].name][store.settingCardData[skillType].ID].detail.type.length
+          SKILL_LIST[store.settingCardData[skillType].name][store.settingCardData[skillType].ID].detail.type.length
             ? ' mr-1'
             : ''
         }`"
@@ -108,20 +107,20 @@
 
                   <p class="mt-1">
                     <template v-if="skillType !== 'characteristic'">
-                      {{ store.makeSkillText(skillType, { addSkillNum: i }) }}
+                      {{ store.skillText(skillType, { addSkillNum: i }) }}
                     </template>
                     <template v-else>
-                      {{ list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail }}
+                      {{ list?.ID ? SKILL_LIST[list.name][list.ID].text[0] : list.detail }}
                     </template>
                   </p>
 
                   <div v-if="skillType !== 'characteristic'">
                     <v-chip
-                      v-for="(skillID, ii) in store.skillList[list.name][list.ID].detail.type"
+                      v-for="(skillID, ii) in SKILL_LIST[list.name][list.ID].detail.type"
                       :key="skillID"
                       :color="skillID.COLOR_CODE"
                       :class="`chipSize mt-1 ${
-                        ii + 1 < store.skillList[list.name][list.ID].detail.type.length ? 'mr-1' : ''
+                        ii + 1 < SKILL_LIST[list.name][list.ID].detail.type.length ? 'mr-1' : ''
                       }`"
                       @click="
                         openDialog('skillDescription', 600, {
@@ -186,25 +185,23 @@
                           <p class="mt-1">
                             <template v-if="skillType !== 'characteristic'">
                               {{
-                                store.makeSkillText('addSkill', {
+                                store.skillText('addSkill', {
                                   addSkillNum: [i, addSkillNum],
                                 })
                               }}
                             </template>
                             <template v-else>
-                              {{ list?.ID ? store.skillList[list.name][list.ID].text[0] : list.detail }}
+                              {{ list?.ID ? SKILL_LIST[list.name][list.ID].text[0] : list.detail }}
                             </template>
                           </p>
 
                           <div v-if="skillType !== 'characteristic'">
                             <v-chip
-                              v-for="(skillID, ii) in store.skillList[addSkillList.name][addSkillList.ID].detail.type"
+                              v-for="(skillID, ii) in SKILL_LIST[addSkillList.name][addSkillList.ID].detail.type"
                               :key="skillID"
                               :color="skillID.COLOR_CODE"
                               :class="`chipSize mt-1 ${
-                                ii + 1 < store.skillList[addSkillList.name][addSkillList.ID].detail.type.length
-                                  ? 'mr-1'
-                                  : ''
+                                ii + 1 < SKILL_LIST[addSkillList.name][addSkillList.ID].detail.type.length ? 'mr-1' : ''
                               }`"
                               @click="
                                 openDialog('skillDescription', 600, {
@@ -265,7 +262,9 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
+import { SKILL_LIST } from '@/constants/skillList';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
+import { MAX_CARD_LEVEL } from '@/constants/cards';
 
 const props = defineProps<{
   skillType: string;
@@ -334,13 +333,29 @@ const openDialog = (
 
   switchDialog(null);
 };
+
+/**
+ * AP計算処理
+ *
+ * 消費するAPを計算して返す処理
+ *
+ * @param skillType スキルタイプ
+ * @returns 消費AP
+ */
 const AP = (skillType: string): number => {
   if (store.settingCardData?.[skillType]?.EXAP !== undefined) {
-    return store.settingCardData[skillType].EXAP[store.settingCardData.fluctuationStatus.SALevel - 1];
+    return (
+      store.settingCardData[skillType].EXAP[store.settingCardData.fluctuationStatus.SALevel - 1] -
+      (skillType === 'specialAppeal' && store.settingCardData.fluctuationStatus.trainingLevel > 0 ? 1 : 0)
+    );
+  } else if (skillType !== 'specialAppeal') {
+    return store.settingCardData[skillType].AP;
+  } else if (/(D|L|B)R/.test(store.settingCardData.rare) || store.isAikatsu) {
+    return store.settingCardData[skillType].AP - (store.settingCardData.fluctuationStatus.trainingLevel > 0 ? 1 : 0);
   } else {
     return (
       store.settingCardData[skillType].AP -
-      (store.settingCardData.fluctuationStatus.trainingLevel < store.maxCardLevel[store.settingCardData.rare].length - 2
+      (store.settingCardData.fluctuationStatus.trainingLevel < MAX_CARD_LEVEL[store.settingCardData.rare].length - 2
         ? store.settingCardData.fluctuationStatus.trainingLevel
         : 2)
     );

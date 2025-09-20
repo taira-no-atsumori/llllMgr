@@ -675,16 +675,16 @@
                             :alt="memberName"
                           />
                           <span style="margin-top: 2px">
-                            {{ store.makeFullName(memberName) }}
+                            {{ store.fullName(memberName) }}
                           </span>
                           <v-icon
-                            v-if="store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)"
+                            v-if="MUSIC_LIST[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)"
                             color="indigo"
                           >
                             mdi-microphone-variant
                           </v-icon>
                           <v-icon
-                            v-if="store.musicList[store.selectDeck.selectMusic]?.center === memberName"
+                            v-if="MUSIC_LIST[store.selectDeck.selectMusic]?.center === memberName"
                             color="yellow-accent-1"
                           >
                             mdi-star
@@ -984,7 +984,7 @@
                             showCenterCard(store).id.split('_')[1] === '000'
                               ? 'NO IMAGE'
                               : `${store.conversion(store.findCardData(showCenterCard(store).id).cardName)}_${
-                                  store.memberName[store.musicList[store.selectDeck.selectMusic]?.center].last
+                                  store.memberName[MUSIC_LIST[store.selectDeck.selectMusic]?.center].last
                                 }_覚醒後`
                           }`
                         )
@@ -1061,7 +1061,7 @@
                 >
                   <div class="mb-2">
                     <span class="mr-2">属性</span>
-                    {{ convertAttributeEnToJp(store.musicList[store.selectDeck.selectMusic]?.attribute) ?? '' }}
+                    {{ convertAttributeEnToJa(MUSIC_LIST[store.selectDeck.selectMusic]?.attribute) ?? '' }}
                   </div>
                   <div class="d-flex flex-row align-center mb-2">
                     <span class="mr-2">センター</span>
@@ -1070,20 +1070,18 @@
                       :src="
                         store.getImagePath(
                           'icons/member',
-                          `icon_illust_${store.musicList[store.selectDeck.selectMusic]?.center}_${
-                            store.selectDeck.period
-                          }`
+                          `icon_illust_${MUSIC_LIST[store.selectDeck.selectMusic]?.center}_${store.selectDeck.period}`
                         )
                       "
                       class="mr-1"
                       style="width: 35px; height: 35px"
-                      :alt="store.musicList[store.selectDeck.selectMusic]?.center"
+                      :alt="MUSIC_LIST[store.selectDeck.selectMusic]?.center"
                     />
                   </div>
                   <div style="min-height: 35px">
                     <p class="mb-1">歌唱メンバー</p>
                     <img
-                      v-for="memberName in store.musicList[store.selectDeck.selectMusic]?.singingMembers"
+                      v-for="memberName in MUSIC_LIST[store.selectDeck.selectMusic]?.singingMembers"
                       :key="memberName"
                       :src="store.getImagePath('icons/member', `icon_illust_${memberName}_${store.selectDeck.period}`)"
                       class="mr-1"
@@ -1355,8 +1353,8 @@
             hide-details
             v-model="store.selectDeck.cardData[store.openCard.name][store.openCard.style].param.cardLevel"
             :max="
-              store.maxCardLevel[store.searchRarity(store.openCard.ID)][
-                store.maxCardLevel[store.searchRarity(store.openCard.ID)].length - 1
+              MAX_CARD_LEVEL[store.searchRarity(store.openCard.ID)][
+                MAX_CARD_LEVEL[store.searchRarity(store.openCard.ID)].length - 1
               ]
             "
             min="1"
@@ -1824,7 +1822,9 @@
 import { useStateStore } from '@/stores/stateStore';
 import draggable from 'vuedraggable';
 import { convertStyleEnToJp } from '@/constants/cards';
-import { convertAttributeEnToJp } from '@/constants/music';
+import { MUSIC_LIST } from '@/constants/musicList';
+import { convertAttributeEnToJa } from '@/constants/music';
+import { MAX_CARD_LEVEL } from '@/constants/cards';
 // import axios from 'axios';
 const store = useStateStore();
 </script>
@@ -2142,7 +2142,7 @@ export default {
             if (store.selectDeck.cardData[memberName][style].id.split('_')[1] === '000') {
               continue;
             } else if (attr === 'releaseLevel') {
-              if (store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
+              if (MUSIC_LIST[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
                 if (style === 'main') {
                   result += store.selectDeck.cardData[memberName][style].param.releaseLevel;
                   releasePoint +=
@@ -2153,13 +2153,13 @@ export default {
               }
 
               continue;
-            } else if (!store.musicList[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
+            } else if (!MUSIC_LIST[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)) {
               continue;
             }
 
             let param = store.cardParam(attr, store.selectDeck.cardData[memberName][style].id);
 
-            if (store.musicList[store.selectDeck.selectMusic].attribute === attr) {
+            if (MUSIC_LIST[store.selectDeck.selectMusic].attribute === attr) {
               param *= 1.5;
             }
 
@@ -2217,8 +2217,7 @@ export default {
             },
           };
         } else if (
-          store.selectDeck.cardData[store.musicList[store.selectDeck.selectMusic]?.center].main.id.split('_')[1] ===
-          '000'
+          store.selectDeck.cardData[MUSIC_LIST[store.selectDeck.selectMusic]?.center].main.id.split('_')[1] === '000'
         ) {
           return {
             id: 'df_000',
@@ -2231,7 +2230,7 @@ export default {
             },
           };
         } else {
-          return store.selectDeck.cardData[store.musicList[store.selectDeck.selectMusic]?.center].main;
+          return store.selectDeck.cardData[MUSIC_LIST[store.selectDeck.selectMusic]?.center].main;
         }
       };
     },
@@ -2427,9 +2426,9 @@ export default {
     musicList(store) {
       const list = {};
 
-      for (const title in store.musicList) {
-        if (store.musicList[title].term === Number(store.selectDeck.period)) {
-          list[title] = store.musicList[title];
+      for (const title in MUSIC_LIST) {
+        if (MUSIC_LIST[title].term === Number(store.selectDeck.period)) {
+          list[title] = MUSIC_LIST[title];
         }
       }
 

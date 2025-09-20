@@ -32,17 +32,10 @@ pre-commit:
       skip_output: false
       # 警告のみの場合はコミットを許可
       fail_on_warnings: false
+    build:
+      run: npm run build
     # lint:
     #   run: npm run lint
     #   skip_output: false
     #   # 警告のみの場合はコミットを許可
     #   fail_on_warnings: false
-
-# pre-pushフック: `git push` を実行する前に走るコマンド
-pre-push:
-  commands:
-    # プッシュ前に再度ビルドチェックを行うことで、より安全にプッシュできます。
-    build-check:
-      run: npm run build
-    build:
-      run: npm run build

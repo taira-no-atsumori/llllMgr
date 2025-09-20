@@ -104,7 +104,7 @@
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
             </template>
-            <p class="mb-1">{{ rare }}{{ ['', '+', '++'][store.cardParam('trainingLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName})] }} [{{ cardName }}] {{ store.makeFullName(store.openCard.name) }} (Lv. {{ store.cardParam('cardLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName}) }})</p>
+            <p class="mb-1">{{ rare }}{{ ['', '+', '++'][store.cardParam('trainingLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName})] }} [{{ cardName }}] {{ store.fullName(store.openCard.name) }} (Lv. {{ store.cardParam('cardLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName}) }})</p>
             <v-row no-gutters class="mb-1">
               <v-col cols="5">
                 <v-row no-gutters>

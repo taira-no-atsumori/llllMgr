@@ -1,19 +1,16 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useCardStore } from '../src/stores/cardList';
-import { useMusicStore } from '../src/stores/musicList';
-import { useSkillStore } from '../src/stores/skillList';
+import { SKILL_LIST } from '../src/constants/skillList';
+import { MUSIC_LIST } from '../src/constants/musicList';
 import { useStateStore } from '../src/stores/stateStore';
 import type { CardData } from '../src/types/cardList';
-import type { MusicData } from '../src/types/musicList';
 
 describe('データ整合性チェック', () => {
   let cardStore: ReturnType<typeof useCardStore>;
-  let musicStore: ReturnType<typeof useMusicStore>;
-  let skillStore: ReturnType<typeof useSkillStore>;
   let stateStore: ReturnType<typeof useStateStore>;
   let allCards: CardData[];
-  let allMusic: MusicData[];
+  let allMusic;
 
   beforeEach(() => {
     // 各テストの前にPiniaを初期化
@@ -21,12 +18,10 @@ describe('データ整合性チェック', () => {
 
     // ストアのインスタンスを作成
     cardStore = useCardStore();
-    musicStore = useMusicStore();
-    skillStore = useSkillStore();
     stateStore = useStateStore();
 
     allCards = [];
-    allMusic = Object.values(musicStore.musicList);
+    allMusic = Object.values(MUSIC_LIST);
 
     // すべてのカードを一つの配列にまとめる
     Object.values(cardStore.card).forEach((memberCards) => {
@@ -217,11 +212,11 @@ describe('データ整合性チェック', () => {
     allCards.forEach((card) => {
       if (card.specialAppeal?.name && card.specialAppeal?.ID) {
         const { name, ID } = card.specialAppeal;
-        if (!skillStore.skillList[name]) {
+        if (!SKILL_LIST[name]) {
           errors.push(
             `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`
           );
-        } else if (!skillStore.skillList[name][ID]) {
+        } else if (!SKILL_LIST[name][ID]) {
           errors.push(
             `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`
           );
@@ -236,9 +231,9 @@ describe('データ整合性チェック', () => {
     allCards.forEach((card) => {
       if (card.skill?.name && card.skill?.ID) {
         const { name, ID } = card.skill;
-        if (!skillStore.skillList[name]) {
+        if (!SKILL_LIST[name]) {
           errors.push(`カード [${card.ID}: ${card.kana}] のスキル名「${name}」が skillList に存在しません。`);
-        } else if (!skillStore.skillList[name][ID]) {
+        } else if (!SKILL_LIST[name][ID]) {
           errors.push(`カード [${card.ID}: ${card.kana}] のスキルID「${ID}」が skillList.${name} に存在しません。`);
         }
       }

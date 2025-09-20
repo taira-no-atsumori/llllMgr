@@ -101,7 +101,7 @@
                     </template>
                     <template v-slot:item="{ item }">
                       <v-list-item
-                        :title="store.makeFullName(item.title)"
+                        :title="store.fullName(item.title)"
                         @click="selectCenter(store, item.title)"
                       >
                         <template v-slot:prepend>
@@ -165,7 +165,7 @@
                     </template>
                     <template v-slot:item="{ item }">
                       <v-list-item
-                        :title="convertAttributeEnToJp(item.title)"
+                        :title="convertAttributeEnToJa(item.title)"
                         @click="selectAttr(item.title)"
                       >
                         <template v-slot:prepend>
@@ -382,7 +382,7 @@
                   class="pt-1 pl-1"
                   :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
                 >
-                  {{ store.makeFullName(memberName) }}
+                  {{ store.fullName(memberName) }}
                   <span class="text-body-2"> (Lv.{{ store.makeTotalMasteryLv(memberName) }}) </span>
                 </span>
                 <span
@@ -596,7 +596,7 @@
                   :alt="ary.center"
                 />
               </li>
-              <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
+              <li class="align-self-center text-caption">MLv.{{ store.musicLevel[songTitle] }}</li>
             </ul>
           </v-card-text>
         </v-card>
@@ -643,15 +643,15 @@
                       :alt="ary.center"
                     />
                   </li>
-                  <li class="align-self-center text-caption">MLv.{{ store.musicList[songTitle].level }}</li>
+                  <li class="align-self-center text-caption">MLv.{{ store.musicLevel[songTitle] }}</li>
                 </ul>
               </v-card-item>
             </v-card>
           </template>
           <p class="mb-2">{{ songTitle }}</p>
-          センター：{{ store.makeFullName(ary.center) }}<br />
-          楽曲マスタリーLv.：{{ ary.level }}<br />
-          獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(ary.level / 10) }}
+          センター：{{ store.fullName(ary.center) }}<br />
+          楽曲マスタリーLv.：{{ store.musicLevel[songTitle] }}<br />
+          獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(store.musicLevel[songTitle] / 10) }}
         </v-tooltip>
       </li>
       <li
@@ -665,9 +665,10 @@
 </template>
 
 <script setup lang="ts">
-import { StoreState } from '@/types/store';
+import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
-import { convertAttributeEnToJp } from '@/constants/music';
+import { MUSIC_LIST } from '@/constants/musicList';
+import { convertAttributeEnToJa } from '@/constants/music';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
@@ -726,19 +727,15 @@ export default {
           this.sortingProcess(store, 'sortType', 'default');
         }
 
-        const list = Array.from(Object.entries(store.musicList), ([key, value]) => ({
+        const list = Array.from(Object.entries(MUSIC_LIST), ([key, value]) => ({
           title: key,
           ...value,
         }));
 
         const result = list.filter((musicData) => {
-          if (typeof musicData.level !== 'number') {
-            musicData.level = 0;
-          }
-
           if (
-            musicData.level < this.masteryLv[0] ||
-            musicData.level > this.masteryLv[1] ||
+            store.musicLevel[musicData.title] < this.masteryLv[0] ||
+            store.musicLevel[musicData.title] > this.masteryLv[1] ||
             // this.inputMusicTitle && !musicData.musicData.kana.includes(this.inputMusicTitle) ||
             (this.selectCenterList.length > 0 && !this.selectCenterList.includes(musicData.center)) ||
             (this.selectBonusSkillList.length > 0 && !this.selectBonusSkillList.includes(musicData.bonusSkill)) ||
@@ -765,6 +762,11 @@ export default {
           } else {
             switch (sortType) {
               case 'level':
+                return sorting(
+                  store.localStorageData.sortSettings.musicList.order === 'ascending',
+                  store.musicLevel[a.title],
+                  store.musicLevel[b.title]
+                );
               case 'BHcount':
                 return sorting(
                   store.localStorageData.sortSettings.musicList.order === 'ascending',

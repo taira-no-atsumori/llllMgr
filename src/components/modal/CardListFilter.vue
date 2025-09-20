@@ -188,7 +188,7 @@
                     class="icon member"
                   ></v-img>
                   <span :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`">
-                    {{ store.makeFullName(memberName) }}
+                    {{ store.fullName(memberName) }}
                   </span>
                 </template>
                 <template v-else> 特殊 </template>
