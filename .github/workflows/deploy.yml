@@ -97,6 +97,25 @@ jobs:
           git diff --staged --quiet || git commit -m "chore(version): set version to $NEW_VERSION [skip ci]"
           git push
 
+      - name: Verify versions match
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # GitHub VariablesからSITEVERSIONを再取得
+          GH_VAR_VERSION=$(gh variable get SITEVERSION)
+          echo "Version from GitHub variable: $GH_VAR_VERSION"
+
+          # .env.publicからVITE_SITEVERSIONを取得
+          ENV_FILE_VERSION=$(grep "^VITE_SITEVERSION=" .env.public | cut -d'=' -f2 | tr -d "'")
+          echo "Version from .env.public: $ENV_FILE_VERSION"
+
+          # 2つのバージョンを比較
+          if [ "$GH_VAR_VERSION" != "$ENV_FILE_VERSION" ]; then
+            echo "::error::Version mismatch! GitHub variable is '$GH_VAR_VERSION', but .env.public has '$ENV_FILE_VERSION'."
+            exit 1
+          fi
+          echo "✅ Versions match successfully."
+
   # Job 2: アプリケーションをビルドし、mainブランチの場合はGitHub Pagesにデプロイする
   build-and-deploy:
     # `update-version` ジョブを待つ。
