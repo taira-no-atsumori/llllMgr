@@ -2448,6 +2448,15 @@ export const SKILL_LIST = {
       },
     },
   },
+  グルーヴイグニッション: {
+    grooveIgnition_01: {
+      text: ['姫芽が《イグニッションモード》になった回数に応じてボルテージゲイン効果が発動する。'],
+      detail: {
+        attr: 'groovy',
+        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
+  },
   スイッチボルテージ: {
     switchVoltage: {
       text: [
@@ -6253,6 +6262,16 @@ export const SKILL_LIST = {
       detail: {
         attr: 'bloomMySelf',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.AP_REDUCE],
+      },
+    },
+    bloomMySelf_04: {
+      text: [
+        '姫芽の《イグニッションモード》の状態を変化させる。さらに2回の間姫芽が使用するボルテージゲイン効果を+',
+        '%し、山札にある姫芽のスキルの消費AP-2。',
+      ],
+      detail: {
+        attr: 'bloomMySelf',
+        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.AP_REDUCE],
       },
     },
   },

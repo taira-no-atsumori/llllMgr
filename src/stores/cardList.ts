@@ -20428,6 +20428,74 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         BR: {
+          '17th Birthday': {
+            ID: 'hm_029',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
+            series: 'Birthday',
+            kana: 'せぶんてぃーんすばーすでー',
+            gacha: {
+              addSeason: '2025 BIRTHDAY LIMITED COLLECTION -Hime-',
+              period: 'birthday',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4800,
+              pure: 4800,
+              cool: 4800,
+              mental: 480,
+              BP: 100,
+              supportSkill: {
+                supportSkillTitle: '17th Birthday',
+                supportSkillList: {
+                  ボルテージアップ: {
+                    initLevel: 1,
+                    levelUp: 4,
+                    upLevel: 1,
+                  },
+                  メンタルリカバー: {
+                    initLevel: 1,
+                    levelUp: 3,
+                    upLevel: 1,
+                  },
+                  ビートハートアップ: {
+                    initLevel: 1,
+                    levelUp: 5,
+                    upLevel: 1,
+                  },
+                  LOVEボーナス: {
+                    initLevel: 1,
+                    levelUp: 2,
+                    upLevel: 1,
+                  },
+                },
+              },
+            },
+            specialAppeal: {
+              ID: 'grooveIgnition_01',
+              name: 'グルーヴイグニッション',
+              AP: 6,
+              detail: [],
+            },
+            skill: {
+              ID: 'bloomMySelf_04',
+              name: 'ブルームマイセルフ',
+              AP: 2,
+              detail: [[36, 39.6, 43.2, 46.8, 50.4, 54, 57.6, 61.2, 64.8, 72, 75.6, 79.2, 82.8, 90]],
+            },
+            characteristic: {
+              name: 'バースデイキャンドル',
+              detail: 'スキル使用時、17回までAPを2回復する。',
+              type: ['APGain'],
+            },
+          },
           '16th Birthday': {
             ID: 'hm_011',
             styleType: STYLE_TYPE.TRICK_STAR.en,
