@@ -23,19 +23,12 @@ pre-commit:
     #   glob: "*.{js,ts,vue,css,scss,json,md}"
     #   run: npx prettier --write {staged_files}
 
-    # コミット前にビルドが通るかを確認します。
-    # これにより、ビルドエラーを含むコードのコミットを防ぎます。
-    build-check:
-      run: npm run build
     test:
       run: npm run test -- --run
       skip_output: false
       # 警告のみの場合はコミットを許可
       fail_on_warnings: false
-    build:
-      run: npm run build
-    # lint:
-    #   run: npm run lint
-    #   skip_output: false
-    #   # 警告のみの場合はコミットを許可
-    #   fail_on_warnings: false
+
+    build-and-stage:
+      # テストが成功した後、ビルドを実行し、成果物をステージングします。
+      run: npm run build && git add docs
