@@ -1,22 +1,10 @@
 import { Ref } from 'vue';
-import { BonusSkillName } from '@/constants/music';
-import { Rare, StyleTypeEn, FavoriteIcon, ReleaseStatus, Mood, Limited } from '@/constants/cards';
-import { musicList } from '../constants/musicList';
-
-/**
- * ボーナススキルの詳細を表す型
- *
- * @property {string} text スキルの説明テキスト
- * @property {number} skillLevel スキルレベル
- * @property {number} init 初期値
- * @property {number} ary 効果が変わるレベル
- */
-type BonusSkillList = {
-  text: string[];
-  skillLevel: number;
-  init?: number;
-  ary?: number[];
-};
+import { MemberKeyValues } from '@/constants/memberNames';
+import { Rare, StyleTypeEn, FavoriteIcon, ReleaseStatus, MoodEn, Limited } from '@/constants/cards';
+import { musicList } from '@/constants/musicList';
+import { SkillBook } from '@/constants/items';
+import { BonusSkillNames } from '@/constants/bonusSkills';
+import { CardDataByMember } from '@/types/cardList';
 
 /**
  * カードの変動ステータスを表す型
@@ -83,14 +71,14 @@ type CardUniqueStatus = {
  * @property skill スキル情報 (オプション)
  * @property skill.AP 消費AP
  */
-type CardData = {
+type CardDefaultData = {
   ID: string;
-  rare: string;
+  rare: Rare;
   cardName: string;
-  memberName: string;
-  limited: string;
+  memberName: MemberKeyValues;
+  limited: Limited;
   sortPoint: number;
-  favorite: string[];
+  favorite: FavoriteIcon;
   fluctuationStatus: CardFluctuationStatus;
   uniqueStatus: CardUniqueStatus;
   specialAppeal?: {
@@ -104,7 +92,7 @@ type CardData = {
 /**
  * カードリストを表す型
  */
-type CardList = Record<string, Record<string, Record<string, CardData>>>;
+type CardList = Record<string, Record<string, Record<string, CardDefaultData>>>;
 
 /**
  * サイト設定を表す型
@@ -192,8 +180,8 @@ type SortSettings = {
 type SearchSettings = {
   cardList: {
     rare: Rare[];
-    styleType: StyleTypeEn;
-    mood: Mood[];
+    styleType: StyleTypeEn[];
+    mood: MoodEn[];
     limited: Limited[];
     cardLevel: [number, number];
     SALevel: [number, number];
@@ -202,7 +190,7 @@ type SearchSettings = {
     SAP: [number, number];
     releaseLevel: [number, number];
     trainingLevel: [number, number];
-    memberName: string[];
+    memberName: MemberKeyValues[];
     favorite: FavoriteIcon[];
     releaseStatus: ReleaseStatus;
   };
@@ -246,7 +234,7 @@ type LocalStorageData = {
     cardListFilter: SearchSettings;
   };
   selectItemList: {
-    item1: string[];
+    item1: SkillBook[];
     item2: string[];
     item3: string[];
   };
@@ -290,7 +278,6 @@ type Deck = {
  * @property isParamReflect パラメータ反映状態
  * @property isPossessionFlg 持ち物状態
  * @property rare レアリティ
- * @property favorite お気に入り
  * @property releaseStatus 解放ステータス
  * @property bonusSkill ボーナススキル
  * @property withStar スター付加状態
@@ -300,19 +287,13 @@ type Deck = {
  * @property styleHeadline スタイル見出し
  * @property limited 限定
  * @property releasePoint 解放ポイント
- * @property memberName メンバー名
- * @property exclusionMember 除外メンバー
  * @property specialCardIdList 特別カードIDリスト
- * @property memberId メンバーID
  * @property formationMember フォーメーションメンバー
- * @property memberColor メンバーの色
- * @property bonusSkillList ボーナススキルリスト
  * @property memberData メンバーデータ
  * @property deck デッキ
  * @property settingCard 設定カード
  * @property openCard 開放カード
  * @property localStorageData ローカルストレージデータ
- * @property grandprixBonus グランプリボーナス
  * @property supportSkill サポートスキル
  * @property defaultCardList デフォルトカードリスト
  * @property windowSize ウィンドウサイズ
@@ -323,9 +304,9 @@ type StoreState = {
   dialogError: boolean;
   showModalName: boolean;
   updateData: boolean;
-  selectCharacter: string;
+  selectCharacter: MemberKeyValues | undefined;
   selectMusicTitle: string | undefined;
-  checkMasteryMember: string;
+  checkMasteryMember: MemberKeyValues;
   thisPeriod: 103 | 104 | 105;
   selectDeckName: string;
   isParamReflect: boolean;
@@ -349,46 +330,32 @@ type StoreState = {
       max: number;
     }
   >;
-  memberName: Record<
-    string,
-    {
-      first: string;
-      last: string;
-    }
-  >;
-  exclusionMember: string[];
   specialCardIdList: string[];
-  memberId: Record<string, string>;
   formationMember: Record<number, string[]>;
-  memberColor: Record<string, string>;
-  bonusSkillList: BonusSkillList;
+  card: Record<string, CardDataByMember>;
+  bonusSkillLevels: Record<BonusSkillNames, number>;
   memberData: {
     centerList: Record<
       string,
       {
         centerMusic: string[];
-        bonusSkill: Record<string, number>;
+        bonusSkill: Record<BONUS_SKILL_NAMES, number>;
       }
     >;
   };
   deck: Deck[];
   settingCard: {
     ID: string;
-    rare: string;
-    name: string;
+    rare: Rare;
+    name: MemberKeyValues;
     card: string;
   };
   openCard: {
     ID: string;
-    name: string;
+    name: MemberKeyValues;
     style: string;
   };
   localStorageData: LocalStorageData;
-  grandprixBonus: {
-    clearRank: number[];
-    seasonFanLv: number[];
-    releaseLv: Record<string, number[]>;
-  };
   supportSkill: Record<string, Record<string, number>>;
   defaultCardList: any[];
   windowSize: {

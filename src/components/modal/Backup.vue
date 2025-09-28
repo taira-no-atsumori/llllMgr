@@ -186,6 +186,7 @@
         prepend-icon="mdi-cached"
         @click="resetAction()"
         :disabled="!isReset"
+        :loading="isLoading"
       >
         リセット
       </v-btn>
@@ -233,6 +234,7 @@ const dataName = {
 };
 const radios = ref(false);
 const isReset = ref(false);
+const isLoading = ref(false);
 const snackBar = reactive({
   export: false,
   import: false,
@@ -414,10 +416,12 @@ const changeImportData = () => {
 };
 
 const resetAction = () => {
+  isLoading.value = true;
   store.dataReset(resetList.value);
   resetList.value = [];
   alertContent.reset = alertContentList.reset[1];
   snackBar.reset = true;
   isReset.value = false;
+  isLoading.value = false;
 };
 </script>

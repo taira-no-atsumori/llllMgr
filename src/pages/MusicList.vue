@@ -84,13 +84,13 @@
                     v-model="selectCenterList"
                     clearable
                     label="センター"
-                    :items="Object.keys(store.memberColor)"
+                    :items="Object.keys(MEMBER_COLOR)"
                     variant="outlined"
                     color="pink"
                     hint="絞り込みたいセンターメンバーを選んでください"
                     multiple
                     persistent-hint
-                    @click:clear="selectCenter(store, null)"
+                    @click:clear="selectCenter(null)"
                   >
                     <template v-slot:selection="{ item }">
                       <v-img
@@ -101,8 +101,8 @@
                     </template>
                     <template v-slot:item="{ item }">
                       <v-list-item
-                        :title="store.fullName(item.title)"
-                        @click="selectCenter(store, item.title)"
+                        :title="makeMemberFullName(item.title)"
+                        @click="selectCenter(item.title)"
                       >
                         <template v-slot:prepend>
                           <v-checkbox-btn
@@ -382,7 +382,7 @@
                   class="pt-1 pl-1"
                   :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
                 >
-                  {{ store.fullName(memberName) }}
+                  {{ makeMemberFullName(memberName) }}
                   <span class="text-body-2"> (Lv.{{ store.makeTotalMasteryLv(memberName) }}) </span>
                 </span>
                 <span
@@ -457,7 +457,7 @@
                   :key="val"
                   :title="label"
                   :value="val"
-                  @click="sortingProcess(store, 'sortType', val)"
+                  @click="sortingProcess('sortType', val)"
                 >
                 </v-list-item>
                 <v-list-group
@@ -475,7 +475,7 @@
                     v-for="difficulty_val in ['NORMAL', 'HARD', 'EXPERT', 'MASTER']"
                     :key="`difficultyLevel_${difficulty_val}`"
                     :title="difficulty_val"
-                    @click="sortingProcess(store, 'sortType', `difficultyLevel_${difficulty_val}`)"
+                    @click="sortingProcess('sortType', `difficultyLevel_${difficulty_val}`)"
                   ></v-list-item>
                 </v-list-group>
                 <v-list-group
@@ -493,7 +493,7 @@
                     v-for="combo_val in ['NORMAL', 'HARD', 'EXPERT', 'MASTER']"
                     :key="`maxCombo_${combo_val}`"
                     :title="combo_val"
-                    @click="sortingProcess(store, 'sortType', `maxCombo_${combo_val}`)"
+                    @click="sortingProcess('sortType', `maxCombo_${combo_val}`)"
                   ></v-list-item>
                 </v-list-group>
               </template>
@@ -539,24 +539,24 @@
     </div>
 
     <p class="align-self-center d-block d-md-inline-block">
-      絞り込み結果：{{ Object.keys(makeMusicList(store)).length }} 曲<span class="ml-1 mr-md-1">/</span>
+      絞り込み結果：{{ Object.keys(makeMusicList()).length }} 曲<span class="ml-1 mr-md-1">/</span>
     </p>
     <p class="align-self-center d-block d-md-inline-block">
-      現在のソート：{{ sortTypeLabel(store, store.localStorageData.sortSettings.musicList.sortType) }}
+      現在のソート：{{ sortTypeLabel(store.localStorageData.sortSettings.musicList.sortType) }}
     </p>
 
     <v-divider class="my-2"></v-divider>
 
     <ul id="CDJacketArea">
       <li
-        v-if="Object.keys(makeMusicList(store)).length === 0"
+        v-if="Object.keys(makeMusicList()).length === 0"
         class="w-100"
       >
         見つかりませんでした…
       </li>
       <li
         v-else
-        v-for="(ary, songTitle) in makeMusicList(store)"
+        v-for="(ary, songTitle) in makeMusicList()"
         :key="ary"
       >
         <v-card
@@ -571,7 +571,7 @@
             :lazy-src="store.getImagePath('images/cdJacket', store.conversion(songTitle))"
             :src="store.getImagePath('images/cdJacket', store.conversion(songTitle))"
             :alt="songTitle"
-            @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length)"
+            @load="checkImagesLoaded(Object.keys(makeMusicList()).length)"
             eager
           ></v-img>
           <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
@@ -618,7 +618,7 @@
                 :lazy-src="store.getImagePath('images/cdJacket', store.conversion(songTitle))"
                 :src="store.getImagePath('images/cdJacket', store.conversion(songTitle))"
                 :alt="songTitle"
-                @load="checkImagesLoaded(store, Object.keys(makeMusicList(store)).length)"
+                @load="checkImagesLoaded(Object.keys(makeMusicList()).length)"
                 eager
               ></v-img>
               <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{ songTitle }}</v-card-title>
@@ -649,13 +649,13 @@
             </v-card>
           </template>
           <p class="mb-2">{{ songTitle }}</p>
-          センター：{{ store.fullName(ary.center) }}<br />
+          センター：{{ makeMemberFullName(ary.center) }}<br />
           楽曲マスタリーLv.：{{ store.musicLevel[songTitle] }}<br />
           獲得ボーナススキル：{{ ary.bonusSkill }} × {{ Math.floor(store.musicLevel[songTitle] / 10) }}
         </v-tooltip>
       </li>
       <li
-        v-if="Object.keys(makeMusicList(store)).length === 0"
+        v-if="Object.keys(makeMusicList()).length === 0"
         class="w-100"
       >
         見つかりませんでした…
@@ -665,248 +665,212 @@
 </template>
 
 <script setup lang="ts">
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue';
 import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
+import { makeMemberFullName } from '@/constants/memberNames';
+import { MEMBER_COLOR } from '@/constants/colorConst';
 import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
 store.loading = true;
-</script>
+import { getAttributeListEn } from '@/constants/music';
+import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 
-<script lang="ts">
-import { BONUS_SKILL_NAME, getAttributeListEn } from '@/constants/music';
+const bonusSkillList = Object.values(BONUS_SKILL_NAMES);
+const attrList = getAttributeListEn();
 
-export default {
-  name: 'MusicList',
-  components: {},
-  data() {
-    const bonusSkillList = Object.values(BONUS_SKILL_NAME);
-    const attrList = getAttributeListEn();
-    return {
-      windowSize: {
-        w: 0,
-        h: 0,
-      },
-      isSchoolShow: false,
-      inputMusicTitle: null,
-      masteryLv: [0, 50],
-      selectCenterList: [],
-      bonusSkillList,
-      selectBonusSkillList: [...bonusSkillList],
-      attrList,
-      selectAttrList: [...attrList],
-      attributeColor: {
-        smile: '#EF8DC8',
-        pure: '#A9FCC7',
-        cool: '#A1BAFA',
-      },
-      sortTypeList: {
-        default: '標準',
-        level: 'マスタリーレベル',
-        kana: '五十音',
-        BHcount: 'ビートハート発生回数',
-        time: '秒数',
-        releaseDate: '発売日',
-        difficultyLevel: '難易度',
-        maxCombo: 'コンボ数',
-      },
-      loadedImagesCount: 0,
-    };
-  },
-  created() {},
-  computed: {
-    makeMusicList() {
-      return (store: StoreState): Object => {
-        if (
-          !this.isSchoolShow &&
-          (store.localStorageData.sortSettings.musicList?.sortType?.includes('difficultyLevel') ||
-            store.localStorageData.sortSettings.musicList?.sortType?.includes('maxCombo'))
-        ) {
-          this.sortingProcess(store, 'sortType', 'default');
-        }
+const windowSize = reactive({ w: 0, h: 0 });
+const isSchoolShow = ref(false);
+const inputMusicTitle = ref<string | null>(null);
+const masteryLv = ref([0, 50]);
+const selectCenterList = ref<string[]>([]);
+const selectBonusSkillList = ref([...bonusSkillList]);
+const selectAttrList = ref([...attrList]);
+const loadedImagesCount = ref(0);
 
-        const list = Array.from(Object.entries(MUSIC_LIST), ([key, value]) => ({
-          title: key,
-          ...value,
-        }));
-
-        const result = list.filter((musicData) => {
-          if (
-            store.musicLevel[musicData.title] < this.masteryLv[0] ||
-            store.musicLevel[musicData.title] > this.masteryLv[1] ||
-            // this.inputMusicTitle && !musicData.musicData.kana.includes(this.inputMusicTitle) ||
-            (this.selectCenterList.length > 0 && !this.selectCenterList.includes(musicData.center)) ||
-            (this.selectBonusSkillList.length > 0 && !this.selectBonusSkillList.includes(musicData.bonusSkill)) ||
-            (this.selectAttrList.length > 0 && !this.selectAttrList.includes(musicData.attribute))
-          ) {
-            return false;
-          } else if (!this.isSchoolShow) {
-            return true;
-          } else {
-            return !!(musicData?.scoreData ?? false);
-          }
-        });
-
-        result.sort((a, b) => {
-          const sortType = store.localStorageData.sortSettings.musicList?.sortType?.split('_')[0];
-          const difficulty = store.localStorageData.sortSettings.musicList?.sortType?.split('_')[1] ?? '';
-
-          if (this.isSchoolShow && /difficultyLevel|maxCombo/.test(sortType)) {
-            return sorting(
-              store.localStorageData.sortSettings.musicList.order === 'ascending',
-              a.scoreData[sortType][difficulty],
-              b.scoreData[sortType][difficulty]
-            );
-          } else {
-            switch (sortType) {
-              case 'level':
-                return sorting(
-                  store.localStorageData.sortSettings.musicList.order === 'ascending',
-                  store.musicLevel[a.title],
-                  store.musicLevel[b.title]
-                );
-              case 'BHcount':
-                return sorting(
-                  store.localStorageData.sortSettings.musicList.order === 'ascending',
-                  a[store.localStorageData.sortSettings.musicList.sortType],
-                  b[store.localStorageData.sortSettings.musicList.sortType]
-                );
-              case 'kana':
-              case 'time':
-                return sorting(
-                  store.localStorageData.sortSettings.musicList.order === 'ascending',
-                  a.musicData[store.localStorageData.sortSettings.musicList.sortType],
-                  b.musicData[store.localStorageData.sortSettings.musicList.sortType]
-                );
-              case 'releaseDate':
-                return sorting(
-                  store.localStorageData.sortSettings.musicList.order === 'ascending',
-                  new Date(
-                    a.musicData.releaseDate.year,
-                    a.musicData.releaseDate.month - 1,
-                    a.musicData.releaseDate.date
-                  ),
-                  new Date(
-                    b.musicData.releaseDate.year,
-                    b.musicData.releaseDate.month - 1,
-                    b.musicData.releaseDate.date
-                  )
-                );
-              default:
-                return sorting(store.localStorageData.sortSettings.musicList?.order === 'ascending', a.ID, b.ID);
-            }
-          }
-        });
-
-        return result.reduce((acc, curr) => {
-          const title = curr.title;
-          delete curr.title;
-          acc[title] = curr;
-          return acc;
-        }, {});
-
-        function sorting(isAscending: boolean, aa, bb) {
-          if (isAscending) {
-            return aa < bb ? -1 : aa > bb ? 1 : 0;
-          } else {
-            return aa > bb ? -1 : aa < bb ? 1 : 0;
-          }
-        }
-      };
-    },
-  },
-  mounted() {
-    this.onResize();
-  },
-  methods: {
-    sortingProcess(store: StoreState, type: 'sortType' | 'order', val: string): void {
-      if (store.localStorageData.sortSettings.musicList[type] !== val) {
-        store.loading = true;
-
-        if (type === 'sortType') {
-          store.localStorageData.sortSettings.musicList[type] = val;
-        }
-
-        store.changeSettings('sortSettings');
-      }
-    },
-    selectCenter(store: StoreState, selector: string | null): void {
-      if (selector === null) {
-        this.selectCenterList = [];
-      } else if (this.selectCenterList.some((x) => x === selector)) {
-        const result = [];
-
-        for (const skill of this.selectCenterList) {
-          if (skill !== selector) {
-            result.push(skill);
-          }
-        }
-
-        this.selectCenterList = result;
-      } else {
-        this.selectCenterList.push(selector);
-      }
-    },
-    selectSkill(selector: string | null): void {
-      if (selector === null) {
-        this.selectBonusSkillList = [];
-      } else if (this.selectBonusSkillList.some((x) => x === selector)) {
-        const result = [];
-
-        for (const skill of this.selectBonusSkillList) {
-          if (skill !== selector) {
-            result.push(skill);
-          }
-        }
-
-        this.selectBonusSkillList = result;
-      } else {
-        this.selectBonusSkillList.push(selector);
-      }
-    },
-    selectAttr(selector: string | null): void {
-      if (selector === null) {
-        this.selectAttrList = [];
-      } else if (this.selectAttrList.some((x) => x === selector)) {
-        const result = [];
-
-        for (const skill of this.selectAttrList) {
-          if (skill !== selector) {
-            result.push(skill);
-          }
-        }
-
-        this.selectAttrList = result;
-      } else {
-        this.selectAttrList.push(selector);
-      }
-    },
-    onResize(): void {
-      this.windowSize = {
-        w: window.innerWidth,
-        h: window.innerHeight,
-      };
-    },
-    checkImagesLoaded(store: StoreState, totalImages: number): void {
-      this.loadedImagesCount += 1;
-
-      if (this.loadedImagesCount === totalImages) {
-        store.loading = false;
-        this.loadedImagesCount = 0;
-      }
-    },
-    sortTypeLabel(store: StoreState, sortTypeValue: string): string {
-      const sortType = sortTypeValue.split('_')[0];
-      const difficulty = sortTypeValue.split('_')[1] ?? '';
-      if (this.isSchoolShow && /difficultyLevel|maxCombo/.test(sortType)) {
-        return `${this.sortTypeList[sortType]} (${difficulty})`;
-      }
-      return this.sortTypeList[sortType] || '標準';
-    },
-  },
+const attributeColor = {
+  smile: '#EF8DC8',
+  pure: '#A9FCC7',
+  cool: '#A1BAFA',
 };
+
+const sortTypeList = {
+  default: '標準',
+  level: 'マスタリーレベル',
+  kana: '五十音',
+  BHcount: 'ビートハート発生回数',
+  time: '秒数',
+  releaseDate: '発売日',
+  difficultyLevel: '難易度',
+  maxCombo: 'コンボ数',
+};
+
+const makeMusicList = computed(() => (): Record<string, any> => {
+  if (
+    !isSchoolShow.value &&
+    (store.localStorageData.sortSettings.musicList?.sortType?.includes('difficultyLevel') ||
+      store.localStorageData.sortSettings.musicList?.sortType?.includes('maxCombo'))
+  ) {
+    sortingProcess('sortType', 'default');
+  }
+
+  const list = Array.from(Object.entries(MUSIC_LIST), ([key, value]) => ({
+    title: key,
+    ...value,
+  }));
+
+  const result = list.filter((musicData) => {
+    if (
+      store.musicLevel[musicData.title] < masteryLv.value[0] ||
+      store.musicLevel[musicData.title] > masteryLv.value[1] ||
+      // inputMusicTitle.value && !musicData.musicData.kana.includes(inputMusicTitle.value) ||
+      (selectCenterList.value.length > 0 && !selectCenterList.value.includes(musicData.center)) ||
+      (selectBonusSkillList.value.length > 0 && !selectBonusSkillList.value.includes(musicData.bonusSkill)) ||
+      (selectAttrList.value.length > 0 && !selectAttrList.value.includes(musicData.attribute))
+    ) {
+      return false;
+    } else if (!isSchoolShow.value) {
+      return true;
+    } else {
+      return !!(musicData?.scoreData ?? false);
+    }
+  });
+
+  result.sort((a, b) => {
+    const sortType = store.localStorageData.sortSettings.musicList?.sortType?.split('_')[0];
+    const difficulty = store.localStorageData.sortSettings.musicList?.sortType?.split('_')[1] ?? '';
+
+    if (isSchoolShow.value && /difficultyLevel|maxCombo/.test(sortType)) {
+      return sorting(
+        store.localStorageData.sortSettings.musicList.order === 'ascending',
+        a.scoreData[sortType][difficulty],
+        b.scoreData[sortType][difficulty]
+      );
+    } else {
+      switch (sortType) {
+        case 'level':
+          return sorting(
+            store.localStorageData.sortSettings.musicList.order === 'ascending',
+            store.musicLevel[a.title],
+            store.musicLevel[b.title]
+          );
+        case 'BHcount':
+          return sorting(
+            store.localStorageData.sortSettings.musicList.order === 'ascending',
+            a[store.localStorageData.sortSettings.musicList.sortType],
+            b[store.localStorageData.sortSettings.musicList.sortType]
+          );
+        case 'kana':
+        case 'time':
+          return sorting(
+            store.localStorageData.sortSettings.musicList.order === 'ascending',
+            a.musicData[store.localStorageData.sortSettings.musicList.sortType],
+            b.musicData[store.localStorageData.sortSettings.musicList.sortType]
+          );
+        case 'releaseDate':
+          return sorting(
+            store.localStorageData.sortSettings.musicList.order === 'ascending',
+            new Date(a.musicData.releaseDate.year, a.musicData.releaseDate.month - 1, a.musicData.releaseDate.date),
+            new Date(b.musicData.releaseDate.year, b.musicData.releaseDate.month - 1, b.musicData.releaseDate.date)
+          );
+        default:
+          return sorting(store.localStorageData.sortSettings.musicList?.order === 'ascending', a.ID, b.ID);
+      }
+    }
+  });
+
+  return result.reduce((acc, curr) => {
+    const title = curr.title;
+    delete curr.title;
+    acc[title] = curr;
+    return acc;
+  }, {});
+
+  function sorting(isAscending: boolean, aa: any, bb: any): number {
+    if (isAscending) {
+      return aa < bb ? -1 : aa > bb ? 1 : 0;
+    } else {
+      return aa > bb ? -1 : aa < bb ? 1 : 0;
+    }
+  }
+});
+
+function sortingProcess(type: 'sortType' | 'order', val: string): void {
+  if (store.localStorageData.sortSettings.musicList[type] !== val) {
+    store.loading = true;
+
+    if (type === 'sortType') {
+      store.localStorageData.sortSettings.musicList[type] = val;
+    }
+
+    store.changeSettings('sortSettings');
+  }
+}
+
+function selectCenter(selector: string | null): void {
+  if (selector === null) {
+    selectCenterList.value = [];
+  } else if (selectCenterList.value.some((x) => x === selector)) {
+    selectCenterList.value = selectCenterList.value.filter((skill) => skill !== selector);
+  } else {
+    selectCenterList.value.push(selector);
+  }
+}
+
+function selectSkill(selector: string | null): void {
+  if (selector === null) {
+    selectBonusSkillList.value = [];
+  } else if (selectBonusSkillList.value.some((x) => x === selector)) {
+    selectBonusSkillList.value = selectBonusSkillList.value.filter((skill) => skill !== selector);
+  } else {
+    selectBonusSkillList.value.push(selector);
+  }
+}
+
+function selectAttr(selector: string | null): void {
+  if (selector === null) {
+    selectAttrList.value = [];
+  } else if (selectAttrList.value.some((x) => x === selector)) {
+    selectAttrList.value = selectAttrList.value.filter((skill) => skill !== selector);
+  } else {
+    selectAttrList.value.push(selector);
+  }
+}
+
+function onResize(): void {
+  windowSize.w = window.innerWidth;
+  windowSize.h = window.innerHeight;
+}
+
+function checkImagesLoaded(totalImages: number): void {
+  loadedImagesCount.value += 1;
+
+  if (loadedImagesCount.value === totalImages) {
+    store.loading = false;
+    loadedImagesCount.value = 0;
+  }
+}
+
+function sortTypeLabel(sortTypeValue: string): string {
+  const sortType = sortTypeValue.split('_')[0];
+  const difficulty = sortTypeValue.split('_')[1] ?? '';
+  if (isSchoolShow.value && /difficultyLevel|maxCombo/.test(sortType)) {
+    return `${sortTypeList[sortType]} (${difficulty})`;
+  }
+  return sortTypeList[sortType] || '標準';
+}
+
+onMounted(() => {
+  onResize();
+  window.addEventListener('resize', onResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', onResize);
+});
 </script>
 
 <style lang="scss" scoped>

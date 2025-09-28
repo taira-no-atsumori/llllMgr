@@ -675,7 +675,7 @@
                             :alt="memberName"
                           />
                           <span style="margin-top: 2px">
-                            {{ store.fullName(memberName) }}
+                            {{ makeMemberFullName(memberName) }}
                           </span>
                           <v-icon
                             v-if="MUSIC_LIST[store.selectDeck.selectMusic]?.singingMembers.includes(memberName)"
@@ -984,7 +984,7 @@
                             showCenterCard(store).id.split('_')[1] === '000'
                               ? 'NO IMAGE'
                               : `${store.conversion(store.findCardData(showCenterCard(store).id).cardName)}_${
-                                  store.memberName[MUSIC_LIST[store.selectDeck.selectMusic]?.center].last
+                                  MEMBER_NAMES[MUSIC_LIST[store.selectDeck.selectMusic]?.center].last
                                 }_覚醒後`
                           }`
                         )
@@ -1822,6 +1822,7 @@
 import { useStateStore } from '@/stores/stateStore';
 import draggable from 'vuedraggable';
 import { convertStyleEnToJp } from '@/constants/cards';
+import { MEMBER_IDS, MEMBER_NAMES, makeMemberFullName } from '@/constants/memberNames';
 import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
@@ -2258,8 +2259,8 @@ export default {
 
       for (const name of store.formationMember[a.period]) {
         a.cardData[name] = {};
-        const cardId = `${Object.keys(store.memberId).find((key) => {
-          return store.memberId[key] === name;
+        const cardId = `${Object.values(MEMBER_IDS).find((key) => {
+          return key === name;
         })}_000`;
 
         for (const style of ['main', 'side1', 'side2']) {
@@ -2457,11 +2458,11 @@ export default {
         const cardId = selectCardId.split('_')[0];
 
         return `${store.conversion(store.findCardData(selectCardId).cardName)}_${
-          cardId === 'is'
+          cardId === MEMBER_IDS.SELAIZU
             ? '桂城泉＆セラス 柳田 リリエンフェルト'
-            : cardId === 'ktm'
+            : cardId === MEMBER_IDS.KOZUTSUZUMEGU
             ? '乙宗梢＆夕霧綴理＆藤島慈'
-            : store.memberName[store.memberId[cardId]].last
+            : MEMBER_NAMES[MEMBER_IDS[cardId]].last
         }_覚醒後`;
       }
     },

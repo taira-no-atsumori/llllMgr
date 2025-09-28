@@ -1,5 +1,5 @@
-import { MemberNames } from '@/constants/memberNames';
-import { BonusSkillName } from '@/constants/bonusSkills';
+import { MemberKeys } from '@/constants/memberNames';
+import { BonusSkillNames } from '@/constants/bonusSkills';
 import { AttributeEn } from '@/constants/music';
 
 /**
@@ -78,21 +78,21 @@ interface maxCombo {
  * @property {number} BHcount ビートハート発生回数
  * @property {0 | 1} level 楽曲マスタリーレベル
  * @property {103 | 104 | 105} term 曲のリリース期
- * @property {MemberNames} center センターメンバーの名前
- * @property {BonusSkillName} bonusSkill ボーナススキル
- * @property {string[]} singingMembers 歌唱メンバーの名前の配列
+ * @property {MemberKeys} center センターメンバーの名前
+ * @property {BonusSkillNames} bonusSkill ボーナススキル
+ * @property {MemberKeys[]} singingMembers 歌唱メンバーの名前の配列
  * @property {difficultyLevel} difficultyLevel 曲の難易度
  */
-interface MusicItem {
+export interface MusicItem {
   ID: string;
   musicData: MusicData;
   attribute: AttributeEn;
   BHcount: number;
   level: 0 | 1;
   term: 103 | 104 | 105;
-  center: MemberNames;
-  bonusSkill: BonusSkillName;
-  singingMembers: string[];
+  center: MemberKeys;
+  bonusSkill: BonusSkillNames;
+  singingMembers: MemberKeys[];
   scoreData?: {
     difficultyLevel: difficultyLevel;
     maxCombo: maxCombo;

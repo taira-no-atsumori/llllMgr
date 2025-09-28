@@ -403,7 +403,7 @@
             >
               (最終獲得GP Pt. +<span class="text-pink">
                 {{
-                  store.grandprixBonus.releaseLv[store.getSettingCard.rare][
+                  GRANDPRIX_BONUS.releaseLv[store.getSettingCard.rare][
                     store.settingCardData.fluctuationStatus.releaseLevel - 1
                   ] * 100
                 }} </span
@@ -453,7 +453,7 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        RELEASE_POINT[store.settingCardData.rare].point
+                        getReleasePoint(store.settingCardData.rare, 'point')
                     )
                   );
                 "
@@ -499,17 +499,17 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        RELEASE_POINT[store.settingCardData.rare].point
+                        getReleasePoint(store.settingCardData.rare, 'point')
                     )
                   )
                 "
               >
                 -{{
                   store.settingCardData.fluctuationStatus.releasePoint -
-                    RELEASE_POINT[store.settingCardData.rare].point <
+                    getReleasePoint(store.settingCardData.rare, 'point') <
                   0
                     ? store.settingCardData.fluctuationStatus.releasePoint
-                    : RELEASE_POINT[store.settingCardData.rare].point
+                    : getReleasePoint(store.settingCardData.rare, 'point')
                 }}
               </v-btn>
             </div>
@@ -540,7 +540,7 @@
                     'releasePoint',
                     Math.min(
                       store.settingCardData.fluctuationStatus.releasePoint +
-                        RELEASE_POINT[store.settingCardData.rare].point,
+                        getReleasePoint(store.settingCardData.rare, 'point'),
                       limitReleasePoint(store)
                     )
                   )
@@ -548,10 +548,10 @@
               >
                 +{{
                   store.settingCardData.fluctuationStatus.releasePoint +
-                    RELEASE_POINT[store.settingCardData.rare].point >
+                    getReleasePoint(store.settingCardData.rare, 'point') >
                   limitReleasePoint(store)
                     ? limitReleasePoint(store) - store.settingCardData.fluctuationStatus.releasePoint
-                    : RELEASE_POINT[store.settingCardData.rare].point
+                    : getReleasePoint(store.settingCardData.rare, 'point')
                 }}
               </v-btn>
             </div>
@@ -569,7 +569,7 @@
                   class="text-center text-body-2"
                   :style="{ width: '2rem' }"
                 >
-                  {{ (i - 1) * RELEASE_POINT[store.settingCardData.rare].point }}
+                  {{ (i - 1) * getReleasePoint(store.settingCardData.rare, 'point') }}
                 </p>
               </template>
             </div>
@@ -818,7 +818,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="(list, rarity) of store.grandprixBonus.releaseLv"
+              v-for="(list, rarity) of GRANDPRIX_BONUS.releaseLv"
               :key="rarity"
             >
               <th>{{ rarity }}</th>
@@ -878,7 +878,9 @@ import { computed } from 'vue';
 import { STYLE_TYPE, convertStyleEnToJp, convertMoodEnToJp, FAVORITE, LIMITED } from '@/constants/cards';
 import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
-import { RELEASE_POINT } from '@/constants/cards';
+import { MEMBER_NAMES, MemberFirstName, MemberLastName, makeMemberFullName } from '@/constants/memberNames';
+import { getReleasePoint } from '@/constants/releasePoint';
+import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import skillArea from '@/components/SkillAreaComponent.vue';
 
 const store = useStateStore();
@@ -923,13 +925,8 @@ export default {
      * @returns string リンク
      */
     makeWikiLink(store: StoreState): string {
-      const name: {
-        first: string;
-        last: String;
-      } = {
-        first: store.memberName[store.getSettingCard.memberName].first,
-        last: store.memberName[store.getSettingCard.memberName].last,
-      };
+      const name = MEMBER_NAMES[store.getSettingCard.memberName];
+
       return `https://wikiwiki.jp/llll_wiki/［${store.getSettingCard.cardName
         .replaceAll('&', '＆')
         .replaceAll('/', '／')}］${name.first}${name.first === 'セラス' ? ' ' : ''}${name.last}`;
@@ -941,7 +938,7 @@ export default {
      * @returns string カード名
      */
     makeCardName(store: StoreState): string {
-      return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${store.fullName(
+      return `${store.getSettingCard.rare} [${store.getSettingCard.cardName}] ${makeMemberFullName(
         store.getSettingCard.memberName
       )}`;
     },
@@ -1017,8 +1014,9 @@ export default {
      */
     limitReleasePoint(store: StoreState): number {
       return (
-        RELEASE_POINT[store.settingCardData.rare].max -
-        RELEASE_POINT[store.settingCardData.rare].point * (store.settingCardData.fluctuationStatus.releaseLevel - 1)
+        getReleasePoint(store.settingCardData.rare, 'max') -
+        getReleasePoint(store.settingCardData.rare, 'point') *
+          (store.settingCardData.fluctuationStatus.releaseLevel - 1)
       );
     },
   },

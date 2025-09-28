@@ -188,7 +188,7 @@
                     class="icon member"
                   ></v-img>
                   <span :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`">
-                    {{ store.fullName(memberName) }}
+                    {{ makeMemberFullName(memberName) }}
                   </span>
                 </template>
                 <template v-else> 特殊 </template>
@@ -622,6 +622,7 @@
 import { ref, computed } from 'vue';
 import { RARE, STYLE_TYPE, MOOD, FAVORITE, RELEASE_STATUS, LIMITED } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
+import { makeMemberFullName } from '@/constants/memberNames';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
 import CardFilterSlider from '@/components/CardFilterSliderComponent.vue';
 

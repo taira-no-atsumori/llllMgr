@@ -32,7 +32,7 @@ const SKILL_BOOK = {
   MEDIUM: '技能書(中等)',
   HIGH: '技能書(高等)',
 } as const;
-type SkillBook = (typeof SKILL_BOOK)[keyof typeof SKILL_BOOK];
+export type SkillBook = (typeof SKILL_BOOK)[keyof typeof SKILL_BOOK];
 
 const PIECE_GARNET = {
   R1: `${PIECE_NAME.GARNET}(R1)`,
