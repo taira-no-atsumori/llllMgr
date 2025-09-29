@@ -1,38 +1,76 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
 import { useCardStore } from '../src/stores/cardList';
+import { MEMBER_KEYS, MEMBER_IDS, EXCLUSION_MEMBER, MemberIds } from '../src/constants/memberNames';
 import { SKILL_LIST } from '../src/constants/skillList';
 import { MUSIC_LIST } from '../src/constants/musicList';
 import { useStateStore } from '../src/stores/stateStore';
-import type { CardData } from '../src/types/cardList';
+import type { CardDefaultData } from '../src/types/cardList';
 
 describe('データ整合性チェック', () => {
   let cardStore: ReturnType<typeof useCardStore>;
   let stateStore: ReturnType<typeof useStateStore>;
-  let allCards: CardData[];
+  let allCards: CardDefaultData[];
   let allMusic;
 
-  beforeEach(() => {
-    // 各テストの前にPiniaを初期化
-    setActivePinia(createPinia());
-
-    // ストアのインスタンスを作成
-    cardStore = useCardStore();
-    stateStore = useStateStore();
-
-    allCards = [];
-    allMusic = Object.values(MUSIC_LIST);
-
-    // すべてのカードを一つの配列にまとめる
-    Object.values(cardStore.card).forEach((memberCards) => {
+  // ヘルパー関数
+  const getAllCards = (store: ReturnType<typeof useCardStore>): CardDefaultData[] => {
+    const cards: CardDefaultData[] = [];
+    Object.values(store.card).forEach((memberCards) => {
       Object.values(memberCards).forEach((rarityCards) => {
         Object.values(rarityCards).forEach((card) => {
           if (card.ID && !card.ID.endsWith('_000')) {
-            allCards.push(card);
+            cards.push(card);
           }
         });
       });
     });
+    return cards;
+  };
+
+  const checkIDFormat = (id: string): boolean => {
+    return /^[a-z]+_\d{3}$/.test(id);
+  };
+
+  const getNumbersFromIDs = (items: any[], pattern: RegExp): number[] => {
+    return items
+      .map((item) => {
+        const match = item.ID.match(pattern);
+        return match ? parseInt(match[1], 10) : null;
+      })
+      .filter((num): num is number => num !== null);
+  };
+
+  const findMissingNumbers = (numbers: number[]): number[] => {
+    if (numbers.length === 0) return [];
+    const sorted = [...new Set(numbers)].sort((a, b) => a - b);
+    const [min, max] = [sorted[0], sorted[sorted.length - 1]];
+    return Array.from({ length: max - min + 1 }, (_, i) => min + i).filter((num) => !sorted.includes(num));
+  };
+
+  const checkSkillExists = (card: CardDefaultData, skillType: 'skill' | 'specialAppeal'): string | null => {
+    const skill = card[skillType];
+    if (!skill?.name || !skill?.ID) return null;
+
+    if (!SKILL_LIST[skill.name]) {
+      return `カード [${card.ID}: ${card.kana}] の${skillType === 'skill' ? 'スキル' : 'スペシャルアピール'}名「${
+        skill.name
+      }」が skillList に存在しません。`;
+    }
+    if (!SKILL_LIST[skill.name][skill.ID]) {
+      return `カード [${card.ID}: ${card.kana}] の${skillType === 'skill' ? 'スキル' : 'スペシャルアピール'}ID「${
+        skill.ID
+      }」が skillList.${skill.name} に存在しません。`;
+    }
+    return null;
+  };
+
+  beforeEach(() => {
+    setActivePinia(createPinia());
+    cardStore = useCardStore();
+    stateStore = useStateStore();
+    allCards = getAllCards(cardStore);
+    allMusic = Object.values(MUSIC_LIST);
   });
 
   it('カードIDが重複していないこと', () => {
@@ -94,21 +132,20 @@ describe('データ整合性チェック', () => {
 
   it('各カードのIDが、対応するキャラクターの略称と一致していること', () => {
     const { card } = cardStore;
-    const { memberId, exclusionMember } = stateStore;
 
     const errors: string[] = [];
 
-    // cardListのキャラクターキー (kaho, sayaka など) を使ってループ
+    // cardListのキャラクターキー（例: kaho, sayaka など）でループ
     for (const characterKey in card) {
-      if (characterKey === 'default' || exclusionMember.includes(characterKey)) {
+      if (characterKey === 'default' || EXCLUSION_MEMBER.includes(characterKey)) {
         continue;
       }
 
-      // memberId (例: { kh: 'kaho' }) から、キャラクターキー (例: 'kaho') に対応するIDプレフィックス (例: 'kh') を検索
-      const expectedPrefix = Object.keys(memberId).find((key) => memberId[key] === characterKey);
+      // MEMBER_IDS（例: { kh: 'kaho' }）から、キャラクターキー（例: 'kaho'）に対応するIDプレフィックス（例: 'kh'）を検索
+      const expectedPrefix: MemberIds | undefined = MEMBER_IDS[characterKey];
 
       if (!expectedPrefix) {
-        errors.push(`キャラクター「${characterKey}」に対応するIDプレフィックスが memberId に見つかりません。`);
+        errors.push(`キャラクター「${characterKey}」に対応するIDプレフィックスがMEMBER_IDSに見つかりません。`);
         continue;
       }
 
@@ -116,7 +153,7 @@ describe('データ整合性チェック', () => {
       for (const rarity in card[characterKey]) {
         if (rarity === 'default') continue;
 
-        // カード名でループ
+        // カード名ごとにループ
         for (const cardName in card[characterKey][rarity]) {
           if (cardName === 'default') continue;
 
@@ -129,7 +166,7 @@ describe('データ整合性チェック', () => {
 
           if (idPrefix !== expectedPrefix) {
             errors.push(
-              `不正なIDです: カード「${cardName}」(ID: ${cardId})のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`
+              `不正なIDです: カード「${cardName}」（ID: ${cardId}）のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`
             );
           }
         }
@@ -163,18 +200,7 @@ describe('データ整合性チェック', () => {
       })
       .filter((num): num is number => num !== null);
 
-    if (numbers.length === 0) return;
-
-    const sorted = [...new Set(numbers)].sort((a, b) => a - b);
-    const min = sorted[0];
-    const max = sorted[sorted.length - 1];
-
-    const missingNumbers: number[] = [];
-    for (let i = min; i <= max; i++) {
-      if (!sorted.includes(i)) {
-        missingNumbers.push(i);
-      }
-    }
+    const missingNumbers = findMissingNumbers(numbers);
 
     expect(missingNumbers, `楽曲IDに欠番が見つかりました: ${missingNumbers.join(', ')}`).toEqual([]);
   });

@@ -87,7 +87,7 @@
                 @click="openCheckDialog(store, cardName, rare)"
               >
                 <v-img
-                  :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後`)"
+                  :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
                   gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
                   class="d-flex align-center"
                 ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>選択中</p></v-img>
@@ -99,7 +99,7 @@
                 @click="openCheckDialog(store, cardName, rare)"
               >
                 <v-img
-                  :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${store.memberName[store.openCard.name].last}_覚醒後`)"
+                  :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
                 ></v-img>
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
@@ -135,7 +135,7 @@
                   </v-row>
                   <v-row no-gutters>
                   <v-col cols="8">解放ボーナス</v-col>
-                  <v-col cols="4">{{ rare === 'DR' ? '-' : store.grandprixBonus.releaseLv[rare][store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel] }}</v-col>
+                  <v-col cols="4">{{ rare === 'DR' ? '-' : GRANDPRIX_BONUS.releaseLv[rare][store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel] }}</v-col>
                 </v-row>
               </v-col>
             </v-row>
@@ -173,7 +173,7 @@
                 store.getImagePath(
                   'images/cardIllust',
                   `${store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}_${
-                    store.memberName[store.openCard.name].last
+                    MEMBER_NAMES[store.openCard.name].last
                   }_覚醒後`
                 )
               "
@@ -256,7 +256,7 @@
               :src="
                 store.getImagePath(
                   'images/cardIllust',
-                  `${store.conversion(selectCard)}_${store.memberName[store.openCard.name].last}_覚醒後`
+                  `${store.conversion(selectCard)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
                 )
               "
             ></v-img>
@@ -379,6 +379,9 @@
 // import { ref } from 'vue';
 import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
+import { MEMBER_KEYS, MEMBER_NAMES } from '@/constants/memberNames';
+import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
+
 const store = useStateStore();
 </script>
 
@@ -441,11 +444,14 @@ export default {
     makeCardMemberName(store, cardId) {
       const cardMemberName = store.findOpenCardMemberName(cardId);
 
-      return cardMemberName === 'selaIzu'
-        ? '桂城泉＆セラス 柳田 リリエンフェルト'
-        : cardMemberName === 'kozutsuzumegu'
-        ? '乙宗梢＆夕霧綴理＆藤島慈'
-        : store.memberName[cardMemberName].last;
+      switch (cardMemberName) {
+        case MEMBER_KEYS.SELAIZU:
+          return '桂城泉＆セラス 柳田 リリエンフェルト';
+        case MEMBER_KEYS.KOZUTSUZUMEGU:
+          return '乙宗梢＆夕霧綴理＆藤島慈';
+        default:
+          return MEMBER_NAMES[cardMemberName].last;
+      }
     },
     searchSetCard(store, cardId) {
       let result = false;
@@ -574,7 +580,7 @@ export default {
       if (isBefore) {
         return (
           (1 +
-            store.grandprixBonus.releaseLv[
+            GRANDPRIX_BONUS.releaseLv[
               store.searchRarity(
                 store.findCardId(
                   store.openCard.name,
@@ -585,7 +591,7 @@ export default {
           100
         );
       } else {
-        return (1 + store.grandprixBonus.releaseLv[this.rarity][this.getCardStatus('releaseLevel', false) - 1]) * 100;
+        return (1 + GRANDPRIX_BONUS.releaseLv[this.rarity][this.getCardStatus('releaseLevel', false) - 1]) * 100;
       }
     },
     whichParam(store, attr, isBefore) {

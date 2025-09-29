@@ -1,4 +1,5 @@
-import { StyleType, Mood } from '@/constants/cards';
+import { MemberKeyValues } from '@/constants/memberNames';
+import { StyleTypeJp, MoodJp, Rare } from '@/constants/cards';
 
 /**
  * サポートスキルの詳細情報
@@ -83,10 +84,10 @@ interface Characteristic {
 }
 
 /** カード基本データ */
-interface CardData {
+export interface CardDefaultData {
   ID: string;
-  styleType: StyleType;
-  mood: Mood;
+  styleType: StyleTypeJp;
+  mood: MoodJp;
   series?: string;
   kana: string;
   gacha: Gacha;
@@ -97,21 +98,42 @@ interface CardData {
   characteristic?: Characteristic;
 }
 
+/** カードデータ */
+export interface CardDataType {
+  ID: string;
+  styleType: StyleTypeJp;
+  mood: MoodJp;
+  series?: string;
+  kana: string;
+  gacha: Gacha;
+  fluctuationStatus?: TrainingStatus;
+  uniqueStatus: BaseStatus;
+  specialAppeal?: SpecialAppeal;
+  skill: Skill;
+  characteristic?: Characteristic;
+  cardName: string;
+  rare: Rare;
+  memberName: MemberKeyValues;
+  limited: string;
+  sortPoint: number;
+  favorite: string[];
+}
+
 /** レアリティごとのカードデータ */
 interface CardsByRarity {
   default: {
-    default: CardData;
+    default: CardDefaultData;
   };
-  BR: Record<string, CardData>;
-  LR?: Record<string, CardData>;
-  DR: Record<string, CardData>;
-  UR: Record<string, CardData>;
-  SR: Record<string, CardData>;
-  R: Record<string, CardData>;
+  BR: Record<string, CardDefaultData>;
+  LR?: Record<string, CardDefaultData>;
+  DR: Record<string, CardDefaultData>;
+  UR: Record<string, CardDefaultData>;
+  SR: Record<string, CardDefaultData>;
+  R: Record<string, CardDefaultData>;
 }
 
 /** キャラクターごとのカードアイテム */
-interface CardDataByMember {
+export interface CardDataByMember {
   default: CardsByRarity;
   kaho: CardsByRarity;
   sayaka: CardsByRarity;

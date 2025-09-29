@@ -20,10 +20,10 @@
         >
           <!--<template v-slot:chip="{ item, index }">
             <v-chip
-              :color="store.memberColor[Object.keys(store.memberName)[index]]"
+              :color="MEMBER_COLOR[getMemberKeys()[index]]"
             >
               <v-avatar left>
-                <v-img :src="store.getImagePath('icons/member', `icon_SD_${Object.keys(store.memberName)[index]}`)"></v-img>
+                <v-img :src="store.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)"></v-img>
               </v-avatar>
               {{ item.title }}
             </v-chip>
@@ -36,7 +36,7 @@
               <template v-slot:prepend>
                 <template v-if="!store.isOtherMember(item.title)">
                   <v-img
-                    :src="store.getImagePath('icons/member', `icon_SD_${Object.keys(store.memberName)[index]}`)"
+                    :src="store.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)"
                     class="icon member"
                   ></v-img>
                 </template>
@@ -51,7 +51,7 @@
         md="3"
         lg="2"
         xl="2"
-        v-for="(name_ja, name_en) in store.memberName"
+        v-for="(name_ja, name_en) in MEMBER_NAMES"
         :key="name_ja"
         class="pa-0"
       >
@@ -76,13 +76,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
+import { MEMBER_NAMES, getMemberKeys, makeMemberFullName } from '@/constants/memberNames';
+import { MEMBER_COLOR } from '@/constants/colorConst';
+
 const store = useStateStore();
-const memberNameList = [];
-
-for (const memberName in store.memberName) {
-  memberNameList.push(`${store.memberName[memberName].first} ${store.memberName[memberName].last}`);
-}
-
+const memberNameList = getMemberKeys().map((member) => makeMemberFullName(member));
 const center = ref<string | null>(null);
 
 function selectCenter(select: string | null) {

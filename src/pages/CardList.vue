@@ -155,7 +155,7 @@
               v-if="
                 store.toBool(store.localStorageData.siteSettings.cardList.dot_releasePoint) &&
                 cardData.fluctuationStatus.cardLevel > 0 &&
-                RELEASE_POINT[cardData.rare].point <= cardData.fluctuationStatus.releasePoint
+                getReleasePoint(cardData.rare, 'point') <= cardData.fluctuationStatus.releasePoint
               "
               class="dot bg-blue-accent-4"
             ></p>
@@ -266,7 +266,7 @@
                       store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal === undefined
                         ? '-'
                         : `+${
-                            store.grandprixBonus.releaseLv[
+                            GRANDPRIX_BONUS.releaseLv[
                               store.card[cardData.memberName][cardData.rare][cardData.cardName].rare
                             ][
                               store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
@@ -399,7 +399,7 @@
                               undefined
                               ? '-'
                               : `+${
-                                  store.grandprixBonus.releaseLv[
+                                  GRANDPRIX_BONUS.releaseLv[
                                     store.card[cardData.memberName][cardData.rare][cardData.cardName].rare
                                   ][
                                     store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
@@ -416,7 +416,7 @@
                 <div>
                   <p class="mb-2">
                     {{ cardData.rare }}{{ ['', '+', '++'][rare(store, cardData)] }} [{{ cardData.cardName }}]
-                    {{ store.fullName(cardData.memberName) }} (Lv.
+                    {{ makeMemberFullName(cardData.memberName) }} (Lv.
                     {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.cardLevel }})
                   </p>
                   <v-container
@@ -504,13 +504,13 @@
       v-if="false"
     >
       <li
-        v-for="(name_ja, name_en) in store.memberName"
-        :key="name_ja"
-        :data-character="name_en"
-        :data-selected="selectTab2 === name_en"
-        @click="changeTab(name_en)"
+        v-for="memberKey in MEMBER_KEYS"
+        :key="conversionKeyToId(memberKey)"
+        :data-character="memberKey"
+        :data-selected="selectTab2 === memberKey"
+        @click="changeTab(memberKey)"
       >
-        {{ name_ja.last }}
+        {{ MEMBER_NAMES[memberKey].last }}
       </li>
     </ul>
     <ul
@@ -518,10 +518,10 @@
       v-if="false"
     >
       <li
-        v-for="(name_ja, name_en) in store.memberName"
-        :key="name_en"
-        :data-character="name_en"
-        v-show="selectTab2 === name_en"
+        v-for="memberKey in MEMBER_KEYS"
+        :key="conversionKeyToId(memberKey)"
+        :data-character="memberKey"
+        v-show="selectTab2 === memberKey"
       >
         <dl
           v-for="rare in RARE"
@@ -560,7 +560,7 @@
       <div style="flex-grow: 1; overflow-y: auto; min-height: 0">
         <Chart
           :memberNameList="chartMemberNames"
-          :cardDataLength="cardList"
+          :cardDataLength="chartCardList"
         />
       </div>
       <div class="mt-2 text-center">
@@ -582,28 +582,35 @@ import { RARE } from '@/constants/cards';
 import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
 import Chart from '@/components/modal/Chart.vue';
-import { MAX_CARD_LEVEL, RELEASE_POINT } from '@/constants/cards';
-import { MEMBER_NAMES } from '@/constants/memberNames';
+import {
+  MEMBER_KEYS,
+  MEMBER_NAMES,
+  getMemberKeyFromValue,
+  conversionKeyToId,
+  makeMemberFullName,
+} from '@/constants/memberNames';
+import { getReleasePoint } from '@/constants/releasePoint';
+import { MAX_CARD_LEVEL } from '@/constants/cards';
+import { MEMBER_COLOR } from '@/constants/colorConst';
+import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 
 const store = useStateStore();
-const memberIds = Object.keys(store.memberColor);
+const memberKeys = Object.keys(MEMBER_COLOR);
 
-const chartMemberNames = computed(() => {
-  return memberIds.map((memberId) => {
-    return store.memberName[memberId][memberId === MEMBER_NAMES.SERAS ? 'first' : 'last'];
-  });
+const chartMemberNames: string[] = memberKeys.map((memberKey) => {
+  return MEMBER_NAMES[memberKey][memberKey === MEMBER_KEYS.SERAS ? 'first' : 'last'];
 });
 
-const cardList_max = memberIds.map((memberId) => {
+const cardList_max = memberKeys.map((memberKey) => {
   return store.cardList.filter((cardData) => {
-    return cardData.memberName === memberId;
+    return cardData.memberName === memberKey;
   }).length;
 });
 
-const cardList = computed(() => {
-  return memberIds.map((memberId, i) => {
+const chartCardList = computed(() => {
+  return memberKeys.map((memberKey, i) => {
     const a = store.cardList.filter((cardData) => {
-      return cardData.memberName === memberId && cardData.fluctuationStatus.cardLevel > 0;
+      return cardData.memberName === memberKey && cardData.fluctuationStatus.cardLevel > 0;
     }).length;
 
     const percentage = (a / cardList_max[i]) * 100;
@@ -673,7 +680,7 @@ export default {
       for (const cardData of store.outputCardList) {
         list.push({
           cardName: cardData.cardName,
-          memberName: store.fullName(cardData.memberName),
+          memberName: makeMemberFullName(cardData.memberName),
           rare: cardData.rare,
           cardLevel: cardData.fluctuationStatus.cardLevel,
           SALevel: cardData.fluctuationStatus.SALevel,

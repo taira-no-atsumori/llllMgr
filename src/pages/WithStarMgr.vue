@@ -84,7 +84,7 @@
                             :src="store.getImagePath('icons/member', `icon_illust_${memberName}_${store.thisPeriod}`)"
                             style="width: 50px"
                             class="ml-1 mr-2"
-                          /><span class="pt-1 font-weight-bold">{{ store.fullName(memberName) }}</span>
+                          /><span class="pt-1 font-weight-bold">{{ makeMemberFullName(memberName) }}</span>
                         </div>
 
                         <v-divider class="my-2"></v-divider>
@@ -127,7 +127,7 @@
                 </div>
                 <v-row no-gutters>
                   <template
-                    v-for="memberName in store.memberName"
+                    v-for="memberName in getMemberKeys()"
                     :key="memberName"
                   >
                     <v-col
@@ -144,7 +144,7 @@
                             :src="store.getImagePath('icons/member', `icon_illust_${memberName}_${store.thisPeriod}`)"
                             style="width: 50px"
                             class="ml-1 mr-2"
-                          /><span class="pt-1 font-weight-bold">{{ store.fullName(memberName) }}</span>
+                          /><span class="pt-1 font-weight-bold">{{ makeMemberFullName(memberName) }}</span>
                         </div>
 
                         <v-divider class="my-2"></v-divider>
@@ -306,7 +306,7 @@
                             sendGiftPtList[i - 1].member[memberName].giftPt > 0 ? 0 : 1
                           });`"
                           class="ml-1 mr-2"
-                        /><span class="pt-1 font-weight-bold">{{ store.fullName(memberName) }}</span>
+                        /><span class="pt-1 font-weight-bold">{{ makeMemberFullName(memberName) }}</span>
                       </div>
 
                       <v-divider class="my-2"></v-divider>
@@ -446,7 +446,7 @@
               md="4"
               lg="2"
               :class="`mt-2 ${
-                ii + 1 < Object.keys(outputList.member).length - store.exclusionMember.length ? 'border-e-sm' : ''
+                ii + 1 < Object.keys(outputList.member).length - EXCLUSION_MEMBER.length ? 'border-e-sm' : ''
               }`"
             >
               <v-row no-gutters>
@@ -464,7 +464,7 @@
                     class="mt-1"
                     style="font-size: 12px"
                   >
-                    {{ store.fullName(memberName) }}
+                    {{ makeMemberFullName(memberName) }}
                   </p>
                 </v-col>
                 <v-col cols="8">
@@ -503,6 +503,8 @@
 <script>
 import { createPinia } from 'pinia';
 import { useStateStore } from '@/stores/stateStore';
+import { EXCLUSION_MEMBER, getMemberKeys, makeMemberFullName } from '@/constants/memberNames';
+
 const pinia = createPinia();
 const store = useStateStore(pinia);
 
@@ -536,7 +538,7 @@ export default {
       if (isPlus) {
         const member = {};
 
-        for (const key in store.memberName) {
+        for (const key in getMemberKeys()) {
           member[key] = {
             giftPt: 0,
             fanLv: {
@@ -555,7 +557,6 @@ export default {
       } else {
         this.sendGiftPtList.pop();
       }
-      console.log(this.sendGiftPtList);
     },
     liveStreamingDate(targetNumber) {
       const returnDate = {

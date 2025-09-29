@@ -1,15 +1,4 @@
 /**
- * ボーナススキルの定数
- */
-export const BONUS_SKILL_NAME = {
-  VOLTAGE_UP: 'ボルテージアップ',
-  MENTAL_RECOVER: 'メンタルリカバー',
-  BEAT_HEART_UP: 'ビートハートアップ',
-  LOVE_BONUS: 'LOVEボーナス',
-} as const;
-export type BonusSkillName = (typeof BONUS_SKILL_NAME)[keyof typeof BONUS_SKILL_NAME];
-
-/**
  * 楽曲の属性
  */
 export const ATTRIBUTE = {

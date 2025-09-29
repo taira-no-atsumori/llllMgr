@@ -125,7 +125,7 @@
             <v-chip
               pill
               class="pl-0"
-              :color="store.memberColor[selectMusicData.center]"
+              :color="MEMBER_COLOR[selectMusicData.center]"
             >
               <v-avatar left>
                 <v-img
@@ -133,7 +133,7 @@
                   width="30px"
                 ></v-img>
               </v-avatar>
-              <span class="ml-1">{{ store.fullName(selectMusicData.center) }}</span>
+              <span class="ml-1">{{ makeMemberFullName(selectMusicData.center) }}</span>
             </v-chip>
           </div>
         </div>
@@ -145,7 +145,7 @@
               v-for="memberName in selectMusicData.singingMembers"
               :key="memberName"
               class="member"
-              :color="store.memberColor[memberName]"
+              :color="MEMBER_COLOR[memberName]"
             >
               <v-avatar left>
                 <v-img
@@ -153,7 +153,7 @@
                   width="30px"
                 ></v-img>
               </v-avatar>
-              <span class="ml-1">{{ store.fullName(memberName) }}</span>
+              <span class="ml-1">{{ makeMemberFullName(memberName) }}</span>
             </v-chip>
           </div>
         </div>
@@ -217,8 +217,7 @@
               class="mr-1"
               style="width: 30px; border-radius: 3px"
             />
-            {{ selectMusicData.bonusSkill }} ×
-            {{ Math.floor(musicLevel / 10) }}
+            {{ selectMusicData.bonusSkill }} × {{ Math.floor(musicLevel / 10) }}
           </div>
         </div>
         <div class="mb-1">
@@ -252,8 +251,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
+import { makeMemberFullName } from '@/constants/memberNames';
+import { MEMBER_COLOR } from '@/constants/colorConst';
 import { ATTRIBUTE } from '@/constants/music';
 import { MUSIC_LIST } from '@/constants/musicList';
+import { MusicItem } from '@/types/musicList';
 
 const store = useStateStore();
 const attributeName = {
@@ -271,7 +273,7 @@ const attributeName = {
   },
 };
 
-const selectMusicData = computed(() => {
+const selectMusicData: MusicItem = computed(() => {
   return MUSIC_LIST[store.selectMusicTitle];
 });
 
@@ -284,7 +286,11 @@ const musicLevel: number = computed(() => {
 });
 
 const releaseDate: string = computed(() => {
-  const date = {
+  const date: {
+    year: MusicItem.musicData.releaseDate.year;
+    month: MusicItem.musicData.releaseDate.month;
+    date: MusicItem.musicData.releaseDate.date;
+  } = {
     year: MUSIC_LIST[store.selectMusicTitle].musicData.releaseDate.year,
     month: MUSIC_LIST[store.selectMusicTitle].musicData.releaseDate.month,
     date: MUSIC_LIST[store.selectMusicTitle].musicData.releaseDate.date,
