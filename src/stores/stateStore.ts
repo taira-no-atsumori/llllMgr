@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import Dexie from 'dexie';
 import { StoreState } from '@/types/stateStore';
-import { CardDefaultData, CardDataType } from '@/types/cardList';
+import { CardDefaultData, CardDataType, SkillDetail } from '@/types/cardList';
 import {
   MEMBER_KEYS,
   MEMBER_IDS,
@@ -19,13 +19,21 @@ import {
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { getReleasePoint } from '@/constants/releasePoint';
-import { RARE, getStyleTypeListEn, getMoodListEn, LIMITED, FAVORITE, MAX_CARD_LEVEL } from '@/constants/cards';
+import {
+  RARE,
+  LIMITED,
+  FAVORITE,
+  MAX_CARD_LEVEL,
+  getStyleTypeListEn,
+  getMoodListEn,
+  MaxCardLevel,
+} from '@/constants/cards';
 import { BONUS_SKILL_NAMES, BonusSkillNames } from '@/constants/bonusSkills';
-import { useCardStore } from './cardList';
 import { SKILL_LIST } from '@/constants/skillList';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
-import { MUSIC_LIST } from '@/constants/musicList';
+import { MUSIC_LIST, AttributeEn } from '@/constants/musicList';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
+import { useCardStore } from './cardList';
 // import { Dropbox } from 'dropbox';
 
 export const useStateStore = defineStore('store', {
@@ -563,21 +571,18 @@ export const useStateStore = defineStore('store', {
      * @returns スキルテキスト
      */
     skillText() {
-      return (target: string, option?: any): string[] => {
+      return (
+        target: string,
+        skillData?: SkillDetail,
+        option?: {
+          addSkillNum?: number[];
+          targetSkillLv?: number;
+        }
+      ): string[] => {
         let result = '';
         const targetLevel: number =
           option?.targetSkillLv ??
           this.settingCardData.fluctuationStatus[`S${target === 'specialAppeal' ? 'A' : ''}Level`] - 1;
-
-        const skillData = (() => {
-          if (target === 'addSkill') {
-            return this.settingCardData.skill.addSkill[option.addSkillNum[0]].addSkill[option.addSkillNum[1]];
-          } else if (option !== undefined && option?.addSkillNum !== undefined) {
-            return this.settingCardData[target].addSkill[option.addSkillNum];
-          } else {
-            return this.settingCardData[target];
-          }
-        })();
 
         const skillTextList = (() => {
           let returnText: string[] = SKILL_LIST[skillData.name][skillData.ID].text;
@@ -604,7 +609,7 @@ export const useStateStore = defineStore('store', {
         return result;
       };
     },
-    settingCardData() {
+    settingCardData(): CardDefaultData {
       return this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
     },
     maxTrainingLevel(): number {
@@ -635,7 +640,7 @@ export const useStateStore = defineStore('store', {
      * @returns カードパラメータ
      */
     cardParam() {
-      return (style: string, cardId: string): number => {
+      return (style: string, cardId?: string): number => {
         const target = ((): {
           memberName: string;
           rare: string;
@@ -662,7 +667,7 @@ export const useStateStore = defineStore('store', {
         const selectCard: CardDefaultData = this.card[target.memberName][target.rare][target.cardName];
         target.trainingLevel = selectCard.fluctuationStatus.trainingLevel;
         target.cardLevel = selectCard.fluctuationStatus.cardLevel;
-        const maxStatus = selectCard.uniqueStatus[style];
+        const maxStatus: number = selectCard.uniqueStatus[style];
         const magnification = {
           DR: [0.7, 1],
           LR: [0.7, 1],
@@ -671,43 +676,43 @@ export const useStateStore = defineStore('store', {
           SR: [0.5, 0.7, 1],
           R: [0.5, 0.7, 1],
         };
+        const targetMaxCardLevel: MaxCardLevel = MAX_CARD_LEVEL[target.rare];
+        const maxCardLevel = targetMaxCardLevel[target.trainingLevel];
+        const targetMagnification = magnification[target.rare][target.trainingLevel];
+        const targetMaxStatus = maxStatus * targetMagnification;
 
         if (target.cardLevel === 0) {
           return 0;
-        } else if (target.trainingLevel >= MAX_CARD_LEVEL[target.rare].length - 2) {
+        } else if (target.trainingLevel >= targetMaxCardLevel.length - 2) {
           return style === 'mental'
             ? maxStatus
-            : Math.ceil(
-                maxStatus *
-                  (1 + (target.cardLevel - MAX_CARD_LEVEL[target.rare][MAX_CARD_LEVEL[target.rare].length - 3]) / 100)
-              );
+            : Math.ceil(maxStatus * (1 + (target.cardLevel - targetMaxCardLevel[targetMaxCardLevel.length - 3]) / 100));
         } else if (target.trainingLevel === magnification[target.rare].length - 1) {
-          return Math.ceil(
-            maxStatus * magnification[target.rare][target.trainingLevel] -
-              (maxStatus / 100) * 1.5 * (MAX_CARD_LEVEL[target.rare][target.trainingLevel] - target.cardLevel)
-          );
+          return Math.ceil(targetMaxStatus - (maxStatus / 100) * 1.5 * (maxCardLevel - target.cardLevel));
         } else if (target.trainingLevel === 0) {
+          // if (cardId === 'gn_029') {
+          //   return Math.ceil(
+          //     targetMaxStatus - (maxStatus / 2 / (maxCardLevel - 1)) * (maxCardLevel - target.cardLevel)
+          //   );
+          // } else if (/^(D|L|B)R$/.test(target.rare)) {
           if (/^(D|L|B)R$/.test(target.rare)) {
             return Math.ceil(
-              maxStatus * magnification[target.rare][target.trainingLevel] -
-                ((maxStatus * magnification[target.rare][target.trainingLevel] -
-                  Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
-                  (MAX_CARD_LEVEL[target.rare][target.trainingLevel] - 1)) *
-                  (MAX_CARD_LEVEL[target.rare][target.trainingLevel] - target.cardLevel)
+              targetMaxStatus -
+                ((targetMaxStatus - Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) / (maxCardLevel - 1)) *
+                  (maxCardLevel - target.cardLevel)
             );
           } else {
             return Math.ceil(
-              maxStatus * magnification[target.rare][target.trainingLevel] -
-                ((maxStatus / 2 - Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
-                  (MAX_CARD_LEVEL[target.rare][target.trainingLevel] - 1)) *
-                  (MAX_CARD_LEVEL[target.rare][target.trainingLevel] - target.cardLevel)
+              targetMaxStatus -
+                ((maxStatus / 2 - Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) / (maxCardLevel - 1)) *
+                  (maxCardLevel - target.cardLevel)
             );
           }
         } else {
           return Math.ceil(
-            maxStatus * magnification[target.rare][target.trainingLevel] -
+            targetMaxStatus -
               (maxStatus / (target.rare === 'R' ? 200 : 100)) *
-                (MAX_CARD_LEVEL[target.rare][target.trainingLevel] - target.cardLevel)
+                (targetMaxCardLevel[target.trainingLevel] - target.cardLevel)
           );
         }
       };

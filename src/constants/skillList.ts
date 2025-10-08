@@ -760,6 +760,50 @@ export const SKILL_LIST = {
       },
     },
   },
+  チアフルワイドエクステンド: {
+    cheerfulWideExtend_01: {
+      text: [
+        'このステージ中、手札の上限枚数を2枚増加する。さらにメンタルが100%のとき、このステージ中、ハート上限を+',
+        'する。',
+      ],
+      detail: {
+        attr: 'cheerful',
+        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_LIMIT_UP],
+      },
+    },
+  },
+  チアフルブーステッドハート: {
+    cheerfulBoostedHeart_01: {
+      text: [
+        'このステージ中、ハート上限を+',
+        'し、メンタルが100%のとき、3回の間ラブアトラクト効果を+',
+        '%、ビートハート',
+        '回分のスキルハートを獲得する。さらにメンタルを最大値の8%減少させる。',
+      ],
+      detail: {
+        attr: 'cheerful',
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
+      },
+    },
+  },
+  チアフルリカバーバイブス: {
+    cheerfulRecoverVibes_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%のとき、このセクション中、ビートハートの出現個数を+',
+        'する。',
+      ],
+      detail: {
+        attr: 'cheerful',
+        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VIBES_SECTION],
+      },
+    },
+  },
   フルネスエクステハート: {
     fulnessExtensionHeart_add3_over8_over75: {
       text: [
@@ -3839,6 +3883,28 @@ export const SKILL_LIST = {
       },
     },
   },
+  'ドレス《一生に夢が咲くように》': {
+    dress_hitotose_01: {
+      text: ['ドレスカード《一生に夢が咲くように》を1種類(合計2枚)山札に追加する。さらに手札をシャッフルする。'],
+      detail: {
+        attr: 'dress',
+        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+      },
+    },
+  },
+  '《一生に夢が咲くように》': {
+    hitotose_01: {
+      text: [
+        '手札をシャッフルし、ボルテージPt.を+',
+        'する。さらにメンタルが100%のとき、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+      },
+    },
+  },
   Prinzessin: {
     prinzessin: {
       text: ['このセクション中、AP回復速度を+', '%する。'],
@@ -4709,7 +4775,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'infinity',
-        type: ['infinity_mental_stage', SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: [SKILL_DETAIL.INFINITY_MENTAL_STAGE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
       },
     },
   },
@@ -6514,6 +6580,13 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.AMBIENCE_STAGE],
       },
     },
+    elysion_05: {
+      text: ['このステージ中、AP回復速度を-9999%する。さらにこのステージ中、手札の上限枚数を', '枚増加する。'],
+      detail: {
+        attr: 'Elysion',
+        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.EXTEND_HAND],
+      },
+    },
   },
   'mode:DESTROYER': {
     mode_destroyer_01: {
@@ -6571,6 +6644,24 @@ export const SKILL_LIST = {
       detail: {
         attr: 'mode',
         type: [SKILL_DETAIL.AMBIENCE_STAGE, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+      },
+    },
+  },
+  'mode:ARCHITECTURE': {
+    mode_architecture_01: {
+      text: ['ドレスカード《Oracle Étude》を1種類(合計11枚)山札に追加する。'],
+      detail: {
+        attr: 'mode',
+        type: [SKILL_DETAIL.ADD_CARD],
+      },
+    },
+  },
+  '《Oracle Étude》': {
+    oracleEtude_01: {
+      text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのステージ中、ハート上限を+', 'する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
       },
     },
   },
@@ -6640,7 +6731,7 @@ export const SKILL_LIST = {
         '回分のスキルハートを獲得する。消費APの合計に応じてハート上限増加効果以外の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
       ],
       detail: {
-        attr: '',
+        attr: 'SRK',
         type: [
           SKILL_DETAIL.VOLTAGE_GAIN,
           SKILL_DETAIL.LOVE_ATTRACT_SECTION,
@@ -6658,10 +6749,28 @@ export const SKILL_LIST = {
         '回分のスキルハートを獲得する。消費APの合計に応じてハート上限増加効果以外の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
       ],
       detail: {
-        attr: '',
+        attr: 'SRK',
         type: [
           SKILL_DETAIL.LOVE_ATTRACT_SECTION,
           SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+    'SRK-Link_03': {
+      text: [
+        'このステージ中、さやか/瑠璃乃/花帆のスキルを全員使用するたび、このセクション中、ハート上限を+',
+        '、獲得するLOVEを+',
+        '%、ボルテージPt.を+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。消費APの合計に応じてハート上限増加効果以外の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
+      ],
+      detail: {
+        attr: 'SRK',
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
           SKILL_DETAIL.VOLTAGE_GAIN,
           SKILL_DETAIL.HEART_CAPTCHA,
         ],
@@ -7103,6 +7212,248 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_QUICK],
+      },
+    },
+  },
+  ジェネシスレルム: {
+    genesisRealm_01: {
+      text: [
+        'AP、ボルテージ、メンタルの変動に応じてジェネシスプログレスが増減するようになり、ハートがフラワーに変化する。ジェネシスプログレスはこのスキルのLv.が高いほど大きく増減し、ジェネシスプログレスに応じてフラワー回収時のLOVEが変動する。さらに手札からスキルを使用したとき、スキル使用不可となるクールタイムが発生する。クールタイムは楽曲が短いほど短くなる。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  ブルーミングホライゾン: {
+    bloomingHorizon_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのステージ中、AP回復速度を+',
+        '%、ボルテージPt.を+',
+        'し、メンタルを最大値の',
+        '%回復させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_RECOVER,
+        ],
+      },
+    },
+  },
+  アウェイキングガイア: {
+    awakingGaia_01: {
+      text: ['このステージ中、あらゆるスキル効果量を', '%増幅する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_ALL_STAGE],
+      },
+    },
+  },
+  ブルーミングフューエル: {
+    bloomingFuel_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得し、APを',
+        '回復する。さらにボルテージLv.が20以上のとき、3回の間ボルテージゲイン効果を+',
+        '%し、メンタルが100%以上のとき、3回の間メンタルリカバー効果を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+        ],
+      },
+    },
+  },
+  セカンドサイト: {
+    secondSight_01: {
+      text: [
+        'スペシャルアピールから、手札を山札リセットシャッフルし任意メンバーのスキルをサーチできるようになる。さらにこのステージ中、手札上限枚数を常に最大にする。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.ADD_SPECIAL_APPEAL],
+      },
+    },
+  },
+  ブルーミングパス: {
+    bloomingPath_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得、手札をシャッフル、このセクション中、手札の上限枚数を3枚増加し、ムードがハッピー、メロウいずれかのとき、ムード値を+',
+        'する。さらにムードがハッピー、メロウいずれか100のとき、このステージ中、獲得するLOVEを+',
+        '%し、ハート上限を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
+      },
+    },
+  },
+  'サモン：梢': {
+    'summon-kozue_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時梢のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：綴理': {
+    'summon-tsuzuri_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時綴理のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：慈': {
+    'summon-megumi_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時の慈カードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：花帆': {
+    'summon-kaho_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時花帆のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：さやか': {
+    'summon-sayaka_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時さやかのカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：瑠璃乃': {
+    'summon-rurino_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時瑠璃乃のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：吟子': {
+    'summon-ginko_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時吟子のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：小鈴': {
+    'summon-kosuzu_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時小鈴のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：姫芽': {
+    'summon-hime_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時姫芽のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：泉': {
+    'summon-izumi_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時泉のカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'サモン：セラス': {
+    'summon-seras_01': {
+      text: [
+        '手札を山札リセットシャッフルする。この時セラスのカードをドローする確率大幅アップ。再使用にクールタイムが発生する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+      },
+    },
+  },
+  'Dream Bloom Link': {
+    dreamBloomLink_01: {
+      text: [
+        'このステージ中、吟子/花帆/小鈴/さやか/姫芽/瑠璃乃/泉/セラスのスキルを全員使用するたび、このセクション中、獲得するLOVEを+',
+        '%、ビートハートの出現個数を+',
+        '、ハート上限を+',
+        'する。消費APの合計に応じてアトラクトの効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+      },
+    },
+  },
+  アーリーボルテックスプロテクト: {
+    earlyVortexProtect_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させ、このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。さらにフィーバーを除く1～2セクション目のとき、ボルテージPt.を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
   },

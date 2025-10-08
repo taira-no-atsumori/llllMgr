@@ -1554,6 +1554,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.RURINO,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
     singingMembers: [MEMBER_KEYS.RURINO, MEMBER_KEYS.MEGUMI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 16,
+        EXPERT: 23,
+        MASTER: 27,
+      },
+      maxCombo: {
+        NORMAL: 146,
+        HARD: 218,
+        EXPERT: 568,
+        MASTER: 823,
+      },
+    },
   },
   'BANG YOU グラビティ': {
     ID: 'm_077',
@@ -2329,6 +2343,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.SAYAKA,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 17,
+        EXPERT: 26,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 116,
+        HARD: 232,
+        EXPERT: 590,
+        MASTER: 591,
+      },
+    },
   },
   心予報: {
     ID: 'm_021',
@@ -3389,6 +3417,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.KAHO,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
     singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.KOZUE, MEMBER_KEYS.GINKO],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 13,
+        HARD: 18,
+        EXPERT: 25,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 224,
+        HARD: 448,
+        EXPERT: 750,
+        MASTER: 915,
+      },
+    },
   },
   アオクハルカ: {
     ID: 'm_099',
@@ -3783,6 +3825,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 14,
+        HARD: 19,
+        EXPERT: 26,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 319,
+        HARD: 396,
+        EXPERT: 678,
+        MASTER: 933,
+      },
+    },
   },
   レディバグ: {
     ID: 'm_092',
@@ -5306,16 +5362,65 @@ export const MUSIC_LIST = {
     ],
     scoreData: {
       difficultyLevel: {
-        NORMAL: 14,
-        HARD: 21,
-        EXPERT: 29,
-        MASTER: 34,
+        NORMAL: 11,
+        HARD: 17,
+        EXPERT: 24,
+        MASTER: 27,
       },
       maxCombo: {
-        NORMAL: 373,
-        HARD: 774,
-        EXPERT: 1111,
-        MASTER: 1678,
+        NORMAL: 190,
+        HARD: 429,
+        EXPERT: 633,
+        MASTER: 885,
+      },
+    },
+  },
+  '一生に夢が咲くように': {
+    ID: 'm_198',
+    musicData: {
+      kana: 'ひととせにゆめがさくように',
+      singer: '蓮ノ空女学院スクールアイドルクラブ',
+      releaseDate: {
+        year: 2025,
+        month: 10,
+        date: 6,
+      },
+      numbering: '配信限定楽曲',
+      BPM: {
+        original: '75 - 112',
+        inGame: '75 - 112',
+      },
+      time: 115.38,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.PURE.en,
+    BHcount: 37,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.GINKO,
+    bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.SERAS,
+      MEMBER_KEYS.IZUMI,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 16,
+        EXPERT: 23,
+        MASTER: 27,
+      },
+      maxCombo: {
+        NORMAL: 136,
+        HARD: 277,
+        EXPERT: 458,
+        MASTER: 685,
       },
     },
   },

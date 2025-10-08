@@ -330,6 +330,55 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          想造の地平から: {
+            ID: 'kh_065',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: '地平から',
+            kana: 'そうぞうのちへいから',
+            gacha: {
+              addSeason: '2025 PARTY! LIMITED COLLECTION',
+              period: 'party',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 6300,
+              pure: 4400,
+              cool: 3500,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'genesisRealm_01',
+              name: 'ジェネシスレルム',
+              AP: 22,
+              detail: [],
+            },
+            skill: {
+              ID: 'bloomingHorizon_01',
+              name: 'ブルーミングホライゾン',
+              AP: 20,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+                [1200, 1320, 1440, 1560, 1680, 1800, 1920, 2040, 2160, 2400, 2520, 2640, 2760, 3000],
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+              ],
+            },
+            characteristic: {
+              name: 'グランドデザイン',
+              detail:
+                'ドローした時、このセクション中、AP回復速度を-10%、ボルテージPt.を-100し、メンタルを最大値の10%減少させる。さらに手札にある状態でハートを3000個回収した時、ビートハート3000回分のスキルハートを獲得する。',
+              type: ['draw', 'APReduce', 'voltageReduce', 'mentalReduce', 'heartCaptcha'],
+            },
+          },
           可惜夜花火: {
             ID: 'kh_063',
             styleType: STYLE_TYPE.PERFORMER.en,
@@ -384,39 +433,9 @@ export const useCardStore = defineStore('cardList', {
               name: 'ファイアフラワー',
               AP: 7,
               detail: [
-                [
-                  '349?',
-                  '384?',
-                  '419?',
-                  '454?',
-                  '489?',
-                  '524?',
-                  '558?',
-                  '593?',
-                  '628?',
-                  '698?',
-                  '733?',
-                  '768?',
-                  '803?',
-                  873,
-                ],
-                ['35?', '38?', '42?', '45?', '49?', '52?', '56?', '59?', '63?', '70?', '73?', '77?', '80?', 87],
-                [
-                  '34.9?',
-                  '38.4?',
-                  '41.9?',
-                  '45.3?',
-                  '48.8?',
-                  '52.3?',
-                  '55.8?',
-                  '59.3?',
-                  '62.8?',
-                  '69.8?',
-                  '73.3?',
-                  '76.8?',
-                  '80.3?',
-                  87.3,
-                ],
+                [349, 384, 419, 454, 489, 524, 558, 593, 628, 698, 733, 768, 803, 873],
+                [35, 39, 42, 46, 49, 53, 56, 60, 63, 70, 74, 77, 81, 88],
+                [34.9, 38.4, 41.9, 45.4, 48.9, 52.4, 55.8, 59.3, 62.8, 69.8, 73.3, 76.8, 80.3, 87.3],
               ],
             },
             characteristic: {
@@ -3499,6 +3518,54 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          醒悟の地平から: {
+            ID: 'sy_063',
+            styleType: STYLE_TYPE.MOOD_MAKER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: '地平から',
+            kana: 'かくごのちへいから',
+            gacha: {
+              addSeason: '2025 PARTY! LIMITED COLLECTION',
+              period: 'party',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 3700,
+              pure: 4200,
+              cool: 6300,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'awakingGaia_01',
+              name: 'アウェイキングガイア',
+              AP: 12,
+              detail: [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]],
+            },
+            skill: {
+              ID: 'bloomingFuel_01',
+              name: 'ブルーミングフューエル',
+              AP: 3,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 13],
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+              ],
+            },
+            characteristic: {
+              name: 'スコーチング',
+              detail: '手札にある間、スキルハート獲得効果による獲得数を+300%し、手札の上限枚数を3枚減少する。',
+              type: ['boost_heartCaptcha', 'cardReduce'],
+            },
+          },
           '太陽であれ！': {
             ID: 'sy_060',
             styleType: STYLE_TYPE.PERFORMER.en,
@@ -6556,6 +6623,182 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          一生に夢が咲くように: {
+            ID: 'rr_055',
+            styleType: STYLE_TYPE.PERFORMER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: '一生に夢が咲くように',
+            kana: 'ひととせにゆめがさくように',
+            gacha: {
+              addSeason: '2025 AUTUMN LIMITED COLLECTION vol.3',
+              period: 'autumn',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 6050,
+              pure: 4700,
+              cool: 3550,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'cheerfulWideExtend_01',
+              name: 'チアフルワイドエクステンド',
+              AP: 10,
+              detail: [[355, 391, 426, 462, 497, 533, 568, 604, 639, 710, 746, 781, 817, 888]],
+            },
+            skill: {
+              ID: 'cheerfulBoostedHeart_01',
+              name: 'チアフルブーステッドハート',
+              AP: 8,
+              detail: [
+                [75, '83?', '90?', '98?', '105?', 113, '120?', '128?', '135?', 150, '158?', '165?', '173?', 188],
+                [355, 390.5, 426, 461.5, 497, 532.5, 568, 603.5, 639, 710, 745.5, 781, 816.5, 887.5],
+                [355, 391, 426, 462, 497, 533, 568, 604, 639, 710, 746, 781, 817, 888],
+              ],
+            },
+            characteristic: {
+              name: 'ファーストシードリング',
+              detail:
+                'フィーバーを除く1～2セクション目でドローした時、このセクション中、手札の上限枚数を3枚増加し、8回の間ボルテージゲイン効果を+88%する。さらにスキル使用時8回まで、APを8回復する。',
+              type: ['drew', 'extendHand', 'boost_voltageGain', 'APGain'],
+            },
+          },
+          眺望の地平から: {
+            ID: 'rr_054',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
+            series: '地平から',
+            kana: 'せんぼうのちへいから',
+            gacha: {
+              addSeason: '2025 PARTY! LIMITED COLLECTION',
+              period: 'party',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4100,
+              pure: 6300,
+              cool: 3800,
+              mental: 500,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'secondSight_01',
+              name: 'セカンドサイト',
+              AP: 12,
+              detail: [],
+              addSA: [
+                {
+                  ID: 'summon-kozue_01',
+                  name: 'サモン：梢',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-tsuzuri_01',
+                  name: 'サモン：綴理',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-megumi_01',
+                  name: 'サモン：慈',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-kaho_01',
+                  name: 'サモン：花帆',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-sayaka_01',
+                  name: 'サモン：さやか',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-rurino_01',
+                  name: 'サモン：瑠璃乃',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-ginko_01',
+                  name: 'サモン：吟子',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-kosuzu_01',
+                  name: 'サモン：小鈴',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-hime_01',
+                  name: 'サモン：姫芽',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-izumi_01',
+                  name: 'サモン：泉',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+                {
+                  ID: 'summon-seras_01',
+                  name: 'サモン：セラス',
+                  AP: 10,
+                  EXAP: [10, 9, 9, 8, 8, 7, 7, 6, 6, 5, 5, 4, 4, 3],
+                  detail: [],
+                },
+              ],
+            },
+            skill: {
+              ID: 'bloomingPath_01',
+              name: 'ブルーミングパス',
+              AP: 3,
+              detail: [
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 10, 11, 11, 13],
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+                [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+              ],
+            },
+            characteristic: {
+              name: 'ブリードバッテリー',
+              detail:
+                'ドローした時、それぞれ次に使用するラブアトラクト効果を+300%、ハート上限個数増加効果を+30%、ムード値変動効果を+13%し、APを-3する。',
+              type: ['draw', 'boost_loveAttract', 'boost_heartLimitUp', 'boost_moodChange', 'APReduce'],
+            },
+          },
           ニャオシグニャル: {
             ID: 'rr_053',
             styleType: STYLE_TYPE.MOOD_MAKER.en,
@@ -6705,13 +6948,13 @@ export const useCardStore = defineStore('cardList', {
               BP: 100,
             },
             specialAppeal: {
-              ID: 'SRK-Link_01',
+              ID: 'SRK-Link_03',
               name: 'S.R.K. Link',
               AP: 5,
               detail: [
-                [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
-                [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+                [1333, 1466, 1600, 1733, 1866, 2000, 2133, 2266, 2399, 2666, 2799, 2933, 3066, 3333],
                 [133.2, 146.5, 159.8, 173.2, 186.5, 199.8, 213.1, 226.4, 239.8, 266.4, 279.7, 293, 306.4, 333],
+                [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
                 [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103],
               ],
             },
@@ -6720,15 +6963,15 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 3,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'flowerIgnition_01',
                   name: 'フラワーイグニッション',
                   AP: 13,
                   detail: [],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'tripletWide_01',
                   name: 'トリプレットワイド',
@@ -6740,7 +6983,7 @@ export const useCardStore = defineStore('cardList', {
                     [133.2, 146.5, 159.8, 173.2, 186.5, 199.8, 213.1, 226.4, 239.8, 266.4, 279.7, 293, 306.4, 333],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'ゲーミングバディ',
@@ -6926,15 +7169,15 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 3,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'extensions2_voltage_section',
                   name: 'エクステボルテージ',
                   AP: 3,
                   detail: [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'upDraftHeart_attract_reshuffle_heartCaptcha_reduce3',
                   name: 'アップドラフトハート',
@@ -6944,7 +7187,7 @@ export const useCardStore = defineStore('cardList', {
                     [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -7046,15 +7289,15 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 4,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'ignitionRefresh_hime_mentalRecover_over100',
                   name: 'イグニッションリフレッシュ',
                   AP: 4,
                   detail: [[6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16]],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'tagBoost',
                   name: 'タッグブースト',
@@ -7064,7 +7307,7 @@ export const useCardStore = defineStore('cardList', {
                     [16.8, 18.5, 20.2, 21.8, 23.5, 25.2, 26.9, 28.6, 30.2, 33.6, 35.3, 367, 38.6, 42],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -8067,8 +8310,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 3,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'allRangeRecover_section',
                   name: 'オールレンジ♡リカバー',
@@ -8078,7 +8321,7 @@ export const useCardStore = defineStore('cardList', {
                     [4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12],
                   ],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'allRangeVoltage_section-mentalOver100',
                   name: 'オールレンジ♡ボルテージ',
@@ -8090,7 +8333,7 @@ export const useCardStore = defineStore('cardList', {
                     [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'イグニッション & APレデュース：みらくらぱーく！',
@@ -14714,8 +14957,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 9,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'allRangeProtect_section',
                   name: 'オールレンジ♡プロテクト',
@@ -14725,7 +14968,7 @@ export const useCardStore = defineStore('cardList', {
                     [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
                   ],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'allRangeAttraction_section',
                   name: 'オールレンジ♡アトラクション',
@@ -14737,7 +14980,7 @@ export const useCardStore = defineStore('cardList', {
                     [1200, 1320, 1440, 1560, 1680, 1800, 1920, 2040, 2160, 2400, 2520, 2640, 2760, 3000],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: "M's キングダム",
@@ -14843,8 +15086,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 3,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'endurance_voltageMental',
                   name: 'エンデュランス',
@@ -14854,7 +15097,7 @@ export const useCardStore = defineStore('cardList', {
                     [2.8, 3.08, 3.36, 3.64, 3.92, 4.2, 4.48, 4.76, 5.04, 5.6, 5.88, 6.16, 6.44, 7],
                   ],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'upDraftAttract_attract_reshuffle_stageAttract_reduce3',
                   name: 'アップドラフトアトラクト',
@@ -14864,7 +15107,7 @@ export const useCardStore = defineStore('cardList', {
                     [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -14971,8 +15214,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 4,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'ignitionEndurance_hime_mentalOver100OrVoltageOver10',
                   name: 'イグニッションエンデュランス',
@@ -14982,14 +15225,14 @@ export const useCardStore = defineStore('cardList', {
                     [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
                   ],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'tagHeart_APReduce20_hime',
                   name: 'タッグハート',
                   AP: 10,
                   detail: [[12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30]],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -16713,6 +16956,66 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         DR: {
+          'Oracle Étude': {
+            ID: 'gn_029',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.MELOW.en,
+            series: 'Oracle Étude',
+            kana: 'おらくるえちゅーど',
+            gacha: {
+              addSeason: '「ドリームスタイルクエスト」クリア報酬',
+              period: 'normal',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 4400,
+              pure: 5900,
+              cool: 7100,
+              mental: 580,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'elysion_05',
+              name: 'Elysion',
+              AP: 2,
+              detail: [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 99]],
+            },
+            skill: {
+              ID: 'mode_architecture_01',
+              name: 'mode:ARCHITECTURE',
+              AP: 1,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'oracleEtude_01',
+                  name: '《Oracle Étude》',
+                  AP: 1,
+                  detail: [
+                    [444, 488, 533, 577, 622, 666, 710, 755, 799, 888, 932, 977, 1021, 1111],
+                    [444, 488, 533, 577, 622, 666, 710, 755, 799, 888, 932, 977, 1021, 1111],
+                  ],
+                  characteristic: {
+                    name: 'Eclipse',
+                    detail: 'このスキルを使用すると、このステージ中、手札の上限枚数を1枚減少し、デッキから除外される。',
+                    type: ['cardReduce', 'exclusion'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'Radioactive',
+              detail:
+                'ドローした時、AP、ボルテージPt.、メンタルを0にする。さらにこのスキルを8回使用すると、デッキから除外される。',
+              type: ['draw', 'APReduce', 'voltageReduce', 'mentalReduce', 'exclusion'],
+            },
+          },
           'Ether Aria': {
             ID: 'gn_006',
             styleType: STYLE_TYPE.PERFORMER.en,
@@ -16897,6 +17200,86 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          一生に夢が咲くように: {
+            ID: 'gn_028',
+            styleType: STYLE_TYPE.TRICK_STAR.en,
+            mood: MOOD.NEUTRAL.en,
+            series: '一生に夢が咲くように',
+            kana: 'ひととせにゆめがさくように',
+            gacha: {
+              addSeason: '2025 AUTUMN LIMITED COLLECTION vol.3',
+              period: 'autumn',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5900,
+              pure: 4800,
+              cool: 3600,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'dreamBloomLink_01',
+              name: 'Dream Bloom Link',
+              AP: 10,
+              detail: [
+                [
+                  3555.2,
+                  '3910.7?',
+                  '4266.2?',
+                  '4621.8?',
+                  '4977.3?',
+                  5332.8,
+                  '5688.3?',
+                  '6043.8?',
+                  '6399.4?',
+                  7110.4,
+                  '7465.9?',
+                  '7821.4?',
+                  '8177?',
+                  8888,
+                ],
+                [3, '3?', '4?', '4?', '4?', '5?', '5?', '5?', '5?', 6, '6?', '7?', '7?', 8],
+                [355, 391, 426, 462, 497, 533, 568, 604, 639, 710, 746, 781, 817, 888],
+              ],
+            },
+            skill: {
+              ID: 'dress_hitotose_01',
+              name: 'ドレス《一生に夢が咲くように》',
+              AP: 8,
+              detail: [],
+              addSkill: [
+                {
+                  ID: 'hitotose_01',
+                  name: '《一生に夢が咲くように》',
+                  AP: 8,
+                  detail: [
+                    [75, '83?', '90?', '98?', '105?', 113, '120?', '128?', '135?', 150, '158?', '165?', '173?', 188],
+                    [355, 391, 426, 462, 497, 533, 568, 604, 639, 710, 746, 781, 817, 888],
+                  ],
+                  characteristic: {
+                    name: 'クロスアニマ',
+                    detail:
+                      '残りメンタルが多いほどスキルの消費APダウン(最大-6)。さらにこのスキルを使用した時、次に吟子が使用するラブアトラクト効果を+888%し、デッキから除外される。',
+                    type: ['APReduce', 'boost_loveAttract', 'exclusion'],
+                  },
+                },
+              ],
+            },
+            characteristic: {
+              name: 'ファーストシードリング',
+              detail:
+                'フィーバーを除く1～2セクション目でドローした時、APを8回復し、8回の間ハート上限個数増加効果を+88%する。さらにスキル使用時8回まで、APを8回復する。',
+              type: ['drew', 'APGain', 'boost_wideHeart'],
+            },
+          },
           蒼のツバメ: {
             ID: 'gn_027',
             styleType: STYLE_TYPE.TRICK_STAR.en,
@@ -16950,7 +17333,7 @@ export const useCardStore = defineStore('cardList', {
               ],
             },
             characteristic: {
-              name: 'ツバメガエシ ',
+              name: 'ツバメガエシ',
               detail:
                 'スキル使用時、山札に戻り、このセクション中、AP回復速度を+20%する。さらに2～4セクション目でドローした時、消費APを-5する。',
               type: ['APQuick', 'APReduce'],
@@ -19137,6 +19520,57 @@ export const useCardStore = defineStore('cardList', {
           },
         },
         UR: {
+          一生に夢が咲くように: {
+            ID: 'sz_028',
+            styleType: STYLE_TYPE.CHEER_LEADER.en,
+            mood: MOOD.NEUTRAL.en,
+            series: '一生に夢が咲くように',
+            kana: 'ひととせにゆめがさくように',
+            gacha: {
+              addSeason: 'ライブグランプリ「105期 3rdTerm 第1回サークル対抗戦」報酬',
+              period: 'prize',
+            },
+            fluctuationStatus: {
+              cardLevel: 0,
+              trainingLevel: 0,
+              SALevel: 1,
+              SLevel: 1,
+              releaseLevel: 1,
+              releasePoint: 0,
+            },
+            uniqueStatus: {
+              smile: 5800,
+              pure: 4550,
+              cool: 3950,
+              mental: 490,
+              BP: 100,
+            },
+            specialAppeal: {
+              ID: 'cheerfulRecoverVibes_01',
+              name: 'チアフルリカバーバイブス',
+              AP: 10,
+              detail: [
+                [35.2, 38.72, 42.24, 45.76, 49.28, 52.8, 56.32, 59.84, 63.36, 70.4, 73.92, 77.44, 80.96, 88],
+                [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+              ],
+            },
+            skill: {
+              ID: 'earlyVortexProtect_01',
+              name: 'アーリーボルテックスプロテクト',
+              AP: 8,
+              detail: [
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
+                [7.2, 7.92, 8.64, 9.36, 10.08, 10.8, 11.52, 12.24, 12.96, 14.4, 15.12, 15.84, 16.56, 18],
+                [355, 391, 426, 462, 497, 533, 568, 604, 639, 710, 746, 781, 817, 888],
+              ],
+            },
+            characteristic: {
+              name: 'ファーストシードリング',
+              detail:
+                'フィーバーを除く1～2セクション目でドローした時、このセクション中、AP回復速度を+8%し、8回の間メンタルプロテクト効果を+88%する。さらにスキル使用時8回まで、APを8回復する。',
+              type: ['drew', 'APQuick', 'boost_protect', 'APGain'],
+            },
+          },
           '太陽であれ！': {
             ID: 'sz_026',
             styleType: STYLE_TYPE.PERFORMER.en,
@@ -21018,15 +21452,15 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 5,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'regainChange',
                   name: 'リゲインチェンジ',
                   AP: 5,
                   detail: [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'groovyChangeHeart-over8_vol-over10_vol',
                   name: 'グルーヴィチェンジハート',
@@ -21037,7 +21471,7 @@ export const useCardStore = defineStore('cardList', {
                     [22, 24, 26, 29, 31, 33, 35, 37, 40, 44, 46, 48, 51, 54],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オーバーセクション：ボルテージゲイン & APゲイン & モードチェンジ & APレデュース：姫芽',
@@ -21336,15 +21770,15 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 5,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'attractBoost1',
                   name: 'アトラクトブースト',
                   AP: 5,
                   detail: [[16.8, 18.5, 20.2, 21.8, 23.5, 25.2, 26.9, 28.6, 30.2, 33.6, 35.3, 37, 38.6, 42]],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'heartAttraction_section',
                   name: 'ハートアトラクション',
@@ -21354,7 +21788,7 @@ export const useCardStore = defineStore('cardList', {
                     [22.8, 25.1, 27.4, 29.6, 32, 34.2, 36.5, 38.8, 41, 45.6, 47.9, 50.2, 52.4, 57],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -21412,15 +21846,15 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 5,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'voltageGain',
                   name: 'ボルテージゲイン',
                   AP: 5,
                   detail: [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'braveAggressiveAttraction_01',
                   name: 'ブレイブアグレッシブアトラクション',
@@ -21431,7 +21865,7 @@ export const useCardStore = defineStore('cardList', {
                     [570, 627, 684, 741, 798, 855, 912, 969, 1026, 1140, 1197, 1254, 1311, 1425],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',
@@ -21670,22 +22104,22 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 9,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'nineHeart_ignition',
                   name: 'ナインハート・イグニッション',
                   AP: 9,
                   detail: [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'nineHeart_replay',
                   name: 'ナインハート・リプレイ',
                   AP: 9,
                   detail: [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'Now or Never',
@@ -21729,8 +22163,8 @@ export const useCardStore = defineStore('cardList', {
               name: 'オルタネイト：イグニッション',
               AP: 3,
               detail: [],
-              addSkill: {
-                off: {
+              addSkill: [
+                {
                   modeName: '通常モード',
                   ID: 'cheerfulRecover_upper100_stageProtect',
                   name: 'チアフルリカバープロテクト',
@@ -21740,7 +22174,7 @@ export const useCardStore = defineStore('cardList', {
                     [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15],
                   ],
                 },
-                on: {
+                {
                   modeName: 'イグニッションモード',
                   ID: 'refreshMind_stageProtect',
                   name: 'リフレッシュマインド',
@@ -21750,7 +22184,7 @@ export const useCardStore = defineStore('cardList', {
                     [2.4, 2.64, 2.88, 3.12, 3.36, 3.6, 3.84, 4.08, 4.32, 4.8, 5.04, 5.28, 5.52, 6],
                   ],
                 },
-              },
+              ],
             },
             characteristic: {
               name: 'オルタネイト：イグニッション',

@@ -220,15 +220,7 @@ const store = useStateStore();
 const router = useRouter();
 
 const eventList = {
-  /*graduation: {
-    title: '梢先輩、綴理先輩、慈先輩',
-    text: 'ご卒業おめでとうございます🌸',
-    type: 'other',
-    firstDay: [2025, 3, 31, 21, 0],
-    lastDay: [2025, 4, 11, 12, 0],
-    img: 'thanks',
-  },*/
-  liveGP: {
+  /*liveGP: {
     title: 'ライブグランプリ「105期 3rdTerm 第1回 サークル対抗戦」',
     text: '',
     type: 'liveGP',
@@ -236,24 +228,15 @@ const eventList = {
     lastDay: [2025, 9, 26, 3, 59],
     url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-09-18-10-h5mhahecgl',
     img: '105期 3rdTerm 第1回 サークル対抗戦_logo',
-  },
-  /*fesLive: {
-    title: 'Fes×LIVE「105期 2nd Term Fes×LIVE」',
-    text: '〜A Day in Summer Light〜',
-    type: 'live',
-    firstDay: [2025, 8, 29, 20, 0],
-    lastDay: [2025, 8, 29, 21, 0],
-    url: 'https://x.com/hasunosora_SIC/status/1956596788636557666',
-    img: '105期 2ndTerm Fes×LIVE_mv',
   },*/
-  '5thLive_miraCraPark': {
-    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-    text: 'みらくらぱーく！ presents Heart Stage',
+  fesLive: {
+    title: 'Fes×LIVE「105期 3rdTerm Fes×LIVE」',
+    text: '竜胆祭',
     type: 'live',
-    firstDay: [2025, 10, 4, 0, 0],
-    lastDay: [2025, 10, 5, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLive_logo',
+    firstDay: [2025, 10, 31, 20, 0],
+    lastDay: [2025, 10, 31, 21, 0],
+    url: 'https://x.com/hasunosora_SIC/status/1974776209927283070',
+    img: '105期 3rdTerm Fes×LIVE_mv',
   },
   '5thLive_DOLLCHESTRA': {
     title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
@@ -262,7 +245,7 @@ const eventList = {
     firstDay: [2025, 11, 8, 0, 0],
     lastDay: [2025, 11, 9, 23, 59],
     url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLive_logo',
+    img: '5thLiveTour_logo_DOLLCHESTRA',
   },
   '5thLive_edelNote': {
     title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
@@ -271,7 +254,7 @@ const eventList = {
     firstDay: [2025, 11, 19, 0, 0],
     lastDay: [2025, 11, 20, 23, 59],
     url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLive_logo',
+    img: '5thLiveTour_logo_EdelNote',
   },
   '5thLive_ceriseBouquet': {
     title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
@@ -280,7 +263,24 @@ const eventList = {
     firstDay: [2025, 12, 6, 0, 0],
     lastDay: [2025, 12, 7, 23, 59],
     url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLive_logo',
+    img: '5thLiveTour_logo_CeriseBouquet',
+  },
+  fesReCLive: {
+    title: 'Fes×ReC:LIVE ～Road to Bloom～',
+    text: '',
+    type: 'live',
+    firstDay: [2026, 1, 21, 0, 0],
+    lastDay: [2026, 1, 22, 23, 59],
+    url: 'https://x.com/hasunosora_SIC/status/1974776878297997785',
+    img: 'Fes×REC_RtB',
+  },
+  movie: {
+    title: '映画蓮ノ空 ～Bloom Garden Party～',
+    text: '2026年春公開予定',
+    type: 'other',
+    firstDay: [2026, 6, 30, 12, 0],
+    lastDay: [2026, 6, 30, 23, 59],
+    img: 'movie_01',
   },
 };
 

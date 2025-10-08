@@ -132,19 +132,19 @@
                 style="width: 80px"
                 class="px-0 text-center"
               >
-                {{ store.cardParam('smile') }}
+                {{ store.cardParam('smile', store.getSettingCard.ID) }}
               </td>
               <td
                 style="width: 80px"
                 class="px-0 text-center"
               >
-                {{ store.cardParam('pure') }}
+                {{ store.cardParam('pure', store.getSettingCard.ID) }}
               </td>
               <td
                 style="width: 80px"
                 class="px-0 text-center"
               >
-                {{ store.cardParam('cool') }}
+                {{ store.cardParam('cool', store.getSettingCard.ID) }}
               </td>
               <td
                 style="width: 80px"
@@ -738,34 +738,46 @@
                     {{ store.settingCardData[targetSkill]?.EXAP[i - 1] }}
                   </th>
                   <td class="px-1">
-                    {{ store.skillText(targetSkill, { targetSkillLv: i - 1 }) }}
+                    {{ store.skillText(targetSkill, store.settingCardData[targetSkill], { targetSkillLv: i - 1 }) }}
                   </td>
                 </tr>
               </tbody>
             </v-table>
           </v-tabs-window-item>
           <v-tabs-window-item
-            v-for="(a, i) in store.settingCardData[targetSkill].addSkill"
+            v-for="(skillData, i) in store.settingCardData[targetSkill].addSkill"
             :key="i"
-            :value="a.name"
+            :value="skillData.name"
           >
-            スキル名：{{ a.name }}
+            スキル名：{{ skillData.name }}
             <v-table density="compact">
               <thead>
                 <tr>
                   <th class="text-center px-1">Lv</th>
+                  <th
+                    v-if="skillData?.EXAP"
+                    class="text-center px-2"
+                  >
+                    AP
+                  </th>
                   <th class="text-center px-1">効果</th>
                 </tr>
               </thead>
               <tbody>
                 <tr
-                  v-for="skillLevel in 14"
+                  v-for="skillLevel in store.defaultSearch.cardList.SALevel[1]"
                   :key="skillLevel"
                 >
                   <th class="text-center px-1">{{ skillLevel }}</th>
+                  <th
+                    v-if="skillData?.EXAP"
+                    class="text-center px-1"
+                  >
+                    {{ skillData.EXAP[skillLevel - 1] }}
+                  </th>
                   <td class="px-1">
                     {{
-                      store.skillText(targetSkill, {
+                      store.skillText(targetSkill, store.settingCardData[targetSkill], {
                         targetSkillLv: skillLevel - 1,
                         addSkillNum: i,
                       })
