@@ -108,31 +108,49 @@ export const SKILL_DETAIL = {
     name_ja: 'ブースト(ハートキャプチャ)',
     name_en: 'boost_heartCaptcha',
     COLOR_CODE: 'red',
-    DESCRIPTION: '次に使用するスキルハート獲得効果による獲得数を増加させる。',
+    DESCRIPTION: '一定の回数使用するスキルハート獲得効果による獲得数を増加させる。',
   },
   BOOST_LOVE_ATTRACT: {
     name_ja: 'ブースト(ラブアトラクト)',
     name_en: 'boost_loveAttract',
     COLOR_CODE: 'lime-darken-3',
-    DESCRIPTION: '次に使用するラブアトラクトの効果を増加させる。',
+    DESCRIPTION: '一定の回数使用するラブアトラクトの効果を増加させる。',
   },
   BOOST_VOLTAGE_GAIN: {
     name_ja: 'ブースト(ボルテージゲイン)',
     name_en: 'boost_voltageGain',
     COLOR_CODE: 'lime-darken-4',
-    DESCRIPTION: '次に使用するボルテージゲインの効果を増加させる。',
+    DESCRIPTION: '一定の回数使用するボルテージゲインの効果を増加させる。',
   },
   BOOST_MENTAL_RECOVER: {
     name_ja: 'ブースト(メンタルリカバー)',
     name_en: 'boost_mentalRecover',
     COLOR_CODE: 'green',
-    DESCRIPTION: '次に使用するメンタルリカバーの効果を増加させる。',
+    DESCRIPTION: '一定の回数使用するメンタルリカバーの効果を増加させる。',
   },
   BOOST_MENTAL_PROTECT: {
     name_ja: 'ブースト(メンタルプロテクト)',
     name_en: 'boost_mentalProtect',
     COLOR_CODE: 'green',
-    DESCRIPTION: '次に使用するメンタルプロテクトの効果を増加させる。',
+    DESCRIPTION: '一定の回数使用するメンタルプロテクトの効果を増加させる。',
+  },
+  BOOST_WIDE_HEART: {
+    name_ja: 'ブースト(ワイドハート)',
+    name_en: 'boost_wideHeart',
+    COLOR_CODE: 'red',
+    DESCRIPTION: '一定の回数使用するハート上限個数増加効果を増加させる。',
+  },
+  BOOST_ALL_SECTION: {
+    name_ja: 'ブースト(セクション)',
+    name_en: 'boost_all_section',
+    COLOR_CODE: 'purple',
+    DESCRIPTION: 'このセクション中、あらゆるスキル効果量を増幅する。',
+  },
+  BOOST_ALL_STAGE: {
+    name_ja: 'ブースト(ステージ)',
+    name_en: 'boost_all_stage',
+    COLOR_CODE: 'purple',
+    DESCRIPTION: 'このステージ中、あらゆるスキル効果量を増幅する。',
   },
   AP_GAIN: {
     name_ja: 'APゲイン',
@@ -211,6 +229,12 @@ export const SKILL_DETAIL = {
     name_en: 'addCard',
     COLOR_CODE: 'purple',
     DESCRIPTION: 'カードを山札に追加する。',
+  },
+  ADD_SPECIAL_APPEAL: {
+    name_ja: 'SA追加',
+    name_en: 'addSA',
+    COLOR_CODE: 'purple',
+    DESCRIPTION: 'スペシャルアピールを追加する。',
   },
   IGNITION: {
     name_ja: 'イグニッション',
@@ -326,6 +350,12 @@ export const SKILL_DETAIL = {
     name_en: 'sound',
     COLOR_CODE: 'red',
     DESCRIPTION: 'ムードが一定値以上もしくは一定値以下になると、特定の効果を発動する。',
+  },
+  DREW: {
+    name_ja: 'ドロー',
+    name_en: 'drew',
+    COLOR_CODE: '',
+    DESCRIPTION: '特定のメンバーのカードをドローする確率がアップする。',
   },
 } as const;
 export type skillDetail = keyof typeof SKILL_DETAIL;

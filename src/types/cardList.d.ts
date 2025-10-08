@@ -1,5 +1,5 @@
 import { MemberKeyValues } from '@/constants/memberNames';
-import { StyleTypeJp, MoodJp, Rare } from '@/constants/cards';
+import { StyleTypeEn, MoodEn, Rare } from '@/constants/cards';
 
 /**
  * サポートスキルの詳細情報
@@ -56,23 +56,16 @@ interface SkillDetail {
   ID: string;
   name: string;
   AP: number;
+  EXAP?: number[];
   detail: number[][] | Record<string, unknown>;
+  addSA?: AdditionalSkill[][];
+  addSkill?: AdditionalSkill[][];
 }
 
 /** 追加スキル情報 */
 interface AdditionalSkill extends SkillDetail {
+  modeName?: string;
   characteristic?: Characteristic;
-}
-
-/** スペシャルアピール */
-interface SpecialAppeal extends SkillDetail {
-  EXAP?: number[];
-  addSkill?: AdditionalSkill[];
-}
-
-/** 通常スキル */
-interface Skill extends SkillDetail {
-  addSkill?: AdditionalSkill[];
 }
 
 /** キャラクター特性 */
@@ -86,23 +79,23 @@ interface Characteristic {
 /** カード基本データ */
 export interface CardDefaultData {
   ID: string;
-  styleType: StyleTypeJp;
-  mood: MoodJp;
+  styleType: StyleTypeEn;
+  mood: MoodEn;
   series?: string;
   kana: string;
   gacha: Gacha;
   fluctuationStatus?: TrainingStatus;
   uniqueStatus: BaseStatus;
-  specialAppeal?: SpecialAppeal;
-  skill: Skill;
+  specialAppeal?: SkillDetail;
+  skill: SkillDetail;
   characteristic?: Characteristic;
 }
 
 /** カードデータ */
 export interface CardDataType {
   ID: string;
-  styleType: StyleTypeJp;
-  mood: MoodJp;
+  styleType: StyleTypeEn;
+  mood: MoodEn;
   series?: string;
   kana: string;
   gacha: Gacha;
