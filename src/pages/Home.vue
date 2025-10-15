@@ -220,15 +220,15 @@ const store = useStateStore();
 const router = useRouter();
 
 const eventList = {
-  /*liveGP: {
-    title: 'ライブグランプリ「105期 3rdTerm 第1回 サークル対抗戦」',
+  liveGP: {
+    title: 'ライブグランプリ「105期 3rdTerm 第2回 個人戦」',
     text: '',
     type: 'liveGP',
-    firstDay: [2025, 9, 20, 12, 0],
-    lastDay: [2025, 9, 26, 3, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-09-18-10-h5mhahecgl',
-    img: '105期 3rdTerm 第1回 サークル対抗戦_logo',
-  },*/
+    firstDay: [2025, 10, 15, 12, 0],
+    lastDay: [2025, 10, 21, 3, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-10-13-10-coj41elt48',
+    img: '105期 3rdTerm 第2回 個人戦_logo',
+  },
   fesLive: {
     title: 'Fes×LIVE「105期 3rdTerm Fes×LIVE」',
     text: '竜胆祭',

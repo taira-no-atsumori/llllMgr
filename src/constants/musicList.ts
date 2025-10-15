@@ -5375,7 +5375,7 @@ export const MUSIC_LIST = {
       },
     },
   },
-  '一生に夢が咲くように': {
+  一生に夢が咲くように: {
     ID: 'm_198',
     musicData: {
       kana: 'ひととせにゆめがさくように',
@@ -5590,11 +5590,11 @@ export const MUSIC_LIST = {
       kana: 'あたらよはなび',
       singer: 'スリーズブーケ',
       releaseDate: {
-        year: 2099,
-        month: 12,
-        date: 31,
+        year: 2025,
+        month: 9,
+        date: 3,
       },
-      numbering: '',
+      numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
       BPM: {
         original: 126,
         inGame: 126,
@@ -5621,6 +5621,46 @@ export const MUSIC_LIST = {
         HARD: 506,
         EXPERT: 772,
         MASTER: 989,
+      },
+    },
+  },
+  乙女詞華集: {
+    ID: 'm_200',
+    musicData: {
+      kana: 'おとめあんそろじー',
+      singer: 'スリーズブーケ',
+      releaseDate: {
+        year: 2099,
+        month: 12,
+        date: 31,
+      },
+      numbering: '',
+      BPM: {
+        original: 140,
+        inGame: 140,
+      },
+      time: 114.31,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.COOL.en,
+    BHcount: 59,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.GINKO,
+    bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
+    singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.GINKO],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 16,
+        EXPERT: 24,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 199,
+        HARD: 307,
+        EXPERT: 636,
+        MASTER: 879,
       },
     },
   },
@@ -5790,11 +5830,11 @@ export const MUSIC_LIST = {
       kana: 'ぶるうもーめんと',
       singer: 'DOLLCHESTRA',
       releaseDate: {
-        year: 2099,
-        month: 12,
-        date: 31,
+        year: 2025,
+        month: 9,
+        date: 3,
       },
-      numbering: '',
+      numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
       BPM: {
         original: 135,
         inGame: 135,
@@ -6264,7 +6304,7 @@ export const MUSIC_LIST = {
       },
     },
   },
-  ドライブ・スペード・クレイジー: {
+  'ドライブ・スペード・クレイジー': {
     ID: 'm_196',
     musicData: {
       kana: 'どらいぶすぺーどくれいじー',
@@ -6708,7 +6748,7 @@ export const MUSIC_LIST = {
     ID: 'm_182',
     musicData: {
       kana: 'あいすくりーむ',
-      singer: '蓮ノ空女学院スクールアイドルクラブ',
+      singer: 'AiScReam',
       releaseDate: {
         year: 2025,
         month: 1,
@@ -6790,6 +6830,55 @@ export const MUSIC_LIST = {
         HARD: 418,
         EXPERT: 742,
         MASTER: 1049,
+      },
+    },
+  },
+  僕らは今のなかで: {
+    ID: 'm_199',
+    musicData: {
+      kana: 'ぼくらはいまのなかで',
+      singer: '蓮ノ空女学院スクールアイドルクラブ',
+      releaseDate: {
+        year: 2013,
+        month: 1,
+        date: 23,
+      },
+      numbering: 'TVアニメ「ラブライブ！」第1期OPテーマ',
+      BPM: {
+        original: 196,
+        inGame: 196,
+      },
+      time: 93,
+      cover: true,
+    },
+    attribute: ATTRIBUTE.SMILE.en,
+    BHcount: 74,
+    level: 0,
+    term: 105,
+    center: MEMBER_KEYS.SAYAKA,
+    bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.SERAS,
+      MEMBER_KEYS.IZUMI,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 19,
+        EXPERT: 26,
+        MASTER: 30,
+      },
+      maxCombo: {
+        NORMAL: 301,
+        HARD: 409,
+        EXPERT: 743,
+        MASTER: 1116,
       },
     },
   },

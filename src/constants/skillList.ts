@@ -3905,6 +3905,48 @@ export const SKILL_LIST = {
       },
     },
   },
+  'ドレス《乙女詞華集》': {
+    dress_otomeAnthology_01: {
+      text: ['ドレスカード《乙女詞華集》を2種類(合計4枚)山札に追加する。'],
+      detail: {
+        attr: 'dress',
+        type: [SKILL_DETAIL.ADD_CARD],
+      },
+    },
+  },
+  '《乙女詞華集》': {
+    otomeAnthology_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得し、このステージ中、ハート上限を+',
+        'する。さらにメンタルが100%のとき、次に使用するハート上限増加効果を+',
+        '%、次のマニュスクリプト/スリーズアンソロジーカードの使用によるスキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+      },
+    },
+    otomeAnthology_02: {
+      text: [
+        'このステージ中、ハート上限を+',
+        'し、獲得するLOVEを+',
+        '%する。さらにメンタルが100%のとき、次に使用するハート上限増加効果を+',
+        '%、次のマニュスクリプト/スリーズアンソロジーカードの使用によるラブアトラクト効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
+      },
+    },
+  },
   Prinzessin: {
     prinzessin: {
       text: ['このセクション中、AP回復速度を+', '%する。'],
@@ -7454,6 +7496,66 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
+  },
+  オトメライター: {
+    otomeWriter_01: {
+      text: [
+        'このステージ中、マニュスクリプト/スリーズアンソロジーカードの使用によるスキルハート獲得効果による獲得数を+',
+        '%する。さらにデッキ枚数が32枚以上のとき、マニュスクリプトカードを1種類(合計1枚)山札に追加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.ADD_CARD],
+      },
+    },
+  },
+  マニュスクリプト: {
+    manuscript_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのステージ中、ハート上限を+',
+        'し、獲得するLOVEを+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+      },
+    },
+  },
+  スリーズアンソロジー: {
+    ceriseAnthology_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのステージ中、ハート上限を+',
+        'し、獲得するLOVEを+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+      },
+    },
+  },
+  リライトページ: {
+    rewritePage_01: {
+      text: [
+        '手札を山札リセットシャッフルし、メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%のとき、次に使用するハート上限増加効果を+',
+        '%、次のマニュスクリプト/スリーズアンソロジーカードの使用によるスキルハート獲得効果による獲得数を+',
+        '%、ラブアトラクト効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_WIDE_HEART,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
