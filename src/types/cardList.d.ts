@@ -1,5 +1,5 @@
 import { MemberKeyValues } from '@/constants/memberNames';
-import { StyleTypeEn, MoodEn, Rare } from '@/constants/cards';
+import { StyleTypeEn, MoodEn, Rare, FavoriteIcon } from '@/constants/cards';
 
 /**
  * サポートスキルの詳細情報
@@ -76,15 +76,21 @@ interface Characteristic {
   addSkill?: AdditionalSkill[];
 }
 
+/** カードステータス */
+export interface CardStatus {
+  fluctuationStatus: TrainingStatus;
+  sortPoint: number;
+  favorite: FavoriteIcon[];
+}
+
 /** カード基本データ */
 export interface CardDefaultData {
-  ID: string;
+  memberName: MemberKeyValues;
   styleType: StyleTypeEn;
   mood: MoodEn;
   series?: string;
   kana: string;
   gacha: Gacha;
-  fluctuationStatus?: TrainingStatus;
   uniqueStatus: BaseStatus;
   specialAppeal?: SkillDetail;
   skill: SkillDetail;
@@ -92,37 +98,24 @@ export interface CardDefaultData {
 }
 
 /** カードデータ */
-export interface CardDataType {
+export interface CardDataType extends CardDefaultData {
   ID: string;
-  styleType: StyleTypeEn;
-  mood: MoodEn;
-  series?: string;
-  kana: string;
-  gacha: Gacha;
-  fluctuationStatus?: TrainingStatus;
-  uniqueStatus: BaseStatus;
-  specialAppeal?: SpecialAppeal;
-  skill: Skill;
-  characteristic?: Characteristic;
   cardName: string;
   rare: Rare;
-  memberName: MemberKeyValues;
   limited: string;
-  sortPoint: number;
-  favorite: string[];
 }
 
 /** レアリティごとのカードデータ */
 interface CardsByRarity {
   default: {
-    default: CardDefaultData;
+    default: CardDataType;
   };
-  BR: Record<string, CardDefaultData>;
-  LR?: Record<string, CardDefaultData>;
-  DR: Record<string, CardDefaultData>;
-  UR: Record<string, CardDefaultData>;
-  SR: Record<string, CardDefaultData>;
-  R: Record<string, CardDefaultData>;
+  BR: Record<string, CardDataType>;
+  LR?: Record<string, CardDataType>;
+  DR: Record<string, CardDataType>;
+  UR: Record<string, CardDataType>;
+  SR: Record<string, CardDataType>;
+  R: Record<string, CardDataType>;
 }
 
 /** キャラクターごとのカードアイテム */

@@ -1,0 +1,86 @@
+{
+  "default": {
+    "si_000": {
+      "cardName": "default",
+      "styleType": "performer",
+      "mood": "neutral",
+      "kana": "",
+      "gacha": {
+        "addSeason": "",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 30,
+        "pure": 30,
+        "cool": 30,
+        "mental": 3,
+        "BP": 100
+      },
+      "specialAppeal": { "ID": "", "name": "", "AP": 1, "detail": [] },
+      "skill": { "ID": "", "name": "", "AP": 1, "detail": [] },
+      "characteristic": {
+        "name": "",
+        "detail": "",
+        "type": []
+      }
+    }
+  },
+  "SR": {
+    "is_001": {
+      "cardName": "Edelied",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "Edelied",
+      "kana": "えーでりーど",
+      "gacha": {
+        "addSeason": "ライブグランプリ「104期 3rdTerm 第3回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4200,
+        "pure": 4200,
+        "cool": 4200,
+        "mental": 420,
+        "BP": 100
+      },
+      "skill": {
+        "ID": "letzterLied",
+        "name": "Letzter Lied",
+        "AP": 20,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "prinzessin",
+            "name": "Prinzessin",
+            "AP": 2,
+            "detail": [[26.4, 29.1, 31.7, 34.4, 37, 39.6, 42.3, 44.9, 47.6, 52.8, 55.5, 58.1, 60.8, 66]],
+            "characteristic": {
+              "name": "クローズ",
+              "detail": "このスキルを使用すると、デッキから除外される。",
+              "type": ["exclusion"]
+            }
+          },
+          {
+            "ID": "ritter",
+            "name": "Ritter",
+            "AP": 2,
+            "detail": [
+              [178, 196, 214, 231, 249, 267, 285, 303, 320, 356, 374, 392, 409, 444],
+              [26.4, 29.04, 31.68, 34.32, 36.96, 39.6, 42.24, 44.88, 47.52, 52.8, 55.44, 58.08, 60.72, 66]
+            ],
+            "characteristic": {
+              "name": "クローズ",
+              "detail": "このスキルを使用すると、デッキから除外される。",
+              "type": ["exclusion"]
+            }
+          }
+        ]
+      },
+      "characteristic": {
+        "name": "クローズ",
+        "detail": "このスキルを使用すると、デッキから除外される。",
+        "type": ["exclusion"]
+      }
+    }
+  }
+}

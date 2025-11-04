@@ -1,18 +1,19 @@
 import { defineStore } from 'pinia';
 import Dexie from 'dexie';
 import { StoreState } from '@/types/stateStore';
-import { CardDefaultData, CardDataType, SkillDetail } from '@/types/cardList';
+import { CardDataType, SkillDetail } from '@/types/cardList';
 import {
   MEMBER_KEYS,
   MEMBER_IDS,
   MEMBER_NAMES,
   EXCLUSION_MEMBER,
   MemberKeys,
+  MemberKeyValues,
   getMemberKeyFromValue,
   conversionIdToKey,
   conversionKeyToId,
-  getMemberData,
   makeMemberFullName,
+  conversionCardIdToMemberName,
   getMemberKeys,
   getMemberKeyValue,
 } from '@/constants/memberNames';
@@ -24,16 +25,17 @@ import {
   LIMITED,
   FAVORITE,
   MAX_CARD_LEVEL,
+  Rare,
   getStyleTypeListEn,
   getMoodListEn,
   MaxCardLevel,
 } from '@/constants/cards';
 import { BONUS_SKILL_NAMES, BonusSkillNames } from '@/constants/bonusSkills';
 import { SKILL_LIST } from '@/constants/skillList';
-import { SKILL_DETAIL } from '@/constants/skillDetail';
 import { MUSIC_LIST, AttributeEn } from '@/constants/musicList';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { useCardStore } from './cardList';
+import { CardListState, CardStatus } from '@/types/cardList';
 // import { Dropbox } from 'dropbox';
 
 export const useStateStore = defineStore('store', {
@@ -149,7 +151,7 @@ export const useStateStore = defineStore('store', {
       //   side1: 'SIDE STYLE 1'
       // }
     },
-    specialCardIdList: ['sc_001', 'is_001', 'ktm_001'],
+    specialCardIds: ['sc_001', 'is_001', 'ktm_001'],
     formationMember: {
       103: [
         MEMBER_KEYS.KAHO,
@@ -281,266 +283,13 @@ export const useStateStore = defineStore('store', {
       return cardStore.card;
     },
     cardList(): CardDataType[] {
-      const result = {
-        DR: [],
-        LR: [],
-        BR: [],
-        UR: [],
-        SR: [],
-        R: [],
-      };
-
-      for (const memberName in this.card) {
-        if (memberName === 'default') {
-          continue;
-        }
-
-        for (const rare in this.card[memberName]) {
-          for (const cardName in this.card[memberName][rare]) {
-            if (cardName === 'default') {
-              continue;
-            }
-
-            this.card[memberName][rare][cardName].cardName = cardName;
-            this.card[memberName][rare][cardName].rare = rare;
-            this.card[memberName][rare][cardName].memberName = memberName;
-            this.card[memberName][rare][cardName].limited = this.card[memberName][rare][cardName].gacha.period;
-            this.card[memberName][rare][cardName].sortPoint = 0;
-            this.card[memberName][rare][cardName].favorite = [];
-            result[rare].push(this.card[memberName][rare][cardName]);
-          }
-        }
-      }
-
-      return Object.values(result).flat();
-    },
-    outputCardList() {
-      let result: CardDataType[] = this.cardList.slice();
-      let filterList;
-
-      if (result.length > 0) {
-        for (const searchKey in this.search.cardList) {
-          filterList = this.search.cardList[searchKey];
-          result = result.filter((cardData) => {
-            switch (searchKey) {
-              case 'cardLevel':
-              case 'SALevel':
-              case 'SLevel':
-              case 'releaseLevel':
-              case 'trainingLevel':
-                return (
-                  filterList[0] <= cardData.fluctuationStatus[searchKey] &&
-                  cardData.fluctuationStatus[searchKey] <= filterList[1]
-                );
-              case 'SAAP':
-                if (cardData.specialAppeal === undefined) {
-                  return true;
-                } else {
-                  const AP =
-                    cardData.specialAppeal.AP -
-                    (MAX_CARD_LEVEL[cardData.rare].length - 2 > cardData.fluctuationStatus.trainingLevel
-                      ? cardData.fluctuationStatus.trainingLevel
-                      : MAX_CARD_LEVEL[cardData.rare].length - 3);
-                  return filterList[0] <= AP && AP <= filterList[1];
-                }
-              case 'SAP':
-                if (cardData.skill === undefined) {
-                  return true;
-                } else {
-                  return filterList[0] <= cardData.skill.AP && cardData.skill.AP <= filterList[1];
-                }
-              case 'favorite':
-                if (this.search.cardList.favorite.length === 0) {
-                  return true;
-                } else {
-                  return this.search.cardList.favorite.some((v) => {
-                    return cardData.favorite.length === 0 ? false : cardData.favorite.indexOf(v) > -1;
-                  });
-                }
-              case 'releaseStatus':
-                if (this.search.cardList.releaseStatus === 'none') {
-                  return true;
-                }
-
-                if (cardData.fluctuationStatus.cardLevel === 0) {
-                  return false;
-                }
-
-                if (this.search.cardList.releaseStatus === 'cardLevel') {
-                  if (
-                    MAX_CARD_LEVEL[cardData.rare][MAX_CARD_LEVEL[cardData.rare].length - 1] ===
-                    cardData.fluctuationStatus.cardLevel
-                  ) {
-                    return false;
-                  } else {
-                    return (
-                      MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] >
-                      cardData.fluctuationStatus.cardLevel
-                    );
-                  }
-                }
-
-                if (this.search.cardList.releaseStatus === 'trainingLevel') {
-                  if (
-                    MAX_CARD_LEVEL[cardData.rare][MAX_CARD_LEVEL[cardData.rare].length - 1] ===
-                    cardData.fluctuationStatus.cardLevel
-                  ) {
-                    return false;
-                  } else {
-                    return (
-                      MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] ===
-                      cardData.fluctuationStatus.cardLevel
-                    );
-                  }
-                }
-
-                if (this.search.cardList.releaseStatus === 'releaseLevel') {
-                  if (cardData.fluctuationStatus.releasePoint === 0 || cardData.fluctuationStatus.releaseLevel === 5) {
-                    return false;
-                  } else {
-                    return getReleasePoint(cardData.rare, 'point') <= cardData.fluctuationStatus.releasePoint;
-                  }
-                }
-
-                return true;
-              case 'memberName':
-                if (filterList.includes('special') && this.specialCardIdList.includes(cardData.ID)) {
-                  return true;
-                }
-
-                return filterList.some((val: string) => {
-                  return cardData[searchKey] === val;
-                });
-              default:
-                return filterList.some((val: string) => {
-                  return cardData[searchKey] === val;
-                });
-            }
+      return Object.entries(this.card).flatMap(([memberName, memberCards]) => {
+        return Object.entries(memberCards).flatMap(([rare, rarityCards]) => {
+          return Object.entries(rarityCards).map(([id, card]) => {
+            return card;
           });
-        }
-      }
-
-      if (result.length > 0) {
-        for (const searchKey in this.search.skillList[this.search.skillList.skillFilterType]) {
-          filterList = this.search.skillList[this.search.skillList.skillFilterType][searchKey];
-
-          if (filterList.length === 0) {
-            continue;
-          }
-
-          result = result.filter((cardData) => {
-            if (cardData[searchKey] !== undefined) {
-              return filterList.some((val) => {
-                if (this.search.skillList.skillFilterType === 'skillType') {
-                  const skillID = Object.values(SKILL_DETAIL).find((key) => {
-                    return key.name_ja === val;
-                  });
-
-                  if (!skillID) {
-                    return false;
-                  }
-
-                  return SKILL_LIST[cardData[searchKey].name][cardData[searchKey].ID].detail.type.some((key) => {
-                    return key.name_ja === skillID.name_ja;
-                  });
-                } else {
-                  return cardData[searchKey].name === val;
-                }
-              });
-            } else {
-              return false;
-            }
-          });
-        }
-      }
-
-      if (result.length > 0) {
-        filterList = this.search.cardSeries;
-
-        if (filterList.length > 0) {
-          result = result.filter((cardData) => {
-            return filterList.some((val) => {
-              return cardData.series === val;
-            });
-          });
-        }
-      }
-
-      if (result.length > 0) {
-        if (this.localStorageData.sortSettings.cardList.sortType === 'rare') {
-          if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
-            result.reverse();
-          }
-        } else {
-          let aa: number;
-          let bb: number;
-          const mergeList = [];
-
-          if (this.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
-            result = result.filter((cardData) => {
-              if (cardData.rare === 'DR' || cardData.specialAppeal === undefined) {
-                mergeList.push(cardData);
-                return false;
-              } else {
-                return true;
-              }
-            });
-          }
-
-          result.sort((a: CardDefaultData, b: CardDefaultData) => {
-            if (this.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
-              aa = a.fluctuationStatus.releaseLevel - 1;
-              bb = b.fluctuationStatus.releaseLevel - 1;
-
-              if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
-                return GRANDPRIX_BONUS.releaseLv[a.rare][aa] < GRANDPRIX_BONUS.releaseLv[b.rare][bb]
-                  ? -1
-                  : GRANDPRIX_BONUS.releaseLv[a.rare][aa] > GRANDPRIX_BONUS.releaseLv[b.rare][bb]
-                  ? 1
-                  : 0;
-              } else {
-                return GRANDPRIX_BONUS.releaseLv[a.rare][aa] > GRANDPRIX_BONUS.releaseLv[b.rare][bb]
-                  ? -1
-                  : GRANDPRIX_BONUS.releaseLv[a.rare][aa] < GRANDPRIX_BONUS.releaseLv[b.rare][bb]
-                  ? 1
-                  : 0;
-              }
-            } else if (/(card|SA|S|release|training)Level/.test(this.localStorageData.sortSettings.cardList.sortType)) {
-              aa = a.fluctuationStatus[this.localStorageData.sortSettings.cardList.sortType];
-              bb = b.fluctuationStatus[this.localStorageData.sortSettings.cardList.sortType];
-
-              if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
-                return aa < bb ? -1 : aa > bb ? 1 : 0;
-              } else {
-                return aa > bb ? -1 : aa < bb ? 1 : 0;
-              }
-            } else {
-              aa = a[this.localStorageData.sortSettings.cardList.sortType];
-              bb = b[this.localStorageData.sortSettings.cardList.sortType];
-
-              if (this.localStorageData.sortSettings.cardList.order === 'ascending') {
-                return aa < bb ? -1 : aa > bb ? 1 : 0;
-              } else {
-                return aa > bb ? -1 : aa < bb ? 1 : 0;
-              }
-            }
-          });
-
-          if (mergeList.length > 0) {
-            result = result.concat(mergeList);
-          }
-        }
-      }
-
-      this.localStorageData.cardList.cardListFilter = {
-        cardList: this.search.cardList,
-        skillList: this.search.skillList,
-        cardSeries: this.search.cardSeries,
-      };
-
-      this.setLocalStorage('llllMgr_cardListFilter', this.localStorageData.cardList.cardListFilter);
-
-      return result;
+        });
+      });
     },
     specialAppealNameList() {
       return this.makeSkillFilterList('specialAppeal');
@@ -609,19 +358,19 @@ export const useStateStore = defineStore('store', {
         return result;
       };
     },
-    settingCardData(): CardDefaultData {
-      return this.card[this.settingCard.name][this.settingCard.rare][this.settingCard.card];
+    settingCardData(): CardDataType {
+      return this.findCardData(this.settingCard.ID);
     },
     maxTrainingLevel(): number {
-      return MAX_CARD_LEVEL[this.isAikatsu ? 'BR' : this.settingCard.rare].length - 1;
+      return MAX_CARD_LEVEL[this.isAikatsu ? 'BR' : this.settingCardData.rare].length - 1;
     },
     maxCardLevel(): number {
-      return MAX_CARD_LEVEL[this.isAikatsu ? 'BR' : this.settingCard.rare][
+      return MAX_CARD_LEVEL[this.isAikatsu ? 'BR' : this.settingCardData.rare][
         this.settingCardData.fluctuationStatus.trainingLevel
       ];
     },
     minCardLevel(): number {
-      const rare: string = this.isAikatsu ? 'BR' : this.settingCard.rare;
+      const rare: string = this.isAikatsu ? 'BR' : this.settingCardData.rare;
 
       if (this.settingCardData.fluctuationStatus.trainingLevel - 1 < 0) {
         return MAX_CARD_LEVEL[rare][0];
@@ -650,9 +399,9 @@ export const useStateStore = defineStore('store', {
         } => {
           if ((cardId?.split('_')[1] ?? '000') === '000') {
             return {
-              memberName: this.settingCard.name,
-              rare: this.settingCard.rare,
-              cardName: this.settingCard.card,
+              memberName: this.settingCardData.memberName,
+              rare: this.settingCardData.rare,
+              cardName: this.settingCardData.card,
             };
           } else {
             const cardData = this.findCardData(cardId);
@@ -664,7 +413,7 @@ export const useStateStore = defineStore('store', {
           }
         })();
 
-        const selectCard: CardDefaultData = this.card[target.memberName][target.rare][target.cardName];
+        const selectCard = this.findCardData(cardId);
         target.trainingLevel = selectCard.fluctuationStatus.trainingLevel;
         target.cardLevel = selectCard.fluctuationStatus.cardLevel;
         const maxStatus: number = selectCard.uniqueStatus[style];
@@ -748,9 +497,6 @@ export const useStateStore = defineStore('store', {
         return result;
       };
     },
-    setCardIllust(): string {
-      return `${this.conversion(this.getSettingCard.card)}_${getMemberData(this.getSettingCard.name).last}_覚醒後`;
-    },
     skillLevels() {
       const result = {};
 
@@ -813,26 +559,8 @@ export const useStateStore = defineStore('store', {
      */
     init(): void {
       // this.makeDb();
-      for (const musicTitle in MUSIC_LIST) {
-        this.musicLevel[musicTitle] = MUSIC_LIST[musicTitle].level;
-      }
-
-      const bonusSkillList = {};
-
-      for (const key in BONUS_SKILL_NAMES) {
-        bonusSkillList[BONUS_SKILL_NAMES[key]] = 0;
-      }
-
-      for (const memberKey of getMemberKeys()) {
-        this.supportSkill[memberKey] = JSON.parse(JSON.stringify(bonusSkillList));
-        this.memberData.centerList[memberKey] = {
-          centerMusic: [],
-          bonusSkill: JSON.parse(JSON.stringify(bonusSkillList)),
-        };
-      }
-
       this.search = JSON.parse(JSON.stringify(this.defaultSearch));
-      this.card = JSON.parse(JSON.stringify(this.defaultCard));
+      this.initializeData();
       this.getLocalStorage();
       this.setSupportSkillLevel();
       // this.fetchFiles();
@@ -841,6 +569,112 @@ export const useStateStore = defineStore('store', {
       // if (window.location.search.replace('?', '') !== '') {
       //   window.location.replace('/llllMgr/musicList');
       // }
+    },
+    /**
+     * 補助関数: 指定した処理を非同期として実行するPromiseを返す。
+     *
+     * この関数は、同期的なコードを非同期コンテキストで実行可能にするためのもの。\
+     * 必要に応じて、`setTimeout(resolve, 0)`を使って次のイベントループに処理を移譲し、\
+     * ブラウザのUIを更新する機会を与えることができる。
+     */
+    wrapInPromise<T>(callback: () => T): Promise<T> {
+      return new Promise((resolve) => {
+        // 実際には大量の計算がメインスレッドで行われますが、
+        // resolveを非同期にすることで、少なくとも呼び出し元はawaitで待機できます。
+        // 重い処理の場合、setTimeout(() => { resolve(callback()); }, 0);
+        // とすることで、ブラウザの再描画に時間を渡せます。（ただし処理速度は低下します）
+        resolve(callback());
+      });
+    },
+    /**
+     * 処理をまとめるメインの非同期メソッド。\
+     * 楽曲とカードのリストを作っている。
+     *
+     * @returns void
+     */
+    async initializeData(): void {
+      const _this = this;
+
+      const makeInitMusicData = this.wrapInPromise(() => {
+        for (const musicTitle in MUSIC_LIST) {
+          _this.musicLevel[musicTitle] = MUSIC_LIST[musicTitle].level;
+        }
+
+        const bonusSkillList = {};
+        for (const key in BONUS_SKILL_NAMES) {
+          bonusSkillList[BONUS_SKILL_NAMES[key]] = 0;
+        }
+
+        for (const memberKey of getMemberKeys()) {
+          _this.supportSkill[memberKey] = JSON.parse(JSON.stringify(bonusSkillList));
+          _this.memberData.centerList[memberKey] = {
+            centerMusic: [],
+            bonusSkill: JSON.parse(JSON.stringify(bonusSkillList)),
+          };
+        }
+
+        return true;
+      });
+
+      const makeInitCardList = this.wrapInPromise(() => {
+        const cardStore = useCardStore();
+
+        if (!cardStore.card) {
+          _this.card = {};
+        }
+
+        const addStatus: CardStatus = {
+          fluctuationStatus: {
+            cardLevel: 0,
+            trainingLevel: 0,
+            SALevel: 1,
+            SLevel: 1,
+            releaseLevel: 1,
+            releasePoint: 0,
+          },
+          sortPoint: 0,
+          favorite: [],
+        };
+
+        for (const memberName in cardStore.card) {
+          for (const rare in cardStore.card[memberName]) {
+            for (const cardId in cardStore.card[memberName][rare]) {
+              cardStore.card[memberName][rare][cardId] = {
+                ...cardStore.card[memberName][rare][cardId],
+                ...addStatus,
+                ID: cardId,
+                rare: rare as Rare,
+                memberName: memberName as MemberKeyValues,
+                limited: cardStore.card[memberName][rare][cardId].gacha.period as string,
+              };
+            }
+          }
+        }
+
+        _this.card = cardStore.card;
+
+        return true;
+      });
+
+      try {
+        await Promise.all([makeInitMusicData, makeInitCardList]);
+      } catch (error) {
+        console.error('非同期処理中にエラーが発生しました:', error);
+      }
+    },
+    /**
+     * カード画像名作成
+     *
+     * カード画像名を作成
+     *
+     * @param cardId カードID
+     * @param isAwaking 覚醒フラグ
+     * @returns カード画像名
+     */
+    makeCardIllustName(cardId: string, isAwaking = true): string {
+      return `${this.conversion(this.findCardData(cardId).cardName)}_${conversionCardIdToMemberName(cardId)}_覚醒${
+        isAwaking ? '後' : '前'
+      }`;
     },
     makeNewDeck(): void {
       const a = {
@@ -932,7 +766,7 @@ export const useStateStore = defineStore('store', {
      * @param value 値
      * @returns void
      */
-    setLocalStorage(setLocalStorageName: string, value: any): void {
+    setLocalStorage(setLocalStorageName: string, value: string): void {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },
     getLocalStorage(importData?: any): void {
@@ -992,41 +826,54 @@ export const useStateStore = defineStore('store', {
           this.localStorageData.cardList.card = this.makeExportCardData(JSON.parse(localStorage.llllMgr_card));
           isRemakeCardData = true;
         } else if (importData.cardList !== undefined && importData.cardList.card !== undefined) {
+          // カードリストのデータのつくりが旧式であるか判定
+          // 「xx_000」形式であればスルー
+          if (!/^[a-z]+_\d{3}$/.test(Object.keys(importData.cardList.card.kaho.DR)[0])) {
+            for (const memberName in importData.cardList.card) {
+              for (const rare in importData.cardList.card[memberName]) {
+                const a = {};
+
+                for (const cardName in importData.cardList.card[memberName][rare]) {
+                  a[this.findCardId(memberName, cardName)] = importData.cardList.card[memberName][rare][cardName];
+                }
+
+                importData.cardList.card[memberName][rare] = a;
+              }
+            }
+          }
+
           this.localStorageData.cardList.card = this.makeExportCardData(importData.cardList.card);
-          this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
+          // this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
           isRemakeCardData = true;
         }
 
         if (isRemakeCardData) {
           for (const memberName in this.card) {
-            for (const rare in this.card[memberName]) {
-              if (this.localStorageData.cardList.card[memberName] !== undefined) {
-                for (const cardName in this.localStorageData.cardList.card[memberName][rare]) {
-                  this.card[memberName][cardName === 'バアドゲージ' && memberName === MEMBER_KEYS.SAYAKA ? 'UR' : rare][
-                    cardName === 'バアドゲージ' ? 'バアドケージ' : cardName
-                  ].fluctuationStatus =
-                    this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus;
+            if (this.localStorageData.cardList.card[memberName]) {
+              for (const rare in this.card[memberName]) {
+                if (this.localStorageData.cardList.card[memberName][rare]) {
+                  for (const id in this.card[memberName][rare]) {
+                    const lsCardData = this.localStorageData.cardList.card[memberName][rare][id];
+                    if (lsCardData) {
+                      const card = this.card[memberName][rare][id];
+                      card.fluctuationStatus = lsCardData.fluctuationStatus;
 
-                  if (
-                    this.localStorageData.cardList.card[memberName][rare][cardName].fluctuationStatus.releasePoint ===
-                    undefined
-                  ) {
-                    this.card[memberName][
-                      cardName === 'バアドゲージ' && memberName === MEMBER_KEYS.SAYAKA ? 'UR' : rare
-                    ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].fluctuationStatus.releasePoint = 0;
-                  }
+                      if (lsCardData.fluctuationStatus.releasePoint === undefined) {
+                        card.fluctuationStatus.releasePoint = 0;
+                      }
 
-                  if (this.localStorageData.cardList.card[memberName][rare][cardName].favorite !== undefined) {
-                    this.card[memberName][
-                      cardName === 'バアドゲージ' && memberName === MEMBER_KEYS.SAYAKA ? 'UR' : rare
-                    ][cardName === 'バアドゲージ' ? 'バアドケージ' : cardName].favorite =
-                      this.localStorageData.cardList.card[memberName][rare][cardName].favorite;
+                      if (lsCardData.favorite) {
+                        card.favorite = lsCardData.favorite;
+                      }
+                    }
                   }
                 }
               }
             }
           }
         }
+        // ローカルストレージのデータを更新
+        this.setLocalStorage('llllMgr_card', this.makeExportCardData());
       }
 
       if (
@@ -1205,39 +1052,34 @@ export const useStateStore = defineStore('store', {
      * @returns void
      */
     setSettingCard(cardId: string): void {
-      const cardData = this.findCardData(cardId);
       this.settingCard.ID = cardId;
-      this.settingCard.rare = cardData.rare;
-      this.settingCard.name = cardData.memberName;
-      this.settingCard.card = cardData.cardName;
     },
+    /**
+     * boolean判定
+     *
+     * 与えられた文字がtrueであるか判定する処理。
+     *
+     * @param value 判定したい文字
+     * @returns true | false
+     */
     toBool(value: string): boolean {
       return value === 'true';
     },
-    conversion(name: string): string {
-      return /!/.test(name) ? name.replace(/!/g, '！') : /\//.test(name) ? name.replace(/\//g, '／') : name;
+    /**
+     * 文字変換
+     *
+     * ファイル名で使えない文字を使える文字に変換する処理。
+     *
+     * @param val 文字
+     * @returns 変換後の文字
+     */
+    conversion(val: string): string {
+      return val.replace(/!/g, '！').replace(/\//g, '／');
     },
     setOpenCard(id: string, name: string, style: string): void {
       this.openCard.ID = id;
       this.openCard.name = name;
       this.openCard.style = style;
-    },
-    /**
-     * カードIDからメンバー名を作成する関数
-     *
-     * @param id カードID
-     * @returns メンバー名
-     */
-    makeCardMemberName(id: string): string {
-      switch (id) {
-        case 'ktm_001':
-          return '乙宗梢＆夕霧綴理＆藤島慈';
-        case 'is_001':
-          return makeMemberFullName(MEMBER_KEYS.SELAIZU);
-        default:
-          const memberKey = conversionIdToKey(id.split('_')[0]);
-          return `${MEMBER_NAMES[memberKey][memberKey === MEMBER_KEYS.SERAS ? 'first' : 'last']}`;
-      }
     },
     isOtherMember(name: string): boolean {
       return name === 'special';
@@ -1270,8 +1112,10 @@ export const useStateStore = defineStore('store', {
      * @param cardId カードID
      * @return カードデータ
      */
-    findCardData(cardId: string) {
-      if (cardId.split('_')[1] === '000') {
+    findCardData(cardId: string): CardDataType {
+      const id_split = cardId.split('_');
+
+      if (id_split[1] === '000') {
         return {
           ...this.card.default,
           ...{
@@ -1279,7 +1123,13 @@ export const useStateStore = defineStore('store', {
           },
         };
       } else {
-        return this.cardList.find((v) => v.ID === cardId);
+        const memberCardList = this.card[conversionIdToKey(id_split[0])];
+
+        for (const rare in memberCardList) {
+          if (memberCardList[rare][cardId]) {
+            return memberCardList[rare][cardId];
+          }
+        }
       }
     },
     /**
@@ -1288,10 +1138,8 @@ export const useStateStore = defineStore('store', {
      * @param memberName メンバー名
      * @return デフォルトのカードID
      */
-    makeDefaultCardId(memberName: string): string {
-      return `${Object.keys(MEMBER_IDS).find((key) => {
-        MEMBER_IDS[key] === memberName;
-      })}_000`;
+    makeDefaultCardId(memberName: MemberKeyValues): string {
+      return `${memberName === 'default' ? 'df' : MEMBER_IDS[memberName]}_000`;
     },
     /**
      * カードIDからカードのレアリティを検索
@@ -1303,26 +1151,26 @@ export const useStateStore = defineStore('store', {
       if (Number(cardId.split('_')[1]) === 0) {
         return 'default';
       } else {
-        return this.cardList.find((v) => v.ID === cardId)?.rare ?? '';
+        return this.findCardData(cardId)?.rare ?? '';
       }
     },
     searchSelectDeckCard(name: string, style: string) {
       return this.selectDeck.cardData[name][style].id;
     },
-    makeExportCardData(data?: any) {
+    makeExportCardData(data?: any): Record<string, any> {
       const result = {};
-      const card = data !== undefined ? data : this.card;
+      const card = data ?? this.card;
 
-      for (const memberName in card) {
+      for (const memberName of Object.keys(card)) {
         result[memberName] = {};
 
         for (const rare in card[memberName]) {
           result[memberName][rare] = {};
 
-          for (const cardName in card[memberName][rare]) {
-            result[memberName][rare][cardName] = {
-              fluctuationStatus: card[memberName][rare][cardName].fluctuationStatus,
-              favorite: card[memberName][rare][cardName].favorite,
+          for (const id in card[memberName][rare]) {
+            result[memberName][rare][id] = {
+              fluctuationStatus: card[memberName][rare][id].fluctuationStatus,
+              favorite: card[memberName][rare][id].favorite,
             };
           }
         }
@@ -1417,9 +1265,9 @@ export const useStateStore = defineStore('store', {
     /*cardParam(style, target) {
      if (target === undefined) {
      target = {
-     memberName: this.settingCard.name,
-     rare: this.settingCard.rare,
-     card: this.settingCard.card
+     memberName: this.settingCardData.memberName,
+     rare: this.settingCardData.rare,
+     card: this.settingCardData.card,
      }
      }
 
@@ -1439,9 +1287,6 @@ export const useStateStore = defineStore('store', {
     },
     isExclusionMember(targetMember) {
       return EXCLUSION_MEMBER.some((val) => val === targetMember);
-    },
-    findOpenCardMemberName(cardId) {
-      return this.cardList.find((v) => v.ID === cardId)?.memberName ?? '';
     },
     resetMusicFilter(resetName: string) {
       if (/^(SA|S)(AP|Level)|(release|card|training)Level$/.test(resetName)) {
@@ -1479,45 +1324,84 @@ export const useStateStore = defineStore('store', {
         this.search.cardList[resetName] = [];
       }
     },
-    dataReset(resetList) {
+    /**
+     * データリセット
+     *
+     * @param resetList リセットするデータリスト
+     * @returns void
+     */
+    dataReset(resetList: string[]): void {
       for (const iterator of resetList) {
-        if (iterator === 'card') {
-          this.card = JSON.parse(JSON.stringify(this.defaultCard));
-          this.localStorageData.cardList.card = this.makeExportCardData(this.card);
-          this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
-        } else if (iterator === 'cardListFilter') {
-          this.search = JSON.parse(JSON.stringify(this.defaultSearch));
-        } else if (iterator === 'musicData') {
-          const bonusSkillList = {};
+        switch (iterator) {
+          case 'card':
+            const allCards: CardDataType[] = [];
+            const addStatus: CardStatus = {
+              fluctuationStatus: {
+                cardLevel: 0,
+                trainingLevel: 0,
+                SALevel: 1,
+                SLevel: 1,
+                releaseLevel: 1,
+                releasePoint: 0,
+              },
+              sortPoint: 0,
+              favorite: [],
+            };
 
-          for (const key in BONUS_SKILL_NAMES) {
-            bonusSkillList[BONUS_SKILL_NAMES[key]] = 0;
-          }
-
-          for (const name of getMemberKeys()) {
-            this.supportSkill[name] = JSON.parse(JSON.stringify(bonusSkillList));
-            this.memberData.centerList[name].bonusSkill = JSON.parse(JSON.stringify(bonusSkillList));
-
-            for (const musicTitle in MUSIC_LIST) {
-              this.musicLevel[musicTitle] = MUSIC_LIST[musicTitle].level;
-              this.localStorageData.musicData.musicLevel[musicTitle] = this.musicLevel[musicTitle];
+            for (const memberName in this.card) {
+              for (const rare in this.card[memberName]) {
+                for (const cardId in this.card[memberName][rare]) {
+                  this.card[memberName][rare][cardId] = {
+                    ...this.card[memberName][rare][cardId],
+                    ...addStatus,
+                  };
+                  allCards.push(this.card[memberName][rare][cardId]);
+                }
+              }
             }
 
-            this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
-          }
-        } else if (iterator === 'selectItemList') {
-          this.localStorageData.selectItemList = {
-            item1: [],
-            item2: [],
-            item3: [],
-          };
-          this.setLocalStorage('llllMgr_selectItemList', this.localStorageData.selectItemList);
-        } else if (iterator === 'sortSettings_card') {
-          this.localStorageData.sortSettings.cardList = JSON.parse(JSON.stringify(this.sortSettings.cardList));
-          this.setLocalStorage('llllMgr_sortSettings', this.localStorageData.sortSettings);
-        } else if (iterator === 'siteSettings') {
-          this.localStorageData.siteSettings = JSON.parse(JSON.stringify(this.siteSettings));
-          this.setLocalStorage('llllMgr_siteSettings', this.localStorageData.siteSettings);
+            this.setLocalStorage('llllMgr_card', this.makeExportCardData());
+            break;
+          case 'cardListFilter':
+            this.search = JSON.parse(JSON.stringify(this.defaultSearch));
+            break;
+          case 'musicData':
+            const bonusSkillList = {};
+
+            for (const key in BONUS_SKILL_NAMES) {
+              bonusSkillList[BONUS_SKILL_NAMES[key]] = 0;
+            }
+
+            for (const name of getMemberKeys()) {
+              this.supportSkill[name] = JSON.parse(JSON.stringify(bonusSkillList));
+              this.memberData.centerList[name].bonusSkill = JSON.parse(JSON.stringify(bonusSkillList));
+
+              for (const musicTitle in MUSIC_LIST) {
+                this.musicLevel[musicTitle] = MUSIC_LIST[musicTitle].level;
+                this.localStorageData.musicData.musicLevel[musicTitle] = this.musicLevel[musicTitle];
+              }
+
+              this.setLocalStorage('llllMgr_musicData', this.localStorageData.musicData);
+            }
+            break;
+          case 'selectItemList':
+            this.localStorageData.selectItemList = {
+              item1: [],
+              item2: [],
+              item3: [],
+            };
+            this.setLocalStorage('llllMgr_selectItemList', this.localStorageData.selectItemList);
+            break;
+          case 'sortSettings_card':
+            this.localStorageData.sortSettings.cardList = JSON.parse(JSON.stringify(this.sortSettings.cardList));
+            this.setLocalStorage('llllMgr_sortSettings', this.localStorageData.sortSettings);
+            break;
+          case 'siteSettings':
+            this.localStorageData.siteSettings = JSON.parse(JSON.stringify(this.siteSettings));
+            this.setLocalStorage('llllMgr_siteSettings', this.localStorageData.siteSettings);
+            break;
+          default:
+            break;
         }
       }
     },

@@ -271,7 +271,7 @@ const eventList = {
     type: 'live',
     firstDay: [2026, 1, 21, 0, 0],
     lastDay: [2026, 1, 22, 23, 59],
-    url: 'https://x.com/hasunosora_SIC/status/1974776878297997785',
+    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=RTB',
     img: 'Fes×REC_RtB',
   },
   movie: {

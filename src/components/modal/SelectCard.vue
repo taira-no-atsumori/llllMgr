@@ -44,22 +44,22 @@
         class="pa-1"
       >
         <v-card
-          v-if="!!searchSetCard(store, cardData.ID)"
-          :disabled="!!searchSetCard(store, cardData.ID)"
-          @click="openCheckDialog(store, cardData.cardName, rare, cardData)"
+          v-if="!!searchSetCard(cardData.ID)"
+          :disabled="!!searchSetCard(cardData.ID)"
+          @click="openCheckDialog(cardData.cardName, rare, cardData)"
         >
           <v-img
             :src="
               store.getImagePath(
                 'images/cardIllust',
-                `${store.conversion(cardData.cardName)}_${makeCardMemberName(store, cardData.ID)}_覚醒後`
+                `${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
               )
             "
             gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
             class="d-flex align-center"
           >
             <p class="text-center text-white font-weight-bold text-h6">
-              {{ store.styleHeadline[searchSetCard(store, cardData.ID)] }}<br />
+              {{ store.styleHeadline[searchSetCard(cardData.ID)] }}<br />
               選択中
             </p>
           </v-img>
@@ -67,13 +67,13 @@
         </v-card>
         <v-card
           v-else
-          @click="openCheckDialog(store, cardData.cardName, rare, cardData)"
+          @click="openCheckDialog(cardData.cardName, rare, cardData)"
         >
           <v-img
             :src="
               store.getImagePath(
                 'images/cardIllust',
-                `${store.conversion(cardData.cardName)}_${makeCardMemberName(store, cardData.ID)}_覚醒後`
+                `${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
               )
             "
           ></v-img>
@@ -82,21 +82,21 @@
         <!--<v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
               <v-card
-                v-if="searchSetCard(store, cardName)"
+                v-if="searchSetCard(cardName)"
                 v-bind="props"
-                @click="openCheckDialog(store, cardName, rare)"
+                @click="openCheckDialog(cardName, rare)"
               >
                 <v-img
                   :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
                   gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
                   class="d-flex align-center"
-                ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(store, cardName)] }}<br>選択中</p></v-img>
+                ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(cardName)] }}<br>選択中</p></v-img>
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
               <v-card
                 v-else
                 v-bind="props"
-                @click="openCheckDialog(store, cardName, rare)"
+                @click="openCheckDialog(cardName, rare)"
               >
                 <v-img
                   :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
@@ -189,43 +189,43 @@
                 <v-col cols="3">{{ getCardStatus('releaseLevel', true) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'releaseLevel', true)"
-                  >{{ makeWhichText(store, 'releaseLevel', true) }}</v-col
+                  :class="makeClass('releaseLevel', true)"
+                  >{{ makeWhichText('releaseLevel', true) }}</v-col
                 >
                 <v-col cols="6">解放Lv.ボーナス</v-col>
-                <v-col cols="3">{{ makeReleaseBonus(store, true) }}%</v-col>
+                <v-col cols="3">{{ makeReleaseBonus(true) }}%</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'releaseBonus', true)"
-                  >{{ makeWhichText(store, 'releaseBonus', true) }}%</v-col
+                  :class="makeClass('releaseBonus', true)"
+                  >{{ makeWhichText('releaseBonus', true) }}%</v-col
                 >
                 <v-col cols="6">スマイル</v-col>
                 <v-col cols="3">{{ getCardStatus('smile', true) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'smile', true)"
-                  >{{ makeWhichText(store, 'smile', true) }}</v-col
+                  :class="makeClass('smile', true)"
+                  >{{ makeWhichText('smile', true) }}</v-col
                 >
                 <v-col cols="6">クール</v-col>
                 <v-col cols="3">{{ getCardStatus('cool', true) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'cool', true)"
-                  >{{ makeWhichText(store, 'cool', true) }}</v-col
+                  :class="makeClass('cool', true)"
+                  >{{ makeWhichText('cool', true) }}</v-col
                 >
                 <v-col cols="6">ピュア</v-col>
                 <v-col cols="3">{{ getCardStatus('pure', true) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'pure', true)"
-                  >{{ makeWhichText(store, 'pure', true) }}</v-col
+                  :class="makeClass('pure', true)"
+                  >{{ makeWhichText('pure', true) }}</v-col
                 >
                 <v-col cols="6">メンタル</v-col>
                 <v-col cols="3">{{ culMental(true) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'mental', true)"
-                  >{{ makeWhichText(store, 'mental', true) }}</v-col
+                  :class="makeClass('mental', true)"
+                  >{{ makeWhichText('mental', true) }}</v-col
                 >
               </v-row>
             </v-card-text>
@@ -269,43 +269,43 @@
                 <v-col cols="3">{{ getCardStatus('releaseLevel', false) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'releaseLevel', false)"
-                  >{{ makeWhichText(store, 'releaseLevel', false) }}</v-col
+                  :class="makeClass('releaseLevel', false)"
+                  >{{ makeWhichText('releaseLevel', false) }}</v-col
                 >
                 <v-col cols="6">解放Lv.ボーナス</v-col>
-                <v-col cols="3">{{ makeReleaseBonus(store, false) }}%</v-col>
+                <v-col cols="3">{{ makeReleaseBonus(false) }}%</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'releaseBonus', false)"
-                  >{{ makeWhichText(store, 'releaseBonus', false) }}%</v-col
+                  :class="makeClass('releaseBonus', false)"
+                  >{{ makeWhichText('releaseBonus', false) }}%</v-col
                 >
                 <v-col cols="6">スマイル</v-col>
                 <v-col cols="3">{{ getCardStatus('smile', false) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'smile', false)"
-                  >{{ makeWhichText(store, 'smile', false) }}</v-col
+                  :class="makeClass('smile', false)"
+                  >{{ makeWhichText('smile', false) }}</v-col
                 >
                 <v-col cols="6">クール</v-col>
                 <v-col cols="3">{{ getCardStatus('cool', false) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'cool', false)"
-                  >{{ makeWhichText(store, 'cool', false) }}</v-col
+                  :class="makeClass('cool', false)"
+                  >{{ makeWhichText('cool', false) }}</v-col
                 >
                 <v-col cols="6">ピュア</v-col>
                 <v-col cols="3">{{ getCardStatus('pure', false) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'pure', false)"
-                  >{{ makeWhichText(store, 'pure', false) }}</v-col
+                  :class="makeClass('pure', false)"
+                  >{{ makeWhichText('pure', false) }}</v-col
                 >
                 <v-col cols="6">メンタル</v-col>
                 <v-col cols="3">{{ culMental(false) }}</v-col>
                 <v-col
                   cols="3"
-                  :class="makeClass(store, 'mental', false)"
-                  >{{ makeWhichText(store, 'mental', false) }}</v-col
+                  :class="makeClass('mental', false)"
+                  >{{ makeWhichText('mental', false) }}</v-col
                 >
               </v-row>
             </v-card-text>
@@ -375,41 +375,201 @@
   </v-snackbar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // import { ref } from 'vue';
 import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
-import { MEMBER_KEYS, MEMBER_NAMES } from '@/constants/memberNames';
+import { MEMBER_KEYS, MEMBER_NAMES, conversionCardIdToMemberName } from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 
 const store = useStateStore();
+const sachiMessage: string = ref('私はMAIN STYLEには設定できないんだよねぃ');
+const dialog: boolean = ref(false);
+const selectCard = ref(undefined);
+const selectedCard = ref(undefined);
+const rarity = ref(undefined);
+const snackbar = ref({
+  sameCard: false,
+  sachi: false,
+});
+const cardStatus = ref({
+  before: {
+    status: {},
+    rare: 'default',
+  },
+  after: {
+    status: {},
+    rare: 'default',
+  },
+});
+
+const searchSetCard = (cardId: string) => {
+  let result = false;
+
+  for (const name in store.selectDeck.cardData) {
+    for (const style in store.selectDeck.cardData[name]) {
+      if (store.searchSelectDeckCard(store.openCard.name, style) === cardId) {
+        result = name;
+        break;
+      }
+    }
+  }
+
+  return result;
+};
+
+const sameCardCheck = (cardName: string) => {
+  for (const style in store.selectDeck.cardData[store.openCard.name]) {
+    if (store.selectDeck.cardData[store.openCard.name][style].cardName === cardName) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const getCardStatus = (attr: string, isBefore: boolean) => {
+  if (/smile|cool|pure/.test(attr)) {
+    return (
+      cardStatus.value[isBefore ? 'before' : 'after'].status.uniqueStatus[attr] +
+      (cardStatus.value[isBefore ? 'before' : 'after'].status.fluctuationStatus.cardLevel - 1) *
+        (cardStatus.value[isBefore ? 'before' : 'after'].rare === 'R' ? 25 : 30)
+    );
+  } else {
+    return cardStatus[isBefore ? 'before' : 'after'].status[
+      /mental|BP/.test(attr) ? 'uniqueStatus' : 'fluctuationStatus'
+    ][attr];
+  }
+};
+
+const culMental = (isBefore: boolean) => {
+  if (cardStatus[isBefore ? 'before' : 'after'].status.rare === 'R') {
+    return (
+      getCardStatus('mental', isBefore) +
+      Math.ceil((getCardStatus('cardLevel', isBefore) - 1) / 2) * 2 +
+      Math.floor((getCardStatus('cardLevel', isBefore) - 1) / 2) * 3
+    );
+  } else {
+    return getCardStatus('mental', isBefore) + getCardStatus('cardLevel', isBefore) * 3;
+  }
+};
+
+const makeReleaseBonus = (isBefore: boolean) => {
+  if (isBefore) {
+    return (
+      (1 +
+        GRANDPRIX_BONUS.releaseLv[
+          store.searchRarity(
+            store.findCardId(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
+          )
+        ][getCardStatus('releaseLevel', true) - 1]) *
+      100
+    );
+  } else {
+    return (1 + GRANDPRIX_BONUS.releaseLv[this.rarity][getCardStatus('releaseLevel', false) - 1]) * 100;
+  }
+};
+
+const whichParam = (attr, isBefore: boolean) => {
+  if (attr === 'releaseBonus') {
+    return makeReleaseBonus(isBefore) - makeReleaseBonus(!isBefore);
+  } else if (attr === 'mental') {
+    return culMental(isBefore) - culMental(!isBefore);
+  } else {
+    return getCardStatus(attr, isBefore) - getCardStatus(attr, !isBefore);
+  }
+};
+
+const makeWhichText = (attr, isBefore) => {
+  const result = whichParam(attr, isBefore);
+  return `${result < 0 ? '↓' : result > 0 ? '↑' : '→'}${result < 0 ? -result : result}`;
+};
+
+const makeClass = (attr, isBefore) => {
+  const result = whichParam(attr, isBefore);
+  return result < 0 ? 'down' : result > 0 ? 'up' : '';
+};
+
+/**
+ * @description
+ * 選択したカードが選択中のカードと同じかどうかをチェックし、\
+ * 違っていた場合は選択中のカードを更新。\
+ * 同じ場合は toast を表示。
+ *
+ * @param cardName 選択したカード名
+ * @param rare 選択したカードのレアリティ
+ * @param ary 選択したカードのデータ
+ */
+const openCheckDialog = (cardName: string, rare: string, ary) => {
+  const p = (() => {
+    if (store.isParamReflect) {
+      return {
+        cardLevel: ary.fluctuationStatus.cardLevel,
+        SALevel: ary.fluctuationStatus.SALevel,
+        SLevel: ary.fluctuationStatus.SLevel,
+        releaseLevel: ary.fluctuationStatus.releaseLevel,
+      };
+    } else {
+      return store.selectDeck.cardData[ary.memberName === store.openCard.style ? ary.memberName : store.openCard.name][
+        store.openCard.style
+      ].param;
+    }
+  })();
+
+  if (sameCardCheck(cardName)) {
+    snackbar.sameCard = true;
+  } else if (store.findCardData(store.findCardId(store.openCard.name, cardName)).memberName ?? '' === 'sachi') {
+    if (store.openCard.style === 'main') {
+      sachiMessage = '私はMAIN STYLEには設定できないんだよねぃ';
+      snackbar.sachi = true;
+      return;
+    } else {
+      for (const name in store.selectDeck.cardData) {
+        for (const style in store.selectDeck.cardData[name]) {
+          if (store.findCardData(store.selectDeck.cardData[name][style].id).cardName === cardName) {
+            sachiMessage = 'すでに編成されてるんだよねぃ';
+            snackbar.sachi = true;
+            return;
+          }
+        }
+      }
+    }
+
+    store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
+    store.switchDialog(false);
+  } else if (store.searchSelectDeckCard(store.openCard.name, store.openCard.style) === 'default') {
+    /*for (const style in store.selectDeck.cardData[store.openCard.name]) {
+        const data = { ...{}, ...store.selectDeck.cardData[store.openCard.name][style] };
+        console.log(data);
+        store.selectDeck.cardData[store.openCard.name][style].cardName === cardName;
+      }*/
+    store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
+    store.switchDialog(false);
+  } else {
+    store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
+    store.switchDialog(false);
+    rare;
+    // this.selectCard = cardName;
+    // this.rarity = rare;
+    // this.dialog = true;
+    // this.cardStatus = {
+    //   before: {
+    //     status: store.cardParam('all', {memberName: store.openCard.name, rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style)), cardName: store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}),
+    //     rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
+    //   },
+    //   after: {
+    //     status: store.cardParam('all', {memberName: store.openCard.name, rare: rare, cardName: store.conversion(cardName)})},
+    //     rare: rare
+    // };
+  }
+};
 </script>
 
-<script>
+<script lang="ts">
 export default {
   name: 'selectCard',
   data() {
-    return {
-      dialog: false,
-      selectCard: undefined,
-      selectedCard: undefined,
-      rarity: undefined,
-      snackbar: {
-        sameCard: false,
-        sachi: false,
-      },
-      sachiMessage: '私はMAIN STYLEには設定できないんだよねぃ',
-      cardStatus: {
-        before: {
-          status: {},
-          rare: 'default',
-        },
-        after: {
-          status: {},
-          rare: 'default',
-        },
-      },
-    };
+    return;
   },
   created() {},
   mounted() {},
@@ -440,178 +600,7 @@ export default {
       };
     },
   },
-  methods: {
-    makeCardMemberName(store, cardId) {
-      const cardMemberName = store.findOpenCardMemberName(cardId);
-
-      switch (cardMemberName) {
-        case MEMBER_KEYS.SELAIZU:
-          return '桂城泉＆セラス 柳田 リリエンフェルト';
-        case MEMBER_KEYS.KOZUTSUZUMEGU:
-          return '乙宗梢＆夕霧綴理＆藤島慈';
-        default:
-          return MEMBER_NAMES[cardMemberName].last;
-      }
-    },
-    searchSetCard(store, cardId) {
-      let result = false;
-
-      for (const name in store.selectDeck.cardData) {
-        for (const style in store.selectDeck.cardData[name]) {
-          if (store.searchSelectDeckCard(store.openCard.name, style) === cardId) {
-            result = name;
-            break;
-          }
-        }
-      }
-
-      return result;
-    },
-    openMemberName(store) {
-      return store.openCard.name;
-    },
-    /**
-     * @description
-     * 選択したカードが選択中のカードと同じかどうかをチェックし、
-     * 違っていた場合は選択中のカードを更新、
-     * 同じ場合は toast を表示
-     * @param {Object} store - vuex store
-     * @param {string} cardName - 選択したカード名
-     * @param {string} rare - 選択したカードのレアリティ
-     * @param {Object} ary - 選択したカードのデータ
-     */
-    openCheckDialog(store, cardName, rare, ary) {
-      const p = (() => {
-        if (store.isParamReflect) {
-          return {
-            cardLevel: ary.fluctuationStatus.cardLevel,
-            SALevel: ary.fluctuationStatus.SALevel,
-            SLevel: ary.fluctuationStatus.SLevel,
-            releaseLevel: ary.fluctuationStatus.releaseLevel,
-          };
-        } else {
-          return store.selectDeck.cardData[
-            ary.memberName === store.openCard.style ? ary.memberName : store.openCard.name
-          ][store.openCard.style].param;
-        }
-      })();
-
-      if (this.sameCardCheck(store, cardName)) {
-        this.snackbar.sameCard = true;
-      } else if (store.findOpenCardMemberName(store.findCardId(store.openCard.name, cardName)) === 'sachi') {
-        if (store.openCard.style === 'main') {
-          this.sachiMessage = '私はMAIN STYLEには設定できないんだよねぃ';
-          this.snackbar.sachi = true;
-          return;
-        } else {
-          for (const name in store.selectDeck.cardData) {
-            for (const style in store.selectDeck.cardData[name]) {
-              if (store.findCardData(store.selectDeck.cardData[name][style].id).cardName === cardName) {
-                this.sachiMessage = 'すでに編成されてるんだよねぃ';
-                this.snackbar.sachi = true;
-                return;
-              }
-            }
-          }
-        }
-
-        store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
-        store.switchDialog(false);
-      } else if (store.searchSelectDeckCard(store.openCard.name, store.openCard.style) === 'default') {
-        /*for (const style in store.selectDeck.cardData[store.openCard.name]) {
-            const data = { ...{}, ...store.selectDeck.cardData[store.openCard.name][style] };
-            console.log(data);
-            store.selectDeck.cardData[store.openCard.name][style].cardName === cardName;
-          }*/
-        store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
-        store.switchDialog(false);
-      } else {
-        store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
-        store.switchDialog(false);
-        rare;
-        // this.selectCard = cardName;
-        // this.rarity = rare;
-        // this.dialog = true;
-        // this.cardStatus = {
-        //   before: {
-        //     status: store.cardParam('all', {memberName: store.openCard.name, rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style)), cardName: store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}),
-        //     rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
-        //   },
-        //   after: {
-        //     status: store.cardParam('all', {memberName: store.openCard.name, rare: rare, cardName: store.conversion(cardName)})},
-        //     rare: rare
-        // };
-      }
-    },
-    sameCardCheck(store, cardName) {
-      for (const style in store.selectDeck.cardData[store.openCard.name]) {
-        if (store.selectDeck.cardData[store.openCard.name][style].cardName === cardName) {
-          return true;
-        }
-      }
-
-      return false;
-    },
-    getCardStatus(attr, isBefore) {
-      if (/smile|cool|pure/.test(attr)) {
-        return (
-          this.cardStatus[isBefore ? 'before' : 'after'].status.uniqueStatus[attr] +
-          (this.cardStatus[isBefore ? 'before' : 'after'].status.fluctuationStatus.cardLevel - 1) *
-            (this.cardStatus[isBefore ? 'before' : 'after'].rare === 'R' ? 25 : 30)
-        );
-      } else {
-        return this.cardStatus[isBefore ? 'before' : 'after'].status[
-          /mental|BP/.test(attr) ? 'uniqueStatus' : 'fluctuationStatus'
-        ][attr];
-      }
-    },
-    culMental(isBefore) {
-      if (this.cardStatus[isBefore ? 'before' : 'after'].status.rare === 'R') {
-        return (
-          this.getCardStatus('mental', isBefore) +
-          Math.ceil((this.getCardStatus('cardLevel', isBefore) - 1) / 2) * 2 +
-          Math.floor((this.getCardStatus('cardLevel', isBefore) - 1) / 2) * 3
-        );
-      } else {
-        return this.getCardStatus('mental', isBefore) + this.getCardStatus('cardLevel', isBefore) * 3;
-      }
-    },
-    makeReleaseBonus(store, isBefore) {
-      if (isBefore) {
-        return (
-          (1 +
-            GRANDPRIX_BONUS.releaseLv[
-              store.searchRarity(
-                store.findCardId(
-                  store.openCard.name,
-                  store.searchSelectDeckCard(store.openCard.name, store.openCard.style)
-                )
-              )
-            ][this.getCardStatus('releaseLevel', true) - 1]) *
-          100
-        );
-      } else {
-        return (1 + GRANDPRIX_BONUS.releaseLv[this.rarity][this.getCardStatus('releaseLevel', false) - 1]) * 100;
-      }
-    },
-    whichParam(store, attr, isBefore) {
-      if (attr === 'releaseBonus') {
-        return this.makeReleaseBonus(store, isBefore) - this.makeReleaseBonus(store, !isBefore);
-      } else if (attr === 'mental') {
-        return this.culMental(isBefore) - this.culMental(!isBefore);
-      } else {
-        return this.getCardStatus(attr, isBefore) - this.getCardStatus(attr, !isBefore);
-      }
-    },
-    makeWhichText(store, attr, isBefore) {
-      const result = this.whichParam(store, attr, isBefore);
-      return `${result < 0 ? '↓' : result > 0 ? '↑' : '→'}${result < 0 ? -result : result}`;
-    },
-    makeClass(store, attr, isBefore) {
-      const result = this.whichParam(store, attr, isBefore);
-      return result < 0 ? 'down' : result > 0 ? 'up' : '';
-    },
-  },
+  methods: {},
   watch: {},
 };
 </script>
