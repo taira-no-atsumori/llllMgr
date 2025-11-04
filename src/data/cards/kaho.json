@@ -1,0 +1,2765 @@
+{
+  "default": {
+    "kh_000": {
+      "cardName": "default",
+      "styleType": "performer",
+      "mood": "neutral",
+      "kana": "",
+      "gacha": {
+        "addSeason": "",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 30,
+        "pure": 30,
+        "cool": 30,
+        "mental": 3,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "",
+        "name": "",
+        "AP": 1,
+        "detail": []
+      },
+      "skill": {
+        "ID": "",
+        "name": "",
+        "AP": 1,
+        "detail": []
+      },
+      "characteristic": {
+        "name": "",
+        "detail": "",
+        "type": []
+      }
+    }
+  },
+  "DR": {
+    "kh_045": {
+      "cardName": "Ether Aria",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "Ether Aria",
+      "kana": "えーてるありあ",
+      "gacha": {
+        "addSeason": "「ドリームスタイルクエスト」クリア報酬",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 7200,
+        "pure": 5600,
+        "cool": 4700,
+        "mental": 570,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "overBlooming_section",
+        "name": "オーバーブルーミング",
+        "AP": 11,
+        "detail": [
+          [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]
+        ]
+      },
+      "skill": {
+        "ID": "heartSprinkles",
+        "name": "ハートスプリンクル",
+        "AP": 3,
+        "detail": [
+          [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+          [16, 17.6, 19.2, 20.8, 22.4, 24, 25.6, 27.2, 28.8, 32, 33.6, 35.2, 36.8, 40]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：カームダウン & アグレッシブ",
+        "detail": "ドローした時、ボルテージPt.を-10する。さらにメンタルを5%減少させる。",
+        "type": ["draw", "voltageReduce", "mentalReduce"]
+      }
+    },
+    "kh_023": {
+      "cardName": "Prism Echo",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "Prism Echo",
+      "kana": "ぷりずむえこー",
+      "gacha": {
+        "addSeason": "「ドリームスタイルクエスト」クリア報酬",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 6400,
+        "pure": 6000,
+        "cool": 5200,
+        "mental": 560,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartAttraction_100",
+        "name": "ハートアトラクション",
+        "AP": 8,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]]
+      },
+      "skill": {
+        "ID": "heartAttraction_50",
+        "name": "ハートアトラクション",
+        "AP": 5,
+        "detail": [[4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]]
+      },
+      "characteristic": {
+        "name": "フェイバリット：フィーバー",
+        "detail": "フィーバーセクションでドローされる確率が大幅に増加する。",
+        "type": ["favorite"]
+      }
+    }
+  },
+  "BR": {
+    "kh_059": {
+      "cardName": "18th Birthday",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "Birthday",
+      "kana": "えいてぃーんすばーすでー",
+      "gacha": {
+        "addSeason": "2025 BIRTHDAY LIMITED COLLECTION -Kaho-",
+        "period": "birthday"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4800,
+        "cool": 4800,
+        "mental": 480,
+        "BP": 100,
+        "supportSkill": {
+          "supportSkillTitle": "18th Birthday",
+          "supportSkillList": {
+            "ボルテージアップ": {
+              "initLevel": 1,
+              "levelUp": 5,
+              "upLevel": 1
+            },
+            "メンタルリカバー": {
+              "initLevel": 1,
+              "levelUp": 2,
+              "upLevel": 1
+            },
+            "ビートハートアップ": {
+              "initLevel": 1,
+              "levelUp": 4,
+              "upLevel": 1
+            },
+            "LOVEボーナス": {
+              "initLevel": 1,
+              "levelUp": 3,
+              "upLevel": 1
+            }
+          }
+        }
+      },
+      "specialAppeal": {
+        "ID": "heartBoost_section",
+        "name": "ハートブースト",
+        "AP": 6,
+        "detail": [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]]
+      },
+      "skill": {
+        "ID": "bloomMySelf_01",
+        "name": "ブルームマイセルフ",
+        "AP": 3,
+        "detail": [[80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]]
+      },
+      "characteristic": {
+        "name": "バースデイキャンドル",
+        "detail": "スキル使用時まで、18回までAPを3回復する。",
+        "type": ["APGain"]
+      }
+    },
+    "kh_046": {
+      "cardName": "17th Birthday",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "Birthday",
+      "kana": "せぶんてぃーんすばーすでー",
+      "gacha": {
+        "addSeason": "2024 BIRTHDAY LIMITED COLLECTION -Kaho-",
+        "period": "birthday"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4800,
+        "cool": 4800,
+        "mental": 480,
+        "BP": 100,
+        "supportSkill": {
+          "supportSkillTitle": "17th Birthday",
+          "supportSkillList": {
+            "ボルテージアップ": {
+              "initLevel": 1,
+              "levelUp": 4,
+              "upLevel": 1
+            },
+            "メンタルリカバー": {
+              "initLevel": 1,
+              "levelUp": 3,
+              "upLevel": 1
+            },
+            "ビートハートアップ": {
+              "initLevel": 1,
+              "levelUp": 2,
+              "upLevel": 1
+            },
+            "LOVEボーナス": {
+              "initLevel": 1,
+              "levelUp": 5,
+              "upLevel": 1
+            }
+          }
+        }
+      },
+      "specialAppeal": {
+        "ID": "wideHeart_stage",
+        "name": "ワイドハート",
+        "AP": 4,
+        "detail": [[12, 14, 15, 16, 17, 18, 20, 21, 22, 26, 25, 27, 28, 30]]
+      },
+      "skill": {
+        "ID": "celebration_heart_attract_mental",
+        "name": "セレブレイション",
+        "AP": 3,
+        "detail": [
+          [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 45.6, 48, 50.4, 52.8, 60],
+          [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+          [24, 26.4, 28.8, 31.2, 33.6, 36, 38.4, 40.8, 43.2, 48, 50.4, 52.8, 55.2, 60]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：ブレッシング",
+        "detail": "手札にある状態でセクションが変わるたび、手札のすべてのスキルの消費AP-1。",
+        "type": ["overSection", "APReduce_all"]
+      }
+    }
+  },
+  "UR": {
+    "kh_066": {
+      "cardName": "乙女詞華集",
+      "styleType": "trickStar",
+      "mood": "happy",
+      "series": "乙女詞華集",
+      "kana": "おとめあんそろじー",
+      "gacha": {
+        "addSeason": "2025 AUTUMN LIMITED COLLECTION vol.4",
+        "period": "autumn"
+      },
+      "uniqueStatus": {
+        "smile": 5050,
+        "pure": 5950,
+        "cool": 3100,
+        "mental": 510,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "otomeWriter_01",
+        "name": "オトメライター",
+        "AP": 14,
+        "detail": [[192, 211.2, 230.4, 249.6, 268.8, 288, 307.2, 326.4, 345.6, 384, 403.2, 422.4, 441.6, 480]],
+        "addSkill": [
+          {
+            "ID": "manuscript_01",
+            "name": "マニュスクリプト",
+            "AP": 16,
+            "detail": [
+              [77, 85, 93, 100, 108, 116, 123, 131, 139, 154, 162, 170, 177, 192],
+              [77, 85, 93, 100, 108, 116, 123, 131, 139, 154, 162, 170, 177, 192],
+              [768, 844.8, 921.6, 998.4, 1075.2, 1152, 1228.8, 1305.6, 1382.4, 1536, 1612.8, 1689.6, 1766.4, 1920]
+            ],
+            "characteristic": {
+              "name": "センチメンタルリリック",
+              "detail": "花帆、吟子以外のメンバーのスキル使用時にドローされない。このスキルを使用する度にスキル効果量が増加、消費APが減少する。さらにこのスキルを48回使用したとき、デッキから除外され、スリーズアンロジーカードを1種類(合計1枚)山札に追加する。",
+              "type": ["APReduce", "heartCaptcha", "heartLimitUp", "loveAttract_stage"]
+            }
+          },
+          {
+            "ID": "ceriseAnthology_01",
+            "name": "スリーズアンソロジー",
+            "AP": 1,
+            "detail": [
+              [768, 845, 922, 998, 1075, 1152, 1229, 1306, 1382, 1536, 1613, 1690, 1766, 1920],
+              [768, 845, 922, 998, 1075, 1152, 1229, 1306, 1382, 1536, 1613, 1690, 1766, 1920],
+              [7680, 8448, 9216, 9984, 10752, 11520, 12288, 13056, 13824, 15360, 16128, 16896, 17664, 19200]
+            ],
+            "characteristic": {
+              "name": "フラワリングリリック",
+              "detail": "このスキルを使用する度にスキル効果量が増加する。さらに手札にある状態でハートを100000個回収したとき、このセクション中、ビートハートの出現個数を+4、ビートハート192回分のスキルハートを獲得し、手札をシャッフルする。",
+              "type": ["heartCaptcha", "vibes_section", "heartLimitUp", "reshuffle"]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "ID": "rewritePage_01",
+        "name": "リライトページ",
+        "AP": 4,
+        "detail": [
+          [6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16],
+          [19.2, 21.1, 23, 25, 26.9, 28.8, 30.7, 32.6, 34.6, 38.4, 40.3, 42.2, 44.2, 48],
+          [128, 140.8, 153.6, 166.4, 179.2, 192, 204.8, 217.6, 230.4, 256, 268.8, 281.6, 294.4, 320],
+          [44.8, 49.3, 53.8, 58.2, 62.7, 67.2, 71.7, 76.2, 80.6, 89.6, 94.1, 98.6, 103, 112]
+        ]
+      },
+      "characteristic": {
+        "name": "ガールズポエトリー",
+        "detail": "このスキルを16回使用したとき、マニュスクリプトカードを1種類(合計1枚)山札に追加する。さらにメンタル100%でドローしたとき、2回の間ハート上限増加効果を+32%する。",
+        "type": ["addCard", "draw", "boost_wideHeart"],
+        "addSkill": [
+          {
+            "ID": "manuscript_01",
+            "name": "マニュスクリプト",
+            "AP": 16,
+            "detail": [
+              [77, 85, 93, 100, 108, 116, 123, 131, 139, 154, 162, 170, 177, 192],
+              [77, 85, 93, 100, 108, 116, 123, 131, 139, 154, 162, 170, 177, 192],
+              [768, 844.8, 921.6, 998.4, 1075.2, 1152, 1228.8, 1305.6, 1382.4, 1536, 1612.8, 1689.6, 1766.4, 1920]
+            ],
+            "characteristic": {
+              "name": "センチメンタルリリック",
+              "detail": "花帆、吟子以外のメンバーのスキル使用時にドローされない。このスキルを使用する度にスキル効果量が増加、消費APが減少する。さらにこのスキルを48回使用したとき、デッキから除外され、スリーズアンロジーカードを1種類(合計1枚)山札に追加する。",
+              "type": ["APReduce", "heartCaptcha", "heartLimitUp", "loveAttract_stage"]
+            }
+          },
+          {
+            "ID": "ceriseAnthology_01",
+            "name": "スリーズアンソロジー",
+            "AP": 1,
+            "detail": [
+              [768, 845, 922, 998, 1075, 1152, 1229, 1306, 1382, 1536, 1613, 1690, 1766, 1920],
+              [768, 845, 922, 998, 1075, 1152, 1229, 1306, 1382, 1536, 1613, 1690, 1766, 1920],
+              [7680, 8448, 9216, 9984, 10752, 11520, 12288, 13056, 13824, 15360, 16128, 16896, 17664, 19200]
+            ],
+            "characteristic": {
+              "name": "フラワリングリリック",
+              "detail": "このスキルを使用する度にスキル効果量が増加する。さらに手札にある状態でハートを100000個回収したとき、このセクション中、ビートハートの出現個数を+4、ビートハート192回分のスキルハートを獲得し、手札をシャッフルする。",
+              "type": ["heartCaptcha", "vibes_section", "heartLimitUp", "reshuffle"]
+            }
+          }
+        ]
+      }
+    },
+    "kh_065": {
+      "cardName": "想造の地平から",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "地平から",
+      "kana": "そうぞうのちへいから",
+      "gacha": {
+        "addSeason": "2025 PARTY! LIMITED COLLECTION",
+        "period": "party"
+      },
+      "uniqueStatus": {
+        "smile": 6300,
+        "pure": 4400,
+        "cool": 3500,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "genesisRealm_01",
+        "name": "ジェネシスレルム",
+        "AP": 22,
+        "detail": []
+      },
+      "skill": {
+        "ID": "bloomingHorizon_01",
+        "name": "ブルーミングホライゾン",
+        "AP": 20,
+        "detail": [
+          [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+          [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+          [1200, 1320, 1440, 1560, 1680, 1800, 1920, 2040, 2160, 2400, 2520, 2640, 2760, 3000],
+          [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]
+        ]
+      },
+      "characteristic": {
+        "name": "グランドデザイン",
+        "detail": "ドローした時、このセクション中、AP回復速度を-10%、ボルテージPt.を-100し、メンタルを最大値の10%減少させる。さらに手札にある状態でハートを3000個回収した時、ビートハート3000回分のスキルハートを獲得する。",
+        "type": ["draw", "APReduce", "voltageReduce", "mentalReduce", "heartCaptcha"]
+      }
+    },
+    "kh_063": {
+      "cardName": "可惜夜花火",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "可惜夜花火",
+      "kana": "あたらよはなび",
+      "gacha": {
+        "addSeason": "2025 SUMMER LIMITED COLLECTION vol.8",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 3800,
+        "pure": 5000,
+        "cool": 5500,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "moonlightBloom_01",
+        "name": "ムーンライトブルーム",
+        "AP": 4,
+        "detail": [
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+          [29.2, 32.1, 35.1, 38, 40.9, 43.8, 46.8, 49.7, 52.6, 58.4, "61.3?", "64.2?", "67.2?", 73]
+        ]
+      },
+      "skill": {
+        "ID": "fireFlower_01",
+        "name": "ファイアフラワー",
+        "AP": 7,
+        "detail": [
+          [349, 384, 419, 454, 489, 524, 558, 593, 628, 698, 733, 768, 803, 873],
+          [35, 39, 42, 46, 49, 53, 56, 60, 63, 70, 74, 77, 81, 88],
+          [34.9, 38.4, 41.9, 45.4, 48.9, 52.4, 55.8, 59.3, 62.8, 69.8, 73.3, 76.8, 80.3, 87.3]
+        ]
+      },
+      "characteristic": {
+        "name": "サマーナイトフラワー",
+        "detail": "フィーバーを除く3～4セクション目でドローされる確率が大幅に増加し、それ以外のセクションのときドローされない。フィーバーを除く3～4セクション目でドローした時、8回の間ナイトクイーンカード使用によるラブアトラクト効果を+730%、このセクション中、AP回復速度を+23%する。さらにこのスキルを使用したとき、ナイトクイーンカードを1種類(合計1枚)山札に追加する。",
+        "type": ["draw", "boost_loveAttract", "APQuick", "addCard"],
+        "addSkill": [
+          {
+            "ID": "nightQueen_01",
+            "name": "ナイトクイーン",
+            "AP": 7,
+            "detail": [],
+            "characteristic": {
+              "name": "ナイトグロウ",
+              "detail": "フィーバーを除く3～4セクション目でドローされる確率が大幅に増加し、それ以外のセクションのときドローされない。さらにフィーバーを除く3～4セクション目でドローした時、ビートハート8回分のスキルハートを獲得し、フィーバーを除く3～4セクション目で手札にある状態でハートを720個回収したとき、ビートハート87回分のスキルハートを獲得、次のナイトクイーンカードの使用によるスキルハート獲得効果の獲得数を+73%する。",
+              "type": ["draw", "heartCaptcha", "boost_heartCaptcha"]
+            }
+          }
+        ]
+      }
+    },
+    "kh_062": {
+      "cardName": "フルーツパンチ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "フルーツパンチ",
+      "kana": "ふるーつぱんち",
+      "gacha": {
+        "addSeason": "2025 SUMMER LIMITED COLLECTION vol.5",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 6300,
+        "pure": 4950,
+        "cool": 3050,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "doublePunch_01",
+        "name": "ダブルパンチ",
+        "AP": 5,
+        "detail": [
+          [412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4, 947.6, 1030],
+          [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+          [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
+          [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103]
+        ],
+        "addSkill": [
+          {
+            "ID": "heartfulPunch_01",
+            "name": "ハートフルパンチ",
+            "AP": 3,
+            "detail": [],
+            "characteristic": {
+              "name": "ラブフレーバー",
+              "detail": "このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを1500個回収し、デッキ枚数が21枚以上のとき、ビートハート150回分のスキルハートを獲得、このセクション中、ビートハートの出現個数を+1し、デッキ枚数が20枚以上のとき、このセクション中、AP回復速度を+20%する。",
+              "type": ["exclusion", "heartCaptcha", "vibes_section", "APQuick"]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "ID": "exhaustAttract_02",
+        "name": "イグザクトアトラクション",
+        "AP": 15,
+        "detail": [
+          [21, 23, 25, 27, 29, 32, 34, 36, 38, 42, "44?", "46?", "48?", 52],
+          [19.8, 21.8, 23.8, 25.7, 27.7, 29.7, 31.7, 33.7, 35.6, 39.6, 41.6, 43.6, 45.5, 49.5],
+          [1140, 1254, 1368, 1482, 1596, 1710, 1824, 1938, 2052, 2280, 2394, 2508, 2622, 2850],
+          [1100, 1210, 1320, 1430, 1540, 1650, 1760, 1870, 1980, 2200, 2310, 2420, 2530, 2750]
+        ]
+      },
+      "characteristic": {
+        "name": "スウィートドリーム",
+        "detail": "デッキ枚数が20枚以下でドローした時、このスキルの消費APを-12する。さらにデッキ枚数が21枚以上でこのスキルを使用した時、ハートフルパンチカードを1種類(合計1枚)山札に追加する。",
+        "type": ["APReduce", "addCard"],
+        "addSkill": [
+          {
+            "ID": "heartfulPunch_01",
+            "name": "ハートフルパンチ",
+            "AP": 3,
+            "detail": [],
+            "characteristic": {
+              "name": "ラブフレーバー",
+              "detail": "このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを1500個回収し、デッキ枚数が21枚以上のとき、ビートハート150回分のスキルハートを獲得、このセクション中、ビートハートの出現個数を+1し、デッキ枚数が20枚以上のとき、このセクション中、AP回復速度を+20%する。",
+              "type": ["exclusion", "heartCaptcha", "vibes_section", "APQuick"]
+            }
+          }
+        ]
+      }
+    },
+    "kh_061": {
+      "cardName": "アイドゥーミー！",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "アイドゥーミー！",
+      "kana": "あいどぅーみー",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 1stTerm 第2回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 5000,
+        "pure": 5200,
+        "cool": 5800,
+        "mental": 520,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "SRK-Link_02",
+        "name": "S.R.K. Link",
+        "AP": 5,
+        "detail": [
+          [412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4, 947.6, 1030],
+          [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+          [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33],
+          [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103]
+        ]
+      },
+      "skill": {
+        "ID": "tripletVoltage_02",
+        "name": "トリプレットボルテージ",
+        "AP": 33,
+        "detail": [
+          [133, 146, 160, 173, 186, 200, 213, 226, 239, 266, 279, 293, 306, 333],
+          [4120, 4532, 4944, 5356, 5768, 6180, 6592, 7004, 7416, 8240, 8652, 9064, 9476, 10300],
+          [412, 453.2, 494.4, 535.6, 576.8, 618, 659.2, 700.4, 741.6, 824, 865.2, 906.4, 947.6, 1030]
+        ]
+      },
+      "characteristic": {
+        "name": "フラワーシーケンス",
+        "detail": "デッキ枚数が23枚以上のとき、手札にあるさやか、瑠璃乃、花帆のカード1枚につき、手札のこのスキルの消費AP-3。さらにデッキ枚数が23枚以上でスキル使用時、手札を全て捨てて、デッキから手札上限までスキルを引く。このときさやか、瑠璃乃、花帆のカードをドローする確率アップ。",
+        "type": ["APReduce", "draw", "reshuffle"]
+      }
+    },
+    "kh_060": {
+      "cardName": "Her-bath-rium",
+      "styleType": "cheerLeader",
+      "mood": "neutral",
+      "series": "Her-bath-rium",
+      "kana": "はーばりうむ",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 1stTerm 第1回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 5500,
+        "pure": 5000,
+        "cool": 3800,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "rebootMind_01",
+        "name": "リブートマインド",
+        "AP": 6,
+        "detail": [[16, 17.6, 19.2, 20.8, 22.4, 24, 25.6, 27.2, 28.8, 32, 33.6, 35.2, 36.8, 40]]
+      },
+      "skill": {
+        "ID": "soundRefreshMind_01",
+        "name": "サウンドリフレッシュマインド",
+        "AP": 3,
+        "detail": [[4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]]
+      },
+      "characteristic": {
+        "name": "サウンド：ドロー：ワイドハート",
+        "detail": "ムードがハッピー、メロウいずれか75以上でドローしたとき、このステージ中、ハート上限を+36する。",
+        "type": ["sound", "heartLimitUp"]
+      }
+    },
+    "kh_058": {
+      "cardName": "Celebration!",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "Celebration!",
+      "kana": "せれぶれーしょん",
+      "gacha": {
+        "addSeason": "2025 SPRING LIMITED COLLECTION vol.4",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 6050,
+        "pure": 4450,
+        "cool": 4000,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "twinCerise_01",
+        "name": "ツインスリーズ",
+        "AP": 4,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "happinessCherry_01",
+            "name": "ハピネスチェリー",
+            "AP": 2,
+            "detail": [[120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]],
+            "characteristic": {
+              "name": "ハッピーセオリー",
+              "detail": "手札にある間、ムードがハッピーのときAP回復速度20%増加、ハッピー50以上のときハート上限を+2000、ハッピー100以上のとき花帆、吟子、ドレスカード、チェリーカードのスキルハート獲得効果による獲得数をそれぞれ+200%する。さらにこのスキルを2回使用すると、デッキから除外される。",
+              "type": ["APQuick", "heartLimitUp", "boost_heartCaptcha", "exclusion"]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "ID": "exhaustAttract_01",
+        "name": "イグザクトアトラクション",
+        "AP": 5,
+        "detail": [
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+          [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+          [260, 286, 312, 338, 364, 390, 416, 442, 468, 520, 546, 572, 598, 650],
+          [600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1200, 1260, 1320, 1380, 1500]
+        ]
+      },
+      "characteristic": {
+        "name": "ハッピースリーズ",
+        "detail": "ムードがハッピーでこのスキルを使用したとき、ハピネスチェリーカードを1種類(合計1枚)山札に追加する。",
+        "type": ["addCard"],
+        "addSkill": [
+          {
+            "ID": "happinessCherry_01",
+            "name": "ハピネスチェリー",
+            "AP": 2,
+            "detail": [[120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]],
+            "characteristic": {
+              "name": "ハッピーセオリー",
+              "detail": "手札にある間、ムードがハッピーのときAP回復速度20%増加、ハッピー50以上のときハート上限を+2000、ハッピー100以上のとき花帆、吟子、ドレスカード、チェリーカードのスキルハート獲得効果による獲得数をそれぞれ+200%する。さらにこのスキルを2回使用すると、デッキから除外される。",
+              "type": ["APQuick", "heartLimitUp", "boost_heartCaptcha", "exclusion"]
+            }
+          }
+        ]
+      }
+    },
+    "kh_055": {
+      "cardName": "ユメワズライ",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "ユメワズライ",
+      "kana": "ゆめわずらい",
+      "gacha": {
+        "addSeason": "2024 WINTER LIMITED COLLECTION vol.8",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 5100,
+        "pure": 4700,
+        "cool": 4600,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartBoost-bouquet_01",
+        "name": "ハートブースト：ブーケ",
+        "AP": 5,
+        "detail": [[60, 66, 72, 78, 84, 90, 96, 102, 108, 120, 126, 132, 138, 150]]
+      },
+      "skill": {
+        "ID": "sustainDream_01",
+        "name": "サステイン＊ドリーム",
+        "AP": 12,
+        "detail": [
+          [12, 13, 14, 16, 17, 18, 19, 20, 22, 24, 25, 26, 28, 30],
+          [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+          [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600],
+          [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]
+        ],
+        "addSkill": [
+          {
+            "ID": "graceBouquet_01",
+            "name": "グレイスブーケ",
+            "AP": 6,
+            "detail": [
+              [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]
+            ],
+            "characteristic": {
+              "name": "ブルーミング",
+              "detail": "このスキルを使用すると、デッキから除外される。さらにドリームブーケカードを1種類(合計2枚)山札に追加する。",
+              "type": ["exclusion", "addCard"]
+            }
+          },
+          {
+            "ID": "dreamBouquet_01",
+            "name": "ドリームブーケ",
+            "AP": 9,
+            "detail": [
+              [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+              [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300],
+              [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500]
+            ],
+            "characteristic": {
+              "name": "リインカネーション",
+              "detail": "このスキルを使用すると、デッキから除外される。さらにデッキ枚数が39枚以上でドローした時、それぞれ100回の間ブーケカード使用によるスキルハート獲得効果の獲得数を+3%、ラブアトラクト効果を+3%する。",
+              "type": ["exclusion", "boost_loveAttract", "boost_heartCaptcha", "boost_loveAttract"]
+            }
+          }
+        ]
+      },
+      "characteristic": {
+        "name": "デイブレイク",
+        "detail": "1セクション目までにドローした時、APを5回復し、デッキにあるスリーズブーケのスキルの消費AP-9。",
+        "type": ["justDraw", "APGain", "APReduce"]
+      }
+    },
+    "kh_054": {
+      "cardName": "AURORA FLOWER",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "AURORA FLOWER",
+      "kana": "おーろらふらわー",
+      "gacha": {
+        "addSeason": "2024 WINTER LIMITED COLLECTION vol.5",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 5300,
+        "pure": 5300,
+        "cool": 5300,
+        "mental": 530,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "bloomingTogether",
+        "name": "ブルーミングトゥギャザー",
+        "AP": 11,
+        "detail": [[3.6, 4, 4.3, 4.7, 5, 5.4, 5.8, 6.1, 6.5, 7.2, 7.6, 7.9, 8.3, 9]]
+      },
+      "skill": {
+        "ID": "nineHeart_attraction",
+        "name": "ナインハート・アトラクション",
+        "AP": 99,
+        "detail": [
+          [
+            3999.6, 4399.6, 4799.5, 5199.5, 5599.4, 5999.4, 6399.4, 6799.3, 7199.3, 7999.2, 8399.2, 8799.1, 9199.1, 9999
+          ],
+          [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 999]
+        ]
+      },
+      "characteristic": {
+        "name": "Now or Never",
+        "detail": "このカード以外のスキルを使用するたび、手札のこのスキルの消費AP-9。さらにこのスキル使用時、APを0にする。",
+        "type": ["APReduce", "APLoss"]
+      }
+    },
+    "kh_053": {
+      "cardName": "103/ASTERISM",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "オンゲキコラボ",
+      "kana": "あすてりずむ",
+      "gacha": {
+        "addSeason": "2024 O.N.G.E.K.I LIMITED COLLECTION",
+        "period": "collaboration"
+      },
+      "uniqueStatus": {
+        "smile": 5700,
+        "pure": 5500,
+        "cool": 3500,
+        "mental": 450,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "angelAttack",
+        "name": "エンジェルアタック",
+        "AP": 5,
+        "detail": [[20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 25, 25.5, 26, 26.5, 27]]
+      },
+      "skill": {
+        "ID": "replayBoostedHeart",
+        "name": "リプレイブーステッドハート",
+        "AP": 9,
+        "detail": [
+          [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+          [6.5, 7.1, 7.8, 8.4, 9.1, 9.7, 10.4, 11, 11.7, 13, 13.6, 14.3, 14.9, 16.2]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：ASTERISM",
+        "detail": "ドローした時、ビートハート5回分のスキルハートを獲得、メンタルを最大値の10%回復させ、さらにこのセクション中、手札の上限枚数を1枚増加する。",
+        "type": ["draw", "heartCaptcha", "mentalRecover", "extendHand"]
+      }
+    },
+    "kh_052": {
+      "cardName": "ハナムスビ",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "ハナムスビ",
+      "kana": "はなむすび",
+      "gacha": {
+        "addSeason": "2024 AUTUMN LIMITED COLLECTION Vol.8",
+        "period": "autumn"
+      },
+      "uniqueStatus": {
+        "smile": 5900,
+        "pure": 4200,
+        "cool": 4100,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensionsGain_add3",
+        "name": "エクステゲイン",
+        "AP": 5,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+      },
+      "skill": {
+        "ID": "abunDanceAttraction_over30_stage_over33",
+        "name": "アバンダンスアトラクション",
+        "AP": 33,
+        "detail": [
+          [108, 118.8, 129.6, 140.4, 151.2, 162, 172.8, 183.6, 194.4, 216, 226.8, 237.6, 248.4, 270],
+          [1500, 1650, 1800, 1950, 2100, 2250, 2400, 2550, 2700, 3000, 3150, 3300, 3450, 3750],
+          [2250, 2475, 2700, 2925, 3150, 3375, 3600, 3825, 4050, 4500, 4725, 4950, 5175, 5625]
+        ]
+      },
+      "characteristic": {
+        "name": "ブーステッドハートゲイン：スリーズブーケ",
+        "detail": "手札にある状態でスリーズブーケのスキルを使用するたび、ビートハート3回分のスキルハートを獲得、次のドレスカード使用によるラブアトラクト効果を+25%し、さらにAPを1回復する。",
+        "type": ["heartCaptcha", "CeriseBouquet", "boost_loveAttract", "APGain"]
+      }
+    },
+    "kh_050": {
+      "cardName": "月夜見海月",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "月夜見海月",
+      "kana": "つくよみくらげ",
+      "gacha": {
+        "addSeason": "2024 AUTUMN LIMITED COLLECTION Vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 5000,
+        "cool": 5300,
+        "mental": 440,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "refreshBubbling",
+        "name": "リフレッシュバブリング",
+        "AP": 7,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]],
+        "addSkill": [
+          {
+            "ID": "bubble_minus3_ceriseBouquet_dressCard",
+            "name": "バブル",
+            "AP": 1,
+            "detail": [],
+            "characteristic": {
+              "name": "ポッピング",
+              "detail": "このスキルを使用すると、デッキから除外される。",
+              "type": ["exclusion"]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "ID": "abunDanceBoost_dress_over30",
+        "name": "アバンダンスブースト：ドレス",
+        "AP": 5,
+        "detail": [
+          [45, 49.5, 54, 58.5, 63, 67.5, 72, 76.5, 81, 90, 94.5, 99, 103.5, 112.5],
+          [168, 184.8, 201.6, 218.4, 235.2, 252, 268.8, 285.6, 302.4, 336, 352.8, 369.6, 386.4, 420]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：バブリング",
+        "detail": "ドローした時、バブルカードを1種類(合計1枚)山札に追加する。",
+        "type": ["draw", "addCard"],
+        "addSkill": [
+          {
+            "ID": "bubble_minus3_ceriseBouquet_dressCard",
+            "name": "バブル",
+            "AP": 1,
+            "detail": [],
+            "characteristic": {
+              "name": "ポッピング",
+              "detail": "このスキルを使用すると、デッキから除外される。",
+              "type": ["exclusion"]
+            }
+          }
+        ]
+      }
+    },
+    "kh_049": {
+      "cardName": "アオクハルカ",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "アオクハルカ",
+      "kana": "あおくはるか",
+      "gacha": {
+        "addSeason": "2024 SUMMER LIMITED COLLECTION Vol.5",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4400,
+        "pure": 5300,
+        "cool": 4300,
+        "mental": 520,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensions_section3_heartBoost_stage",
+        "name": "エクステハートブースト",
+        "AP": 6,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]]
+      },
+      "skill": {
+        "ID": "dress_aokuharuka_kaho",
+        "name": "ドレス《アオクハルカ》",
+        "AP": 3,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "soundHeart_03",
+            "name": "サウンドハート",
+            "AP": 3,
+            "detail": [
+              [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+              [192, 211, 230, 250, 269, 288, 307, 326, 346, 384, 403, 422, 442, 480]
+            ],
+            "characteristic": {
+              "name": "インスタンス & ドロー：ワイドハート",
+              "detail": "このスキルを使用すると、デッキから除外される。さらにドローした時、このステージ中、ハート上限を+12する。",
+              "type": ["exclusion", "boost_heartCaptcha"]
+            }
+          }
+        ]
+      },
+      "characteristic": {
+        "name": "ボルテージゲイン & ハートブースト：スリーズブーケ",
+        "detail": "手札にある状態でスリーズブーケのスキルを使用するたび、ボルテージPt.を+5し、次に使用するスキルハート獲得効果による獲得数を+15%する。",
+        "type": ["voltageGain", "boost_heartCaptcha"]
+      }
+    },
+    "kh_047": {
+      "cardName": "H.S.C.T.☆",
+      "styleType": "cheerLeader",
+      "mood": "happy",
+      "series": "hsct",
+      "kana": "hsct",
+      "gacha": {
+        "addSeason": "2024 SUMMER LIMITED COLLECTION Vol.1",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 5100,
+        "pure": 4900,
+        "cool": 3900,
+        "mental": 530,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "recoverGain_gain5",
+        "name": "リカバーゲイン",
+        "AP": 3,
+        "detail": [[6.4, 7.04, 7.68, 8.32, 8.96, 9.6, 10.24, 10.88, 11.52, 12.8, 13.44, 14.08, 14.72, 16]]
+      },
+      "skill": {
+        "ID": "aggressiveGroovyBoost_01",
+        "name": "アグレッシブグルーヴィブースト",
+        "AP": 10,
+        "detail": [
+          [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60],
+          [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600]
+        ]
+      },
+      "characteristic": {
+        "name": "APレデュース：ボルテージ & ショット：ヒートアップ",
+        "detail": "現在のボルテージLv.が高いほどスキルの消費APダウン(最大-7)。さらにスキル使用時3回まで、このステージ中、AP回復速度を+10%する。",
+        "type": ["APReduce", "APFast_stage"]
+      }
+    },
+    "kh_044": {
+      "cardName": "春風ブランコ",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "春風ブランコ",
+      "kana": "はるかぜぶらんこ",
+      "gacha": {
+        "addSeason": "2024 SPRING LIMITED COLLECTION vol.2",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 5200,
+        "pure": 4900,
+        "cool": 4200,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 5,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "characteristic": {
+        "name": "アーリードロー：3/APゲイン & レイトドロー：3/APレデュース & ハッピーアンビエンス",
+        "detail": "3セクション目までにドローした時、APを1回復する。3セクション目以降にドローした時、消費APを-3し、ムードをハッピー方向に+10する。",
+        "type": ["earlyDraw", "APGain", "lateDraw", "APReduce", "ambience_section"]
+      }
+    },
+    "kh_040": {
+      "cardName": "軌跡の舞踏会",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "舞踏会",
+      "kana": "きせきのぶとうかい",
+      "gacha": {
+        "addSeason": "2023 PARTY! LIMITED COLLECTION",
+        "period": "party"
+      },
+      "uniqueStatus": {
+        "smile": 6400,
+        "pure": 4800,
+        "cool": 3300,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "bloomingHeart",
+        "name": "ブルーミングハート",
+        "AP": 7,
+        "detail": [
+          [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+          [200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500]
+        ]
+      },
+      "skill": {
+        "ID": "heartAttraction_section",
+        "name": "ハートアトラクション",
+        "AP": 6,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+          [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APゲイン & リシャッフル",
+        "detail": "手札にある状態でセクションが変わるたび、APを7回復し、手札を全て捨てて、デッキから手札上限までスキルを引く。",
+        "type": ["overSection", "APGain", "reShuffle"]
+      }
+    },
+    "kh_037": {
+      "cardName": "lucky train!",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "アイカツ!コラボ",
+      "kana": "らっきーとれいん",
+      "gacha": {
+        "addSeason": "AIKATSU! LIMITED COLLECTION",
+        "period": "collaboration"
+      },
+      "uniqueStatus": {
+        "smile": 4600,
+        "pure": 4500,
+        "cool": 5400,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "chillFascinate_under2_stageAttract_voltageGain",
+        "name": "チルファッシネイト",
+        "AP": 6,
+        "detail": [
+          [5.4, 5.9, 6.5, 7, 7.6, 8.1, 8.6, 9.2, 9.7, 10.8, 11.3, 11.9, 12.4, 13.5],
+          [58, 64, 70, 75, 81, 87, 93, 99, 104, 116, 122, 128, 133, 145]
+        ]
+      },
+      "skill": {
+        "ID": "trioFlight_section",
+        "name": "トリオフライト",
+        "AP": 9,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+          [11.7, 12.9, 14, 15.2, 16.4, 17.6, 18.7, 19.9, 21.1, 23.4, 24.6, 25.7, 26.9, 29.6]
+        ]
+      },
+      "characteristic": {
+        "name": "APレデュース：花帆 & さやか & 瑠璃乃",
+        "detail": "花帆、さやか、瑠璃乃のスキルを使用するたび、手札のこのスキルの消費AP-2。",
+        "type": ["APReduce", "kaho", "sayaka", "rurino"]
+      }
+    },
+    "kh_036": {
+      "cardName": "蓮ノ空歌留多",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "蓮ノ空歌留多",
+      "kana": "はすのそらかるた",
+      "gacha": {
+        "addSeason": "ライブグランプリ「第8回 個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 3700,
+        "pure": 5000,
+        "cool": 5500,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "groovyFascinate_over8_voltageGain_sectionAttract",
+        "name": "グルーヴィファッシネイト",
+        "AP": 4,
+        "detail": [
+          [14, 15, 17, 18, 20, 21, 22, 24, 25, 28, 29, 31, 32, 35],
+          [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+        ]
+      },
+      "skill": {
+        "ID": "heartAttraction_section",
+        "name": "ハートアトラクション",
+        "AP": 5,
+        "detail": [
+          [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+          [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11, 12]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & アトラクトブースト：花帆",
+        "detail": "手札にある状態でセクションが変わるたび、ボルテージPt.を+20し、APを3回復する。さらに花帆のスキルを使用するたび、手札のこのスキルの消費AP-2し、次に花帆が使用するラブアトラクト効果を+75%する。",
+        "type": ["overSection", "voltageGain", "APGain", "APReduce", "boost_loveAttract", "kaho"]
+      }
+    },
+    "kh_035": {
+      "cardName": "Special Thanks",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "Special Thanks",
+      "kana": "すぺしゃるさんくす",
+      "gacha": {
+        "addSeason": "2023 WINTER LIMITED COLLECTION Vol.6",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 5500,
+        "cool": 4000,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensionsHeart_section3",
+        "name": "エクステハート",
+        "AP": 5,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "skill": {
+        "ID": "chillVoltage_under1",
+        "name": "チルボルテージ",
+        "AP": 2,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+          [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]
+        ]
+      },
+      "characteristic": {
+        "name": "ハートアトラクション：梢 & ドロー：APレデュース：梢",
+        "detail": "手札にある状態で梢のスキルを使用するたび、ビートハート4回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+8%する。さらにドローした時、デッキにある梢のスキルの消費AP-2。",
+        "type": ["heartCaptcha", "loveAttraction", "kozue", "draw", "APReduce"]
+      }
+    },
+    "kh_033": {
+      "cardName": "Link to the FUTURE",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "Link to the FUTURE",
+      "kana": "りんくとぅーざふゅーちゃー",
+      "gacha": {
+        "addSeason": "2023 WINTER LIMITED COLLECTION Vol.3",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 6200,
+        "pure": 5500,
+        "cool": 4100,
+        "mental": 540,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "linklikeorder",
+        "name": "Link! Like! Order!",
+        "AP": 8,
+        "detail": [
+          [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5],
+          [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+        ]
+      },
+      "skill": {
+        "ID": "heartAttraction_stage",
+        "name": "ハートアトラクション",
+        "AP": 5,
+        "detail": [
+          [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 11],
+          [1.6, 1.8, 1.9, 2.1, 2.2, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 4]
+        ]
+      },
+      "characteristic": {
+        "name": "サーチ：綴理 & ショット：APゲイン & リインフォース",
+        "detail": "スキル使用後、綴理のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを5回復する。また、このスキルを3回使用した時、スキル効果値が増加する。",
+        "type": ["search", "tsuzuri", "APGain"]
+      }
+    },
+    "kh_030": {
+      "cardName": "コットン=ユートピア",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "コットン=ユートピア",
+      "kana": "こっとんゆーとぴあ",
+      "gacha": {
+        "addSeason": "2023 AUTUMN LIMITED COLLECTION Vol.7",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4100,
+        "pure": 5200,
+        "cool": 4700,
+        "mental": 520,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "healingHeart_recover_heart",
+        "name": "ヒーリングハート",
+        "AP": 6,
+        "detail": [
+          [9.6, 10.56, 11.52, 12.48, 13.44, 14.4, 15.36, 16.32, 17.28, 19.2, 20.16, 21.12, 22.08, 24],
+          [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]
+        ]
+      },
+      "skill": {
+        "ID": "fascination_stage",
+        "name": "ファッシネイション",
+        "AP": 6,
+        "detail": [
+          [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+          [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APレデュース & マチュレーション & ボルテージゲイン：瑠璃乃",
+        "detail": "手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3し、スキルの効果値が増加する。さらに手札にある状態で瑠璃乃のスキルを使用するたび、ボルテージPt.を+10する。",
+        "type": ["overSection", "APReduce", "maturation", "voltageGain", "rurino"]
+      }
+    },
+    "kh_029": {
+      "cardName": "喫茶ハスノソラ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "喫茶ハスノソラ",
+      "kana": "きっさはすのそら",
+      "gacha": {
+        "addSeason": "ライブグランプリ「第5回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 5300,
+        "pure": 52000,
+        "cool": 4200,
+        "mental": 450,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "refreshHeart",
+        "name": "リフレッシュハート",
+        "AP": 6,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+      },
+      "skill": {
+        "ID": "cheerfulHeart_over75_heartCaptcha",
+        "name": "チアフルハート",
+        "AP": 4,
+        "detail": [
+          [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, "9?", "9?", 10],
+          [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, "2?", "2?", 3]
+        ]
+      },
+      "characteristic": {
+        "name": "インタープリテーション & チェイン：梢 & ドロー：ハッピー/アトラクトブースト：梢",
+        "detail": "このスキルのムードによる効果増加量を上昇させ、梢のスキルを使用した後、ドローされる確率が増加する。さらにムードがハッピーでドローした時、次に梢が使用するラブアトラクト効果を+240%する。",
+        "type": ["interPretation", "chain", "kozue", "draw", "boost_loveAttract"]
+      }
+    },
+    "kh_028": {
+      "cardName": "Trick & Cute",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "Trick & Cute",
+      "kana": "とりっくあんどきゅーと",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.5",
+        "period": "autumn"
+      },
+      "uniqueStatus": {
+        "smile": 5000,
+        "pure": 3800,
+        "cool": 5500,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensions1_voltage_stage",
+        "name": "エクステボルテージ",
+        "AP": 7,
+        "detail": [[24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60]]
+      },
+      "skill": {
+        "ID": "braveAttraction_sectionAttract_under50_heartCaptcha_under25_heartCaptcha",
+        "name": "ブレイブアトラクション",
+        "AP": 10,
+        "detail": [
+          [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24],
+          [12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30],
+          [7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18],
+          [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APレデュース & アグレッシブ",
+        "detail": "手札にある状態でセクションが変わるたび、メンタルを最大値の40%減少させ、手札のこのスキルの消費AP-9。",
+        "type": ["overSection", "APReduce", "aggressive"]
+      }
+    },
+    "kh_025": {
+      "cardName": "ゆのくにガールズ！",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "ゆのくにガールズ！",
+      "kana": "ゆのくにがーるず",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 5100,
+        "pure": 4900,
+        "cool": 4200,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "cheerfulRecover_upper75_APGain",
+        "name": "チアフルリカバー",
+        "AP": 6,
+        "detail": [[16.8, 18.48, 20.16, 21.84, 23.52, 25.2, 26.88, 28.56, 30.24, 33.6, 35.28, 36.96, 38.64, 42]]
+      },
+      "skill": {
+        "ID": "cheerfulHeartBoost_over100_boost_heartCaptcha",
+        "name": "チアフルハートブースト",
+        "AP": 5,
+        "detail": [
+          [50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 125],
+          [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+        ]
+      },
+      "characteristic": {
+        "name": "APレデュース：ラブアトラクト",
+        "detail": "手札にあるメイン効果に獲得LOVE増加効果を持つスキル1枚につき、手札のこのスキルの消費AP-2。",
+        "type": ["APReduce", "loveAttract"]
+      }
+    },
+    "kh_024": {
+      "cardName": "夏めきペイン",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "夏めきペイン",
+      "kana": "なつめきぺいん",
+      "gacha": {
+        "addSeason": "ライブグランプリ「103期8月度 サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 5200,
+        "pure": 4600,
+        "cool": 4400,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartAttraction_section",
+        "name": "ハートアトラクション",
+        "AP": 6,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 12, 13, 14],
+          [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+        ]
+      },
+      "skill": {
+        "ID": "soundBoostedHeart_04",
+        "name": "サウンドブーステッドハート",
+        "AP": 5,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+          [75, 82.5, 90, 97.5, 105, 112.5, 120, 127.5, 135, 150, 157.5, 165, 172.5, 187.5]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：ラブアトラクト & ハートブースト",
+        "detail": "手札にある状態でセクションが変わるたび、このセクション中、獲得するLOVEを+15%し、さらに次に使用するスキルハート獲得効果による獲得数を+60%する。",
+        "type": ["overSection", "loveAttract_section", "boost_heartCaptcha"]
+      }
+    },
+    "kh_022": {
+      "cardName": "SPLASH!!!!",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "SPLASH!!!!",
+      "kana": "すぷらっしゅ",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.8",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 5000,
+        "cool": 4100,
+        "mental": 560,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartAttraction_section",
+        "name": "ハートアトラクション",
+        "AP": 5,
+        "detail": [
+          [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 10, 11],
+          [4.8, 5.3, 5.8, 6.2, 6.7, 7.2, 7.7, 8.2, 8.6, 9.6, 10.1, 10.6, 11, 12]
+        ]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 7,
+        "detail": [[7, 8, 8, 9, 10, 11, 11, 12, 13, 14, 15, 15, 16, 18]]
+      },
+      "characteristic": {
+        "name": "APレデュース：梢 & 吟子 & ハートブースト：梢 & 吟子",
+        "detail": "梢、吟子カードのスキルを使用するたび、手札のこのスキルの消費AP-2し、7回の間スキルハート獲得効果による獲得数を+30%する。",
+        "type": ["APReduce", "kozue", "ginko", "boost_heartCaptcha"]
+      }
+    },
+    "kh_019": {
+      "cardName": "眩耀夜行",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "眩耀夜行",
+      "kana": "げんようやこう",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.6",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 5200,
+        "pure": 4600,
+        "cool": 4300,
+        "mental": 510,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 5,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]]
+      },
+      "characteristic": {
+        "name": "インタープリテーション & ドロー：アトラクトブースト：スリーズブーケ",
+        "detail": "このスキルのムードによる効果増加量を上昇させる。さらにドローした時、次にスリーズブーケのメンバーが使用するラブアトラクト効果を+40%する。",
+        "type": ["interPretation", "draw", "boost_loveAttract"]
+      }
+    },
+    "kh_016": {
+      "cardName": "ペンギンアイス",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "ペンギンアイス",
+      "kana": "ぺんぎんあいす",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.4",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 5250,
+        "cool": 4450,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "voltageGain",
+        "name": "ボルテージゲイン",
+        "AP": 5,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 8, 9, 10, 11, 12, 13, 14]]
+      },
+      "skill": {
+        "ID": "soundBoostedHeart_04",
+        "name": "サウンドブーステッドハート",
+        "AP": 6,
+        "detail": [
+          [6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15],
+          [400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920, 1000]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：ハートキャプチャ & APゲイン",
+        "detail": "手札にある状態でセクションが変わるたび、ビートハート6回分のスキルハートを獲得し、APを3回復する。",
+        "type": ["overSection", "heartCaptcha", "APGain"]
+      }
+    },
+    "kh_014": {
+      "cardName": "フォーチュンムービー",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "フォーチュンムービー",
+      "kana": "ふぉーちゅんむーびー",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 5450,
+        "pure": 4750,
+        "cool": 4500,
+        "mental": 450,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartAttraction_section",
+        "name": "ハートアトラクション",
+        "AP": 6,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12],
+          [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]
+        ]
+      },
+      "skill": {
+        "ID": "extensionsAttract_08",
+        "name": "エクステアトラクト",
+        "AP": 4,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APゲイン & マチュレーション",
+        "detail": "手札にある状態でセクションが変わるたび、APを5回復し、さらにスキルの効果値が増加する。",
+        "type": ["overSection", "APGain", "maturation"]
+      }
+    },
+    "kh_011": {
+      "cardName": "Holiday∞Holiday",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "Holiday∞Holiday",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.3",
+        "period": "spring"
+      },
+      "kana": "ほりでーほりでー",
+      "uniqueStatus": {
+        "smile": 4700,
+        "pure": 5200,
+        "cool": 4700,
+        "mental": 460,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 3,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "characteristic": {
+        "name": "チェイン：花帆 & ジャストドロー：フィーバー/APレデュース & リインフォース & APゲイン",
+        "detail": "花帆のスキルを使用した後、ドローされる確率が増加し、フィーバーセクションでドローした時、消費APを-2し、フィーバーセクションの間スキル効果値が増加する。さらにスキル使用時、APを1回復する。",
+        "type": ["chain", "kaho", "justDrew", "APReduce", "APGain", "reinforce"]
+      }
+    },
+    "kh_009": {
+      "cardName": "Rose Garden",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "Rose Garden",
+      "kana": "ろーずがーでん",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.2",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 5600,
+        "cool": 4400,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]]
+      },
+      "skill": {
+        "ID": "soundBoostedHeart_02",
+        "name": "サウンドブーステッドハート",
+        "AP": 4,
+        "detail": [
+          [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, "8?", "9?", "9?", 10],
+          [100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 210, 220, 230, 250]
+        ]
+      },
+      "characteristic": {
+        "name": "チェイン：梢 & APレデュース：梢 & 花帆",
+        "detail": "梢のスキルを使用した後、ドローされる確率が増加する。さらに手札にある梢、花帆のスキル1枚につき、手札のこのスキルの消費AP-1。",
+        "type": ["chain", "kozue", "APReduce"]
+      }
+    },
+    "kh_008": {
+      "cardName": "薫風の調べ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "薫風の調べ",
+      "kana": "くんぷうのしらべ",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4900,
+        "pure": 5200,
+        "cool": 4400,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 7,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 5,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "characteristic": {
+        "name": "ドロー：APレデュース",
+        "detail": "ドローしたセクションの間、消費APを-3する。",
+        "type": ["draw", "APReduce"]
+      }
+    },
+    "kh_006": {
+      "cardName": "春色ニューデイズ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "春色ニューデイズ",
+      "kana": "はるいろにゅーでいず",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION Vol.2",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 4600,
+        "pure": 5250,
+        "cool": 4350,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "characteristic": {
+        "name": "レイトドロー：3/APレデュース & APゲイン",
+        "detail": "3セクション目以降にドローした時、消費APを-3し、APを1回復する。",
+        "type": ["lateDraw", "APReduce", "APGain"]
+      }
+    },
+    "kh_001": {
+      "cardName": "Dream Believers",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "Dream Believers",
+      "kana": "どりーむびりーばーず",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 5600,
+        "cool": 4000,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]]
+      },
+      "skill": {
+        "ID": "soundHeart_02",
+        "name": "サウンドハート",
+        "AP": 5,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+          [41, 45, 49, 53, 57, 62, 66, 70, 74, 82, 86, 90, 94, 103]
+        ]
+      },
+      "characteristic": {
+        "name": "フェイバリット：フィーバー & APレデュース：ラブアトラクト",
+        "detail": "フィーバーセクションでドローされる確率が増加する。さらに適用されているラブアトラクト効果量が200%以上のとき、手札のこのスキルの消費AP-3。",
+        "type": ["favorite", "APReduce"]
+      }
+    }
+  },
+  "SR": {
+    "kh_064": {
+      "cardName": "四蓮琴之武",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "四蓮琴",
+      "kana": "よんれんきんのたけ",
+      "gacha": {
+        "addSeason": "2025 AUTUMN LIMITED COLLECTION vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3900,
+        "pure": 4800,
+        "cool": 4000,
+        "mental": 410,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "sushen_01",
+        "name": "スーシェン",
+        "AP": 6,
+        "detail": [[1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4]]
+      },
+      "skill": {
+        "ID": "tetraHeart_01",
+        "name": "テトラハート",
+        "AP": 4,
+        "detail": [
+          [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+          [24, 26, 29, 31, 34, 36, 38, 41, 43, 48, 50, 53, 55, 60],
+          [10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25],
+          [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+        ]
+      },
+      "characteristic": {
+        "name": "シーファンジーホア",
+        "detail": "フィーバーを除く4セクション目でドローされる確率が大幅に増加し、それ以外のセクションのときドローされない。さらにフィーバーを除く4セクション目でドローした時、4回の間スキルハート獲得効果による獲得数を+120%し、ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+44する。",
+        "type": ["draw", "boost_heartCaptcha", "ambience_section"]
+      }
+    },
+    "kh_051": {
+      "cardName": "紅葉乃舞姫",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "紅葉乃舞姫",
+      "kana": "こうようのまいひめ",
+      "gacha": {
+        "addSeason": "ライブグランプリ「104期 2ndTerm 第3回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 4800,
+        "cool": 3200,
+        "mental": 430,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "regainVoltage",
+        "name": "リゲインボルテージ",
+        "AP": 5,
+        "detail": [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33]]
+      },
+      "skill": {
+        "ID": "fulnessExtensionVoltage_add2_over5_over50",
+        "name": "フルネスエクステボルテージ",
+        "AP": 8,
+        "detail": [[58, 64, 70, 75, 81, 87, 93, 99, 104, 116, 122, 128, 133, 145]]
+      },
+      "characteristic": {
+        "name": "ドロー：APレデュース：グルーヴィ & チアフル",
+        "detail": "ボルテージLv.5以上でドローした時、消費APを-2、メンタル50%以上でドローした時、消費APを-2する。",
+        "type": ["draw", "APReduce", "groovy"]
+      }
+    },
+    "kh_048": {
+      "cardName": "織姫草紙",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "織姫草紙",
+      "kana": "おりひめそうし",
+      "gacha": {
+        "addSeason": "ライブグランプリ「104期 1stTerm 第4回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 3500,
+        "pure": 4100,
+        "cool": 5000,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "mentalRecover",
+        "name": "メンタルリカバー",
+        "AP": 5,
+        "detail": [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]]
+      },
+      "skill": {
+        "ID": "refreshMind",
+        "name": "リフレッシュマインド",
+        "AP": 4,
+        "detail": [[4.8, 5.28, 5.76, 6.24, 6.72, 7.2, 7.68, 8.16, 8.64, 9.6, 10.08, 10.56, 11.04, 12]]
+      },
+      "characteristic": {
+        "name": "ジャストドロー：1/APレデュース & アザードロー：リカバーブースト",
+        "detail": "1セクション目にドローした時、APを5回復する。それ以外のセクションでドローした時、次に使用するメンタルリカバー効果を+50%する。",
+        "type": ["justDrew", "APReduce", "otherDrew", "boost_mentalRecover"]
+      }
+    },
+    "kh_041": {
+      "cardName": "抱きしめる花びら",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "抱きしめる花びら",
+      "kana": "だきしめるはなびら",
+      "gacha": {
+        "addSeason": "ライブグランプリ「103期3月度 サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 3600,
+        "pure": 4600,
+        "cool": 4300,
+        "mental": 430,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensionsHeart_stage1",
+        "name": "エクステハート",
+        "AP": 5,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "skill": {
+        "ID": "chillAttractGain_01",
+        "name": "チルアトラクトゲイン",
+        "AP": 5,
+        "detail": [
+          [7.2, 7.9, 8.6, 9.4, 10.1, 10.8, 11.5, 12.2, 13, 14.4, 15.1, 15.8, 16.6, 18],
+          [3.3, 3.6, 4, 4.3, 4.6, 5, 5.3, 5.6, 6, 6.6, 6.9, 7.3, 7.6, 8.4]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：APレデュース & サーチ：梢",
+        "detail": "ドローしたセクションの間、消費APを-3する。さらにスキル使用後、梢のカードをドローする確率大幅アップ。",
+        "type": ["draw", "APReduce", "search", "kozue"]
+      }
+    },
+    "kh_039": {
+      "cardName": "桃節銘記",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "桃節銘記",
+      "kana": "とうせつめいき",
+      "gacha": {
+        "addSeason": "2023 GRADUATION LIMITED COLLECTION Vol.1",
+        "period": "graduation"
+      },
+      "uniqueStatus": {
+        "smile": 4200,
+        "pure": 4600,
+        "cool": 4100,
+        "mental": 390,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartAttraction_section",
+        "name": "ハートアトラクション",
+        "AP": 5,
+        "detail": [
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+          [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]
+        ]
+      },
+      "skill": {
+        "ID": "voltageHeart_voltageGain_heartCaptcha",
+        "name": "ボルテージハート",
+        "AP": 4,
+        "detail": [
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 7],
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]
+        ]
+      },
+      "characteristic": {
+        "name": "ハートコレクト：APレデュース & ラブアトラクト & ワイドハート",
+        "detail": "手札にある状態でハートを100個回収したとき、このスキルの消費APを-3し、このステージ中、獲得するLOVEを+3%、ハート上限を+20する。",
+        "type": ["heartCollect", "APReduce", "loveAttract_stage", "heartLimitUp"]
+      }
+    },
+    "kh_038": {
+      "cardName": "ハッピー至上主義！",
+      "styleType": "cheerLeader",
+      "mood": "happy",
+      "series": "ハッピー至上主義！",
+      "kana": "はっぴーしじょうしゅぎ",
+      "gacha": {
+        "addSeason": "2023 WINTER LIMITED COLLECTION vol.8",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4100,
+        "cool": 3700,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensions1_protect",
+        "name": "エクステプロテクト",
+        "AP": 6,
+        "detail": [[4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10]]
+      },
+      "skill": {
+        "ID": "endurance_mentalVoltage",
+        "name": "エンデュランス",
+        "AP": 2,
+        "detail": [
+          [2.8, 3.08, 3.36, 3.64, 3.92, 4.2, 4.48, 4.76, 5.04, 5.6, 5.88, 6.16, 6.44, 7],
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：メンタルリカバー & ハートキャプチャ",
+        "detail": "ドローした時、メンタルを最大値の6%回復させ、ビートハート3回分のスキルハートを獲得する。",
+        "type": ["draw", "mentalRecover", "heartCaptcha"]
+      }
+    },
+    "kh_034": {
+      "cardName": "迎春 -食-",
+      "styleType": "cheerLeader",
+      "mood": "neutral",
+      "series": "迎春",
+      "kana": "げいしゅん",
+      "gacha": {
+        "addSeason": "2023 WINTER LIMITED COLLECTION vol.4",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4000,
+        "pure": 4100,
+        "cool": 4600,
+        "mental": 410,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "groovyHeart_over8_heartCaptcha",
+        "name": "グルーヴィハート",
+        "AP": 4,
+        "detail": [
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+          [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
+        ]
+      },
+      "skill": {
+        "ID": "chillEndurance_mentalRecover_under5_voltageGain",
+        "name": "チルエンデュランス",
+        "AP": 4,
+        "detail": [
+          [6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15],
+          [17, 19, 20, 22, 24, 26, 27, 29, 31, 34, 36, 37, 39, 42]
+        ],
+        "type": ["chill", "mentalRecover", "voltageGain"]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APゲイン & エクステンドハンド：1",
+        "detail": "手札にある状態でセクションが変わるたび、APを2回復する。さらに手札にある間、手札の上限枚数を1枚増加する。",
+        "type": ["overSection", "APGain", "extendHand"]
+      }
+    },
+    "kh_032": {
+      "cardName": "冬のおくりもの",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "冬のおくりもの",
+      "kana": "ふゆのおくりもの",
+      "gacha": {
+        "addSeason": "2023 WINTER LIMITED COLLECTION vol.1",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4600,
+        "pure": 4100,
+        "cool": 3800,
+        "mental": 430,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "highAttract_stage",
+        "name": "ハイアトラクト",
+        "AP": 4,
+        "detail": [[2.6, 2.9, 3.1, 3.4, 3.6, 3.9, 4.2, 4.4, 4.7, 5.2, 5.5, 5.7, 6, 6.4]]
+      },
+      "skill": {
+        "ID": "groovyAttract_stage_over8_sectionAttract",
+        "name": "グルーヴィアトラクト",
+        "AP": 3,
+        "detail": [
+          [1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3, 3.2, 3.4, 3.8, 4, 4.2, 4.4, 4.8],
+          [3, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 6, 6.3, 6.6, 6.9, 7.5]
+        ]
+      },
+      "characteristic": {
+        "name": "フェイバリット：フィーバー & ジャストドロー：フィーバー/ボルテージゲイン & APゲイン",
+        "detail": "フィーバーセクションでドローされる確率が増加する。さらにフィーバーセクションでドローした時、ボルテージPt.を+30し、APを5回復する。",
+        "type": ["favorite", "voltageGain", "APGain"]
+      }
+    },
+    "kh_031": {
+      "cardName": "ツバサ・ラ・リベルテ",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "ツバサ・ラ・リベルテ",
+      "kana": "つばさらりべるて",
+      "gacha": {
+        "addSeason": "2023 AUTUMN LIMITED COLLECTION vol.8",
+        "period": "autumn"
+      },
+      "uniqueStatus": {
+        "smile": 4300,
+        "pure": 4800,
+        "cool": 3300,
+        "mental": 440,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "skill": {
+        "ID": "highVoltage_heartCaptcha",
+        "name": "ハイボルテージ",
+        "AP": 6,
+        "detail": [
+          [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 7]
+        ]
+      },
+      "characteristic": {
+        "name": "APレデュース：メンタル & チアフル：ボルテージゲイン",
+        "detail": "現在の残りメンタルが多いほどスキルの消費APダウン(最大-4)。さらにメンタルが100%以上の時にドローすると、ボルテージPt.を+30する。",
+        "type": ["APReduce", "mental", "cheerful", "voltageGain"]
+      }
+    },
+    "kh_027": {
+      "cardName": "宇宙演舞☆うさぴょん",
+      "styleType": "cheerLeader",
+      "mood": "neutral",
+      "series": "うさぴょん",
+      "kana": "うちゅうえんぶうさぴょん",
+      "gacha": {
+        "addSeason": "2023 AUTUMN LIMITED COLLECTION vol.4",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4200,
+        "pure": 4500,
+        "cool": 3700,
+        "mental": 440,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "skill": {
+        "ID": "supportedFeel_section",
+        "name": "サポーテッドフィール",
+        "AP": 4,
+        "detail": [
+          [5.2, 5.72, 6.24, 6.76, 7.28, 7.8, 8.32, 8.84, 9.36, 10.4, 10.92, 11.44, 11.96, 13],
+          [3.2, 3.5, 3.8, 4.2, 4.5, 4.8, 5.1, 5.4, 5.8, 6.4, 6.7, 7, 7.4, 8]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：APレデュース & アトラクトブースト：慈",
+        "detail": "ドローしたセクションの間、消費APを-1する。さらに手札にある状態で慈のスキルを使用するたび、次に使用するラブアトラクト効果を+7%する。",
+        "type": ["draw", "APReduce", "boost_loveAttract"]
+      }
+    },
+    "kh_026": {
+      "cardName": "素顔のピクセル",
+      "styleType": "cheerLeader",
+      "mood": "happy",
+      "series": "素顔のピクセル",
+      "kana": "すがおのぴくせる",
+      "gacha": {
+        "addSeason": "2023 AUTUMN LIMITED COLLECTION vol.3",
+        "period": "autumn"
+      },
+      "uniqueStatus": {
+        "smile": 4300,
+        "pure": 4100,
+        "cool": 3700,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 7,
+        "detail": [[15, 16.5, 18, 19.5, 21, 22.5, 24, 25.5, 27, 30, 31.5, 33, 34.5, 37.5]]
+      },
+      "skill": {
+        "ID": "cheerfulHealing",
+        "name": "チアフルヒーリング",
+        "AP": 5,
+        "detail": [
+          [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+          [2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APレデュース & ラブアトラクト：梢",
+        "detail": "手札にある状態でセクションが変わるたび、手札のこのスキルの消費AP-3。さらに手札にある状態で梢のスキルを使用するたび、このステージ中、獲得するLOVEを+1.6%する。",
+        "type": ["overSection", "APReduce", "loveAttract_stage", "kozue"]
+      }
+    },
+    "kh_021": {
+      "cardName": "ドルフィン〰ビーチ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "ドルフィン〰ビーチ",
+      "kana": "どるふぃんびーち",
+      "gacha": {
+        "addSeason": "ライブグランプリ「103期 第2回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 4200,
+        "cool": 3900,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 5,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "characteristic": {
+        "name": "APレデュース：梢 & 吟子 & ハートブースト：梢 & 吟子",
+        "detail": "梢、吟子のスキルを使用するたび、手札のこのスキルの消費AP-2し、次に使用するスキルハート獲得効果による獲得数を+20%する。",
+        "type": ["APReduce", "boost_heartCaptcha", "kozue", "ginko"]
+      }
+    },
+    "kh_020": {
+      "cardName": "はじける☆オレンジソーダ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "はじける☆ソーダ",
+      "kana": "はじけるおれんじそーだ",
+      "gacha": {
+        "addSeason": "2023 SUMMER LIMITED COLLECTION vol.7",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4400,
+        "pure": 4500,
+        "cool": 4000,
+        "mental": 390,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 7,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]]
+      },
+      "skill": {
+        "ID": "soundBoostedHeart_03",
+        "name": "サウンドブーステッドハート",
+        "AP": 6,
+        "detail": [
+          [5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13],
+          [150, 165, 180, 195, 210, 225, 240, 255, 270, 300, 315, 330, 345, 375]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：APゲイン & APレデュース",
+        "detail": "手札にある状態でセクションが変わるたび、APを2回復し、手札のこのスキルの消費AP-4する。",
+        "type": ["overSection", "APGain", "APReduce"]
+      }
+    },
+    "kh_018": {
+      "cardName": "朝顔令嬢",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "朝顔令嬢",
+      "kana": "あさがおれいじょう",
+      "gacha": {
+        "addSeason": "2023 SUMMER LIMITED COLLECTION vol.5",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3800,
+        "pure": 4200,
+        "cool": 4600,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "soundBoostedVoltage_02",
+        "name": "サウンドブーステッドボルテージ",
+        "AP": 5,
+        "detail": [
+          [13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 32],
+          [32, 35.2, 38.4, 41.6, 44.8, 48, 51.2, 54.4, 57.6, 64, 67.2, 70.4, 73.6, 80]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：APレデュース & APゲイン",
+        "detail": "ドローしたセクションの間、消費APを-3する。さらにスキル使用時、APを+1する。",
+        "type": ["draw", "APReduce", "APGain"]
+      }
+    },
+    "kh_017": {
+      "cardName": "金魚◎花火",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "金魚◎花火",
+      "kana": "きんぎょはなび",
+      "gacha": {
+        "addSeason": "ライブグランプリ「103期 第1回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4400,
+        "pure": 4200,
+        "cool": 4000,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+      },
+      "characteristic": {
+        "name": "フェイバリット：フィーバー & ドロー：ハートブースト",
+        "detail": "フィーバーセクションでドローされる確率が増加する。さらにこのステージ中、ドローした時、次に使用するスキルハート獲得効果による獲得数を+30%する。",
+        "type": ["favorite", "draw", "boost_heartCaptcha"]
+      }
+    },
+    "kh_015": {
+      "cardName": "DEEPNESS",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "DEEPNESS",
+      "kana": "でぃーぷねす",
+      "gacha": {
+        "addSeason": "2023 SUMMER LIMITED COLLECTION vol.3",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 4200,
+        "pure": 3950,
+        "cool": 4650,
+        "mental": 400,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, "13?"]]
+      },
+      "skill": {
+        "ID": "loveAttract_stage",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[1.3, 1.4, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.6, 2.7, 2.9, 3, "3.3?"]]
+      },
+      "characteristic": {
+        "name": "チェイン：さやか & ドロー：アトラクトブースト：梢",
+        "detail": "さやかのスキルを使用した後、ドローされる確率が増加する。さらにドローした時、次に梢が使用するラブアトラクト効果を+75%する。",
+        "type": ["chain", "sayaka", "draw", "boost_loveAttract", "kozue"]
+      }
+    },
+    "kh_013": {
+      "cardName": "雨と紫陽花に唄へば",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "雨と紫陽花に唄へば",
+      "kana": "あめとあじさいにうたへば",
+      "gacha": {
+        "addSeason": "ライブグランプリ「103期6月度 サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4600,
+        "pure": 4500,
+        "cool": 3800,
+        "mental": 390,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 12, 13, 14, 15]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "characteristic": {
+        "name": "フェイバリット：フィーバー & ジャストドロー：フィーバー/ハートブースト：花帆",
+        "detail": "フィーバーセクションでドローされる確率が増加する。さらにフィーバーセクションでドローした時、次に花帆が使用するスキルハート獲得効果による獲得数を+225%する。",
+        "type": ["favorite", "justDrew", "boost_heartCaptcha", "kaho"]
+      }
+    },
+    "kh_012": {
+      "cardName": "アメアガリストリート",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "アメアガリストリート",
+      "kana": "あめあがりすとりーと",
+      "gacha": {
+        "addSeason": "2023 SUMMER LIMITED COLLECTION vol.1",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 4600,
+        "pure": 4500,
+        "cool": 3800,
+        "mental": 390,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 5,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 13]]
+      },
+      "skill": {
+        "ID": "voltageGain",
+        "name": "ボルテージゲイン",
+        "AP": 3,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 24]]
+      },
+      "characteristic": {
+        "name": "ドロー：メンタルリカバー & チル：ボルテージブースト",
+        "detail": "ドローした時、メンタルを最大値の6%回復させる。さらにドローした時ボルテージLv.が10以下のとき、次に使用するボルテージゲイン効果を+10%する。",
+        "type": ["draw", "mentalRecover", "boost_voltageGain"]
+      }
+    },
+    "kh_010": {
+      "cardName": "チェリー♫ピクニック",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "チェリー♫ピクニック",
+      "kana": "ちぇりーぴくにっく",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.2",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4300,
+        "cool": 4200,
+        "mental": 350,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.8, 30]]
+      },
+      "skill": {
+        "ID": "soundBoostedHeart_01",
+        "name": "サウンドブーステッドハート",
+        "AP": 4,
+        "detail": [
+          [3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]
+        ]
+      },
+      "characteristic": {
+        "name": "APレデュース：梢 & さやか",
+        "detail": "梢、さやかのスキルを使用するたび、手札のこのスキルの消費AP-2。",
+        "type": ["APReduce", "kozue", "sayaka"]
+      }
+    },
+    "kh_007": {
+      "cardName": "謳歌爛漫",
+      "styleType": "cheerLeader",
+      "mood": "neutral",
+      "series": "謳歌爛漫",
+      "kana": "おうからんまん",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.2",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 4300,
+        "pure": 4200,
+        "cool": 4100,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 7,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, "15?"]]
+      },
+      "skill": {
+        "ID": "mentalRecover",
+        "name": "メンタルリカバー",
+        "AP": 4,
+        "detail": [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]]
+      },
+      "characteristic": {
+        "name": "ドロー：ボルテージゲイン & アクセラレーション",
+        "detail": "ドローした時、ボルテージPt.を+12する。さらにボルテージLv.が8以上の間、消費APを-2し、ボルテージLv.が10以上の間スキルの効果値が増加する。",
+        "type": ["draw", "voltageGain", "acceleration"]
+      }
+    },
+    "kh_005": {
+      "cardName": "Reflection in the mirror",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "Reflection in the mirror",
+      "kana": "りふれくしょんいんざみらー",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4100,
+        "pure": 4800,
+        "cool": 3300,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "characteristic": {
+        "name": "ドロー：メンタルリカバー & APレデュース：チアフル",
+        "detail": "ドローした時、メンタルを最大値の6%回復させる。さらにメンタルが50%以上の時にドローすると、消費APを-3する。",
+        "type": ["mentalRecover", "APReduce", "cheerful"]
+      }
+    },
+    "kh_004": {
+      "cardName": "水彩世界",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "水彩世界",
+      "kana": "すいさいせかい",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 4300,
+        "cool": 3400,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 7,
+        "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]]
+      },
+      "skill": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 4,
+        "detail": [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]]
+      },
+      "characteristic": {
+        "name": "チェイン：梢",
+        "detail": "梢のスキルを使用した後、ドローされる確率が増加する。",
+        "type": ["cain", "kozue"]
+      }
+    }
+  },
+  "R": {
+    "kh_057": {
+      "cardName": "翠鱗舞",
+      "styleType": "cheerLeader",
+      "mood": "melow",
+      "series": "翠鱗舞",
+      "kana": "すいりんぶ",
+      "gacha": {
+        "addSeason": "2025 SPRING LIMITED COLLECTION Vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 2350,
+        "pure": 2350,
+        "cool": 3100,
+        "mental": 300,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 7,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "mentalRecover",
+        "name": "メンタルリカバー",
+        "AP": 2,
+        "detail": [[1.6, 1.76, 1.92, 2.08, 2.24, 2.4, 2.56, 2.72, 2.88, 3.2, 3.36, 3.52, 3.68, 4]]
+      }
+    },
+    "kh_056": {
+      "cardName": "ノヴァホワイト",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "ノヴァホワイト",
+      "kana": "のゔぁほわいと",
+      "gacha": {
+        "addSeason": "初期所持",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3100,
+        "pure": 2250,
+        "cool": 2450,
+        "mental": 300,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "APGain",
+        "name": "APゲイン",
+        "AP": 3,
+        "detail": [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5]]
+      }
+    },
+    "kh_043": {
+      "cardName": "室咲格子",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "室咲格子",
+      "kana": "むろざきこうし",
+      "gacha": {
+        "addSeason": "2024 SPRING LIMITED COLLECTION vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3100,
+        "pure": 2600,
+        "cool": 2300,
+        "mental": 280,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 7,
+        "detail": [[5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 11, 11, 12, 12]]
+      },
+      "skill": {
+        "ID": "voltageGain",
+        "name": "ボルテージゲイン",
+        "AP": 4,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]]
+      }
+    },
+    "kh_042": {
+      "cardName": "レインボーシフォン",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "レインボーシフォン",
+      "kana": "れいんぼーしふぉん",
+      "gacha": {
+        "addSeason": "初期所持",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 2400,
+        "pure": 3000,
+        "cool": 2400,
+        "mental": 300,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "voltageGain",
+        "name": "ボルテージゲイン",
+        "AP": 5,
+        "detail": [[13, 14, 16, 17, 18, 20, 21, 22, 23, 26, 27, 29, 30, 33]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 2,
+        "detail": [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]]
+      }
+    },
+    "kh_003": {
+      "cardName": "華紺青",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "華紺青",
+      "kana": "はなこんじょう",
+      "gacha": {
+        "addSeason": "2023 SPRING LIMITED COLLECTION vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 2900,
+        "pure": 2700,
+        "cool": 2300,
+        "mental": 290,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 6,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]]
+      },
+      "skill": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 4,
+        "detail": [[6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]]
+      }
+    },
+    "kh_002": {
+      "cardName": "オーロラスカイ",
+      "styleType": "performer",
+      "mood": "happy",
+      "series": "オーロラスカイ",
+      "kana": "おーろらすかい",
+      "gacha": {
+        "addSeason": "初期所持",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 2700,
+        "pure": 3000,
+        "cool": 2400,
+        "mental": 270,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "skill": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 4,
+        "detail": [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]]
+      }
+    }
+  }
+}

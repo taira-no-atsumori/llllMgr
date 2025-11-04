@@ -1,0 +1,440 @@
+{
+  "default": {
+    "iz_000": {
+      "cardName": "default",
+      "styleType": "performer",
+      "mood": "neutral",
+      "kana": "",
+      "gacha": {
+        "addSeason": "",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 30,
+        "pure": 30,
+        "cool": 30,
+        "mental": 3,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "",
+        "name": "",
+        "AP": 1,
+        "detail": []
+      },
+      "skill": {
+        "ID": "",
+        "name": "",
+        "AP": 1,
+        "detail": []
+      },
+      "characteristic": {
+        "name": "",
+        "detail": "",
+        "type": []
+      }
+    }
+  },
+  "DR": {},
+  "BR": {},
+  "UR": {
+    "iz_010": {
+      "cardName": "片翼のトリバガ",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "片翼のトリバガ",
+      "kana": "へんよくのとりばが",
+      "gacha": {
+        "addSeason": "2025 AUTUMN LIMITED COLLECTION vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3000,
+        "pure": 5500,
+        "cool": 5900,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "devilAssist_01",
+        "name": "デビルアシスト",
+        "AP": 8,
+        "detail": [
+          [444.4, 488.8, 533.3, 577.7, 622.2, 666.6, 711, 755.5, 799.9, 888.8, 933.2, 977.7, 1022.1, 1111],
+          [8.8, 9.7, 10.6, 11.4, 12.3, 13.2, 14.1, 15, 15.8, 17.6, 18.5, 19.4, 20.2, 22]
+        ]
+      },
+      "skill": {
+        "ID": "imitationExtendAttract_01",
+        "name": "イミテーションエクステアトラクト",
+        "AP": 7,
+        "detail": [
+          [4.4, 4.8, 5.3, 5.7, 6.2, 6.6, 7, 7.5, 7.9, 8.8, 9.2, 9.7, 10.1, 11],
+          [8.8, 9.7, 10.6, 11.4, 12.3, 13.2, 14.1, 15, 15.8, 17.6, 18.5, 19.4, 20.2, 22]
+        ]
+      },
+      "characteristic": {
+        "name": "セラフィックウイング‖",
+        "detail": "セラスのスキル使用後以外ドローされない。さらにスキル使用時4回まで、次にセラスが使用するラブアトラクト効果を+1111%し、1セクション目でドローしたとき、次にセラスが使用するラブアトラクト効果を+1111%する。",
+        "type": ["boost_loveAttract"]
+      }
+    },
+    "iz_009": {
+      "cardName": "フュージョンクラスト",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "フュージョンクラスト",
+      "kana": "ふゅーじょんくらすと",
+      "gacha": {
+        "addSeason": "2025 SUMMER LIMITED COLLECTION vol.9",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 3200,
+        "pure": 5700,
+        "cool": 5550,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "summerMagicHour_01",
+        "name": "サマーマジックアワー",
+        "AP": 11,
+        "detail": [
+          [39.6, 43.6, 47.5, 51.5, 55.4, 59.4, 63.4, 67.3, 71.3, 79.2, 83.2, 87.1, 91.1, 99],
+          [4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+          [3999.6, 4399.6, 4799.5, 5199.5, 5599.4, 5999.4, 6399.4, 6799.3, 7199.3, 7999.2, 8399.2, 8799.1, 9199.1, 9999]
+        ]
+      },
+      "skill": {
+        "ID": "imitationLight_01",
+        "name": "イミテーションライト",
+        "AP": 7,
+        "detail": [[0.48, 0.53, 0.58, 0.63, 0.68, 0.72, 0.77, 0.82, 0.87, 0.96, 1.1, 1.06, 1.11, 1.2]]
+      },
+      "characteristic": {
+        "name": "サンセットスター",
+        "detail": "スキル使用時、このセクション中、ビートハートの出現個数を+2する。さらにフィーバーセクションでドローされる確率が大幅に増加し、フィーバーセクションでドローしたとき、このセクション中、ビートハートの出現個数を+1、フィーバーセクションでスキル使用時、このセクション中、ビートハートの出現個数を+9する。",
+        "type": ["vibes_section", "draw", "heartCaptcha", "heartLimitUp"]
+      }
+    },
+    "iz_008": {
+      "cardName": "蒼のツバメ",
+      "styleType": "trickStar",
+      "mood": "happy",
+      "series": "蒼のツバメ",
+      "kana": "あおのつばめ",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 2ndTerm 第1回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 5150,
+        "pure": 5850,
+        "cool": 3400,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensionRefreshHeat_01",
+        "name": "エクステリフレッシュヒート",
+        "AP": 7,
+        "detail": [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]]
+      },
+      "skill": {
+        "ID": "imitationRefreshProtect_01",
+        "name": "イミテーションリフレッシュプロテクト",
+        "AP": 7,
+        "detail": [[8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20]]
+      },
+      "characteristic": {
+        "name": "ツバメガエシ ",
+        "detail": "スキル使用時、山札に戻り、このセクション中、AP回復速度を+20%する。さらに2～4セクション目でドローした時、消費APを-5する。",
+        "type": ["APQuick", "APReduce"]
+      }
+    },
+    "iz_007": {
+      "cardName": "天地黎明",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "天地黎明",
+      "kana": "てんちれいめい",
+      "gacha": {
+        "addSeason": "2025 SUMMER LIMITED COLLECTION vol.4",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 5900,
+        "pure": 5200,
+        "cool": 3300,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "groovyHeatVibes_01",
+        "name": "グルーヴィヒートバイブス",
+        "AP": 6,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "imitationVoltage_01",
+        "name": "イミテーションボルテージ",
+        "AP": 8,
+        "detail": [[1800, 1980, 2160, 2340, 2520, 2700, 2880, 3060, 3240, 3600, 3780, 3960, 4140, 4500]]
+      },
+      "characteristic": {
+        "name": "サウンド・セイバー",
+        "detail": "ムードがハッピー、メロウいずれか75以上でこのスキルを使用したとき、次にセラスが使用するボルテージゲイン効果を+225%する。",
+        "type": ["sound", "boost_voltageGain"]
+      }
+    },
+    "iz_005": {
+      "cardName": "Retrofuture",
+      "styleType": "trickStar",
+      "mood": "happy",
+      "series": "Retrofuture",
+      "kana": "れとろふゅーちゃー",
+      "gacha": {
+        "addSeason": "2025 SPRING LIMITED COLLECTION Vol.3",
+        "period": "spring"
+      },
+      "uniqueStatus": {
+        "smile": 3800,
+        "pure": 5000,
+        "cool": 5500,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensionHeatGain_01",
+        "name": "エクステヒートゲイン",
+        "AP": 22,
+        "detail": [
+          [8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4, 20],
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+        ]
+      },
+      "skill": {
+        "ID": "imitationHeat_01",
+        "name": "イミテーションヒート",
+        "AP": 2,
+        "detail": [[0.8, 0.88, 0.96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.6, 1.68, 1.76, 1.84, 2]]
+      },
+      "characteristic": {
+        "name": "チェイン：セラス & ハッピー：APゲイン",
+        "detail": "セラスのスキルを使用した後、ドローされる確率が大幅に増加する。さらにムードがハッピー75以上でこのスキルを使用したとき、APを15回復する。",
+        "type": ["chain", "seras", "APGain"]
+      }
+    },
+    "iz_001": {
+      "cardName": "Dream Believers",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "Dream Believers",
+      "kana": "どりーむびりーばーず",
+      "gacha": {
+        "addSeason": "2025 SPRING LIMITED COLLECTION Vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4000,
+        "pure": 5400,
+        "cool": 5100,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "extensionHeat_01",
+        "name": "エクステヒート",
+        "AP": 6,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "skill": {
+        "ID": "imitationHeart_01",
+        "name": "イミテーションハート",
+        "AP": 6,
+        "detail": [[480, 528, 576, 624, 672, 720, 768, 816, 864, 960, 1008, 1056, 1104, 1200]]
+      },
+      "characteristic": {
+        "name": "APゲイン",
+        "detail": "スキル使用時、APを4回復する。",
+        "type": ["APGain"]
+      }
+    }
+  },
+  "SR": {
+    "iz_011": {
+      "cardName": "四蓮琴之龍",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "四蓮琴之龍",
+      "kana": "よんれんきんのりゅう",
+      "gacha": {
+        "addSeason": "2025 AUTUMN LIMITED COLLECTION vol.5",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3950,
+        "pure": 4850,
+        "cool": 4000,
+        "mental": 400,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "eshen_01",
+        "name": "イーシェン",
+        "AP": 6,
+        "detail": [[1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4]]
+      },
+      "skill": {
+        "ID": "tetraImitation_01",
+        "name": "テトライミテーション",
+        "AP": 4,
+        "detail": [[640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1280, 1344, 1408, 1472, 1600]]
+      },
+      "characteristic": {
+        "name": "トンファンジーホア",
+        "detail": "フィーバーを除く1セクション目でドローされる確率が大幅に増加し、それ以外のセクションのときドローされない。さらにフィーバーを除く1セクション目でドローした時、4回の間ハート上限増加効果を+40%し、ムードがハッピー、メロウいずれかのとき、このセクション中、ムード値を+44する。",
+        "type": ["draw", "boost_wideHeart", "sound", "vibes_section"]
+      }
+    },
+    "iz_006": {
+      "cardName": "十六夜セレーネ",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "十六夜セレーネ",
+      "kana": "いざよいせれーね",
+      "gacha": {
+        "addSeason": "2025 SUMMER LIMITED COLLECTION Vol.2",
+        "period": "summer"
+      },
+      "uniqueStatus": {
+        "smile": 3250,
+        "pure": 4300,
+        "cool": 5050,
+        "mental": 420,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "wideHeat_01",
+        "name": "ワイドヒート",
+        "AP": 6,
+        "detail": [
+          [6.4, 7.1, 7.7, 8.4, 9, 9.6, 10.3, 10.9, 11.6, 12.8, 13.5, 14.1, 14.8, 16],
+          [640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1280, 1344, 1408, 1472, 1600]
+        ]
+      },
+      "skill": {
+        "ID": "imitationWide_01",
+        "name": "イミテーションワイド",
+        "AP": 2,
+        "detail": [[640, 704, 768, 832, 896, 960, 1024, 1088, 1152, 1280, 1344, 1408, 1472, 1600]]
+      },
+      "characteristic": {
+        "name": "イザヨイラバー",
+        "detail": "スキル使用後、セラスのカードをドローする確率アップ。さらにスキルを使用時、16回までAPを2回復し、メンタルを16%回復する。",
+        "type": ["draw", "APGain", "mentalRecover"]
+      }
+    },
+    "iz_004": {
+      "cardName": "Her-bath-rium",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "Her-bath-rium",
+      "kana": "はーばりうむ",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 OpeningTerm 個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4900,
+        "pure": 4400,
+        "cool": 3400,
+        "mental": 410,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "protectHeat_01",
+        "name": "プロテクトヒート",
+        "AP": 4,
+        "detail": [
+          [2.4, 2.7, 2.9, 3.2, 3.4, 3.6, 3.9, 4.1, 4.4, 4.8, 5.1, 5.3, 5.6, 6],
+          [3.2, 3.52, 3.84, 4.16, 4.48, 4.8, 5.12, 5.44, 5.76, 6.4, 6.72, 7.04, 7.36, 8]
+        ]
+      },
+      "skill": {
+        "ID": "imitationVoltage_01",
+        "name": "イミテーションボルテージ",
+        "AP": 2,
+        "detail": [[80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]]
+      },
+      "characteristic": {
+        "name": "サウンド：APゲイン",
+        "detail": "ムードがハッピー、メロウいずれか75以上でこのスキルを使用したとき、APを4回復する。",
+        "type": ["APGain"]
+      }
+    }
+  },
+  "R": {
+    "iz_003": {
+      "cardName": "翠鱗舞",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "翠鱗舞",
+      "kana": "すいりんぶ",
+      "gacha": {
+        "addSeason": "2025 SPRING LIMITED COLLECTION vol.1",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 2250,
+        "pure": 2800,
+        "cool": 2750,
+        "mental": 300,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "loveAttract_section",
+        "name": "ラブアトラクト",
+        "AP": 4,
+        "detail": [[6, 6.6, 7.2, 7.8, 8.4, 9, 9.6, 10.2, 10.8, 12, 12.6, 13.2, 13.8, 15]]
+      },
+      "skill": {
+        "ID": "imitationAttract_01",
+        "name": "イミテーションアトラクト",
+        "AP": 4,
+        "detail": [[0.8, 0.88, 0.96, 1.04, 1.12, 1.2, 1.28, 1.36, 1.44, 1.6, 1.68, 1.76, 1.84, 2]]
+      }
+    },
+    "iz_002": {
+      "cardName": "ノヴァホワイト",
+      "styleType": "trickStar",
+      "mood": "happy",
+      "series": "ノヴァホワイト",
+      "kana": "のゔぁほわいと",
+      "gacha": {
+        "addSeason": "初期所持",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 3000,
+        "pure": 2200,
+        "cool": 2600,
+        "mental": 300,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "heartCaptcha",
+        "name": "ハートキャプチャ",
+        "AP": 6,
+        "detail": [[4, 4, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10]]
+      },
+      "skill": {
+        "ID": "imitationHeart_02",
+        "name": "イミテーションハート",
+        "AP": 2,
+        "detail": [[2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 6]]
+      }
+    }
+  }
+}

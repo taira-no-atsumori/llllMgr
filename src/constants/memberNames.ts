@@ -172,6 +172,24 @@ export const makeMemberFullName = (key: MemberKeyValues, isSpace = true) => {
   return `${memberData.first}${/kozutsuzumegu|selaIzu/.test(key) || !isSpace ? '' : ' '}${memberData.last}`;
 };
 
+/**
+ * カードIDをメンバー名に変換する関数
+ *
+ * @param id カードID
+ * @returns メンバー名
+ */
+export const conversionCardIdToMemberName = (id: string): string => {
+  switch (id) {
+    case 'ktm_001':
+      return `${MEMBER_NAMES.kozutsuzumegu.first}${MEMBER_NAMES.kozutsuzumegu.last}`;
+    case 'is_001':
+      return makeMemberFullName(MEMBER_KEYS.SELAIZU);
+    default:
+      const memberKey = conversionIdToKey(id.split('_')[0]);
+      return MEMBER_NAMES[memberKey][`${memberKey === MEMBER_KEYS.SERAS ? 'fir' : 'la'}st`];
+  }
+};
+
 /** メンバーデータ */
 export const MEMBER_DATA = {
   KAHO: {

@@ -550,6 +550,15 @@ export const SKILL_LIST = {
       },
     },
   },
+  チアフルボルテージブースト: {
+    cheerfulVoltageBoost_01: {
+      text: ['メンタルが100%以上のとき、8回の間ボルテージゲイン効果を+', '%する。'],
+      detail: {
+        attr: 'cheerful',
+        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+      },
+    },
+  },
   チアフルリカバー: {
     cheerfulRecover_upper75_APGain: {
       text: ['メンタルを最大値の', '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'],
@@ -3947,6 +3956,26 @@ export const SKILL_LIST = {
       },
     },
   },
+  ドレッサー: {
+    dresser_01: {
+      text: [
+        'ドレスカードのみを集めたデッキと通常のデッキが切り替えられるようになる。さらにドレス《17th Birthday》を1種類(合計1枚)山札に追加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.CHANGE_DECK, SKILL_DETAIL.ADD_CARD],
+      },
+    },
+  },
+  '《17th Birthday》': {
+    '17thBirthday_01': {
+      text: ['APを', '回復する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
   Prinzessin: {
     prinzessin: {
       text: ['このセクション中、AP回復速度を+', '%する。'],
@@ -6382,6 +6411,16 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.AP_REDUCE],
       },
     },
+    bloomMySelf_05: {
+      text: [
+        '2回の間吟子、ドレスカードの使用するハート上限増加効果を+',
+        '%する。さらに山札にある吟子、ドレスカードのスキルの消費AP-2。',
+      ],
+      detail: {
+        attr: 'bloomMySelf',
+        type: [SKILL_DETAIL.BOOST_WIDE_HEART, SKILL_DETAIL.AP_REDUCE],
+      },
+    },
   },
   ミッドワイドビリーフ: {
     midWideBelief_01: {
@@ -6629,6 +6668,16 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.EXTEND_HAND],
       },
     },
+    elysion_06: {
+      text: [
+        'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ボルテージPt.が1秒ごとに',
+        'ptずつ増加する。',
+      ],
+      detail: {
+        attr: 'Elysion',
+        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
   },
   'mode:DESTROYER': {
     mode_destroyer_01: {
@@ -6704,6 +6753,20 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+      },
+    },
+  },
+  'mode:TERMINAL': {
+    mode_terminal_01: {
+      text: [
+        'それぞれ33回の間スキルハート獲得効果による獲得数を+',
+        '%、ラブアトラクト効果を+',
+        '%、ハート上限増加効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: 'mode',
+        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_WIDE_HEART],
       },
     },
   },
@@ -7169,6 +7232,30 @@ export const SKILL_LIST = {
       },
     },
   },
+  イーシェン: {
+    eshen_01: {
+      text: [
+        'フィーバーを除く1セクション目のとき、手札を山札リセットシャッフルし、このセクション中、手札の上限枚数を4枚増加、APを',
+        '回復する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
+  リャンシェン: {
+    ryanshen_01: {
+      text: [
+        'フィーバーを除く2セクション目のとき、手札を山札リセットシャッフルし、このセクション中、手札の上限枚数を4枚増加、APを',
+        '回復する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
   サンシェン: {
     sanshen_01: {
       text: [
@@ -7190,6 +7277,30 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
+  テトライミテーション: {
+    tetraImitation_01: {
+      text: [
+        'フィーバーを除く1セクション目のとき、カードがステージにセットされ、ハート上限増加効果を吸収する。ハート上限増加効果を400個分吸収したとき、このステージ中、ハート上限を+',
+        'し、捨札に移動する。それ以外のセクションのとき、カードがステージにセットされ、AP回復効果を吸収する。AP回復効果を4吸収したとき、デッキ内のセラスのスキルの消費APを-4し、捨札に移動する。',
+      ],
+      detail: {
+        attr: 'imitation',
+        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_REDUCE],
+      },
+    },
+  },
+  テトラバイブス: {
+    tetraVibes_01: {
+      text: [
+        'フィーバーを除く2セクション目のとき、このセクション中、ビートハートの出現個数を+',
+        'する。それ以外のセクションのとき、デッキ内のさやかのスキルの消費AP-4。',
+      ],
+      detail: {
+        attr: 'imitation',
+        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.AP_REDUCE],
       },
     },
   },
@@ -7556,6 +7667,167 @@ export const SKILL_LIST = {
           SKILL_DETAIL.BOOST_HEART_CAPTCHA,
           SKILL_DETAIL.BOOST_LOVE_ATTRACT,
         ],
+      },
+    },
+  },
+  リバイタリゼーション: {
+    revitalization_01: {
+      text: [
+        'このセクション中、メンタルリカバー効果を+',
+        '%、メンタルプロテクト効果を+',
+        '%し、このセクション中、AP回復速度を-9%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.BOOST_MENTAL_PROTECT, SKILL_DETAIL.AP_SLOW],
+      },
+    },
+  },
+  スティミュレーション: {
+    stimulation_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。さらにメンタルが99%以上のとき、9回の間スキルハート獲得効果による獲得数を+',
+        '%し、メンタルを最大値の33%固定で減少、メンタルが66%以上のとき、9回の間ボルテージゲイン効果を+',
+        '%し、メンタルを最大値の22%固定で減少、メンタルが33%以上のとき、手札をシャッフル、9回の間メンタルプロテクト効果を+',
+        '%し、メンタルを最大値の11%固定で減少させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+        ],
+      },
+    },
+    stimulation_02: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。さらにメンタルが99%以上のとき、9回の間スキルハート獲得効果による獲得数を+',
+        '%し、メンタルを最大値の33%固定で減少、メンタルが66%以上のとき、9回の間ラブアトラクト効果を+',
+        '%し、メンタルを最大値の22%固定で減少、メンタルが33%以上のとき、手札をシャッフル、9回の間メンタルプロテクト効果を+',
+        '%し、メンタルを最大値の11%固定で減少させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+        ],
+      },
+    },
+  },
+  QQボックス: {
+    QQBox_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させ、このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。さらに手札を山札リセットシャッフルする。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.RESHUFFLE],
+      },
+    },
+  },
+  ダンシングボルテージ: {
+    dancingVoltage_01: {
+      text: [
+        'このセクション中、ボルテージLv.を無限にし、ボルテージPt.獲得効果発動時、スキルハートを獲得、APを0～20回復する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加、デッキ枚数が18枚より少ないほど効果値が減少する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.INFINITY_VOLTAGE_SECTION, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+    dancingVoltage_02: {
+      text: [
+        'このセクション中、ボルテージLv.を無限にし、ボルテージPt.獲得効果発動時、このセクション中、獲得するLOVEを増加、APを0～20回復する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加、デッキ枚数が18枚より少ないほど効果値が減少する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.INFINITY_VOLTAGE_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
+  ウイングビートアトラクション: {
+    wingBeatAttraction_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%以上のとき、ビートハート',
+        '回分のスキルハートを獲得、このセクション中、獲得するLOVEを+',
+        '%、ボルテージPt.を+',
+        '、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の99%固定で減少させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
+      },
+    },
+  },
+  ウイングビートチャレンジャー: {
+    wingBeatChallenger_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%以上のとき、手札をシャッフル、ビートハート',
+        '回分のスキルハートを獲得、それぞれ3回の間さやかが使用するラブアトラクト効果を+',
+        '%、ボルテージゲイン効果を+',
+        '、デッキ内のさやかのスキルの消費APを-8し、メンタルを最大値の99%固定で減少させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
+      },
+    },
+  },
+  ウイングビートメンター: {
+    wingBeatMentor_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%以上のとき、手札をシャッフル、ビートハート',
+        '回分のスキルハートを獲得し、このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
+      },
+    },
+  },
+  セルフィッシュフェザー: {
+    selfishFeater_01: {
+      text: ['手札をリセットシャッフルする。さらにこのセクション中、AP回復速度を+80%する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
       },
     },
   },

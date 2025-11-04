@@ -26,73 +26,21 @@ type CardFluctuationStatus = {
 };
 
 /**
- * カードの固有ステータスを表す型
- *
- * @property smile スマイル値
- * @property pure ピュア値
- * @property cool クール値
- * @property mental メンタル値
- * @property BP BP値
- * @property supportSkill サポートスキル
- * @property supportSkill.initLevel 初期レベル
- * @property supportSkill.levelUp レベルアップ値
- * @property supportSkill.upLevel 上昇レベル
- */
-type CardUniqueStatus = {
-  smile: number;
-  pure: number;
-  cool: number;
-  mental: number;
-  BP: number;
-  supportSkill?: Record<
-    string,
-    {
-      initLevel: number;
-      levelUp: number;
-      upLevel: number;
-    }
-  >;
-};
-
-/**
- * カードデータを表す型
- *
- * @property ID カードID
- * @property rare レアリティ
- * @property cardName カード名
- * @property memberName メンバー名
- * @property limited 限定情報
- * @property sortPoint ソートポイント
- * @property favorite お気に入りリスト
- * @property fluctuationStatus 変動ステータス
- * @property uniqueStatus 固有ステータス
- * @property specialAppeal 特別アピール情報 (オプション)
- * @property specialAppeal.AP 消費AP
- * @property skill スキル情報 (オプション)
- * @property skill.AP 消費AP
- */
-type CardDefaultData = {
-  ID: string;
-  rare: Rare;
-  cardName: string;
-  memberName: MemberKeyValues;
-  limited: Limited;
-  sortPoint: number;
-  favorite: FavoriteIcon;
-  fluctuationStatus: CardFluctuationStatus;
-  uniqueStatus: CardUniqueStatus;
-  specialAppeal?: {
-    AP: number;
-  };
-  skill?: {
-    AP: number;
-  };
-};
-
-/**
  * カードリストを表す型
  */
-type CardList = Record<string, Record<string, Record<string, CardDefaultData>>>;
+export type LocalStorageCardListType = Record<
+  string,
+  Record<
+    string,
+    Record<
+      string,
+      {
+        fluctuationStatus: TrainingStatus;
+        favorite: FavoriteIcon[];
+      }
+    >
+  >
+>;
 
 /**
  * サイト設定を表す型
@@ -112,17 +60,17 @@ type CardList = Record<string, Record<string, Record<string, CardDefaultData>>>;
 type SiteSettings = {
   all: {
     headerTracking: string;
-    darkMode: string;
+    darkMode: 'light' | 'dark';
   };
   cardList: {
-    isShowDetail: string;
-    hover: string;
-    dot_cardLevel: string;
-    dot_releasePoint: string;
-    dot_releaseLevel: string;
+    isShowDetail: 'true' | 'false';
+    hover: 'true' | 'false';
+    dot_cardLevel: 'true' | 'false';
+    dot_releasePoint: 'true' | 'false';
+    dot_releaseLevel: 'true' | 'false';
   };
   musicList: {
-    hover: string;
+    hover: 'true' | 'false';
   };
 };
 
@@ -230,7 +178,7 @@ type LocalStorageData = {
     musicLevel: Record<string, number>;
   };
   cardList: {
-    card: CardList;
+    card: LocalStorageCardListType;
     cardListFilter: SearchSettings;
   };
   selectItemList: {
@@ -287,7 +235,7 @@ type Deck = {
  * @property styleHeadline スタイル見出し
  * @property limited 限定
  * @property releasePoint 解放ポイント
- * @property specialCardIdList 特別カードIDリスト
+ * @property specialCardIds 特別カードIDリスト
  * @property formationMember フォーメーションメンバー
  * @property memberData メンバーデータ
  * @property deck デッキ
@@ -330,7 +278,7 @@ type StoreState = {
       max: number;
     }
   >;
-  specialCardIdList: string[];
+  specialCardIds: string[];
   formationMember: Record<number, string[]>;
   card: Record<string, CardDataByMember>;
   bonusSkillLevels: Record<BonusSkillNames, number>;
@@ -346,9 +294,6 @@ type StoreState = {
   deck: Deck[];
   settingCard: {
     ID: string;
-    rare: Rare;
-    name: MemberKeyValues;
-    card: string;
   };
   openCard: {
     ID: string;

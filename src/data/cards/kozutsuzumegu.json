@@ -1,0 +1,69 @@
+{
+  "default": {
+    "ktm_000": {
+      "cardName": "default",
+      "styleType": "performer",
+      "mood": "neutral",
+      "kana": "",
+      "gacha": {
+        "addSeason": "",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 30,
+        "pure": 30,
+        "cool": 30,
+        "mental": 3,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "",
+        "name": "",
+        "AP": 1,
+        "detail": []
+      },
+      "skill": {
+        "ID": "",
+        "name": "",
+        "AP": 1,
+        "detail": []
+      },
+      "characteristic": {
+        "name": "",
+        "detail": "",
+        "type": []
+      }
+    }
+  },
+  "UR": {
+    "ktm_001": {
+      "cardName": "蓮ノ空女学院スクールアイドルクラブ102期生",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "蓮ノ空女学院スクールアイドルクラブ102期生",
+      "kana": "はすのそらじょがくいんすくーるあいどるくらぶ102きせい",
+      "gacha": {
+        "addSeason": "2024 GRADUATION LIMITED COLLECTION AFTER",
+        "period": "graduation"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4800,
+        "cool": 4800,
+        "mental": 480,
+        "BP": 100
+      },
+      "skill": {
+        "ID": "dreamingTriangle_01",
+        "name": "ドリーミングトライアングル",
+        "AP": 3,
+        "detail": [[12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4, 27.6, 30]]
+      },
+      "characteristic": {
+        "name": "グラデュエーション",
+        "detail": "このスキルを3回使用すると、デッキから除外される。",
+        "type": ["exclusion"]
+      }
+    }
+  }
+}

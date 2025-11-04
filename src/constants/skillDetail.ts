@@ -140,6 +140,12 @@ export const SKILL_DETAIL = {
     COLOR_CODE: 'red',
     DESCRIPTION: '一定の回数使用するハート上限個数増加効果を増加させる。',
   },
+  BOOST_AMBIENCE: {
+    name_ja: 'ブースト(アンビエンス)',
+    name_en: 'boost_ambience',
+    COLOR_CODE: 'lime-darken-4',
+    DESCRIPTION: '一定の回数使用するムード変動効果を増加させる。',
+  },
   BOOST_ALL_SECTION: {
     name_ja: 'ブースト(セクション)',
     name_en: 'boost_all_section',
@@ -353,7 +359,7 @@ export const SKILL_DETAIL = {
   },
   DREW: {
     name_ja: 'ドロー',
-    name_en: 'drew',
+    name_en: 'draw',
     COLOR_CODE: '',
     DESCRIPTION: '特定のメンバーのカードをドローする確率がアップする。',
   },

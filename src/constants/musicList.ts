@@ -872,6 +872,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.KOZUE,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
     singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.KOZUE],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 16,
+        EXPERT: 24,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 128,
+        HARD: 196,
+        EXPERT: 728,
+        MASTER: 1052,
+      },
+    },
   },
   シュガーメルト: {
     ID: 'm_063',
@@ -1594,6 +1608,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.RURINO,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
     singingMembers: [MEMBER_KEYS.RURINO, MEMBER_KEYS.MEGUMI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 15,
+        HARD: 21,
+        EXPERT: 28,
+        MASTER: 31,
+      },
+      maxCombo: {
+        NORMAL: 332,
+        HARD: 827,
+        EXPERT: 1298,
+        MASTER: 1688,
+      },
+    },
   },
   '以心☆電信': {
     ID: 'm_078',
@@ -2383,6 +2411,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.KAHO,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
     singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.KOZUE],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 13,
+        HARD: 19,
+        EXPERT: 27,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 297,
+        HARD: 435,
+        EXPERT: 826,
+        MASTER: 937,
+      },
+    },
   },
   威風堂々: {
     ID: 'm_042',
@@ -2435,6 +2477,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.RURINO,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
     singingMembers: [MEMBER_KEYS.RURINO, MEMBER_KEYS.MEGUMI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 17,
+        EXPERT: 26,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 169,
+        HARD: 274,
+        EXPERT: 734,
+        MASTER: 815,
+      },
+    },
   },
   ダンスロボットダンス: {
     ID: 'm_056',
@@ -2939,6 +2995,20 @@ export const MUSIC_LIST = {
       MEMBER_KEYS.KOSUZU,
       MEMBER_KEYS.HIME,
     ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 18,
+        EXPERT: 27,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 143,
+        HARD: 286,
+        EXPERT: 703,
+        MASTER: 852,
+      },
+    },
   },
   'Link to the FUTURE（104期Ver.）': {
     ID: 'm_123',
@@ -4089,6 +4159,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 13,
+        HARD: 10,
+        EXPERT: 27,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 281,
+        HARD: 523,
+        EXPERT: 931,
+        MASTER: 1851,
+      },
+    },
   },
   COMPASS: {
     ID: 'm_146',
@@ -5378,7 +5462,7 @@ export const MUSIC_LIST = {
   一生に夢が咲くように: {
     ID: 'm_198',
     musicData: {
-      kana: 'ひととせにゆめがさくように',
+      kana: 'ひとよにゆめがさくように',
       singer: '蓮ノ空女学院スクールアイドルクラブ',
       releaseDate: {
         year: 2025,
@@ -5421,6 +5505,55 @@ export const MUSIC_LIST = {
         HARD: 277,
         EXPERT: 458,
         MASTER: 685,
+      },
+    },
+  },
+  はじまりの羽音: {
+    ID: 'm_202',
+    musicData: {
+      kana: 'はじまりのはねおと',
+      singer: '蓮ノ空女学院スクールアイドルクラブ',
+      releaseDate: {
+        year: 2025,
+        month: 11,
+        date: 26,
+      },
+      numbering: '蓮ノ空女学院スクールアイドルクラブ 8thシングル',
+      BPM: {
+        original: 150,
+        inGame: 150,
+      },
+      time: 115,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.PURE.en,
+    BHcount: 70,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.SAYAKA,
+    bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.SERAS,
+      MEMBER_KEYS.IZUMI,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 14,
+        HARD: 19,
+        EXPERT: 25,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 281,
+        HARD: 601,
+        EXPERT: 847,
+        MASTER: 1122,
       },
     },
   },
@@ -6061,6 +6194,46 @@ export const MUSIC_LIST = {
         HARD: 522,
         EXPERT: 981,
         MASTER: 1254,
+      },
+    },
+  },
+  バイタルサイン: {
+    ID: 'm_201',
+    musicData: {
+      kana: 'ばいたるさいん',
+      singer: 'みらくらぱーく！',
+      releaseDate: {
+        year: 2099,
+        month: 12,
+        date: 31,
+      },
+      numbering: '',
+      BPM: {
+        original: 204,
+        inGame: 204,
+      },
+      time: 108,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.COOL.en,
+    BHcount: 81,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.RURINO,
+    bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
+    singingMembers: [MEMBER_KEYS.RURINO, MEMBER_KEYS.HIME],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 17,
+        EXPERT: 28,
+        MASTER: 32,
+      },
+      maxCombo: {
+        NORMAL: 290,
+        HARD: 522,
+        EXPERT: 935,
+        MASTER: 1321,
       },
     },
   },

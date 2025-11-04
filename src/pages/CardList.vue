@@ -1,5 +1,6 @@
 <template>
   <v-container
+    v-if="!store.loading"
     fluid
     class="pa-2"
   >
@@ -97,7 +98,7 @@
       </v-btn>
     </v-btn-toggle>
 
-    <div class="d-inline-block mr-1">絞り込み結果：{{ store.outputCardList.length }}枚 /</div>
+    <div class="d-inline-block mr-1">絞り込み結果：{{ outputCardList.length }}枚 /</div>
 
     <div class="d-inline-block">
       現在のソート：{{ sortTypeList[store.localStorageData.sortSettings.cardList.sortType] }}
@@ -121,13 +122,13 @@
           id="cardListArea"
           class="mt-1"
         >
-          <li v-if="store.outputCardList.length === 0">
+          <li v-if="outputCardList.length === 0">
             見つからなかったよ😢<br />
             絞り込み条件を変えてね
           </li>
           <li
             v-else
-            v-for="cardData in store.outputCardList"
+            v-for="cardData in outputCardList"
             :key="cardData"
             class="card position-relative"
           >
@@ -168,19 +169,9 @@
               "
             >
               <v-img
-                :lazy-src="
-                  store.getImagePath(
-                    'images/cardIllust',
-                    `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`
-                  )
-                "
-                :src="
-                  store.getImagePath(
-                    'images/cardIllust',
-                    `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`
-                  )
-                "
-                :alt="`${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}`"
+                :lazy-src="store.getImagePath('images/cardIllust', store.makeCardIllustName(cardData.ID))"
+                :src="store.getImagePath('images/cardIllust', store.makeCardIllustName(cardData.ID))"
+                :alt="`${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}`"
               ></v-img>
               <v-card-title
                 class="d-flex align-center text-subtitle-2 px-2 pt-1 hamidashi"
@@ -188,7 +179,7 @@
               >
                 <img
                   :src="store.getImagePath('icons/styleType', `icon_${cardData.styleType}`)"
-                  :alt="`${cardData.memberName}_${store.makeCardMemberName(cardData.ID)}`"
+                  :alt="`${cardData.memberName}_${conversionCardIdToMemberName(cardData.ID)}`"
                   class="icon type mr-1"
                 />
                 <span
@@ -252,9 +243,7 @@
                     class="status"
                   >
                     <span>解放Lv. </span>
-                    {{
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.releaseLevel
-                    }}
+                    {{ store.card[cardData.memberName][cardData.rare][cardData.ID].fluctuationStatus.releaseLevel }}
                   </v-col>
                   <v-col
                     cols="6"
@@ -262,14 +251,12 @@
                   >
                     <span>GP Pt. </span>
                     {{
-                      /^DR$/.test(store.card[cardData.memberName][cardData.rare][cardData.cardName].rare) ||
-                      store.card[cardData.memberName][cardData.rare][cardData.cardName].specialAppeal === undefined
+                      /^DR$/.test(store.card[cardData.memberName][cardData.rare][cardData.ID].rare) ||
+                      store.card[cardData.memberName][cardData.rare][cardData.ID].specialAppeal === undefined
                         ? '-'
                         : `+${
-                            GRANDPRIX_BONUS.releaseLv[
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName].rare
-                            ][
-                              store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus
+                            GRANDPRIX_BONUS.releaseLv[store.card[cardData.memberName][cardData.rare][cardData.ID].rare][
+                              store.card[cardData.memberName][cardData.rare][cardData.ID].fluctuationStatus
                                 .releaseLevel - 1
                             ] * 100
                           }%`
@@ -294,19 +281,9 @@
                     "
                   >
                     <v-img
-                      :lazy-src="
-                        store.getImagePath(
-                          'images/cardIllust',
-                          `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`
-                        )
-                      "
-                      :src="
-                        store.getImagePath(
-                          'images/cardIllust',
-                          `${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}_覚醒後`
-                        )
-                      "
-                      :alt="`${store.conversion(cardData.cardName)}_${store.makeCardMemberName(cardData.ID)}`"
+                      :lazy-src="store.getImagePath('images/cardIllust', store.makeCardIllustName(cardData.ID))"
+                      :src="store.getImagePath('images/cardIllust', store.makeCardIllustName(cardData.ID))"
+                      :alt="`${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}`"
                     ></v-img>
                     <v-card-title
                       class="d-flex align-center text-subtitle-2 px-2 pt-1"
@@ -314,7 +291,7 @@
                     >
                       <img
                         :src="store.getImagePath('icons/styleType', `icon_${cardData.styleType}`)"
-                        :alt="`${cardData.memberName}_${store.makeCardMemberName(cardData.ID)}`"
+                        :alt="`${cardData.memberName}_${conversionCardIdToMemberName(cardData.ID)}`"
                         class="icon type mr-1"
                       />
                       <span
@@ -415,7 +392,7 @@
 
                 <div>
                   <p class="mb-2">
-                    {{ cardData.rare }}{{ ['', '+', '++'][rare(store, cardData)] }} [{{ cardData.cardName }}]
+                    {{ cardData.rare }}{{ ['', '+', '++'][rare(cardData)] }} [{{ cardData.cardName }}]
                     {{ makeMemberFullName(cardData.memberName) }} (Lv.
                     {{ store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.cardLevel }})
                   </p>
@@ -577,25 +554,296 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { RARE } from '@/constants/cards';
 import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardList';
 import Chart from '@/components/modal/Chart.vue';
 import {
   MEMBER_KEYS,
   MEMBER_NAMES,
+  getMemberKeys,
   getMemberKeyFromValue,
   conversionKeyToId,
   makeMemberFullName,
+  conversionCardIdToMemberName,
 } from '@/constants/memberNames';
 import { getReleasePoint } from '@/constants/releasePoint';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
+import { SKILL_LIST } from '@/constants/skillList';
+import { SKILL_DETAIL } from '@/constants/skillDetail';
+import { CardDefaultData, CardDataType } from '@/types/cardList';
 
 const store = useStateStore();
 const memberKeys = Object.keys(MEMBER_COLOR);
+const dialog = ref(false);
+const selectTab = ref('single');
+const selectTab2 = ref('kaho');
+const windowSize = ref({ w: 0, h: 0 });
+const tableHeaders = [
+  { title: 'レア度', key: 'rare' },
+  { title: 'カード名', key: 'cardName' },
+  { title: '名前', key: 'memberName' },
+  { title: 'カードLv.', key: 'cardLevel' },
+  { title: 'SALv.', key: 'SALevel' },
+  { title: 'スキルLv.', key: 'SLevel' },
+];
+const sortTypeList = {
+  rare: 'レア度(標準)',
+  //timeline: '時系列',
+  //all: '総合',
+  cardLevel: 'カードLv.',
+  SALevel: 'SA Lv.',
+  SLevel: 'スキルLv.',
+  releaseLevel: '解放Lv.',
+  releaseBonus: '解放Lv.ボーナス',
+  trainingLevel: '特訓度',
+  //smile: 'スマイル',
+  //pure: 'ピュア',
+  //cool: 'クール',
+  //mental: 'メンタル',
+  kana: '五十音',
+};
+const moodColor = {
+  happy: '#EF8DC8',
+  neutral: '#A9FCC7',
+  melow: '#A1BAFA',
+};
+
+/**
+ * カード絞り込み
+ */
+const outputCardList = computed(() => {
+  let result: CardDataType[] = store.cardList.slice();
+  let filterList;
+
+  if (result.length > 0) {
+    for (const searchKey in store.search.cardList) {
+      filterList = store.search.cardList[searchKey];
+      result = result.filter((cardData) => {
+        switch (searchKey) {
+          case 'cardLevel':
+          case 'SALevel':
+          case 'SLevel':
+          case 'releaseLevel':
+          case 'trainingLevel':
+            return (
+              filterList[0] <= cardData.fluctuationStatus[searchKey] &&
+              cardData.fluctuationStatus[searchKey] <= filterList[1]
+            );
+          case 'SAAP':
+            if (cardData.specialAppeal === undefined) {
+              return true;
+            } else {
+              const AP =
+                cardData.specialAppeal.AP -
+                (MAX_CARD_LEVEL[cardData.rare].length - 2 > cardData.fluctuationStatus.trainingLevel
+                  ? cardData.fluctuationStatus.trainingLevel
+                  : MAX_CARD_LEVEL[cardData.rare].length - 3);
+              return filterList[0] <= AP && AP <= filterList[1];
+            }
+          case 'SAP':
+            if (cardData.skill === undefined) {
+              return true;
+            } else {
+              return filterList[0] <= cardData.skill.AP && cardData.skill.AP <= filterList[1];
+            }
+          case 'favorite':
+            if (store.search.cardList.favorite.length === 0) {
+              return true;
+            } else {
+              return store.search.cardList.favorite.some((v) => {
+                return cardData.favorite.length === 0 ? false : cardData.favorite.indexOf(v) > -1;
+              });
+            }
+          case 'releaseStatus':
+            if (store.search.cardList.releaseStatus === 'none') {
+              return true;
+            }
+
+            if (cardData.fluctuationStatus.cardLevel === 0) {
+              return false;
+            }
+
+            if (store.search.cardList.releaseStatus === 'cardLevel') {
+              if (
+                MAX_CARD_LEVEL[cardData.rare][MAX_CARD_LEVEL[cardData.rare].length - 1] ===
+                cardData.fluctuationStatus.cardLevel
+              ) {
+                return false;
+              } else {
+                return (
+                  MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] >
+                  cardData.fluctuationStatus.cardLevel
+                );
+              }
+            }
+
+            if (store.search.cardList.releaseStatus === 'trainingLevel') {
+              if (
+                MAX_CARD_LEVEL[cardData.rare][MAX_CARD_LEVEL[cardData.rare].length - 1] ===
+                cardData.fluctuationStatus.cardLevel
+              ) {
+                return false;
+              } else {
+                return (
+                  MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] ===
+                  cardData.fluctuationStatus.cardLevel
+                );
+              }
+            }
+
+            if (store.search.cardList.releaseStatus === 'releaseLevel') {
+              if (cardData.fluctuationStatus.releasePoint === 0 || cardData.fluctuationStatus.releaseLevel === 5) {
+                return false;
+              } else {
+                return getReleasePoint(cardData.rare, 'point') <= cardData.fluctuationStatus.releasePoint;
+              }
+            }
+
+            return true;
+          case 'memberName':
+            if (filterList.includes('special') && store.specialCardIds.includes(cardData.ID)) {
+              return true;
+            }
+
+            return filterList.some((val: string) => {
+              return cardData[searchKey] === val;
+            });
+          default:
+            return filterList.some((val: string) => {
+              return cardData[searchKey] === val;
+            });
+        }
+      });
+    }
+  }
+
+  if (result.length > 0) {
+    for (const searchKey in store.search.skillList[store.search.skillList.skillFilterType]) {
+      filterList = store.search.skillList[store.search.skillList.skillFilterType][searchKey];
+
+      if (filterList.length === 0) {
+        continue;
+      }
+
+      result = result.filter((cardData) => {
+        if (cardData[searchKey] !== undefined) {
+          return filterList.some((val) => {
+            if (store.search.skillList.skillFilterType === 'skillType') {
+              const skillID = Object.values(SKILL_DETAIL).find((key) => {
+                return key.name_ja === val;
+              });
+
+              if (!skillID) {
+                return false;
+              }
+
+              return SKILL_LIST[cardData[searchKey].name][cardData[searchKey].ID].detail.type.some((key) => {
+                return key.name_ja === skillID.name_ja;
+              });
+            } else {
+              return cardData[searchKey].name === val;
+            }
+          });
+        } else {
+          return false;
+        }
+      });
+    }
+  }
+
+  if (result.length > 0) {
+    filterList = store.search.cardSeries;
+
+    if (filterList.length > 0) {
+      result = result.filter((cardData) => {
+        return filterList.some((val) => {
+          return cardData.series === val;
+        });
+      });
+    }
+  }
+
+  if (result.length > 0) {
+    if (store.localStorageData.sortSettings.cardList.sortType === 'rare') {
+      if (store.localStorageData.sortSettings.cardList.order === 'ascending') {
+        result.reverse();
+      }
+    } else {
+      let aa: number;
+      let bb: number;
+      const mergeList = [];
+
+      if (store.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
+        result = result.filter((cardData) => {
+          if (cardData.rare === 'DR' || cardData.specialAppeal === undefined) {
+            mergeList.push(cardData);
+            return false;
+          } else {
+            return true;
+          }
+        });
+      }
+
+      result.sort((a: CardDefaultData, b: CardDefaultData) => {
+        if (store.localStorageData.sortSettings.cardList.sortType === 'releaseBonus') {
+          aa = a.fluctuationStatus.releaseLevel - 1;
+          bb = b.fluctuationStatus.releaseLevel - 1;
+
+          if (store.localStorageData.sortSettings.cardList.order === 'ascending') {
+            return GRANDPRIX_BONUS.releaseLv[a.rare][aa] < GRANDPRIX_BONUS.releaseLv[b.rare][bb]
+              ? -1
+              : GRANDPRIX_BONUS.releaseLv[a.rare][aa] > GRANDPRIX_BONUS.releaseLv[b.rare][bb]
+              ? 1
+              : 0;
+          } else {
+            return GRANDPRIX_BONUS.releaseLv[a.rare][aa] > GRANDPRIX_BONUS.releaseLv[b.rare][bb]
+              ? -1
+              : GRANDPRIX_BONUS.releaseLv[a.rare][aa] < GRANDPRIX_BONUS.releaseLv[b.rare][bb]
+              ? 1
+              : 0;
+          }
+        } else if (/(card|SA|S|release|training)Level/.test(store.localStorageData.sortSettings.cardList.sortType)) {
+          aa = a.fluctuationStatus[store.localStorageData.sortSettings.cardList.sortType];
+          bb = b.fluctuationStatus[store.localStorageData.sortSettings.cardList.sortType];
+
+          if (store.localStorageData.sortSettings.cardList.order === 'ascending') {
+            return aa < bb ? -1 : aa > bb ? 1 : 0;
+          } else {
+            return aa > bb ? -1 : aa < bb ? 1 : 0;
+          }
+        } else {
+          aa = a[store.localStorageData.sortSettings.cardList.sortType];
+          bb = b[store.localStorageData.sortSettings.cardList.sortType];
+
+          if (store.localStorageData.sortSettings.cardList.order === 'ascending') {
+            return aa < bb ? -1 : aa > bb ? 1 : 0;
+          } else {
+            return aa > bb ? -1 : aa < bb ? 1 : 0;
+          }
+        }
+      });
+
+      if (mergeList.length > 0) {
+        result = result.concat(mergeList);
+      }
+    }
+  }
+
+  store.localStorageData.cardList.cardListFilter = {
+    cardList: store.search.cardList,
+    skillList: store.search.skillList,
+    cardSeries: store.search.cardSeries,
+  };
+
+  store.setLocalStorage('llllMgr_cardListFilter', store.localStorageData.cardList.cardListFilter);
+
+  return result;
+});
 
 const chartMemberNames: string[] = memberKeys.map((memberKey) => {
   return MEMBER_NAMES[memberKey][memberKey === MEMBER_KEYS.SERAS ? 'first' : 'last'];
@@ -617,95 +865,43 @@ const chartCardList = computed(() => {
     return Math.round(percentage * 100) / 100;
   });
 });
-</script>
 
-<script lang="ts">
-export default {
-  name: 'CardList',
-  components: {
-    Chart,
-  },
-  data() {
-    return {
-      dialog: false,
-      selectTab: 'single',
-      selectTab2: 'kaho',
-      tableHeaders: [
-        { title: 'レア度', key: 'rare' },
-        { title: 'カード名', key: 'cardName' },
-        { title: '名前', key: 'memberName' },
-        { title: 'カードLv.', key: 'cardLevel' },
-        { title: 'SALv.', key: 'SALevel' },
-        { title: 'スキルLv.', key: 'SLevel' },
-      ],
-      sortTypeList: {
-        rare: 'レア度(標準)',
-        //timeline: '時系列',
-        //all: '総合',
-        cardLevel: 'カードLv.',
-        SALevel: 'SA Lv.',
-        SLevel: 'スキルLv.',
-        releaseLevel: '解放Lv.',
-        releaseBonus: '解放Lv.ボーナス',
-        trainingLevel: '特訓度',
-        //smile: 'スマイル',
-        //pure: 'ピュア',
-        //cool: 'クール',
-        //mental: 'メンタル',
-        kana: '五十音',
-      },
-      moodColor: {
-        happy: '#EF8DC8',
-        neutral: '#A9FCC7',
-        melow: '#A1BAFA',
-      },
-      windowSize: {
-        w: 0,
-        h: 0,
-      },
-    };
-  },
-  created() {},
-  mounted() {
-    this.onResize();
-  },
-  computed: {},
-  methods: {
-    changeTab(selectCharacter: string) {
-      this.selectTab2 = selectCharacter;
-    },
-    makeCardList(store: StoreState) {
-      const list = [];
-
-      for (const cardData of store.outputCardList) {
-        list.push({
-          cardName: cardData.cardName,
-          memberName: makeMemberFullName(cardData.memberName),
-          rare: cardData.rare,
-          cardLevel: cardData.fluctuationStatus.cardLevel,
-          SALevel: cardData.fluctuationStatus.SALevel,
-          SLevel: cardData.fluctuationStatus.SLevel,
-        });
-      }
-
-      return list;
-    },
-    onResize() {
-      this.windowSize = {
-        w: window.innerWidth,
-        h: window.innerHeight,
-      };
-    },
-    rare(store: StoreState, cardData: any) {
-      return store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
-        (cardData.rare === 'LR' ? 1 : 0) <
-        3
-        ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
-            (cardData.rare === 'LR' ? 1 : 0)
-        : 2;
-    },
-  },
+const changeTab = (selectCharacter: string) => {
+  selectTab2.value = selectCharacter;
 };
+
+const makeCardList = computed(() => {
+  return outputCardList.map((cardData) => {
+    return {
+      cardName: cardData.cardName,
+      memberName: makeMemberFullName(cardData.memberName),
+      rare: cardData.rare,
+      cardLevel: cardData.fluctuationStatus.cardLevel,
+      SALevel: cardData.fluctuationStatus.SALevel,
+      SLevel: cardData.fluctuationStatus.SLevel,
+    };
+  });
+});
+
+const onResize = () => {
+  windowSize.value = {
+    w: window.innerWidth,
+    h: window.innerHeight,
+  };
+};
+
+const rare = (cardData: CardDataType) => {
+  return store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
+    (cardData.rare === 'LR' ? 1 : 0) <
+    3
+    ? store.card[cardData.memberName][cardData.rare][cardData.cardName].fluctuationStatus.trainingLevel +
+        (cardData.rare === 'LR' ? 1 : 0)
+    : 2;
+};
+
+onMounted(() => {
+  onResize();
+});
 </script>
 
 <style lang="scss" scoped>

@@ -53,24 +53,12 @@
           color="#e5762c"
         >
           <v-carousel-item
-            v-for="kakusei in /^(D|L|B)R$/.test(store.getSettingCard.rare) ? ['後'] : ['前', '後']"
+            v-for="kakusei in /^(D|L|B)R$/.test(store.getSettingCard.rare) ? [true] : [false, true]"
             :key="kakusei"
             :lazy-src="
-              store.getImagePath(
-                'images/cardIllust',
-                `${store.conversion(store.getSettingCard.cardName)}_${store.makeCardMemberName(
-                  store.getSettingCard.ID
-                )}_覚醒${kakusei}`
-              )
+              store.getImagePath('images/cardIllust', store.makeCardIllustName(store.getSettingCard.ID, kakusei))
             "
-            :src="
-              store.getImagePath(
-                'images/cardIllust',
-                `${store.conversion(store.getSettingCard.cardName)}_${store.makeCardMemberName(
-                  store.getSettingCard.ID
-                )}_覚醒${kakusei}`
-              )
-            "
+            :src="store.getImagePath('images/cardIllust', store.makeCardIllustName(store.getSettingCard.ID, kakusei))"
             :aspect-ratio="1.542"
           ></v-carousel-item>
         </v-carousel>
@@ -150,7 +138,7 @@
                 style="width: 80px"
                 class="px-0 text-center"
               >
-                {{ store.cardParam('mental') }}
+                {{ store.cardParam('mental', store.getSettingCard.ID) }}
               </td>
               <td
                 style="width: 50px"
