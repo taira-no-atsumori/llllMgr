@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import Dexie from 'dexie';
-import { StoreState } from '@/types/stateStore';
+import { StoreState, LocalStorageCardListType } from '@/types/stateStore';
 import { CardDataType, SkillDetail } from '@/types/cardList';
 import {
   MEMBER_KEYS,
@@ -762,6 +762,8 @@ export const useStateStore = defineStore('store', {
     /**
      * ローカルストレージ設定
      *
+     * ローカルストレージにデータを保存する。
+     *
      * @param setLocalStorageName ローカルストレージ名
      * @param value 値
      * @returns void
@@ -769,6 +771,14 @@ export const useStateStore = defineStore('store', {
     setLocalStorage(setLocalStorageName: string, value: string): void {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },
+    /**
+     * ローカルストレージデータ取得
+     *
+     * ローカルストレージのデータを取得する。\
+     * また、引数にデータを持たせて、バックアップファイルをインポートしたときの処理も行える。
+     *
+     * @param importData バックアップデータ
+     */
     getLocalStorage(importData?: any): void {
       const isImportData = importData !== undefined;
 
@@ -822,27 +832,41 @@ export const useStateStore = defineStore('store', {
       ) {
         let isRemakeCardData = false;
 
-        if (!isImportData) {
-          this.localStorageData.cardList.card = this.makeExportCardData(JSON.parse(localStorage.llllMgr_card));
-          isRemakeCardData = true;
-        } else if (importData.cardList !== undefined && importData.cardList.card !== undefined) {
-          // カードリストのデータのつくりが旧式であるか判定
-          // 「xx_000」形式であればスルー
-          if (!/^[a-z]+_\d{3}$/.test(Object.keys(importData.cardList.card.kaho.DR)[0])) {
-            for (const memberName in importData.cardList.card) {
-              for (const rare in importData.cardList.card[memberName]) {
-                const a = {};
+        /**
+         * カードリストのデータのつくりが旧式であるか判定。\
+         *「xx_000」形式であればそのまま返す。
+         *
+         * @param data カードリスト
+         * @returns LocalStorageCardListType
+         */
+        const remakeCardList = (data: LocalStorageCardListType): LocalStorageCardListType => {
+          if (/^[a-z]+_\d{3}$/.test(Object.keys(data.kaho.DR)[0])) {
+            return data;
+          }
 
-                for (const cardName in importData.cardList.card[memberName][rare]) {
-                  a[this.findCardId(memberName, cardName)] = importData.cardList.card[memberName][rare][cardName];
-                }
+          const _data = { ...data };
 
-                importData.cardList.card[memberName][rare] = a;
+          for (const memberName in _data) {
+            for (const rare in _data[memberName]) {
+              const a = {};
+
+              for (const cardName in _data[memberName][rare]) {
+                a[this.findCardId(memberName, cardName)] = _data[memberName][rare][cardName];
               }
+
+              _data[memberName][rare] = a;
             }
           }
 
-          this.localStorageData.cardList.card = this.makeExportCardData(importData.cardList.card);
+          return _data;
+        };
+
+        if (!isImportData) {
+          const parse = JSON.parse(localStorage.llllMgr_card);
+          this.localStorageData.cardList.card = this.makeExportCardData(remakeCardList(parse));
+          isRemakeCardData = true;
+        } else if (importData.cardList !== undefined && importData.cardList.card !== undefined) {
+          this.localStorageData.cardList.card = this.makeExportCardData(remakeCardList(importData.cardList.card));
           // this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
           isRemakeCardData = true;
         }
@@ -1157,6 +1181,14 @@ export const useStateStore = defineStore('store', {
     searchSelectDeckCard(name: string, style: string) {
       return this.selectDeck.cardData[name][style].id;
     },
+    /**
+     * 出力データ作成
+     *
+     * バックアップデータを作成する。
+     *
+     * @param data
+     * @returns
+     */
     makeExportCardData(data?: any): Record<string, any> {
       const result = {};
       const card = data ?? this.card;

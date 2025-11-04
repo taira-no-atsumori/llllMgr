@@ -28,7 +28,7 @@ type CardFluctuationStatus = {
 /**
  * カードリストを表す型
  */
-type CardList = Record<
+export type LocalStorageCardListType = Record<
   string,
   Record<
     string,
@@ -178,7 +178,7 @@ type LocalStorageData = {
     musicLevel: Record<string, number>;
   };
   cardList: {
-    card: CardList;
+    card: LocalStorageCardListType;
     cardListFilter: SearchSettings;
   };
   selectItemList: {
