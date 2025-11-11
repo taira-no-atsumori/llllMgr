@@ -11,37 +11,25 @@
     <v-tab value="filter_cardSeries">シリーズ絞り込み</v-tab>
   </v-tabs>
 
-  <v-window
-    v-model="tab1"
-    :touch="false"
-  >
+  <v-window v-model="tab1" :touch="false">
     <v-window-item value="filter_status">
-      <v-container
-        fluid
-        class="pa-0"
-      >
+      <v-container fluid class="pa-0">
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            sm="6"
-          >
+          <v-col cols="12" sm="6">
             <div class="d-flex pr-sm-3 mb-sm-1">
               レアリティ
               <v-spacer></v-spacer>
               <v-btn
                 density="compact"
                 elevation="1"
-                @click="store.resetMusicFilter('rare')"
                 class="px-2"
+                @click="store.resetMusicFilter('rare')"
               >
                 一括チェック
               </v-btn>
             </div>
             <v-row no-gutters>
-              <v-col
-                v-for="rare in RARE"
-                :key="rare"
-              >
+              <v-col v-for="rare in RARE" :key="rare">
                 <v-checkbox
                   v-model="store.search.cardList.rare"
                   :label="rare"
@@ -56,28 +44,25 @@
 
           <v-divider class="mb-2 hidden-sm-and-up"></v-divider>
 
-          <v-col
-            cols="12"
-            sm="6"
-          >
+          <v-col cols="12" sm="6">
             <div class="d-flex mb-1">
               ムード
               <v-spacer></v-spacer>
               <v-btn
                 density="compact"
                 elevation="1"
-                @click="store.resetMusicFilter('mood')"
                 class="px-2"
+                @click="store.resetMusicFilter('mood')"
               >
                 一括チェック
               </v-btn>
             </div>
             <v-row no-gutters>
               <v-col
-                cols="6"
-                sm="4"
                 v-for="[_, mood] in Object.entries(MOOD)"
                 :key="mood.jp"
+                cols="6"
+                sm="4"
               >
                 <v-checkbox
                   v-model="store.search.cardList.mood"
@@ -86,7 +71,7 @@
                   hide-details
                   density="compact"
                 >
-                  <template v-slot:label>
+                  <template #label>
                     <v-img
                       :src="store.getImagePath('icons/mood', `icon_${mood.en}`)"
                       class="icon mood"
@@ -102,26 +87,23 @@
         <v-divider class="mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            class="d-flex mb-1 mb-sm-0"
-          >
+          <v-col cols="12" class="d-flex mb-1 mb-sm-0">
             タイプ
             <v-spacer></v-spacer>
             <v-btn
               density="compact"
               elevation="1"
-              @click="store.resetMusicFilter('styleType')"
               class="px-2"
+              @click="store.resetMusicFilter('styleType')"
             >
               一括チェック
             </v-btn>
           </v-col>
           <v-col
-            cols="6"
-            sm="2"
             v-for="[_, style] in Object.entries(STYLE_TYPE)"
             :key="style.en"
+            cols="6"
+            sm="2"
             class="mb-1"
           >
             <v-checkbox
@@ -131,9 +113,11 @@
               hide-details
               density="compact"
             >
-              <template v-slot:label>
+              <template #label>
                 <v-img
-                  :src="store.getImagePath('icons/styleType', `icon_${style.en}`)"
+                  :src="
+                    store.getImagePath('icons/styleType', `icon_${style.en}`)
+                  "
                   class="icon type"
                 ></v-img>
                 {{ style.jp }}
@@ -145,28 +129,25 @@
         <v-divider class="mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            class="d-flex mb-1"
-          >
+          <v-col cols="12" class="d-flex mb-1">
             メンバー
             <v-spacer></v-spacer>
             <v-btn
               density="compact"
               elevation="1"
-              @click="store.resetMusicFilter('memberName')"
               class="px-2"
+              @click="store.resetMusicFilter('memberName')"
             >
               一括チェック
             </v-btn>
           </v-col>
           <v-col
+            v-for="memberName in store.memberNameList"
+            :key="memberName"
             cols="6"
             sm="4"
             md="3"
             lg="2"
-            v-for="memberName in store.memberNameList"
-            :key="memberName"
             class="mb-1 align-self-center"
           >
             <v-checkbox
@@ -176,22 +157,28 @@
               hide-details
               density="compact"
             >
-              <template v-slot:label>
+              <template #label>
                 <template v-if="!store.isOtherMember(memberName)">
                   <v-img
                     :src="
                       store.getImagePath(
                         'icons/member',
-                        `icon_illust_${memberName}_${/kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105}`
+                        `icon_illust_${memberName}_${
+                          /kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105
+                        }`
                       )
                     "
                     class="icon member"
                   ></v-img>
-                  <span :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`">
+                  <span
+                    :style="`font-size: ${
+                      memberName === MEMBER_KEYS.SERAS ? 0.8 : 1
+                    }em;`"
+                  >
                     {{ makeMemberFullName(memberName) }}
                   </span>
                 </template>
-                <template v-else> 特殊 </template>
+                <template v-else>特殊</template>
               </template>
             </v-checkbox>
           </v-col>
@@ -200,27 +187,24 @@
         <v-divider class="mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            class="d-flex"
-          >
+          <v-col cols="12" class="d-flex">
             LIMITED
             <v-spacer></v-spacer>
             <v-btn
               density="compact"
               elevation="1"
-              @click="store.resetMusicFilter('limited')"
               class="px-2"
+              @click="store.resetMusicFilter('limited')"
             >
               一括チェック
             </v-btn>
           </v-col>
           <v-col
+            v-for="(label, value) in LIMITED"
+            :key="label"
             cols="6"
             sm="3"
             lg="2"
-            v-for="(label, value) in LIMITED"
-            :key="label"
             class="mb-1"
           >
             <v-checkbox
@@ -237,16 +221,8 @@
         <v-divider class="mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            class="d-flex mb-1"
-          >
-            ステータス上限
-          </v-col>
-          <v-col
-            cols="12"
-            class="mb-2"
-          >
+          <v-col cols="12" class="d-flex mb-1"> ステータス上限 </v-col>
+          <v-col cols="12" class="mb-2">
             <v-radio-group
               v-model="store.search.cardList.releaseStatus"
               inline
@@ -254,13 +230,13 @@
               hide-details
             >
               <v-radio
+                v-for="value in RELEASE_STATUS"
+                :key="value"
                 class="radio-space"
                 :value="value"
                 :label="statusName[value]"
                 color="pink"
                 hide-details
-                v-for="value in RELEASE_STATUS"
-                :key="value"
               ></v-radio>
             </v-radio-group>
           </v-col>
@@ -269,28 +245,25 @@
         <v-divider class="mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            sm="6"
-          >
+          <v-col cols="12" sm="6">
             <div class="d-flex mb-sm-4 pr-sm-3">
               お気に入り
               <v-spacer></v-spacer>
               <v-btn
                 density="compact"
                 elevation="1"
-                @click="store.resetMusicFilter('favorite')"
                 class="px-2"
+                @click="store.resetMusicFilter('favorite')"
               >
                 一括チェック
               </v-btn>
             </div>
             <v-row no-gutters>
               <v-col
-                cols="4"
-                sm="2"
                 v-for="favorite in FAVORITE"
                 :key="favorite"
+                cols="4"
+                sm="2"
               >
                 <v-checkbox
                   v-model="store.search.cardList.favorite"
@@ -299,7 +272,7 @@
                   hide-details
                   density="compact"
                 >
-                  <template v-slot:label>
+                  <template #label>
                     <v-icon :icon="`mdi-${favorite}`"></v-icon>
                   </template>
                 </v-checkbox>
@@ -309,14 +282,10 @@
 
           <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
 
-          <v-col
-            cols="12"
-            sm="6"
-            class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3"
-          >
+          <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
               label="特訓度"
-              resetMusicFilterName="trainingLevel"
+              reset-music-filter-name="trainingLevel"
               :min="store.defaultSearch.cardList.trainingLevel[0]"
               :max="store.defaultSearch.cardList.trainingLevel[1]"
             ></CardFilterSlider>
@@ -326,14 +295,10 @@
         <v-divider class="mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            sm="6"
-            class="pr-sm-3"
-          >
+          <v-col cols="12" sm="6" class="pr-sm-3">
             <CardFilterSlider
               label="カードレベル"
-              resetMusicFilterName="cardLevel"
+              reset-music-filter-name="cardLevel"
               :min="store.defaultSearch.cardList.cardLevel[0]"
               :max="store.defaultSearch.cardList.cardLevel[1]"
             ></CardFilterSlider>
@@ -341,14 +306,10 @@
 
           <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
 
-          <v-col
-            cols="12"
-            sm="6"
-            class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3"
-          >
+          <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
               label="解放レベル"
-              resetMusicFilterName="releaseLevel"
+              reset-music-filter-name="releaseLevel"
               :min="store.defaultSearch.cardList.releaseLevel[0]"
               :max="store.defaultSearch.cardList.releaseLevel[1]"
             ></CardFilterSlider>
@@ -358,14 +319,10 @@
         <v-divider class="mt-1 mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            sm="6"
-            class="pr-sm-3"
-          >
+          <v-col cols="12" sm="6" class="pr-sm-3">
             <CardFilterSlider
               label="スペシャルアピールレベル"
-              resetMusicFilterName="SALevel"
+              reset-music-filter-name="SALevel"
               :min="store.defaultSearch.cardList.SALevel[0]"
               :max="store.defaultSearch.cardList.SALevel[1]"
             ></CardFilterSlider>
@@ -373,14 +330,10 @@
 
           <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
 
-          <v-col
-            cols="12"
-            sm="6"
-            class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3"
-          >
+          <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
               label="スキルレベル"
-              resetMusicFilterName="SLevel"
+              reset-music-filter-name="SLevel"
               :min="store.defaultSearch.cardList.SLevel[0]"
               :max="store.defaultSearch.cardList.SLevel[1]"
             ></CardFilterSlider>
@@ -390,14 +343,10 @@
         <v-divider class="mt-1 mb-2"></v-divider>
 
         <v-row no-gutters>
-          <v-col
-            cols="12"
-            sm="6"
-            class="pr-sm-3"
-          >
+          <v-col cols="12" sm="6" class="pr-sm-3">
             <CardFilterSlider
               label="消費AP(スペシャルアピール)"
-              resetMusicFilterName="SAAP"
+              reset-music-filter-name="SAAP"
               :min="store.defaultSearch.cardList.SAAP[0]"
               :max="store.defaultSearch.cardList.SAAP[1]"
             ></CardFilterSlider>
@@ -405,14 +354,10 @@
 
           <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
 
-          <v-col
-            cols="12"
-            sm="6"
-            class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3"
-          >
+          <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
               label="消費AP(スキル)"
-              resetMusicFilterName="SAP"
+              reset-music-filter-name="SAP"
               :min="store.defaultSearch.cardList.SAP[0]"
               :max="store.defaultSearch.cardList.SAP[1]"
             ></CardFilterSlider>
@@ -438,10 +383,7 @@
           color="pink"
         ></v-radio>
       </v-radio-group>
-      <v-window
-        v-model="store.search.skillList.skillFilterType"
-        :touch="false"
-      >
+      <v-window v-model="store.search.skillList.skillFilterType" :touch="false">
         <v-window-item value="skillType">
           <v-row no-gutters>
             <v-col cols="12">
@@ -476,10 +418,7 @@
                 class="mb-3"
               ></v-select>
             </v-col>
-            <v-col
-              cols="6"
-              v-if="false"
-            >
+            <v-col v-if="false" cols="6">
               <v-select
                 v-model="store.search.skillList.skillType.characteristic"
                 label="特性(メイン)"
@@ -493,10 +432,7 @@
                 persistent-hint
               ></v-select>
             </v-col>
-            <v-col
-              cols="6"
-              v-if="false"
-            >
+            <v-col v-if="false" cols="6">
               <v-select
                 v-model="store.search.skillList.skillType.characteristic"
                 label="特性(サブ)"
@@ -620,9 +556,16 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { RARE, STYLE_TYPE, MOOD, FAVORITE, RELEASE_STATUS, LIMITED } from '@/constants/cards';
+import {
+  RARE,
+  STYLE_TYPE,
+  MOOD,
+  FAVORITE,
+  RELEASE_STATUS,
+  LIMITED,
+} from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
-import { makeMemberFullName } from '@/constants/memberNames';
+import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
 import CardFilterSlider from '@/components/CardFilterSliderComponent.vue';
 

@@ -1,4 +1,4 @@
-import { Rare } from '@/constants/cards';
+import type { Rare } from '@/constants/cards';
 
 /**
  * 解放レベル

@@ -42,25 +42,25 @@
             フレームワーク
             <ul class="dot_list">
               <li>Vue</li>
-              <li>3.5.18</li>
+              <li>3.5.24</li>
             </ul>
           </li>
           <li>
             ライブラリ
             <ul class="dot_list">
               <li>Vuetify</li>
-              <li>3.9.3</li>
+              <li>3.10.9</li>
             </ul>
             <ul class="dot_list">
               <li>pinia</li>
-              <li>3.0.3</li>
+              <li>3.0.4</li>
             </ul>
           </li>
           <li>
             プラグイン
             <ul class="dot_list">
               <li>vue-router</li>
-              <li>4.5.0</li>
+              <li>4.6.3</li>
             </ul>
           </li>
           <li>
@@ -74,7 +74,7 @@
             テストツール
             <ul class="dot_list">
               <li>Vitest</li>
-              <li>3.2.4</li>
+              <li>4.0.0</li>
             </ul>
           </li>
         </ul>
@@ -136,8 +136,8 @@ export default {
   data() {
     return {};
   },
-  created() {},
   computed: {},
+  created() {},
   methods: {},
 };
 </script>

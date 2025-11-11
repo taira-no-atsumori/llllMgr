@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="pa-0"
-  >
+  <v-container fluid class="pa-0">
     <div class="d-inline-block">
       <v-switch
         v-model="store.isParamReflect"
@@ -22,22 +19,27 @@
       ></v-switch>
     </div>
     <v-row
-      no-gutters
       v-for="rare in RARE"
       :key="rare"
+      no-gutters
       :class="rare !== 'R' ? 'mb-3' : ''"
     >
       <!--<template>-->
       <v-col cols="12">
         <h3
-          v-if="outputCardList(store).filter((data) => data.rare === rare).length > 0"
+          v-if="
+            outputCardList(store).filter((data) => data.rare === rare).length >
+            0
+          "
           class="px-1"
         >
           {{ rare }}
         </h3>
       </v-col>
       <v-col
-        v-for="(cardData, i) in outputCardList(store).filter((data) => data.rare === rare)"
+        v-for="(cardData, i) in outputCardList(store).filter(
+          (data) => data.rare === rare
+        )"
         :key="i"
         cols="6"
         sm="2"
@@ -52,7 +54,9 @@
             :src="
               store.getImagePath(
                 'images/cardIllust',
-                `${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
+                `${store.conversion(
+                  cardData.cardName
+                )}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
               )
             "
             gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
@@ -73,7 +77,9 @@
             :src="
               store.getImagePath(
                 'images/cardIllust',
-                `${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
+                `${store.conversion(
+                  cardData.cardName
+                )}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
               )
             "
           ></v-img>
@@ -148,10 +154,7 @@
     </v-row>
   </v-container>
 
-  <v-dialog
-    v-model="dialog"
-    max-width="600"
-  >
+  <v-dialog v-model="dialog" max-width="600">
     <v-sheet class="pa-2">
       <div class="text-center mb-2">カードを入れ替えますか？</div>
       <v-alert
@@ -163,166 +166,141 @@
         ドリームスタイル(DR)のカードはライブグランプリでは使用できません。
       </v-alert>
       <v-row no-gutters>
-        <v-col
-          cols="12"
-          sm="5"
-        >
+        <v-col cols="12" sm="5">
           <v-card>
             <v-img
               :src="
                 store.getImagePath(
                   'images/cardIllust',
-                  `${store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}_${
-                    MEMBER_NAMES[store.openCard.name].last
-                  }_覚醒後`
+                  `${store.conversion(
+                    store.searchSelectDeckCard(
+                      store.openCard.name,
+                      store.openCard.style
+                    )
+                  )}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
                 )
               "
             ></v-img>
             <v-card-title class="pa-2">{{
-              store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
+              store.conversion(
+                store.searchSelectDeckCard(
+                  store.openCard.name,
+                  store.openCard.style
+                )
+              )
             }}</v-card-title>
             <v-card-text class="px-2 pb-2">
               <v-row no-gutters>
                 <v-col cols="6">カードレベル</v-col>
                 <v-col cols="6">{{ getCardStatus('cardLevel', true) }}</v-col>
                 <v-col cols="6">解放Lv.</v-col>
-                <v-col cols="3">{{ getCardStatus('releaseLevel', true) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('releaseLevel', true)"
-                  >{{ makeWhichText('releaseLevel', true) }}</v-col
-                >
+                <v-col cols="3">{{
+                  getCardStatus('releaseLevel', true)
+                }}</v-col>
+                <v-col cols="3" :class="makeClass('releaseLevel', true)">{{
+                  makeWhichText('releaseLevel', true)
+                }}</v-col>
                 <v-col cols="6">解放Lv.ボーナス</v-col>
                 <v-col cols="3">{{ makeReleaseBonus(true) }}%</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('releaseBonus', true)"
+                <v-col cols="3" :class="makeClass('releaseBonus', true)"
                   >{{ makeWhichText('releaseBonus', true) }}%</v-col
                 >
                 <v-col cols="6">スマイル</v-col>
                 <v-col cols="3">{{ getCardStatus('smile', true) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('smile', true)"
-                  >{{ makeWhichText('smile', true) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('smile', true)">{{
+                  makeWhichText('smile', true)
+                }}</v-col>
                 <v-col cols="6">クール</v-col>
                 <v-col cols="3">{{ getCardStatus('cool', true) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('cool', true)"
-                  >{{ makeWhichText('cool', true) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('cool', true)">{{
+                  makeWhichText('cool', true)
+                }}</v-col>
                 <v-col cols="6">ピュア</v-col>
                 <v-col cols="3">{{ getCardStatus('pure', true) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('pure', true)"
-                  >{{ makeWhichText('pure', true) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('pure', true)">{{
+                  makeWhichText('pure', true)
+                }}</v-col>
                 <v-col cols="6">メンタル</v-col>
                 <v-col cols="3">{{ culMental(true) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('mental', true)"
-                  >{{ makeWhichText('mental', true) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('mental', true)">{{
+                  makeWhichText('mental', true)
+                }}</v-col>
               </v-row>
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col
-          cols="12"
-          sm="2"
-          class="d-flex align-center"
-        >
-          <v-icon
-            class="my-0 mx-auto pc"
-            style="font-size: 50px"
+        <v-col cols="12" sm="2" class="d-flex align-center">
+          <v-icon class="my-0 mx-auto pc" style="font-size: 50px"
             >mdi-arrow-right-bold</v-icon
           >
-          <v-icon
-            class="my-0 mx-auto sp"
-            style="font-size: 50px"
+          <v-icon class="my-0 mx-auto sp" style="font-size: 50px"
             >mdi-arrow-down-bold</v-icon
           >
         </v-col>
-        <v-col
-          cols="12"
-          sm="5"
-        >
+        <v-col cols="12" sm="5">
           <v-card>
             <v-img
               :src="
                 store.getImagePath(
                   'images/cardIllust',
-                  `${store.conversion(selectCard)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
+                  `${store.conversion(selectCard)}_${
+                    MEMBER_NAMES[store.openCard.name].last
+                  }_覚醒後`
                 )
               "
             ></v-img>
-            <v-card-title class="pa-2">{{ store.conversion(selectCard) }}</v-card-title>
+            <v-card-title class="pa-2">{{
+              store.conversion(selectCard)
+            }}</v-card-title>
             <v-card-text class="px-2 pb-2">
               <v-row no-gutters>
                 <v-col cols="6">カードレベル</v-col>
                 <v-col cols="6">{{ getCardStatus('cardLevel', false) }}</v-col>
                 <v-col cols="6">解放Lv.</v-col>
-                <v-col cols="3">{{ getCardStatus('releaseLevel', false) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('releaseLevel', false)"
-                  >{{ makeWhichText('releaseLevel', false) }}</v-col
-                >
+                <v-col cols="3">{{
+                  getCardStatus('releaseLevel', false)
+                }}</v-col>
+                <v-col cols="3" :class="makeClass('releaseLevel', false)">{{
+                  makeWhichText('releaseLevel', false)
+                }}</v-col>
                 <v-col cols="6">解放Lv.ボーナス</v-col>
                 <v-col cols="3">{{ makeReleaseBonus(false) }}%</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('releaseBonus', false)"
+                <v-col cols="3" :class="makeClass('releaseBonus', false)"
                   >{{ makeWhichText('releaseBonus', false) }}%</v-col
                 >
                 <v-col cols="6">スマイル</v-col>
                 <v-col cols="3">{{ getCardStatus('smile', false) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('smile', false)"
-                  >{{ makeWhichText('smile', false) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('smile', false)">{{
+                  makeWhichText('smile', false)
+                }}</v-col>
                 <v-col cols="6">クール</v-col>
                 <v-col cols="3">{{ getCardStatus('cool', false) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('cool', false)"
-                  >{{ makeWhichText('cool', false) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('cool', false)">{{
+                  makeWhichText('cool', false)
+                }}</v-col>
                 <v-col cols="6">ピュア</v-col>
                 <v-col cols="3">{{ getCardStatus('pure', false) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('pure', false)"
-                  >{{ makeWhichText('pure', false) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('pure', false)">{{
+                  makeWhichText('pure', false)
+                }}</v-col>
                 <v-col cols="6">メンタル</v-col>
                 <v-col cols="3">{{ culMental(false) }}</v-col>
-                <v-col
-                  cols="3"
-                  :class="makeClass('mental', false)"
-                  >{{ makeWhichText('mental', false) }}</v-col
-                >
+                <v-col cols="3" :class="makeClass('mental', false)">{{
+                  makeWhichText('mental', false)
+                }}</v-col>
               </v-row>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
-        <v-btn
-          @click="dialog = false"
-          class="mr-4"
-        >
-          CANCEL
-        </v-btn>
+        <v-btn class="mr-4" @click="dialog = false"> CANCEL </v-btn>
         <v-btn
           @click="
             dialog = false;
-            store.setSelectCard(store.findCardId(store.openCard.name, selectCard));
+            store.setSelectCard(
+              store.findCardId(store.openCard.name, selectCard)
+            );
             store.switchDialog(false);
           "
         >
@@ -335,19 +313,12 @@
   <div v-if="false">
     <label for="cardList">カード名</label>
     <select
+      id="cardList"
       v-model="store.selectCard[store.openCard.name][store.openCard.style]"
       name="cardList"
-      id="cardList"
     >
-      <option
-        label=""
-        value="default"
-      ></option>
-      <optgroup
-        v-for="rare in store.rarity"
-        :key="rare"
-        :label="rare"
-      >
+      <option label="" value="default"></option>
+      <optgroup v-for="rare in store.rarity" :key="rare" :label="rare">
         <option
           v-for="(ary, cardName) in store.card[store.openCard.name][rare]"
           :key="ary"
@@ -358,11 +329,7 @@
     </select>
   </div>
 
-  <v-snackbar
-    v-model="snackbar.sameCard"
-    color="warning"
-    :timeout="2000"
-  >
+  <v-snackbar v-model="snackbar.sameCard" color="warning" :timeout="2000">
     すでに編成済みです
   </v-snackbar>
 
@@ -377,21 +344,24 @@
 
 <script setup lang="ts">
 // import { ref } from 'vue';
+import { ref } from 'vue';
 import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
-import { MEMBER_KEYS, MEMBER_NAMES, conversionCardIdToMemberName } from '@/constants/memberNames';
+import {
+  MEMBER_NAMES,
+  conversionCardIdToMemberName,
+} from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 
 const store = useStateStore();
-const sachiMessage: string = ref('私はMAIN STYLEには設定できないんだよねぃ');
 const dialog: boolean = ref(false);
 const selectCard = ref(undefined);
-const selectedCard = ref(undefined);
 const rarity = ref(undefined);
 const snackbar = ref({
   sameCard: false,
   sachi: false,
 });
+const sachiMessage = ref('私はMAIN STYLEには設定できないんだよねぃ');
 const cardStatus = ref({
   before: {
     status: {},
@@ -420,7 +390,10 @@ const searchSetCard = (cardId: string) => {
 
 const sameCardCheck = (cardName: string) => {
   for (const style in store.selectDeck.cardData[store.openCard.name]) {
-    if (store.selectDeck.cardData[store.openCard.name][style].cardName === cardName) {
+    if (
+      store.selectDeck.cardData[store.openCard.name][style].cardName ===
+      cardName
+    ) {
       return true;
     }
   }
@@ -431,8 +404,12 @@ const sameCardCheck = (cardName: string) => {
 const getCardStatus = (attr: string, isBefore: boolean) => {
   if (/smile|cool|pure/.test(attr)) {
     return (
-      cardStatus.value[isBefore ? 'before' : 'after'].status.uniqueStatus[attr] +
-      (cardStatus.value[isBefore ? 'before' : 'after'].status.fluctuationStatus.cardLevel - 1) *
+      cardStatus.value[isBefore ? 'before' : 'after'].status.uniqueStatus[
+        attr
+      ] +
+      (cardStatus.value[isBefore ? 'before' : 'after'].status.fluctuationStatus
+        .cardLevel -
+        1) *
         (cardStatus.value[isBefore ? 'before' : 'after'].rare === 'R' ? 25 : 30)
     );
   } else {
@@ -450,7 +427,10 @@ const culMental = (isBefore: boolean) => {
       Math.floor((getCardStatus('cardLevel', isBefore) - 1) / 2) * 3
     );
   } else {
-    return getCardStatus('mental', isBefore) + getCardStatus('cardLevel', isBefore) * 3;
+    return (
+      getCardStatus('mental', isBefore) +
+      getCardStatus('cardLevel', isBefore) * 3
+    );
   }
 };
 
@@ -460,13 +440,25 @@ const makeReleaseBonus = (isBefore: boolean) => {
       (1 +
         GRANDPRIX_BONUS.releaseLv[
           store.searchRarity(
-            store.findCardId(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
+            store.findCardId(
+              store.openCard.name,
+              store.searchSelectDeckCard(
+                store.openCard.name,
+                store.openCard.style
+              )
+            )
           )
         ][getCardStatus('releaseLevel', true) - 1]) *
       100
     );
   } else {
-    return (1 + GRANDPRIX_BONUS.releaseLv[this.rarity][getCardStatus('releaseLevel', false) - 1]) * 100;
+    return (
+      (1 +
+        GRANDPRIX_BONUS.releaseLv[this.rarity][
+          getCardStatus('releaseLevel', false) - 1
+        ]) *
+      100
+    );
   }
 };
 
@@ -482,7 +474,9 @@ const whichParam = (attr, isBefore: boolean) => {
 
 const makeWhichText = (attr, isBefore) => {
   const result = whichParam(attr, isBefore);
-  return `${result < 0 ? '↓' : result > 0 ? '↑' : '→'}${result < 0 ? -result : result}`;
+  return `${result < 0 ? '↓' : result > 0 ? '↑' : '→'}${
+    result < 0 ? -result : result
+  }`;
 };
 
 const makeClass = (attr, isBefore) => {
@@ -510,25 +504,34 @@ const openCheckDialog = (cardName: string, rare: string, ary) => {
         releaseLevel: ary.fluctuationStatus.releaseLevel,
       };
     } else {
-      return store.selectDeck.cardData[ary.memberName === store.openCard.style ? ary.memberName : store.openCard.name][
-        store.openCard.style
-      ].param;
+      return store.selectDeck.cardData[
+        ary.memberName === store.openCard.style
+          ? ary.memberName
+          : store.openCard.name
+      ][store.openCard.style].param;
     }
   })();
 
   if (sameCardCheck(cardName)) {
-    snackbar.sameCard = true;
-  } else if (store.findCardData(store.findCardId(store.openCard.name, cardName)).memberName ?? '' === 'sachi') {
+    snackbar.value.sameCard = true;
+  } else if (
+    store.findCardData(store.findCardId(store.openCard.name, cardName))
+      .memberName ??
+    '' === 'sachi'
+  ) {
     if (store.openCard.style === 'main') {
-      sachiMessage = '私はMAIN STYLEには設定できないんだよねぃ';
-      snackbar.sachi = true;
+      sachiMessage.value = '私はMAIN STYLEには設定できないんだよねぃ';
+      snackbar.value.sachi = true;
       return;
     } else {
       for (const name in store.selectDeck.cardData) {
         for (const style in store.selectDeck.cardData[name]) {
-          if (store.findCardData(store.selectDeck.cardData[name][style].id).cardName === cardName) {
-            sachiMessage = 'すでに編成されてるんだよねぃ';
-            snackbar.sachi = true;
+          if (
+            store.findCardData(store.selectDeck.cardData[name][style].id)
+              .cardName === cardName
+          ) {
+            sachiMessage.value = 'すでに編成されてるんだよねぃ';
+            snackbar.value.sachi = true;
             return;
           }
         }
@@ -537,7 +540,10 @@ const openCheckDialog = (cardName: string, rare: string, ary) => {
 
     store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
     store.switchDialog(false);
-  } else if (store.searchSelectDeckCard(store.openCard.name, store.openCard.style) === 'default') {
+  } else if (
+    store.searchSelectDeckCard(store.openCard.name, store.openCard.style) ===
+    'default'
+  ) {
     /*for (const style in store.selectDeck.cardData[store.openCard.name]) {
         const data = { ...{}, ...store.selectDeck.cardData[store.openCard.name][style] };
         console.log(data);
@@ -548,7 +554,7 @@ const openCheckDialog = (cardName: string, rare: string, ary) => {
   } else {
     store.setSelectCard(store.findCardId(store.openCard.name, cardName), p);
     store.switchDialog(false);
-    rare;
+    console.log(rare);
     // this.selectCard = cardName;
     // this.rarity = rare;
     // this.dialog = true;
@@ -567,12 +573,10 @@ const openCheckDialog = (cardName: string, rare: string, ary) => {
 
 <script lang="ts">
 export default {
-  name: 'selectCard',
+  name: 'SelectCard',
   data() {
     return;
   },
-  created() {},
-  mounted() {},
   computed: {
     outputCardList() {
       return (store) => {
@@ -580,28 +584,47 @@ export default {
 
         for (const key in store.card[store.openCard.name]) {
           if (key !== 'default') {
-            result = result.concat([], Object.values(store.card[store.openCard.name][key]));
+            result = result.concat(
+              [],
+              Object.values(store.card[store.openCard.name][key])
+            );
           }
         }
 
-        if (store.formationMember[104].some((name) => name === store.openCard.name)) {
-          result = result.concat([], Object.values(store.card.kozutsuzumegu.UR), Object.values(store.card.selaIzu.SR));
+        if (
+          store.formationMember[104].some(
+            (name) => name === store.openCard.name
+          )
+        ) {
+          result = result.concat(
+            [],
+            Object.values(store.card.kozutsuzumegu.UR),
+            Object.values(store.card.selaIzu.SR)
+          );
         }
 
-        if (store.formationMember[103].some((name) => name === store.openCard.name)) {
+        if (
+          store.formationMember[103].some(
+            (name) => name === store.openCard.name
+          )
+        ) {
           result = result.concat([], Object.values(store.card.sachi.UR));
         }
 
         if (store.isPossessionFlg) {
-          result = result.filter((data) => data.fluctuationStatus.cardLevel > 1);
+          result = result.filter(
+            (data) => data.fluctuationStatus.cardLevel > 1
+          );
         }
 
-        return store.openCard.style === 'main' ? result.filter((cardData) => cardData?.specialAppeal) : result;
+        return store.openCard.style === 'main'
+          ? result.filter((cardData) => cardData?.specialAppeal)
+          : result;
       };
     },
   },
-  methods: {},
-  watch: {},
+  created() {},
+  mounted() {},
 };
 </script>
 

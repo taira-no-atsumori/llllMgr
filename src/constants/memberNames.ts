@@ -51,7 +51,9 @@ export const getMemberKeyValue = (key: MemberKeyKeys): MemberKeyValues => {
  * @example
  * 'kaho' → 'KAHO'
  */
-export const getMemberKeyFromValue = (value: MemberKeyValues): MemberKeyKeys => {
+export const getMemberKeyFromValue = (
+  value: MemberKeyValues
+): MemberKeyKeys => {
   return Object.keys(MEMBER_KEYS).find((key) => MEMBER_KEYS[key] === value);
 };
 
@@ -81,7 +83,9 @@ export type MemberIds = (typeof MEMBER_IDS)[keyof typeof MEMBER_IDS];
  * @returns メンバーキー
  */
 export const conversionIdToKey = (id: MemberIds): MemberKeyValues => {
-  return Object.keys(MEMBER_IDS).find((memberKey) => MEMBER_IDS[memberKey] === id);
+  return Object.keys(MEMBER_IDS).find(
+    (memberKey) => MEMBER_IDS[memberKey] === id
+  );
 };
 
 /**
@@ -91,7 +95,9 @@ export const conversionIdToKey = (id: MemberIds): MemberKeyValues => {
  * @returns メンバーID
  */
 export const conversionKeyToId = (key: MemberKeyValues): MemberIds => {
-  return MEMBER_IDS[Object.keys(MEMBER_KEYS).find((memberKey) => MEMBER_KEYS[memberKey] === key)];
+  return MEMBER_IDS[
+    Object.keys(MEMBER_KEYS).find((memberKey) => MEMBER_KEYS[memberKey] === key)
+  ];
 };
 
 export const MEMBER_NAMES = {
@@ -155,10 +161,12 @@ export const MEMBER_NAMES = {
 export type MemberNames = (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES];
 
 /** 名字の型 */
-export type MemberFirstName = (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES]['first'];
+export type MemberFirstName =
+  (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES]['first'];
 
 /** 名前の型 */
-export type MemberLastName = (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES]['last'];
+export type MemberLastName =
+  (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES]['last'];
 
 /**
  * メンバーフルネーム作成
@@ -169,7 +177,9 @@ export type MemberLastName = (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES]['l
  */
 export const makeMemberFullName = (key: MemberKeyValues, isSpace = true) => {
   const memberData = MEMBER_NAMES[key];
-  return `${memberData.first}${/kozutsuzumegu|selaIzu/.test(key) || !isSpace ? '' : ' '}${memberData.last}`;
+  return `${memberData.first}${
+    /kozutsuzumegu|selaIzu/.test(key) || !isSpace ? '' : ' '
+  }${memberData.last}`;
 };
 
 /**
@@ -180,13 +190,18 @@ export const makeMemberFullName = (key: MemberKeyValues, isSpace = true) => {
  */
 export const conversionCardIdToMemberName = (id: string): string => {
   switch (id) {
-    case 'ktm_001':
+    case 'ktm_001': {
       return `${MEMBER_NAMES.kozutsuzumegu.first}${MEMBER_NAMES.kozutsuzumegu.last}`;
-    case 'is_001':
+    }
+    case 'is_001': {
       return makeMemberFullName(MEMBER_KEYS.SELAIZU);
-    default:
+    }
+    default: {
       const memberKey = conversionIdToKey(id.split('_')[0]);
-      return MEMBER_NAMES[memberKey][`${memberKey === MEMBER_KEYS.SERAS ? 'fir' : 'la'}st`];
+      return MEMBER_NAMES[memberKey][
+        `${memberKey === MEMBER_KEYS.SERAS ? 'fir' : 'la'}st`
+      ];
+    }
   }
 };
 
@@ -342,7 +357,8 @@ export type MemberIds = (typeof MEMBER_DATA)[keyof typeof MEMBER_DATA]['id'];
 export type MemberKeys = (typeof MEMBER_DATA)[keyof typeof MEMBER_DATA]['key'];
 
 /** メンバーカラーデータの型 */
-export type MemberColors = (typeof MEMBER_DATA)[keyof typeof MEMBER_DATA]['color'];
+export type MemberColors =
+  (typeof MEMBER_DATA)[keyof typeof MEMBER_DATA]['color'];
 
 /**
  * メンバーデータ取得処理
@@ -353,7 +369,9 @@ export type MemberColors = (typeof MEMBER_DATA)[keyof typeof MEMBER_DATA]['color
  * @returns メンバーネームデータ
  */
 export const getMemberData = (key: MemberKeyValues): MemberData => {
-  return Object.values(MEMBER_DATA).find((memberData) => memberData.key === key);
+  return Object.values(MEMBER_DATA).find(
+    (memberData) => memberData.key === key
+  );
 };
 
 /**
@@ -367,21 +385,23 @@ export const getGenerationMembers = (generation: number): MemberData[] => {
   });
 };
 
-/**
- * 生徒リストの定数
- */
+/** 生徒リストの定数 */
 export const GENERATION_LIST = {
   103: [102, 103],
   104: [102, 103, 104],
   105: [103, 104, 105],
 } as const;
-export type GenerationList = (typeof GENERATION_LIST)[keyof typeof GENERATION_LIST];
+export type GenerationList =
+  (typeof GENERATION_LIST)[keyof typeof GENERATION_LIST];
 
-export const EXCLUSION_MEMBER = [MEMBER_KEYS.SACHI, MEMBER_KEYS.SELAIZU, MEMBER_KEYS.KOZUTSUZUMEGU] as const;
+/** 除外メンバー */
+export const EXCLUSION_MEMBER = [
+  MEMBER_KEYS.SACHI,
+  MEMBER_KEYS.SELAIZU,
+  MEMBER_KEYS.KOZUTSUZUMEGU,
+] as const;
 
-/**
- * グループ名の定数
- */
+/** グループ名の定数 */
 export const GROUP_NAME = {
   HASUNOSORA: '蓮ノ空女学院スクールアイドルクラブ',
   CERISE_BOUQUET: 'スリーズブーケ',

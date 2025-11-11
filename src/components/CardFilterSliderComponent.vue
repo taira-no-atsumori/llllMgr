@@ -1,22 +1,22 @@
 <template>
   <div class="d-flex mb-9">
-    {{ label }}
+    {{ props.label }}
     <v-spacer></v-spacer>
     <v-btn
       density="compact"
       elevation="1"
-      @click="store.resetMusicFilter(resetMusicFilterName)"
       class="px-2"
+      @click="store.resetMusicFilter(props.resetMusicFilterName)"
     >
       リセット
     </v-btn>
   </div>
   <div class="px-1">
     <v-range-slider
+      v-model="store.search.cardList[props.resetMusicFilterName]"
       hide-details
-      v-model="store.search.cardList[resetMusicFilterName]"
-      :max="max"
-      :min="min"
+      :max="props.max"
+      :min="props.min"
       thumb-label="always"
       step="1"
       color="pink"

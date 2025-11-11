@@ -1,12 +1,9 @@
-/**
- * カードのレアリティ
- */
+/** カードのレアリティ */
 export const RARE = ['DR', 'LR', 'BR', 'UR', 'SR', 'R'] as const;
+/** カードのレアリティの型 */
 export type Rare = (typeof RARE)[number];
 
-/**
- * カードのスタイルタイプ
- */
+/** カードのスタイルタイプ */
 export const STYLE_TYPE = {
   PERFORMER: {
     en: 'performer',
@@ -26,51 +23,57 @@ export const STYLE_TYPE = {
   },
 } as const;
 
-/** EN表記の型 */
+/** カードのスタイルタイプの英語表記の型 */
 export type StyleTypeEn = (typeof STYLE_TYPE)[keyof typeof STYLE_TYPE]['en'];
 
-/** JP表記の型 */
+/** カードのスタイルタイプの日本語表記の型 */
 export type StyleTypeJp = (typeof STYLE_TYPE)[keyof typeof STYLE_TYPE]['jp'];
 
 /**
+ * 英語のスタイルタイプ取得処理
  *
- * @returns EN表記のスタイルタイプのリスト
+ * @returns 英語のスタイルタイプのリスト
  */
 export const getStyleTypeListEn = (): StyleTypeEn[] => {
   return Object.values(STYLE_TYPE).map((style) => style.en);
 };
 
 /**
+ * 日本語のスタイルタイプ取得処理
  *
- * @returns JP表記のスタイルタイプのリスト
+ * @returns 日本語のスタイルタイプのリスト
  */
 export const getStyleTypeListJp = (): StyleTypeJp[] => {
   return Object.values(STYLE_TYPE).map((style) => style.jp);
 };
 
 /**
- * EN → JP の変換
- * @param en
- * @returns
+ * スタイルタイプ変換処理（英語→日本語）
+ *
+ * @param en 英語のスタイルタイプ
+ * @returns 日本語のスタイルタイプ
  */
-export const convertStyleEnToJp = (en: StyleTypeEn): StyleTypeJp | undefined => {
+export const convertStyleEnToJp = (
+  en: StyleTypeEn
+): StyleTypeJp | undefined => {
   const entry = Object.values(STYLE_TYPE).find((style) => style.en === en);
   return entry?.jp;
 };
 
 /**
- * JP → EN の変換
- * @param jp
- * @returns
+ * スタイルタイプ変換処理（日本語→英語）
+ *
+ * @param jp 日本語のスタイルタイプ
+ * @returns 英語のスタイルタイプ
  */
-export const convertStyleJpToEn = (jp: StyleTypeJp): StyleTypeEn | undefined => {
+export const convertStyleJpToEn = (
+  jp: StyleTypeJp
+): StyleTypeEn | undefined => {
   const entry = Object.values(STYLE_TYPE).find((style) => style.jp === jp);
   return entry?.en;
 };
 
-/**
- * カードのムード
- */
+/** カードのムード */
 export const MOOD = {
   HAPPY: {
     en: 'happy',
@@ -86,10 +89,10 @@ export const MOOD = {
   },
 } as const;
 
-/** EN表記の型 */
+/** カードのムードの英語の型 */
 export type MoodEn = (typeof MOOD)[keyof typeof MOOD]['en'];
 
-/** JP表記の型 */
+/** カードのムード日本語の型 */
 export type MoodJp = (typeof MOOD)[keyof typeof MOOD]['jp'];
 
 /**
@@ -109,9 +112,10 @@ export const getMoodListJp = (): MoodJp[] => {
 };
 
 /**
- * EN → JP の変換
- * @param en
- * @returns
+ * ムード変換処理（英語→日本語）
+ *
+ * @param en 英語のムード
+ * @returns 日本語のムード
  */
 export const convertMoodEnToJp = (en: MoodEn): MoodJp | undefined => {
   const entry = Object.values(MOOD).find((mood) => mood.en === en);
@@ -119,30 +123,39 @@ export const convertMoodEnToJp = (en: MoodEn): MoodJp | undefined => {
 };
 
 /**
- * JP → EN の変換
- * @param jp
- * @returns
+ * ムード変換処理（日本語→英語）
+ *
+ * @param jp 日本語のムード
+ * @returns 英語のムード
  */
 export const convertMoodJpToEn = (jp: MoodJp): MoodEn | undefined => {
   const entry = Object.values(MOOD).find((mood) => mood.jp === jp);
   return entry?.en;
 };
 
-/**
- * お気に入りアイコン
- */
-export const FAVORITE = ['heart', 'circle', 'triangle', 'square', 'rhombus', 'star'] as const;
+/** お気に入りアイコン */
+export const FAVORITE = [
+  'heart',
+  'circle',
+  'triangle',
+  'square',
+  'rhombus',
+  'star',
+] as const;
+/** お気に入りアイコンの型 */
 export type FavoriteIcon = (typeof FAVORITE)[number];
 
-/**
- * 解放ステータス
- */
-export const RELEASE_STATUS = ['none', 'trainingLevel', 'cardLevel', 'releaseLevel'] as const;
+/** 解放ステータス */
+export const RELEASE_STATUS = [
+  'none',
+  'trainingLevel',
+  'cardLevel',
+  'releaseLevel',
+] as const;
+/** 解放ステータスの型 */
 export type ReleaseStatus = (typeof RELEASE_STATUS)[number];
 
-/**
- * カードの入手期間と表示ラベル
- */
+/** カードの入手期間と表示ラベル */
 export const LIMITED = {
   spring: {
     filterLabel: 'SPRING LIMITED',
@@ -187,9 +200,7 @@ export const LIMITED = {
 } as const;
 export type Limited = keyof typeof LIMITED;
 
-/**
- * レア度ごとの最大レベル
- */
+/** レア度ごとの最大レベル */
 export const MAX_CARD_LEVEL = {
   DR: [100, 120, 130, 140],
   LR: [100, 120, 130, 140],
@@ -198,4 +209,5 @@ export const MAX_CARD_LEVEL = {
   SR: [40, 60, 80, 90, 100],
   R: [30, 40, 60, 70, 80],
 } as const;
+/** レア度ごとの最大レベルの型 */
 export type MaxCardLevel = (typeof MAX_CARD_LEVEL)[keyof typeof MAX_CARD_LEVEL];

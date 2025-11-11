@@ -1,12 +1,6 @@
 <template>
-  <v-container
-    fluid
-    class="pa-2"
-  >
-    <v-row
-      class="mt-0"
-      v-if="Object.keys(outputEventList).length > 0"
-    >
+  <v-container fluid class="pa-2">
+    <v-row v-if="Object.keys(outputEventList).length > 0" class="mt-0">
       <v-col cols="12">
         <h2>ライブ・イベント情報</h2>
         <v-carousel
@@ -20,25 +14,19 @@
             :key="eventName"
             class="text-center"
           >
-            <v-card
-              variant="flat"
-              rounded="0"
-            >
+            <v-card variant="flat" rounded="0">
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
                 :src="store.getImagePath('images/eventInformation', event.img)"
                 eager
               ></v-img>
-              <a
-                v-else
-                :href="event.url"
-                target="_blank"
-                class="mainVisual"
-              >
+              <a v-else :href="event.url" target="_blank" class="mainVisual">
                 <v-img
                   class="white--text align-end text-center"
-                  :src="store.getImagePath('images/eventInformation', event.img)"
+                  :src="
+                    store.getImagePath('images/eventInformation', event.img)
+                  "
                 ></v-img>
               </a>
               <v-card-title class="text-left">
@@ -62,7 +50,10 @@
                 <div v-else>
                   {{ event.text }}
                   <span class="d-inline-block">
-                    <b class="text-red"> 開催<span v-if="event.type === 'live'">日</span><span v-else>中</span> </b>
+                    <b class="text-red">
+                      開催<span v-if="event.type === 'live'">日</span
+                      ><span v-else>中</span>
+                    </b>
                   </span>
                 </div>
               </v-card-title>
@@ -86,38 +77,22 @@
         </v-btn>
       </v-col>
       <v-col v-if="false">
-        <v-btn
-          block
-          prepend-icon="mdi-star"
-          @click="pageMove('withStarMgr')"
-        >
+        <v-btn block prepend-icon="mdi-star" @click="pageMove('withStarMgr')">
           WithStar Mgr
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-cards"
-          @click="pageMove('cardlist')"
-        >
+        <v-btn block prepend-icon="mdi-cards" @click="pageMove('cardlist')">
           Card List
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-music"
-          @click="pageMove('musiclist')"
-        >
+        <v-btn block prepend-icon="mdi-music" @click="pageMove('musiclist')">
           Music List
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-book"
-          @click="pageMove('itemlist')"
-        >
+        <v-btn block prepend-icon="mdi-book" @click="pageMove('itemlist')">
           Item List
         </v-btn>
       </v-col>
@@ -156,7 +131,9 @@
       </v-col>
       <v-col cols="12">
         このサイトはリンクフリーです。<br />
-        <u>SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！</u>
+        <u
+          >SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！</u
+        >
       </v-col>
     </v-row>
 
@@ -165,10 +142,7 @@
         <h2>Page Introduction</h2>
         各ページを簡単に紹介します。
       </v-col>
-      <v-col
-        cols="12"
-        v-if="false"
-      >
+      <v-col v-if="false" cols="12">
         <b>SIMULATION（獲得グランプリPt.計算ツール）</b><br />
         獲得グランプリPt.を計算できます。<br />
         なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
@@ -192,7 +166,8 @@
       </v-col>
       <v-col cols="12">
         <b>ITEM LIST（アイテム一覧）</b><br />
-        Quest Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
+        Quest
+        Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
       </v-col>
       <v-col cols="12"> ※機能は変更になる可能性があります。 </v-col>
     </v-row>
@@ -221,13 +196,13 @@ const router = useRouter();
 
 const eventList = {
   liveGP: {
-    title: 'ライブグランプリ「105期 3rdTerm 第2回 個人戦」',
+    title: 'ライブグランプリ「105期 Special Term/Road to Bloom 個人戦」',
     text: '',
     type: 'liveGP',
-    firstDay: [2025, 10, 15, 12, 0],
-    lastDay: [2025, 10, 21, 3, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-10-13-10-coj41elt48',
-    img: '105期 3rdTerm 第2回 個人戦_logo',
+    firstDay: [2025, 11, 10, 12, 0],
+    lastDay: [2025, 11, 16, 3, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-11-08-20-oh9was30lx',
+    img: '105期 Special Term RtB 個人戦_logo',
   },
   fesLive: {
     title: 'Fes×LIVE「105期 3rdTerm Fes×LIVE」',
@@ -239,7 +214,8 @@ const eventList = {
     img: '105期 3rdTerm Fes×LIVE_mv',
   },
   '5thLive_DOLLCHESTRA': {
-    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
     text: 'DOLLCHESTRA presents Diamond Stage',
     type: 'live',
     firstDay: [2025, 11, 8, 0, 0],
@@ -248,7 +224,8 @@ const eventList = {
     img: '5thLiveTour_logo_DOLLCHESTRA',
   },
   '5thLive_edelNote': {
-    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
     text: 'Edel Note presents Spade Stage',
     type: 'live',
     firstDay: [2025, 11, 19, 0, 0],
@@ -257,7 +234,8 @@ const eventList = {
     img: '5thLiveTour_logo_EdelNote',
   },
   '5thLive_ceriseBouquet': {
-    title: 'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
     text: 'スリーズブーケ presents Clover Stage',
     type: 'live',
     firstDay: [2025, 12, 6, 0, 0],
@@ -315,8 +293,16 @@ function countDown(eventName: string): {
   );
   const today = new Date();
 
-  const f = new Date(firstDay.getFullYear(), firstDay.getMonth(), firstDay.getDate());
-  const l = new Date(lastDay.getFullYear(), lastDay.getMonth(), lastDay.getDate());
+  const f = new Date(
+    firstDay.getFullYear(),
+    firstDay.getMonth(),
+    firstDay.getDate()
+  );
+  const l = new Date(
+    lastDay.getFullYear(),
+    lastDay.getMonth(),
+    lastDay.getDate()
+  );
   const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
   if (f.getTime() === t.getTime()) {
@@ -332,7 +318,9 @@ function countDown(eventName: string): {
   } else if (f.getTime() > t.getTime()) {
     return {
       state: 'prev',
-      day: -Math.floor((today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)),
+      day: -Math.floor(
+        (today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)
+      ),
       time: 0,
     };
   } else if (t.getTime() < l.getTime()) {

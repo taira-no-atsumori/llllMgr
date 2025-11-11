@@ -6,29 +6,29 @@
   <ul id="cardSettingArea">
     <li>
       <label for="trainingLevel">特訓度</label>
-      <select name="trainingLevel" id="trainingLevel" v-model="store.card[store.submitData.memberName][store.submitData.rare][store.submitData.selectedCard].status.trainingLevel">
+      <select id="trainingLevel" v-model="store.card[store.submitData.memberName][store.submitData.rare][store.submitData.selectedCard].status.trainingLevel" name="trainingLevel">
         <option v-for="i in ['', '+', '++']" :key="i" :value="i">{{ i }}</option>
       </select>
     </li>
     <li>
       <label for="cardLevel">レベル</label>
-      <input type="number" name="cardLevel" id="cardLevel" min="1" max="100" value="1" @update:model-value="set">
+      <input id="cardLevel" type="number" name="cardLevel" min="1" max="100" value="1" @update:model-value="set">
     </li>
     <li>
       <label for="SALevel">スペシャルアピール</label>
-      <select name="SALevel" id="SALevel" v-model="SLevel">
+      <select id="SALevel" v-model="SLevel" name="SALevel">
         <option v-for="i in 14" :key="i" :value="i">{{ i }}</option>
       </select>
     </li>
     <li>
       <label for="SLevel">スキル</label>
-      <select name="SLevel" id="SLevel" v-model="SLevel">
+      <select id="SLevel" v-model="SLevel" name="SLevel">
         <option v-for="i in 14" :key="i" :value="i">{{ i }}</option>
       </select>
     </li>
     <li>
       <label for="releaseLevel">解放Lv</label>
-      <select name="releaseLevel" id="releaseLevel" v-model="releaseLevel">
+      <select id="releaseLevel" v-model="releaseLevel" name="releaseLevel">
         <option v-for="i in 5" :key="i" :value="i">{{ i }}</option>
       </select>
     </li>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'possessionCardSetting',
+  name: 'PossessionCardSetting',
   data() {
     return {
       rarity: ['DR', 'UR', 'SR', 'R', 'BR'],

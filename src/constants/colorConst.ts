@@ -1,6 +1,6 @@
-import { MEMBER_KEYS, MemberKeyValues } from '@/constants/memberNames';
+import { type MemberKeyValues } from '@/constants/memberNames';
 
-/** メンバーカラーコードの定数 */
+/** メンバーのカラーコード */
 export const MEMBER_COLOR = {
   kaho: '#F8B500',
   sayaka: '#5383C3',

@@ -1,16 +1,28 @@
 <template>
-  <Radar
-    :options="chartOptions"
-    :data="chartData"
-  />
+  <Radar :options="chartOptions" :data="chartData" />
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
+import {
+  Chart as ChartJS,
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Radar } from 'vue-chartjs';
 
-ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
+ChartJS.register(
+  RadialLinearScale,
+  PointElement,
+  LineElement,
+  Filler,
+  Tooltip,
+  Legend
+);
 
 const props = defineProps<{
   memberNameList: string[];
@@ -64,7 +76,7 @@ const chartOptions = {
   plugins: {
     tooltip: {
       callbacks: {
-        label: function (context: any) {
+        label: (context: any) => {
           let label = context.dataset.label || '';
 
           if (label) {

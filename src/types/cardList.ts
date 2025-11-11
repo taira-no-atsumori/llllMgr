@@ -1,5 +1,10 @@
-import { MemberKeyValues } from '@/constants/memberNames';
-import { StyleTypeEn, MoodEn, Rare, FavoriteIcon } from '@/constants/cards';
+import type { MemberKeyValues } from '@/constants/memberNames';
+import type {
+  StyleTypeEn,
+  MoodEn,
+  Rare,
+  FavoriteIcon,
+} from '@/constants/cards';
 
 /**
  * サポートスキルの詳細情報
@@ -67,7 +72,7 @@ interface BaseStatus {
  * @property releaseLevel 解放レベル
  * @property releasePoint 解放ポイント
  */
-interface TrainingStatus {
+export interface TrainingStatus {
   cardLevel: number;
   trainingLevel: number;
   SALevel: number;
@@ -89,7 +94,7 @@ interface TrainingStatus {
  * @property addSA 追加スペシャルアピール
  * @property addSkill 追加スキル
  */
-interface SkillDetail {
+export interface SkillDetail {
   ID: string;
   name: string;
   AP: number;

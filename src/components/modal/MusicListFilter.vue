@@ -1,20 +1,14 @@
 <template>
-  <v-container
-    fluid
-    class="pa-0"
-  >
+  <v-container fluid class="pa-0">
     <v-row no-gutters>
-      <v-col
-        cols="12"
-        class="pa-0"
-      >
+      <v-col cols="12" class="pa-0">
         センター
         <v-select
           v-model="center"
           clearable
           chips
           label="センター"
-          :items="store.memberNameList"
+          :items="memberNameList"
           variant="outlined"
           color="pink"
         >
@@ -28,15 +22,17 @@
               {{ item.title }}
             </v-chip>
           </template>-->
-          <template v-slot:item="{ item, index }">
-            <v-list-item
-              :title="item.title"
-              @click="selectCenter(item.title)"
-            >
-              <template v-slot:prepend>
+          <template #item="{ item, index }">
+            <v-list-item :title="item.title" @click="selectCenter(item.title)">
+              <template #prepend>
                 <template v-if="!store.isOtherMember(item.title)">
                   <v-img
-                    :src="store.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)"
+                    :src="
+                      store.getImagePath(
+                        'icons/member',
+                        `icon_SD_${getMemberKeys()[index]}`
+                      )
+                    "
                     class="icon member"
                   ></v-img>
                 </template>
@@ -76,11 +72,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
-import { MEMBER_NAMES, getMemberKeys, makeMemberFullName } from '@/constants/memberNames';
-import { MEMBER_COLOR } from '@/constants/colorConst';
+import {
+  // MEMBER_NAMES,
+  getMemberKeys,
+  makeMemberFullName,
+} from '@/constants/memberNames';
+// import { MEMBER_COLOR } from '@/constants/colorConst';
 
 const store = useStateStore();
-const memberNameList = getMemberKeys().map((member) => makeMemberFullName(member));
+const memberNameList = getMemberKeys().map((member) =>
+  makeMemberFullName(member)
+);
 const center = ref<string | null>(null);
 
 function selectCenter(select: string | null) {
