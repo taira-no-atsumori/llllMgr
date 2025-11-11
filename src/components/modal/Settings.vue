@@ -9,7 +9,7 @@
     grow
     class="mb-2"
   >
-    <template v-slot:tab="{ item }">
+    <template #tab="{ item }">
       <v-tab
         :value="item.value"
         :text="item.text"
@@ -160,8 +160,8 @@ export default {
       ],
     };
   },
-  created() {},
   computed: {},
+  created() {},
   mounted() {},
   methods: {},
 };

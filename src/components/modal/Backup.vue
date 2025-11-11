@@ -8,31 +8,17 @@
     density="compact"
     grow
   >
-    <template v-slot:tab="{ item }">
-      <v-tab
-        :value="item.value"
-        :text="item.text"
-      ></v-tab>
+    <template #tab="{ item }">
+      <v-tab :value="item.value" :text="item.text"></v-tab>
     </template>
   </v-tabs>
 
   <v-tabs-window v-model="tabName">
-    <v-tabs-window-item
-      value="export"
-      class="my-2"
-    >
-      <v-alert
-        :type="alertContent.export.type"
-        variant="tonal"
-        class="mb-2"
-      >
+    <v-tabs-window-item value="export" class="my-2">
+      <v-alert :type="alertContent.export.type" variant="tonal" class="mb-2">
         {{ alertContent.export.text }}
       </v-alert>
-      <v-alert
-        type="warning"
-        variant="tonal"
-        class="mb-2"
-      >
+      <v-alert type="warning" variant="tonal" class="mb-2">
         Discordでバックアップファイルを共有する際は、Google
         DriveなどクラウドサーバにアップしたものDiscordにアップするか、PC版のDiscordからアップしてください。
       </v-alert>
@@ -47,40 +33,26 @@
       </v-btn>
     </v-tabs-window-item>
 
-    <v-tabs-window-item
-      value="import"
-      class="my-2"
-    >
-      <v-alert
-        :type="alertContent.import.type"
-        variant="tonal"
-        class="mb-2"
-      >
+    <v-tabs-window-item value="import" class="my-2">
+      <v-alert :type="alertContent.import.type" variant="tonal" class="mb-2">
         {{ alertContent.import.text }}
       </v-alert>
       <v-file-input
+        v-model="files"
         clearable
         label="File Import"
-        v-model="files"
         density="comfortable"
         class="mb-3"
         color="pink"
         accept="application/json"
-        @update:modelValue="readFile()"
         hide-details
+        @update:model-value="readFile()"
       ></v-file-input>
 
       <h3>反映データ</h3>
 
-      <v-row
-        no-gutters
-        class="mb-2"
-      >
-        <v-col
-          cols="6"
-          v-for="(name, value) in dataName"
-          :key="value"
-        >
+      <v-row no-gutters class="mb-2">
+        <v-col v-for="(name, value) in dataName" :key="value" cols="6">
           <v-checkbox
             v-model="importData"
             density="comfortable"
@@ -88,20 +60,15 @@
             :value="value"
             :label="name"
             :disabled="disabled"
-            @change="changeImportData()"
             hide-details
+            @change="changeImportData()"
           />
         </v-col>
       </v-row>
 
       <p>選択した反映データをサイト内に反映させます。よろしいですか？</p>
 
-      <v-radio-group
-        inline
-        hide-details
-        v-model="radios"
-        class="mb-2"
-      >
+      <v-radio-group v-model="radios" inline hide-details class="mb-2">
         <v-radio
           label="はい"
           :value="true"
@@ -122,34 +89,20 @@
         block
         color="pink"
         prepend-icon="mdi-file-import"
-        @click="setBackupData()"
         :disabled="isFileImportError || !radios"
+        @click="setBackupData()"
       >
         反映
       </v-btn>
     </v-tabs-window-item>
 
-    <v-tabs-window-item
-      value="reset"
-      class="my-2"
-    >
-      <v-alert
-        type="info"
-        variant="tonal"
-        class="mb-2"
-      >
+    <v-tabs-window-item value="reset" class="my-2">
+      <v-alert type="info" variant="tonal" class="mb-2">
         リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。
       </v-alert>
 
-      <v-row
-        no-gutters
-        class="mb-4"
-      >
-        <v-col
-          cols="6"
-          v-for="(name, value) in dataName"
-          :key="value"
-        >
+      <v-row no-gutters class="mb-4">
+        <v-col v-for="(name, value) in dataName" :key="value" cols="6">
           <v-checkbox
             v-model="resetList"
             density="comfortable"
@@ -161,11 +114,7 @@
         </v-col>
       </v-row>
 
-      <v-alert
-        class="mb-2"
-        type="warning"
-        variant="tonal"
-      >
+      <v-alert class="mb-2" type="warning" variant="tonal">
         選択したデータを初期化します。実行後データは復元できません。<br />
         よろしければ、チェックを入れてください。
       </v-alert>
@@ -184,25 +133,18 @@
         block
         color="pink"
         prepend-icon="mdi-cached"
-        @click="resetAction()"
         :disabled="!isReset"
         :loading="isLoading"
+        @click="resetAction()"
       >
         リセット
       </v-btn>
     </v-tabs-window-item>
 
-    <v-tabs-window-item
-      value="select"
-      class="my-2"
-    ></v-tabs-window-item>
+    <v-tabs-window-item value="select" class="my-2"></v-tabs-window-item>
   </v-tabs-window>
 
-  <v-snackbar
-    v-model="snackBar.reset"
-    color="success"
-    :timeout="4000"
-  >
+  <v-snackbar v-model="snackBar.reset" color="success" :timeout="4000">
     選択したデータをリセットしました。
   </v-snackbar>
 </template>
@@ -260,18 +202,33 @@ const alertContentList = {
       type: 'info',
       text: '「File Input」エリアを押して、お使いの端末からバックアップファイルをアップロードしてください（PCの場合は、ファイルをドラッグ&ドロップでもアップロードできます）。',
     },
-    { type: 'info', text: '反映させたいデータを選択後、「反映」ボタンを押してください。' },
-    { type: 'success', text: 'バックアップファイルの内容をサイト内に反映しました。' },
+    {
+      type: 'info',
+      text: '反映させたいデータを選択後、「反映」ボタンを押してください。',
+    },
+    {
+      type: 'success',
+      text: 'バックアップファイルの内容をサイト内に反映しました。',
+    },
   ],
   reset: [
-    { type: 'info', text: 'リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。' },
+    {
+      type: 'info',
+      text: 'リセットしたいデータを選択後、チェックを入れて「リセット」ボタンを押してください。',
+    },
     { type: 'success', text: '選択したデータをリセットしました。' },
   ],
 };
 
 const errorText = {
-  nonImportDataSelect: { type: 'warning', text: '反映させたいデータを選んでください。' },
-  invalidFile: { type: 'error', text: '正しいバックアップファイルをアップロードしてください。' },
+  nonImportDataSelect: {
+    type: 'warning',
+    text: '反映させたいデータを選んでください。',
+  },
+  invalidFile: {
+    type: 'error',
+    text: '正しいバックアップファイルをアップロードしてください。',
+  },
 };
 
 const defaultImportData = [
@@ -293,7 +250,10 @@ alertContent.reset = alertContentList.reset[0];
 
 const isFileImportError = computed(
   () =>
-    !files.value || files.value.length === 0 || importData.value.length === 0 || alertContent.import.type === 'error'
+    !files.value ||
+    files.value.length === 0 ||
+    importData.value.length === 0 ||
+    alertContent.import.type === 'error'
 );
 
 onMounted(() => {
@@ -307,7 +267,7 @@ onMounted(() => {
         }
         backupData.value = JSON.parse(result);
         disabled.value = false;
-      } catch (e) {
+      } catch (_) {
         alertContent.import = errorText.invalidFile;
         backupData.value = null;
         disabled.value = true;
@@ -318,14 +278,20 @@ onMounted(() => {
 
 const makeBackup = () => {
   const date = new Date();
-  const blob = new Blob([JSON.stringify(store.localStorageData)], { type: 'text/json' });
+  const blob = new Blob([JSON.stringify(store.localStorageData)], {
+    type: 'text/json',
+  });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = `llllMgr_backup_${date.getFullYear().toString()}${(date.getMonth() + 1)
+  link.download = `llllMgr_backup_${date.getFullYear().toString()}${(
+    date.getMonth() + 1
+  )
     .toString()
-    .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}${date.getHours().toString()}${date
-    .getMinutes()
-    .toString()}${date.getSeconds().toString()}.json`;
+    .padStart(2, '0')}${date.getDate().toString().padStart(2, '0')}${date
+    .getHours()
+    .toString()}${date.getMinutes().toString()}${date
+    .getSeconds()
+    .toString()}.json`;
   link.click();
   URL.revokeObjectURL(link.href);
   alertContent.export = alertContentList.export[1];
@@ -360,7 +326,7 @@ const readFile = () => {
         backupData.value = JSON.parse(result);
         disabled.value = false;
         changeImportData();
-      } catch (e) {
+      } catch (_) {
         alertContent.import = errorText.invalidFile;
         backupData.value = null;
         disabled.value = true;
@@ -375,7 +341,7 @@ const readFile = () => {
 const setBackupData = () => {
   const sendData = {};
 
-  for (let key of importData.value) {
+  for (const key of importData.value) {
     if (/^card|cardListFilter$/.test(key)) {
       if (sendData.cardList === undefined) {
         sendData.cardList = {};
@@ -391,7 +357,8 @@ const setBackupData = () => {
       }
 
       if (backupData.value?.sortSettings?.[`${newKey}List`]) {
-        sendData.sortSettings[`${newKey}List`] = backupData.value.sortSettings[`${newKey}List`];
+        sendData.sortSettings[`${newKey}List`] =
+          backupData.value.sortSettings[`${newKey}List`];
       }
     } else if (/^musicData|selectItemList|siteSettings$/.test(key)) {
       sendData[key] = backupData.value?.[key] ?? {};
@@ -412,7 +379,10 @@ const setBackupData = () => {
 };
 
 const changeImportData = () => {
-  alertContent.import = importData.value.length === 0 ? errorText.nonImportDataSelect : alertContentList.import[1];
+  alertContent.import =
+    importData.value.length === 0
+      ? errorText.nonImportDataSelect
+      : alertContentList.import[1];
 };
 
 const resetAction = () => {

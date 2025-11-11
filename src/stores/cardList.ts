@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { CardListState } from '@/types/cardList';
+import type { CardListState } from '@/types/cardList';
 import { STYLE_TYPE, MOOD } from '@/constants/cards';
 
 import kahoData from '@/data/cards/kaho.json';

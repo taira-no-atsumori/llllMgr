@@ -74,7 +74,10 @@ export const SKILL_LIST = {
       },
     },
     mentalProtect_stageProtect: {
-      text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.PROTECT_STAGE],
@@ -120,13 +123,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
   リフレッシュマインド: {
     refreshMind: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'refresh',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER],
@@ -140,7 +150,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -165,7 +179,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -177,7 +195,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     refreshGain_02: {
@@ -188,7 +210,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -200,7 +226,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.ADD_CARD],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.ADD_CARD,
+        ],
       },
     },
   },
@@ -212,7 +242,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -230,7 +264,10 @@ export const SKILL_LIST = {
   },
   リフレッシュワイド: {
     refreshWide: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、ハート上限を+', 'する。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのセクション中、ハート上限を+',
+        'する。',
+      ],
       detail: {
         attr: 'refresh',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_LIMIT_UP],
@@ -245,7 +282,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -257,34 +298,52 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
   ハートアトラクション: {
     heartAttraction_section: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
       },
     },
     heartAttraction_stage: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
       },
     },
     heartAttraction_50: {
-      text: ['50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        '50個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
       },
     },
     heartAttraction_100: {
-      text: ['100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        '100個のスキルハートを獲得する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
@@ -314,7 +373,10 @@ export const SKILL_LIST = {
       },
     },
     heartBoost_section: {
-      text: ['このセクション中、スキルハート獲得効果による獲得数を+', '%する。'],
+      text: [
+        'このセクション中、スキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: 'heartBoost',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
@@ -323,14 +385,20 @@ export const SKILL_LIST = {
   },
   'ハートブースト：みらくらぱーく！': {
     heartBoost_MiraCraPark_stage: {
-      text: ['このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
+      text: [
+        'このステージ中、みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: 'heartBoost',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
       },
     },
     heartBoost_MiraCraPark_limit3: {
-      text: ['3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+', '%する。'],
+      text: [
+        '3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: 'heartBoost',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
@@ -339,7 +407,10 @@ export const SKILL_LIST = {
   },
   'ハートブースト：ドレス': {
     'heartBoost-dress_01': {
-      text: ['次のドレスカード使用によるスキルハート獲得効果の獲得数を+', '%する。'],
+      text: [
+        '次のドレスカード使用によるスキルハート獲得効果の獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: 'heartBoost',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
@@ -348,14 +419,20 @@ export const SKILL_LIST = {
   },
   ハートゲイン: {
     heartGain_1: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにAPを1回復する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにAPを1回復する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
       },
     },
     heartGain_3: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにAPを3回復する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにAPを3回復する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
@@ -364,7 +441,10 @@ export const SKILL_LIST = {
   },
   ハイアトラクト: {
     highAttract_stage: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が6以上の時APを1回復する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにボルテージLv.が6以上の時APを1回復する。',
+      ],
       detail: {
         attr: 'high',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
@@ -373,14 +453,20 @@ export const SKILL_LIST = {
   },
   ハイボルテージ: {
     highVoltage: {
-      text: ['ボルテージPt.を+', 'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。使用時のボルテージLv.が6以上だった時、さらにAPを1回復する。',
+      ],
       detail: {
         attr: 'high',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
       },
     },
     highVoltage_ver2: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が6以上の時APを1回復する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が6以上の時APを1回復する。',
+      ],
       detail: {
         attr: 'high',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
@@ -400,7 +486,10 @@ export const SKILL_LIST = {
   },
   チアフルハート: {
     cheerfulHeart_over75_APGain: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにメンタルが75%以上のとき、APを1回復する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
@@ -454,7 +543,10 @@ export const SKILL_LIST = {
       },
     },
     cheerfulAttract_APGain_over75: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、APを1回復する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにメンタルが75%以上のとき、APを1回復する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
@@ -507,24 +599,29 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
       },
     },
-    'cheerfulAttraction-sectionAttract-over50_heart-over75_heart-over100_heart': {
-      text: [
-        'ビートハート',
-        '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
-        '%する。メンタルが50%以上のとき、ビートハート',
-        '回分のスキルハートを追加で獲得、メンタルが75%以上のとき、ビートハート',
-        '回分のスキルハートを追加で獲得、メンタルが100%以上のとき、ビートハート',
-        '回分のスキルハートをさらに追加で獲得する。',
-      ],
-      detail: {
-        attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+    'cheerfulAttraction-sectionAttract-over50_heart-over75_heart-over100_heart':
+      {
+        text: [
+          'ビートハート',
+          '回分のスキルハートを獲得し、このセクション中、獲得するLOVEを+',
+          '%する。メンタルが50%以上のとき、ビートハート',
+          '回分のスキルハートを追加で獲得、メンタルが75%以上のとき、ビートハート',
+          '回分のスキルハートを追加で獲得、メンタルが100%以上のとき、ビートハート',
+          '回分のスキルハートをさらに追加で獲得する。',
+        ],
+        detail: {
+          attr: 'cheerful',
+          type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        },
       },
-    },
   },
   チアフルボルテージ: {
     cheerfulVoltage_voltageGain: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.VOLTAGE_GAIN],
@@ -543,7 +640,11 @@ export const SKILL_LIST = {
       },
     },
     cheerfulVoltage_heartCaptcha: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、ビートハート', '個分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルが75%以上のとき、ビートハート',
+        '個分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
@@ -552,7 +653,10 @@ export const SKILL_LIST = {
   },
   チアフルボルテージブースト: {
     cheerfulVoltageBoost_01: {
-      text: ['メンタルが100%以上のとき、8回の間ボルテージゲイン効果を+', '%する。'],
+      text: [
+        'メンタルが100%以上のとき、8回の間ボルテージゲイン効果を+',
+        '%する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
@@ -561,7 +665,10 @@ export const SKILL_LIST = {
   },
   チアフルリカバー: {
     cheerfulRecover_upper75_APGain: {
-      text: ['メンタルを最大値の', '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにメンタルが75%以上のとき、APを2回復する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
@@ -639,7 +746,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.EXTEND_HAND],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.EXTEND_HAND,
+        ],
       },
     },
   },
@@ -688,13 +799,21 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
   チアフルエンデュランス: {
     cheerfulEndurance_over75: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルが75%以上のとき、メンタルを最大値の', '%回復させる。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルが75%以上のとき、メンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_RECOVER],
@@ -716,14 +835,22 @@ export const SKILL_LIST = {
   },
   チアフルファッシネイト: {
     cheerfulFascinate_section_over75: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが75%以上のとき、ボルテージPt.を+', 'する。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにメンタルが75%以上のとき、ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     cheerfulFascinate_stage_over50: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+', 'する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにメンタルが50%以上のとき、ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -752,7 +879,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -851,14 +981,20 @@ export const SKILL_LIST = {
   },
   アグレッシブハート: {
     aggressiveHeart_mentalReduce10: {
-      text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。'],
+      text: [
+        'ビートハート',
+        '個分のスキルハートを獲得する。さらにメンタルを最大値の10%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
       },
     },
     aggressiveHeart_mentalReduce15: {
-      text: ['ビートハート', '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。'],
+      text: [
+        'ビートハート',
+        '個分のスキルハートを獲得する。さらにメンタルを最大値の15%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
@@ -867,7 +1003,10 @@ export const SKILL_LIST = {
   },
   アグレッシブアトラクト: {
     aggressiveAttract_mentalReduce15_section: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルを最大値の15%減少させる。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにメンタルを最大値の15%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
@@ -880,7 +1019,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
   },
@@ -893,13 +1036,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
   アグレッシブボルテージ: {
     aggressiveVoltage_mentalReduce15: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルを最大値の15%減少させる。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルを最大値の15%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
@@ -914,27 +1064,40 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
   アグレッシブアトラクトブースト: {
     aggressiveAttractBoost: {
-      text: ['5回の間ラブアトラクト効果を+', '%する。さらにメンタルを最大値の25%減少させる。'],
+      text: [
+        '5回の間ラブアトラクト効果を+',
+        '%する。さらにメンタルを最大値の25%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
       },
     },
     aggressiveAttractBoost_mentalReduce3: {
-      text: ['次に使用するラブアトラクト効果を+', '%する。さらにメンタルを最大値の3%減少させる。'],
+      text: [
+        '次に使用するラブアトラクト効果を+',
+        '%する。さらにメンタルを最大値の3%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
       },
     },
     aggressiveAttractBoost_mentalReduce10: {
-      text: ['2回の間ラブアトラクト効果を+', '%する。さらにメンタルを最大値の10%減少させる。'],
+      text: [
+        '2回の間ラブアトラクト効果を+',
+        '%する。さらにメンタルを最大値の10%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
@@ -956,7 +1119,10 @@ export const SKILL_LIST = {
   },
   アグレッシブハートブースト: {
     aggressiveHeartBoost: {
-      text: ['10回の間スキルハート獲得効果による獲得数を+', '%する。さらにメンタルを最大値の50%減少させる。'],
+      text: [
+        '10回の間スキルハート獲得効果による獲得数を+',
+        '%する。さらにメンタルを最大値の50%減少させる。',
+      ],
       detail: {
         attr: 'aggressive',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
@@ -971,7 +1137,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -983,7 +1153,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
     aggressiveBelieveHeart_reduce100: {
@@ -993,7 +1167,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -1023,7 +1201,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -1048,7 +1230,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -1061,7 +1247,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -1074,7 +1264,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -1087,7 +1281,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
@@ -1099,7 +1297,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -1123,7 +1325,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
     aggressiveBeliefBoost_heatUp_minus100: {
@@ -1133,7 +1339,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -1145,7 +1355,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -1157,7 +1371,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -1169,7 +1387,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -1182,7 +1404,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -1233,7 +1459,10 @@ export const SKILL_LIST = {
   },
   'アトラクトブースト：みらくらぱーく！': {
     attractBoost_MiraCraPark: {
-      text: ['次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+', '%する。'],
+      text: [
+        '次にみらくらぱーく！のメンバーが使用するラブアトラクト効果を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
@@ -1242,7 +1471,10 @@ export const SKILL_LIST = {
   },
   リゲインボルテージ: {
     regainVoltage: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+', 'する。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'regain',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -1251,7 +1483,10 @@ export const SKILL_LIST = {
   },
   リゲインリカバー: {
     regainRecover: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'regain',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER],
@@ -1270,7 +1505,10 @@ export const SKILL_LIST = {
       },
     },
     regainAttract_stage: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'regain',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
@@ -1286,7 +1524,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -1298,7 +1540,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -1310,7 +1556,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -1322,7 +1572,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.ADD_CARD],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.ADD_CARD,
+        ],
       },
     },
   },
@@ -1334,20 +1588,30 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
   エクステハート: {
     extensionsHeart_section3: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
       },
     },
     extensionsHeart_stage1: {
-      text: ['このステージ中、手札の上限枚数を1枚増加する。さらにビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'このステージ中、手札の上限枚数を1枚増加する。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
@@ -1362,7 +1626,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -1374,92 +1641,153 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
   エクステアトラクト: {
     extensions1_stageAttract_section: {
-      text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
     extensions2_stageAttract_section: {
-      text: ['このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を2枚増加する。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
     extensions3_stageAttract_section: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
     extensions4_stageAttract_section: {
-      text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を4枚増加する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
     extensions1_stageAttract_stage: {
-      text: ['このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このステージ中、手札の上限枚数を1枚増加する。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
       },
     },
     extensions1_sectionAttract_section: {
-      text: ['このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を1枚増加する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
     extensions3_sectionAttract_section: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
     extensionsAttract_08: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにこのセクション中、手札の上限枚数を2枚増加する。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにこのセクション中、手札の上限枚数を2枚増加する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+        ],
       },
     },
   },
   エクステボルテージ: {
     extensions2_voltage_section: {
-      text: ['このセクション中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このセクション中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     extensions3_voltage_section: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     extensions1_voltage_stage: {
-      text: ['このステージ中、手札の上限枚数を1枚増加する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このステージ中、手札の上限枚数を1枚増加する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     extensions2_voltage_stage: {
-      text: ['このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このステージ中、手札の上限枚数を2枚増加する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -1496,13 +1824,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
   エクステリカバー: {
     extensions3_recover_section: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
@@ -1517,7 +1852,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_RECOVER],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.MENTAL_RECOVER,
+        ],
       },
     },
   },
@@ -1529,7 +1868,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
+        type: [
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.EXTENSIONS_STAGE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+        ],
       },
     },
   },
@@ -1541,7 +1884,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.AP_QUICK],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.AP_QUICK,
+        ],
       },
     },
     'extensions_stage-boost_loveAttract-heatUp_section': {
@@ -1551,7 +1898,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_QUICK],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_STAGE,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.AP_QUICK,
+        ],
       },
     },
   },
@@ -1563,13 +1914,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.ADD_CARD],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.ADD_CARD,
+        ],
       },
     },
   },
   エクステゲイン: {
     extensionsGain_add3: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにAPを', '回復する。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにAPを',
+        '回復する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
@@ -1578,7 +1936,10 @@ export const SKILL_LIST = {
   },
   エクステヒート: {
     extensionHeat_01: {
-      text: ['このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、AP回復速度を+', '%する。'],
+      text: [
+        'このセクション中、手札の上限枚数を3枚増加する。さらにこのセクション中、AP回復速度を+',
+        '%する。',
+      ],
       detail: {
         attr: 'extensions',
         type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK],
@@ -1587,7 +1948,10 @@ export const SKILL_LIST = {
   },
   エクステアトラクトブースト: {
     extendAttractBoost: {
-      text: ['このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+', '%する。'],
+      text: [
+        'このステージ中、手札の上限枚数を2枚増加する。さらに次に使用するラブアトラクト効果を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
@@ -1596,10 +1960,18 @@ export const SKILL_LIST = {
   },
   エクステヒートゲイン: {
     extensionHeatGain_01: {
-      text: ['このステージ中、手札の上限枚数を1枚増加し、AP回復速度を+', '%する。さらにAPを', '回復する。'],
+      text: [
+        'このステージ中、手札の上限枚数を1枚増加し、AP回復速度を+',
+        '%する。さらにAPを',
+        '回復する。',
+      ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -1623,7 +1995,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.VIBES_SECTION],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.VIBES_SECTION,
+        ],
       },
     },
   },
@@ -1635,7 +2011,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -1647,7 +2027,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -1659,7 +2043,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+        ],
       },
     },
   },
@@ -1671,7 +2059,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -1689,21 +2081,33 @@ export const SKILL_LIST = {
       },
     },
     fascination_voltageGain: {
-      text: ['ボルテージPt.を+', 'する。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'fascination',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
       },
     },
     fascination_section: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'fascination',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     fascination_stage: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'fascination',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -1718,7 +2122,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fascination',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -1731,34 +2139,54 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'replay',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
   サポーテッドフィール: {
     supportedFeel_section: {
-      text: ['メンタルを最大値の', '%回復させる。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'feel',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
       },
     },
     supportedFeel_stage: {
-      text: ['メンタルを最大値の', '%回復させる。さらにこのステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにこのステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'feel',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
       },
     },
     supportedFeel_sectionAttract_mentalRecover: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。メンタルを最大値の', '%回復させる。さらに'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。メンタルを最大値の',
+        '%回復させる。さらに',
+      ],
       detail: {
         attr: 'feel',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
       },
     },
     supportedFeel_stageAttract_mentalRecover: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'feel',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
@@ -1774,7 +2202,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     protectFeel_sectionAttract: {
@@ -1824,14 +2256,20 @@ export const SKILL_LIST = {
   },
   プロテクトゲイン: {
     protectGain: {
-      text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを+5する。'],
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '分のメンタルダメージを無効にする。さらにAPを+5する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
       },
     },
     'protectGain-AP9': {
-      text: ['このステージ中、メンタルの最大値の', '分のメンタルダメージを無効にする。さらにAPを9回復する。'],
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '分のメンタルダメージを無効にする。さらにAPを9回復する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
@@ -1853,7 +2291,11 @@ export const SKILL_LIST = {
   },
   インヴォケーション: {
     invocation: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLvが6以下の場合、このステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLvが6以下の場合、このステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'invocation',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
@@ -1862,14 +2304,22 @@ export const SKILL_LIST = {
   },
   ボルテージハート: {
     voltageHeart: {
-      text: ['ボルテージPt.を+', 'する。さらにビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
       },
     },
     voltageHeart_voltageGain_heartCaptcha: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -1878,7 +2328,10 @@ export const SKILL_LIST = {
   },
   リカバーサポート: {
     recoverSupport_01: {
-      text: ['メンタルを最大値の', '%回復させる。さらにデッキ内の梢のスキルの消費AP-6。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにデッキ内の梢のスキルの消費AP-6。',
+      ],
       detail: {
         attr: 'recover',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_REDUCE],
@@ -1895,7 +2348,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'recover',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
@@ -1954,28 +2411,44 @@ export const SKILL_LIST = {
   },
   チルボルテージ: {
     chillVoltage_under1: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が1以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が1以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     chillVoltage_under3: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     chillVoltage_under5: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     chillVoltage_under5_heartCaptcha: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -1984,7 +2457,11 @@ export const SKILL_LIST = {
   },
   チルボルテージゲイン: {
     chillVoltageGain_01: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が3以下の時ボルテージPt.を+', 'し、APを5回復する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が3以下の時ボルテージPt.を+',
+        'し、APを5回復する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
@@ -2037,18 +2514,30 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     chillFascinate_under2_stageAttract_voltageGain: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにボルテージLv.が2以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     chillFascinate_under5_stageAttract_voltageGain: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにボルテージLv.が5以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -2057,7 +2546,11 @@ export const SKILL_LIST = {
   },
   チルエンデュランス: {
     chillEndurance_mentalRecover_under5_voltageGain: {
-      text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+', 'する。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにボルテージLv.が5以下の時ボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'chill',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -2086,7 +2579,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
     groovyAttract_stage_over6_stageAttract: {
@@ -2204,14 +2700,22 @@ export const SKILL_LIST = {
       },
     },
     groovyHeart_over8_voltageGain_heartCaptcha: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が8以上の時ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
       },
     },
     groovyHeart_over10_voltageGain_heartCaptcha: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が10以上の時ビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が10以上の時ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
@@ -2231,7 +2735,10 @@ export const SKILL_LIST = {
   },
   グルーヴィハートゲイン: {
     'groovyHeartGain-over8_voltage-gain7': {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時、APを7回復する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにボルテージLv.が8以上の時、APを7回復する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
@@ -2240,7 +2747,11 @@ export const SKILL_LIST = {
   },
   グルーヴィボルテージ: {
     groovyVoltage_over8_voltageGain_heartCaptcha: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時ビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が8以上の時ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
@@ -2261,7 +2772,11 @@ export const SKILL_LIST = {
   },
   グルーヴィリカバー: {
     groovyRecover_over8_mentalRecover: {
-      text: ['メンタルを最大値の', '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の', '%回復させる。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにボルテージLv.が8以上の時メンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.MENTAL_RECOVER],
@@ -2289,7 +2804,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     groovyBoost_over10_boost_heartCaptcha: {
@@ -2319,14 +2837,22 @@ export const SKILL_LIST = {
   },
   グルーヴィファッシネイト: {
     groovyFascinate_over8_voltageGain_sectionAttract: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+', 'する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が8以上の時このセクション中、獲得するLOVEを+',
+        'する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
       },
     },
     groovyFascinate_over10_voltageGain_sectionAttract: {
-      text: ['ボルテージPt.を+', 'する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+', 'する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにボルテージLv.が10以上の時このセクション中、獲得するLOVEを+',
+        'する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
@@ -2419,7 +2945,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -2458,7 +2988,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -2503,7 +3037,9 @@ export const SKILL_LIST = {
   },
   グルーヴイグニッション: {
     grooveIgnition_01: {
-      text: ['姫芽が《イグニッションモード》になった回数に応じてボルテージゲイン効果が発動する。'],
+      text: [
+        '姫芽が《イグニッションモード》になった回数に応じてボルテージゲイン効果が発動する。',
+      ],
       detail: {
         attr: 'groovy',
         type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -2533,7 +3069,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'switch',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
     switchAttraction_basis5_voltageGain_heartCaptcha_sectionAttract: {
@@ -2545,7 +3085,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'switch',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
@@ -2564,7 +3108,10 @@ export const SKILL_LIST = {
   },
   カームハート: {
     calmHeart: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにボルテージPt.を-20する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにボルテージPt.を-20する。',
+      ],
       detail: {
         attr: 'calm',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
@@ -2573,17 +3120,27 @@ export const SKILL_LIST = {
   },
   カームアトラクト: {
     calmAttract30_sectionAttract: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにボルテージPt.を-30する。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにボルテージPt.を-30する。',
+      ],
       detail: {
         attr: 'calm',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
       },
     },
     calmAttract20_sectionExtensions2: {
-      text: ['このセクション中、手札の上限枚数を2枚増加し、獲得するLOVEを+', '%する。さらにボルテージPt.を-20する。'],
+      text: [
+        'このセクション中、手札の上限枚数を2枚増加し、獲得するLOVEを+',
+        '%する。さらにボルテージPt.を-20する。',
+      ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.VOLTAGE_REDUCE,
+        ],
       },
     },
   },
@@ -2596,7 +3153,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.VOLTAGE_REDUCE,
+        ],
       },
     },
     calmAttraction30_heartCaptcha_sectionAttract: {
@@ -2607,13 +3168,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.VOLTAGE_REDUCE,
+        ],
       },
     },
   },
   カームブースト: {
     calmBoost20: {
-      text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。さらにボルテージPt.を-20する。'],
+      text: [
+        '次に使用するスキルハート獲得効果による獲得数を+',
+        '%する。さらにボルテージPt.を-20する。',
+      ],
       detail: {
         attr: 'calm',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
@@ -2622,7 +3190,10 @@ export const SKILL_LIST = {
   },
   カームプロテクト: {
     calmProtect: {
-      text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。さらにボルテージPt.を-10する。'],
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。さらにボルテージPt.を-10する。',
+      ],
       detail: {
         attr: 'calm',
         type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.VOLTAGE_REDUCE],
@@ -2631,14 +3202,22 @@ export const SKILL_LIST = {
   },
   ヒーリングハート: {
     healingHeart_recover_heart: {
-      text: ['メンタルを最大値の', '%回復させる。さらにビートハート', '個分のスキルハートを獲得する。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにビートハート',
+        '個分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
       },
     },
     healingHeart_heart_recover: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
@@ -2647,30 +3226,49 @@ export const SKILL_LIST = {
   },
   ラブキャブティベイト: {
     loveCaptivate: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
   エンデュランス: {
     endurance_APGain: {
-      text: ['ボルテージPt.を+', 'し、メンタルを最大値の', '%回復させる。さらにAPを1回復する。'],
+      text: [
+        'ボルテージPt.を+',
+        'し、メンタルを最大値の',
+        '%回復させる。さらにAPを1回復する。',
+      ],
       detail: {
         attr: 'endurance',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
       },
     },
     endurance_mentalVoltage: {
-      text: ['メンタルを最大値の', '%回復させる。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'endurance',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
     endurance_voltageMental: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'endurance',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_RECOVER],
@@ -2726,7 +3324,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -2740,7 +3342,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
     vortexAttraction_stage: {
@@ -2752,7 +3358,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -2779,7 +3389,10 @@ export const SKILL_LIST = {
   },
   クイックフォーム: {
     quickForm: {
-      text: ['このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+', '%する。'],
+      text: [
+        'このステージ中、手札の上限枚数を1枚減少する。さらにこのステージ中、AP回復速度を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.CARD_REDUCE, SKILL_DETAIL.AP_QUICK],
@@ -2788,7 +3401,10 @@ export const SKILL_LIST = {
   },
   オールマイトヒーリング: {
     allMightHealing: {
-      text: ['このステージ中、メンタルが回復した時、回復量の', '%の個数のスキルハートを獲得する。'],
+      text: [
+        'このステージ中、メンタルが回復した時、回復量の',
+        '%の個数のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'allMight',
         type: [SKILL_DETAIL.HEART_CAPTCHA],
@@ -2804,7 +3420,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
@@ -2816,7 +3436,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK],
+        type: [
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+        ],
       },
     },
   },
@@ -2841,7 +3465,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'trio',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -2855,7 +3483,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'triangle',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -2867,7 +3499,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.AP_SLOW,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -2885,16 +3521,25 @@ export const SKILL_LIST = {
   },
   デュオアトラクト: {
     duoAttract: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにこのセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにこのセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
   チャウチャウパーティ: {
     chowchowParty: {
-      text: ['チャウチャウカードを4種類(合計10枚)山札に追加する。さらにこのステージ中、手札の上限枚数を1枚減少する。'],
+      text: [
+        'チャウチャウカードを4種類(合計10枚)山札に追加する。さらにこのステージ中、手札の上限枚数を1枚減少する。',
+      ],
       detail: {
         attr: 'chowchow',
         type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.CARD_REDUCE],
@@ -2942,7 +3587,9 @@ export const SKILL_LIST = {
   },
   チャウチャウトリック: {
     chowchowTrick: {
-      text: ['手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。'],
+      text: [
+        '手札を全て捨てて、捨札を全て山札に戻した後、デッキから手札上限までスキルを引く。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.RESHUFFLE],
@@ -2966,7 +3613,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.MENTAL_RECOVER,
+        ],
       },
     },
   },
@@ -3016,14 +3667,20 @@ export const SKILL_LIST = {
   },
   ブレイブアトラクト: {
     braveAttract_under25_sectionAttract: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが25%以下のとき、APを1回復する。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにメンタルが25%以下のとき、APを1回復する。',
+      ],
       detail: {
         attr: 'brave',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
       },
     },
     braveAttract_under50_sectionAttract_APGain: {
-      text: ['このセクション中、獲得するLOVEを+', '%する。さらにメンタルが50%以下のとき、APを1回復する。'],
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにメンタルが50%以下のとき、APを1回復する。',
+      ],
       detail: {
         attr: 'brave',
         type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
@@ -3097,7 +3754,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -3111,13 +3772,21 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
   ブレイブファッシネイト: {
     braveFascinate_under50_voltageGain_sectionAttract: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+', '%する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルが50%以下の時、このセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'brave',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
@@ -3126,14 +3795,22 @@ export const SKILL_LIST = {
   },
   ブレイブボルテージハート: {
     braveVoltageHeart_under25: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルが25%以下の時、ビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルが25%以下の時、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'brave',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
       },
     },
     braveVoltageHeart_under10: {
-      text: ['ボルテージPt.を+', 'する。さらにメンタルが10%以下の時、ビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにメンタルが10%以下の時、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'brave',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
@@ -3175,7 +3852,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
     braveWideAttraction_02: {
@@ -3187,7 +3868,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
     braveWideAttraction_03: {
@@ -3199,7 +3884,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -3213,7 +3902,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
     braveVortexAttraction_02: {
@@ -3225,7 +3918,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -3239,7 +3936,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, 'loveAttract'],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          'loveAttract',
+        ],
       },
     },
   },
@@ -3285,7 +3986,9 @@ export const SKILL_LIST = {
   },
   'ドレス《Reflection in the mirror》': {
     dress_ReflectionInTheMirror: {
-      text: ['ドレスカード《Reflection in the mirror》を3種類(合計3枚)山札に追加する。'],
+      text: [
+        'ドレスカード《Reflection in the mirror》を3種類(合計3枚)山札に追加する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.ADD_CARD],
@@ -3312,7 +4015,9 @@ export const SKILL_LIST = {
   },
   'ドレス《Bloom the smile, Bloom the dream!》': {
     dress_BsBd: {
-      text: ['ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。'],
+      text: [
+        'ドレスカード《Bloom the smile, Bloom the dream!》を2種類(合計3枚)山札に追加する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.ADD_CARD],
@@ -3375,7 +4080,9 @@ export const SKILL_LIST = {
   },
   'ドレス《Link to the FUTURE》': {
     dress_lttf: {
-      text: ['ドレスカード《Link to the FUTURE》を1種類(合計3枚)山札に追加する。'],
+      text: [
+        'ドレスカード《Link to the FUTURE》を1種類(合計3枚)山札に追加する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.ADD_CARD],
@@ -3462,7 +4169,10 @@ export const SKILL_LIST = {
   },
   '《シュータードレス/RIO》': {
     shooterDressRio: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、AP回復速度を+', '%する。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、AP回復速度を+',
+        '%する。',
+      ],
       detail: {
         attr: 'dress',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
@@ -3512,7 +4222,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bouquet',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.EXTEND_HAND],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.EXTEND_HAND,
+        ],
       },
     },
   },
@@ -3525,7 +4239,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bouquet',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET,
+        ],
       },
     },
   },
@@ -3559,7 +4277,11 @@ export const SKILL_LIST = {
   },
   '《奇跡の舞踏会》': {
     dress_kiseki_02: {
-      text: ['このステージ中、AP回復速度を+', '%する。さらにビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'このステージ中、AP回復速度を+',
+        '%する。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: 'dress',
         type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
@@ -3576,7 +4298,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -3657,7 +4383,10 @@ export const SKILL_LIST = {
   },
   小鈴デザイン: {
     design_kosuzu: {
-      text: ['このステージ中、メンタルの最大値の', '%分のメンタルダメージを無効にする。'],
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にする。',
+      ],
       detail: {
         attr: 'design',
         type: [SKILL_DETAIL.PROTECT_STAGE],
@@ -3718,7 +4447,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.ADD_CARD,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -3751,7 +4484,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -3772,7 +4509,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -3784,7 +4525,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.ADD_CARD,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -3798,7 +4543,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
     fruitPunch_02: {
@@ -3810,7 +4559,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -3888,13 +4641,19 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
   'ドレス《一生に夢が咲くように》': {
     dress_hitotose_01: {
-      text: ['ドレスカード《一生に夢が咲くように》を1種類(合計2枚)山札に追加する。さらに手札をシャッフルする。'],
+      text: [
+        'ドレスカード《一生に夢が咲くように》を1種類(合計2枚)山札に追加する。さらに手札をシャッフルする。',
+      ],
       detail: {
         attr: 'dress',
         type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
@@ -3910,7 +4669,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -3934,7 +4697,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     otomeAnthology_02: {
@@ -4007,7 +4774,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4019,7 +4790,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -4078,7 +4853,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -4090,7 +4869,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
   },
@@ -4108,7 +4891,10 @@ export const SKILL_LIST = {
   },
   ボルテージサポート: {
     voltageSupport: {
-      text: ['ボルテージPt.を+', 'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらに手札のメイン効果にボルテージ増加効果を持つスキルの消費AP-1。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_REDUCE_VOLTAGE_GAIN],
@@ -4117,7 +4903,11 @@ export const SKILL_LIST = {
   },
   オーバーブルーミング: {
     overBlooming_section: {
-      text: ['このセクション中、ハートの上限を+', 'する。さらに', '個のスキルハートを獲得する。'],
+      text: [
+        'このセクション中、ハートの上限を+',
+        'する。さらに',
+        '個のスキルハートを獲得する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
@@ -4126,7 +4916,11 @@ export const SKILL_LIST = {
   },
   ハートスプリンクル: {
     heartSprinkles: {
-      text: ['', '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+', '%する。'],
+      text: [
+        '',
+        '個のスキルハートを獲得する。さらに3回の間スキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
@@ -4147,7 +4941,10 @@ export const SKILL_LIST = {
   },
   フルリカバー: {
     fullRecover: {
-      text: ['メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
+      text: [
+        'メンタルを最大値の100%回復する。さらにこのセクション中、メンタルが1秒ごとに最大値の',
+        '%回復する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.MENTAL_RECOVER],
@@ -4172,7 +4969,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -4186,7 +4987,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'tuning',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -4212,7 +5017,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'gift',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -4230,7 +5039,10 @@ export const SKILL_LIST = {
   },
   エイペックス: {
     apex: {
-      text: ['ボルテージLv.を10にし、このステージ中、獲得するLOVEを+', '%する。'],
+      text: [
+        'ボルテージLv.を10にし、このステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
       detail: {
         attr: 'apex',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
@@ -4248,28 +5060,40 @@ export const SKILL_LIST = {
   },
   ワイドエクステンド: {
     wideExtend_section3: {
-      text: ['このセクション中、ハート上限を+', 'し、手札の上限枚数を3枚増加する。'],
+      text: [
+        'このセクション中、ハート上限を+',
+        'し、手札の上限枚数を3枚増加する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
       },
     },
     wideExtend_stage1: {
-      text: ['このステージ中、ハート上限を+', 'し、手札の上限枚数を1枚増加する。'],
+      text: [
+        'このステージ中、ハート上限を+',
+        'し、手札の上限枚数を1枚増加する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
       },
     },
     wideExtend_stage1_2: {
-      text: ['このステージ中、手札の上限枚数を1枚増加し、ハート上限を+', 'する。'],
+      text: [
+        'このステージ中、手札の上限枚数を1枚増加し、ハート上限を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
       },
     },
     wideExtend_section4: {
-      text: ['このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+', 'する。'],
+      text: [
+        'このセクション中、手札の上限枚数を4枚増加する。さらにこのステージ中、ハート上限を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
@@ -4287,7 +5111,11 @@ export const SKILL_LIST = {
   },
   ワイドヒート: {
     wideHeat_01: {
-      text: ['このセクション中、AP回復速度を+', '%し、ハートの上限を+', 'する。'],
+      text: [
+        'このセクション中、AP回復速度を+',
+        '%し、ハートの上限を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_LIMIT_UP],
@@ -4304,7 +5132,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+        ],
       },
     },
     celebration_heart_attract_protect: {
@@ -4316,7 +5148,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_MENTAL_PROTECT],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+        ],
       },
     },
     celebration_attract_voltage_mental: {
@@ -4328,7 +5164,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+        ],
       },
     },
     celebration_voltage_mental_heart: {
@@ -4340,7 +5180,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     celebration_heart_attract_voltage: {
@@ -4352,7 +5196,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
     celebration_attract_voltage_protect: {
@@ -4364,7 +5212,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.BOOST_MENTAL_PROTECT],
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+        ],
       },
     },
     celebration_heart_recover_protect: {
@@ -4376,7 +5228,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.BOOST_MENTAL_PROTECT],
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+        ],
       },
     },
   },
@@ -4389,7 +5245,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'belief',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -4401,7 +5261,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'belief',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -4413,7 +5276,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'belief',
-        type: [SKILL_DETAIL.MENTAL_DOWN_STAGE, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_STAGE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -4427,16 +5294,28 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
   ブーステッドゲイン: {
     'boostedGain-boost_recover-boost_voltage-gain7': {
-      text: ['次に使用するメンタルリカバー効果を+', '%、ボルテージゲイン効果を+', '%する。さらにAPを7回復する。'],
+      text: [
+        '次に使用するメンタルリカバー効果を+',
+        '%、ボルテージゲイン効果を+',
+        '%する。さらにAPを7回復する。',
+      ],
       detail: {
         attr: 'boost',
-        type: [SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -4448,7 +5327,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'boost',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     'boostedExtendGain-boost_recover-addCard1_stage-gain10': {
@@ -4458,7 +5341,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'boost',
-        type: [SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -4502,7 +5389,10 @@ export const SKILL_LIST = {
   },
   イグニッションボルテージ: {
     ignitionVoltage: {
-      text: ['姫芽が《イグニッションモード》になる。さらにボルテージPt.を+', 'する。'],
+      text: [
+        '姫芽が《イグニッションモード》になる。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -4538,7 +5428,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -4551,7 +5445,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -4564,7 +5462,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -4578,7 +5480,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'triangle',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -4591,7 +5497,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
     abunDanceAttraction_over30_stage_over33: {
@@ -4603,7 +5513,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4617,7 +5531,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abundance',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -4643,7 +5561,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4656,7 +5578,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4669,7 +5595,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -4682,7 +5612,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4708,7 +5642,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -4722,7 +5659,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
     abunDanceAttraction_over30_stage_over33: {
@@ -4734,7 +5675,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4743,13 +5688,19 @@ export const SKILL_LIST = {
       text: ['デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。'],
       detail: {
         attr: 'bubble',
-        type: [SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET, SKILL_DETAIL.AP_REDUCE_DECK_DRESS_CARD],
+        type: [
+          SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET,
+          SKILL_DETAIL.AP_REDUCE_DECK_DRESS_CARD,
+        ],
       },
     },
   },
   タッグハート: {
     tagHeart_APReduce20_hime: {
-      text: ['ビートハート', '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。'],
+      text: [
+        'ビートハート',
+        '分のスキルハートを獲得する。さらにデッキにある姫芽のスキルの消費AP-20。',
+      ],
       detail: {
         attr: 'tag',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE],
@@ -4765,13 +5716,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'tag',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
   },
   メンターリカバー: {
     mentorRecover: {
-      text: ['姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の', '%回復させる。'],
+      text: [
+        '姫芽の《イグニッションモード》を切り替える。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
       detail: {
         attr: 'mentor',
         type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.MENTAL_RECOVER],
@@ -4787,7 +5745,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mentor',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -4800,7 +5762,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -4813,7 +5779,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: SKILL_DETAIL.MODE_CHANGE,
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -4835,7 +5805,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'infinity',
-        type: [SKILL_DETAIL.INFINITY_VOLTAGE_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.INFINITY_VOLTAGE_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -4846,7 +5820,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'infinity',
-        type: [SKILL_DETAIL.INFINITY_MENTAL_STAGE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.INFINITY_MENTAL_STAGE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -4860,7 +5838,12 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'modulate',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE, SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -4926,7 +5909,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'torikago',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_DOWN_SECTION],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+        ],
       },
     },
   },
@@ -4954,7 +5941,10 @@ export const SKILL_LIST = {
   },
   ジャスティスアタック: {
     justiceAttack: {
-      text: ['メンタルが75%以上のとき、このセクション中、スキルハート獲得効果による獲得数を+', '%する。'],
+      text: [
+        'メンタルが75%以上のとき、このセクション中、スキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
@@ -4983,7 +5973,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -5018,7 +6012,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_REDUCE_ALL, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.EXTEND_HAND],
+        type: [
+          SKILL_DETAIL.AP_REDUCE_ALL,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.EXTEND_HAND,
+        ],
       },
     },
   },
@@ -5048,7 +6046,11 @@ export const SKILL_LIST = {
   },
   'ナインハート・ボルテージ': {
     nineHeart_voltage: {
-      text: ['ボルテージPt.を+', 'する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにビートハート',
+        '回分のスキルハートを9回獲得する。',
+      ],
       detail: {
         attr: 'nineHeart',
         type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
@@ -5070,7 +6072,11 @@ export const SKILL_LIST = {
   },
   'ナインハート・ブースト': {
     nineHeart_boost: {
-      text: ['次に使用するラブアトラクト効果を+', '%する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
+      text: [
+        '次に使用するラブアトラクト効果を+',
+        '%する。さらにビートハート',
+        '回分のスキルハートを9回獲得する。',
+      ],
       detail: {
         attr: 'nineHeart',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.HEART_CAPTCHA],
@@ -5079,7 +6085,10 @@ export const SKILL_LIST = {
   },
   'ナインハート・エクステンド': {
     nineHeart_extend: {
-      text: ['このセクション中、手札の上限枚数を6枚増加する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
+      text: [
+        'このセクション中、手札の上限枚数を6枚増加する。さらにビートハート',
+        '回分のスキルハートを9回獲得する。',
+      ],
       detail: {
         attr: 'nineHeart',
         type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_CAPTCHA],
@@ -5088,7 +6097,11 @@ export const SKILL_LIST = {
   },
   'ナインハート・アトラクション': {
     nineHeart_attraction: {
-      text: ['このステージ中、獲得するLOVEを+', '%する。さらにビートハート', '回分のスキルハートを9回獲得する。'],
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにビートハート',
+        '回分のスキルハートを9回獲得する。',
+      ],
       detail: {
         attr: 'nineHeart',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
@@ -5122,7 +6135,10 @@ export const SKILL_LIST = {
   },
   'ナインハート・イグニッション': {
     nineHeart_ignition: {
-      text: ['ビートハート', '回分のスキルハートを9回獲得する。さらに姫芽が《イグニッションモード》になる。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを9回獲得する。さらに姫芽が《イグニッションモード》になる。',
+      ],
       detail: {
         attr: 'nineHeart',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
@@ -5137,7 +6153,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -5151,7 +6171,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'auroraFlower',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -5165,7 +6189,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'auroraFlower',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -5178,13 +6206,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'auroraFlower',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
   シーズニングキャプチャ: {
     'seasoningCaptcha_stage-useSkill': {
-      text: ['このステージ中、スキル使用時にビートハート', '回分のスキルハートを獲得する。'],
+      text: [
+        'このステージ中、スキル使用時にビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA],
@@ -5205,7 +6240,10 @@ export const SKILL_LIST = {
   },
   'ズッキュン♡ラブビーム': {
     zukkyunLovebeam_section: {
-      text: ['このセクション中、AP回復速度を+', '%する。さらに手札にある全てのスキルの消費AP-9。'],
+      text: [
+        'このセクション中、AP回復速度を+',
+        '%する。さらに手札にある全てのスキルの消費AP-9。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_REDUCE_ALL],
@@ -5262,7 +6300,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -5288,7 +6330,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -5320,7 +6366,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -5354,13 +6404,21 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dream',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.ADD_CARD,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
   },
   'ハートブースト：ブーケ': {
     'heartBoost-bouquet_01': {
-      text: ['このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+', '%する。'],
+      text: [
+        'このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [
@@ -5395,7 +6453,10 @@ export const SKILL_LIST = {
   },
   'ジャストゲイン：1': {
     justGain1_01: {
-      text: ['このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+', '%する。'],
+      text: [
+        'このステージ中、ブーケカードの使用によるスキルハート獲得効果の獲得数を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
@@ -5419,7 +6480,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dinosaur',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.MENTAL_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },
@@ -5432,7 +6497,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -5578,7 +6647,9 @@ export const SKILL_LIST = {
   },
   ドライブイグニッション: {
     driveIgnition_01: {
-      text: ['姫芽が《イグニッションモード》になった回数に応じて様々な効果が発動する。'],
+      text: [
+        '姫芽が《イグニッションモード》になった回数に応じて様々な効果が発動する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.DRIVE_IGNITION],
@@ -5587,7 +6658,9 @@ export const SKILL_LIST = {
   },
   リフレッシュイグニッション: {
     refreshIgnition_01: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽が《イグニッションモード》になる。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに姫芽が《イグニッションモード》になる。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE],
@@ -5603,13 +6676,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'reboot',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
   リブートボルテージ: {
     rebootVoltage_01: {
-      text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。さらに2回の間ボルテージゲイン効果を+', '%する。'],
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらに2回の間ボルテージゲイン効果を+',
+        '%する。',
+      ],
       detail: {
         attr: 'reboot',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
@@ -5636,7 +6716,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'grandFinale',
-        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -5649,7 +6733,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'powerOfYell',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     powerOfYell_02: {
@@ -5659,7 +6747,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'powerOfYell',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     powerOfYell_03: {
@@ -5669,7 +6761,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'powerOfYell',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -5708,13 +6804,22 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dreaming',
-        type: [SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.MENTAL_DOWN_SECTION],
+        type: [
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+        ],
       },
     },
   },
   ボルテージバイブス: {
     voltageVibes_01: {
-      text: ['このセクション中、ビートハートの出現個数を+', 'する。さらにボルテージPt.を+', 'する。'],
+      text: [
+        'このセクション中、ビートハートの出現個数を+',
+        'する。さらにボルテージPt.を+',
+        'する。',
+      ],
       detail: {
         attr: 'vibes',
         type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
@@ -5723,7 +6828,10 @@ export const SKILL_LIST = {
   },
   アトラクトバイブス: {
     attractVibes_01: {
-      text: ['このセクション中、ビートハートの出現個数を+1する。さらにこのセクション中、獲得するLOVEを+', 'する。'],
+      text: [
+        'このセクション中、ビートハートの出現個数を+1する。さらにこのセクション中、獲得するLOVEを+',
+        'する。',
+      ],
       detail: {
         attr: 'vibes',
         type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
@@ -5780,7 +6888,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vibes',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -5792,7 +6904,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -5810,7 +6926,10 @@ export const SKILL_LIST = {
   },
   リットハッピーアンビエンス: {
     litHappyAmbience_01: {
-      text: ['このセクション中、AP回復速度を-30%する。さらにこのセクション中、ムードをハッピー方向に+', 'する。'],
+      text: [
+        'このセクション中、AP回復速度を-30%する。さらにこのセクション中、ムードをハッピー方向に+',
+        'する。',
+      ],
       detail: {
         attr: 'ambience',
         type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.AMBIENCE_SECTION],
@@ -5826,13 +6945,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_SLOW],
+        type: [
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.AP_SLOW,
+        ],
       },
     },
   },
   スケルツォアンビエンス: {
     scherzoAmbience_01: {
-      text: ['このセクション中、ムードがハッピーの時メロウ方向に、メロウの時ハッピー方向に+', 'する。'],
+      text: [
+        'このセクション中、ムードがハッピーの時メロウ方向に、メロウの時ハッピー方向に+',
+        'する。',
+      ],
       detail: {
         attr: 'ambience',
         type: [SKILL_DETAIL.AMBIENCE_SECTION],
@@ -5872,14 +6998,26 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
     soundHeart_03: {
-      text: ['ビートハート', 'さらにムードがメロウ100のとき、このステージ中、ハート上限を+', 'する。'],
+      text: [
+        'ビートハート',
+        'さらにムードがメロウ100のとき、このステージ中、ハート上限を+',
+        'する。',
+      ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -5931,7 +7069,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.SOUND, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -5968,7 +7110,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
       },
     },
     soundWideHeart_03: {
@@ -5979,7 +7125,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -5992,7 +7142,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     soundBoostedHeart_02: {
@@ -6003,7 +7157,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     soundBoostedHeart_03: {
@@ -6014,7 +7172,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     soundBoostedHeart_04: {
@@ -6025,7 +7187,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -6038,7 +7204,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
     soundBoostedAttract_02: {
@@ -6049,7 +7219,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -6093,10 +7267,18 @@ export const SKILL_LIST = {
   },
   サウンドブーステッドボルテージ: {
     soundBoostedVoltage_01: {
-      text: ['ボルテージPt.を+', 'する。さらにムードがハッピーのとき、次に使用するボルテージゲイン効果を+', '%する。'],
+      text: [
+        'ボルテージPt.を+',
+        'する。さらにムードがハッピーのとき、次に使用するボルテージゲイン効果を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
     soundBoostedVoltage_02: {
@@ -6107,20 +7289,30 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.SOUND, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
   },
   サウンドアンビエンス: {
     soundAmbience_01: {
-      text: ['ムード値がハッピー、メロウいずれかのとき、このセクション中、ムード値を+', 'する。'],
+      text: [
+        'ムード値がハッピー、メロウいずれかのとき、このセクション中、ムード値を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_SECTION],
       },
     },
     soundAmbience_02: {
-      text: ['ムードがハッピー、メロウいずれかのとき、このステージ中、ムード値を+', 'する。'],
+      text: [
+        'ムードがハッピー、メロウいずれかのとき、このステージ中、ムード値を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_STAGE],
@@ -6135,7 +7327,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.SOUND, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -6147,7 +7343,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.SOUND, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -6195,7 +7395,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'sound',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
@@ -6287,7 +7491,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
       },
     },
   },
@@ -6398,7 +7606,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
     bloomMySelf_04: {
@@ -6408,7 +7620,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
     bloomMySelf_05: {
@@ -6430,7 +7646,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
   },
@@ -6468,7 +7688,10 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'timeless',
-        type: [SKILL_DETAIL.INFINITY_AP_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.INFINITY_AP_SECTION,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -6625,7 +7848,10 @@ export const SKILL_LIST = {
   },
   Elysion: {
     elysion_01: {
-      text: ['このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ビートハートの出現個数を+', 'する。'],
+      text: [
+        'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、ビートハートの出現個数を+',
+        'する。',
+      ],
       detail: {
         attr: 'Elysion',
         type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.VIBES_STAGE],
@@ -6662,7 +7888,10 @@ export const SKILL_LIST = {
       },
     },
     elysion_05: {
-      text: ['このステージ中、AP回復速度を-9999%する。さらにこのステージ中、手札の上限枚数を', '枚増加する。'],
+      text: [
+        'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、手札の上限枚数を',
+        '枚増加する。',
+      ],
       detail: {
         attr: 'Elysion',
         type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.EXTEND_HAND],
@@ -6688,7 +7917,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
       },
     },
   },
@@ -6720,7 +7953,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -6734,7 +7971,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [SKILL_DETAIL.AMBIENCE_STAGE, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: [
+          SKILL_DETAIL.AMBIENCE_STAGE,
+          SKILL_DETAIL.VIBES_STAGE,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
       },
     },
   },
@@ -6749,7 +7990,11 @@ export const SKILL_LIST = {
   },
   '《Oracle Étude》': {
     oracleEtude_01: {
-      text: ['ビートハート', '回分のスキルハートを獲得する。さらにこのステージ中、ハート上限を+', 'する。'],
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのステージ中、ハート上限を+',
+        'する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
@@ -6766,13 +8011,20 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_WIDE_HEART],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_WIDE_HEART,
+        ],
       },
     },
   },
   アグレッシブメロウアンビエンス: {
     aggressiveMellowAmbience_01: {
-      text: ['このセクション中、ムード値をメロウ方向に+', 'する。さらにメンタルを最大値の16%減少させる。'],
+      text: [
+        'このセクション中、ムード値をメロウ方向に+',
+        'する。さらにメンタルを最大値の16%減少させる。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
@@ -6789,7 +8041,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -6800,7 +8056,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -6889,7 +8149,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.MODE_CHANGE,
+        ],
       },
     },
   },
@@ -6903,7 +8167,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
     tripletVoltage_02: {
@@ -6915,7 +8183,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -6942,7 +8214,10 @@ export const SKILL_LIST = {
   },
   リテイクワイド: {
     retakeWide_01: {
-      text: ['このセクション中、ハート上限を+', 'する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。'],
+      text: [
+        'このセクション中、ハート上限を+',
+        'する。さらに手札を全て捨てて、デッキから手札上限までスキルを引く。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE],
@@ -7030,7 +8305,12 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7087,7 +8367,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7136,7 +8420,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -7162,10 +8450,16 @@ export const SKILL_LIST = {
   },
   ナイトクイーン: {
     nightQueen_01: {
-      text: ['ビートハート873回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+873%し、ハート上限を+87する。'],
+      text: [
+        'ビートハート873回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+873%し、ハート上限を+87する。',
+      ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -7179,7 +8473,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.VIBES_STAGE,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
     summerMagicHour_02: {
@@ -7191,7 +8489,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.VIBES_STAGE,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -7240,7 +8542,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7252,7 +8558,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7264,7 +8574,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7276,7 +8590,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7288,7 +8606,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_REDUCE],
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
       },
     },
   },
@@ -7361,7 +8683,11 @@ export const SKILL_LIST = {
   },
   デビルアシスト: {
     devilAssist_01: {
-      text: ['次にセラスが使用するラブアトラクト効果を+', '%する。さらにこのステージ中、AP回復速度を+', '%する。'],
+      text: [
+        '次にセラスが使用するラブアトラクト効果を+',
+        '%する。さらにこのステージ中、AP回復速度を+',
+        '%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_QUICK],
@@ -7435,7 +8761,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.ADD_SPECIAL_APPEAL],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTEND_HAND,
+          SKILL_DETAIL.ADD_SPECIAL_APPEAL,
+        ],
       },
     },
   },
@@ -7468,7 +8798,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7479,7 +8813,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7490,7 +8828,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7501,7 +8843,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7512,7 +8858,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7523,7 +8873,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7534,7 +8888,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7545,7 +8903,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7556,7 +8918,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7567,7 +8933,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7578,7 +8948,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.DREW, SKILL_DETAIL.COOL_TIME],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.COOL_TIME,
+        ],
       },
     },
   },
@@ -7592,7 +8966,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: [
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -7606,7 +8984,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.PROTECT_SECTION,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },
@@ -7632,7 +9014,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -7646,7 +9032,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
       },
     },
   },
@@ -7679,7 +9069,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_MENTAL_RECOVER, SKILL_DETAIL.BOOST_MENTAL_PROTECT, SKILL_DETAIL.AP_SLOW],
+        type: [
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+          SKILL_DETAIL.AP_SLOW,
+        ],
       },
     },
   },
@@ -7734,7 +9128,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.RESHUFFLE],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -7745,7 +9143,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.INFINITY_VOLTAGE_SECTION, SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.INFINITY_VOLTAGE_SECTION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
     dancingVoltage_02: {
@@ -7754,7 +9156,11 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.INFINITY_VOLTAGE_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: [
+          SKILL_DETAIL.INFINITY_VOLTAGE_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.AP_GAIN,
+        ],
       },
     },
   },
@@ -7824,10 +9230,88 @@ export const SKILL_LIST = {
   },
   セルフィッシュフェザー: {
     selfishFeater_01: {
-      text: ['手札をリセットシャッフルする。さらにこのセクション中、AP回復速度を+80%する。'],
+      text: [
+        '手札をリセットシャッフルする。さらにこのセクション中、AP回復速度を+80%する。',
+      ],
       detail: {
         attr: '',
         type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
+      },
+    },
+  },
+  ドンビーシャイ: {
+    doNotBeShy_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらに5回の間メンタルリカバー効果を+',
+        '%し、このセクション中、AP回復速度を-20%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.AP_SLOW,
+        ],
+      },
+    },
+    doNotBeShy_02: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらに5回の間メンタルリカバー効果を+',
+        '%し、このセクション中、手札の上限枚数を2枚減少する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          SKILL_DETAIL.CARD_REDUCE,
+        ],
+      },
+    },
+  },
+  ロマンプロテクション: {
+    romanceProtection_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタルダメージを無効にし、ボルテージPt.を+',
+        '、メンタルを最大値の+',
+        '%回復させる。さらにメンタルが100%以上のとき、次に小鈴が使用するボルテージゲイン効果を+',
+        '%、デッキ内の小鈴のスキルの消費AP-3し、メンタルを最大値の50%固定で減少させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
+      },
+    },
+  },
+  ロマンハート: {
+    romanceHeart_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得し、ボルテージPt.を+',
+        '、メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%以上のとき、次にさやかが使用するボルテージゲイン効果を+',
+        '%、デッキ内のさやかのスキルの消費AP-3し、メンタルを最大値の50%固定で減少させる',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+        ],
       },
     },
   },

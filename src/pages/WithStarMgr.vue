@@ -19,8 +19,8 @@
         <v-btn
           density="compact"
           icon="mdi-minus"
-          @click="makeList(false)"
           :disabled="sendGiftPtList.length === 1"
+          @click="makeList(false)"
         ></v-btn>
         {{ sendGiftPtList.length }}
         <v-btn
@@ -31,7 +31,7 @@
       </v-col>
       <v-col cols="12">
         <v-stepper prev-text="prev">
-          <template v-slot:default="{ prev, next }">
+          <template #default="{ prev, next }">
             <v-stepper-header>
               <template
                 v-for="(title, i) of ['配信日選択', 'メンバー選択', 'With Star割り振り', '結果表示']"
@@ -60,7 +60,7 @@
                   position="relative"
                   show-adjacent-months
                   title="配信日を選択してください。"
-                  @update:modelValue="dialog.calendar = false"
+                  @update:model-value="dialog.calendar = false"
                 ></v-date-picker>
               </v-stepper-window-item>
 
@@ -199,9 +199,9 @@
       <v-divider class="my-2"></v-divider>
 
       <v-col
-        cols="12"
         v-for="i in sendGiftPtList.length"
         :key="i"
+        cols="12"
         class="mb-1"
       >
         <v-expansion-panels>
@@ -227,15 +227,15 @@
                 </v-col>
                 <v-col cols="4">
                   <v-btn
-                    @click="resetGiftPt(i - 1)"
                     class="mr-2"
                     prepend-icon="mdi-star-remove"
+                    @click="resetGiftPt(i - 1)"
                     >Reset</v-btn
                   >
                   <v-btn
-                    @click="dialog.calendar = true"
                     class="mr-2"
                     prepend-icon="mdi-calendar-month"
+                    @click="dialog.calendar = true"
                   >
                     Calendar
                     <v-dialog
@@ -249,14 +249,14 @@
                         position="relative"
                         show-adjacent-months
                         title="配信日を選択してください。"
-                        @update:modelValue="dialog.calendar = false"
+                        @update:model-value="dialog.calendar = false"
                       ></v-date-picker>
                     </v-dialog>
                   </v-btn>
                   <v-btn
-                    @click="dialog.paste = true"
                     class="mr-2"
                     prepend-icon="mdi-content-paste"
+                    @click="dialog.paste = true"
                     >Paste</v-btn
                   >
                   <v-btn prepend-icon="mdi-delete">Delete</v-btn>
@@ -363,8 +363,8 @@
                         class="text-center"
                       >
                         <v-col
-                          cols="12"
                           v-if="false"
+                          cols="12"
                           >Fan Lv.</v-col
                         >
                         <v-col
@@ -520,10 +520,10 @@ export default {
       copyList: {},
     };
   },
+  computed: {},
   created() {
     this.makeList(true);
   },
-  computed: {},
   mounted() {},
   methods: {
     resetGiftPt(target) {

@@ -12,7 +12,7 @@ async function getGitHubVariable(name: string): Promise<string | null> {
     // シンプルに標準出力を取得し、存在しない場合はcatchで処理する
     const { stdout } = await execa('gh', ['variable', 'get', name]);
     return stdout.trim();
-  } catch (error) {
+  } catch (_error) {
     // `gh variable get` は変数が存在しない場合、終了コード1で失敗します
     return null;
   }
@@ -21,6 +21,7 @@ async function getGitHubVariable(name: string): Promise<string | null> {
 describe('pre-push フック', () => {
   it(
     'ローカルの.envのバージョンとリモートのGitHub Variableが一致しないこと',
+    { timeout: 15000 },
     async () => {
       // 1. ローカルの.env.publicファイルを読み込む
       const envPath = path.resolve(process.cwd(), '.env.public');
@@ -28,25 +29,28 @@ describe('pre-push フック', () => {
       try {
         const envFileContent = await fs.readFile(envPath);
         localConfig = dotenv.parse(envFileContent);
-      } catch (error) {
-        // .env.public が存在しない場合は競合の可能性がないため、チェックをスキップ
-        console.log('ℹ️ .env.publicファイルが見つかりません。バージョンチェックをスキップします。');
-        return;
+      } catch (_error) {
+        // .env.public が存在しない場合は、チェックをスキップするため、ここでは何もしません。
       }
 
       const localSiteVersion = localConfig.VITE_SITEVERSION;
 
       if (!localSiteVersion) {
-        console.log('ℹ️ .env.publicにバージョン変数が見つかりません。バージョンチェックをスキップします。');
+        console.log(
+          'ℹ️ .env.publicにバージョン変数が見つかりません。バージョンチェックをスキップします。'
+        );
         return;
       }
 
       // 2. リモートのGitHub Variablesを取得
-      console.log('🔎 リモートのGitHub Variablesとローカルのバージョンを照合しています...');
+      console.log(
+        '🔎 リモートのGitHub Variablesとローカルのバージョンを照合しています...'
+      );
       const remoteSiteVersion = await getGitHubVariable('SITEVERSION');
 
       // 3. バージョンを比較し、一致すればエラーを投げてテストを失敗させる
-      const versionConflict = localSiteVersion && localSiteVersion === remoteSiteVersion;
+      const versionConflict =
+        localSiteVersion && localSiteVersion === remoteSiteVersion;
 
       if (versionConflict) {
         // このエラーメッセージがコンソールに表示され、lefthookがプッシュを中止します
@@ -60,9 +64,10 @@ describe('pre-push フック', () => {
       }
 
       // 4. 競合がなければテストは成功
-      console.log('✅ バージョンチェックに成功しました。プッシュを続行します。');
+      console.log(
+        '✅ バージョンチェックに成功しました。プッシュを続行します。'
+      );
       expect(versionConflict).toBe(false);
-    },
-    { timeout: 15000 }
+    }
   ); // ネットワーク通信があるためタイムアウトを長めに設定
 });

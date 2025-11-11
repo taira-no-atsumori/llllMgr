@@ -27,7 +27,12 @@ export const MUSIC_LIST = {
     term: 103,
     center: MEMBER_KEYS.KAHO,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.SAYAKA, MEMBER_KEYS.KOZUE, MEMBER_KEYS.TSUZURI],
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.KOZUE,
+      MEMBER_KEYS.TSUZURI,
+    ],
   },
   '永遠のEuphoria(4人Ver.)': {
     ID: 'm_002',
@@ -53,7 +58,12 @@ export const MUSIC_LIST = {
     term: 103,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.SAYAKA, MEMBER_KEYS.KOZUE, MEMBER_KEYS.TSUZURI],
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.KOZUE,
+      MEMBER_KEYS.TSUZURI,
+    ],
   },
   'On your mark': {
     ID: 'm_003',
@@ -112,7 +122,12 @@ export const MUSIC_LIST = {
     term: 103,
     center: MEMBER_KEYS.KOZUE,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.SAYAKA, MEMBER_KEYS.KOZUE, MEMBER_KEYS.TSUZURI],
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.KOZUE,
+      MEMBER_KEYS.TSUZURI,
+    ],
   },
   永遠のEuphoria: {
     ID: 'm_037',
@@ -923,7 +938,8 @@ export const MUSIC_LIST = {
         month: 2,
         date: 14,
       },
-      numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
+      numbering:
+        'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
       BPM: {
         original: 170,
         inGame: 170,
@@ -1357,7 +1373,8 @@ export const MUSIC_LIST = {
         month: 2,
         date: 14,
       },
-      numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
+      numbering:
+        'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
       BPM: {
         original: 127,
         inGame: 127,
@@ -1553,7 +1570,8 @@ export const MUSIC_LIST = {
         month: 2,
         date: 14,
       },
-      numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
+      numbering:
+        'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ ユニットスプリットシングル',
       BPM: {
         original: 79,
         inGame: 79,
@@ -1685,7 +1703,8 @@ export const MUSIC_LIST = {
         month: 3,
         date: 20,
       },
-      numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+      numbering:
+        'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
       BPM: {
         original: 173,
         inGame: 173,
@@ -1711,7 +1730,8 @@ export const MUSIC_LIST = {
         month: 3,
         date: 20,
       },
-      numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+      numbering:
+        'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
       BPM: {
         original: 130,
         inGame: 130,
@@ -1737,7 +1757,8 @@ export const MUSIC_LIST = {
         month: 3,
         date: 20,
       },
-      numbering: 'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
+      numbering:
+        'るりのとゆかいなつづりたち＆かほめぐ♡じぇらーと＆蓮ノ休日 シャッフルユニットスプリットシングル',
       BPM: {
         original: 76,
         inGame: 76,
@@ -1759,9 +1780,9 @@ export const MUSIC_LIST = {
       kana: 'らんうぇい',
       singer: '村野さやか',
       releaseDate: {
-        year: 2023,
-        month: 10,
-        date: 30,
+        year: 2025,
+        month: 12,
+        date: 24,
       },
       numbering: '',
       BPM: {
@@ -2036,7 +2057,8 @@ export const MUSIC_LIST = {
         month: 5,
         date: 15,
       },
-      numbering: 'T.M Revolution×水樹奈々 コラボシングル／TVアニメ「革命機ヴァルヴレイヴ」OPテーマ',
+      numbering:
+        'T.M Revolution×水樹奈々 コラボシングル／TVアニメ「革命機ヴァルヴレイヴ」OPテーマ',
       BPM: {
         original: 167,
         inGame: 167,
@@ -2076,7 +2098,8 @@ export const MUSIC_LIST = {
         month: 2,
         date: 19,
       },
-      numbering: 'JUDY AND MARY 9thシングル／TVアニメ「るろうに剣心 -明治剣客浪漫譚-」OPテーマ',
+      numbering:
+        'JUDY AND MARY 9thシングル／TVアニメ「るろうに剣心 -明治剣客浪漫譚-」OPテーマ',
       BPM: {
         original: 170,
         inGame: 170,
@@ -2156,7 +2179,8 @@ export const MUSIC_LIST = {
         month: 12,
         date: 5,
       },
-      numbering: 'EGOIST 3rdシングル／TVアニメ「PSYCHO-PASS サイコパス」EDテーマ',
+      numbering:
+        'EGOIST 3rdシングル／TVアニメ「PSYCHO-PASS サイコパス」EDテーマ',
       BPM: {
         original: 180,
         inGame: 180,
@@ -2451,6 +2475,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 17,
+        EXPERT: 26,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 164,
+        HARD: 375,
+        EXPERT: 647,
+        MASTER: 903,
+      },
+    },
   },
   強風オールバック: {
     ID: 'm_043',
@@ -2528,7 +2566,8 @@ export const MUSIC_LIST = {
         month: 11,
         date: 9,
       },
-      numbering: 'THE IDOLM@STER ANIM@TION MASTER 04／TVアニメ「THE IDOLM@STER」OPテーマ',
+      numbering:
+        'THE IDOLM@STER ANIM@TION MASTER 04／TVアニメ「THE IDOLM@STER」OPテーマ',
       BPM: {
         original: 170,
         inGame: 170,
@@ -2561,7 +2600,8 @@ export const MUSIC_LIST = {
         month: 10,
         date: 1,
       },
-      numbering: 'YOASOBI 2ndシングル／TVアニメ「機動戦士ガンダム 水星の魔女」OPテーマ',
+      numbering:
+        'YOASOBI 2ndシングル／TVアニメ「機動戦士ガンダム 水星の魔女」OPテーマ',
       BPM: {
         original: 170,
         inGame: 170,
@@ -2627,7 +2667,11 @@ export const MUSIC_LIST = {
     term: 103,
     center: MEMBER_KEYS.KOZUE,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.KOZUE, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.MEGUMI],
+    singingMembers: [
+      MEMBER_KEYS.KOZUE,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.MEGUMI,
+    ],
   },
   'lucky train!': {
     ID: 'm_073',
@@ -2639,7 +2683,8 @@ export const MUSIC_LIST = {
         month: 10,
         date: 28,
       },
-      numbering: 'TVアニメ「アイカツ! -アイドルカツドウ!-」 4thシーズンEDテーマ',
+      numbering:
+        'TVアニメ「アイカツ! -アイドルカツドウ!-」 4thシーズンEDテーマ',
       BPM: {
         original: 147,
         inGame: 147,
@@ -3644,7 +3689,8 @@ export const MUSIC_LIST = {
         month: 12,
         date: 4,
       },
-      numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
+      numbering:
+        'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
       BPM: {
         original: 198,
         inGame: 198,
@@ -3725,6 +3771,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.GINKO,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
     singingMembers: [MEMBER_KEYS.KAHO, MEMBER_KEYS.KOZUE, MEMBER_KEYS.GINKO],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 18,
+        EXPERT: 25,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 210,
+        HARD: 376,
+        EXPERT: 832,
+        MASTER: 1048,
+      },
+    },
   },
   ユメワズライ: {
     ID: 'm_144',
@@ -3828,7 +3888,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   'Tragic Drops（104期Ver.）': {
     ID: 'm_088',
@@ -3854,7 +3918,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 14,
@@ -3894,7 +3962,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 14,
@@ -3934,7 +4006,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.SAYAKA,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   'KNOT（104期Ver.）': {
     ID: 'm_094',
@@ -3960,7 +4036,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   'Mirage Voyage（104期Ver.）': {
     ID: 'm_106',
@@ -3986,7 +4066,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.SAYAKA,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 12,
@@ -4026,7 +4110,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   '希望的プリズム（104期Ver.）': {
     ID: 'm_113',
@@ -4052,7 +4140,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 10,
@@ -4078,7 +4170,8 @@ export const MUSIC_LIST = {
         month: 12,
         date: 4,
       },
-      numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
+      numbering:
+        'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
       BPM: {
         original: 135,
         inGame: 135,
@@ -4092,7 +4185,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   'AWOKE（104期Ver.）': {
     ID: 'm_129',
@@ -4118,7 +4215,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 13,
@@ -4158,7 +4259,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOSUZU,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 13,
@@ -4198,7 +4303,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   レム: {
     ID: 'm_147',
@@ -4224,7 +4333,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.SAYAKA,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   'ベジ・ラブ・ルー': {
     ID: 'm_150',
@@ -4250,7 +4363,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   'アイデンティティ（104期NEW Ver.）': {
     ID: 'm_086',
@@ -4526,7 +4643,8 @@ export const MUSIC_LIST = {
         month: 12,
         date: 4,
       },
-      numbering: 'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
+      numbering:
+        'スリーズブーケ＆DOLLCHESTRA＆みらくらぱーく！ 2ndユニットスプリットシングル',
       BPM: {
         original: 138,
         inGame: 138,
@@ -4800,7 +4918,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.SAYAKA,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
     scoreData: {
       difficultyLevel: {
         NORMAL: 12,
@@ -5070,7 +5192,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.KOSUZU],
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.KOSUZU,
+    ],
   },
   きゅうくらりん: {
     ID: 'm_140',
@@ -5134,7 +5260,8 @@ export const MUSIC_LIST = {
         month: 2,
         date: 2,
       },
-      numbering: 'ClariS 2ndシングル／TVアニメ「魔法少女まどか☆マギカ」OPテーマ',
+      numbering:
+        'ClariS 2ndシングル／TVアニメ「魔法少女まどか☆マギカ」OPテーマ',
       BPM: {
         original: 175,
         inGame: 175,
@@ -5226,7 +5353,11 @@ export const MUSIC_LIST = {
     term: 104,
     center: MEMBER_KEYS.KOZUE,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
-    singingMembers: [MEMBER_KEYS.KOZUE, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.MEGUMI],
+    singingMembers: [
+      MEMBER_KEYS.KOZUE,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.MEGUMI,
+    ],
   },
   'Dream Believers（105期Ver.）': {
     ID: 'm_159',
@@ -5515,8 +5646,8 @@ export const MUSIC_LIST = {
       singer: '蓮ノ空女学院スクールアイドルクラブ',
       releaseDate: {
         year: 2025,
-        month: 11,
-        date: 26,
+        month: 12,
+        date: 24,
       },
       numbering: '蓮ノ空女学院スクールアイドルクラブ 8thシングル',
       BPM: {
@@ -5727,7 +5858,8 @@ export const MUSIC_LIST = {
         month: 9,
         date: 3,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
       BPM: {
         original: 126,
         inGame: 126,
@@ -5847,7 +5979,8 @@ export const MUSIC_LIST = {
         month: 4,
         date: 30,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ ユニットスプリットシングル',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ ユニットスプリットシングル',
       BPM: {
         original: 160,
         inGame: 160,
@@ -5967,7 +6100,8 @@ export const MUSIC_LIST = {
         month: 9,
         date: 3,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
       BPM: {
         original: 135,
         inGame: 135,
@@ -5994,6 +6128,47 @@ export const MUSIC_LIST = {
         HARD: 358,
         EXPERT: 555,
         MASTER: 907,
+      },
+    },
+  },
+  ガランドFlash: {
+    ID: 'm_203',
+    musicData: {
+      kana: 'がらんどふらっしゅ',
+      singer: 'DOLLCHESTRA',
+      releaseDate: {
+        year: 2099,
+        month: 12,
+        date: 31,
+      },
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+      BPM: {
+        original: 170,
+        inGame: 170,
+      },
+      time: 92,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.COOL.en,
+    BHcount: 59,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.SAYAKA,
+    bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
+    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.KOSUZU],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 14,
+        HARD: 20,
+        EXPERT: 28,
+        MASTER: 31,
+      },
+      maxCombo: {
+        NORMAL: 233,
+        HARD: 531,
+        EXPERT: 818,
+        MASTER: 1136,
       },
     },
   },
@@ -6047,7 +6222,8 @@ export const MUSIC_LIST = {
         month: 7,
         date: 2,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ ユニットスプリットシングル',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ ユニットスプリットシングル',
       BPM: {
         original: 190,
         inGame: 190,
@@ -6087,7 +6263,8 @@ export const MUSIC_LIST = {
         month: 9,
         date: 3,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
       BPM: {
         original: 156,
         inGame: 156,
@@ -6447,7 +6624,8 @@ export const MUSIC_LIST = {
         month: 9,
         date: 3,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
       BPM: {
         original: 104,
         inGame: 104,
@@ -6557,6 +6735,98 @@ export const MUSIC_LIST = {
       },
     },
   },
+  '平成ギャルズ!!!!': {
+    ID: 'm_204',
+    musicData: {
+      kana: 'へいせいぎゃるず',
+      singer: 'Ruri&To',
+      releaseDate: {
+        year: 2025,
+        month: 12,
+        date: 3,
+      },
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ シャッフルユニットスプリットシングル',
+      BPM: {
+        original: 160,
+        inGame: 160,
+      },
+      time: 124,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.SMILE.en,
+    BHcount: 76,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.RURINO,
+    bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.SERAS,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 15,
+        HARD: 20,
+        EXPERT: 27,
+        MASTER: 32,
+      },
+      maxCombo: {
+        NORMAL: 341,
+        HARD: 484,
+        EXPERT: 895,
+        MASTER: 1320,
+      },
+    },
+  },
+  'ちょ、尊いLOVE': {
+    ID: 'm_205',
+    musicData: {
+      kana: 'ちょとうといらぶ',
+      singer: 'Ruri&To',
+      releaseDate: {
+        year: 2025,
+        month: 12,
+        date: 3,
+      },
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ シャッフルユニットスプリットシングル',
+      BPM: {
+        original: 138,
+        inGame: 138,
+      },
+      time: 99,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.SMILE.en,
+    BHcount: 50,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.SAYAKA,
+    bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
+    singingMembers: [
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.SERAS,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 13,
+        HARD: 19,
+        EXPERT: 26,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 183,
+        HARD: 443,
+        EXPERT: 704,
+        MASTER: 895,
+      },
+    },
+  },
   'be proud': {
     ID: 'm_169',
     musicData: {
@@ -6567,7 +6837,8 @@ export const MUSIC_LIST = {
         month: 6,
         date: 4,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Otomune Kozue',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Otomune Kozue',
       BPM: {
         original: 178,
         inGame: 178,
@@ -6607,7 +6878,8 @@ export const MUSIC_LIST = {
         month: 6,
         date: 4,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Yugiri Tsuzuri',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Yugiri Tsuzuri',
       BPM: {
         original: 165,
         inGame: 165,
@@ -6647,7 +6919,8 @@ export const MUSIC_LIST = {
         month: 6,
         date: 4,
       },
-      numbering: '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Fujishima Megumi',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 102nd Graduation Album ～Star Sign Memories～ Fujishima Megumi',
       BPM: {
         original: 190,
         inGame: 190,
@@ -6727,7 +7000,8 @@ export const MUSIC_LIST = {
         month: 10,
         date: 21,
       },
-      numbering: 'TVアニメ「ラブライブ！虹ヶ咲学園スクールアイドル同好会」第1期OPテーマ',
+      numbering:
+        'TVアニメ「ラブライブ！虹ヶ咲学園スクールアイドル同好会」第1期OPテーマ',
       BPM: {
         original: 180,
         inGame: 180,

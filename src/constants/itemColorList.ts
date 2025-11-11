@@ -18,4 +18,4 @@ export const ITEM_COLOR_LIST = {
   [CHARM_NAME.LUNA]: 'blue-accent-4',
   [CHARM_NAME.STELLA]: 'yellow-darken-3',
 } as const;
-type ItemColorList = (typeof ITEM_COLOR_LIST)[keyof typeof ITEM_COLOR_LIST];
+// type ItemColorList = (typeof ITEM_COLOR_LIST)[keyof typeof ITEM_COLOR_LIST];

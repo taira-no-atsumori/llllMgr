@@ -1,10 +1,15 @@
-import { Ref } from 'vue';
 import { MemberKeyValues } from '@/constants/memberNames';
-import { Rare, StyleTypeEn, FavoriteIcon, ReleaseStatus, MoodEn, Limited } from '@/constants/cards';
-import { musicList } from '@/constants/musicList';
+import {
+  Rare,
+  StyleTypeEn,
+  FavoriteIcon,
+  ReleaseStatus,
+  MoodEn,
+  Limited,
+} from '@/constants/cards';
 import { SkillBook } from '@/constants/items';
 import { BonusSkillNames } from '@/constants/bonusSkills';
-import { CardDataByMember } from '@/types/cardList';
+import { CardDataByMember, TrainingStatus } from '@/types/cardList';
 
 /**
  * カードの変動ステータスを表す型
@@ -191,11 +196,11 @@ type LocalStorageData = {
 };
 
 /**
- * デッキを表す型
+ * デッキを表す型
  *
- * @property name デッキ名
+ * @property name デッキ名
  * @property period 期
- * @property cardData カードデータ
+ * @property cardData カードデータ
  */
 type Deck = {
   name: string;
@@ -222,8 +227,8 @@ type Deck = {
  * @property selectMusicTitle 選択中の楽曲
  * @property checkMasteryMember マスタリー確認メンバー
  * @property thisPeriod 現在の期
- * @property selectDeckName 選択中のデッキ名
- * @property isParamReflect パラメータ反映状態
+ * @property selectDeckName 選択中のデッキ名
+ * @property isParamReflect パラメータ反映状態
  * @property isPossessionFlg 持ち物状態
  * @property rare レアリティ
  * @property releaseStatus 解放ステータス
@@ -231,7 +236,7 @@ type Deck = {
  * @property withStar スター付加状態
  * @property siteSettings サイト設定
  * @property sortSettings ソート設定
- * @property defaultSearch デフォルト検索設定
+ * @property defaultSearch デフォルト検索設定
  * @property styleHeadline スタイル見出し
  * @property limited 限定
  * @property releasePoint 解放ポイント
@@ -246,7 +251,7 @@ type Deck = {
  * @property defaultCardList デフォルトカードリスト
  * @property windowSize ウィンドウサイズ
  */
-type StoreState = {
+export type StoreState = {
   loading: boolean;
   dialog: boolean;
   dialogError: boolean;
@@ -263,6 +268,7 @@ type StoreState = {
   siteSettings: SiteSettings;
   sortSettings: SortSettings;
   defaultSearch: SearchSettings;
+  search: SearchSettings;
   styleHeadline: Record<
     number,
     {
@@ -287,7 +293,7 @@ type StoreState = {
       string,
       {
         centerMusic: string[];
-        bonusSkill: Record<BONUS_SKILL_NAMES, number>;
+        bonusSkill: Record<BonusSkillNames, number>;
       }
     >;
   };
@@ -308,10 +314,4 @@ type StoreState = {
     h: number;
   };
   musicLevel: Record<string, number>;
-};
-
-export type StoreStore = {
-  state: Ref<StoreState>;
-  getters: Record<string, any>;
-  actions: Record<string, (...args: any[]) => any>;
 };

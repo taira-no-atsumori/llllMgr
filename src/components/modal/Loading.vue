@@ -42,9 +42,9 @@ export default {
   data() {
     return {};
   },
-  created() {},
   computed: {},
-  methods: {},
   watch() {},
+  created() {},
+  methods: {},
 };
 </script>

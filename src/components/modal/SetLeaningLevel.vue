@@ -2,7 +2,7 @@
   <v-container class="pa-0">
     <h3 class="text-center mb-2">
       <v-tooltip location="bottom">
-        <template v-slot:activator="{ props }">
+        <template #activator="{ props }">
           <a
             :href="`https://wikiwiki.jp/llll_wiki/${store.selectMusicTitle
               .replaceAll('（', '(')
@@ -20,14 +20,20 @@
     </h3>
 
     <v-row no-gutters>
-      <v-col
-        cols="12"
-        sm="6"
-        class="mb-3 mb-sm-0"
-      >
+      <v-col cols="12" sm="6" class="mb-3 mb-sm-0">
         <v-img
-          :lazy-src="store.getImagePath('images/cdJacket', store.conversion(store.selectMusicTitle))"
-          :src="store.getImagePath('images/cdJacket', store.conversion(store.selectMusicTitle))"
+          :lazy-src="
+            store.getImagePath(
+              'images/cdJacket',
+              store.conversion(store.selectMusicTitle)
+            )
+          "
+          :src="
+            store.getImagePath(
+              'images/cdJacket',
+              store.conversion(store.selectMusicTitle)
+            )
+          "
           :alt="store.selectMusicTitle"
           class="mb-2"
         ></v-img>
@@ -35,15 +41,13 @@
         <div v-if="selectMusicData?.scoreData">
           <h4 class="subtitle">楽曲難易度・コンボ数</h4>
 
-          <v-table
-            density="compact"
-            class="mb-2"
-          >
+          <v-table density="compact" class="mb-2">
             <thead>
               <tr>
                 <th></th>
                 <template
-                  v-for="(difficulty, key) in selectMusicData.scoreData.difficultyLevel"
+                  v-for="(difficulty, key) in selectMusicData.scoreData
+                    .difficultyLevel"
                   :key="key"
                 >
                   <th class="px-1 text-center">{{ key }}</th>
@@ -54,7 +58,8 @@
               <tr>
                 <td>難易度</td>
                 <template
-                  v-for="difficulty in selectMusicData.scoreData.difficultyLevel"
+                  v-for="difficulty in selectMusicData.scoreData
+                    .difficultyLevel"
                   :key="difficulty"
                 >
                   <td class="px-1 text-center">{{ difficulty }}</td>
@@ -77,32 +82,26 @@
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
             <v-expansion-panel-text>
               <v-row no-gutters>
-                <v-col
-                  cols="12"
-                  class="mb-1"
-                >
+                <v-col cols="12" class="mb-1">
                   <h4>発売(発表)日</h4>
                   {{ releaseDate }}
                 </v-col>
                 <v-col
+                  v-if="selectMusicData.musicData.numbering"
                   cols="12"
                   class="mb-1"
-                  v-if="selectMusicData.musicData.numbering"
                 >
                   <h4>収録CD</h4>
                   {{ selectMusicData.musicData.numbering }}
                 </v-col>
-                <v-col
-                  cols="12"
-                  class="mb-1"
-                >
+                <v-col cols="12" class="mb-1">
                   <h4>原曲BPM</h4>
                   {{ selectMusicData.musicData.BPM.original }}
                 </v-col>
                 <v-col
+                  v-if="selectMusicData.musicData.time > 0"
                   cols="12"
                   class="mb-1"
-                  v-if="selectMusicData.musicData.time > 0"
                 >
                   <h4>秒数</h4>
                   {{ selectMusicData.musicData.time }}
@@ -113,12 +112,7 @@
         </v-expansion-panels>
       </v-col>
 
-      <v-col
-        cols="12"
-        sm="6"
-        class="pl-sm-3"
-        style="font-size: 15px"
-      >
+      <v-col cols="12" sm="6" class="pl-sm-3" style="font-size: 15px">
         <div class="mb-2">
           <h4 class="subtitle">センター</h4>
           <div>
@@ -129,11 +123,18 @@
             >
               <v-avatar left>
                 <v-img
-                  :src="store.getImagePath('icons/member', `icon_SD_${selectMusicData.center}`)"
+                  :src="
+                    store.getImagePath(
+                      'icons/member',
+                      `icon_SD_${selectMusicData.center}`
+                    )
+                  "
                   width="30px"
                 ></v-img>
               </v-avatar>
-              <span class="ml-1">{{ makeMemberFullName(selectMusicData.center) }}</span>
+              <span class="ml-1">{{
+                makeMemberFullName(selectMusicData.center)
+              }}</span>
             </v-chip>
           </div>
         </div>
@@ -141,15 +142,17 @@
           <h4 class="subtitle">歌唱メンバー</h4>
           <div>
             <v-chip
-              pill
               v-for="memberName in selectMusicData.singingMembers"
               :key="memberName"
+              pill
               class="member"
               :color="MEMBER_COLOR[memberName]"
             >
               <v-avatar left>
                 <v-img
-                  :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
+                  :src="
+                    store.getImagePath('icons/member', `icon_SD_${memberName}`)
+                  "
                   width="30px"
                 ></v-img>
               </v-avatar>
@@ -163,13 +166,15 @@
             <div>
               <v-btn
                 size="small"
+                :disabled="musicLevel === initMusicLevel"
                 @click="
                   store.valueChange(
                     'musicLevel',
-                    musicLevel >= 10 + initMusicLevel ? musicLevel - 10 : musicLevel - (musicLevel - initMusicLevel)
+                    musicLevel >= 10 + initMusicLevel
+                      ? musicLevel - 10
+                      : musicLevel - (musicLevel - initMusicLevel)
                   )
                 "
-                :disabled="musicLevel === initMusicLevel"
                 >{{
                   musicLevel >= 10 + initMusicLevel
                     ? '-10'
@@ -182,8 +187,8 @@
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', musicLevel - 1)"
                 :disabled="musicLevel === initMusicLevel"
+                @click="store.valueChange('musicLevel', musicLevel - 1)"
                 >-1
               </v-btn>
             </div>
@@ -193,17 +198,28 @@
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', musicLevel + 1)"
                 :disabled="musicLevel === 50"
+                @click="store.valueChange('musicLevel', musicLevel + 1)"
                 >+1
               </v-btn>
             </div>
             <div>
               <v-btn
                 size="small"
-                @click="store.valueChange('musicLevel', musicLevel <= 40 ? musicLevel + 10 : 50)"
                 :disabled="musicLevel === 50"
-                >{{ musicLevel <= 40 ? '+10' : 50 - musicLevel === 0 ? 0 : `+${50 - musicLevel}` }}
+                @click="
+                  store.valueChange(
+                    'musicLevel',
+                    musicLevel <= 40 ? musicLevel + 10 : 50
+                  )
+                "
+                >{{
+                  musicLevel <= 40
+                    ? '+10'
+                    : 50 - musicLevel === 0
+                    ? 0
+                    : `+${50 - musicLevel}`
+                }}
               </v-btn>
             </div>
           </div>
@@ -212,7 +228,12 @@
           <h4 class="subtitle">獲得ボーナススキル</h4>
           <div class="d-flex flex-row align-center">
             <img
-              :src="store.getImagePath('icons/bonusSkill', selectMusicData.bonusSkill)"
+              :src="
+                store.getImagePath(
+                  'icons/bonusSkill',
+                  selectMusicData.bonusSkill
+                )
+              "
               :alt="selectMusicData.bonusSkill"
               class="mr-1"
               style="width: 30px; border-radius: 3px"
@@ -229,9 +250,18 @@
               :color="attributeName[selectMusicData.attribute].color"
             >
               <v-avatar left>
-                <v-img :src="store.getImagePath('icons/attribute', `icon_${selectMusicData.attribute}`)"></v-img>
+                <v-img
+                  :src="
+                    store.getImagePath(
+                      'icons/attribute',
+                      `icon_${selectMusicData.attribute}`
+                    )
+                  "
+                ></v-img>
               </v-avatar>
-              <span class="ml-2">{{ attributeName[selectMusicData.attribute].name }}</span>
+              <span class="ml-2">{{
+                attributeName[selectMusicData.attribute].name
+              }}</span>
             </v-chip>
           </div>
         </div>
@@ -255,7 +285,7 @@ import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { ATTRIBUTE } from '@/constants/music';
 import { MUSIC_LIST } from '@/constants/musicList';
-import { MusicItem } from '@/types/musicList';
+import type { MusicItem } from '@/types/musicList';
 
 const store = useStateStore();
 const attributeName = {
@@ -297,7 +327,9 @@ const releaseDate: string = computed(() => {
   };
 
   return `${date.year}年${date.month}月${date.date}日(${
-    ['日', '月', '火', '水', '木', '金', '土'][new Date(date.year, date.month - 1, date.date).getDay()]
+    ['日', '月', '火', '水', '木', '金', '土'][
+      new Date(date.year, date.month - 1, date.date).getDay()
+    ]
   })`;
 });
 </script>

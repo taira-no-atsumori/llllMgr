@@ -3,10 +3,7 @@
     <h2>獲得ボーナススキル詳細</h2>
 
     <div>
-      <template
-        v-for="memberName in store.memberNameList"
-        :key="memberName"
-      >
+      <template v-for="memberName in store.memberNameList" :key="memberName">
         <img
           v-if="!store.isOtherMember(memberName)"
           :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
@@ -24,9 +21,17 @@
       {{ store.makeTotalMasteryLv(store.checkMasteryMember) }}
     </div>
     <div class="mb-3">
-      {{ makeMemberFullName(store.checkMasteryMember) }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span
+      {{
+        makeMemberFullName(store.checkMasteryMember)
+      }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span
         class="text-pink"
-        >{{ (Math.floor(store.makeTotalMasteryLv(store.checkMasteryMember) * 0.05 * 100) / 100).toFixed(2) }}</span
+        >{{
+          (
+            Math.floor(
+              store.makeTotalMasteryLv(store.checkMasteryMember) * 0.05 * 100
+            ) / 100
+          ).toFixed(2)
+        }}</span
       >%
     </div>
 
@@ -37,7 +42,7 @@
     <ul>
       <template
         v-for="(ary, bonusSkillName, i) in BONUS_SKILL_LIST"
-        :key="bonusSkill"
+        :key="bonusSkillName"
       >
         <li class="mb-1">
           <div class="d-flex flex-row align-center mb-1">
@@ -46,26 +51,30 @@
                 :src="store.getImagePath('icons/bonusSkill', bonusSkillName)"
                 style="width: 32px; height: 32px; border-radius: 3px"
               ></v-img>
-              <p
-                class="text-center"
-                style="font-size: 14px"
-              >
+              <p class="text-center" style="font-size: 14px">
                 Lv.{{ store.skillLevels[bonusSkillName] }}
               </p>
             </div>
             <dl class="d-flex flex-column ml-1">
               <dt class="font-weight-bold">{{ bonusSkillName }}</dt>
               <dd class="text-body-2">
-                {{ ary.text[0] }}<span class="text-pink">{{ makeBonusSkillDescriptionText(bonusSkillName) }}</span
+                {{ ary.text[0]
+                }}<span class="text-pink">{{
+                  makeBonusSkillDescriptionText(bonusSkillName)
+                }}</span
                 >{{ ary.text[1] }}
               </dd>
             </dl>
           </div>
 
-          <v-divider v-if="i + 1 < Object.keys(store.skillLevels).length"></v-divider>
+          <v-divider
+            v-if="i + 1 < Object.keys(store.skillLevels).length"
+          ></v-divider>
         </li>
       </template>
-      <li v-if="Object.keys(store.skillLevels).length === 0">習得済みのボーナススキルはありません。</li>
+      <li v-if="Object.keys(store.skillLevels).length === 0">
+        習得済みのボーナススキルはありません。
+      </li>
     </ul>
   </v-container>
 </template>
@@ -73,7 +82,11 @@
 <script setup lang="ts">
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
-import { BONUS_SKILL_NAMES, BONUS_SKILL_LIST, BonusSkillNames } from '@/constants/bonusSkills';
+import {
+  BONUS_SKILL_NAMES,
+  BONUS_SKILL_LIST,
+  BonusSkillNames,
+} from '@/constants/bonusSkills';
 
 const store = useStateStore();
 
@@ -86,17 +99,20 @@ const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames): number => {
   switch (bonusSkill) {
     case BONUS_SKILL_NAMES.BEAT_HEART_UP:
       return store.skillLevels[bonusSkill] * 0.5;
-    case BONUS_SKILL_NAMES.LOVE_BONUS:
+    case BONUS_SKILL_NAMES.LOVE_BONUS: {
       const skillLevel = store.skillLevels[bonusSkill];
 
       for (const tier of BONUS_SKILL_LIST[bonusSkill].ary) {
         if (skillLevel <= tier.limit) {
-          return tier.baseValue + (skillLevel - tier.subtractLevel) * tier.multiplier;
+          return (
+            tier.baseValue + (skillLevel - tier.subtractLevel) * tier.multiplier
+          );
         }
       }
 
       return 0; // この行に到達することはないはずだが、万が一のためのフォールバック
-    default:
+    }
+    default: {
       let num = BONUS_SKILL_LIST[bonusSkill].init;
 
       for (const i of BONUS_SKILL_LIST[bonusSkill].ary) {
@@ -108,6 +124,7 @@ const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames): number => {
       }
 
       return num;
+    }
   }
 };
 </script>

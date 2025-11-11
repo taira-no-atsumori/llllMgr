@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="pa-2"
-  >
+  <v-container fluid class="pa-2">
     <h1 class="mb-1">ITEM LIST ～ スキルアップ素材獲得ステージリスト ～</h1>
 
     <v-expansion-panels class="mb-5">
@@ -79,32 +76,35 @@
           :hint="`絞り込みたい${v}系アイテムを選んでください`"
           persistent-hint
         >
-          <template v-slot:chip="{ item }">
+          <template #chip="{ item }">
             <v-chip
               v-if="item.title !== ITEMS.NONE"
               pill
               class="pl-0"
               :color="searchColor(item.title)"
             >
-              <v-avatar
-                left
-                class="mr-1"
-              >
-                <v-img :src="store.getImagePath('icons/trainingItem', item.title)"></v-img>
+              <v-avatar left class="mr-1">
+                <v-img
+                  :src="store.getImagePath('icons/trainingItem', item.title)"
+                ></v-img>
               </v-avatar>
               {{ item.title }}
             </v-chip>
             <v-chip v-else>{{ item.title }}</v-chip>
           </template>
-          <template v-slot:item="{ item }">
+          <template #item="{ item }">
             <v-list-item
               :title="item.title"
               @click="selectItem(item.title, i + 1)"
             >
-              <template v-slot:prepend>
+              <template #prepend>
                 <v-checkbox-btn
                   color="pink"
-                  :model-value="store.localStorageData.selectItemList[`item${i + 1}`].some((elm) => elm === item.title)"
+                  :model-value="
+                    store.localStorageData.selectItemList[`item${i + 1}`].some(
+                      (elm) => elm === item.title
+                    )
+                  "
                 ></v-checkbox-btn>
                 <v-img
                   v-if="item.title !== ITEMS.NONE"
@@ -139,26 +139,27 @@
           multi-sort
           no-data-text="見つからなかったよ😢"
         >
-          <template v-slot:item="{ item }">
+          <template #item="{ item }">
             <tr>
               <td>{{ item.name }}</td>
               <td>{{ item.area }}</td>
               <td>{{ item.stage }}</td>
-              <td
-                v-for="i in 3"
-                :key="i"
-              >
+              <td v-for="i in 3" :key="i">
                 <v-chip
                   v-if="item['獲得可能アイテム'][i - 1] !== ITEMS.NONE"
                   pill
                   class="pl-0"
                   :color="searchColor(item['獲得可能アイテム'][i - 1])"
                 >
-                  <v-avatar
-                    left
-                    class="mr-1"
-                  >
-                    <v-img :src="store.getImagePath('icons/trainingItem', item['獲得可能アイテム'][i - 1])"></v-img>
+                  <v-avatar left class="mr-1">
+                    <v-img
+                      :src="
+                        store.getImagePath(
+                          'icons/trainingItem',
+                          item['獲得可能アイテム'][i - 1]
+                        )
+                      "
+                    ></v-img>
                   </v-avatar>
                   {{ item['獲得可能アイテム'][i - 1] }}
                 </v-chip>
@@ -174,7 +175,6 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
 import { ITEMS } from '@/constants/items';
 import { ITEM_COLOR_LIST } from '@/constants/itemColorList';
@@ -183,20 +183,38 @@ import { ENHANCED_ITEM_LIST } from '@/constants/enhancedItemList';
 const store = useStateStore();
 
 const filterItemList = ref({
-  season: ['103期Spring', '103期Summer', '103期Autumn', '103期Winter', '104期Spring'],
+  season: [
+    '103期Spring',
+    '103期Summer',
+    '103期Autumn',
+    '103期Winter',
+    '104期Spring',
+  ],
   area: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
   item1: [],
   item2: [],
   item3: [],
 });
 
-const selectedItem = ref({
-  season: ['103期Spring', '103期Summer', '103期Autumn', '103期Winter', '104期Spring'],
-  area: ['103期Spring', '103期Summer', '103期Autumn', '103期Winter', '104期Spring'],
-  item1: [],
-  item2: [],
-  item3: [],
-});
+// const selectedItem = ref({
+//   season: [
+//     '103期Spring',
+//     '103期Summer',
+//     '103期Autumn',
+//     '103期Winter',
+//     '104期Spring',
+//   ],
+//   area: [
+//     '103期Spring',
+//     '103期Summer',
+//     '103期Autumn',
+//     '103期Winter',
+//     '104期Spring',
+//   ],
+//   item1: [],
+//   item2: [],
+//   item3: [],
+// });
 
 const headers = ref([
   { title: '期/季節', sortable: false, value: 'name' },
@@ -215,12 +233,18 @@ const filterItems = () => {
   for (let i = 1; i <= 3; i++) {
     if (
       store.localStorageData.selectItemList[`item${i}`].length > 0 &&
-      store.localStorageData.selectItemList[`item${i}`].length < filterItemList.value[`item${i}`].length
+      store.localStorageData.selectItemList[`item${i}`].length <
+        filterItemList.value[`item${i}`].length
     ) {
       const regex = new RegExp(
-        store.localStorageData.selectItemList[`item${i}`].join('|').replace(/\(/g, '\\(').replace(/\)/g, '\\)')
+        store.localStorageData.selectItemList[`item${i}`]
+          .join('|')
+          .replace(/\(/g, '\\(')
+          .replace(/\)/g, '\\)')
       );
-      result = result.filter((arr) => regex.test(arr['獲得可能アイテム'][i - 1]));
+      result = result.filter((arr) =>
+        regex.test(arr['獲得可能アイテム'][i - 1])
+      );
     }
   }
 
@@ -251,10 +275,15 @@ const searchColor = (target: string): string => {
 };
 
 const selectItem = (selector: string, i: number) => {
-  if (store.localStorageData.selectItemList[`item${i}`].some((x) => x === selector)) {
-    store.localStorageData.selectItemList[`item${i}`] = store.localStorageData.selectItemList[`item${i}`].filter(
-      (item) => item !== selector
-    );
+  if (
+    store.localStorageData.selectItemList[`item${i}`].some(
+      (x) => x === selector
+    )
+  ) {
+    store.localStorageData.selectItemList[`item${i}`] =
+      store.localStorageData.selectItemList[`item${i}`].filter(
+        (item) => item !== selector
+      );
   } else {
     store.localStorageData.selectItemList[`item${i}`].push(selector);
   }
@@ -274,10 +303,15 @@ onMounted(() => {
  */
 const initializeFilterLists = () => {
   filterItemList.value.item1 = [ITEMS.NONE, ...Object.values(ITEMS.SKILL_BOOK)];
-  filterItemList.value.item2 = [ITEMS.NONE, ...Object.values(ITEMS.PIECE).flatMap((piece) => Object.values(piece))];
+  filterItemList.value.item2 = [
+    ITEMS.NONE,
+    ...Object.values(ITEMS.PIECE).flatMap((piece) => Object.values(piece)),
+  ];
   filterItemList.value.item3 = [
     ITEMS.NONE,
-    ...Object.values(ITEMS.CHARM).flatMap((charm) => (typeof charm === 'object' ? Object.values(charm) : charm)),
+    ...Object.values(ITEMS.CHARM).flatMap((charm) =>
+      typeof charm === 'object' ? Object.values(charm) : charm
+    ),
   ];
 };
 
@@ -286,17 +320,19 @@ const initializeFilterLists = () => {
  * @returns {void}
  */
 const initializeItemList = () => {
-  allItemList.value = Object.entries(ENHANCED_ITEM_LIST()).flatMap(([term, seasons]) => {
-    return Object.entries(seasons).flatMap(([season, areas]) => {
-      return Object.entries(areas).flatMap(([areaIndex, stageList]) => {
-        return stageList.map((arr, stageIndex) => ({
-          ...arr,
-          name: `${term}期${season}`,
-          area: Number(areaIndex) + 1,
-          stage: stageIndex + 1,
-        }));
+  allItemList.value = Object.entries(ENHANCED_ITEM_LIST()).flatMap(
+    ([term, seasons]) => {
+      return Object.entries(seasons).flatMap(([season, areas]) => {
+        return Object.entries(areas).flatMap(([areaIndex, stageList]) => {
+          return stageList.map((arr, stageIndex) => ({
+            ...arr,
+            name: `${term}期${season}`,
+            area: Number(areaIndex) + 1,
+            stage: stageIndex + 1,
+          }));
+        });
       });
-    });
-  });
+    }
+  );
 };
 </script>

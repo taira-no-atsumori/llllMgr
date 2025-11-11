@@ -11,11 +11,38 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 export default [
   // 1. グローバルに無視するファイル/ディレクトリを指定
   {
-    ignores: ['dist/**', 'node_modules/**', '*.config.js', '*.config.mjs', '*.config.cjs', 'docs/js/index.js'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '*.config.js',
+      '*.config.mjs',
+      '*.config.cjs',
+      'docs/js/index.js',
+    ],
   },
 
   // 2. ESLintの推奨ルールを適用 (旧 extends: 'eslint:recommended')
   js.configs.recommended,
+
+  // CJSファイル用の設定
+  {
+    files: ['**/*.cjs'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+
+  // JSファイル用の設定 (ESM)
+  {
+    files: ['**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
 
   // 3. Vueの推奨ルールを適用 (旧 extends: 'plugin:vue/vue3-recommended')
   ...pluginVue.configs['flat/recommended'],
@@ -54,6 +81,13 @@ export default [
       ...pluginTs.configs['eslint-recommended'].overrides[0].rules,
       ...pluginTs.configs.recommended.rules,
       '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
 
       // 作成したカスタムルールを有効化
       'local-rules/no-duplicate-card-ids': 'error',
@@ -62,8 +96,35 @@ export default [
       'vue/multi-word-component-names': [
         'error',
         {
-          ignores: ['Home', 'Backup', 'Chart', 'Share', 'Settings', 'Loading', 'License', 'Simulation'],
+          ignores: [
+            'Home',
+            'Backup',
+            'Chart',
+            'Share',
+            'Settings',
+            'Loading',
+            'License',
+            'Simulation',
+          ],
         },
+      ],
+      'vue/no-unused-vars': [
+        'error',
+        {
+          ignorePattern: '^_',
+        },
+      ],
+      'vue/v-on-event-hyphenation': [
+        'error',
+        'always',
+        {
+          ignore: ['/^(update):[a-zA-Z]+[a-zA-Z0-9-]*$/u'],
+        },
+      ],
+      'vue/attribute-hyphenation': [
+        'error',
+        'always',
+        { ignore: ['modelValue'] },
       ],
     },
   },
