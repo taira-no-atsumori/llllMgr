@@ -286,8 +286,8 @@
             <CardFilterSlider
               label="特訓度"
               reset-music-filter-name="trainingLevel"
-              :min="store.defaultSearch.cardList.trainingLevel[0]"
-              :max="store.defaultSearch.cardList.trainingLevel[1]"
+              :min="DEFAULT_SEARCH.cardList.trainingLevel[0]"
+              :max="DEFAULT_SEARCH.cardList.trainingLevel[1]"
             ></CardFilterSlider>
           </v-col>
         </v-row>
@@ -299,8 +299,8 @@
             <CardFilterSlider
               label="カードレベル"
               reset-music-filter-name="cardLevel"
-              :min="store.defaultSearch.cardList.cardLevel[0]"
-              :max="store.defaultSearch.cardList.cardLevel[1]"
+              :min="DEFAULT_SEARCH.cardList.cardLevel[0]"
+              :max="DEFAULT_SEARCH.cardList.cardLevel[1]"
             ></CardFilterSlider>
           </v-col>
 
@@ -310,8 +310,8 @@
             <CardFilterSlider
               label="解放レベル"
               reset-music-filter-name="releaseLevel"
-              :min="store.defaultSearch.cardList.releaseLevel[0]"
-              :max="store.defaultSearch.cardList.releaseLevel[1]"
+              :min="DEFAULT_SEARCH.cardList.releaseLevel[0]"
+              :max="DEFAULT_SEARCH.cardList.releaseLevel[1]"
             ></CardFilterSlider>
           </v-col>
         </v-row>
@@ -323,8 +323,8 @@
             <CardFilterSlider
               label="スペシャルアピールレベル"
               reset-music-filter-name="SALevel"
-              :min="store.defaultSearch.cardList.SALevel[0]"
-              :max="store.defaultSearch.cardList.SALevel[1]"
+              :min="DEFAULT_SEARCH.cardList.SALevel[0]"
+              :max="DEFAULT_SEARCH.cardList.SALevel[1]"
             ></CardFilterSlider>
           </v-col>
 
@@ -334,8 +334,8 @@
             <CardFilterSlider
               label="スキルレベル"
               reset-music-filter-name="SLevel"
-              :min="store.defaultSearch.cardList.SLevel[0]"
-              :max="store.defaultSearch.cardList.SLevel[1]"
+              :min="DEFAULT_SEARCH.cardList.SLevel[0]"
+              :max="DEFAULT_SEARCH.cardList.SLevel[1]"
             ></CardFilterSlider>
           </v-col>
         </v-row>
@@ -347,8 +347,8 @@
             <CardFilterSlider
               label="消費AP(スペシャルアピール)"
               reset-music-filter-name="SAAP"
-              :min="store.defaultSearch.cardList.SAAP[0]"
-              :max="store.defaultSearch.cardList.SAAP[1]"
+              :min="DEFAULT_SEARCH.cardList.SAAP[0]"
+              :max="DEFAULT_SEARCH.cardList.SAAP[1]"
             ></CardFilterSlider>
           </v-col>
 
@@ -358,8 +358,8 @@
             <CardFilterSlider
               label="消費AP(スキル)"
               reset-music-filter-name="SAP"
-              :min="store.defaultSearch.cardList.SAP[0]"
-              :max="store.defaultSearch.cardList.SAP[1]"
+              :min="DEFAULT_SEARCH.cardList.SAP[0]"
+              :max="DEFAULT_SEARCH.cardList.SAP[1]"
             ></CardFilterSlider>
           </v-col>
         </v-row>
@@ -555,7 +555,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 import {
   RARE,
   STYLE_TYPE,
@@ -567,6 +567,7 @@ import {
 import { useStateStore } from '@/stores/stateStore';
 import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
+import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
 import CardFilterSlider from '@/components/CardFilterSliderComponent.vue';
 
 const store = useStateStore();
@@ -586,6 +587,16 @@ const statusName = {
 
 const makeSkillTypeList = computed(() => {
   return Object.values(SKILL_DETAIL).map((skill) => skill.name_ja);
+});
+
+onMounted(() => {
+  watch(
+    () => store.search,
+    () => {
+      store.setLocalStorage('llllMgr_cardListFilter', store.search);
+    },
+    { deep: true } // 配列やオブジェクトの内部の変更を検知するために必要
+  );
 });
 </script>
 

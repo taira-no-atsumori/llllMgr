@@ -1,27 +1,34 @@
 import { defineStore } from 'pinia';
 import Dexie from 'dexie';
-import type { StoreState, LocalStorageCardListType } from '@/types/stateStore';
+import type {
+  StoreState,
+  SearchSettings,
+  SortSettings,
+  SelectItemList,
+  LocalStorageData,
+  LocalStorageCardListType,
+  type TrainingStatus,
+} from '@/types/stateStore';
 import type { CardDataType, SkillDetail } from '@/types/cardList';
 import {
   MEMBER_KEYS,
   MEMBER_IDS,
   EXCLUSION_MEMBER,
+  FORMATION_MEMBER,
   type MemberKeys,
   type MemberKeyValues,
   conversionIdToKey,
   conversionCardIdToMemberName,
   getMemberKeys,
 } from '@/constants/memberNames';
-import { MEMBER_COLOR } from '@/constants/colorConst'; // こちらも同様のエラーが出る可能性があります
+import { MEMBER_COLOR } from '@/constants/colorConst';
 import {
   RARE,
-  LIMITED,
-  FAVORITE,
   MAX_CARD_LEVEL,
+  FAVORITE,
   type Rare,
-  getStyleTypeListEn,
-  getMoodListEn,
   type MaxCardLevel,
+  type FavoriteIcon,
 } from '@/constants/cards';
 import {
   BONUS_SKILL_NAMES,
@@ -29,9 +36,12 @@ import {
 } from '@/constants/bonusSkills';
 import { SKILL_LIST } from '@/constants/skillList';
 import { MUSIC_LIST } from '@/constants/musicList';
-import { useCardStore } from './cardList';
+import {
+  DEFAULT_SEARCH,
+  DEFAULT_SITE_SETTINGS,
+} from '@/constants/defaultSettings';
+import { useCardStore } from '@/stores/cardList';
 import type { CardStatus } from '@/types/cardList';
-// import { Dropbox } from 'dropbox';
 
 export const useStateStore = defineStore('store', {
   state: (): StoreState => ({
@@ -48,17 +58,24 @@ export const useStateStore = defineStore('store', {
     isParamReflect: true,
     isPossessionFlg: true,
     withStar: {
-      kaho: 1,
-      sayaka: 1,
-      rurino: 1,
-      kozue: 1,
-      tsuzuri: 1,
-      megumi: 1,
-      ginko: 1,
-      kosuzu: 1,
-      hime: 1,
-      seras: 1,
-      izumi: 1,
+      [MEMBER_KEYS.KAHO]: 1,
+      [MEMBER_KEYS.SAYAKA]: 1,
+      [MEMBER_KEYS.RURINO]: 1,
+      [MEMBER_KEYS.KOZUE]: 1,
+      [MEMBER_KEYS.TSUZURI]: 1,
+      [MEMBER_KEYS.MEGUMI]: 1,
+      [MEMBER_KEYS.GINKO]: 1,
+      [MEMBER_KEYS.KOSUZU]: 1,
+      [MEMBER_KEYS.HIME]: 1,
+      [MEMBER_KEYS.SERAS]: 1,
+      [MEMBER_KEYS.IZUMI]: 1,
+    },
+    card: {},
+    musicLevel: {},
+    selectItemList: {
+      item1: [],
+      item2: [],
+      item3: [],
     },
     siteSettings: {
       all: {
@@ -86,134 +103,7 @@ export const useStateStore = defineStore('store', {
         order: 'ascending',
       },
     },
-    defaultSearch: {
-      cardList: {
-        rare: [...RARE],
-        styleType: getStyleTypeListEn(),
-        mood: getMoodListEn(),
-        limited: Object.keys(LIMITED),
-        cardLevel: [0, 140],
-        SALevel: [1, 14],
-        SLevel: [1, 14],
-        SAAP: [0, 99],
-        SAP: [0, 99],
-        releaseLevel: [1, 5],
-        trainingLevel: [0, 4],
-        memberName: [
-          MEMBER_KEYS.KAHO,
-          MEMBER_KEYS.SAYAKA,
-          MEMBER_KEYS.RURINO,
-          MEMBER_KEYS.KOZUE,
-          MEMBER_KEYS.TSUZURI,
-          MEMBER_KEYS.MEGUMI,
-          MEMBER_KEYS.GINKO,
-          MEMBER_KEYS.KOSUZU,
-          MEMBER_KEYS.HIME,
-          MEMBER_KEYS.SERAS,
-          MEMBER_KEYS.IZUMI,
-          'special',
-        ],
-        favorite: [],
-        releaseStatus: 'none',
-      },
-      skillList: {
-        skillFilterType: 'skillType',
-        skillType: {
-          specialAppeal: [],
-          skill: [],
-          characteristic: [],
-        },
-        skillName: {
-          specialAppeal: [],
-          skill: [],
-          characteristic: [],
-        },
-      },
-      cardSeries: [],
-    },
     search: {},
-    styleHeadline: {
-      103: {
-        main: 'MAIN STYLE',
-        side1: 'SIDE STYLE 1',
-        side2: 'SIDE STYLE 2',
-      },
-      104: {
-        main: 'MAIN STYLE',
-        side1: 'SIDE STYLE 1',
-      },
-      // 105: {
-      //   main: 'MAIN STYLE',
-      //   side1: 'SIDE STYLE 1'
-      // }
-    },
-    specialCardIds: ['sc_001', 'is_001', 'ktm_001'],
-    formationMember: {
-      103: [
-        MEMBER_KEYS.KAHO,
-        MEMBER_KEYS.SAYAKA,
-        MEMBER_KEYS.RURINO,
-        MEMBER_KEYS.KOZUE,
-        MEMBER_KEYS.TSUZURI,
-        MEMBER_KEYS.MEGUMI,
-      ],
-      104: [
-        MEMBER_KEYS.GINKO,
-        MEMBER_KEYS.KOSUZU,
-        MEMBER_KEYS.HIME,
-        MEMBER_KEYS.KAHO,
-        MEMBER_KEYS.SAYAKA,
-        MEMBER_KEYS.RURINO,
-        MEMBER_KEYS.KOZUE,
-        MEMBER_KEYS.TSUZURI,
-        MEMBER_KEYS.MEGUMI,
-      ],
-      // 105: [
-      //   MEMBER_KEYS.SERAS,
-      //   MEMBER_KEYS.IZUMI,
-      //   'free',
-      //   MEMBER_KEYS.GINKO,
-      //   MEMBER_KEYS.KOSUZU,
-      //   MEMBER_KEYS.HIME,
-      //   MEMBER_KEYS.KAHO,
-      //   MEMBER_KEYS.SAYAKA,
-      //   MEMBER_KEYS.RURINO
-      // ],
-      // '105_kozue': [
-      //   MEMBER_KEYS.KOZUE,
-      //   MEMBER_KEYS.SERAS,
-      //   MEMBER_KEYS.IZUMI,
-      //   MEMBER_KEYS.GINKO,
-      //   MEMBER_KEYS.KOSUZU,
-      //   MEMBER_KEYS.HIME,
-      //   MEMBER_KEYS.KAHO,
-      //   MEMBER_KEYS.SAYAKA,
-      //   MEMBER_KEYS.RURINO
-      // ],
-      // '105_tsuzuri': [
-      //   MEMBER_KEYS.TSUZURI,
-      //   MEMBER_KEYS.SERAS,
-      //   MEMBER_KEYS.IZUMI,
-      //   MEMBER_KEYS.GINKO,
-      //   MEMBER_KEYS.KOSUZU,
-      //   MEMBER_KEYS.HIME,
-      //   MEMBER_KEYS.KAHO,
-      //   MEMBER_KEYS.SAYAKA,
-      //   MEMBER_KEYS.RURINO
-      // ],
-      // '105_megumi': [
-      //   MEMBER_KEYS.MEGUMI,
-      //   MEMBER_KEYS.SERAS,
-      //   MEMBER_KEYS.IZUMI,
-      //   MEMBER_KEYS.GINKO,
-      //   MEMBER_KEYS.KOSUZU,
-      //   MEMBER_KEYS.HIME,
-      //   MEMBER_KEYS.KAHO,
-      //   MEMBER_KEYS.SAYAKA,
-      //   MEMBER_KEYS.RURINO
-      // ],
-    },
-    card: {},
     bonusSkillLevels: {
       [BONUS_SKILL_NAMES.VOLTAGE_UP]: 0,
       [BONUS_SKILL_NAMES.MENTAL_RECOVER]: 0,
@@ -236,48 +126,14 @@ export const useStateStore = defineStore('store', {
       name: MEMBER_KEYS.KAHO,
       style: 'main',
     },
-    localStorageData: {
-      musicData: {
-        musicLevel: {},
-      },
-      cardList: {
-        card: {},
-        cardListFilter: {},
-      },
-      selectItemList: {
-        item1: [],
-        item2: [],
-        item3: [],
-      },
-      siteSettings: {
-        all: {},
-        cardList: {},
-        musicList: {},
-      },
-      sortSettings: {
-        cardList: {
-          sortType: 'rare',
-          order: 'descending',
-        },
-        musicList: {
-          sortType: 'default',
-          order: 'ascending',
-        },
-      },
-    },
+    localStorageData: [],
     supportSkill: {},
-    defaultCardList: [],
     windowSize: {
       w: 0,
       h: 0,
     },
-    musicLevel: {},
   }),
   getters: {
-    defaultCard() {
-      const cardStore = useCardStore();
-      return cardStore.card;
-    },
     cardList(): CardDataType[] {
       return Object.entries(this.card).flatMap(([_memberName, memberCards]) => {
         return Object.entries(memberCards).flatMap(([_rare, rarityCards]) => {
@@ -335,7 +191,7 @@ export const useStateStore = defineStore('store', {
           let returnText: string[] =
             SKILL_LIST[skillData.name][skillData.ID].text;
 
-          if (SKILL_LIST[skillData.name][skillData.ID]?.exText !== undefined) {
+          if (SKILL_LIST[skillData.name][skillData.ID]?.exText) {
             for (const exTextData of SKILL_LIST[skillData.name][skillData.ID]
               .exText) {
               if (
@@ -460,12 +316,13 @@ export const useStateStore = defineStore('store', {
               (maxStatus / 100) * 1.5 * (maxCardLevel - target.cardLevel)
           );
         } else if (target.trainingLevel === 0) {
-          // if (cardId === 'gn_029') {
-          //   return Math.ceil(
-          //     targetMaxStatus - (maxStatus / 2 / (maxCardLevel - 1)) * (maxCardLevel - target.cardLevel)
-          //   );
-          // } else if (/^(D|L|B)R$/.test(target.rare)) {
-          if (/^(D|L|B)R$/.test(target.rare)) {
+          if (selectCard.cardName === 'Oracle Étude') {
+            return Math.ceil(
+              targetMaxStatus -
+                ((targetMaxStatus - maxStatus / 2) / (maxCardLevel - 1)) *
+                  (maxCardLevel - target.cardLevel)
+            );
+          } else if (/^(D|L|B)R$/.test(target.rare)) {
             return Math.ceil(
               targetMaxStatus -
                 ((targetMaxStatus -
@@ -550,7 +407,7 @@ export const useStateStore = defineStore('store', {
       return result;
     },
     isDarkMode() {
-      return this.localStorageData.siteSettings.all.darkMode === 'dark';
+      return this.siteSettings.all.darkMode === 'dark';
     },
     selectDeck() {
       return this.deck.find((v) => v.name === this.selectDeckName);
@@ -592,11 +449,10 @@ export const useStateStore = defineStore('store', {
      */
     init(): void {
       // this.makeDb();
-      this.search = JSON.parse(JSON.stringify(this.defaultSearch));
+      this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
       this.initializeData();
       this.getLocalStorage();
       this.setSupportSkillLevel();
-      // this.fetchFiles();
       // this.makeNewDeck();
       // console.log(window.location.search.replace('?', ''));
       // if (window.location.search.replace('?', '') !== '') {
@@ -719,7 +575,7 @@ export const useStateStore = defineStore('store', {
         cardData: {},
       };
 
-      for (const name of this.formationMember[a.period]) {
+      for (const name of FORMATION_MEMBER[a.period]) {
         a.cardData[name] = {
           main: {
             cardName: 'default',
@@ -819,52 +675,34 @@ export const useStateStore = defineStore('store', {
       const isImportData = importData !== undefined;
 
       if (
-        localStorage.llllMgr_musicData !== undefined ||
-        (isImportData && importData.musicData !== undefined)
+        localStorage?.llllMgr_musicData ||
+        (isImportData && importData?.musicData)
       ) {
         if (!isImportData) {
-          this.localStorageData.musicData.musicLevel = {
+          this.musicLevel = {
             ...this.musicLevel,
             ...JSON.parse(localStorage.llllMgr_musicData).musicLevel,
           };
 
-          if (this.localStorageData.musicData.musicLevel['バアドゲージ']) {
-            this.localStorageData.musicData.musicLevel['バアドケージ'] =
-              this.localStorageData.musicData.musicLevel['バアドゲージ'];
-            delete this.localStorageData.musicData.musicLevel['バアドゲージ'];
+          if (this.musicLevel['バアドゲージ']) {
+            this.musicLevel['バアドケージ'] = this.musicLevel['バアドゲージ'];
+            delete this.musicLevel['バアドゲージ'];
           }
 
           for (const musicTitle in MUSIC_LIST) {
-            if (this.localStorageData.musicData.musicLevel[musicTitle]) {
-              this.musicLevel[musicTitle] =
-                this.localStorageData.musicData.musicLevel[musicTitle];
-            }
-
             this.memberData.centerList[
               MUSIC_LIST[musicTitle].center
             ].centerMusic.push(musicTitle);
           }
-        } else if (importData.musicData !== undefined) {
-          this.localStorageData.musicData.musicLevel = {
-            ...this.localStorageData.musicData.musicLevel,
+        } else if (importData?.musicData) {
+          this.musicLevel = {
+            ...this.musicLevel,
             ...importData.musicData.musicLevel,
           };
 
-          if (this.localStorageData.musicData.musicLevel['バアドゲージ']) {
-            this.localStorageData.musicData.musicLevel['バアドケージ'] =
-              this.localStorageData.musicData.musicLevel['バアドゲージ'];
-            delete this.localStorageData.musicData.musicLevel['バアドゲージ'];
-          }
-
-          for (const musicTitle in MUSIC_LIST) {
-            this.musicLevel[musicTitle] =
-              this.localStorageData.musicData.musicLevel[musicTitle];
-          }
-
-          this.setLocalStorage(
-            'llllMgr_musicData',
-            this.localStorageData.musicData
-          );
+          this.setLocalStorage('llllMgr_musicData', {
+            musicLevel: this.musicLevel,
+          });
         }
       } else {
         for (const musicTitle in MUSIC_LIST) {
@@ -875,12 +713,10 @@ export const useStateStore = defineStore('store', {
       }
 
       if (
-        localStorage.llllMgr_card !== undefined ||
-        (isImportData &&
-          importData.cardList !== undefined &&
-          importData.cardList.card !== undefined)
+        localStorage?.llllMgr_card ||
+        (isImportData && importData?.cardList?.card)
       ) {
-        let isRemakeCardData = false;
+        let lsCardList = null;
 
         /**
          * カードリストのデータのつくりが旧式であるか判定。\
@@ -915,30 +751,22 @@ export const useStateStore = defineStore('store', {
         };
 
         if (!isImportData) {
-          const parse = JSON.parse(localStorage.llllMgr_card);
-          this.localStorageData.cardList.card = this.makeExportCardData(
-            remakeCardList(parse)
+          lsCardList = this.makeExportCardData(
+            remakeCardList(JSON.parse(localStorage.llllMgr_card))
           );
-          isRemakeCardData = true;
-        } else if (
-          importData.cardList !== undefined &&
-          importData.cardList.card !== undefined
-        ) {
-          this.localStorageData.cardList.card = this.makeExportCardData(
+        } else if (importData?.cardList?.card) {
+          lsCardList = this.makeExportCardData(
             remakeCardList(importData.cardList.card)
           );
-          // this.setLocalStorage('llllMgr_card', this.localStorageData.cardList.card);
-          isRemakeCardData = true;
         }
 
-        if (isRemakeCardData) {
+        if (lsCardList) {
           for (const memberName in this.card) {
-            if (this.localStorageData.cardList.card[memberName]) {
+            if (lsCardList[memberName]) {
               for (const rare in this.card[memberName]) {
-                if (this.localStorageData.cardList.card[memberName][rare]) {
+                if (lsCardList[memberName][rare]) {
                   for (const id in this.card[memberName][rare]) {
-                    const lsCardData =
-                      this.localStorageData.cardList.card[memberName][rare][id];
+                    const lsCardData = lsCardList[memberName][rare][id];
                     if (lsCardData) {
                       const card = this.card[memberName][rare][id];
                       card.fluctuationStatus = lsCardData.fluctuationStatus;
@@ -964,212 +792,160 @@ export const useStateStore = defineStore('store', {
       }
 
       if (
-        localStorage.llllMgr_cardListFilter !== undefined ||
-        (isImportData &&
-          importData.cardList !== undefined &&
-          importData.cardList.cardListFilter !== undefined)
+        localStorage?.llllMgr_cardListFilter ||
+        (isImportData && importData?.cardList?.cardListFilter)
       ) {
-        let isRemakeCardListFilter = false;
-
         if (!isImportData) {
-          const localStorageData = JSON.parse(
+          // インポートデータがないとき
+          const lsData: SearchSettings = JSON.parse(
             localStorage.llllMgr_cardListFilter
           );
 
-          if (localStorageData.skillList.skillFilterType !== undefined) {
-            this.localStorageData.cardList.cardListFilter = localStorageData;
+          this.search = {
+            cardList: {
+              ...this.search.cardList,
+              ...lsData.cardList,
+            },
+            skillList: {
+              skillFilterType:
+                lsData.skillList?.skillFilterType ??
+                DEFAULT_SEARCH.skillList.skillFilterType,
+              skillType: lsData.skillList.skillType,
+              skillName: lsData.skillList.skillName,
+            },
+            cardSeries: lsData.cardSeries,
+          };
+        } else if (importData?.cardList?.cardListFilter) {
+          // インポートデータがある＆カード絞り込み条件を反映させるとき
+          if (importData?.cardList?.cardListFilter?.skillFilterType) {
+            this.search.cardList = importData.cardList.cardListFilter;
           } else {
-            this.localStorageData.cardList.cardListFilter = {
-              cardList: localStorageData.cardList,
-              cardSeries: localStorageData.cardSeries,
-              skillList: {
-                skillFilterType: 'skillName',
-                skillType: {
-                  specialAppeal: [],
-                  skill: [],
-                  characteristic: [],
-                },
-                skillName: localStorageData.skillList,
-              },
+            this.search.cardList = {
+              ...this.search.cardList,
+              ...importData.cardList.cardListFilter.cardList,
+            };
+            this.search.cardSeries =
+              importData.cardList.cardListFilter.cardSeries;
+            this.search.skillList.skillFilterType =
+              importData.cardList.cardListFilter.skillList.skillFilterType;
+            this.search.skillList.skillName = {
+              ...this.search.skillList.skillName,
+              ...importData.cardList.cardListFilter.skillList.skillName,
+            };
+            this.search.skillList.skillType = {
+              ...this.search.skillList.skillType,
+              ...importData.cardList.cardListFilter.skillList.skillType,
             };
           }
 
-          isRemakeCardListFilter = true;
-        } else if (
-          importData.cardList !== undefined &&
-          importData.cardList.cardListFilter !== undefined
-        ) {
-          if (
-            importData.cardList.cardListFilter.skillFilterType !== undefined
-          ) {
-            this.localStorageData.cardList.cardListFilter =
-              importData.cardList.cardListFilter;
-          } else {
-            this.localStorageData.cardList.cardListFilter.cardList =
-              importData.cardList.cardListFilter.cardList;
-            this.localStorageData.cardList.cardListFilter.cardSeries =
-              importData.cardList.cardListFilter.cardSeries;
-            this.localStorageData.cardList.cardListFilter.skillList.skillFilterType =
-              importData.cardList.cardListFilter.skillList.skillFilterType;
-            this.localStorageData.cardList.cardListFilter.skillList.skillName =
-              importData.cardList.cardListFilter.skillList.skillName;
-            this.localStorageData.cardList.cardListFilter.skillList.skillType =
-              importData.cardList.cardListFilter.skillList.skillType;
-          }
+          this.setLocalStorage('llllMgr_cardListFilter', this.search);
+        }
+      }
 
-          this.setLocalStorage(
-            'llllMgr_cardListFilter',
-            this.localStorageData.cardList.cardListFilter
+      if (
+        localStorage?.llllMgr_selectItemList ||
+        (isImportData && importData?.selectItemList)
+      ) {
+        if (!isImportData) {
+          const getSelectItemList: SelectItemList = JSON.parse(
+            localStorage.llllMgr_selectItemList
           );
-          isRemakeCardListFilter = true;
-        }
 
-        if (isRemakeCardListFilter) {
-          if (
-            this.localStorageData.cardList.cardListFilter.cardList === undefined
-          ) {
-            for (const filterName in this.search.cardList) {
-              this.search.cardList[filterName] =
-                this.localStorageData.cardList.cardListFilter[filterName];
-            }
-          } else {
-            for (const filterName in this.search.cardList) {
-              if (
-                this.localStorageData.cardList.cardListFilter.cardList[
-                  filterName
-                ] !== undefined
-              ) {
-                this.search.cardList[filterName] =
-                  this.localStorageData.cardList.cardListFilter.cardList[
-                    filterName
-                  ];
-              }
-            }
-
-            for (const filterName in this.search.skillList) {
-              if (
-                this.localStorageData.cardList.cardListFilter.skillList[
-                  filterName
-                ]
-              ) {
-                this.search.skillList[filterName] =
-                  this.localStorageData.cardList.cardListFilter.skillList[
-                    filterName
-                  ];
-              } else {
-                this.search.skillList[filterName] = [];
-              }
-            }
-
-            this.search.cardSeries =
-              this.localStorageData.cardList.cardListFilter.cardSeries;
-          }
-        }
-      }
-
-      if (
-        localStorage.llllMgr_selectItemList !== undefined ||
-        (isImportData && importData.selectItemList !== undefined)
-      ) {
-        let getSelectItemList = null;
-
-        if (!isImportData) {
-          getSelectItemList = JSON.parse(localStorage.llllMgr_selectItemList);
-        } else if (importData.selectItemList !== undefined) {
-          getSelectItemList = importData.selectItemList;
-          this.setLocalStorage('llllMgr_selectItemList', getSelectItemList);
-        }
-
-        if (getSelectItemList !== null) {
           for (let i = 1; i <= 3; i++) {
-            this.localStorageData.selectItemList[`item${i}`] =
-              getSelectItemList[`item${i}`];
+            this.selectItemList[`item${i}`] = getSelectItemList[`item${i}`];
           }
+        } else if (importData?.selectItemList) {
+          for (let i = 1; i <= 3; i++) {
+            this.selectItemList[`item${i}`] =
+              importData.selectItemList[`item${i}`];
+          }
+
+          this.setLocalStorage('llllMgr_selectItemList', this.selectItemList);
         }
       }
 
       if (
-        localStorage.llllMgr_siteSettings !== undefined ||
-        (isImportData && importData.siteSettings !== undefined)
+        localStorage?.llllMgr_siteSettings ||
+        (isImportData && importData?.siteSettings)
       ) {
-        let getSiteSettings = null;
-
         if (!isImportData) {
-          getSiteSettings = JSON.parse(localStorage.llllMgr_siteSettings);
-        } else if (importData.siteSettings !== undefined) {
-          getSiteSettings = importData.siteSettings;
+          const getSiteSettings: LocalStorageData = JSON.parse(
+            localStorage.llllMgr_siteSettings
+          );
 
-          for (const key in this.siteSettings) {
-            if (getSiteSettings[key] === undefined) {
-              getSiteSettings[key] = this.siteSettings[key];
-            }
+          for (const categoryName of ['all', 'cardList', 'musicList']) {
+            this.siteSettings[categoryName] = {
+              ...this.siteSettings[categoryName],
+              ...getSiteSettings[categoryName],
+            };
+          }
+        } else if (importData?.siteSettings) {
+          for (const categoryName of ['all', 'cardList', 'musicList']) {
+            this.siteSettings[categoryName] = {
+              ...this.siteSettings[categoryName],
+              ...importData.siteSettings[categoryName],
+            };
           }
 
-          this.setLocalStorage('llllMgr_siteSettings', getSiteSettings);
-        }
-
-        if (getSiteSettings !== null) {
-          for (const siteSettingCategoryName in this.siteSettings) {
-            for (const settingName in this.siteSettings[
-              siteSettingCategoryName
-            ]) {
-              this.localStorageData.siteSettings[siteSettingCategoryName][
-                settingName
-              ] = getSiteSettings[siteSettingCategoryName][settingName];
-            }
-          }
+          this.setLocalStorage('llllMgr_siteSettings', this.siteSettings);
         }
       }
 
       if (
-        localStorage.llllMgr_sortSettings !== undefined ||
-        (isImportData && importData.sortSettings !== undefined)
+        localStorage?.llllMgr_sortSettings ||
+        (isImportData && importData?.sortSettings)
       ) {
-        let getSortSettings = null;
-
         if (!isImportData) {
-          getSortSettings = JSON.parse(localStorage.llllMgr_sortSettings);
-        } else if (importData.sortSettings !== undefined) {
-          getSortSettings = importData.sortSettings;
+          const getSortSettings: SortSettings = JSON.parse(
+            localStorage.llllMgr_sortSettings
+          );
 
-          for (const iterator of ['card', 'music']) {
-            if (getSortSettings[`${iterator}List`] === undefined) {
-              getSortSettings[`${iterator}List`] =
-                this.sortSettings[`${iterator}List`];
+          for (const word of ['card', 'music']) {
+            if (getSortSettings[`${word}List`]) {
+              this.sortSettings[`${word}List`] = {
+                ...this.sortSettings[`${word}List`],
+                ...getSortSettings[`${word}List`],
+              };
+            }
+          }
+        } else if (importData?.sortSettings) {
+          for (const word of ['card', 'music']) {
+            if (importData.sortSettings[`${word}List`]) {
+              this.sortSettings[`${word}List`] = {
+                ...this.sortSettings[`${word}List`],
+                ...importData.sortSettings[`${word}List`],
+              };
             }
           }
 
-          this.setLocalStorage('llllMgr_sortSettings', getSortSettings);
+          this.setLocalStorage('llllMgr_sortSettings', this.sortSettings);
         }
-
-        if (getSortSettings !== null) {
-          for (const sortSettingCategoryName in this.sortSettings) {
-            for (const settingName in this.sortSettings[
-              sortSettingCategoryName
-            ]) {
-              this.localStorageData.sortSettings[sortSettingCategoryName][
-                settingName
-              ] = getSortSettings[sortSettingCategoryName][settingName];
-            }
-          }
-        }
-      }
-    },
-    deleteLocalStorage(deleteDataName: string): void {
-      if (deleteDataName === 'music') {
-        this.localStorageData.musicData.musicLevel = {};
-        localStorage.removeItem('llllMgr_musicData');
-      } else if (deleteDataName === 'card') {
-        this.localStorageData.cardList.card = {};
-        this.localStorageData.cardList.cardListFilter = {};
-        localStorage.removeItem('llllMgr_card');
-        localStorage.removeItem('llllMgr_cardListFilter');
-      } else {
-        localStorage.removeItem('llllMgr_selectItemList');
       }
     },
     /**
-     * ダイアログを表示
+     * ローカルストレージデータ削除
+     *
+     * ローカルストレージのデータを削除する。
+     *
+     * @property deleteDataName 削除したいデータ名
+     * @returns void
+     */
+    deleteLocalStorage(deleteDataName: string): void {
+      switch (deleteDataName) {
+        case 'music':
+          localStorage.removeItem('llllMgr_musicData');
+          break;
+        case 'card':
+          localStorage.removeItem('llllMgr_card');
+          localStorage.removeItem('llllMgr_cardListFilter');
+          break;
+        default:
+          localStorage.removeItem('llllMgr_selectItemList');
+      }
+    },
+    /**
+     * モーダル表示
+     *
      * @param showModalName 表示するダイアログの名前
      * @returns void
      */
@@ -1177,8 +953,10 @@ export const useStateStore = defineStore('store', {
       this.switchDialog(showModalName);
       this.showModalName = showModalName;
     },
-    setLevel(a: string, e: any): void {
-      this.settingCardData.fluctuationStatus[a] = e.target.value;
+    setLevel(a: keyof TrainingStatus, e: Event): void {
+      this.settingCardData.fluctuationStatus[a] = Number(
+        (e.target as HTMLInputElement).value
+      );
     },
     /**
      * SettingCardのID、レアリティ、メンバー名、カード名を設定する
@@ -1204,7 +982,7 @@ export const useStateStore = defineStore('store', {
      *
      * ファイル名で使えない文字を使える文字に変換する処理。
      *
-     * @param val 文字
+     * @param val 変換したい文字
      * @returns 変換後の文字
      */
     conversion(val: string): string {
@@ -1299,10 +1077,12 @@ export const useStateStore = defineStore('store', {
      *
      * バックアップデータを作成する。
      *
-     * @param data
-     * @returns
+     * @param data カードデータ
+     * @returns カードデータ
      */
-    makeExportCardData(data?: any): Record<string, any> {
+    makeExportCardData(
+      data?: Record<string, CardDataByMember>
+    ): Record<string, CardDataByMember> {
       const result = {};
       const card = data ?? this.card;
 
@@ -1323,32 +1103,16 @@ export const useStateStore = defineStore('store', {
 
       return result;
     },
-    submitCardData(submitData: any): void {
-      for (const i in submitData) {
-        this.submitData[i] = submitData[i];
-      }
-    },
     switchDialog(switchFlg: boolean): void {
       this.dialog = !!switchFlg;
     },
-    selectMusic(a: string): void {
-      this.selectMusicTitle = a;
-    },
-    closeModal() {
-      this.showModalName = false;
-    },
-    valueChange(target, val) {
+    valueChange(target: string, val: number): void {
       if (target === 'musicLevel') {
         this.musicLevel[this.selectMusicTitle] = val;
-        this.localStorageData.musicData.musicLevel = {
-          ...this.localStorageData.musicData.musicLevel,
-          ...this.musicLevel,
-        };
 
-        this.setLocalStorage(
-          'llllMgr_musicData',
-          this.localStorageData.musicData
-        );
+        this.setLocalStorage('llllMgr_musicData', {
+          musicLevel: this.musicLevel,
+        });
       } else {
         this.settingCardData.fluctuationStatus[target] = val;
 
@@ -1382,12 +1146,15 @@ export const useStateStore = defineStore('store', {
         this.setLocalStorage('llllMgr_card', this.makeExportCardData());
       }
     },
-    changeFav(target) {
+    /**
+     * お気に入り変更
+     *
+     * @param target クリックしたお気に入りの形
+     */
+    changeFav(target: FavoriteIcon): void {
       if (this.settingCardData.favorite.some((v) => v === target)) {
         this.settingCardData.favorite = this.settingCardData.favorite.filter(
-          (v) => {
-            return v !== target;
-          }
+          (v) => v !== target
         );
       } else {
         this.settingCardData.favorite.push(target);
@@ -1465,32 +1232,22 @@ export const useStateStore = defineStore('store', {
     resetMusicFilter(resetName: string) {
       if (/^(SA|S)(AP|Level)|(release|card|training)Level$/.test(resetName)) {
         this.search.cardList[resetName] = [
-          this.defaultSearch.cardList[resetName][0],
-          this.defaultSearch.cardList[resetName][1],
+          DEFAULT_SEARCH.cardList[resetName][0],
+          DEFAULT_SEARCH.cardList[resetName][1],
         ];
       } else if (this.search.cardList[resetName].length === 0) {
         switch (resetName) {
           case 'rare':
-            this.search.cardList.rare = RARE;
-            break;
           case 'mood':
-            this.search.cardList.mood = getMoodListEn();
-            break;
           case 'styleType':
-            this.search.cardList.styleType = getStyleTypeListEn();
-            break;
           case 'memberName':
-            this.search.cardList.memberName = JSON.parse(
-              JSON.stringify(this.memberNameList)
-            );
-            break;
           case 'limited':
-            this.search.cardList.limited = Object.keys(LIMITED).map((v) => {
-              return v.toLowerCase();
-            });
+            this.search.cardList[resetName] = [
+              ...DEFAULT_SEARCH.cardList[resetName],
+            ];
             break;
           case 'favorite':
-            this.search.cardList.favorite = FAVORITE;
+            this.search.cardList[resetName] = [...FAVORITE];
             break;
           default:
             for (const key in this[resetName]) {
@@ -1504,14 +1261,16 @@ export const useStateStore = defineStore('store', {
     /**
      * データリセット
      *
-     * @param resetList リセットするデータリスト
+     * 引数で指定されたデータをリセットする。\
+     * 内部的にだけではなく、ローカルストレージのデータもリセットする。
+     *
+     * @param resetDataNames リセットするデータ名
      * @returns void
      */
-    dataReset(resetList: string[]): void {
-      for (const iterator of resetList) {
-        switch (iterator) {
+    dataReset(resetDataNames: string[]): void {
+      for (const removeDataName of resetDataNames) {
+        switch (removeDataName) {
           case 'card': {
-            const allCards: CardDataType[] = [];
             const addStatus: CardStatus = {
               fluctuationStatus: {
                 cardLevel: 0,
@@ -1532,7 +1291,6 @@ export const useStateStore = defineStore('store', {
                     ...this.card[memberName][rare][cardId],
                     ...addStatus,
                   };
-                  allCards.push(this.card[memberName][rare][cardId]);
                 }
               }
             }
@@ -1541,7 +1299,7 @@ export const useStateStore = defineStore('store', {
             break;
           }
           case 'cardListFilter': {
-            this.search = JSON.parse(JSON.stringify(this.defaultSearch));
+            this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
             break;
           }
           case 'musicData': {
@@ -1561,47 +1319,35 @@ export const useStateStore = defineStore('store', {
 
               for (const musicTitle in MUSIC_LIST) {
                 this.musicLevel[musicTitle] = MUSIC_LIST[musicTitle].level;
-                this.localStorageData.musicData.musicLevel[musicTitle] =
-                  this.musicLevel[musicTitle];
               }
 
-              this.setLocalStorage(
-                'llllMgr_musicData',
-                this.localStorageData.musicData
-              );
+              this.setLocalStorage('llllMgr_musicData', {
+                musicLevel: this.musicLevel,
+              });
             }
             break;
           }
           case 'selectItemList': {
-            this.localStorageData.selectItemList = {
+            this.selectItemList = {
               item1: [],
               item2: [],
               item3: [],
             };
-            this.setLocalStorage(
-              'llllMgr_selectItemList',
-              this.localStorageData.selectItemList
-            );
+            this.setLocalStorage('llllMgr_selectItemList', this.selectItemList);
             break;
           }
           case 'sortSettings_card': {
-            this.localStorageData.sortSettings.cardList = JSON.parse(
+            this.sortSettings.cardList = JSON.parse(
               JSON.stringify(this.sortSettings.cardList)
             );
-            this.setLocalStorage(
-              'llllMgr_sortSettings',
-              this.localStorageData.sortSettings
-            );
+            this.setLocalStorage('llllMgr_sortSettings', this.sortSettings);
             break;
           }
           case 'siteSettings': {
-            this.localStorageData.siteSettings = JSON.parse(
-              JSON.stringify(this.siteSettings)
+            this.siteSettings = JSON.parse(
+              JSON.stringify(DEFAULT_SITE_SETTINGS)
             );
-            this.setLocalStorage(
-              'llllMgr_siteSettings',
-              this.localStorageData.siteSettings
-            );
+            this.setLocalStorage('llllMgr_siteSettings', this.siteSettings);
             break;
           }
           default:
@@ -1618,7 +1364,7 @@ export const useStateStore = defineStore('store', {
     changeSettings(setLocalStorageName: string): void {
       this.setLocalStorage(
         `llllMgr_${setLocalStorageName}`,
-        this.localStorageData[setLocalStorageName]
+        this[setLocalStorageName]
       );
     },
     setSelectCard(
@@ -1658,85 +1404,6 @@ export const useStateStore = defineStore('store', {
         extension ?? 'webp'
       }`;
       return images[filePath]?.default || '';
-    },
-    async fetchFiles() {
-      const APP_KEY = import.meta.env.VITE_DROPBOX_APP_KEY;
-      const ACCESS_APP_SECRET = import.meta.env.VITE_DROPBOX_APP_SECRET;
-      const OATH2_REFRESH_TOKEN = import.meta.env
-        .VITE_DROPBOX_OATH2_REFRESH_TOKEN;
-
-      try {
-        const dbx = new Dropbox({
-          clientId: APP_KEY,
-          clientSecret: ACCESS_APP_SECRET,
-          refreshToken: OATH2_REFRESH_TOKEN,
-        });
-        const response = await this.fetchWithBackoff(async () => {
-          return await dbx.filesListFolder({ path: '/CD_jacket' });
-        });
-        const files = response.result.entries;
-        const imageMimeType = ['image/webp'];
-
-        const imageFiles = files.filter(
-          (file) =>
-            file['.tag'] === 'file' &&
-            imageMimeType.some((type) =>
-              this.conversion(file.name).endsWith(type.split('/')[1])
-            )
-        );
-
-        const imageUrls = await Promise.all(
-          imageFiles.map(async (file) => {
-            return this.fetchWithBackoff(async () => {
-              const linkResponse = await dbx.filesGetTemporaryLink({
-                path: file.path_lower,
-              });
-              return {
-                id: file.id,
-                name: this.conversion(file.name.split('.webp')[0]),
-                url: linkResponse.result.link,
-              };
-            });
-          })
-        );
-
-        this.images = imageUrls;
-
-        imageUrls.forEach((image) => {
-          this.imageLoaded[this.conversion(image.name)] = false;
-        });
-
-        this.loading = false;
-      } catch (_error) {
-        this.dialogError = true;
-      }
-    },
-    /**
-     * バックオフ処理を実装
-     *
-     * @param fetchFunction リトライ対象の関数
-     * @returns リトライ後の結果
-     */
-    async fetchWithBackoff(fetchFunction) {
-      const retries = 5;
-      const delay = 5000;
-
-      for (let i = 0; i < retries; i++) {
-        try {
-          return await fetchFunction();
-        } catch (error) {
-          if (error.status === 429 && i < retries - 1) {
-            const waitTime = delay * Math.pow(2, i);
-            console.warn(
-              `Rate limit hit. Retrying in ${waitTime / 1000} seconds...`
-            );
-            await new Promise((resolve) => setTimeout(resolve, waitTime));
-          } else {
-            throw error;
-          }
-        }
-      }
-      throw new Error('Failed to fetch after multiple retries.');
     },
     markImageLoaded(imageKey) {
       this.imageLoaded[imageKey] = true;

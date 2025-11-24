@@ -3375,6 +3375,19 @@ export const SKILL_LIST = {
       },
     },
   },
+  ボルテックスガード: {
+    vortexGuard_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にする。さらにメンタルが100%以上のとき、ボルテージPt.を+',
+        'する。',
+      ],
+      detail: {
+        attr: 'vortex',
+        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
+  },
   ボルテックスシフト: {
     vortexShift: {
       text: [
@@ -4740,6 +4753,50 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
+  アルターエゴ: {
+    alterEgo_01: {
+      text: ['Poupée en Lotus/Ginkoを1種類(合計1枚)山札に追加する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.CHANGE_DECK, SKILL_DETAIL.ADD_CARD],
+      },
+    },
+    alterEgo_02: {
+      text: ['Poupée en Lotus/Himeを1種類(合計1枚)山札に追加する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.CHANGE_DECK, SKILL_DETAIL.ADD_CARD],
+      },
+    },
+  },
+  'ドレス《Poupée en Lotus》': {
+    dress_poupeeEnLotus_01: {
+      text: [
+        'ドレスカード《Poupée en Lotus》を1種類(合計1枚)山札に追加する。さらにメンタルが100%以上のとき、手札をシャッフルする。',
+      ],
+      detail: {
+        attr: 'dress',
+        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+      },
+    },
+  },
+  '《Poupée en Lotus》': {
+    poupeeEnLotus_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にし、メンタルを最大値の',
+        '%回復させる。さらにメンタルが100%以上のとき、手札をシャッフルする。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -7907,6 +7964,16 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.VOLTAGE_GAIN],
       },
     },
+    elysion_07: {
+      text: [
+        'このステージ中、AP回復速度を-9999%する。さらにこのステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にする。',
+      ],
+      detail: {
+        attr: 'Elysion',
+        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.PROTECT_STAGE],
+      },
+    },
   },
   'mode:DESTROYER': {
     mode_destroyer_01: {
@@ -8016,6 +8083,19 @@ export const SKILL_LIST = {
           SKILL_DETAIL.BOOST_LOVE_ATTRACT,
           SKILL_DETAIL.BOOST_WIDE_HEART,
         ],
+      },
+    },
+  },
+  'mode:REALIZER': {
+    mode_realizer_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにこのステージ中、AP回復速度を+',
+        '%する。',
+      ],
+      detail: {
+        attr: 'mode',
+        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_QUICK],
       },
     },
   },
@@ -9311,6 +9391,79 @@ export const SKILL_LIST = {
           SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
           SKILL_DETAIL.AP_REDUCE,
           SKILL_DETAIL.MENTAL_REDUCE,
+        ],
+      },
+    },
+  },
+  ショウタイム: {
+    showTime_01: {
+      text: [
+        'このセクション中、ムード値を+',
+        'し、AP回復速度を+',
+        '%する。さらに16回の間泉が使用するスキルハート獲得効果による獲得数を',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  イミテーションアクター: {
+    imitationActor_01: {
+      text: [
+        'カードがステージにセットされ、獲得するハートを吸収する。獲得するハートを10000個吸収したとき、ビートハート',
+        '回分のスキルハートを獲得、このステージ中、AP回復速度を+',
+        '%、ボルテージPt.を+',
+        '、メンタルの最大値の',
+        '%分のメンタル自然減少を無効、このセクション中、ビートハートの出現個数を+1し、捨札に移動する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.VIBES_SECTION,
+        ],
+      },
+    },
+  },
+  リーディングアクター: {
+    leadingActor_01: {
+      text: [
+        'このセクション中、ムード値を+',
+        'し、手札の上限枚数を4枚増加する。さらにデッキ内の全てのスキルの消費AP-8。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+        ],
+      },
+    },
+  },
+  セレスティアルライズ: {
+    celestialRise_01: {
+      text: [
+        'このステージ中、ムード値を+',
+        'する。さらにムードがハッピー、メロウいずれか100のとき、それぞれ2回の間泉、セラスが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_STAGE,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
         ],
       },
     },

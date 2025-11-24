@@ -38,7 +38,7 @@
       <div class="mt-2 text-center">
         <v-btn
           prepend-icon="mdi-close"
-          :theme="store.localStorageData.siteSettings.all.darkMode"
+          :theme="store.siteSettings.all.darkMode"
           @click="store.switchDialog(false)"
         >
           CLOSE

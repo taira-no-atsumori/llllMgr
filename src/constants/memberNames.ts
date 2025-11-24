@@ -34,7 +34,7 @@ export const getMemberKeys = (): MemberKeyValues[] => {
 /**
  * メンバーキーのキーから値を取得
  *
- * @param key
+ * @param key メンバーキーのキー（大文字）
  * @returns MemberKeyValues
  * @example
  * 'KAHO' → 'kaho'
@@ -46,7 +46,7 @@ export const getMemberKeyValue = (key: MemberKeyKeys): MemberKeyValues => {
 /**
  * メンバーキーの値からキーを取得
  *
- * @param value
+ * @param value メンバーキーの値（小文字）
  * @returns MemberKeyKeys
  * @example
  * 'kaho' → 'KAHO'
@@ -415,3 +415,70 @@ export const GROUP_NAME = {
   PRINCESS: 'PRINCEε>ε>',
 } as const;
 export type GroupName = (typeof GROUP_NAME)[keyof typeof GROUP_NAME];
+
+/** フォーメーションメンバー */
+export const FORMATION_MEMBER = {
+  103: [
+    MEMBER_KEYS.KAHO,
+    MEMBER_KEYS.SAYAKA,
+    MEMBER_KEYS.RURINO,
+    MEMBER_KEYS.KOZUE,
+    MEMBER_KEYS.TSUZURI,
+    MEMBER_KEYS.MEGUMI,
+  ],
+  104: [
+    MEMBER_KEYS.GINKO,
+    MEMBER_KEYS.KOSUZU,
+    MEMBER_KEYS.HIME,
+    MEMBER_KEYS.KAHO,
+    MEMBER_KEYS.SAYAKA,
+    MEMBER_KEYS.RURINO,
+    MEMBER_KEYS.KOZUE,
+    MEMBER_KEYS.TSUZURI,
+    MEMBER_KEYS.MEGUMI,
+  ],
+  // 105: [
+  //   MEMBER_KEYS.SERAS,
+  //   MEMBER_KEYS.IZUMI,
+  //   'free',
+  //   MEMBER_KEYS.GINKO,
+  //   MEMBER_KEYS.KOSUZU,
+  //   MEMBER_KEYS.HIME,
+  //   MEMBER_KEYS.KAHO,
+  //   MEMBER_KEYS.SAYAKA,
+  //   MEMBER_KEYS.RURINO
+  // ],
+  // '105_kozue': [
+  //   MEMBER_KEYS.KOZUE,
+  //   MEMBER_KEYS.SERAS,
+  //   MEMBER_KEYS.IZUMI,
+  //   MEMBER_KEYS.GINKO,
+  //   MEMBER_KEYS.KOSUZU,
+  //   MEMBER_KEYS.HIME,
+  //   MEMBER_KEYS.KAHO,
+  //   MEMBER_KEYS.SAYAKA,
+  //   MEMBER_KEYS.RURINO
+  // ],
+  // '105_tsuzuri': [
+  //   MEMBER_KEYS.TSUZURI,
+  //   MEMBER_KEYS.SERAS,
+  //   MEMBER_KEYS.IZUMI,
+  //   MEMBER_KEYS.GINKO,
+  //   MEMBER_KEYS.KOSUZU,
+  //   MEMBER_KEYS.HIME,
+  //   MEMBER_KEYS.KAHO,
+  //   MEMBER_KEYS.SAYAKA,
+  //   MEMBER_KEYS.RURINO
+  // ],
+  // '105_megumi': [
+  //   MEMBER_KEYS.MEGUMI,
+  //   MEMBER_KEYS.SERAS,
+  //   MEMBER_KEYS.IZUMI,
+  //   MEMBER_KEYS.GINKO,
+  //   MEMBER_KEYS.KOSUZU,
+  //   MEMBER_KEYS.HIME,
+  //   MEMBER_KEYS.KAHO,
+  //   MEMBER_KEYS.SAYAKA,
+  //   MEMBER_KEYS.RURINO
+  // ],
+};

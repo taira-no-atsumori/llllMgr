@@ -11,6 +11,7 @@ import {
   LineElement,
   Filler,
   Tooltip,
+  type TooltipItem,
   Legend,
 } from 'chart.js';
 import { Radar } from 'vue-chartjs';
@@ -76,7 +77,7 @@ const chartOptions = {
   plugins: {
     tooltip: {
       callbacks: {
-        label: (context: any) => {
+        label: (context: TooltipItem<'radar'>) => {
           let label = context.dataset.label || '';
 
           if (label) {

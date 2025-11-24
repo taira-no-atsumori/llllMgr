@@ -21,7 +21,7 @@ export type MemberColor = (typeof MEMBER_COLOR)[keyof typeof MEMBER_COLOR];
  *
  * メンバーキーからカラーコードを取得する。
  *
- * @param memberKey
+ * @param memberKey メンバーキー
  * @returns MemberColor
  */
 export const getMemberColor = (memberKey: MemberKeyValues): MemberColor => {

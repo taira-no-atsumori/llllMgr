@@ -63,7 +63,7 @@
             class="d-flex align-center"
           >
             <p class="text-center text-white font-weight-bold text-h6">
-              {{ store.styleHeadline[searchSetCard(cardData.ID)] }}<br />
+              {{ STYLE_HEADLINE[searchSetCard(cardData.ID)] }}<br />
               選択中
             </p>
           </v-img>
@@ -96,7 +96,7 @@
                   :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
                   gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
                   class="d-flex align-center"
-                ><p class="text-center text-white font-weight-bold text-h6">{{ store.styleHeadline[searchSetCard(cardName)] }}<br>選択中</p></v-img>
+                ><p class="text-center text-white font-weight-bold text-h6">{{ STYLE_HEADLINE[searchSetCard(cardName)] }}<br>選択中</p></v-img>
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
               <v-card
@@ -349,9 +349,11 @@ import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
 import {
   MEMBER_NAMES,
+  FORMATION_MEMBER,
   conversionCardIdToMemberName,
 } from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
+import { STYLE_HEADLINE } from '@/constants/styleHeadline';
 
 const store = useStateStore();
 const dialog: boolean = ref(false);
@@ -592,9 +594,7 @@ export default {
         }
 
         if (
-          store.formationMember[104].some(
-            (name) => name === store.openCard.name
-          )
+          FORMATION_MEMBER[104].some((name) => name === store.openCard.name)
         ) {
           result = result.concat(
             [],
@@ -604,9 +604,7 @@ export default {
         }
 
         if (
-          store.formationMember[103].some(
-            (name) => name === store.openCard.name
-          )
+          FORMATION_MEMBER[103].some((name) => name === store.openCard.name)
         ) {
           result = result.concat([], Object.values(store.card.sachi.UR));
         }

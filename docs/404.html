@@ -1,14 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>リンクラ マネージャー！</title>
-    <script>
+    <script type="text/javascript">
       localStorage.inflow = window.location.pathname.replace('/llllMgr/', '');
       // localStorage.queryParam = window.location.search.replace('?', '');
       window.location.pathname = '/llllMgr/';
+      // const redirectTo = window.location.pathname.replace(/\/[^\/]*$/, '/');
+      // window.location.replace(redirectTo + '?redirect=' + encodeURIComponent(window.location.pathname + window.location.search + window.location.hash));
     </script>
   </head>
-  <body>
-  </body>
+  <body></body>
 </html>

@@ -16,7 +16,6 @@
     "axios": "^1.13.2",
     "chart.js": "^4.5.1",
     "dexie": "^4.2.1",
-    "dropbox": "^10.34.0",
     "node-polyfill-webpack-plugin": "^4.1.0",
     "pinia": "^3.0.4",
     "vite-plugin-vuetify": "^2.1.2",

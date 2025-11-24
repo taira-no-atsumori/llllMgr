@@ -244,7 +244,7 @@
             <v-select
               v-model="store.selectDeck.period"
               label="期"
-              :items="Object.keys(store.formationMember).reverse()"
+              :items="Object.keys(FORMATION_MEMBER).reverse()"
               :update:modelValue="(store.selectDeck.selectMusic = '')"
             ></v-select>
           </v-col>
@@ -317,9 +317,7 @@
               </v-col>
 
               <v-col
-                v-for="memberName in store.formationMember[
-                  store.selectDeck.period
-                ]"
+                v-for="memberName in FORMATION_MEMBER[store.selectDeck.period]"
                 :key="memberName"
                 cols="12"
                 sm="4"
@@ -379,7 +377,7 @@
                       </v-row>
                     </v-col>
                     <v-col
-                      v-for="(ary, styleName, i) in store.styleHeadline[
+                      v-for="(ary, styleName, i) in STYLE_HEADLINE[
                         store.selectDeck.period
                       ]"
                       :key="styleName"
@@ -725,9 +723,8 @@
 
                       <v-divider
                         v-if="
-                          Object.keys(
-                            store.styleHeadline[store.selectDeck.period]
-                          ).length >
+                          Object.keys(STYLE_HEADLINE[store.selectDeck.period])
+                            .length >
                           i + 1
                         "
                         class="mx-1"
@@ -820,7 +817,7 @@
                       </v-row>
                     </v-col>
                     <v-col
-                      v-for="(ary, styleName, i) in store.styleHeadline[
+                      v-for="(ary, styleName, i) in STYLE_HEADLINE[
                         store.selectDeck.period
                       ]"
                       :key="styleName"
@@ -1175,9 +1172,8 @@
 
                       <v-divider
                         v-if="
-                          Object.keys(
-                            store.styleHeadline[store.selectDeck.period]
-                          ).length >
+                          Object.keys(STYLE_HEADLINE[store.selectDeck.period])
+                            .length >
                           i + 1
                         "
                         class="mx-1"
@@ -2010,11 +2006,13 @@ import { convertStyleEnToJp } from '@/constants/cards';
 import {
   MEMBER_IDS,
   MEMBER_NAMES,
+  FORMATION_MEMBER,
   makeMemberFullName,
 } from '@/constants/memberNames';
 import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
+import { STYLE_HEADLINE } from '@/constants/styleHeadline';
 // import axios from 'axios';
 const store = useStateStore();
 </script>
@@ -2340,7 +2338,7 @@ export default {
         }
 
         for (const memberName in store.selectDeck.cardData) {
-          for (const style in store.styleHeadline[store.selectDeck.period]) {
+          for (const style in STYLE_HEADLINE[store.selectDeck.period]) {
             if (
               store.selectDeck.cardData[memberName][style].id.split('_')[1] ===
               '000'
@@ -2415,7 +2413,7 @@ export default {
                 store.selectDeck.cardData[memberName][style].id.split(
                   '_'
                 )[1] === '000' &&
-                Object.keys(store.styleHeadline[store.selectDeck.period]).find(
+                Object.keys(STYLE_HEADLINE[store.selectDeck.period]).find(
                   (v) => v === style
                 ) !== undefined
               ) {
@@ -2497,7 +2495,7 @@ export default {
         }
       }
 
-      for (const name of store.formationMember[a.period]) {
+      for (const name of FORMATION_MEMBER[a.period]) {
         a.cardData[name] = {};
         const cardId = `${Object.values(MEMBER_IDS).find((key) => {
           return key === name;

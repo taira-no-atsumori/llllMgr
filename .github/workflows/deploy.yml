@@ -153,7 +153,6 @@ jobs:
           # mainブランチの場合は `update-version` ジョブから渡された新しいバージョンを使用
           # それ以外のブランチでは、`needs`コンテキストが空のため、フォールバック値 'dev-build' を使用
           VITE_SITEVERSION: ${{ needs.update-version.outputs.new_version || 'dev-build' }}
-          VITE_DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
         run: npm run build
 
       - name: Deploy to GitHub Pages
