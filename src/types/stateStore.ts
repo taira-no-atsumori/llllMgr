@@ -99,6 +99,18 @@ type SortSettings = {
     order: 'descending' | 'ascending';
   };
 };
+/**
+ * アイテムリストの型
+ *
+ * @property item1 アイテム1
+ * @property item2 アイテム2
+ * @property item3 アイテム3
+ */
+type SelectItemList = {
+  item1: SkillBook[];
+  item2: string[];
+  item3: string[];
+};
 
 /**
  * 検索設定を表す型
@@ -130,7 +142,7 @@ type SortSettings = {
  * @property skillList.skillName.characteristic 特性
  * @property cardSeries カードシリーズフィルタ
  */
-type SearchSettings = {
+export type SearchSettings = {
   cardList: {
     rare: Rare[];
     styleType: StyleTypeEn[];
@@ -148,7 +160,7 @@ type SearchSettings = {
     releaseStatus: ReleaseStatus;
   };
   skillList: {
-    skillFilterType: string;
+    skillFilterType?: string;
     skillType: {
       specialAppeal: string[];
       skill: string[];
@@ -230,26 +242,19 @@ type Deck = {
  * @property selectDeckName 選択中のデッキ名
  * @property isParamReflect パラメータ反映状態
  * @property isPossessionFlg 持ち物状態
- * @property rare レアリティ
  * @property releaseStatus 解放ステータス
- * @property bonusSkill ボーナススキル
+ * @property bonusSkillLevels ボーナススキルレベル
  * @property withStar スター付加状態
  * @property siteSettings サイト設定
  * @property sortSettings ソート設定
- * @property defaultSearch デフォルト検索設定
- * @property styleHeadline スタイル見出し
- * @property limited 限定
- * @property releasePoint 解放ポイント
- * @property specialCardIds 特別カードIDリスト
- * @property formationMember フォーメーションメンバー
  * @property memberData メンバーデータ
  * @property deck デッキ
  * @property settingCard 設定カード
  * @property openCard 開放カード
  * @property localStorageData ローカルストレージデータ
  * @property supportSkill サポートスキル
- * @property defaultCardList デフォルトカードリスト
  * @property windowSize ウィンドウサイズ
+ * @property musicLevel 楽曲レベル
  */
 export type StoreState = {
   loading: boolean;
@@ -267,26 +272,10 @@ export type StoreState = {
   withStar: Record<string, number>;
   siteSettings: SiteSettings;
   sortSettings: SortSettings;
-  defaultSearch: SearchSettings;
+  selectItemList: SelectItemList;
   search: SearchSettings;
-  styleHeadline: Record<
-    number,
-    {
-      main: string;
-      side1: string;
-      side2?: string;
-    }
-  >;
-  releasePoint: Record<
-    string,
-    {
-      point: number;
-      max: number;
-    }
-  >;
-  specialCardIds: string[];
-  formationMember: Record<number, string[]>;
   card: Record<string, CardDataByMember>;
+  musicLevel: Record<string, number>;
   bonusSkillLevels: Record<BonusSkillNames, number>;
   memberData: {
     centerList: Record<
@@ -306,12 +295,10 @@ export type StoreState = {
     name: MemberKeyValues;
     style: string;
   };
-  localStorageData: LocalStorageData;
+  localStorageData: LocalStorageData[];
   supportSkill: Record<string, Record<string, number>>;
-  defaultCardList: any[];
   windowSize: {
     w: number;
     h: number;
   };
-  musicLevel: Record<string, number>;
 };

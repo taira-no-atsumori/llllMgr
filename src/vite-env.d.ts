@@ -3,10 +3,6 @@
 /**
  * .envおよび.env.publicから読み込む環境変数の型定義
  * @property VITE_NOTION_TOKEN - Notionの統合トークン
- * @property VITE_DROPBOX_TOKEN - Dropboxのアクセストークン
- * @property VITE_DROPBOX_APP_KEY - Dropboxアプリのキー
- * @property VITE_DROPBOX_APP_SECRET - Dropboxアプリのシークレットトークン
- * @property VITE_DROPBOX_OATH2_REFRESH_TOKEN - DropboxのOAuth2リフレッシュトークン
  * @property VITE_FIREBASE_API_KEY - FirebaseのAPIキー
  * @property VITE_FIREBASE_AUTH_DOMAIN - ドメイン
  * @property VITE_FIREBASE_DATABASE_URL - データベースのURL
@@ -22,10 +18,6 @@
 interface ImportMetaEnv {
   // .envから読み込む変数
   readonly VITE_NOTION_TOKEN: string;
-  readonly VITE_DROPBOX_TOKEN: string;
-  readonly VITE_DROPBOX_APP_KEY: string;
-  readonly VITE_DROPBOX_APP_SECRET: string;
-  readonly VITE_DROPBOX_OATH2_REFRESH_TOKEN: string;
   readonly VITE_FIREBASE_API_KEY: string;
   readonly VITE_FIREBASE_AUTH_DOMAIN: string;
   readonly VITE_FIREBASE_DATABASE_URL: string;

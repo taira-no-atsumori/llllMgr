@@ -63,7 +63,7 @@
         class="mb-5"
       >
         <v-select
-          v-model="store.localStorageData.selectItemList[`item${i + 1}`]"
+          v-model="store.selectItemList[`item${i + 1}`]"
           :items="filterItemList[`item${i + 1}`]"
           attach
           chips
@@ -101,7 +101,7 @@
                 <v-checkbox-btn
                   color="pink"
                   :model-value="
-                    store.localStorageData.selectItemList[`item${i + 1}`].some(
+                    store.selectItemList[`item${i + 1}`].some(
                       (elm) => elm === item.title
                     )
                   "
@@ -232,12 +232,12 @@ const filterItems = () => {
 
   for (let i = 1; i <= 3; i++) {
     if (
-      store.localStorageData.selectItemList[`item${i}`].length > 0 &&
-      store.localStorageData.selectItemList[`item${i}`].length <
+      store.selectItemList[`item${i}`].length > 0 &&
+      store.selectItemList[`item${i}`].length <
         filterItemList.value[`item${i}`].length
     ) {
       const regex = new RegExp(
-        store.localStorageData.selectItemList[`item${i}`]
+        store.selectItemList[`item${i}`]
           .join('|')
           .replace(/\(/g, '\\(')
           .replace(/\)/g, '\\)')
@@ -249,9 +249,9 @@ const filterItems = () => {
   }
 
   store.setLocalStorage('llllMgr_selectItemList', {
-    item1: store.localStorageData.selectItemList.item1,
-    item2: store.localStorageData.selectItemList.item2,
-    item3: store.localStorageData.selectItemList.item3,
+    item1: store.selectItemList.item1,
+    item2: store.selectItemList.item2,
+    item3: store.selectItemList.item3,
   });
 
   return result;
@@ -275,17 +275,12 @@ const searchColor = (target: string): string => {
 };
 
 const selectItem = (selector: string, i: number) => {
-  if (
-    store.localStorageData.selectItemList[`item${i}`].some(
-      (x) => x === selector
-    )
-  ) {
-    store.localStorageData.selectItemList[`item${i}`] =
-      store.localStorageData.selectItemList[`item${i}`].filter(
-        (item) => item !== selector
-      );
+  if (store.selectItemList[`item${i}`].some((x) => x === selector)) {
+    store.selectItemList[`item${i}`] = store.selectItemList[`item${i}`].filter(
+      (item) => item !== selector
+    );
   } else {
-    store.localStorageData.selectItemList[`item${i}`].push(selector);
+    store.selectItemList[`item${i}`].push(selector);
   }
 };
 

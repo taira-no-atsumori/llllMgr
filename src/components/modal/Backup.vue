@@ -277,10 +277,40 @@ onMounted(() => {
 });
 
 const makeBackup = () => {
+  const cardList = JSON.parse(JSON.stringify(store.card));
+
+  for (const memberName in cardList) {
+    for (const rare in cardList[memberName]) {
+      for (const cardId in cardList[memberName][rare]) {
+        cardList[memberName][rare][cardId] = {
+          fluctuationStatus:
+            cardList[memberName][rare][cardId].fluctuationStatus,
+          favorite: cardList[memberName][rare][cardId].favorite,
+        };
+      }
+    }
+  }
+
   const date = new Date();
-  const blob = new Blob([JSON.stringify(store.localStorageData)], {
-    type: 'text/json',
-  });
+  const blob = new Blob(
+    [
+      JSON.stringify({
+        musicData: {
+          musicLevel: store.musicLevel,
+        },
+        cardList: {
+          card: cardList,
+          cardListFilter: store.search,
+        },
+        selectItemList: store.selectItemList,
+        siteSettings: store.siteSettings,
+        sortSettings: store.sortSettings,
+      }),
+    ],
+    {
+      type: 'text/json',
+    }
+  );
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
   link.download = `llllMgr_backup_${date.getFullYear().toString()}${(

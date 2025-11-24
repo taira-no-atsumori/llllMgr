@@ -1,7 +1,7 @@
 <template>
-  <v-app :theme="store.localStorageData.siteSettings.all.darkMode">
+  <v-app :theme="store.siteSettings.all.darkMode">
     <v-app-bar
-      :scroll-behavior="store.localStorageData.siteSettings.all.headerTracking"
+      :scroll-behavior="store.siteSettings.all.headerTracking"
       density="comfortable"
       color="pink"
     >

@@ -485,7 +485,7 @@
         </v-btn>
 
         <v-btn-toggle
-          v-model="store.localStorageData.sortSettings.musicList.order"
+          v-model="store.sortSettings.musicList.order"
           density="compact"
           variant="outlined"
           color="pink"
@@ -528,9 +528,7 @@
       >
     </p>
     <p class="align-self-center d-block d-md-inline-block">
-      現在のソート：{{
-        sortTypeLabel(store.localStorageData.sortSettings.musicList.sortType)
-      }}
+      現在のソート：{{ sortTypeLabel(store.sortSettings.musicList.sortType) }}
     </p>
 
     <v-divider class="my-2"></v-divider>
@@ -542,13 +540,13 @@
       <li v-for="(ary, songTitle) in makeMusicList()" v-else :key="ary">
         <v-card
           v-if="
-            store.localStorageData.siteSettings.musicList.hover === 'false' ||
+            store.siteSettings.musicList.hover === 'false' ||
             windowSize.w <= 600
           "
           :color="attributeColor[ary.attribute]"
           @click="
+            store.selectMusicTitle = songTitle;
             store.showModalEvent('setLeaningLevel');
-            store.selectMusic(songTitle);
           "
         >
           <v-img
@@ -606,8 +604,8 @@
               :color="attributeColor[ary.attribute]"
               v-bind="props"
               @click="
+                store.selectMusicTitle = songTitle;
                 store.showModalEvent('setLeaningLevel');
-                store.selectMusic(songTitle);
               "
             >
               <v-img
@@ -692,6 +690,7 @@ import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
+import type { MusicItem } from '@/types/music';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
@@ -728,15 +727,11 @@ const sortTypeList = {
   maxCombo: 'コンボ数',
 };
 
-const makeMusicList = computed(() => (): Record<string, any> => {
+const makeMusicList = computed(() => (): MusicItem[] => {
   if (
     !isSchoolShow.value &&
-    (store.localStorageData.sortSettings.musicList?.sortType?.includes(
-      'difficultyLevel'
-    ) ||
-      store.localStorageData.sortSettings.musicList?.sortType?.includes(
-        'maxCombo'
-      ))
+    (store.sortSettings.musicList?.sortType?.includes('difficultyLevel') ||
+      store.sortSettings.musicList?.sortType?.includes('maxCombo'))
   ) {
     sortingProcess('sortType', 'default');
   }
@@ -767,15 +762,13 @@ const makeMusicList = computed(() => (): Record<string, any> => {
   });
 
   result.sort((a, b) => {
-    const sortType =
-      store.localStorageData.sortSettings.musicList?.sortType?.split('_')[0];
+    const sortType = store.sortSettings.musicList?.sortType?.split('_')[0];
     const difficulty =
-      store.localStorageData.sortSettings.musicList?.sortType?.split('_')[1] ??
-      '';
+      store.sortSettings.musicList?.sortType?.split('_')[1] ?? '';
 
     if (isSchoolShow.value && /difficultyLevel|maxCombo/.test(sortType)) {
       return sorting(
-        store.localStorageData.sortSettings.musicList.order === 'ascending',
+        store.sortSettings.musicList.order === 'ascending',
         a.scoreData[sortType][difficulty],
         b.scoreData[sortType][difficulty]
       );
@@ -783,26 +776,26 @@ const makeMusicList = computed(() => (): Record<string, any> => {
       switch (sortType) {
         case 'level':
           return sorting(
-            store.localStorageData.sortSettings.musicList.order === 'ascending',
+            store.sortSettings.musicList.order === 'ascending',
             store.musicLevel[a.title],
             store.musicLevel[b.title]
           );
         case 'BHcount':
           return sorting(
-            store.localStorageData.sortSettings.musicList.order === 'ascending',
-            a[store.localStorageData.sortSettings.musicList.sortType],
-            b[store.localStorageData.sortSettings.musicList.sortType]
+            store.sortSettings.musicList.order === 'ascending',
+            a[store.sortSettings.musicList.sortType],
+            b[store.sortSettings.musicList.sortType]
           );
         case 'kana':
         case 'time':
           return sorting(
-            store.localStorageData.sortSettings.musicList.order === 'ascending',
-            a.musicData[store.localStorageData.sortSettings.musicList.sortType],
-            b.musicData[store.localStorageData.sortSettings.musicList.sortType]
+            store.sortSettings.musicList.order === 'ascending',
+            a.musicData[store.sortSettings.musicList.sortType],
+            b.musicData[store.sortSettings.musicList.sortType]
           );
         case 'releaseDate':
           return sorting(
-            store.localStorageData.sortSettings.musicList.order === 'ascending',
+            store.sortSettings.musicList.order === 'ascending',
             new Date(
               a.musicData.releaseDate.year,
               a.musicData.releaseDate.month - 1,
@@ -816,8 +809,7 @@ const makeMusicList = computed(() => (): Record<string, any> => {
           );
         default:
           return sorting(
-            store.localStorageData.sortSettings.musicList?.order ===
-              'ascending',
+            store.sortSettings.musicList?.order === 'ascending',
             a.ID,
             b.ID
           );
@@ -832,7 +824,11 @@ const makeMusicList = computed(() => (): Record<string, any> => {
     return acc;
   }, {});
 
-  function sorting(isAscending: boolean, aa: any, bb: any): number {
+  function sorting(
+    isAscending: boolean,
+    aa: string | number | Date,
+    bb: string | number | Date
+  ): number {
     if (isAscending) {
       return aa < bb ? -1 : aa > bb ? 1 : 0;
     } else {
@@ -842,11 +838,11 @@ const makeMusicList = computed(() => (): Record<string, any> => {
 });
 
 function sortingProcess(type: 'sortType' | 'order', val: string): void {
-  if (store.localStorageData.sortSettings.musicList[type] !== val) {
+  if (store.sortSettings.musicList[type] !== val) {
     store.loading = true;
 
     if (type === 'sortType') {
-      store.localStorageData.sortSettings.musicList[type] = val;
+      store.sortSettings.musicList[type] = val;
     }
 
     store.changeSettings('sortSettings');

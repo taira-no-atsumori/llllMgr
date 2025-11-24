@@ -1,9 +1,5 @@
 <template>
-  <v-dialog
-    v-model="store.loading"
-    :max-width="400"
-    persistent
-  >
+  <v-dialog v-model="store.loading" :max-width="400" persistent>
     <v-sheet class="pa-3">
       <p class="mb-3">Now Loading…</p>
       <v-progress-linear
@@ -19,7 +15,7 @@
         <div class="mt-2 text-center">
           <v-btn
             prepend-icon="mdi-close"
-            :theme="store.localStorageData.siteSettings.all.darkMode"
+            :theme="store.siteSettings.all.darkMode"
             @click="store.loading = false"
           >
             CLOSE

@@ -812,7 +812,7 @@
               </thead>
               <tbody>
                 <tr
-                  v-for="skillLevel in store.defaultSearch.cardList.SALevel[1]"
+                  v-for="skillLevel in DEFAULT_SEARCH.cardList.SALevel[1]"
                   :key="skillLevel"
                 >
                   <th class="text-center px-1">{{ skillLevel }}</th>
@@ -925,6 +925,7 @@ import { useStateStore } from '@/stores/stateStore';
 import { MEMBER_NAMES, makeMemberFullName } from '@/constants/memberNames';
 import { getReleasePoint } from '@/constants/releasePoint';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
+import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
 import skillArea from '@/components/SkillAreaComponent.vue';
 
 const store = useStateStore();
@@ -936,9 +937,7 @@ const dynamicWidth = computed(() => {
 });
 
 const releasePoint_underlineColor = computed(() => {
-  return store.localStorageData.siteSettings.all.darkMode === 'dark'
-    ? 'white'
-    : 'black';
+  return store.isDarkMode ? 'white' : 'black';
 });
 </script>
 

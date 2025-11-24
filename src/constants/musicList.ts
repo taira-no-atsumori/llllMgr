@@ -1362,6 +1362,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 18,
+        EXPERT: 24,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 233,
+        HARD: 424,
+        EXPERT: 730,
+        MASTER: 1081,
+      },
+    },
   },
   青とシャボン: {
     ID: 'm_069',
@@ -2555,6 +2569,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.RURINO,
     bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
     singingMembers: [MEMBER_KEYS.RURINO, MEMBER_KEYS.MEGUMI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 14,
+        HARD: 20,
+        EXPERT: 26,
+        MASTER: 30,
+      },
+      maxCombo: {
+        NORMAL: 296,
+        HARD: 532,
+        EXPERT: 1047,
+        MASTER: 1354,
+      },
+    },
   },
   'CHANGE!!!!': {
     ID: 'm_062',
@@ -5895,11 +5923,12 @@ export const MUSIC_LIST = {
       kana: 'おとめあんそろじー',
       singer: 'スリーズブーケ',
       releaseDate: {
-        year: 2099,
+        year: 2025,
         month: 12,
-        date: 31,
+        date: 10,
       },
-      numbering: '',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 3rdユニットスプリットシングル',
       BPM: {
         original: 140,
         inGame: 140,
@@ -6137,12 +6166,12 @@ export const MUSIC_LIST = {
       kana: 'がらんどふらっしゅ',
       singer: 'DOLLCHESTRA',
       releaseDate: {
-        year: 2099,
+        year: 2025,
         month: 12,
-        date: 31,
+        date: 10,
       },
       numbering:
-        '蓮ノ空女学院スクールアイドルクラブ 2ndユニットスプリットシングル',
+        '蓮ノ空女学院スクールアイドルクラブ 3rdユニットスプリットシングル',
       BPM: {
         original: 170,
         inGame: 170,
@@ -6380,11 +6409,12 @@ export const MUSIC_LIST = {
       kana: 'ばいたるさいん',
       singer: 'みらくらぱーく！',
       releaseDate: {
-        year: 2099,
+        year: 2025,
         month: 12,
-        date: 31,
+        date: 10,
       },
-      numbering: '',
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 3rdユニットスプリットシングル',
       BPM: {
         original: 204,
         inGame: 204,
@@ -6735,6 +6765,47 @@ export const MUSIC_LIST = {
       },
     },
   },
+  シアター生き様: {
+    ID: 'm_206',
+    musicData: {
+      kana: 'しあたーいきざま',
+      singer: 'Edel Note',
+      releaseDate: {
+        year: 2025,
+        month: 12,
+        date: 10,
+      },
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ 3rdユニットスプリットシングル',
+      BPM: {
+        original: 171,
+        inGame: 171,
+      },
+      time: 94,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.PURE.en,
+    BHcount: 60,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.IZUMI,
+    bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
+    singingMembers: [MEMBER_KEYS.SERAS, MEMBER_KEYS.IZUMI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 13,
+        HARD: 19,
+        EXPERT: 26,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 252,
+        HARD: 373,
+        EXPERT: 759,
+        MASTER: 932,
+      },
+    },
+  },
   '平成ギャルズ!!!!': {
     ID: 'm_204',
     musicData: {
@@ -6824,6 +6895,98 @@ export const MUSIC_LIST = {
         HARD: 443,
         EXPERT: 704,
         MASTER: 895,
+      },
+    },
+  },
+  'IcHiGo milK love': {
+    ID: 'm_207',
+    musicData: {
+      kana: 'いちごみくるらぶ',
+      singer: 'PRINCEε>ε>',
+      releaseDate: {
+        year: 2025,
+        month: 12,
+        date: 3,
+      },
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ シャッフルユニットスプリットシングル',
+      BPM: {
+        original: 140,
+        inGame: 140,
+      },
+      time: 119,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.PURE.en,
+    BHcount: 63,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.HIME,
+    bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.IZUMI,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 18,
+        EXPERT: 25,
+        MASTER: 30,
+      },
+      maxCombo: {
+        NORMAL: 236,
+        HARD: 507,
+        EXPERT: 856,
+        MASTER: 1150,
+      },
+    },
+  },
+  'Nεw Black': {
+    ID: 'm_208',
+    musicData: {
+      kana: 'にゅーぶらっく',
+      singer: 'PRINCEε>ε>',
+      releaseDate: {
+        year: 2025,
+        month: 12,
+        date: 3,
+      },
+      numbering:
+        '蓮ノ空女学院スクールアイドルクラブ シャッフルユニットスプリットシングル',
+      BPM: {
+        original: 132,
+        inGame: 132,
+      },
+      time: 93,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.COOL.en,
+    BHcount: 44,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.IZUMI,
+    bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.IZUMI,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 19,
+        EXPERT: 26,
+        MASTER: 30,
+      },
+      maxCombo: {
+        NORMAL: 156,
+        HARD: 394,
+        EXPERT: 635,
+        MASTER: 849,
       },
     },
   },
