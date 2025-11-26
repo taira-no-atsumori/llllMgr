@@ -3408,7 +3408,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.CARD_REDUCE, SKILL_DETAIL.AP_QUICK],
+        type: [SKILL_DETAIL.CARD_REDUCE_STAGE, SKILL_DETAIL.AP_QUICK],
       },
     },
   },
@@ -3555,7 +3555,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chowchow',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.CARD_REDUCE],
+        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.CARD_REDUCE_STAGE],
       },
     },
   },
@@ -7802,6 +7802,83 @@ export const SKILL_LIST = {
       },
     },
   },
+  ローエッジフォース: {
+    rawEdgeForce_01: {
+      text: [
+        'このセクション中、AP回復速度を+',
+        '%し、手札の上限枚数を3枚減少する。さらにAPを',
+        '回復する。',
+      ],
+      exText: [
+        {
+          level: 12,
+          text: [
+            'このセクション中、AP回復速度を+',
+            '%し、手札の上限枚数を3枚減少する。さらにAPを',
+            '回復し、デッキ内の全てのスキル消費AP-20。',
+          ],
+        },
+      ],
+      detail: {
+        attr: 'rawEdge',
+        type: [
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.CARD_REDUCE_SECTION,
+          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+        ],
+      },
+    },
+  },
+  ローエッジボルテージ: {
+    rawEdgesVoltage_01: {
+      text: [
+        'このセクション中、ボルテージPt.が1秒ごとに',
+        'ptずつ増加し、手札の上限枚数を3枚減少する。',
+      ],
+      exText: [
+        {
+          level: 12,
+          text: [
+            'このセクション中、ボルテージPt.が1秒ごとに',
+            'ptずつ増加し、手札の上限枚数を3枚減少する。さらにデッキ内の全てのスキルの消費AP-3。',
+          ],
+        },
+      ],
+      detail: {
+        attr: 'rawEdge',
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.CARD_REDUCE_SECTION,
+          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+        ],
+      },
+    },
+  },
+  ローエッジスピリッツ: {
+    rawEdgeSpirits_01: {
+      text: [
+        'このセクション中、メンタルが1秒ごとに最大値の',
+        '%回復し、手札の上限枚数を3枚減少する。',
+      ],
+      exText: [
+        {
+          level: 12,
+          text: [
+            'このセクション中、メンタルが1秒ごとに最大値の',
+            '%回復し、手札の上限枚数を3枚減少する。さらにデッキ内の全てのスキル消費AP-3。',
+          ],
+        },
+      ],
+      detail: {
+        attr: 'rawEdge',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.CARD_REDUCE_SECTION,
+          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+        ],
+      },
+    },
+  },
   マーメイドプライド: {
     mermaidPride_01: {
       text: [
@@ -7899,6 +7976,98 @@ export const SKILL_LIST = {
           SKILL_DETAIL.AP_QUICK,
           SKILL_DETAIL.VOLTAGE_GAIN,
           SKILL_DETAIL.MENTAL_REDUCE,
+        ],
+      },
+    },
+  },
+  スタボーンパッション: {
+    stubbornPassion_01: {
+      text: [
+        'APを',
+        '回復し、ボルテージPt.を-1020、メンタルを最大値の102%減少させる。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      exText: [
+        {
+          level: 11,
+          text: [
+            'APを',
+            '回復し、ボルテージPt.を-1020、メンタルを最大値の102%減少させる。さらにビートハート',
+            '回分のスキルハートを獲得し、それぞれ3回の間綴理、慈が使用するスキルハート獲得効果による獲得数を+102%する。',
+          ],
+        },
+      ],
+      detail: {
+        attr: 'stubborn',
+        type: [
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.VOLTAGE_REDUCE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
+      },
+    },
+  },
+  スタボーンピュリティ: {
+    stubbornPurity_01: {
+      text: [
+        'ボルテージPt.を+',
+        'し、APを10減少、メンタルを最大値の102%減少させる。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      exText: [
+        {
+          level: 11,
+          text: [
+            'ボルテージPt.を+',
+            'し、APを10減少、メンタルを最大値の102%減少させる。さらにビートハート',
+            '回分のスキルハートを獲得し、それぞれ3回の間梢、慈が使用するスキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+        },
+      ],
+      detail: {
+        attr: 'stubborn',
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+        ],
+      },
+    },
+  },
+  スタボーンチャーミング: {
+    stubbornCharming_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復、このステージ中、それぞれ最大値の',
+        '%のメンタル自然減少、メンタル直接ダメージを無効にし、APを10減少、ボルテージPt.を-1020する。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      exText: [
+        {
+          level: 11,
+          text: [
+            'メンタルを最大値の',
+            '%回復、このステージ中、それぞれ最大値の',
+            '%のメンタル自然減少、メンタル直接ダメージを無効にし、APを10減少、ボルテージPt.を-1020する。さらにビートハート',
+            '回分のスキルハートを獲得し、それぞれ3回の間梢、綴理が使用するスキルハート獲得効果による獲得数を+',
+            '%する。',
+          ],
+        },
+      ],
+      detail: {
+        attr: 'stubborn',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.AP_REDUCE,
+          SKILL_DETAIL.VOLTAGE_REDUCE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
         ],
       },
     },
@@ -9346,7 +9515,7 @@ export const SKILL_LIST = {
         type: [
           SKILL_DETAIL.MENTAL_RECOVER,
           SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.CARD_REDUCE,
+          SKILL_DETAIL.CARD_REDUCE_SECTION,
         ],
       },
     },

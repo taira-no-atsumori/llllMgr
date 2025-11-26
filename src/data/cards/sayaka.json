@@ -366,6 +366,7 @@
                 "draw",
                 "mentalRecover",
                 "protect_stage",
+                "heartCollect",
                 "heartCaptcha",
                 "boost_heartCaptcha",
                 "exclusion"

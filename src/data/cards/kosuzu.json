@@ -1004,7 +1004,7 @@
       "characteristic": {
         "name": "ドロー：ハートブースト & コレクト：ワイドハート",
         "detail": "ドローした時、次に使用するスキルハート獲得効果による獲得数を+50%する。さらに手札にある状態でハートを300個回収したとき、このセクション中、ハート上限を+60する。",
-        "type": ["draw", "boost_heartCaptcha", "heartLimitUp"]
+        "type": ["draw", "boost_heartCaptcha", "heartCollect", "heartLimitUp"]
       }
     },
     "sz_007": {
@@ -1204,7 +1204,7 @@
       "characteristic": {
         "name": "モーニングライズ",
         "detail": "フィーバーを除く1～2セクション目でドローされる確率が大幅に増加し、それ以外のセクションのときドローされない。さらにフィーバーを除く1～2セクション目でドローした時、APを3回復し、フィーバーを除く1～2セクション目で手札にある状態でハートを72個獲得したとき、ビートハート33回分のスキルハートを獲得する。",
-        "type": ["draw", "APGain", "heartCaptcha"]
+        "type": ["draw", "APGain", "heartCollect", "heartCaptcha"]
       }
     },
     "sz_014": {

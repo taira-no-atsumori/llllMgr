@@ -553,7 +553,13 @@
       "characteristic": {
         "name": "デイタイムホット",
         "detail": "フィーバーを除く2～3セクション目でドローされる確率が大幅に増加し、それ以上のセクションのときドローされない。さらにフィーバーを除く2～3セクション目でドローした時、ビートハート5回分のスキルを獲得、このセクション中、AP回復速度を+22%し、フィーバーを除く2～3セクション目で手札にある状態でハートを550個獲得したとき、ビートハート72回分のスキルを獲得、次に使用するボルテージゲイン効果を+55%する。",
-        "type": ["draw", "heartCaptcha", "APQuick", "boost_voltageGain"]
+        "type": [
+          "draw",
+          "heartCollect",
+          "heartCaptcha",
+          "APQuick",
+          "boost_voltageGain"
+        ]
       }
     },
     "hm_025": {
@@ -1717,7 +1723,7 @@
       "characteristic": {
         "name": "ドロー & コレクト：ワイドハート",
         "detail": "ドローしたセクションの間、ハートの上限を+30する。さらに手札にある状態でハートを100個回収したとき、このセクションの間、ハート上限を+30する。",
-        "type": ["draw", "heartLimitUp"]
+        "type": ["draw", "heartCollect", "heartLimitUp"]
       }
     }
   },
