@@ -98,9 +98,15 @@ export const SKILL_DETAIL = {
     COLOR_CODE: 'purple',
     DESCRIPTION: 'このステージ中、手札の上限枚数が増加する(最大8枚)。',
   },
-  CARD_REDUCE: {
-    name_ja: '手札減少',
-    name_en: 'cardReduce',
+  CARD_REDUCE_SECTION: {
+    name_ja: '手札減少(セクション)',
+    name_en: 'cardReduce_section',
+    COLOR_CODE: 'purple',
+    DESCRIPTION: 'このセクション中、手札の上限枚数が減少する。',
+  },
+  CARD_REDUCE_STAGE: {
+    name_ja: '手札減少(ステージ)',
+    name_en: 'cardReduce_stage',
     COLOR_CODE: 'purple',
     DESCRIPTION: 'このステージ中、手札の上限枚数が減少する。',
   },
@@ -108,7 +114,8 @@ export const SKILL_DETAIL = {
     name_ja: 'ブースト(ハートキャプチャ)',
     name_en: 'boost_heartCaptcha',
     COLOR_CODE: 'red',
-    DESCRIPTION: '一定の回数使用するスキルハート獲得効果による獲得数を増加させる。',
+    DESCRIPTION:
+      '一定の回数使用するスキルハート獲得効果による獲得数を増加させる。',
   },
   BOOST_LOVE_ATTRACT: {
     name_ja: 'ブースト(ラブアトラクト)',
@@ -192,13 +199,15 @@ export const SKILL_DETAIL = {
     name_ja: 'APレデュース(ハート系)',
     name_en: 'APReduce_heart',
     COLOR_CODE: 'purple',
-    DESCRIPTION: '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
+    DESCRIPTION:
+      '手札のメイン効果にスキルハート獲得効果を持つスキルの消費APを減少させる。',
   },
   AP_REDUCE_VOLTAGE_GAIN: {
     name_ja: 'APレデュース(ボルテージ系)',
     name_en: 'APReduce_voltageGain',
     COLOR_CODE: 'purple',
-    DESCRIPTION: '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。',
+    DESCRIPTION:
+      '手札のメイン効果にボルテージ増加効果を持つスキルの消費APを減少させる。',
   },
   AP_REDUCE_DECK_CERISE_BOUQUET: {
     name_ja: 'APレデュース(スリーズブーケ)',
@@ -318,7 +327,8 @@ export const SKILL_DETAIL = {
     name_ja: 'ドライブイグニッション',
     name_en: 'driveIgnition',
     COLOR_CODE: '',
-    DESCRIPTION: 'イグニッションモードになった回数に応じて、様々な効果が発動する。',
+    DESCRIPTION:
+      'イグニッションモードになった回数に応じて、様々な効果が発動する。',
   },
   VIBES_SECTION: {
     name_ja: 'バイブス(セクション)',
@@ -355,7 +365,8 @@ export const SKILL_DETAIL = {
     name_ja: 'サウンド',
     name_en: 'sound',
     COLOR_CODE: 'red',
-    DESCRIPTION: 'ムードが一定値以上もしくは一定値以下になると、特定の効果を発動する。',
+    DESCRIPTION:
+      'ムードが一定値以上もしくは一定値以下になると、特定の効果を発動する。',
   },
   DREW: {
     name_ja: 'ドロー',
