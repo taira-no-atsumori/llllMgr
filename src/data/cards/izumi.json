@@ -110,7 +110,68 @@
       }
     }
   },
-  "BR": {},
+  "BR": {
+    "iz_014": {
+      "cardName": "17th Birthday",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "Birthday",
+      "kana": "せぶんてぃーんすばーすでー",
+      "gacha": {
+        "addSeason": "2025 BIRTHDAY LIMITED COLLECTION -Izumi-",
+        "period": "birthday"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4800,
+        "cool": 4800,
+        "mental": 480,
+        "BP": 100,
+        "supportSkill": {
+          "supportSkillTitle": "17th Birthday",
+          "supportSkillList": {
+            "ボルテージアップ": {
+              "initLevel": 1,
+              "levelUp": 2,
+              "upLevel": 1
+            },
+            "メンタルリカバー": {
+              "initLevel": 1,
+              "levelUp": 5,
+              "upLevel": 1
+            },
+            "ビートハートアップ": {
+              "initLevel": 1,
+              "levelUp": 3,
+              "upLevel": 1
+            },
+            "LOVEボーナス": {
+              "initLevel": 1,
+              "levelUp": 4,
+              "upLevel": 1
+            }
+          }
+        }
+      },
+      "specialAppeal": {
+        "ID": "allRoundBoost_01",
+        "name": "オールラウンドブースト",
+        "AP": 6,
+        "detail": [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]]
+      },
+      "skill": {
+        "ID": "bloomMySelf_06",
+        "name": "ブルームマイセルフ",
+        "AP": 2,
+        "detail": [[40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]]
+      },
+      "characteristic": {
+        "name": "バースデイキャンドル",
+        "detail": "スキル使用時、17回までAPを2回復する。",
+        "type": ["APGain"]
+      }
+    }
+  },
   "UR": {
     "iz_013": {
       "cardName": "シアター生き様",
