@@ -153,6 +153,12 @@ export const SKILL_DETAIL = {
     COLOR_CODE: 'lime-darken-4',
     DESCRIPTION: '一定の回数使用するムード変動効果を増加させる。',
   },
+  BOOST_ALL: {
+    name_ja: 'ブースト(All)',
+    name_en: 'boost_all',
+    COLOR_CODE: 'purple',
+    DESCRIPTION: '一定の回数使用するあらゆるスキル効果量を増幅する。',
+  },
   BOOST_ALL_SECTION: {
     name_ja: 'ブースト(セクション)',
     name_en: 'boost_all_section',

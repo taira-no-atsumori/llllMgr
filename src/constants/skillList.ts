@@ -4761,14 +4761,35 @@ export const SKILL_LIST = {
       text: ['Poupée en Lotus/Ginkoを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.CHANGE_DECK, SKILL_DETAIL.ADD_CARD],
+        type: [SKILL_DETAIL.ADD_CARD],
       },
     },
     alterEgo_02: {
       text: ['Poupée en Lotus/Himeを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.CHANGE_DECK, SKILL_DETAIL.ADD_CARD],
+        type: [SKILL_DETAIL.ADD_CARD],
+      },
+    },
+    alterEgo_03: {
+      text: ['Poupée en Lotus/Kahoを1種類(合計1枚)山札に追加する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.ADD_CARD],
+      },
+    },
+    alterEgo_04: {
+      text: ['Poupée en Lotus/Rurinoを1種類(合計1枚)山札に追加する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.ADD_CARD],
+      },
+    },
+    alterEgo_05: {
+      text: ['Poupée en Lotus/Kosuzuを1種類(合計1枚)山札に追加する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.ADD_CARD],
       },
     },
   },
@@ -7694,6 +7715,20 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.BOOST_WIDE_HEART, SKILL_DETAIL.AP_REDUCE],
       },
     },
+    bloomMySelf_06: {
+      text: [
+        'カードがステージにセットされ、ムード値変動効果を吸収する。ムード値変動効果を50吸収したとき、次に泉が使用するあらゆるスキル効果量を+',
+        '%増幅し、捨札に移動する。さらに山札にある泉のスキルの消費AP-2。',
+      ],
+      detail: {
+        attr: 'bloomMySelf',
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.BOOST_ALL,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
+      },
+    },
   },
   ミッドワイドビリーフ: {
     midWideBelief_01: {
@@ -9633,6 +9668,75 @@ export const SKILL_LIST = {
           SKILL_DETAIL.AMBIENCE_STAGE,
           SKILL_DETAIL.SOUND,
           SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  オールラウンドブースト: {
+    allRoundBoost_01: {
+      text: [
+        'このセクション中、泉が使用するあらゆるスキル効果量を',
+        '%増幅する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_ALL_SECTION],
+      },
+    },
+  },
+  ドールズガードハート: {
+    dollsGuardHeart_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にする。さらにメンタルが100%以上のとき、手札をシャッフルし、このセクション中、手札の上限枚数を1枚増加、メンタルが200%以上のとき、このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にし、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: 'dolls',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  ドールズガードワイド: {
+    dollsGuardWide_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にする。さらにメンタルが100%以上のとき、手札をシャッフルし、このセクション中、手札の上限枚数を1枚増加、メンタルが200%以上のとき、このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にし、ハート上限を+',
+        'する。',
+      ],
+      detail: {
+        attr: 'dolls',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
+      },
+    },
+  },
+  ドールズガードアトラクト: {
+    dollsGuardAttract_01: {
+      text: [
+        'このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にする。さらにメンタルが100%以上のとき、手札をシャッフルし、このセクション中、手札の上限枚数を1枚増加、メンタルが200%以上のとき、このステージ中、メンタルの最大値の',
+        '%分のメンタル直接ダメージを無効にし、このセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
+      detail: {
+        attr: 'dolls',
+        type: [
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
         ],
       },
     },

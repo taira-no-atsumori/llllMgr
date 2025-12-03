@@ -258,6 +258,79 @@
     }
   },
   "UR": {
+    "kh_067": {
+      "cardName": "Poupée en Lotus",
+      "styleType": "cheerLeader",
+      "mood": "melow",
+      "series": "Poupée en Lotus",
+      "kana": "ぽぴーえんるーたす",
+      "gacha": {
+        "addSeason": "2025 AUTUMN LIMITED COLLECTION vol.9",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 5150,
+        "pure": 5900,
+        "cool": 3300,
+        "mental": 485,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "alterEgo_03",
+        "name": "アルターエゴ",
+        "AP": 7,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "dollsGuardHeart_01",
+            "name": "ドールズガードハート",
+            "AP": 5,
+            "detail": [
+              [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 10.5, 11, 11.5, 12.5],
+              [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+              [52, 57, 62, 68, 73, 78, 83, 88, 94, 104, 109, 114, 120, 130]
+            ],
+            "characteristic": {
+              "name": "ミミクリー",
+              "detail": "ドローした時、現在の残りメンタルが多いほど、APを回復し、スキルハートを獲得する。",
+              "type": ["draw", "APGain", "heartCaptcha"]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "ID": "dollsGuardHeart_01",
+        "name": "ドールズガードハート",
+        "AP": 5,
+        "detail": [
+          [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 10.5, 11, 11.5, 12.5],
+          [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+          [52, 57, 62, 68, 73, 78, 83, 88, 94, 104, 109, 114, 120, 130]
+        ]
+      },
+      "characteristic": {
+        "name": "アルターエゴ",
+        "detail": "スキル使用時1度だけ、Poupée en Lotus/Kahoを1種類(合計1枚)山札に追加する。さらにドローした時、現在の残りメンタルが多いほど、APを回復し、スキルハートを獲得する。",
+        "type": ["addCard", "draw", "APGain", "heartCaptcha"],
+        "addSkill": [
+          {
+            "ID": "dollsGuardHeart_01",
+            "name": "ドールズガードハート",
+            "AP": 5,
+            "detail": [
+              [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 10.5, 11, 11.5, 12.5],
+              [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+              [52, 57, 62, 68, 73, 78, 83, 88, 94, 104, 109, 114, 120, 130]
+            ],
+            "characteristic": {
+              "name": "ミミクリー",
+              "detail": "ドローした時、現在の残りメンタルが多いほど、APを回復し、スキルハートを獲得する。",
+              "type": ["draw", "APGain", "heartCaptcha"]
+            }
+          }
+        ]
+      }
+    },
     "kh_066": {
       "cardName": "乙女詞華集",
       "styleType": "trickStar",

@@ -247,6 +247,85 @@
     }
   },
   "UR": {
+    "sz_031": {
+      "cardName": "Poupée en Lotus",
+      "styleType": "cheerLeader",
+      "mood": "melow",
+      "series": "Poupée en Lotus",
+      "kana": "ぽぴーえんるーたす",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 4thTerm 第1回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 5300,
+        "pure": 5800,
+        "cool": 3250,
+        "mental": 485,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "alterEgo_05",
+        "name": "アルターエゴ",
+        "AP": 7,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "dollsGuardAttract_01",
+            "name": "ドールズガードアトラクト",
+            "AP": 5,
+            "detail": [
+              [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 10.5, 11, 11.5, 12.5],
+              [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+              [
+                120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276,
+                300
+              ]
+            ],
+            "characteristic": {
+              "name": "ミミクリー",
+              "detail": "ドローした時、現在の残りメンタルが多いほど、このセクション中、獲得するLOVEを増加し、スキルハートを獲得する。",
+              "type": ["draw", "loveAttract_section", "heartCaptcha"]
+            }
+          }
+        ]
+      },
+      "skill": {
+        "ID": "dollsGuardAttract_01",
+        "name": "ドールズガードアトラクト",
+        "AP": 5,
+        "detail": [
+          [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 10.5, 11, 11.5, 12.5],
+          [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+          [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]
+        ]
+      },
+      "characteristic": {
+        "name": "アルターエゴ",
+        "detail": "スキル使用時1度だけ、Poupée en Lotus/Kosuzuを1種類(合計1枚)山札に追加する。さらにドローした時、現在の残りメンタルが多いほど、このセクション中、獲得するLOVEを増加し、スキルハートを獲得する。",
+        "type": ["addCard", "draw", "loveAttract_section", "heartCaptcha"],
+        "addSkill": [
+          {
+            "ID": "dollsGuardAttract_01",
+            "name": "ドールズガードアトラクト",
+            "AP": 5,
+            "detail": [
+              [5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 10.5, 11, 11.5, 12.5],
+              [50, 55, 60, 65, 70, 75, 80, 85, 90, 100, 105, 110, 115, 125],
+              [
+                120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276,
+                300
+              ]
+            ],
+            "characteristic": {
+              "name": "ミミクリー",
+              "detail": "ドローした時、現在の残りメンタルが多いほど、このセクション中、獲得するLOVEを増加し、スキルハートを獲得する。",
+              "type": ["draw", "loveAttract_section", "heartCaptcha"]
+            }
+          }
+        ]
+      }
+    },
     "sz_030": {
       "cardName": "ガランドFlash",
       "styleType": "moodMaker",
