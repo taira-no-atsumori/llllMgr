@@ -3320,7 +3320,8 @@ export const SKILL_LIST = {
         'ボルテージPt.を+',
         'し、このセクション中、AP回復速度を+',
         '%する。さらにビートハート',
-        '回分のスキルハートを3回獲得する。',
+        '回分のスキルハートを3回獲得する。さらにメンタルが200%以上のとき、3回の間ボルテージゲイン効果を+',
+        '%する。',
       ],
       detail: {
         attr: 'vortex',
@@ -3328,6 +3329,7 @@ export const SKILL_LIST = {
           SKILL_DETAIL.VOLTAGE_GAIN,
           SKILL_DETAIL.AP_QUICK,
           SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
         ],
       },
     },
@@ -3670,11 +3672,15 @@ export const SKILL_LIST = {
         'ビートハート',
         '回分のスキルハートを獲得し、姫芽の《イグニッションモード》を解除する。メンタルが50%以下のとき、ビートハート',
         '回分のスキルハートを獲得、メンタルが25%以下のとき、ビートハート',
-        '回分のスキルハートをさらに追加で獲得する。',
+        '回分のスキルハートをさらに追加で獲得、メンタルが0%のとき、手札をリセットシャッフルする。',
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
       },
     },
   },
@@ -4183,12 +4189,17 @@ export const SKILL_LIST = {
   '《シュータードレス/RIO》': {
     shooterDressRio: {
       text: [
-        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにこのステージ中、AP回復速度を+',
-        '%する。',
+        '手札をシャッフルし、ステージ中、AP回復速度を+',
+        '%する。さらにメンタルが0%のとき、このステージ中、ハート上限を+',
+        'する。',
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
       },
     },
   },
@@ -9737,6 +9748,117 @@ export const SKILL_LIST = {
           SKILL_DETAIL.RESHUFFLE,
           SKILL_DETAIL.EXTENSIONS_SECTION,
           SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+        ],
+      },
+    },
+  },
+  ギルティアタック: {
+    guiltyAttack_01: {
+      text: [
+        'メンタルが200%以上のとき、このセクション中、あらゆるスキル効果量を',
+        '%増幅する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_ALL_SECTION],
+      },
+    },
+  },
+  'イミテーションO.N.G.E.K.I.': {
+    imitationONGEKI_01: {
+      text: [
+        'カードがステージにセットされ、ラブアトラクト効果を吸収する。ラブアトラクト効果を777%吸収したとき、ボルテージPt.を+',
+        '、このセクション中、ムード値を+',
+        '、ビートハートの出現個数を+2し、捨札に移動する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.VIBES_SECTION,
+        ],
+      },
+    },
+  },
+  'Go for it!': {
+    goForIt_01: {
+      text: [
+        'このセクション中、ムード値をハッピー方向に+',
+        'し、AP回復速度を+',
+        '%する。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.MENTAL_RECOVER,
+        ],
+      },
+    },
+    goForIt_02: {
+      text: [
+        'このセクション中、ムード値をハッピー方向に+',
+        'し、AP回復速度を+',
+        '%する。さらにメンタルを最大値の',
+        '%回復させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.MENTAL_RECOVER,
+        ],
+      },
+    },
+  },
+  エンジェリックヒーロー: {
+    angelicHero_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復、このセクション中、ムード値をハッピー方向に+',
+        'する。さらにムードがハッピー100のとき、手札をシャッフル、メンタルが200%以上のとき、このステージ中、メンタルの最大値の',
+        '%のメンタル直接ダメージを無効にし、ビートハート',
+        '回分のスキルハートを獲得、5回の間ボルテージゲイン効果を+',
+        '%し、このセクション中、手札の上限枚数を2枚増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+        ],
+      },
+    },
+  },
+  エンジェリックエール: {
+    angelicAle_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復、このセクション中、ムード値をハッピー方向に+',
+        'する。さらにムードがハッピー100のとき、手札をシャッフル、メンタルが200%以上のとき、このステージ中、メンタルの最大値の',
+        '%のメンタル直接ダメージを無効、ハート上限を+',
+        '、5回の間ラブアトラクト効果を+',
+        '%し、このセクション中、AP回復速度を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.AP_QUICK,
         ],
       },
     },

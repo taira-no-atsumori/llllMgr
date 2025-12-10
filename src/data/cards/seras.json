@@ -189,6 +189,51 @@
     }
   },
   "UR": {
+    "sr_015": {
+      "cardName": "105/刹那&セラニャン",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "オンゲキコラボ",
+      "kana": "せつなせらにゃん",
+      "gacha": {
+        "addSeason": "O.N.G.E.K.I. LIMITED COLLECTION Re:Fresh",
+        "period": "collaboration"
+      },
+      "uniqueStatus": {
+        "smile": 4150,
+        "pure": 5750,
+        "cool": 4300,
+        "mental": 500,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "guiltyAttack_01",
+        "name": "ギルティアタック",
+        "AP": 4,
+        "detail": [
+          [
+            30.8, 33.9, 37, 40, 43.1, 46.2, 49.3, 52.4, 55.4, 61.6, 64.7, 67.8,
+            70.8, 77
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "imitationONGEKI_01",
+        "name": "イミテーションO.N.G.E.K.I.",
+        "AP": 6,
+        "detail": [
+          [
+            311, 342, 373, 404, 435, 467, 498, 529, 560, 622, 653, 684, 715, 777
+          ],
+          [31, 34, 37, 40, 43, 47, 50, 53, 56, 62, 65, 68, 71, 77]
+        ]
+      },
+      "characteristic": {
+        "name": "ドロー：刹那&セラニャン",
+        "detail": "ドローした時、このセクション中、AP回復速度を+7%し、ムード値を+7する。",
+        "type": ["APQuick", "ambience_section"]
+      }
+    },
     "sr_014": {
       "cardName": "シアター生き様",
       "styleType": "moodMaker",
