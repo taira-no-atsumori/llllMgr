@@ -51,7 +51,9 @@
                   {{ event.text }}
                   <span class="d-inline-block">
                     <b class="text-red">
-                      開催<span v-if="event.type === 'live'">日</span
+                      <span v-if="event.type === 'movie'">公開</span
+                      ><span v-else>開催</span
+                      ><span v-if="event.type === 'live'">日</span
                       ><span v-else>中</span>
                     </b>
                   </span>
@@ -196,52 +198,22 @@ const router = useRouter();
 
 const eventList = {
   liveGP: {
-    title: 'ライブグランプリ「105期 4thTerm 第1回 サークル対抗戦」',
+    title: 'ライブグランプリ「105期 4thTerm 第1回 個人戦」',
     text: '',
     type: 'liveGP',
-    firstDay: [2025, 11, 21, 12, 0],
-    lastDay: [2025, 11, 27, 3, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-11-21-10-h7ibnyp48n',
-    img: '105期 4thTerm 第1回 サークル対抗戦_logo',
+    firstDay: [2025, 12, 11, 12, 0],
+    lastDay: [2025, 12, 17, 3, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-12-09-10-ioebhhhcz8',
+    img: '105期 4thTerm 第1回 個人戦_logo',
   },
   fesLive: {
-    title: 'Fes×LIVE「105期 3rdTerm Fes×LIVE」',
+    title: 'Fes×LIVE「105期 4thTerm Fes×LIVE」',
     text: '竜胆祭',
     type: 'live',
     firstDay: [2025, 10, 31, 20, 0],
     lastDay: [2025, 10, 31, 21, 0],
     url: 'https://x.com/hasunosora_SIC/status/1974776209927283070',
     img: '105期 3rdTerm Fes×LIVE_mv',
-  },
-  '5thLive_DOLLCHESTRA': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-    text: 'DOLLCHESTRA presents Diamond Stage',
-    type: 'live',
-    firstDay: [2025, 11, 8, 0, 0],
-    lastDay: [2025, 11, 9, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLiveTour_logo_DOLLCHESTRA',
-  },
-  '5thLive_edelNote': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-    text: 'Edel Note presents Spade Stage',
-    type: 'live',
-    firstDay: [2025, 11, 19, 0, 0],
-    lastDay: [2025, 11, 20, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLiveTour_logo_EdelNote',
-  },
-  '5thLive_ceriseBouquet': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 5th Live Tour ～4Pair Power Spread!!!!～」',
-    text: 'スリーズブーケ presents Clover Stage',
-    type: 'live',
-    firstDay: [2025, 12, 6, 0, 0],
-    lastDay: [2025, 12, 7, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=4PPS',
-    img: '5thLiveTour_logo_CeriseBouquet',
   },
   fesReCLive: {
     title: 'Fes×ReC:LIVE ～Road to Bloom～',
@@ -254,11 +226,52 @@ const eventList = {
   },
   movie: {
     title: '映画蓮ノ空 ～Bloom Garden Party～',
-    text: '2026年春公開予定',
-    type: 'other',
-    firstDay: [2026, 6, 30, 12, 0],
-    lastDay: [2026, 6, 30, 23, 59],
+    text: '',
+    type: 'movie',
+    firstDay: [2026, 5, 8, 0, 0],
+    lastDay: [2026, 6, 25, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/movie/',
     img: 'movie_01',
+  },
+  '6thLiveDream_Bloom': {
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
+    text: 'Bloom Stage',
+    type: 'live',
+    firstDay: [2026, 5, 2, 0, 0],
+    lastDay: [2026, 5, 3, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/',
+    img: '6thLiveDream_bloom_logo',
+  },
+  '6thLiveDream_Garden': {
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
+    text: 'Garden Stage',
+    type: 'live',
+    firstDay: [2026, 5, 23, 0, 0],
+    lastDay: [2026, 5, 24, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/',
+    img: '6thLiveDream_garden_logo',
+  },
+  '6thLiveDream_Party': {
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
+    text: 'Party Stage',
+    type: 'live',
+    firstDay: [2026, 5, 30, 0, 0],
+    lastDay: [2026, 5, 31, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/',
+    img: '6thLiveDream_party_logo',
+  },
+  '6thLiveDream_BloomGardenParty': {
+    title:
+      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
+    text: 'Bloom Garden Party Stage',
+    type: 'live',
+    firstDay: [2026, 7, 11, 0, 0],
+    lastDay: [2026, 7, 12, 23, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/',
+    img: '6thLiveDream_party_logo',
   },
 };
 
