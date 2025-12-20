@@ -198,13 +198,13 @@ const router = useRouter();
 
 const eventList = {
   liveGP: {
-    title: 'ライブグランプリ「105期 4thTerm 第1回 個人戦」',
+    title: 'ライブグランプリ「105期 4thTerm 第2回 サークル対抗戦」',
     text: '',
     type: 'liveGP',
-    firstDay: [2025, 12, 11, 12, 0],
-    lastDay: [2025, 12, 17, 3, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-12-09-10-ioebhhhcz8',
-    img: '105期 4thTerm 第1回 個人戦_logo',
+    firstDay: [2025, 12, 20, 12, 0],
+    lastDay: [2025, 12, 26, 3, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-12-18-20-d1ptdtrjks',
+    img: '105期 4thTerm 第2回 サークル対抗戦_logo',
   },
   fesLive: {
     title: 'Fes×LIVE「105期 4thTerm Fes×LIVE」',

@@ -915,9 +915,9 @@
         ]
       },
       "characteristic": {
-        "name": "ジャストドロー：1/ビリーフ & アグレッシブ",
-        "detail": "1セクション目までにドローした時、このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにメンタルを最大値の100%減少させる。",
-        "type": ["justDrew", "mentalDown_section", "mentalReduce"]
+        "name": "ジャストドロー：1/ビリーフ & アグレッシブ & APレデュース",
+        "detail": "1セクション目までにドローした時、このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにメンタルを最大値の100%減少させ、このスキルの消費AP-6。",
+        "type": ["justDrew", "mentalDown_section", "mentalReduce", "APReduce"]
       }
     },
     "sz_012": {
@@ -954,9 +954,9 @@
         ]
       },
       "characteristic": {
-        "name": "サーチ：姫芽 & ショット：APゲイン",
-        "detail": "スキル使用時、姫芽のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを9回復する。",
-        "type": ["search", "hime", "shot", "APGain"]
+        "name": "サーチ：姫芽 & ショット：APゲイン & レイトドロー：4/APサポート",
+        "detail": "スキル使用後、姫芽のカードをドローする確率大幅アップし、スキル使用時、3回までAPを9回復する。さらに4セクション目以降でドローしたとき、デッキ内の梢、花帆、吟子、綴理、さやか、小鈴、慈、瑠璃乃、姫芽のスキルの消費APを-3する。",
+        "type": ["search", "hime", "shot", "APGain", "lateDraw", "APReduce"]
       }
     },
     "sz_011": {
@@ -1227,6 +1227,95 @@
     }
   },
   "SR": {
+    "sz_032": {
+      "cardName": "diamondz",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "diamondz",
+      "kana": "だいあもんず",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.2",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4400,
+        "pure": 4650,
+        "cool": 3350,
+        "mental": 440,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "secondStage_01",
+        "name": "セカンドステージ",
+        "AP": 2,
+        "detail": [[3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, "7?", 8]]
+      },
+      "skill": {
+        "ID": "jackVoltageMellow_01",
+        "name": "ジャックボルテージメロウ",
+        "AP": 4,
+        "detail": [
+          [
+            4.3,
+            4.8,
+            5.2,
+            5.6,
+            6,
+            6.5,
+            6.9,
+            7.3,
+            7.7,
+            8.6,
+            "9?",
+            "9.5?",
+            "9.9?",
+            10.8
+          ],
+          [8, 9, 10, 11, 12, 12, 13, 14, 15, 16, "17?", "18?", "18?", 20]
+        ]
+      },
+      "characteristic": {
+        "name": "Diamond Pair Power Spread",
+        "detail": "スキル使用時1回まで、ペアカード[diamondz]村野 さやかを1種類(合計1枚)山札に追加する。さらに手札にある状態でハートを4000個獲得したとき、ビートハート40回分のスキルハートを獲得し、ボルテージPt.を+400する。",
+        "type": ["addCard", "heartCollect", "heartCaptcha", "voltageGain"],
+        "addSkill": [
+          {
+            "ID": "jackVoltageMellow_01",
+            "name": "ジャックボルテージメロウ",
+            "AP": 4,
+            "detail": [
+              [
+                4.3,
+                4.8,
+                5.2,
+                5.6,
+                6,
+                6.5,
+                6.9,
+                7.3,
+                7.7,
+                8.6,
+                "9?",
+                "9.5?",
+                "9.9?",
+                10.8
+              ],
+              [8, 9, 10, 11, 12, 12, 13, 14, 15, 16, "17?", "18?", "18?", 20],
+              [
+                128, 141, 154, 166, 179, 192, 205, 218, 230, 256, 269, 282, 294,
+                320
+              ],
+              [32, 35, 38, 42, 45, 48, 51, 54, 58, 64, 67, 70, 74, 80]
+            ],
+            "characteristic": {
+              "name": "Diamond Pair Power Spread",
+              "detail": "手札にある状態でハートを4000個回収したとき、ビートハート40回分のスキルハートを獲得し、4回の間ボルテージゲイン効果を+40%する。",
+              "type": ["heartCollect", "heartCaptcha", "boost_voltageGain"]
+            }
+          }
+        ]
+      }
+    },
     "sz_027": {
       "cardName": "ブルウモーメント",
       "styleType": "moodMaker",

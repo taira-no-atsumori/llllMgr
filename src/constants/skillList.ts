@@ -146,7 +146,7 @@ export const SKILL_LIST = {
       text: [
         '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにメンタルを最大値の',
         '%回復させ、このステージ中、メンタルの最大値の',
-        '%分のメンタルダメージを無効にする。',
+        '%分のメンタル自然減少を無効にする。',
       ],
       detail: {
         attr: 'refresh',
@@ -154,6 +154,23 @@ export const SKILL_LIST = {
           SKILL_DETAIL.RESHUFFLE,
           SKILL_DETAIL.MENTAL_RECOVER,
           SKILL_DETAIL.PROTECT_STAGE,
+        ],
+      },
+    },
+    refreshMind_03: {
+      text: [
+        '手札をシャッフルする。さらにメンタルを最大値の',
+        '%回復、このステージ中、メンタルの最大値の',
+        '%分のメンタル自然減少を無効にし、メンタルが200%以上のとき、3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
+      detail: {
+        attr: 'refresh',
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
         ],
       },
     },
@@ -529,6 +546,18 @@ export const SKILL_LIST = {
         type: [SKILL_DETAIL.HEART_CAPTCHA],
       },
     },
+    cheerfulHeart_05: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。さらにメンタルが100%以上のとき、ビートハート',
+        '回分のスキルハートを獲得し、メンタルが200%以上のとき、ビートハート',
+        '回分のスキルハートを追加で獲得する。',
+      ],
+      detail: {
+        attr: 'cheerful',
+        type: [SKILL_DETAIL.HEART_CAPTCHA],
+      },
+    },
   },
   チアフルアトラクト: {
     cheerfulAttract_over100_sectionAttract: {
@@ -573,6 +602,29 @@ export const SKILL_LIST = {
       detail: {
         attr: 'cheerful',
         type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+      },
+    },
+    cheerfulAttract_05: {
+      text: [
+        'このセクション中、獲得するLOVEを+',
+        '%する。さらにメンタルが100%以上のとき、このセクション中、獲得するLOVEを+',
+        '%し、メンタルが200%以上のとき、このセクション中、獲得するLOVEを+',
+        '%する。',
+      ],
+      detail: {
+        attr: 'cheerful',
+        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+      },
+    },
+    cheerfulAttract_06: {
+      text: [
+        'このステージ中、獲得するLOVEを+',
+        '%する。さらにメンタルが75%以上のとき、APを1回復し、メンタルが200%以上の時、APを',
+        '回復する。',
+      ],
+      detail: {
+        attr: 'cheerful',
+        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
       },
     },
   },
@@ -701,15 +753,20 @@ export const SKILL_LIST = {
     },
   },
   チアフルリカバープロテクト: {
-    cheerfulRecover_upper100_stageProtect: {
+    cheerfulRecoverProtect_upper100_stageProtect: {
       text: [
         'メンタルを最大値の',
         '%回復させる。さらにメンタルが100%以上のとき、このステージ中、メンタルの最大値の',
-        '%分のメンタルダメージを無効にする。',
+        '%分のメンタルダメージを無効にし、メンタルが200%以上のとき、3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_STAGE],
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.PROTECT_STAGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
       },
     },
   },
@@ -891,6 +948,7 @@ export const SKILL_LIST = {
       text: [
         '次に使用するスキルハート獲得効果による獲得数を+',
         '%する。さらにメンタルが100%以上のとき、3回の間スキルハート獲得効果による獲得数を+',
+        '%し、メンタルが200%以上のとき、6回の間スキルハート獲得効果による獲得数を+',
         '%する。',
       ],
       detail: {
@@ -4841,6 +4899,32 @@ export const SKILL_LIST = {
       },
     },
   },
+  'ドレス《My Lucky Clover》': {
+    dress_myLuckyClover_01: {
+      text: [
+        'ドレスカード《My Lucky Clover》を1種類(合計1枚)山札に追加し、このセクション中、ムード値をハッピー方向に+',
+        'する。さらにムードがハッピー100のとき、手札をリセットシャッフルする。この時ペアカード[My Lucky Clover]日野下花帆、ドレスカードをドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: 'dress',
+        type: [
+          SKILL_DETAIL.ADD_CARD,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+  },
+  '《My Lucky Clover》': {
+    myLuckyClover_01: {
+      text: ['このステージ中、ハート上限を+', 'する。さらにAPを4回復する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
   Ritter: {
     ritter: {
       text: [
@@ -5513,7 +5597,9 @@ export const SKILL_LIST = {
     ignitionRefresh_hime_mentalRecover_over100: {
       text: [
         '手札を全て捨てて、デッキから手札上限までスキルを引き、メンタルを最大値の',
-        '%回復させる。さらにメンタルが100%以上のとき姫芽が《イグニッションモード》になる。',
+        '%回復させる。さらにメンタルが100%以上のとき姫芽が《イグニッションモード》になり、メンタルが100%以上、またはボルテージLv.が10以上のときそれぞれ次に姫芽が使用するスキルハート獲得効果による獲得数を+',
+        '%、ラブアトラクト効果を+',
+        '%する。',
       ],
       detail: {
         attr: '',
@@ -5521,6 +5607,8 @@ export const SKILL_LIST = {
           SKILL_DETAIL.RESHUFFLE,
           SKILL_DETAIL.MENTAL_RECOVER,
           SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
         ],
       },
     },
@@ -5530,7 +5618,9 @@ export const SKILL_LIST = {
       text: [
         'メンタルが50%以下のときメンタルを最大値の',
         '%回復させる。ボルテージLv.が7以下のときボルテージPt.を+',
-        'する。メンタルが100%以上、またはボルテージLv.が10以上の時姫芽が《イグニッションモード》になる。',
+        'する。メンタルが100%以上、またはボルテージLv.が10以上の時姫芽が《イグニッションモード》になり、それぞれ次に姫芽が使用するスキルハート獲得効果による獲得数を+',
+        '%、ラブアトラクト効果を+',
+        '%する。',
       ],
       detail: {
         attr: '',
@@ -5538,6 +5628,8 @@ export const SKILL_LIST = {
           SKILL_DETAIL.MENTAL_RECOVER,
           SKILL_DETAIL.VOLTAGE_GAIN,
           SKILL_DETAIL.MODE_CHANGE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
         ],
       },
     },
@@ -5774,12 +5866,16 @@ export const SKILL_LIST = {
   },
   バブル: {
     bubble_minus3_ceriseBouquet_dressCard: {
-      text: ['デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。'],
+      text: [
+        'デッキにあるスリーズブーケ、ドレスカードのスキルの消費AP-3。さらにデッキ枚数が30枚以上の時、3回の間ドレスカードの使用によるラブアトラクト効果を+',
+        '%する。',
+      ],
       detail: {
         attr: 'bubble',
         type: [
           SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET,
           SKILL_DETAIL.AP_REDUCE_DECK_DRESS_CARD,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
         ],
       },
     },
@@ -5960,7 +6056,8 @@ export const SKILL_LIST = {
       text: [
         '3回の間みらくらぱーく！のメンバーが使用するラブアトラクト効果を+',
         '%する。さらにメンタルが100%のとき、手札を全て捨てて、デッキから手札上限までスキルを引き、ビートハート',
-        '個分のスキルハートを獲得、メンタルを最大値の3%減少させる。',
+        '個分のスキルハートを獲得、メンタルを最大値の3%減少させ、メンタルが200%以上のとき、3回の間みらくらぱーく！のメンバーが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
       ],
       detail: {
         attr: 'upDraft',
@@ -5969,6 +6066,7 @@ export const SKILL_LIST = {
           SKILL_DETAIL.RESHUFFLE,
           SKILL_DETAIL.HEART_CAPTCHA,
           SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
         ],
       },
     },
@@ -9860,6 +9958,167 @@ export const SKILL_LIST = {
           SKILL_DETAIL.BOOST_HEART_CAPTCHA,
           SKILL_DETAIL.AP_QUICK,
         ],
+      },
+    },
+  },
+  'ミッション#iz': {
+    missionIZ_01: {
+      text: [
+        'このセクション中、手札の上限枚数を2枚増加し、ムード値をメロウ方向に+',
+        'する。さらに手札をリセットシャッフルする。この時泉のカードをドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: 'mission',
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+  },
+  'ミッション#Ce': {
+    missionCE_01: {
+      text: [
+        'このセクション中、手札の上限枚数を2枚増加し、AP回復速度を+',
+        '%する。さらに手札をリセットシャッフルする。この時セラスのカードをドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: 'mission',
+        type: [
+          SKILL_DETAIL.EXTENSIONS_SECTION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+  },
+  スウィートトラップ: {
+    sweetTrap_01: {
+      text: [
+        'このステージ中、ムード値をメロウ方向に+',
+        'し、このセクション中、手札の上限枚数を2枚減少する。さらにムードがメロウ100のとき、このステージ中、ビートハートの出現個数を+1し、手札をリセットシャッフルする。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_STAGE,
+          SKILL_DETAIL.CARD_REDUCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.VIBES_STAGE,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+  },
+  イミテーションレディ: {
+    imitationLady_01: {
+      text: [
+        'カードがステージにセットされ、メンタルリカバー効果を吸収する。メンタルリカバー効果を8312%吸収したとき、ボルテージPt.を+',
+        'し、捨札に移動する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
+  },
+  イミテーションスパイ: {
+    imitationSpy_01: {
+      text: [
+        'カードがステージにセットされ、獲得するハートを吸収する。獲得するハートを831個吸収したとき、このステージ中、AP回復速度を+',
+        '%、ハート上限を+',
+        '、手札をリセットシャッフルし、捨札に移動する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+  },
+  セカンドステージ: {
+    secondStage_01: {
+      text: [
+        '2セクション目で使用したとき、APを',
+        '回復し、このセクション中、手札の上限枚数を2枚増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+      },
+    },
+  },
+  フォースステージ: {
+    forthStage_01: {
+      text: [
+        '4セクション目で使用したとき、APを',
+        '回復し、このセクション中、手札の上限枚数を2枚増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+      },
+    },
+  },
+  キングワイドハッピー: {
+    kingWideHappy_01: {
+      text: [
+        'このステージ中、ハート上限を+',
+        'し、このセクション中、ムード値をハッピー方向に+',
+        'する。さらにムードがハッピー100のとき、このステージ中、ハート上限を+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  ジャックボルテージメロウ: {
+    jackVoltageMellow_01: {
+      text: [
+        '4回の間ボルテージゲイン効果を+',
+        '%し、このセクション中、ムード値をメロウ方向に+',
+        'する。さらにムードがメロウ100のとき、手札をリセットシャッフルする。この時ペアカード［diamondz］村野さやかをドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+      jackVoltageMellow_02: {
+        text: [
+          '4回の間ボルテージゲイン効果を+',
+          '%し、このセクション中、ムード値をメロウ方向に+',
+          'する。さらにムードがメロウ100のとき、ボルテージPt.を+',
+          'し、ビートハート',
+          '回分のスキルハートを獲得する。',
+        ],
+        detail: {
+          attr: '',
+          type: [
+            SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+            SKILL_DETAIL.AMBIENCE_SECTION,
+            SKILL_DETAIL.SOUND,
+            SKILL_DETAIL.VOLTAGE_GAIN,
+            SKILL_DETAIL.HEART_CAPTCHA,
+          ],
+        },
       },
     },
   },

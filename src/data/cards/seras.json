@@ -189,6 +189,61 @@
     }
   },
   "UR": {
+    "sr_016": {
+      "cardName": "令嬢モブ！",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "令嬢モブ！",
+      "kana": "れいじょうもぶ",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.2",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4700,
+        "pure": 3300,
+        "cool": 6500,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "missionIZ_01",
+        "name": "ミッション#iz",
+        "AP": 9,
+        "detail": [
+          [58, 63, 69, 75, 81, 86, 92, 98, 103, 115, 121, 127, 133, 143]
+        ]
+      },
+      "skill": {
+        "ID": "sweetTrap_01",
+        "name": "スウィートトラップ",
+        "AP": 7,
+        "detail": [[14, 15, 16, 18, 19, 20, 22, 23, 24, 27, 29, 30, 32, 33]]
+      },
+      "characteristic": {
+        "name": "アブダクション",
+        "detail": "泉のスキル使用後以外ドローされず、ドローしたとき、デッキ内のEdel Noteのスキルの消費APを-5する。さらにこのスキルを使用したとき、イミテーションレディカードを1種類(合計1枚)山札に追加する。",
+        "type": ["draw", "APReduce", "addCard"],
+        "addSkill": [
+          {
+            "ID": "imitationLady_01",
+            "name": "イミテーションレディ",
+            "AP": 3,
+            "detail": [
+              [
+                13329, 14662, 15995, 17328, 18661, 19994, 21326, 22659, 23992,
+                26658, 27991, 29324, 30657, 33322
+              ]
+            ],
+            "characteristic": {
+              "name": "エロープ",
+              "detail": "このスキルを発動すると、このステージ中、手札の上限枚数を1枚増加し、デッキから除外される。",
+              "type": ["extensions_stage", "exclusion"]
+            }
+          }
+        ]
+      }
+    },
     "sr_015": {
       "cardName": "105/刹那&セラニャン",
       "styleType": "trickStar",

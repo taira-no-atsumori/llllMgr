@@ -173,6 +173,55 @@
     }
   },
   "UR": {
+    "iz_015": {
+      "cardName": "令嬢モブ！",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "令嬢モブ！",
+      "kana": "れいじょうもぶ",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.2",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4600,
+        "pure": 3300,
+        "cool": 6600,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "missionCE_01",
+        "name": "ミッション#Ce",
+        "AP": 9,
+        "detail": [
+          [
+            15.6, 17.2, 18.8, 20.3, 21.9, 23.4, 25, 26.6, 28.1, 31.2, 32.8,
+            34.4, 35.9, 39
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "imitationSpy_01",
+        "name": "イミテーションスパイ",
+        "AP": 7,
+        "detail": [
+          [
+            6.8, 7.5, 8.2, 8.9, 9.6, 10.2, 10.9, 11.6, 12.3, 13.6, 14.3, 15,
+            15.7, 17
+          ],
+          [
+            575, 633, 690, 748, 805, 863, 920, 978, 1035, 1150, 1208, 1265,
+            1323, 1437
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ランナウェイ",
+        "detail": "ムードがメロウ100でドローしたとき、APを2回復する。さらに7回このスキルを発動すると、このステージ中、ビートハートの出現個数を+7し、デッキから除外される。",
+        "type": ["draw", "APGain", "vibes_stage", "exclusion"]
+      }
+    },
     "iz_013": {
       "cardName": "シアター生き様",
       "styleType": "performer",

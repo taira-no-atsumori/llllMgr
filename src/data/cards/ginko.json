@@ -1792,9 +1792,9 @@
               ]
             ],
             "characteristic": {
-              "name": "インスタンス",
-              "detail": "このスキルを使用すると、デッキから除外される。",
-              "type": ["exclusion"]
+              "name": "インスタンス & コレクト：APサポート：スリーズブーケ",
+              "detail": "このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを333個回収したとき、デッキ内のスリーズブーケのスキルの消費APを-1する。",
+              "type": ["exclusion", "heartCollect", "APReduce"]
             }
           },
           {
@@ -1812,9 +1812,9 @@
               ]
             ],
             "characteristic": {
-              "name": "インスタンス",
-              "detail": "このスキルを使用すると、デッキから除外される。",
-              "type": ["exclusion"]
+              "name": "インスタンス & コレクト：APサポート：スリーズブーケ",
+              "detail": "このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを333個回収したとき、デッキ内のスリーズブーケのスキルの消費APを-1する。",
+              "type": ["exclusion", "heartCollect", "APReduce"]
             }
           },
           {
@@ -1832,9 +1832,9 @@
               ]
             ],
             "characteristic": {
-              "name": "インスタンス",
-              "detail": "このスキルを使用すると、デッキから除外される。",
-              "type": ["exclusion"]
+              "name": "インスタンス & コレクト：APサポート：スリーズブーケ",
+              "detail": "このスキルを使用すると、デッキから除外される。さらに手札にある状態でハートを333個回収したとき、デッキ内のスリーズブーケのスキルの消費APを-1する。",
+              "type": ["exclusion", "heartCollect", "APReduce"]
             }
           }
         ]
@@ -1894,9 +1894,9 @@
         ]
       },
       "characteristic": {
-        "name": "サーチ：小鈴 & ショット：APゲイン",
-        "detail": "スキル使用時、小鈴のカードをドローする確率大幅アップ。さらにスキル使用時、3回までAPを9回復する。",
-        "type": ["search", "kosuzu", "shot", "APGain"]
+        "name": "サーチ：小鈴 & ショット：APゲイン & レイトドロー：4/APサポート",
+        "detail": "スキル使用後、小鈴のカードをドローする確率大幅アップし、スキル使用時、3回までAPを9回復する。さらに4セクション目以降でドローしたとき、デッキ内の梢、花帆、吟子、綴理、さやか、小鈴、慈、瑠璃乃、姫芽のスキルの消費APを-3する。",
+        "type": ["search", "kosuzu", "shot", "APGain", "lateDraw", "APReduce"]
       }
     },
     "gn_011": {
@@ -1945,9 +1945,14 @@
               ]
             ],
             "characteristic": {
-              "name": "インスタンス",
-              "detail": "このスキルを使用すると、デッキから除外される。",
-              "type": ["exclusion"]
+              "name": "インスタンス & ドロー：アバンダンス/ハートブースト& アトラクトブースト：ドレス",
+              "detail": "このスキルを使用すると、デッキから除外される。さらにデッキ枚数が30枚以上の時にドローすると、それぞれ次のドレスカードの使用によるスキルハート獲得効果による獲得数を+300%、ラブアトラクト効果を+100%する。",
+              "type": [
+                "exclusion",
+                "draw",
+                "boost_heartCaptcha",
+                "boost_loveAttract"
+              ]
             }
           }
         ]
@@ -2366,6 +2371,75 @@
     }
   },
   "SR": {
+    "gn_033": {
+      "cardName": "My Lucky Clover",
+      "styleType": "trickStar",
+      "mood": "happy",
+      "series": "My Lucky Clover",
+      "kana": "まいらっきーくろーばー",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 4thTerm 第1回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4150,
+        "pure": 4700,
+        "cool": 3500,
+        "mental": 440,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "forthStage_01",
+        "name": "フォースステージ",
+        "AP": 2,
+        "detail": [[3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, "7?", 8]]
+      },
+      "skill": {
+        "ID": "dress_myLuckyClover_01",
+        "name": "ドレス《My Lucky Clover》",
+        "AP": 4,
+        "detail": [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]],
+        "addSkill": [
+          {
+            "ID": "myLuckyClover_01",
+            "name": "《My Lucky Clover》",
+            "AP": 4,
+            "detail": [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]],
+            "characteristic": {
+              "name": "ハートコレクト：ワイドブースト",
+              "detail": "手札にある状態でハートを4000個回収したとき、4回の間ハート上限増加効果を40%する。さらにこのスキルを使用すると、デッキから除外される。",
+              "type": ["heartCollect", "boost_wideHeart", "exclusion"]
+            }
+          }
+        ]
+      },
+      "characteristic": {
+        "name": "Clover Pair Power Spread",
+        "detail": "スキル使用時1回まで、ペアカード[My Lucky Clover]日野下花帆を1種類(合計1枚)山札に追加する。さらに手札にある状態でハートを4000個回収したとき、ビートハート40回分のスキルハートを獲得し、4回の間ハート上限増加効果を+40%する。",
+        "type": ["addCard", "heartCollect", "heartCaptcha", "boost_wideHeart"],
+        "addSkill": [
+          {
+            "ID": "kingWideHappy_01",
+            "name": "キングワイドハッピー",
+            "AP": 4,
+            "detail": [
+              [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              [
+                80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184,
+                200
+              ],
+              [32, 35, 38, 42, 45, 48, 51, 54, 58, 64, 67, 70, 74, 80]
+            ],
+            "characteristic": {
+              "name": "Clover Pair Power Spread",
+              "detail": "手札にある状態でハートを4000個回収したとき、ビートハート40回分のスキルハートを獲得し、このステージ中、ハート上限を+400する。",
+              "type": ["heartCollect", "heartCaptcha", "heartLimitUp"]
+            }
+          }
+        ]
+      }
+    },
     "gn_032": {
       "cardName": "Poupée en Lotus",
       "styleType": "trickStar",
