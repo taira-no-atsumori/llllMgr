@@ -1040,7 +1040,11 @@ export default {
      * @param option オプション
      * @returns void
      */
-    openDialog(openDialogName: string, dialogSize: number, option?: any): void {
+    openDialog(
+      openDialogName: string,
+      dialogSize: number,
+      option?: { targetSkill?: string; skillID?: string } | null
+    ): void {
       this.targetSkill = option === null ? null : option.targetSkill;
       this.openDialogName = openDialogName;
       this.dialogSize = dialogSize;

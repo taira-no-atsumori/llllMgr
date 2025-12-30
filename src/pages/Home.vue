@@ -275,7 +275,22 @@ const eventList = {
   },
 };
 
-const outputEventList = reactive<Record<string, any>>({});
+interface EventItem {
+  title: string;
+  text: string;
+  type: string;
+  firstDay: number[];
+  lastDay: number[];
+  url: string;
+  img: string;
+  state?: string;
+  count?: {
+    day?: number;
+    time?: number;
+  };
+}
+
+const outputEventList = reactive<Record<string, EventItem>>({});
 
 function pageMove(movePageName: string): void {
   router.replace(movePageName);

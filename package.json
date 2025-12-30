@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
-    "pre-commit": "npx tsx pre-push.ts",
+    "pre-commit": "npx tsx tests/unit/pre-push.test.ts",
     "postinstall": "lefthook install"
   },
   "dependencies": {

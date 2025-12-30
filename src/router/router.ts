@@ -6,7 +6,6 @@ import MusicList from '@/pages/MusicList.vue';
 import ItemList from '@/pages/ItemList.vue';
 // import WithStarMgr from '@/pages/WithStarMgr.vue'
 import License from '@/pages/License.vue';
-import AddData from '@/pages/AddData.vue';
 
 const pathname = import.meta.env.VITE_PATHNAME;
 
@@ -69,15 +68,20 @@ const router = createRouter({
         title: 'LICENSE',
       },
     },
-    {
-      path: `/${pathname}/addData`,
-      name: 'AddData',
-      component: AddData,
-      meta: {
-        title: 'ADD DATA',
-      },
-    },
   ],
 });
+
+// AddData.vue が存在する場合のみルートを追加（CI環境などでのビルドエラー回避）
+const addDataModules = import.meta.glob('@/pages/AddData.vue');
+for (const path in addDataModules) {
+  router.addRoute({
+    path: `/${pathname}/addData`,
+    name: 'AddData',
+    component: addDataModules[path],
+    meta: {
+      title: 'ADD DATA',
+    },
+  });
+}
 
 export default router;
