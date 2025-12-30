@@ -258,6 +258,70 @@
     }
   },
   "UR": {
+    "kh_068": {
+      "cardName": "雪舞う空と二秒の永遠",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "雪舞う空と二秒の永遠",
+      "kana": "ゆきまうそらとにびょうのえいえん",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.3",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4000,
+        "pure": 5000,
+        "cool": 6900,
+        "mental": 530,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "snowmeltBloomLink_01",
+        "name": "Snowmelt Bloom Link",
+        "AP": 10,
+        "detail": [
+          [
+            200, 220, 240, 260, 280, 300, 320, 340, 360, 400, 420, 440, 460, 500
+          ],
+          [
+            12, 13.2, 14.4, 15.6, 16.8, 18, 19.2, 20.4, 21.6, 24, 25.2, 26.4,
+            27.6, 30
+          ],
+          [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]
+        ]
+      },
+      "skill": {
+        "ID": "tsunagarutikara_01",
+        "name": "ツナガルチカラ",
+        "AP": 0,
+        "detail": [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]]
+      },
+      "characteristic": {
+        "name": "フォーレンスノー",
+        "detail": "除外枚数が50枚未満でスキルを使用したとき、スノーフレークカードを1種類(合計5枚)山札に追加し、このステージ中、AP回復速度を-3%する。さらに除外枚数が50枚以上で手札にある状態でハートを300000個回収したとき、ビートハート1050回分のスキルハートを使用し、APを5回復する。",
+        "type": [
+          "addCard",
+          "draw",
+          "APSlow",
+          "heartCollect",
+          "heartCaptcha",
+          "APGain"
+        ],
+        "addSkill": [
+          {
+            "ID": "snowflake_01",
+            "name": "スノーフレーク",
+            "AP": 0,
+            "detail": [],
+            "characteristic": {
+              "name": "スノーメルト",
+              "detail": "ドローしたとき、デッキ内のスノーフレークカードのスキルの消費APを-6する。さらにこのスキルを使用すると、このステージ中、AP回復速度を+1%し、デッキから除外される。",
+              "type": ["draw", "APReduce", "APQuick", "exclusion"]
+            }
+          }
+        ]
+      }
+    },
     "kh_067": {
       "cardName": "Poupée en Lotus",
       "styleType": "cheerLeader",

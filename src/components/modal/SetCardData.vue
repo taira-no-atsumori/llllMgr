@@ -142,9 +142,9 @@
           </v-col>
           <v-col cols="12" sm="2">
             <v-row no-gutters>
-              <v-col cols="12" class="pb-1 font-weight-bold"> 入手期間 </v-col>
+              <v-col cols="12" class="pb-1 font-weight-bold">入手期間</v-col>
               <v-col cols="12">{{
-                LIMITED[store.settingCardData.gacha.period].cardLabel
+                LIMITED[store.settingCardData.gacha.period].jp
               }}</v-col>
             </v-row>
           </v-col>

@@ -6,6 +6,7 @@ import MusicList from '@/pages/MusicList.vue';
 import ItemList from '@/pages/ItemList.vue';
 // import WithStarMgr from '@/pages/WithStarMgr.vue'
 import License from '@/pages/License.vue';
+import AddData from '@/pages/AddData.vue';
 
 const pathname = import.meta.env.VITE_PATHNAME;
 
@@ -66,6 +67,14 @@ const router = createRouter({
       component: License,
       meta: {
         title: 'LICENSE',
+      },
+    },
+    {
+      path: `/${pathname}/addData`,
+      name: 'AddData',
+      component: AddData,
+      meta: {
+        title: 'ADD DATA',
       },
     },
   ],

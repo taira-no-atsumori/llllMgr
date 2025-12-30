@@ -76,6 +76,10 @@
               <li>Vitest</li>
               <li>4.0.0</li>
             </ul>
+            <ul class="dot_list">
+              <li>Playwright</li>
+              <li>1.57.0</li>
+            </ul>
           </li>
         </ul>
       </v-col>

@@ -122,6 +122,7 @@
             v-else
             :key="cardData"
             class="card position-relative"
+            :data-card-id="cardData.ID"
           >
             <p
               v-if="

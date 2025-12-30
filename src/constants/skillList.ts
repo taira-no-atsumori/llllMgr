@@ -10122,5 +10122,94 @@ export const SKILL_LIST = {
       },
     },
   },
+  'Snowmelt Bloom Link': {
+    snowmeltBloomLink_01: {
+      text: [
+        'このステージ中、吟子/花帆/小鈴/さやか/姫芽/瑠璃乃/セラス/泉のスキルを全員使用するたび、ボルテージPt.を',
+        '、このステージ中、AP回復速度を+',
+        '%、メンタル最大値の',
+        '%分のメンタル直接ダメージを無効にする消費APの合計に応じてボルテージ効果の効果量が変化する。各メンバーのスキルを重複した際、消費APの記録を上書きする。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.AP_QUICK,
+          SKILL_DETAIL.PROTECT_STAGE,
+        ],
+      },
+    },
+  },
+  ツナガルチカラ: {
+    tsunagarutikara_01: {
+      text: [
+        '手札の全てのスキルを使用する。さらにAPを',
+        '回復する。このスキル使用に必要なAPは、他の手札の全てのスキルのAPの合計から除外枚数を引いた値になる。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.SKILL_USE_HANDS_CARD, SKILL_DETAIL.AP_GAIN],
+      },
+    },
+  },
+  スノーフレーク: {
+    snowflake_01: {
+      text: [
+        '手札の全てのスキルを使用する。このスキル使用に必要なAPは、他の手札の全てのスキルのAPの合計値になる。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.SKILL_USE_HANDS_CARD],
+      },
+    },
+  },
+  スターリンボルテージ: {
+    stalinVoltage_01: {
+      text: [
+        'このセクション中、ボルテージPt.が1秒ごとに',
+        'ptずつ増加する。除外枚数10枚ごとに、最大100枚20倍まで効果量が増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
+  },
+  スターリンリカバー: {
+    stalinRecover_01: {
+      text: [
+        'このセクション中、メンタルが1秒ごとに最大値の',
+        '%回復する。除外枚数10枚ごとに、最大100枚20倍まで効果量が増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.MENTAL_RECOVER],
+      },
+    },
+  },
+  スノーギャザーブースト: {
+    snowGatherBoost_01: {
+      text: [
+        '5回の間ボルテージゲイン効果を+',
+        '%する。除外枚数10枚ごとに、最大100枚200倍まで効果量が増加する。さらに除外枚数が20枚以上のとき、手札をリセットシャッフルする。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.RESHUFFLE],
+      },
+    },
+  },
+  スノーギャザーリカバー: {
+    snowGatherRecover_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。除外枚数10枚ごと、最大100枚200倍まで効果量が増加する。さらに除外枚数が20枚以上のとき、このセクション中、手札の上限枚数を5枚増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.EXTENSIONS_SECTION],
+      },
+    },
+  },
 } as const;
 export type skillList = keyof typeof SKILL_LIST;

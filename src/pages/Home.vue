@@ -206,15 +206,6 @@ const eventList = {
     url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-12-18-20-d1ptdtrjks',
     img: '105期 4thTerm 第2回 サークル対抗戦_logo',
   },
-  fesLive: {
-    title: 'Fes×LIVE「105期 4thTerm Fes×LIVE」',
-    text: '竜胆祭',
-    type: 'live',
-    firstDay: [2025, 10, 31, 20, 0],
-    lastDay: [2025, 10, 31, 21, 0],
-    url: 'https://x.com/hasunosora_SIC/status/1974776209927283070',
-    img: '105期 3rdTerm Fes×LIVE_mv',
-  },
   fesReCLive: {
     title: 'Fes×ReC:LIVE ～Road to Bloom～',
     text: '',
@@ -223,6 +214,15 @@ const eventList = {
     lastDay: [2026, 1, 22, 23, 59],
     url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=RTB',
     img: 'Fes×REC_RtB',
+  },
+  fesLive: {
+    title: 'Fes×LIVE「105期 FinalTerm Fes×LIVE」',
+    text: 'Bloom Garden Party',
+    type: 'live',
+    firstDay: [2026, 3, 30, 20, 0],
+    lastDay: [2026, 3, 30, 21, 0],
+    url: 'https://x.com/hasunosora_SIC/status/2005270008532775019?s=20',
+    img: '105期 FinalTerm Fes×LIVE_mv',
   },
   movie: {
     title: '映画蓮ノ空 ～Bloom Garden Party～',

@@ -324,6 +324,69 @@
     }
   },
   "UR": {
+    "rr_059": {
+      "cardName": "雪舞う空と二秒の永遠",
+      "styleType": "cheerLeader",
+      "mood": "melow",
+      "series": "雪舞う空と二秒の永遠",
+      "kana": "ゆきまうそらとにびょうのえいえん",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 4thTerm 第2回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 3950,
+        "pure": 5000,
+        "cool": 6950,
+        "mental": 530,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "stalinRecover_01",
+        "name": "スターリンリカバー",
+        "AP": 10,
+        "detail": [
+          [
+            21, 23.1, 25.2, 27.3, 29.4, 31.5, 33.6, 35.7, 37.8, 42, 44.1, 46.2,
+            48.3, 52.5
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "snowGatherRecover_01",
+        "name": "スノーギャザーリカバー",
+        "AP": 5,
+        "detail": [
+          [2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 4, 4.2, 4.4, 4.6, 5]
+        ]
+      },
+      "characteristic": {
+        "name": "フォーレンスノー",
+        "detail": "除外枚数が40枚未満でスキルを使用したとき、スノーフレークカードを1種類(合計3枚)山札に追加し、このステージ中、AP回復速度を-2%し、除外枚数が40枚以上で手札にある状態でハートを200000個回収したとき、ビートハート300回分のスキルハートを使用し、このステージ中、メンタルの最大値の105%分のメンタル自然減少を無効にする。さらにドローしたとき、デッキ内の花帆のスキルの消費APを-8する。",
+        "type": [
+          "addCard",
+          "APSlow",
+          "heartCollect",
+          "heartCaptcha",
+          "protect_stage",
+          "draw",
+          "APReduce"
+        ],
+        "addSkill": [
+          {
+            "ID": "snowflake_01",
+            "name": "スノーフレーク",
+            "AP": 0,
+            "detail": [],
+            "characteristic": {
+              "name": "スノーメルト",
+              "detail": "ドローしたとき、デッキ内のスノーフレークカードのスキルの消費APを-6する。さらにこのスキルを使用すると、このステージ中、AP回復速度を+1%し、デッキから除外される。",
+              "type": ["draw", "APReduce", "APQuick", "exclusion"]
+            }
+          }
+        ]
+      }
+    },
     "rr_058": {
       "cardName": "Hip, hip, hooray!",
       "styleType": "cheerLeader",

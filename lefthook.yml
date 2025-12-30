@@ -1,7 +1,7 @@
 # pre-commit:
 #   commands:
 #     test:
-#       run: npm run test -- --run
+#       run: npx vitest -- --run
 
 # pre-push:
 #   commands:
@@ -22,9 +22,11 @@ pre-commit:
     # prettier:
     #   glob: "*.{js,ts,vue,css,scss,json,md}"
     #   run: npx prettier --write {staged_files}
+    run-pre-push-ts:
+      run: npm run pre-commit
 
     test:
-      run: npm run test -- --run
+      run: npx vitest -- --run
       skip_output: false
       # 警告のみの場合はコミットを許可
       fail_on_warnings: false

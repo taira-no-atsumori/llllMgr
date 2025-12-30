@@ -158,47 +158,71 @@ export type ReleaseStatus = (typeof RELEASE_STATUS)[number];
 /** カードの入手期間と表示ラベル */
 export const LIMITED = {
   spring: {
-    filterLabel: 'SPRING LIMITED',
-    cardLabel: '春限定',
+    en: 'SPRING LIMITED',
+    jp: '春限定',
   },
   summer: {
-    filterLabel: 'SUMMER LIMITED',
-    cardLabel: '夏限定',
+    en: 'SUMMER LIMITED',
+    jp: '夏限定',
   },
   autumn: {
-    filterLabel: 'AUTUMN LIMITED',
-    cardLabel: '秋限定',
+    en: 'AUTUMN LIMITED',
+    jp: '秋限定',
   },
   winter: {
-    filterLabel: 'WINTER LIMITED',
-    cardLabel: '冬限定',
+    en: 'WINTER LIMITED',
+    jp: '冬限定',
   },
   graduation: {
-    filterLabel: 'GRADUATION LIMITED',
-    cardLabel: '卒業限定',
+    en: 'GRADUATION LIMITED',
+    jp: '卒業限定',
   },
   party: {
-    filterLabel: 'PARTY! LIMITED',
-    cardLabel: '宴限定',
+    en: 'PARTY! LIMITED',
+    jp: '宴限定',
   },
   birthday: {
-    filterLabel: 'BIRTHDAY LIMITED',
-    cardLabel: '誕生日限定',
+    en: 'BIRTHDAY LIMITED',
+    jp: '誕生日限定',
   },
   collaboration: {
-    filterLabel: 'コラボ',
-    cardLabel: 'コラボ限定',
+    en: 'COLLABORATION',
+    jp: 'コラボ限定',
   },
   prize: {
-    filterLabel: 'GP PRIZE',
-    cardLabel: 'ライブGP報酬',
+    en: 'GP PRIZE',
+    jp: 'ライブGP報酬',
   },
   normal: {
-    filterLabel: '通常',
-    cardLabel: '通常',
+    en: 'NORMAL',
+    jp: '通常',
   },
 } as const;
 export type Limited = keyof typeof LIMITED;
+
+/** カードのスタイルタイプの英語表記の型 */
+export type LimitedEn = (typeof LIMITED)[keyof typeof LIMITED]['en'];
+
+/** カードのスタイルタイプの日本語表記の型 */
+export type LimitedJp = (typeof LIMITED)[keyof typeof LIMITED]['jp'];
+
+/**
+ * 英語のガチャラベル取得処理
+ *
+ * @returns 英語のガチャラベルのリスト
+ */
+export const getLimitedListEn = (): LimitedEn[] => {
+  return Object.values(LIMITED).map((limited) => limited.en);
+};
+
+/**
+ * 日本語のガチャラベル取得処理
+ *
+ * @returns 日本語のガチャラベルのリスト
+ */
+export const getLimitedListJp = (): LimitedJp[] => {
+  return Object.values(LIMITED).map((limited) => limited.jp);
+};
 
 /** レア度ごとの最大レベル */
 export const MAX_CARD_LEVEL = {
