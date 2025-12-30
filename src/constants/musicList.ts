@@ -340,6 +340,20 @@ export const MUSIC_LIST = {
       MEMBER_KEYS.RURINO,
       MEMBER_KEYS.MEGUMI,
     ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 19,
+        EXPERT: 26,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 320,
+        HARD: 534,
+        EXPERT: 1248,
+        MASTER: 1456,
+      },
+    },
   },
   明日の空の僕たちへ: {
     ID: 'm_057',
@@ -1417,6 +1431,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 17,
+        EXPERT: 22,
+        MASTER: 26,
+      },
+      maxCombo: {
+        NORMAL: 228,
+        HARD: 555,
+        EXPERT: 513,
+        MASTER: 779,
+      },
+    },
   },
   'ド！ド！ド！': {
     ID: 'm_039',
@@ -2631,6 +2659,20 @@ export const MUSIC_LIST = {
       MEMBER_KEYS.TSUZURI,
       MEMBER_KEYS.MEGUMI,
     ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 18,
+        EXPERT: 25,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 198,
+        HARD: 476,
+        EXPERT: 803,
+        MASTER: 1237,
+      },
+    },
   },
   祝福: {
     ID: 'm_067',
@@ -2658,6 +2700,20 @@ export const MUSIC_LIST = {
     center: MEMBER_KEYS.TSUZURI,
     bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
     singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.TSUZURI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 13,
+        HARD: 20,
+        EXPERT: 27,
+        MASTER: 30,
+      },
+      maxCombo: {
+        NORMAL: 260,
+        HARD: 455,
+        EXPERT: 813,
+        MASTER: 1290,
+      },
+    },
   },
   御旗のもとに: {
     ID: 'm_071',
@@ -5223,6 +5279,20 @@ export const MUSIC_LIST = {
       MEMBER_KEYS.KOSUZU,
       MEMBER_KEYS.HIME,
     ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 17,
+        EXPERT: 23,
+        MASTER: 27,
+      },
+      maxCombo: {
+        NORMAL: 326,
+        HARD: 753,
+        EXPERT: 1103,
+        MASTER: 1121,
+      },
+    },
   },
   '雑踏、僕らの街': {
     ID: 'm_137',
@@ -5790,6 +5860,55 @@ export const MUSIC_LIST = {
         HARD: 486,
         EXPERT: 910,
         MASTER: 1046,
+      },
+    },
+  },
+  雪舞う空と二秒の永遠: {
+    ID: 'm_214',
+    musicData: {
+      kana: 'ゆきまうそらとにびょうのえいえん',
+      singer: '蓮ノ空女学院スクールアイドルクラブ',
+      releaseDate: {
+        year: 2025,
+        month: 12,
+        date: 29,
+      },
+      numbering: '配信限定楽曲',
+      BPM: {
+        original: 65,
+        inGame: 65,
+      },
+      time: 119,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.SMILE.en,
+    BHcount: 32,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.KAHO,
+    bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
+    singingMembers: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.SERAS,
+      MEMBER_KEYS.IZUMI,
+    ],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 10,
+        HARD: 16,
+        EXPERT: 22,
+        MASTER: 27,
+      },
+      maxCombo: {
+        NORMAL: 193,
+        HARD: 460,
+        EXPERT: 628,
+        MASTER: 981,
       },
     },
   },
@@ -6521,6 +6640,46 @@ export const MUSIC_LIST = {
       },
     },
   },
+  'Hip, hip, hooray!': {
+    ID: 'm_211',
+    musicData: {
+      kana: 'ひっぷひっぷふーれい',
+      singer: 'みらくらぱーく！',
+      releaseDate: {
+        year: 2099,
+        month: 12,
+        date: 31,
+      },
+      numbering: '',
+      BPM: {
+        original: 175,
+        inGame: 175,
+      },
+      time: 125,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.PURE.en,
+    BHcount: 89,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.RURINO,
+    bonusSkill: BONUS_SKILL_NAMES.MENTAL_RECOVER,
+    singingMembers: [MEMBER_KEYS.RURINO, MEMBER_KEYS.HIME],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 18,
+        EXPERT: 25,
+        MASTER: 28,
+      },
+      maxCombo: {
+        NORMAL: 295,
+        HARD: 553,
+        EXPERT: 969,
+        MASTER: 1197,
+      },
+    },
+  },
   Edelied: {
     ID: 'm_160',
     musicData: {
@@ -6880,6 +7039,46 @@ export const MUSIC_LIST = {
         HARD: 373,
         EXPERT: 759,
         MASTER: 932,
+      },
+    },
+  },
+  '令嬢モブ！': {
+    ID: 'm_212',
+    musicData: {
+      kana: 'れいじょうもぶ',
+      singer: 'Edel Note',
+      releaseDate: {
+        year: 2026,
+        month: 12,
+        date: 31,
+      },
+      numbering: '',
+      BPM: {
+        original: '110-162',
+        inGame: '110-162',
+      },
+      time: 135,
+      cover: false,
+    },
+    attribute: ATTRIBUTE.COOL.en,
+    BHcount: 84,
+    level: 1,
+    term: 105,
+    center: MEMBER_KEYS.SERAS,
+    bonusSkill: BONUS_SKILL_NAMES.VOLTAGE_UP,
+    singingMembers: [MEMBER_KEYS.SERAS, MEMBER_KEYS.IZUMI],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 12,
+        HARD: 18,
+        EXPERT: 26,
+        MASTER: 29,
+      },
+      maxCombo: {
+        NORMAL: 325,
+        HARD: 589,
+        EXPERT: 1070,
+        MASTER: 1400,
       },
     },
   },
@@ -7606,6 +7805,46 @@ export const MUSIC_LIST = {
         HARD: 409,
         EXPERT: 743,
         MASTER: 1116,
+      },
+    },
+  },
+  'BOW AND ARROW': {
+    ID: 'm_213',
+    musicData: {
+      kana: 'ぼうあんどあろー',
+      singer: 'DOLLCHESTRA',
+      releaseDate: {
+        year: 2025,
+        month: 1,
+        date: 27,
+      },
+      numbering: 'TVアニメ「メダリスト」OPテーマ',
+      BPM: {
+        original: 180,
+        inGame: 180,
+      },
+      time: 91.5,
+      cover: true,
+    },
+    attribute: ATTRIBUTE.COOL.en,
+    BHcount: 67,
+    level: 0,
+    term: 105,
+    center: MEMBER_KEYS.SAYAKA,
+    bonusSkill: BONUS_SKILL_NAMES.LOVE_BONUS,
+    singingMembers: [MEMBER_KEYS.SAYAKA, MEMBER_KEYS.KOSUZU],
+    scoreData: {
+      difficultyLevel: {
+        NORMAL: 11,
+        HARD: 18,
+        EXPERT: 25,
+        MASTER: 30,
+      },
+      maxCombo: {
+        NORMAL: 188,
+        HARD: 452,
+        EXPERT: 576,
+        MASTER: 966,
       },
     },
   },

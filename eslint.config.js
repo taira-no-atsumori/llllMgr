@@ -18,6 +18,7 @@ export default [
       '*.config.mjs',
       '*.config.cjs',
       'docs/js/index.js',
+      'docs/js/**', // ビルドされたファイルを除外
     ],
   },
 

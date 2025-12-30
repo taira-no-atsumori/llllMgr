@@ -11,6 +11,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AddCard: typeof import('./components/addData/AddCard.vue')['default']
+    AddItem: typeof import('./components/addData/AddItem.vue')['default']
+    AddMusic: typeof import('./components/addData/AddMusic.vue')['default']
+    AddSkill: typeof import('./components/addData/AddSkill.vue')['default']
+    AddSkillDetail: typeof import('./components/addData/AddSkillDetail.vue')['default']
     Backup: typeof import('./components/modal/Backup.vue')['default']
     CardFilterSliderComponent: typeof import('./components/CardFilterSliderComponent.vue')['default']
     CardListFilter: typeof import('./components/modal/CardListFilter.vue')['default']

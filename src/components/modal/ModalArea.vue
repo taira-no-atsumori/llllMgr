@@ -39,10 +39,10 @@
         <v-btn
           prepend-icon="mdi-close"
           :theme="store.siteSettings.all.darkMode"
+          data-button="modalClose"
+          text="CLOSE"
           @click="store.switchDialog(false)"
-        >
-          CLOSE
-        </v-btn>
+        />
       </div>
     </v-sheet>
   </v-dialog>

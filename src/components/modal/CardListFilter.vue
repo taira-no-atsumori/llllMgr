@@ -210,7 +210,7 @@
             <v-checkbox
               v-model="store.search.cardList.limited"
               :value="value"
-              :label="label.filterLabel"
+              :label="label.en"
               color="pink"
               hide-details
               density="compact"

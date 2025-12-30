@@ -1,3 +1,13 @@
+# pre-commit:
+#   commands:
+#     test:
+#       run: npx vitest -- --run
+
+# pre-push:
+#   commands:
+#     build:
+#       run: npm run build
+
 # lefthook.yml
 # See https://github.com/evilmartians/lefthook/blob/master/docs/configuration.md
 
@@ -16,7 +26,7 @@ pre-commit:
     #   run: npx prettier --write {staged_files}
 
     test:
-      run: npm run test -- --run
+      run: npx vitest run
       skip_output: false
       # 警告のみの場合はコミットを許可
       fail_on_warnings: false

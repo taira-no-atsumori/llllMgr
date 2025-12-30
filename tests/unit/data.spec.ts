@@ -1,14 +1,14 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { useCardStore } from '../src/stores/cardList';
+import { useCardStore } from '../../src/stores/cardList';
 import {
   MEMBER_IDS,
   EXCLUSION_MEMBER,
   MemberIds,
-} from '../src/constants/memberNames';
-import { SKILL_LIST } from '../src/constants/skillList';
-import { MUSIC_LIST } from '../src/constants/musicList';
-import type { CardDefaultData } from '../src/types/cardList';
+} from '../../src/constants/memberNames';
+import { SKILL_LIST } from '../../src/constants/skillList';
+import { MUSIC_LIST } from '../../src/constants/musicList';
+import type { CardDefaultData } from '../../src/types/cardList';
 
 describe('データ整合性チェック', () => {
   let cardStore: ReturnType<typeof useCardStore>;

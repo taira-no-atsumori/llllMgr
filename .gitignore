@@ -26,3 +26,7 @@ pnpm-debug.log*
 # Firebase関連
 import-firestore.js
 *.adminsdk*.json
+
+# データ管理ページ・コンポーネント関連
+src/pages/AddData.vue
+src/components/addData

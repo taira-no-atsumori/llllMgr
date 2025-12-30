@@ -671,7 +671,14 @@ export const useStateStore = defineStore('store', {
      *
      * @param importData バックアップデータ
      */
-    getLocalStorage(importData?: any): void {
+    getLocalStorage(importData?: {
+      musicData?: Record<string, unknown>;
+      cardData?: Record<string, unknown>;
+      itemData?: Record<string, unknown>;
+      sortSettings?: Record<string, unknown>;
+      selectItemList?: Record<string, unknown>;
+      siteSettings?: Record<string, unknown>;
+    }): void {
       const isImportData = importData !== undefined;
 
       if (
