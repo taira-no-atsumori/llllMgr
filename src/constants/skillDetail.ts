@@ -54,13 +54,15 @@ export const SKILL_DETAIL = {
     name_ja: 'メンタルダウン(セクション)',
     name_en: 'mentalDown_section',
     COLOR_CODE: 'green',
-    DESCRIPTION: 'メンタルが0になってもメンタルダウンしなくなる。',
+    DESCRIPTION:
+      'このセクション中、メンタルが0になってもメンタルダウンしなくなる。',
   },
   MENTAL_DOWN_STAGE: {
     name_ja: 'メンタルダウン(ステージ)',
     name_en: 'mentalDown_stage',
     COLOR_CODE: 'green',
-    DESCRIPTION: 'メンタルが0になってもメンタルダウンしなくなる。',
+    DESCRIPTION:
+      'このステージ中、メンタルが0になってもメンタルダウンしなくなる。',
   },
   PROTECT_SECTION: {
     name_ja: 'プロテクト(セクション)',
@@ -374,7 +376,7 @@ export const SKILL_DETAIL = {
     DESCRIPTION:
       'ムードが一定値以上もしくは一定値以下になると、特定の効果を発動する。',
   },
-  DREW: {
+  DRAW: {
     name_ja: 'ドロー',
     name_en: 'draw',
     COLOR_CODE: '',

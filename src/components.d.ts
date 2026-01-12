@@ -12,6 +12,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AddCard: typeof import('./components/addData/AddCard.vue')['default']
+    AddEvent: typeof import('./components/addData/AddEvent.vue')['default']
     AddItem: typeof import('./components/addData/AddItem.vue')['default']
     AddMusic: typeof import('./components/addData/AddMusic.vue')['default']
     AddSkill: typeof import('./components/addData/AddSkill.vue')['default']
@@ -19,11 +20,13 @@ declare module 'vue' {
     Backup: typeof import('./components/modal/Backup.vue')['default']
     CardFilterSliderComponent: typeof import('./components/CardFilterSliderComponent.vue')['default']
     CardListFilter: typeof import('./components/modal/CardListFilter.vue')['default']
+    ChangeDataList: typeof import('./components/addData/ChangeDataList.vue')['default']
     Chart: typeof import('./components/modal/Chart.vue')['default']
     Loading: typeof import('./components/modal/Loading.vue')['default']
     MasteryLevel: typeof import('./components/modal/MasteryLevel.vue')['default']
     ModalArea: typeof import('./components/modal/ModalArea.vue')['default']
     MusicListFilter: typeof import('./components/modal/MusicListFilter.vue')['default']
+    PendingData: typeof import('./components/addData/PendingData.vue')['default']
     PossessionCardList: typeof import('./components/modal/PossessionCardList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

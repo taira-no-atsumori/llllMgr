@@ -1,3 +1,5 @@
+// カードステータス関連の定数郡
+
 /** カードのレアリティ */
 export const RARE = ['DR', 'LR', 'BR', 'UR', 'SR', 'R'] as const;
 /** カードのレアリティの型 */
@@ -237,4 +239,14 @@ export const MAX_CARD_LEVEL = {
 export type MaxCardLevel = (typeof MAX_CARD_LEVEL)[keyof typeof MAX_CARD_LEVEL];
 
 /** 特別カードIDリスト */
-export const SPECIAL_CARD_IDS = ['sc_001', 'is_001', 'ktm_001'];
+export const SPECIAL_CARD_IDS = ['sc_001', 'is_001', 'ktm_001'] as const;
+
+/** 特殊レベルカード */
+export const SPECIAL_CARD_LEVEL_IDS = [
+  'kz_036',
+  'kh_037',
+  'gn_034',
+  'sz_033',
+  'hm_034',
+  'iz_016',
+] as const;

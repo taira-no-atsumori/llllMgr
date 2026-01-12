@@ -1,15 +1,16 @@
 <template>
   <div class="d-flex mb-9">
     {{ props.label }}
-    <v-spacer></v-spacer>
+
+    <v-spacer />
+
     <v-btn
       density="compact"
       elevation="1"
+      text="Reset"
       class="px-2"
       @click="store.resetMusicFilter(props.resetMusicFilterName)"
-    >
-      リセット
-    </v-btn>
+    />
   </div>
   <div class="px-1">
     <v-range-slider
@@ -22,7 +23,7 @@
       color="pink"
       thumb-color="pink"
       class="px-2"
-    ></v-range-slider>
+    />
   </div>
 </template>
 

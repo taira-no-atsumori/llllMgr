@@ -9,7 +9,7 @@
     grow
   >
     <template #tab="{ item }">
-      <v-tab :value="item.value" :text="item.text"></v-tab>
+      <v-tab :value="item.value" :text="item.text" />
     </template>
   </v-tabs>
 
@@ -27,10 +27,9 @@
         block
         color="pink"
         prepend-icon="mdi-file-export"
+        text="バックアップファイル生成"
         @click="makeBackup()"
-      >
-        バックアップファイル生成
-      </v-btn>
+      />
     </v-tabs-window-item>
 
     <v-tabs-window-item value="import" class="my-2">
@@ -47,7 +46,7 @@
         accept="application/json"
         hide-details
         @update:model-value="readFile()"
-      ></v-file-input>
+      />
 
       <h3>反映データ</h3>
 
@@ -75,25 +74,24 @@
           color="pink"
           :disabled="isFileImportError"
           class="w-50"
-        ></v-radio>
+        />
         <v-radio
           label="いいえ"
           :value="false"
           color="pink"
           :disabled="isFileImportError"
           class="w-50"
-        ></v-radio>
+        />
       </v-radio-group>
 
       <v-btn
         block
         color="pink"
         prepend-icon="mdi-file-import"
+        text="反映"
         :disabled="isFileImportError || !radios"
         @click="setBackupData()"
-      >
-        反映
-      </v-btn>
+      />
     </v-tabs-window-item>
 
     <v-tabs-window-item value="reset" class="my-2">
@@ -133,15 +131,14 @@
         block
         color="pink"
         prepend-icon="mdi-cached"
+        text="リセット"
         :disabled="!isReset"
         :loading="isLoading"
         @click="resetAction()"
-      >
-        リセット
-      </v-btn>
+      />
     </v-tabs-window-item>
 
-    <v-tabs-window-item value="select" class="my-2"></v-tabs-window-item>
+    <v-tabs-window-item value="select" class="my-2" />
   </v-tabs-window>
 
   <v-snackbar v-model="snackBar.reset" color="success" :timeout="4000">

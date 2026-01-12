@@ -5,6 +5,7 @@
     <v-expansion-panels class="mb-2">
       <v-expansion-panel>
         <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
+
         <v-expansion-panel-text>
           リンクラに実装されている楽曲一覧です。<br />
           各ジャケットをクリックすると、楽曲の詳細が見られます。<br />
@@ -18,12 +19,14 @@
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>
-              <v-icon class="mr-2">mdi-filter</v-icon>絞り込み
+              <v-icon icon="mdi-filter" class="mr-2" />絞り込み
             </v-expansion-panel-title>
+
             <v-expansion-panel-text>
               <v-row no-gutters>
                 <v-col cols="12" sm="3" class="pr-2 mb-3 mb-sm-0">
                   <h3 class="mb-2">獲得ボーナススキルで絞り込み</h3>
+
                   <v-select
                     v-model="selectBonusSkillList"
                     :items="bonusSkillList"
@@ -40,8 +43,9 @@
                         :src="
                           store.getImagePath('icons/bonusSkill', item.title)
                         "
+                        eager
                         style="width: 25px; border-radius: 3px"
-                      ></v-img>
+                      />
                     </template>
                     <template #item="{ item }">
                       <v-list-item
@@ -56,15 +60,16 @@
                                 (elm) => elm === item.title
                               )
                             "
-                          ></v-checkbox-btn>
+                          />
                           <v-img
                             :src="
                               store.getImagePath('icons/bonusSkill', item.title)
                             "
                             :alt="item.title"
+                            eager
                             class="mr-2"
                             style="width: 40px"
-                          ></v-img>
+                          />
                         </template>
                       </v-list-item>
                     </template>
@@ -93,9 +98,10 @@
                             `icon_SD_${item.title}`
                           )
                         "
+                        eager
                         class="icon member"
                         style="width: 25px"
-                      ></v-img>
+                      />
                     </template>
                     <template #item="{ item }">
                       <v-list-item
@@ -108,7 +114,7 @@
                             :model-value="
                               selectCenterList.some((elm) => elm === item.title)
                             "
-                          ></v-checkbox-btn>
+                          />
                           <v-img
                             :src="
                               store.getImagePath(
@@ -117,8 +123,9 @@
                               )
                             "
                             :alt="item.title"
+                            eager
                             class="icon member"
-                          ></v-img>
+                          />
                         </template>
                       </v-list-item>
                     </template>
@@ -127,6 +134,7 @@
 
                 <v-col cols="12" sm="3" class="px-sm-2 mb-3 mb-sm-0">
                   <h3>マスタリーLv.で絞り込み</h3>
+
                   <v-range-slider
                     v-model="masteryLv"
                     max="50"
@@ -138,11 +146,12 @@
                     density="compact"
                     class="px-2 mt-8"
                     messages="絞り込みたいマスタリーLv.の範囲を設定してください"
-                  ></v-range-slider>
+                  />
                 </v-col>
 
                 <v-col cols="12" sm="3" class="pl-sm-2">
                   <h3 class="mb-2">楽曲属性で絞り込み</h3>
+
                   <v-select
                     v-model="selectAttrList"
                     :items="attrList"
@@ -162,8 +171,9 @@
                             `icon_${item.title}`
                           )
                         "
+                        eager
                         style="width: 25px"
-                      ></v-img>
+                      />
                     </template>
                     <template #item="{ item }">
                       <v-list-item
@@ -176,7 +186,7 @@
                             :model-value="
                               selectAttrList.some((elm) => elm === item.title)
                             "
-                          ></v-checkbox-btn>
+                          />
                           <v-img
                             :src="
                               store.getImagePath(
@@ -186,8 +196,9 @@
                             "
                             :alt="item.title"
                             class="mr-2"
+                            eager
                             style="width: 40px"
-                          ></v-img>
+                          />
                         </template>
                       </v-list-item>
                     </template>
@@ -196,6 +207,7 @@
 
                 <v-col v-if="false" cols="12" sm="3" class="pl-sm-2">
                   <h3 class="mb-2">曲名で絞り込み</h3>
+
                   <v-text-field
                     v-model="inputMusicTitle"
                     clearable
@@ -203,7 +215,7 @@
                     label="曲名"
                     messages="絞り込みたい曲をひらがなで入力してください"
                     variant="outlined"
-                  ></v-text-field>
+                  />
                 </v-col>
               </v-row>
             </v-expansion-panel-text>
@@ -214,9 +226,10 @@
       <v-col cols="12">
         <v-expansion-panels>
           <v-expansion-panel>
-            <v-expansion-panel-title
-              >楽曲マスタリーボーナス効果量一覧</v-expansion-panel-title
-            >
+            <v-expansion-panel-title>
+              楽曲マスタリーボーナス効果量一覧
+            </v-expansion-panel-title>
+
             <v-expansion-panel-text>
               <v-row>
                 <v-col cols="12" sm="6">
@@ -407,8 +420,8 @@
                         :src="store.getImagePath('icons/bonusSkill', skillName)"
                         style="width: 30px; border-radius: 3px"
                       />
-                      <span style="padding: 0 1px 0 2px">×</span
-                      >{{ store.setBonusSkillLevel(memberName, skillName) }}
+                      <span style="padding: 0 1px 0 2px">×</span>
+                      {{ store.setBonusSkillLevel(memberName, skillName) }}
                     </v-col>
                   </v-row>
                 </v-col>
@@ -419,65 +432,74 @@
       </template>
 
       <v-col cols="4" lg="2" align-self="center" class="text-center">
-        <v-btn @click="store.showModalEvent('masteryLevel')">詳細を見る</v-btn>
+        <v-btn
+          text="詳細を見る"
+          @click="store.showModalEvent('masteryLevel')"
+        />
       </v-col>
     </v-row>
 
-    <v-divider class="mb-2"></v-divider>
+    <v-divider class="mb-2" />
 
     <div class="align-self-center d-inline-block mb-2 mb-md-0">
       <div class="d-flex flex-row align-center">
         <v-btn color="blue" class="mr-2">
-          <v-icon class="mr-2">mdi-sort</v-icon>ソート
-          <v-menu activator="parent" transition="slide-y-transition">
+          <v-icon icon="mdi-sort" class="mr-2" />ソート
+          <v-menu
+            v-model="menuOpen"
+            activator="parent"
+            transition="slide-y-transition"
+            :close-on-content-click="false"
+          >
             <v-list density="compact">
               <template v-for="(label, val) in sortTypeList" :key="val">
                 <v-list-item
                   v-if="!/difficultyLevel|maxCombo/.test(val)"
                   :title="label"
                   :value="val"
-                  @click="sortingProcess('sortType', val)"
-                >
-                </v-list-item>
+                  @click="
+                    sortingProcess('sortType', val);
+                    menuOpen = false;
+                  "
+                />
                 <v-list-group
                   v-if="val === 'difficultyLevel' && isSchoolShow"
                   value="difficultyLevel"
                 >
                   <template #activator="{ props }">
-                    <v-list-item v-bind="props" :title="label"></v-list-item>
+                    <v-list-item v-bind="props" :title="label" />
                   </template>
 
                   <v-list-item
-                    v-for="difficulty_val in [
-                      'NORMAL',
-                      'HARD',
-                      'EXPERT',
-                      'MASTER',
-                    ]"
+                    v-for="difficulty_val in difficultyLevelLabels"
                     :key="`difficultyLevel_${difficulty_val}`"
                     :title="difficulty_val"
                     @click="
                       sortingProcess(
                         'sortType',
                         `difficultyLevel_${difficulty_val}`
-                      )
+                      );
+                      menuOpen = false;
                     "
-                  ></v-list-item>
+                  />
                 </v-list-group>
                 <v-list-group
                   v-if="val === 'maxCombo' && isSchoolShow"
                   value="maxCombo"
                 >
                   <template #activator="{ props }">
-                    <v-list-item v-bind="props" :title="label"></v-list-item>
+                    <v-list-item v-bind="props" :title="label" />
                   </template>
 
                   <v-list-item
-                    v-for="combo_val in ['NORMAL', 'HARD', 'EXPERT', 'MASTER']"
+                    v-for="combo_val in difficultyLevelLabels"
                     :key="`maxCombo_${combo_val}`"
                     :title="combo_val"
-                    @click="sortingProcess('sortType', `maxCombo_${combo_val}`)"
-                  ></v-list-item>
+                    @click="
+                      sortingProcess('sortType', `maxCombo_${combo_val}`);
+                      menuOpen = false;
+                    "
+                  />
                 </v-list-group>
               </template>
             </v-list>
@@ -497,7 +519,7 @@
             class="px-0 px-sm-2"
             @click="store.changeSettings('sortSettings')"
           >
-            <v-icon>mdi-sort-descending</v-icon>
+            <v-icon icon="mdi-sort-descending" />
             <span class="ml-2 hidden-sm-and-down">降順</span>
           </v-btn>
           <v-btn
@@ -505,7 +527,7 @@
             class="px-0 px-sm-2"
             @click="store.changeSettings('sortSettings')"
           >
-            <v-icon>mdi-sort-ascending</v-icon>
+            <v-icon icon="mdi-sort-ascending" />
             <span class="ml-2 hidden-sm-and-down">昇順</span>
           </v-btn>
         </v-btn-toggle>
@@ -517,7 +539,7 @@
           hide-details
           class="pl-2 mr-3"
           color="pink"
-        ></v-switch>
+        />
       </div>
     </div>
 
@@ -531,7 +553,7 @@
       現在のソート：{{ sortTypeLabel(store.sortSettings.musicList.sortType) }}
     </p>
 
-    <v-divider class="my-2"></v-divider>
+    <v-divider class="my-2" />
 
     <ul id="CDJacketArea">
       <li v-if="Object.keys(makeMusicList()).length === 0" class="w-100">
@@ -550,20 +572,29 @@
           "
         >
           <v-img
-            :lazy-src="
-              store.getImagePath('images/cdJacket', store.conversion(songTitle))
-            "
-            :src="
-              store.getImagePath('images/cdJacket', store.conversion(songTitle))
-            "
+            :src="dbImageUrls[ary.ID] || noImage"
             :alt="songTitle"
-            eager
-            @load="checkImagesLoaded(Object.keys(makeMusicList()).length)"
-          ></v-img>
-          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">{{
-            songTitle
-          }}</v-card-title>
-          <v-divider class="mb-1 border-opacity-25"></v-divider>
+            aspect-ratio="1"
+            cover
+          >
+            <template #placeholder>
+              <v-skeleton-loader type="image" class="h-100 w-100" />
+            </template>
+            <template #error>
+              <v-img
+                :src="noImage"
+                aspect-ratio="1"
+                cover
+                class="h-100 w-100"
+              />
+            </template>
+          </v-img>
+          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
+            {{ songTitle }}
+          </v-card-title>
+
+          <v-divider class="mb-1 border-opacity-25" />
+
           <v-card-text class="pt-0 px-1 pb-1">
             <ul class="d-flex">
               <li class="skillIconArea mr-1">
@@ -592,7 +623,7 @@
                 />
               </li>
               <li class="align-self-center text-caption">
-                MLv.{{ store.musicLevel[songTitle] }}
+                MLv.{{ store.musicLevel[ary.ID] }}
               </li>
             </ul>
           </v-card-text>
@@ -609,27 +640,29 @@
               "
             >
               <v-img
-                :lazy-src="
-                  store.getImagePath(
-                    'images/cdJacket',
-                    store.conversion(songTitle)
-                  )
-                "
-                :src="
-                  store.getImagePath(
-                    'images/cdJacket',
-                    store.conversion(songTitle)
-                  )
-                "
+                :src="dbImageUrls[ary.ID] || noImage"
                 :alt="songTitle"
-                eager
-                @load="checkImagesLoaded(Object.keys(makeMusicList()).length)"
-              ></v-img>
-              <v-card-title
-                class="text-subtitle-2 text-center px-2 pt-1 pb-0"
-                >{{ songTitle }}</v-card-title
+                aspect-ratio="1"
+                cover
               >
-              <v-divider class="mb-1 border-opacity-25"></v-divider>
+                <template #placeholder>
+                  <v-skeleton-loader type="image" class="h-100 w-100" />
+                </template>
+                <template #error>
+                  <v-img
+                    :src="noImage"
+                    aspect-ratio="1"
+                    cover
+                    class="h-100 w-100"
+                  />
+                </template>
+              </v-img>
+              <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
+                {{ songTitle }}
+              </v-card-title>
+
+              <v-divider class="mb-1 border-opacity-25" />
+
               <v-card-item class="pt-0 px-1 pb-1">
                 <ul class="d-flex">
                   <li class="skillIconArea mr-1">
@@ -663,7 +696,7 @@
                     />
                   </li>
                   <li class="align-self-center text-caption">
-                    MLv.{{ store.musicLevel[songTitle] }}
+                    MLv.{{ store.musicLevel[ary.ID] }}
                   </li>
                 </ul>
               </v-card-item>
@@ -671,32 +704,29 @@
           </template>
           <p class="mb-2">{{ songTitle }}</p>
           センター：{{ makeMemberFullName(ary.center) }}<br />
-          楽曲マスタリーLv.：{{ store.musicLevel[songTitle] }}<br />
+          楽曲マスタリーLv.：{{ store.musicLevel[ary.ID] }}<br />
           獲得ボーナススキル：{{ ary.bonusSkill }} ×
-          {{ Math.floor(store.musicLevel[songTitle] / 10) }}
+          {{ Math.floor(store.musicLevel[ary.ID] / 10) }}
         </v-tooltip>
-      </li>
-      <li v-if="Object.keys(makeMusicList()).length === 0" class="w-100">
-        見つかりませんでした…
       </li>
     </ul>
   </v-container>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onMounted, onUnmounted } from 'vue';
+import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
-import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
-import type { MusicItem } from '@/types/music';
+import type { MusicItem } from '@/types/musicList';
+import { useMusicData } from '@/stores/useMusicData';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
-store.loading = true;
 import { getAttributeListEn } from '@/constants/music';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
+import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
 
 const bonusSkillList = Object.values(BONUS_SKILL_NAMES);
 const attrList = getAttributeListEn();
@@ -708,7 +738,13 @@ const masteryLv = ref([0, 50]);
 const selectCenterList = ref<string[]>([]);
 const selectBonusSkillList = ref([...bonusSkillList]);
 const selectAttrList = ref([...attrList]);
-const loadedImagesCount = ref(0);
+const menuOpen = ref(false);
+
+const { dbImageUrls, initMusicData, isMusicLoaded } = useMusicData();
+
+if (!isMusicLoaded.value) {
+  store.loading = true;
+}
 
 const attributeColor = {
   smile: '#EF8DC8',
@@ -727,6 +763,8 @@ const sortTypeList = {
   maxCombo: 'コンボ数',
 };
 
+const difficultyLevelLabels = ['NORMAL', 'HARD', 'EXPERT', 'MASTER'];
+
 const makeMusicList = computed(() => (): MusicItem[] => {
   if (
     !isSchoolShow.value &&
@@ -736,15 +774,15 @@ const makeMusicList = computed(() => (): MusicItem[] => {
     sortingProcess('sortType', 'default');
   }
 
-  const list = Array.from(Object.entries(MUSIC_LIST), ([key, value]) => ({
-    title: key,
+  const list = Array.from(Object.entries(store.musicList), ([key, value]) => ({
+    ID: key,
     ...value,
   }));
 
   const result = list.filter((musicData) => {
     if (
-      store.musicLevel[musicData.title] < masteryLv.value[0] ||
-      store.musicLevel[musicData.title] > masteryLv.value[1] ||
+      store.musicLevel[musicData.ID] < masteryLv.value[0] ||
+      store.musicLevel[musicData.ID] > masteryLv.value[1] ||
       // inputMusicTitle.value && !musicData.musicData.kana.includes(inputMusicTitle.value) ||
       (selectCenterList.value.length > 0 &&
         !selectCenterList.value.includes(musicData.center)) ||
@@ -777,8 +815,8 @@ const makeMusicList = computed(() => (): MusicItem[] => {
         case 'level':
           return sorting(
             store.sortSettings.musicList.order === 'ascending',
-            store.musicLevel[a.title],
-            store.musicLevel[b.title]
+            store.musicLevel[a.ID],
+            store.musicLevel[b.ID]
           );
         case 'BHcount':
           return sorting(
@@ -839,8 +877,6 @@ const makeMusicList = computed(() => (): MusicItem[] => {
 
 function sortingProcess(type: 'sortType' | 'order', val: string): void {
   if (store.sortSettings.musicList[type] !== val) {
-    store.loading = true;
-
     if (type === 'sortType') {
       store.sortSettings.musicList[type] = val;
     }
@@ -890,15 +926,6 @@ function onResize(): void {
   windowSize.h = window.innerHeight;
 }
 
-function checkImagesLoaded(totalImages: number): void {
-  loadedImagesCount.value += 1;
-
-  if (loadedImagesCount.value === totalImages) {
-    store.loading = false;
-    loadedImagesCount.value = 0;
-  }
-}
-
 function sortTypeLabel(sortTypeValue: string): string {
   const sortType = sortTypeValue.split('_')[0];
   const difficulty = sortTypeValue.split('_')[1] ?? '';
@@ -908,10 +935,23 @@ function sortTypeLabel(sortTypeValue: string): string {
   return sortTypeList[sortType] || '標準';
 }
 
-onMounted(() => {
+onMounted(async () => {
   onResize();
   window.addEventListener('resize', onResize);
+
+  // データ初期化と画像取得
+  store.loading = true;
+  await initMusicData(store.isDev);
+  store.loading = false;
 });
+
+watch(
+  isMusicLoaded,
+  (val) => {
+    if (val) store.loading = false;
+  },
+  { immediate: true }
+);
 
 onUnmounted(() => {
   window.removeEventListener('resize', onResize);

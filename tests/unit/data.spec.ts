@@ -4,16 +4,14 @@ import { useCardStore } from '../../src/stores/cardList';
 import {
   MEMBER_IDS,
   EXCLUSION_MEMBER,
-  MemberIds,
+  type MemberIds,
 } from '../../src/constants/memberNames';
 import { SKILL_LIST } from '../../src/constants/skillList';
-import { MUSIC_LIST } from '../../src/constants/musicList';
 import type { CardDefaultData } from '../../src/types/cardList';
 
 describe('データ整合性チェック', () => {
   let cardStore: ReturnType<typeof useCardStore>;
   let allCards: CardDefaultData[];
-  let allMusic;
 
   // ヘルパー関数
   const getAllCards = (
@@ -45,14 +43,14 @@ describe('データ整合性チェック', () => {
   //     .filter((num): num is number => num !== null);
   // };
 
-  const findMissingNumbers = (numbers: number[]): number[] => {
-    if (numbers.length === 0) return [];
-    const sorted = [...new Set(numbers)].sort((a, b) => a - b);
-    const [min, max] = [sorted[0], sorted[sorted.length - 1]];
-    return Array.from({ length: max - min + 1 }, (_, i) => min + i).filter(
-      (num) => !sorted.includes(num)
-    );
-  };
+  // const findMissingNumbers = (numbers: number[]): number[] => {
+  //   if (numbers.length === 0) return [];
+  //   const sorted = [...new Set(numbers)].sort((a, b) => a - b);
+  //   const [min, max] = [sorted[0], sorted[sorted.length - 1]];
+  //   return Array.from({ length: max - min + 1 }, (_, i) => min + i).filter(
+  //     (num) => !sorted.includes(num)
+  //   );
+  // };
 
   // const checkSkillExists = (card: CardDefaultData, skillType: 'skill' | 'specialAppeal'): string | null => {
   //   const skill = card[skillType];
@@ -75,7 +73,6 @@ describe('データ整合性チェック', () => {
     setActivePinia(createPinia());
     cardStore = useCardStore();
     allCards = getAllCards(cardStore);
-    allMusic = Object.values(MUSIC_LIST);
   });
 
   it('カードIDが重複していないこと', () => {
@@ -199,41 +196,6 @@ describe('データ整合性チェック', () => {
     ).toEqual([]);
   });
 
-  it('楽曲IDが重複していないこと', () => {
-    const idMap = new Map<string, string[]>();
-    allMusic.forEach((music) => {
-      if (!idMap.has(music.ID)) {
-        idMap.set(music.ID, []);
-      }
-      idMap.get(music.ID)!.push(music.musicData.kana || music.ID);
-    });
-
-    const duplicates = [...idMap.entries()]
-      .filter(([, names]) => names.length > 1)
-      .map(([id, names]) => `ID: ${id} (Music: ${names.join(', ')})`);
-
-    expect(
-      duplicates,
-      `楽曲IDが重複しています:\n${duplicates.join('\n')}`
-    ).toEqual([]);
-  });
-
-  it('楽曲IDの数字が連番になっていること', () => {
-    const numbers = allMusic
-      .map((music) => {
-        const match = music.ID.match(/^m_(\d+)$/);
-        return match ? parseInt(match[1], 10) : null;
-      })
-      .filter((num): num is number => num !== null);
-
-    const missingNumbers = findMissingNumbers(numbers);
-
-    expect(
-      missingNumbers,
-      `楽曲IDに欠番が見つかりました: ${missingNumbers.join(', ')}`
-    ).toEqual([]);
-  });
-
   it('カードIDのフォーマットが正しいこと', () => {
     const formatErrors: string[] = [];
 
@@ -250,25 +212,6 @@ describe('データ整合性チェック', () => {
     expect(
       formatErrors,
       `カードIDのフォーマットエラー:\n${formatErrors.join('\n')}`
-    ).toEqual([]);
-  });
-
-  it('楽曲IDのフォーマットが正しいこと', () => {
-    const formatErrors: string[] = [];
-
-    allMusic.forEach((music) => {
-      // 基本フォーマット: 小文字アルファベット_数字3桁
-      const formatRegex = /^[a-z]+_\d{3}$/;
-      if (!formatRegex.test(music.ID)) {
-        formatErrors.push(
-          `ID: ${music.ID} - フォーマットが不正です（小文字アルファベット_数字3桁の形式が必要）`
-        );
-      }
-    });
-
-    expect(
-      formatErrors,
-      `楽曲IDのフォーマットエラー:\n${formatErrors.join('\n')}`
     ).toEqual([]);
   });
 

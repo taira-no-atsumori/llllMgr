@@ -16,27 +16,25 @@
         </template>
         Wikiの楽曲ページを見る
       </v-tooltip>
-      <p>{{ selectMusicData.musicData.singer }}</p>
+      <p v-if="selectMusicData">{{ selectMusicData.musicData.singer }}</p>
     </h3>
 
-    <v-row no-gutters>
+    <v-row v-if="selectMusicData" no-gutters>
       <v-col cols="12" sm="6" class="mb-3 mb-sm-0">
         <v-img
-          :lazy-src="
-            store.getImagePath(
-              'images/cdJacket',
-              store.conversion(store.selectMusicTitle)
-            )
-          "
-          :src="
-            store.getImagePath(
-              'images/cdJacket',
-              store.conversion(store.selectMusicTitle)
-            )
-          "
+          :src="firebaseImage || noImage"
           :alt="store.selectMusicTitle"
+          aspect-ratio="1"
+          cover
           class="mb-2"
-        ></v-img>
+        >
+          <template #placeholder>
+            <v-skeleton-loader type="image" class="h-100 w-100" />
+          </template>
+          <template #error>
+            <v-img :src="noImage" aspect-ratio="1" cover class="h-100 w-100" />
+          </template>
+        </v-img>
 
         <div v-if="selectMusicData?.scoreData">
           <h4 class="subtitle">楽曲難易度・コンボ数</h4>
@@ -130,7 +128,8 @@
                     )
                   "
                   width="30px"
-                ></v-img>
+                  eager
+                />
               </v-avatar>
               <span class="ml-1">{{
                 makeMemberFullName(selectMusicData.center)
@@ -154,7 +153,8 @@
                     store.getImagePath('icons/member', `icon_SD_${memberName}`)
                   "
                   width="30px"
-                ></v-img>
+                  eager
+                />
               </v-avatar>
               <span class="ml-1">{{ makeMemberFullName(memberName) }}</span>
             </v-chip>
@@ -186,22 +186,22 @@
             </div>
             <div>
               <v-btn
+                text="-1"
                 size="small"
                 :disabled="musicLevel === initMusicLevel"
                 @click="store.valueChange('musicLevel', musicLevel - 1)"
-                >-1
-              </v-btn>
+              />
             </div>
             <div>
               {{ musicLevel }}
             </div>
             <div>
               <v-btn
+                text="+1"
                 size="small"
                 :disabled="musicLevel === 50"
                 @click="store.valueChange('musicLevel', musicLevel + 1)"
-                >+1
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
@@ -257,7 +257,8 @@
                       `icon_${selectMusicData.attribute}`
                     )
                   "
-                ></v-img>
+                  eager
+                />
               </v-avatar>
               <span class="ml-2">{{
                 attributeName[selectMusicData.attribute].name
@@ -279,13 +280,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { ATTRIBUTE } from '@/constants/music';
-import { MUSIC_LIST } from '@/constants/musicList';
-import type { MusicItem } from '@/types/musicList';
+// import { MUSIC_LIST } from '@/constants/musicList';
+// import type { MusicItem } from '@/types/musicList';
+import { useMusicData } from '@/stores/useMusicData';
+import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
 
 const store = useStateStore();
 const attributeName = {
@@ -303,34 +306,45 @@ const attributeName = {
   },
 };
 
-const selectMusicData: MusicItem = computed(() => {
-  return MUSIC_LIST[store.selectMusicTitle];
+const { dbImageUrls, initMusicData, getMusicIdByTitle } = useMusicData();
+
+const selectMusicData = computed(() => {
+  const id = getMusicIdByTitle(store.selectMusicTitle);
+  return id ? store.musicList[id] : undefined;
 });
 
-const initMusicLevel: number = computed(() => {
-  return MUSIC_LIST[store.selectMusicTitle].level;
+const initMusicLevel = computed(() => {
+  return selectMusicData.value?.level ?? 0;
 });
 
-const musicLevel: number = computed(() => {
-  return store.musicLevel[store.selectMusicTitle];
+const musicLevel = computed(() => {
+  return store.musicLevel[getMusicIdByTitle(store.selectMusicTitle)];
 });
 
-const releaseDate: string = computed(() => {
-  const date: {
-    year: MusicItem.musicData.releaseDate.year;
-    month: MusicItem.musicData.releaseDate.month;
-    date: MusicItem.musicData.releaseDate.date;
-  } = {
-    year: MUSIC_LIST[store.selectMusicTitle].musicData.releaseDate.year,
-    month: MUSIC_LIST[store.selectMusicTitle].musicData.releaseDate.month,
-    date: MUSIC_LIST[store.selectMusicTitle].musicData.releaseDate.date,
-  };
+const releaseDate = computed(() => {
+  const data = selectMusicData.value;
+
+  if (!data) {
+    return '';
+  }
+
+  const date = data.musicData.releaseDate;
 
   return `${date.year}年${date.month}月${date.date}日(${
     ['日', '月', '火', '水', '木', '金', '土'][
       new Date(date.year, date.month - 1, date.date).getDay()
     ]
   })`;
+});
+
+const firebaseImage = computed(() => {
+  const id = getMusicIdByTitle(store.selectMusicTitle);
+  return (id && dbImageUrls.value[id]) || '';
+});
+
+onMounted(() => {
+  // 念のため初期化を呼ぶ（MusicListを経由せず直接開かれた場合などのため）
+  initMusicData(store.isDev);
 });
 </script>
 

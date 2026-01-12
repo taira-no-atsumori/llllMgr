@@ -389,6 +389,140 @@
     }
   },
   "UR": {
+    "gn_035": {
+      "cardName": "Sayo-Shigure",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "Sayo-Shigure",
+      "kana": "さよしぐれ",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.4",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4050,
+        "pure": 5050,
+        "cool": 5200,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "sayoShigure_01",
+        "name": "サヨシグレ",
+        "AP": 6,
+        "detail": [[10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23, 25]]
+      },
+      "skill": {
+        "ID": "dress_sayoShigure_01",
+        "name": "ドレス《Sayo-Shigure》",
+        "AP": 4,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "sayoShigure_01",
+            "name": "《Sayo-Shigure》",
+            "AP": 4,
+            "detail": [
+              [16, 18, 19, 21, 22, 24, 26, 27, 29, 32, 34, 35, 37, 40],
+              [
+                160, 176, 192, 208, 224, 240, 256, 272, 288, 320, 336, 352, 368,
+                400
+              ],
+              [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+            ],
+            "characteristic": {
+              "name": "エレクトロドレス",
+              "detail": "ドローした時、ビートハート8回分のスキルハートを獲得する。ボルテージLv.15ごと、最大150Lv.で200倍まで効果量が増加する。さらにこのスキルを使用すると、デッキから除外される。",
+              "type": ["draw", "heartCaptcha", "exclusion"]
+            }
+          },
+          {
+            "ID": "sayoShigure_02",
+            "name": "《Sayo-Shigure》",
+            "AP": 4,
+            "detail": [
+              [30, 33, 36, 39, 42, 45, 48, 51, 54, 60, 63, 66, 69, 75],
+              [
+                160, 176, 192, 208, 224, 240, 256, 272, 288, 320, 336, 352, 368,
+                400
+              ],
+              [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+            ],
+            "characteristic": {
+              "name": "エレクトロドレス",
+              "detail": "ドローした時、ビートハート8回分のスキルハートを獲得する。ボルテージLv.15ごと、最大150Lv.で200倍まで効果量が増加する。さらにこのスキルを使用すると、デッキから除外される。",
+              "type": ["draw", "heartCaptcha", "exclusion"]
+            }
+          }
+        ]
+      },
+      "characteristic": {
+        "name": "レインフラグメント",
+        "detail": "このスキルを4回使用したとき、花笠カードを1種類(合計1枚)山札に追加し、10回使用したとき、このステージ中、それぞれ花帆、吟子、花笠カードが使用するスキルハート獲得効果による獲得数を+400%、ボルテージゲイン効果を+400%する。さらにこのスキルを使用するたび、手札のこのスキルの消費APが増加する(最大+6)。",
+        "type": ["addCard", "boost_heartCaptcha", "boost_voltageGain"]
+      }
+    },
+    "gn_034": {
+      "cardName": "もういちど ルミナス",
+      "styleType": "trickStar",
+      "mood": "happy",
+      "series": "バンドリ！コラボ",
+      "kana": "もういちどるみなす",
+      "gacha": {
+        "addSeason": "BanG Dream! LIMITED COLLECTION",
+        "period": "collaboration"
+      },
+      "uniqueStatus": {
+        "smile": 5150,
+        "pure": 5500,
+        "cool": 3750,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "cerisePalette_01",
+        "name": "スリーズパレット",
+        "AP": 6,
+        "detail": [
+          [160, 176, 192, 208, 224, 240, 256, 272, 288, 320, 336, 352, 368, 400]
+        ]
+      },
+      "skill": {
+        "ID": "dress_mouichidoLuminous_01",
+        "name": "ドレス《もういちど ルミナス》",
+        "AP": 6,
+        "detail": [],
+        "addSkill": [
+          {
+            "ID": "mouichidoLuminous_01",
+            "name": "《もういちど ルミナス》",
+            "AP": 2,
+            "detail": [[6, 7, 7, 8, 8, 9, 10, 10, 11, 12, 13, 13, 14, 15]],
+            "characteristic": {
+              "name": "インスタンス",
+              "detail": "このスキルを使用すると、デッキから除外される。さらにデッキ枚数が22枚以上でドローしたとき、ビートハート25回分のスキルハートを獲得し、デッキ枚数が22枚以上で手札にある状態でセクションが変わるたび、それぞれこのセクション中、スキルハート獲得効果による獲得数を+100%、ハート上限増加効果を+100%する。",
+              "type": [
+                "exclusion",
+                "draw",
+                "heartCaptcha",
+                "boost_heartCaptcha",
+                "boost_wideHeart"
+              ]
+            }
+          }
+        ]
+      },
+      "characteristic": {
+        "name": "ロードトゥドリーム",
+        "detail": "メイン効果がシャッフルのスキルを使用したとき、ドローされる確率が大幅に増加する。さらにデッキ枚数が22枚以上でドローしたとき、このステージ中、ハート上限を+50し、デッキ枚数が22枚以上で手札にある状態でセクションが変わるたび、それぞれこのセクション中、スキルハート獲得効果による獲得数を+50%、ハート上限増加効果を+50%する。",
+        "type": [
+          "draw",
+          "heartLimitUp",
+          "boost_heartCaptcha",
+          "boost_wideHeart"
+        ]
+      }
+    },
     "gn_030": {
       "cardName": "乙女詞華集",
       "styleType": "trickStar",

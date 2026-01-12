@@ -120,18 +120,18 @@
       </v-col>
       <v-col v-if="store.deck.length === 0" cols="12">
         <v-row no-gutters class="mt-5">
-          <v-col cols="2" class="d-none d-sm-block"></v-col>
+          <v-col cols="2" class="d-none d-sm-block" />
           <v-col cols="12" sm="3">
             <v-card
               class="py-10 py-sm-16 text-center mb-10 mb-sm-0"
               color="light-blue"
               @click="makeNewDeck(store)"
             >
-              <v-icon size="x-large" class="mb-2"> mdi-plus </v-icon>
+              <v-icon icon="mdi-plus" size="x-large" class="mb-2" />
               <p class="text-h5">デッキを新規作成</p>
             </v-card>
           </v-col>
-          <v-col cols="2" class="d-none d-sm-block"></v-col>
+          <v-col cols="2" class="d-none d-sm-block" />
           <v-col cols="12" sm="3">
             <v-card
               class="py-10 py-sm-16 text-center"
@@ -139,11 +139,11 @@
               :disabled="store.selectDeck === undefined"
               @click="dialog.deckList = true"
             >
-              <v-icon size="x-large" class="mb-2"> mdi-folder-open </v-icon>
+              <v-icon icon="mdi-folder-open" size="x-large" class="mb-2" />
               <p class="text-h5">デッキ選択</p>
             </v-card>
           </v-col>
-          <v-col cols="2" class="d-none d-sm-block"></v-col>
+          <v-col cols="2" class="d-none d-sm-block" />
         </v-row>
       </v-col>
       <v-col v-else cols="12">
@@ -152,51 +152,46 @@
             <v-btn
               color="light-blue"
               prepend-icon="mdi-plus"
+              text="デッキを新規作成"
               class="mr-2 mb-2"
               @click="
                 makeNewDeck(store);
                 snackbar.makeDeck = true;
               "
-            >
-              デッキを新規作成
-            </v-btn>
+            />
             <v-btn
               prepend-icon="mdi-folder-open"
               color="indigo"
+              text="デッキ選択"
               class="mr-2 mb-2"
               @click="dialog.deckList = true"
-            >
-              デッキ選択
-            </v-btn>
+            />
             <v-btn
               prepend-icon="mdi-rotate-right"
               color="red"
+              text="デッキリセット"
               class="mr-2 mb-2"
               @click="makeNewDeck(store, true)"
-            >
-              デッキリセット
-            </v-btn>
+            />
             <v-btn
               v-if="false"
               prepend-icon="mdi-crown"
               color="yellow"
+              text="エースカード設定"
               class="mr-2 mb-2"
               :disabled="
                 countDefaultCard(store).main +
                   countDefaultCard(store).leaves ===
                 18
               "
-            >
-              エースカード設定
-            </v-btn>
+            />
             <v-btn
               v-if="false"
               prepend-icon="mdi-database-sync"
               color="yellow"
+              text="最新化反映"
               class="mr-2 mb-2"
-            >
-              最新化反映
-            </v-btn>
+            />
             <v-btn
               v-if="false"
               prepend-icon="mdi-rotate-3d-variant"
@@ -206,13 +201,10 @@
               モードチェンジ
               <v-menu activator="parent" transition="slide-y-transition">
                 <v-list>
-                  <v-list-item title="Live GP"></v-list-item>
+                  <v-list-item title="Live GP" />
                   <v-list-group value="grade">
                     <template #activator="{ props }">
-                      <v-list-item
-                        v-bind="props"
-                        title="Grade Quest"
-                      ></v-list-item>
+                      <v-list-item v-bind="props" title="Grade Quest" />
                     </template>
 
                     <v-list-item
@@ -221,7 +213,7 @@
                       )"
                       :key="season"
                       :title="season"
-                    ></v-list-item>
+                    />
                   </v-list-group>
                 </v-list>
               </v-menu>
@@ -230,15 +222,14 @@
               v-if="false"
               prepend-icon="mdi-link"
               color="green-darken-4"
+              text="URL発行"
               class="mr-2 mb-2"
               @click="
                 urlGenerate = true;
                 dialog.urlGenerate = true;
                 makeURL();
               "
-            >
-              URL発行
-            </v-btn>
+            />
           </v-col>
           <v-col cols="12" sm="1">
             <v-select
@@ -246,7 +237,7 @@
               label="期"
               :items="Object.keys(FORMATION_MEMBER).reverse()"
               :update:modelValue="(store.selectDeck.selectMusic = '')"
-            ></v-select>
+            />
           </v-col>
           <v-col cols="12" class="pa-0">
             <v-row no-gutters>
@@ -269,18 +260,16 @@
                   "
                   type="warning"
                   variant="outlined"
+                  text="エースカードが未設定です"
                   class="mb-2"
-                >
-                  エースカードが未設定です
-                </v-alert>
+                />
                 <v-alert
                   v-if="false"
                   type="info"
                   variant="outlined"
+                  text="エースカードを設定してください"
                   class="mb-2"
-                >
-                  エースカードを設定してください
-                </v-alert>
+                />
               </v-col>
 
               <v-col id="deckNameArea" cols="12" class="mt-1 mb-2">
@@ -293,7 +282,7 @@
                     color="#e5762c"
                     hide-details
                     append-icon="mdi-pencil"
-                  ></v-text-field> -->
+                  /> -->
                   {{ store.selectDeck.name }}
                 </span>
                 <span>
@@ -304,7 +293,7 @@
                       inputDeckName = store.selectDeck.name;
                       dialog.changeDeckName = true;
                     "
-                  ></v-btn>
+                  />
                 </span>
               </v-col>
 
@@ -439,7 +428,7 @@
                                   ].id
                                 )
                               "
-                            ></v-img>
+                            />
                           </v-card>
                         </v-col>
                         <v-col
@@ -455,7 +444,7 @@
                               @click="
                                 deleteSelectCard(store, memberName, styleName)
                               "
-                            ></v-btn>
+                            />
                           </v-row>
                           <dl class="mb-1">
                             <dt>カード名</dt>
@@ -728,7 +717,7 @@
                           i + 1
                         "
                         class="mx-1"
-                      ></v-divider>
+                      />
                     </v-col>
                   </v-row>
                   <v-row
@@ -767,19 +756,17 @@
                                 store.selectDeck.selectMusic
                               ]?.singingMembers.includes(memberName)
                             "
+                            icon="mdi-microphone-variant"
                             color="indigo"
-                          >
-                            mdi-microphone-variant
-                          </v-icon>
+                          />
                           <v-icon
                             v-if="
                               MUSIC_LIST[store.selectDeck.selectMusic]
                                 ?.center === memberName
                             "
+                            icon="mdi-star"
                             color="yellow-accent-1"
-                          >
-                            mdi-star
-                          </v-icon>
+                          />
                         </span>
                       </h2>
                       <v-row v-if="false" no-gutters>
@@ -846,11 +833,10 @@
                                 ? 'yellow-accent-4'
                                 : 'grey-lighten-2'
                             }`"
+                            icon="mdi-crown"
                             style="transform: rotate(180deg)"
                             @click="changeAceCard(store, memberName, styleName)"
-                          >
-                            mdi-crown
-                          </v-icon>
+                          />
                         </h3>
                         <v-col cols="4">
                           <v-card
@@ -888,7 +874,7 @@
                                   ].id
                                 )
                               "
-                            ></v-img>
+                            />
                           </v-card>
                         </v-col>
                         <v-col
@@ -904,7 +890,7 @@
                               @click="
                                 deleteSelectCard(store, memberName, styleName)
                               "
-                            ></v-btn>
+                            />
                           </v-row>
                           <dl class="mb-1">
                             <dt>カード名</dt>
@@ -1177,7 +1163,7 @@
                           i + 1
                         "
                         class="mx-1"
-                      ></v-divider>
+                      />
                     </v-col>
                   </v-row>
                 </v-card>
@@ -1216,7 +1202,7 @@
                           }`
                         )
                       "
-                    ></v-img>
+                    />
                   </v-card>
                 </v-col>
                 <v-col cols="6">
@@ -1252,11 +1238,11 @@
                 variant="flat"
                 class="position-absolute right-0"
                 @click="store.selectDeck.selectMusic = ''"
-              ></v-btn>
+              />
               <v-row no-gutters>
                 <v-col cols="12" class="mb-2">
-                  <span class="mr-2">曲名</span
-                  >{{ store.selectDeck.selectMusic }}
+                  <span class="mr-2">曲名</span>
+                  {{ store.selectDeck.selectMusic }}
                 </v-col>
                 <v-col cols="6">
                   <v-card @click="dialog.selectMusic = true">
@@ -1286,7 +1272,7 @@
                           ? 'NO IMAGE'
                           : store.selectDeck.selectMusic
                       "
-                    ></v-img>
+                    />
                   </v-card>
                 </v-col>
                 <v-col cols="6" class="pl-4">
@@ -1435,7 +1421,7 @@
                   persistent-hint
                   color="pink"
                   base-color="pink"
-                ></v-text-field>
+                />
               </v-col>
 
               <v-col cols="12" sm="6" class="mb-5">
@@ -1447,7 +1433,7 @@
                   persistent-hint
                   color="pink"
                   base-color="pink"
-                ></v-select>
+                />
               </v-col>
             </v-row>
 
@@ -1458,7 +1444,7 @@
                 :value="memberName"
                 hide-details
                 color="pink"
-              ></v-checkbox>
+              />
 
               <v-row no-gutters>
                 <v-col cols="2">レア度</v-col>
@@ -1471,13 +1457,14 @@
                     :hint="`メインスタイルに設定している${arr.last}のカードのレア度を選択してください`"
                     color="pink"
                     base-color="pink"
-                  ></v-select>
+                  />
                 </v-col>
                 <v-col cols="5">
                   <v-row no-gutters>
-                    <v-spacer></v-spacer>
+                    <v-spacer />
                     <v-col align-self="center" justify="center" class="pa-0">
                       <v-btn
+                        text="-1"
                         x-small
                         :disabled="bonus.seasonFan[i - 1][memberName] === 1"
                         @click="
@@ -1486,9 +1473,7 @@
                             bonus.seasonFan[i - 1][memberName] - 1
                           )
                         "
-                      >
-                        -1
-                      </v-btn>
+                      />
                     </v-col>
                     <v-col
                       align="center"
@@ -1499,6 +1484,7 @@
                     </v-col>
                     <v-col align="center" justify="center" class="pa-0">
                       <v-btn
+                        text="+1"
                         x-small
                         :disabled="bonus.seasonFan[i - 1][memberName] === 10"
                         @click="
@@ -1507,17 +1493,18 @@
                             bonus.seasonFan[i - 1][memberName] + 1
                           )
                         "
-                        >+1
-                      </v-btn>
+                      />
                     </v-col>
                   </v-row>
-                  <v-spacer></v-spacer>
+
+                  <v-spacer />
                 </v-col>
                 <v-col cols="5">
                   <v-row no-gutters>
-                    <v-spacer></v-spacer>
+                    <v-spacer />
                     <v-col align="center" justify="center" class="pa-0">
                       <v-btn
+                        text="-1"
                         x-small
                         :disabled="
                           bonus.rare[i - 1][memberName] === undefined ||
@@ -1529,8 +1516,7 @@
                             bonus.release[i - 1][memberName] - 1
                           )
                         "
-                        >-1
-                      </v-btn>
+                      />
                     </v-col>
                     <v-col
                       align="center"
@@ -1541,6 +1527,7 @@
                     </v-col>
                     <v-col align="center" justify="center" class="pa-0">
                       <v-btn
+                        text="+1"
                         x-small
                         :disabled="
                           bonus.rare[i - 1][memberName] === undefined ||
@@ -1552,10 +1539,9 @@
                             bonus.release[i - 1][memberName] + 1
                           )
                         "
-                        >+1
-                      </v-btn>
+                      />
                     </v-col>
-                    <v-spacer></v-spacer>
+                    <v-spacer />
                   </v-row>
                 </v-col>
               </v-row>
@@ -1589,7 +1575,7 @@
             color="pink"
             thumb-color="pink"
             class="px-3"
-          ></v-slider>
+          />
         </v-col>
         <v-col cols="12" class="mt-2">
           <p class="text-h6 mb-8">SA</p>
@@ -1612,7 +1598,7 @@
             color="pink"
             thumb-color="pink"
             class="px-3"
-          ></v-slider>
+          />
         </v-col>
         <v-col cols="12" class="mt-2">
           <p class="text-h6 mb-8">スキル</p>
@@ -1635,7 +1621,7 @@
             color="pink"
             thumb-color="pink"
             class="px-3"
-          ></v-slider>
+          />
         </v-col>
         <v-col cols="12" class="mt-2">
           <p class="text-h6 mb-8">解放Lv.</p>
@@ -1653,18 +1639,17 @@
             color="pink"
             thumb-color="pink"
             class="px-3"
-          ></v-slider>
+          />
         </v-col>
       </v-row>
 
       <div class="mt-3 text-center">
         <v-btn
           prepend-icon="mdi-close"
+          text="CLOSE"
           class="mr-4"
           @click="dialog.paramSet = false"
-        >
-          CLOSE
-        </v-btn>
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -1685,25 +1670,23 @@
             persistent-counter
             persistent-hint
             :rules="[checkDeckName(store)]"
-          ></v-text-field>
+          />
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
         <v-btn
           prepend-icon="mdi-close"
+          text="CLOSE"
           class="mr-4"
           @click="dialog.changeDeckName = false"
-        >
-          CLOSE
-        </v-btn>
+        />
         <v-btn
           color="light-blue"
           prepend-icon="mdi-content-save"
+          text="SAVE"
           :disabled="checkDeckName(store) !== false"
           @click="changeSelectDeckName(store)"
-        >
-          SAVE
-        </v-btn>
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -1725,7 +1708,7 @@
               {{ element.name }}
             </p>
 
-            <v-divider class="mb-2"></v-divider>
+            <v-divider class="mb-2" />
 
             <v-row no-gutters class="text-center">
               <v-col cols="4">
@@ -1742,7 +1725,7 @@
                     snackbar.openDeck = true;
                   "
                 >
-                  <v-icon>mdi-folder-open</v-icon>
+                  <v-icon icon="mdi-folder-open" />
                 </v-btn>
               </v-col>
               <v-col cols="4">
@@ -1756,7 +1739,7 @@
                   "
                   @click="copyDeck(store, element.name)"
                 >
-                  <v-icon>mdi-content-copy</v-icon>
+                  <v-icon icon="mdi-content-copy" />
                 </v-btn>
               </v-col>
               <v-col cols="4">
@@ -1768,7 +1751,7 @@
                   "
                   @click="deleteDeck(store, element.name)"
                 >
-                  <v-icon>mdi-trash-can</v-icon>
+                  <v-icon icon="mdi-trash-can" />
                 </v-btn>
               </v-col>
             </v-row>
@@ -1788,7 +1771,7 @@
           {{ deck.name }}
         </p>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters class="text-center">
           <v-col cols="3">
@@ -1804,7 +1787,7 @@
                 snackbar.openDeck = true;
               "
             >
-              <v-icon>mdi-folder-open</v-icon>
+              <v-icon icon="mdi-folder-open" />
             </v-btn>
           </v-col>
           <v-col cols="3">
@@ -1818,7 +1801,7 @@
               "
               @click="shiftDeck(store, deck.name)"
             >
-              <v-icon>mdi-swap-vertical</v-icon>
+              <v-icon icon="mdi-swap-vertical" />
             </v-btn>
           </v-col>
           <v-col cols="3">
@@ -1832,7 +1815,7 @@
               "
               @click="copyDeck(store, deck.name)"
             >
-              <v-icon>mdi-content-copy</v-icon>
+              <v-icon icon="mdi-content-copy" />
             </v-btn>
           </v-col>
           <v-col cols="3">
@@ -1843,15 +1826,17 @@
               "
               @click="deleteDeck(store, deck.name)"
             >
-              <v-icon>mdi-trash-can</v-icon>
+              <v-icon icon="mdi-trash-can" />
             </v-btn>
           </v-col>
         </v-row>
       </v-card>
       <div class="text-center mt-2">
-        <v-btn prepend-icon="mdi-close" @click="dialog.deckList = false">
-          CLOSE
-        </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          text="CLOSE"
+          @click="dialog.deckList = false"
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -1865,7 +1850,7 @@
             :rules="rules.hankaku"
             maxlength="3"
             density="compact"
-          ></v-text-field>
+          />
         </v-col>
         <v-col cols="12" sm="4">
           <h3>獲得済みボーナススキル</h3>
@@ -1886,16 +1871,15 @@
             :rules="rules.hankaku"
             maxlength="2"
             density="compact"
-          ></v-text-field>
+          />
         </v-col>
       </v-row>
       <div class="text-center">
         <v-btn
           prepend-icon="mdi-close"
+          text="CLOSE"
           @click="dialog.characterStatusSetting = false"
-        >
-          CLOSE
-        </v-btn>
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -1918,7 +1902,7 @@
                 store.getImagePath('images/cdJacket', store.conversion(title))
               "
               :alt="title"
-            ></v-img>
+            />
             <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
               {{ title }}
             </v-card-title>
@@ -1927,9 +1911,11 @@
       </ul>
 
       <div class="mt-3 text-center">
-        <v-btn prepend-icon="mdi-close" @click="dialog.selectMusic = false">
-          CLOSE
-        </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          text="CLOSE"
+          @click="dialog.selectMusic = false"
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -1937,7 +1923,7 @@
   <v-dialog v-model="dialog.urlGenerate" max-width="600">
     <v-sheet class="pa-2">
       <div v-if="isUrlGenerate" class="text-center">
-        <v-progress-circular color="pink" indeterminate></v-progress-circular>
+        <v-progress-circular color="pink" indeterminate />
         <p class="mt-2">URL生成中</p>
       </div>
       <div v-else>
@@ -1948,11 +1934,13 @@
           color="pink"
           readonly
           @click:append-inner="snackbar.urlCopy = true"
-        ></v-text-field>
+        />
         <div class="text-center mt-2">
-          <v-btn prepend-icon="mdi-close" @click="dialog.urlGenerate = false">
-            CLOSE
-          </v-btn>
+          <v-btn
+            prepend-icon="mdi-close"
+            text="CLOSE"
+            @click="dialog.urlGenerate = false"
+          />
         </div>
       </div>
     </v-sheet>

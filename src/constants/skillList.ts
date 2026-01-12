@@ -4925,6 +4925,108 @@ export const SKILL_LIST = {
       },
     },
   },
+  'ドレス《もういちど ルミナス》': {
+    dress_mouichidoLuminous_01: {
+      text: [
+        'ドレスカード《もういちど ルミナス》を1種類(合計3枚)山札に追加する。さらに手札をリセットシャッフルする。この時花帆、吟子、ドレスカードをドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: 'dress',
+        type: [
+          SKILL_DETAIL.ADD_CARD,
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.DRAW,
+        ],
+      },
+    },
+  },
+  '《もういちど ルミナス》': {
+    mouichidoLuminous_01: {
+      text: [
+        '手札を全て捨てて、デッキから手札上限までスキルを引く。さらにビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA],
+      },
+    },
+  },
+  サヨシグレ: {
+    sayoShigure_01: {
+      text: [
+        '花傘カードを1種類(合計1枚)山札に追加する。さらにそれぞれ10回の間スリーズブーケ、ドレスカードが使用するボルテージゲイン効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+      },
+    },
+  },
+  花傘: {
+    hanagasa_01: {
+      text: [
+        '手札をシャッフルする。さらに次に使用するボルテージゲイン効果を+',
+        '%する。ボルテージLv.15ごと、最大150Lv.で200倍まで効果量が増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+      },
+    },
+  },
+  'ドレス《Sayo-Shigure》': {
+    dress_sayoShigure_01: {
+      text: [
+        'ドレスカード《Sayo-Shigure》を2種類(合計4枚)山札に追加する。さらにムードがハッピー、メロウいずれか100のとき、手札をシャッフルする。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.ADD_CARD,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+  },
+  '《Sayo-Shigure》': {
+    sayoShigure_01: {
+      text: [
+        'このセクション中、ムード値を+',
+        'する。さらにムードがハッピー、メロウいずれか100のとき、ボルテージPt.を+',
+        '、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+    sayoShigure_02: {
+      text: [
+        'それぞれ4回の間スリーズブーケ、ドレスカードが使用するスキルハート獲得効果による獲得数を+',
+        '%する。さらにムードがハッピー、メロウいずれか100のとき、ボルテージPt.を+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
   Ritter: {
     ritter: {
       text: [
@@ -9193,7 +9295,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9208,7 +9310,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9223,7 +9325,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9238,7 +9340,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9253,7 +9355,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9268,7 +9370,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9283,7 +9385,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9298,7 +9400,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9313,7 +9415,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9328,7 +9430,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -9343,7 +9445,7 @@ export const SKILL_LIST = {
         attr: '',
         type: [
           SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DREW,
+          SKILL_DETAIL.DRAW,
           SKILL_DETAIL.COOL_TIME,
         ],
       },
@@ -10208,6 +10310,144 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.EXTENSIONS_SECTION],
+      },
+    },
+  },
+  スリーズパレット: {
+    cerisePalette_01: {
+      text: [
+        'このセクション中、花帆、吟子、ドレスカードが使用するスキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+      },
+    },
+  },
+  マイドール: {
+    myDoll_01: {
+      text: [
+        'このセクション中、ムード値をメロウ方向に+',
+        'する。さらにそれぞれこのセクション中、さやか、小鈴が使用するラブアトラクト効果を+',
+        '%、ボルテージゲイン効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
+        ],
+      },
+    },
+  },
+  アフターレイン: {
+    afterRain_01: {
+      text: [
+        'このセクション中、ムード値をメロウ方向に+',
+        'する。さらにムードがメロウ50以上のとき、ボルテージPt.を+',
+        '、メンタルを最大値の20%減少させ、メロウ100以上のとき、このステージ中、獲得するLOVEを+',
+        '%、メンタルを最大値の30%減少させる。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+        ],
+      },
+    },
+  },
+  'ハッピーぱーく！': {
+    happyPark_01: {
+      text: [
+        'このセクション中、ムード値をハッピー方向に+',
+        'する。さらにそれぞれこのセクション中、瑠璃乃、姫芽が使用するラブアトラクト効果を+',
+        '%、ハート上限増加効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_WIDE_HEART,
+        ],
+      },
+    },
+  },
+  ガッタビーユー: {
+    gottaBeYou_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにムードがハッピー50以上のとき、このステージ中、獲得するLOVEを+',
+        '%、APを2回復し、ハッピー100以上のとき、このステージ中、ハート上限を+',
+        '、APを2回復する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.AP_GAIN,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+        ],
+      },
+    },
+  },
+  エーデルローズ: {
+    edelRose_01: {
+      text: [
+        'このセクション中、メンタルが0になってもメンタルダウンしなくなる。さらにこのセクション中、泉、セラスが使用するあらゆるスキル効果量を',
+        '%増幅する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_ALL],
+      },
+    },
+  },
+  イミテーションフェニックス: {
+    imitationPhoenix_01: {
+      text: [
+        'カードがステージにセットされ、獲得するボルテージPt.を吸収する。ボルテージPt.を600吸収したとき、このセクション中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の100%減少、ビートハート',
+        '回分のスキルハートを獲得し、捨て札に移動する。さらにメンタルが0のとき、ボルテージPt.を+',
+        'し、このセクション中、ビートハートの出現個数を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.MENTAL_DOWN_SECTION,
+          SKILL_DETAIL.MENTAL_REDUCE,
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.VIBES_SECTION,
+        ],
+      },
+    },
+  },
+  ノクターナルコード: {
+    nocturnalCode_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。ボルテージLv.15ごと、最大150Lv.で200倍まで効果量が増加する。さらにムードがハッピー、メロウいずれか100のとき、ボルテージPt.を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.HEART_CAPTCHA,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+        ],
       },
     },
   },

@@ -1,4 +1,4 @@
-import type { MemberKeyValues } from '@/constants/memberNames';
+import type { MEMBER_KEYS, MemberKeyValues } from '@/constants/memberNames';
 import type {
   StyleTypeEn,
   MoodEn,
@@ -184,7 +184,7 @@ export interface CardDataType extends CardDefaultData {
 }
 
 /** レアリティごとのカードデータ */
-interface CardsByRarity {
+export interface CardsByRarity {
   default: {
     default: CardDataType;
   };
@@ -199,20 +199,20 @@ interface CardsByRarity {
 /** メンバーごとのカードアイテム */
 export interface CardDataByMember {
   default: CardsByRarity;
-  kaho: CardsByRarity;
-  sayaka: CardsByRarity;
-  rurino: CardsByRarity;
-  kozue: CardsByRarity;
-  tsuzuri: CardsByRarity;
-  megumi: CardsByRarity;
-  ginko: CardsByRarity;
-  kosuzu: CardsByRarity;
-  hime: CardsByRarity;
-  seras: CardsByRarity;
-  izumi: CardsByRarity;
-  sachi: CardsByRarity;
-  selaIzu: CardsByRarity;
-  kozutsuzumegu: CardsByRarity;
+  [MEMBER_KEYS.KAHO]: CardsByRarity;
+  [MEMBER_KEYS.SAYAKA]: CardsByRarity;
+  [MEMBER_KEYS.RURINO]: CardsByRarity;
+  [MEMBER_KEYS.KOZUE]: CardsByRarity;
+  [MEMBER_KEYS.TSUZURI]: CardsByRarity;
+  [MEMBER_KEYS.MEGUMI]: CardsByRarity;
+  [MEMBER_KEYS.GINKO]: CardsByRarity;
+  [MEMBER_KEYS.KOSUZU]: CardsByRarity;
+  [MEMBER_KEYS.HIME]: CardsByRarity;
+  [MEMBER_KEYS.SERAS]: CardsByRarity;
+  [MEMBER_KEYS.IZUMI]: CardsByRarity;
+  [MEMBER_KEYS.SACHI]: CardsByRarity;
+  [MEMBER_KEYS.SELAIZU]: CardsByRarity;
+  [MEMBER_KEYS.KOZUTSUZUMEGU]: CardsByRarity;
 }
 
 /**

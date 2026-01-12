@@ -127,6 +127,15 @@ export default [
         'always',
         { ignore: ['modelValue'] },
       ],
+      // 型のみのインポートを import type に強制する
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+        },
+      ],
+      // 併せて、import type { A, B } from ... のようにトップレベルで type を書くスタイルを強制する場合（任意）
+      '@typescript-eslint/no-import-type-side-effects': 'error',
     },
   },
 

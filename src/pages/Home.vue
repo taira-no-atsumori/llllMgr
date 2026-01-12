@@ -19,15 +19,28 @@
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
                 :src="store.getImagePath('images/eventInformation', event.img)"
+                aspect-ratio="16/9"
+                cover
                 eager
-              ></v-img>
+              >
+                <template #placeholder>
+                  <v-skeleton-loader type="image" class="h-100 w-100" />
+                </template>
+              </v-img>
               <a v-else :href="event.url" target="_blank" class="mainVisual">
                 <v-img
                   class="white--text align-end text-center"
                   :src="
                     store.getImagePath('images/eventInformation', event.img)
                   "
-                ></v-img>
+                  aspect-ratio="16/9"
+                  cover
+                  eager
+                >
+                  <template #placeholder>
+                    <v-skeleton-loader type="image" class="h-100 w-100" />
+                  </template>
+                </v-img>
               </a>
               <v-card-title class="text-left">
                 {{ event.title }}
@@ -73,30 +86,41 @@
         <v-btn
           block
           prepend-icon="mdi-calculator"
+          text="Simulation"
           @click="pageMove('simulation')"
-        >
-          Simulation
-        </v-btn>
+        />
       </v-col>
       <v-col v-if="false">
-        <v-btn block prepend-icon="mdi-star" @click="pageMove('withStarMgr')">
-          WithStar Mgr
-        </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-star"
+          text="WithStar Mgr"
+          @click="pageMove('withStarMgr')"
+        />
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-cards" @click="pageMove('cardlist')">
-          Card List
-        </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-cards"
+          text="Card List"
+          @click="pageMove('cardlist')"
+        />
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-music" @click="pageMove('musiclist')">
-          Music List
-        </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-music"
+          text="Music List"
+          @click="pageMove('musiclist')"
+        />
       </v-col>
       <v-col>
-        <v-btn block prepend-icon="mdi-book" @click="pageMove('itemlist')">
-          Item List
-        </v-btn>
+        <v-btn
+          block
+          prepend-icon="mdi-book"
+          text="Item List"
+          @click="pageMove('itemlist')"
+        />
       </v-col>
     </v-row>
 
@@ -171,7 +195,7 @@
         Quest
         Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
       </v-col>
-      <v-col cols="12"> ※機能は変更になる可能性があります。 </v-col>
+      <v-col cols="12">※機能は変更になる可能性があります。</v-col>
     </v-row>
 
     <v-row>
@@ -198,13 +222,13 @@ const router = useRouter();
 
 const eventList = {
   liveGP: {
-    title: 'ライブグランプリ「105期 4thTerm 第2回 サークル対抗戦」',
+    title: 'ライブグランプリ「105期 FinalTerm 第1回 個人戦」',
     text: '',
     type: 'liveGP',
-    firstDay: [2025, 12, 20, 12, 0],
-    lastDay: [2025, 12, 26, 3, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2025-12-18-20-d1ptdtrjks',
-    img: '105期 4thTerm 第2回 サークル対抗戦_logo',
+    firstDay: [2026, 1, 12, 12, 0],
+    lastDay: [2026, 1, 18, 3, 59],
+    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2026-01-10-10-ezf74b13jp',
+    img: '105期 FinalTerm 第1回 個人戦_logo',
   },
   fesReCLive: {
     title: 'Fes×ReC:LIVE ～Road to Bloom～',

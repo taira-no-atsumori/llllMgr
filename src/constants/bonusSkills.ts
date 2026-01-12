@@ -1,17 +1,14 @@
-/**
- * ボーナススキル名の定数
- */
+/** ボーナススキル名の定数 */
 export const BONUS_SKILL_NAMES = {
   VOLTAGE_UP: 'ボルテージアップ',
   MENTAL_RECOVER: 'メンタルリカバー',
   BEAT_HEART_UP: 'ビートハートアップ',
   LOVE_BONUS: 'LOVEボーナス',
 } as const;
-export type BonusSkillNames = (typeof BONUS_SKILL_NAMES)[keyof typeof BONUS_SKILL_NAMES];
+export type BonusSkillNames =
+  (typeof BONUS_SKILL_NAMES)[keyof typeof BONUS_SKILL_NAMES];
 
-/**
- * ボーナススキルの詳細情報
- */
+/** ボーナススキルの詳細情報 */
 export const BONUS_SKILL_LIST = {
   [BONUS_SKILL_NAMES.VOLTAGE_UP]: {
     text: ['ボルテージPt.を', 'pt.獲得するごとに、1pt.追加獲得'],
@@ -38,4 +35,12 @@ export const BONUS_SKILL_LIST = {
     ],
   },
 } as const;
-export type BonusSkillList = (typeof bonusSkillList)[keyof typeof bonusSkillList];
+export type BonusSkillList =
+  (typeof bonusSkillList)[keyof typeof bonusSkillList];
+
+export const DEFAULT_BONUS_SKILL_LIST = {
+  [BONUS_SKILL_NAMES.VOLTAGE_UP]: 0,
+  [BONUS_SKILL_NAMES.MENTAL_RECOVER]: 0,
+  [BONUS_SKILL_NAMES.BEAT_HEART_UP]: 0,
+  [BONUS_SKILL_NAMES.LOVE_BONUS]: 0,
+} as const;
