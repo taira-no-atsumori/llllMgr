@@ -44,6 +44,13 @@ export const SKILL_LIST = {
     },
   },
   ボルテージブースト: {
+    voltageBoost_section: {
+      text: ['このセクション中、ボルテージゲイン効果を+', '%する。'],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+      },
+    },
     voltageBoost_stage: {
       text: ['このステージ中、ボルテージゲイン効果を+', '%する。'],
       detail: {
@@ -7936,6 +7943,21 @@ export const SKILL_LIST = {
         type: [
           SKILL_DETAIL.IMITATION,
           SKILL_DETAIL.BOOST_ALL,
+          SKILL_DETAIL.AP_REDUCE,
+        ],
+      },
+    },
+    bloomMySelf_07: {
+      text: [
+        'それぞれ3回の間さやかが使用するラブアトラクト効果を+',
+        '%、ボルテージゲイン効果を+',
+        '%する。さらに山札にあるさやかのスキルの消費AP-3。',
+      ],
+      detail: {
+        attr: 'bloomMySelf',
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
           SKILL_DETAIL.AP_REDUCE,
         ],
       },
