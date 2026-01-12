@@ -1153,7 +1153,7 @@ export const useStateStore = defineStore('store', {
     },
     valueChange(target: string, val: number): void {
       if (target === 'musicLevel') {
-        this.musicLevel[this.selectMusicTitle] = val;
+        this.musicLevel[getMusicIdByTitle(this.selectMusicTitle)] = val;
 
         this.setLocalStorage('llllMgr_musicData', {
           musicLevel: this.musicLevel,
