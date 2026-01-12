@@ -63,9 +63,9 @@
     <template v-if="outputAddSkillList.length > 0">
       <v-expansion-panels class="mt-1">
         <v-expansion-panel bg-color="yellow-darken-1">
-          <v-expansion-panel-title
-            >追加カード・特性／モードチェンジ詳細</v-expansion-panel-title
-          >
+          <v-expansion-panel-title>
+            追加カード・特性／モードチェンジ詳細
+          </v-expansion-panel-title>
           <v-expansion-panel-text>
             <v-tabs
               v-model="tab_addSkill"
@@ -75,11 +75,11 @@
               show-arrows
             >
               <template v-for="(list, i) of outputAddSkillList" :key="i">
-                <v-tab>{{ list.name }}</v-tab>
+                <v-tab :text="list.name" />
               </template>
             </v-tabs>
 
-            <v-divider class="border-opacity-50"></v-divider>
+            <v-divider class="border-opacity-50" />
 
             <v-tabs-window v-model="tab_addSkill">
               <template v-for="(list, i) of outputAddSkillList" :key="i">
@@ -149,16 +149,16 @@
 
                   <v-expansion-panels v-if="list?.addSkill" class="my-2">
                     <v-expansion-panel bg-color="yellow-darken-1">
-                      <v-expansion-panel-title
-                        >追加カード・特性／モードチェンジ詳細</v-expansion-panel-title
-                      >
+                      <v-expansion-panel-title>
+                        追加カード・特性／モードチェンジ詳細
+                      </v-expansion-panel-title>
                       <v-expansion-panel-text>
                         <div
                           v-for="(addSkillList, addSkillNum) of list?.addSkill"
                           :key="addSkillNum"
                           :class="`${addSkillNum === 0 ? '' : 'mt-2'}`"
                         >
-                          <v-divider class="mb-3 border-opacity-50"></v-divider>
+                          <v-divider class="mb-3 border-opacity-50" />
 
                           <div>
                             <p>
@@ -232,9 +232,9 @@
                           </div>
 
                           <div v-if="list?.characteristic" class="mt-3">
-                            <span class="specialAppeal characteristic"
-                              >特性</span
-                            >
+                            <span class="specialAppeal characteristic">
+                              特性
+                            </span>
                             {{ addSkillList.characteristic.name }}
                             <p class="mt-1">
                               {{ addSkillList.characteristic.detail }}
@@ -260,9 +260,11 @@
         {{ skillDetail.DESCRIPTION }}
       </div>
       <div class="mt-1 text-center">
-        <v-btn prepend-icon="mdi-close" @click="switchDialog(null)">
-          CLOSE
-        </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          text="CLOSE"
+          @click="switchDialog(null)"
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -272,7 +274,7 @@
 import { ref, computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import { SKILL_LIST } from '@/constants/skillList';
-import { SKILL_DETAIL } from '@/constants/skillDetail';
+import type { SKILL_DETAIL } from '@/constants/skillDetail';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import type { SkillDetail } from '@/types/cardList';
 
@@ -379,7 +381,7 @@ const AP = (skillType: string, skillData: SkillDetail): number => {
     );
   } else if (skillType !== 'specialAppeal') {
     return skillData.AP;
-  } else if (/(D|L|B)R/.test(cardData.rare) || store.isAikatsu) {
+  } else if (/(D|L|B)R/.test(cardData.rare) || store.isIrregularLvCard) {
     return (
       skillData.AP - (cardData.fluctuationStatus.trainingLevel > 0 ? 1 : 0)
     );

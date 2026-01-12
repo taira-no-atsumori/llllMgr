@@ -173,6 +173,54 @@
     }
   },
   "UR": {
+    "iz_016": {
+      "cardName": "FIRE BIRD",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "バンドリ！コラボ",
+      "kana": "ふぁいやーばーど",
+      "gacha": {
+        "addSeason": "BanG Dream! LIMITED COLLECTION",
+        "period": "collaboration"
+      },
+      "uniqueStatus": {
+        "smile": 4100,
+        "pure": 4650,
+        "cool": 5850,
+        "mental": 460,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "edelRose_01",
+        "name": "エーデルローズ",
+        "AP": 6,
+        "detail": [
+          [160, 176, 192, 208, 224, 240, 256, 272, 288, 320, 336, 352, 368, 400]
+        ]
+      },
+      "skill": {
+        "ID": "imitationPhoenix_01",
+        "name": "イミテーションフェニックス",
+        "AP": 4,
+        "detail": [
+          [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+          [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        ]
+      },
+      "characteristic": {
+        "name": "ボイスオブクリエイション",
+        "detail": "メイン効果がイミテーション、ムード変化のスキルを使用したとき、ドローされる確率が大幅に増加する。さらにメンタルが25%以下でドローしたとき、ビートハート25回分のスキルハートを獲得、このセクション中、ボルテージゲイン効果を+20%し、メンタルが25%以下で手札にある状態でセクションが変わるたび、このセクション中、メンタルが0になってもメンタルダウンしなくなり、あらゆるスキル効果量を20%増幅する。",
+        "type": [
+          "draw",
+          "heartCaptcha",
+          "boost_voltageGain",
+          "mentalDown_section",
+          "ambience_section",
+          "boost_all"
+        ]
+      }
+    },
     "iz_015": {
       "cardName": "令嬢モブ！",
       "styleType": "trickStar",

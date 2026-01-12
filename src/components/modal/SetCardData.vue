@@ -36,28 +36,27 @@
           height="auto"
           hide-delimiter-background
           show-arrows="hover"
-          :hide-delimiters="/^(D|L|B)R$/.test(store.getSettingCard.rare)"
+          :hide-delimiters="
+            /^(D|L|B)R$/.test(store.getSettingCard.rare) ||
+            store.getSettingCard.gacha.period === 'collaboration'
+          "
           color="#e5762c"
         >
           <v-carousel-item
-            v-for="kakusei in /^(D|L|B)R$/.test(store.getSettingCard.rare)
+            v-for="kakusei in /^(D|L|B)R$/.test(store.getSettingCard.rare) ||
+            store.getSettingCard.gacha.period === 'collaboration'
               ? [true]
               : [false, true]"
             :key="kakusei"
-            :lazy-src="
-              store.getImagePath(
-                'images/cardIllust',
-                store.makeCardIllustName(store.getSettingCard.ID, kakusei)
-              )
-            "
             :src="
               store.getImagePath(
                 'images/cardIllust',
                 store.makeCardIllustName(store.getSettingCard.ID, kakusei)
               )
             "
-            :aspect-ratio="1.542"
-          ></v-carousel-item>
+            aspect-ratio="16/9"
+            cover
+          />
         </v-carousel>
         <v-row id="styleAndMoodArea" no-gutters class="text-center">
           <v-col cols="12" sm="6" class="pt-2 pb-1">
@@ -72,7 +71,7 @@
                   )
                 "
                 class="icon type"
-              ></v-img>
+              />
               {{ convertStyleEnToJp(store.settingCardData.styleType) }}
             </span>
           </v-col>
@@ -85,7 +84,7 @@
                   store.getImagePath('', `icon_${store.settingCardData.mood}`)
                 "
                 class="icon mood"
-              ></v-img>
+              />
               {{ convertMoodEnToJp(store.settingCardData.mood) }}
             </span>
           </v-col>
@@ -129,23 +128,24 @@
             </tr>
           </tbody>
         </v-table>
+
         <v-row no-gutters class="text-center">
           <v-col cols="12" sm="10">
             <v-row no-gutters class="mb-2 mb-sm-0">
               <v-col cols="12" class="pb-1 font-weight-bold">
                 初登場時期
               </v-col>
-              <v-col cols="12">{{
-                store.settingCardData.gacha.addSeason
-              }}</v-col>
+              <v-col cols="12">
+                {{ store.settingCardData.gacha.addSeason }}
+              </v-col>
             </v-row>
           </v-col>
           <v-col cols="12" sm="2">
             <v-row no-gutters>
               <v-col cols="12" class="pb-1 font-weight-bold">入手期間</v-col>
-              <v-col cols="12">{{
-                LIMITED[store.settingCardData.gacha.period].jp
-              }}</v-col>
+              <v-col cols="12">
+                {{ LIMITED[store.settingCardData.gacha.period].jp }}
+              </v-col>
             </v-row>
           </v-col>
         </v-row>
@@ -157,6 +157,7 @@
           <v-row>
             <v-col cols="5" align-self="center" class="pa-0 text-right">
               <v-btn
+                text="-1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.trainingLevel === 0
                 "
@@ -166,8 +167,7 @@
                     store.settingCardData.fluctuationStatus.trainingLevel - 1
                   )
                 "
-                >-1
-              </v-btn>
+              />
             </v-col>
             <v-col
               cols="2"
@@ -183,6 +183,7 @@
             </v-col>
             <v-col cols="5" align-self="center" justify="center" class="pa-0">
               <v-btn
+                text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.trainingLevel ===
                   store.maxTrainingLevel
@@ -193,8 +194,7 @@
                     store.settingCardData.fluctuationStatus.trainingLevel + 1
                   )
                 "
-                >+1
-              </v-btn>
+              />
             </v-col>
           </v-row>
         </div>
@@ -203,6 +203,7 @@
           <div class="paramSetArea mb-1">
             <div>
               <v-btn
+                text="MIN"
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
                   (store.settingCardData.fluctuationStatus.trainingLevel === 0
@@ -217,12 +218,11 @@
                       : store.minCardLevel
                   )
                 "
-              >
-                MIN
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="-1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
                   (store.settingCardData.fluctuationStatus.trainingLevel === 0
@@ -235,15 +235,14 @@
                     store.settingCardData.fluctuationStatus.cardLevel - 1
                   )
                 "
-              >
-                -1
-              </v-btn>
+              />
             </div>
             <div>
               {{ store.settingCardData.fluctuationStatus.cardLevel }}
             </div>
             <div>
               <v-btn
+                text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
                   store.maxCardLevel
@@ -254,20 +253,17 @@
                     store.settingCardData.fluctuationStatus.cardLevel + 1
                   )
                 "
-              >
-                +1
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="MAX"
                 :disabled="
                   store.settingCardData.fluctuationStatus.cardLevel ===
                   store.maxCardLevel
                 "
                 @click="store.valueChange('cardLevel', store.maxCardLevel)"
-              >
-                MAX
-              </v-btn>
+              />
             </div>
           </div>
         </div>
@@ -282,21 +278,21 @@
               @click="
                 openDialog('skillList', 900, { targetSkill: 'specialAppeal' })
               "
-            ></v-btn>
+            />
           </h4>
           <div class="paramSetArea mb-1">
             <div>
               <v-btn
+                text="MIN"
                 :disabled="
                   store.settingCardData.fluctuationStatus.SALevel === 1
                 "
                 @click="store.valueChange('SALevel', 1)"
-              >
-                MIN
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="-1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.SALevel === 1
                 "
@@ -306,15 +302,14 @@
                     store.settingCardData.fluctuationStatus.SALevel - 1
                   )
                 "
-              >
-                -1
-              </v-btn>
+              />
             </div>
             <div>
               {{ store.settingCardData.fluctuationStatus.SALevel }}
             </div>
             <div>
               <v-btn
+                text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.SALevel ===
                   store.changeSkillLevel
@@ -325,20 +320,17 @@
                     store.settingCardData.fluctuationStatus.SALevel + 1
                   )
                 "
-              >
-                +1
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="MAX"
                 :disabled="
                   store.settingCardData.fluctuationStatus.SALevel ===
                   store.changeSkillLevel
                 "
                 @click="store.valueChange('SALevel', store.changeSkillLevel)"
-              >
-                MAX
-              </v-btn>
+              />
             </div>
           </div>
         </div>
@@ -351,19 +343,19 @@
               icon="mdi-help"
               class="ml-1"
               @click="openDialog('skillList', 900, { targetSkill: 'skill' })"
-            ></v-btn>
+            />
           </h4>
           <div class="paramSetArea mb-1">
             <div>
               <v-btn
+                text="MIN"
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
                 @click="store.valueChange('SLevel', 1)"
-              >
-                MIN
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="-1"
                 :disabled="store.settingCardData.fluctuationStatus.SLevel === 1"
                 @click="
                   store.valueChange(
@@ -371,15 +363,14 @@
                     store.settingCardData.fluctuationStatus.SLevel - 1
                   )
                 "
-              >
-                -1
-              </v-btn>
+              />
             </div>
             <div>
               {{ store.settingCardData.fluctuationStatus.SLevel }}
             </div>
             <div>
               <v-btn
+                text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.SLevel ===
                   store.changeSkillLevel
@@ -390,20 +381,17 @@
                     store.settingCardData.fluctuationStatus.SLevel + 1
                   )
                 "
-              >
-                +1
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="MAX"
                 :disabled="
                   store.settingCardData.fluctuationStatus.SLevel ===
                   store.changeSkillLevel
                 "
                 @click="store.valueChange('SLevel', store.changeSkillLevel)"
-              >
-                MAX
-              </v-btn>
+              />
             </div>
           </div>
         </div>
@@ -430,12 +418,13 @@
                 icon="mdi-help"
                 class="ml-1"
                 @click="openDialog('GPPT', 600, null)"
-              ></v-btn
-            ></span>
+              />
+            </span>
           </h4>
           <div class="paramSetArea mb-1">
             <div>
               <v-btn
+                text="MIN"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releaseLevel === 1
                 "
@@ -443,12 +432,11 @@
                   store.valueChange('releaseLevel', 1);
                   store.valueChange('releasePoint', maxReleasePoint(store));
                 "
-              >
-                MIN
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="-1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releaseLevel === 1
                 "
@@ -459,15 +447,14 @@
                   );
                   store.valueChange('releasePoint', maxReleasePoint(store));
                 "
-              >
-                -1
-              </v-btn>
+              />
             </div>
             <div>
               {{ store.settingCardData.fluctuationStatus.releaseLevel }}
             </div>
             <div>
               <v-btn
+                text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releaseLevel === 5
                 "
@@ -485,12 +472,11 @@
                     )
                   );
                 "
-              >
-                +1
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
+                text="MAX"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releaseLevel === 5
                 "
@@ -498,9 +484,7 @@
                   store.valueChange('releaseLevel', 5);
                   store.valueChange('releasePoint', 0);
                 "
-              >
-                MAX
-              </v-btn>
+              />
             </div>
           </div>
         </div>
@@ -517,7 +501,7 @@
               icon="mdi-help"
               class="ml-1"
               @click="openDialog('releasePoint', 600, null)"
-            ></v-btn>
+            />
           </h4>
           <div class="paramSetArea mb-1">
             <div>
@@ -547,6 +531,7 @@
             </div>
             <div>
               <v-btn
+                text="-1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releasePoint === 0
                 "
@@ -556,15 +541,14 @@
                     store.settingCardData.fluctuationStatus.releasePoint - 1
                   )
                 "
-              >
-                -1
-              </v-btn>
+              />
             </div>
             <div>
               {{ store.settingCardData.fluctuationStatus.releasePoint }}
             </div>
             <div>
               <v-btn
+                text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releasePoint ===
                   limitReleasePoint(store)
@@ -575,9 +559,7 @@
                     store.settingCardData.fluctuationStatus.releasePoint + 1
                   )
                 "
-              >
-                +1
-              </v-btn>
+              />
             </div>
             <div>
               <v-btn
@@ -665,7 +647,7 @@
               thumb-color="pink"
               class="mb-2 px-2"
               density="compact"
-            ></v-slider>
+            />
           </div>
         </div>
         <div class="mb-4">
@@ -688,7 +670,7 @@
                     : ''
                 "
                 @click="store.changeFav(favorite)"
-              ></v-btn>
+              />
             </v-col>
           </v-row>
         </div>
@@ -696,11 +678,11 @@
     </v-row>
 
     <v-tabs v-model="gameMode" color="pink" grow>
-      <v-tab value="stage">スクールアイドルステージ</v-tab>
-      <v-tab value="show">スクールアイドルショウ</v-tab>
+      <v-tab value="stage" text="スクールアイドルステージ" />
+      <v-tab value="show" text="スクールアイドルショウ" />
     </v-tabs>
 
-    <v-divider class="border-opacity-50"></v-divider>
+    <v-divider class="border-opacity-50" />
 
     <v-tabs-window v-model="gameMode">
       <v-tabs-window-item value="stage">
@@ -733,9 +715,9 @@
             class="mr-1"
             style="width: 50px; border-radius: 5px"
           />
-          <span style="font-size: 18px"
-            >Lv.{{ makeSupportSkillLevel(store, supportSkillName) }}</span
-          >
+          <span style="font-size: 18px">
+            Lv.{{ makeSupportSkillLevel(store, supportSkillName) }}
+          </span>
         </li>
       </ul>
     </div>
@@ -746,7 +728,7 @@
       <div v-if="openDialogName === 'skillList'">
         <h2 class="text-center mb-2">スキル効果量一覧</h2>
         <v-tabs v-model="selectAddSkillDetail" class="mb-2" color="pink" grow>
-          <v-tab value="mainSkill">メインスキル</v-tab>
+          <v-tab value="mainSkill" text="メインスキル" />
           <v-tab
             v-for="(addSkillData, i) in store.settingCardData[targetSkill]
               .addSkill"
@@ -903,9 +885,11 @@
         </p>
       </div>
       <div class="mt-1 text-center">
-        <v-btn prepend-icon="mdi-close" @click="switchDialog(null)">
-          CLOSE
-        </v-btn>
+        <v-btn
+          prepend-icon="mdi-close"
+          text="CLOSE"
+          @click="switchDialog(null)"
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -920,7 +904,7 @@ import {
   FAVORITE,
   LIMITED,
 } from '@/constants/cards';
-import { StoreState } from '@/types/stateStore';
+import type { StoreState } from '@/types/stateStore';
 import { useStateStore } from '@/stores/stateStore';
 import { MEMBER_NAMES, makeMemberFullName } from '@/constants/memberNames';
 import { getReleasePoint } from '@/constants/releasePoint';

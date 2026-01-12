@@ -1,10 +1,10 @@
 // src/firebase.ts
 import { initializeApp } from 'firebase/app';
 import { getDatabase, enableLogging } from 'firebase/database';
-import { VueFire, VueFireDatabaseOptionsAPI } from 'vuefire';
 // import { getAnalytics } from "firebase/analytics";
 
 // .env.localなどの環境変数ファイルから設定を読み込みます
+// 本番用設定
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -15,15 +15,28 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-// Firebaseアプリを初期化
+// 検証用設定
+const firebaseConfigDev = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY_DEV,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN_DEV,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL_DEV,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID_DEV,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET_DEV,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID_DEV,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID_DEV,
+};
+
+// Firebase本番用アプリ初期化
 export const firebaseApp = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 // Realtime Databaseのインスタンスを取得してエクスポート
 export const rtdb = getDatabase(firebaseApp);
-export const vueFire = VueFire;
-export const vueFireDatabase = VueFireDatabaseOptionsAPI;
+
+// 検証用アプリ初期化（名前を 'dev' と指定して区別します）
+const appDev = initializeApp(firebaseConfigDev, 'dev');
+export const rtdbDev = getDatabase(appDev);
 
 // Firebase Realtime Databaseのデバッグログを有効にする
 // 詳細な通信ログがコンソールに出力されます
-enableLogging(true);
+enableLogging(false);

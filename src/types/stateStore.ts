@@ -1,5 +1,5 @@
-import { MemberKeyValues } from '@/constants/memberNames';
-import {
+import type { MemberKeyValues } from '@/constants/memberNames';
+import type {
   Rare,
   StyleTypeEn,
   FavoriteIcon,
@@ -7,9 +7,10 @@ import {
   MoodEn,
   Limited,
 } from '@/constants/cards';
-import { SkillBook } from '@/constants/items';
-import { BonusSkillNames } from '@/constants/bonusSkills';
-import { CardDataByMember, TrainingStatus } from '@/types/cardList';
+import type { SkillBook, CharmItems, PieceItems } from '@/constants/items';
+import type { MusicItem } from '@/types/musicList';
+import type { BonusSkillNames } from '@/constants/bonusSkills';
+import type { CardDataByMember, TrainingStatus } from '@/types/cardList';
 
 /**
  * カードの変動ステータスを表す型
@@ -62,7 +63,7 @@ export type LocalStorageCardListType = Record<
  * @property musicList 曲リスト設定
  * @property musicList.hover ホバー設定
  */
-type SiteSettings = {
+export type SiteSettings = {
   all: {
     headerTracking: string;
     darkMode: 'light' | 'dark';
@@ -106,10 +107,10 @@ type SortSettings = {
  * @property item2 アイテム2
  * @property item3 アイテム3
  */
-type SelectItemList = {
+export type SelectItemList = {
   item1: SkillBook[];
-  item2: string[];
-  item3: string[];
+  item2: PieceItems[];
+  item3: CharmItems[];
 };
 
 /**
@@ -198,11 +199,7 @@ type LocalStorageData = {
     card: LocalStorageCardListType;
     cardListFilter: SearchSettings;
   };
-  selectItemList: {
-    item1: SkillBook[];
-    item2: string[];
-    item3: string[];
-  };
+  selectItemList: SelectItemList;
   siteSettings: SiteSettings;
   sortSettings: SortSettings;
 };
@@ -230,26 +227,25 @@ type Deck = {
 };
 
 /**
- * カウンターの状態を表す型
+ * サイト内共通の状態を表す型
  *
+ * @property isDev データアップ先がデベロップ環境であるか
  * @property dialog ダイアログの状態
  * @property showModalName 表示するモーダル名
  * @property updateData データ更新状態
  * @property selectCharacter 選択中のキャラクター
  * @property selectMusicTitle 選択中の楽曲
- * @property checkMasteryMember マスタリー確認メンバー
  * @property thisPeriod 現在の期
  * @property selectDeckName 選択中のデッキ名
  * @property isParamReflect パラメータ反映状態
  * @property isPossessionFlg 持ち物状態
  * @property releaseStatus 解放ステータス
- * @property bonusSkillLevels ボーナススキルレベル
  * @property withStar スター付加状態
  * @property siteSettings サイト設定
  * @property sortSettings ソート設定
  * @property memberData メンバーデータ
  * @property deck デッキ
- * @property settingCard 設定カード
+ * @property settingCardId 設定カードID
  * @property openCard 開放カード
  * @property localStorageData ローカルストレージデータ
  * @property supportSkill サポートスキル
@@ -257,6 +253,7 @@ type Deck = {
  * @property musicLevel 楽曲レベル
  */
 export type StoreState = {
+  isDev: boolean;
   loading: boolean;
   dialog: boolean;
   dialogError: boolean;
@@ -264,7 +261,6 @@ export type StoreState = {
   updateData: boolean;
   selectCharacter: MemberKeyValues | undefined;
   selectMusicTitle: string | undefined;
-  checkMasteryMember: MemberKeyValues;
   thisPeriod: 103 | 104 | 105;
   selectDeckName: string;
   isParamReflect: boolean;
@@ -276,7 +272,7 @@ export type StoreState = {
   search: SearchSettings;
   card: Record<string, CardDataByMember>;
   musicLevel: Record<string, number>;
-  bonusSkillLevels: Record<BonusSkillNames, number>;
+  musicList: Record<string, MusicItem>;
   memberData: {
     centerList: Record<
       string,
@@ -287,9 +283,7 @@ export type StoreState = {
     >;
   };
   deck: Deck[];
-  settingCard: {
-    ID: string;
-  };
+  settingCardId: string;
   openCard: {
     ID: string;
     name: MemberKeyValues;

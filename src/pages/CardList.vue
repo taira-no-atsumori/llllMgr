@@ -5,6 +5,7 @@
     <v-expansion-panels class="mb-3">
       <v-expansion-panel>
         <v-expansion-panel-title>ページ詳細</v-expansion-panel-title>
+
         <v-expansion-panel-text>
           リンクラに実装されているカード一覧です。<br />
           各カードを選択すると、カードの詳細が見られます。<br />
@@ -12,12 +13,12 @@
           ※アプリ本編ではカードレベル0は存在しませんが、本サイトではカードレベル0を未所持状態、レベル1以上を所持状態と定義しています。<br /><br />
 
           右上にある●は、カードレベルが1以上かつ以下の条件でつきます。<br />
-          <span class="text-green-accent-4">●</span
-          >←特訓Lv.が上げられるときに表示されます。<br />
-          <span class="text-red-accent-3">●</span
-          >←カードLv.が上げられるときに表示されます。<br />
-          <span class="text-blue-accent-4">●</span
-          >←解放Lv.が上げられるときに表示されます。
+          <span class="text-green-accent-4">●</span>
+          ←特訓Lv.が上げられるときに表示されます。<br />
+          <span class="text-red-accent-3">●</span>
+          ←カードLv.が上げられるときに表示されます。<br />
+          <span class="text-blue-accent-4">●</span>
+          ←解放Lv.が上げられるときに表示されます。
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -28,7 +29,7 @@
       color="pink"
       @click="store.showModalEvent('CardListFilter')"
     >
-      <v-icon class="mr-2">mdi-filter</v-icon>
+      <v-icon icon="mdi-filter" class="mr-2" />
       絞り込み
     </v-btn>
 
@@ -38,12 +39,12 @@
       color="yellow"
       @click="dialog = true"
     >
-      <v-icon class="mr-2">mdi-chart-box-outline</v-icon>
+      <v-icon icon="mdi-chart-box-outline" class="mr-2" />
       分析
     </v-btn>
 
     <v-btn elevation="3" class="mb-1 mr-2 px-3" color="blue">
-      <v-icon class="mr-2">mdi-sort</v-icon>
+      <v-icon icon="mdi-sort" class="mr-2" />
       ソート
       <v-menu activator="parent" transition="slide-y-transition">
         <v-list>
@@ -77,7 +78,7 @@
         class="px-0 px-sm-2"
         @click="store.changeSettings('sortSettings')"
       >
-        <v-icon>mdi-sort-descending</v-icon>
+        <v-icon icon="mdi-sort-descending" />
         <span class="ml-2 hidden-sm-and-down">降順</span>
       </v-btn>
       <v-btn
@@ -85,7 +86,7 @@
         class="px-0 px-sm-2"
         @click="store.changeSettings('sortSettings')"
       >
-        <v-icon>mdi-sort-ascending</v-icon>
+        <v-icon icon="mdi-sort-ascending" />
         <span class="ml-2 hidden-sm-and-down">昇順</span>
       </v-btn>
     </v-btn-toggle>
@@ -98,7 +99,7 @@
       現在のソート：{{ sortTypeList[store.sortSettings.cardList.sortType] }}
     </div>
 
-    <v-divider class="my-2"></v-divider>
+    <v-divider class="my-2" />
 
     <v-tabs
       v-if="false"
@@ -106,8 +107,8 @@
       slider-color="pink"
       density="compact"
     >
-      <v-tab value="single">単一選択</v-tab>
-      <v-tab value="multi">一括選択</v-tab>
+      <v-tab value="single" text="単一選択" />
+      <v-tab value="multi" text="一括選択" />
     </v-tabs>
 
     <v-tabs-window v-model="selectTab">
@@ -164,16 +165,10 @@
               :color="moodColor[cardData.mood]"
               @click="
                 store.showModalEvent('setCardData');
-                store.setSettingCard(cardData.ID);
+                store.settingCardId = cardData.ID;
               "
             >
               <v-img
-                :lazy-src="
-                  store.getImagePath(
-                    'images/cardIllust',
-                    store.makeCardIllustName(cardData.ID)
-                  )
-                "
                 :src="
                   store.getImagePath(
                     'images/cardIllust',
@@ -183,7 +178,21 @@
                 :alt="`${store.conversion(
                   cardData.cardName
                 )}_${conversionCardIdToMemberName(cardData.ID)}`"
-              ></v-img>
+                aspect-ratio="16/9"
+                cover
+              >
+                <template #placeholder>
+                  <v-skeleton-loader type="image" class="h-100 w-100" />
+                </template>
+                <template #error>
+                  <v-img
+                    :src="noImage"
+                    aspect-ratio="1"
+                    cover
+                    class="h-100 w-100"
+                  />
+                </template>
+              </v-img>
               <v-card-title
                 class="d-flex align-center text-subtitle-2 px-2 pt-1 hamidashi"
                 style="padding-bottom: 2px"
@@ -209,7 +218,7 @@
                 v-if="store.toBool(store.siteSettings.cardList.isShowDetail)"
                 class="pa-0 cardName"
               >
-                <v-divider opacity="100"></v-divider>
+                <v-divider opacity="100" />
 
                 <v-row no-gutters class="pa-1">
                   <v-col cols="6" class="status">
@@ -297,16 +306,10 @@
                     :color="moodColor[cardData.mood]"
                     @click="
                       store.showModalEvent('setCardData');
-                      store.setSettingCard(cardData.ID);
+                      store.settingCardId = cardData.ID;
                     "
                   >
                     <v-img
-                      :lazy-src="
-                        store.getImagePath(
-                          'images/cardIllust',
-                          store.makeCardIllustName(cardData.ID)
-                        )
-                      "
                       :src="
                         store.getImagePath(
                           'images/cardIllust',
@@ -316,7 +319,19 @@
                       :alt="`${store.conversion(
                         cardData.cardName
                       )}_${conversionCardIdToMemberName(cardData.ID)}`"
-                    ></v-img>
+                    >
+                      <template #placeholder>
+                        <v-skeleton-loader type="image" class="h-100 w-100" />
+                      </template>
+                      <template #error>
+                        <v-img
+                          :src="noImage"
+                          aspect-ratio="1"
+                          cover
+                          class="h-100 w-100"
+                        />
+                      </template>
+                    </v-img>
                     <v-card-title
                       class="d-flex align-center text-subtitle-2 px-2 pt-1"
                       style="padding-bottom: 2px"
@@ -343,7 +358,7 @@
                       "
                       class="pa-0 cardName"
                     >
-                      <v-divider opacity="50"></v-divider>
+                      <v-divider opacity="50" />
 
                       <v-row no-gutters class="pa-1">
                         <v-col cols="6" class="status">
@@ -540,13 +555,13 @@
         </ul>
       </v-tabs-window-item>
       <v-tabs-window-item value="multi">
-        <v-btn class="my-2"></v-btn>
+        <v-btn class="my-2" />
         <v-data-table
           density="compact"
           :headers="tableHeaders"
           :items="makeCardList(store)"
           show-select
-        ></v-data-table>
+        />
       </v-tabs-window-item>
     </v-tabs-window>
 
@@ -575,14 +590,13 @@
               v-for="(ary, cardName) in store.card[name_en][rare]"
               :key="ary"
               :data-mood="ary.mood"
+              :text="cardName"
               class="abc"
               @click="
                 store.showModalEvent('setCardData');
-                store.setSettingCard(ID);
+                store.settingCardId = ID;
               "
-            >
-              {{ cardName }}
-            </v-btn>
+            />
           </dd>
         </dl>
       </li>
@@ -601,10 +615,9 @@
         <v-btn
           prepend-icon="mdi-close"
           :theme="store.siteSettings.all.darkMode"
+          text="CLOSE"
           @click="dialog = false"
-        >
-          CLOSE
-        </v-btn>
+        />
       </div>
     </v-sheet>
   </v-dialog>
@@ -628,7 +641,8 @@ import { MEMBER_COLOR } from '@/constants/colorConst';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { SKILL_LIST } from '@/constants/skillList';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
-import { CardDefaultData, CardDataType } from '@/types/cardList';
+import type { CardDefaultData, CardDataType } from '@/types/cardList';
+import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
 
 const store = useStateStore();
 const memberKeys = Object.keys(MEMBER_COLOR);

@@ -6,9 +6,9 @@
     slider-color="pink"
     density="compact"
   >
-    <v-tab value="filter_status">ステータス絞り込み</v-tab>
-    <v-tab value="filter_skill">スキル / 特性絞り込み</v-tab>
-    <v-tab value="filter_cardSeries">シリーズ絞り込み</v-tab>
+    <v-tab value="filter_status" text="ステータス絞り込み" />
+    <v-tab value="filter_skill" text="スキル / 特性絞り込み" />
+    <v-tab value="filter_cardSeries" text="シリーズ絞り込み" />
   </v-tabs>
 
   <v-window v-model="tab1" :touch="false">
@@ -18,15 +18,14 @@
           <v-col cols="12" sm="6">
             <div class="d-flex pr-sm-3 mb-sm-1">
               レアリティ
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 density="compact"
                 elevation="1"
+                text="一括チェック"
                 class="px-2"
                 @click="store.resetMusicFilter('rare')"
-              >
-                一括チェック
-              </v-btn>
+              />
             </div>
             <v-row no-gutters>
               <v-col v-for="rare in RARE" :key="rare">
@@ -37,25 +36,24 @@
                   color="pink"
                   hide-details
                   density="compact"
-                ></v-checkbox>
+                />
               </v-col>
             </v-row>
           </v-col>
 
-          <v-divider class="mb-2 hidden-sm-and-up"></v-divider>
+          <v-divider class="mb-2 hidden-sm-and-up" />
 
           <v-col cols="12" sm="6">
             <div class="d-flex mb-1">
               ムード
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 density="compact"
                 elevation="1"
+                text="一括チェック"
                 class="px-2"
                 @click="store.resetMusicFilter('mood')"
-              >
-                一括チェック
-              </v-btn>
+              />
             </div>
             <v-row no-gutters>
               <v-col
@@ -75,7 +73,7 @@
                     <v-img
                       :src="store.getImagePath('icons/mood', `icon_${mood.en}`)"
                       class="icon mood"
-                    ></v-img>
+                    />
                     {{ mood.jp }}
                   </template>
                 </v-checkbox>
@@ -84,20 +82,19 @@
           </v-col>
         </v-row>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" class="d-flex mb-1 mb-sm-0">
             タイプ
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-btn
               density="compact"
               elevation="1"
+              text="一括チェック"
               class="px-2"
               @click="store.resetMusicFilter('styleType')"
-            >
-              一括チェック
-            </v-btn>
+            />
           </v-col>
           <v-col
             v-for="[_, style] in Object.entries(STYLE_TYPE)"
@@ -119,27 +116,26 @@
                     store.getImagePath('icons/styleType', `icon_${style.en}`)
                   "
                   class="icon type"
-                ></v-img>
+                />
                 {{ style.jp }}
               </template>
             </v-checkbox>
           </v-col>
         </v-row>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" class="d-flex mb-1">
             メンバー
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-btn
               density="compact"
               elevation="1"
+              text="一括チェック"
               class="px-2"
               @click="store.resetMusicFilter('memberName')"
-            >
-              一括チェック
-            </v-btn>
+            />
           </v-col>
           <v-col
             v-for="memberName in store.memberNameList"
@@ -169,7 +165,7 @@
                       )
                     "
                     class="icon member"
-                  ></v-img>
+                  />
                   <span
                     :style="`font-size: ${
                       memberName === MEMBER_KEYS.SERAS ? 0.8 : 1
@@ -184,20 +180,19 @@
           </v-col>
         </v-row>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" class="d-flex">
             LIMITED
-            <v-spacer></v-spacer>
+            <v-spacer />
             <v-btn
               density="compact"
               elevation="1"
+              text="一括チェック"
               class="px-2"
               @click="store.resetMusicFilter('limited')"
-            >
-              一括チェック
-            </v-btn>
+            />
           </v-col>
           <v-col
             v-for="(label, value) in LIMITED"
@@ -214,14 +209,14 @@
               color="pink"
               hide-details
               density="compact"
-            ></v-checkbox>
+            />
           </v-col>
         </v-row>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters>
-          <v-col cols="12" class="d-flex mb-1"> ステータス上限 </v-col>
+          <v-col cols="12" class="d-flex mb-1">ステータス上限</v-col>
           <v-col cols="12" class="mb-2">
             <v-radio-group
               v-model="store.search.cardList.releaseStatus"
@@ -237,26 +232,25 @@
                 :label="statusName[value]"
                 color="pink"
                 hide-details
-              ></v-radio>
+              />
             </v-radio-group>
           </v-col>
         </v-row>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" sm="6">
             <div class="d-flex mb-sm-4 pr-sm-3">
               お気に入り
-              <v-spacer></v-spacer>
+              <v-spacer />
               <v-btn
                 density="compact"
                 elevation="1"
+                text="一括チェック"
                 class="px-2"
                 @click="store.resetMusicFilter('favorite')"
-              >
-                一括チェック
-              </v-btn>
+              />
             </div>
             <v-row no-gutters>
               <v-col
@@ -273,14 +267,14 @@
                   density="compact"
                 >
                   <template #label>
-                    <v-icon :icon="`mdi-${favorite}`"></v-icon>
+                    <v-icon :icon="`mdi-${favorite}`" />
                   </template>
                 </v-checkbox>
               </v-col>
             </v-row>
           </v-col>
 
-          <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
+          <v-divider class="mt-1 mb-2 hidden-sm-and-up" />
 
           <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
@@ -288,11 +282,11 @@
               reset-music-filter-name="trainingLevel"
               :min="DEFAULT_SEARCH.cardList.trainingLevel[0]"
               :max="DEFAULT_SEARCH.cardList.trainingLevel[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
         </v-row>
 
-        <v-divider class="mb-2"></v-divider>
+        <v-divider class="mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" sm="6" class="pr-sm-3">
@@ -301,10 +295,10 @@
               reset-music-filter-name="cardLevel"
               :min="DEFAULT_SEARCH.cardList.cardLevel[0]"
               :max="DEFAULT_SEARCH.cardList.cardLevel[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
 
-          <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
+          <v-divider class="mt-1 mb-2 hidden-sm-and-up" />
 
           <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
@@ -312,11 +306,11 @@
               reset-music-filter-name="releaseLevel"
               :min="DEFAULT_SEARCH.cardList.releaseLevel[0]"
               :max="DEFAULT_SEARCH.cardList.releaseLevel[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
         </v-row>
 
-        <v-divider class="mt-1 mb-2"></v-divider>
+        <v-divider class="mt-1 mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" sm="6" class="pr-sm-3">
@@ -325,10 +319,10 @@
               reset-music-filter-name="SALevel"
               :min="DEFAULT_SEARCH.cardList.SALevel[0]"
               :max="DEFAULT_SEARCH.cardList.SALevel[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
 
-          <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
+          <v-divider class="mt-1 mb-2 hidden-sm-and-up" />
 
           <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
@@ -336,11 +330,11 @@
               reset-music-filter-name="SLevel"
               :min="DEFAULT_SEARCH.cardList.SLevel[0]"
               :max="DEFAULT_SEARCH.cardList.SLevel[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
         </v-row>
 
-        <v-divider class="mt-1 mb-2"></v-divider>
+        <v-divider class="mt-1 mb-2" />
 
         <v-row no-gutters>
           <v-col cols="12" sm="6" class="pr-sm-3">
@@ -349,10 +343,10 @@
               reset-music-filter-name="SAAP"
               :min="DEFAULT_SEARCH.cardList.SAAP[0]"
               :max="DEFAULT_SEARCH.cardList.SAAP[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
 
-          <v-divider class="mt-1 mb-2 hidden-sm-and-up"></v-divider>
+          <v-divider class="mt-1 mb-2 hidden-sm-and-up" />
 
           <v-col cols="12" sm="6" class="prl-sm-3 pl-md-3 pl-lg-3 pl-xl-3">
             <CardFilterSlider
@@ -360,7 +354,7 @@
               reset-music-filter-name="SAP"
               :min="DEFAULT_SEARCH.cardList.SAP[0]"
               :max="DEFAULT_SEARCH.cardList.SAP[1]"
-            ></CardFilterSlider>
+            />
           </v-col>
         </v-row>
       </v-container>
@@ -372,16 +366,8 @@
         hide-details
         inline
       >
-        <v-radio
-          label="スキルタイプ絞り込み"
-          value="skillType"
-          color="pink"
-        ></v-radio>
-        <v-radio
-          label="スキル名絞り込み"
-          value="skillName"
-          color="pink"
-        ></v-radio>
+        <v-radio label="スキルタイプ絞り込み" value="skillType" color="pink" />
+        <v-radio label="スキル名絞り込み" value="skillName" color="pink" />
       </v-radio-group>
       <v-window v-model="store.search.skillList.skillFilterType" :touch="false">
         <v-window-item value="skillType">
@@ -400,7 +386,7 @@
                 hint="絞り込みたいスペシャルアピールの効果を選んでください"
                 persistent-hint
                 class="mb-3"
-              ></v-select>
+              />
             </v-col>
             <v-col cols="12">
               <v-select
@@ -416,7 +402,7 @@
                 hint="絞り込みたいスキルの効果を選んでください"
                 persistent-hint
                 class="mb-3"
-              ></v-select>
+              />
             </v-col>
             <v-col v-if="false" cols="6">
               <v-select
@@ -430,7 +416,7 @@
                 dense
                 hint="絞り込みたい特性のメイン効果を選んでください"
                 persistent-hint
-              ></v-select>
+              />
             </v-col>
             <v-col v-if="false" cols="6">
               <v-select
@@ -444,14 +430,14 @@
                 dense
                 hint="絞り込みたい特性のサブ効果を選んでください"
                 persistent-hint
-              ></v-select>
+              />
             </v-col>
           </v-row>
         </v-window-item>
         <v-window-item value="skillName">
           <v-select
             v-model="store.search.skillList.skillName.specialAppeal"
-            :items="store.specialAppealNameList"
+            :items="specialAppealNameList"
             label="スペシャルアピール"
             clearable
             color="pink"
@@ -463,10 +449,10 @@
             hint="絞り込みたいスペシャルアピール名を選んでください"
             persistent-hint
             class="mb-3"
-          ></v-select>
+          />
           <v-select
             v-model="store.search.skillList.skillName.skill"
-            :items="store.skillNameList"
+            :items="skillNameList"
             label="スキル"
             clearable
             color="pink"
@@ -478,10 +464,10 @@
             hint="絞り込みたいスキル名を選んでください"
             persistent-hint
             class="mb-3"
-          ></v-select>
+          />
           <v-select
             v-model="store.search.skillList.skillName.characteristic"
-            :items="store.characteristicList"
+            :items="characteristicList"
             label="特性"
             clearable
             color="pink"
@@ -492,7 +478,7 @@
             dense
             hint="絞り込みたい特性を選んでください"
             persistent-hint
-          ></v-select>
+          />
           <!--<v-autocomplete
             v-model="store.search.skillList.skill"
             :items="skillNameList"
@@ -521,8 +507,8 @@
               </template>
               <template v-else>
                 <v-list-item-content>
-                  <v-list-item-title></v-list-item-title>
-                  <v-list-item-subtitle></v-list-item-subtitle>
+                  <v-list-item-title />
+                  <v-list-item-subtitle />
                 </v-list-item-content>
               </template>
             </template>
@@ -536,7 +522,7 @@
         <v-col cols="12">
           <v-select
             v-model="store.search.cardSeries"
-            :items="store.cardSeriesList"
+            :items="cardSeriesList"
             label="カードシリーズ"
             clearable
             color="pink"
@@ -547,7 +533,7 @@
             dense
             hint="絞り込みたいカードシリーズを選んでください"
             persistent-hint
-          ></v-select>
+          />
         </v-col>
       </v-row>
     </v-window-item>
@@ -583,6 +569,34 @@ const statusName = {
   SAP: 'スキルAP',
   trainingLevel: '特訓',
   releaseLevel: '解放 Lv.',
+};
+
+const specialAppealNameList = computed(() =>
+  makeSkillFilterList('specialAppeal')
+);
+const skillNameList = computed(() => makeSkillFilterList('skill'));
+const characteristicList = computed(() =>
+  makeSkillFilterList('characteristic')
+);
+const cardSeriesList = computed(() => makeSkillFilterList('series'));
+
+const makeSkillFilterList = (
+  target: 'specialAppeal' | 'skill' | 'characteristic' | 'series'
+) => {
+  const result = new Set<string>();
+
+  for (const cardData of store.cardList) {
+    if (cardData[target] !== undefined) {
+      const value =
+        target === 'series' ? cardData[target] : cardData[target].name;
+
+      if (value !== '') {
+        result.add(value);
+      }
+    }
+  }
+
+  return Array.from(result).sort();
 };
 
 const makeSkillTypeList = computed(() => {

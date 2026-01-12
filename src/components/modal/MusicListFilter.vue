@@ -17,7 +17,7 @@
               :color="MEMBER_COLOR[getMemberKeys()[index]]"
             >
               <v-avatar left>
-                <v-img :src="store.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)"></v-img>
+                <v-img :src="store.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)" />
               </v-avatar>
               {{ item.title }}
             </v-chip>
@@ -34,7 +34,7 @@
                       )
                     "
                     class="icon member"
-                  ></v-img>
+                  />
                 </template>
               </template>
             </v-list-item>
@@ -60,7 +60,7 @@
               <v-img
                 :src="store.getImagePath('icons/member', `icon_SD_${name_en}`)"
                 class="icon member"
-              ></v-img>{{ name_ja.first }} {{ name_ja.last }}
+              />{{ name_ja.first }} {{ name_ja.last }}
             </template>
           </v-radio>
         </v-radio-group>

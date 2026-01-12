@@ -9,26 +9,26 @@
           :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
           class="cursor-pointer"
           :style="`width: 10%; max-width: 45px; margin: 0 0.5%; filter: grayscale(${
-            memberName === store.checkMasteryMember ? 0 : 1
+            memberName === checkMasteryMember ? 0 : 1
           });`"
-          @click="store.checkMasteryMember = memberName"
+          @click="checkMasteryMember = memberName"
         />
       </template>
     </div>
 
     <div class="font-weight-bold mb-1">
       <span class="subtitle px-2 py-1">合計楽曲マスタリーレベル</span>
-      {{ store.makeTotalMasteryLv(store.checkMasteryMember) }}
+      {{ store.makeTotalMasteryLv(checkMasteryMember) }}
     </div>
     <div class="mb-3">
       {{
-        makeMemberFullName(store.checkMasteryMember)
+        makeMemberFullName(checkMasteryMember)
       }}のセンター楽曲をプレイする時、ハート回収時のLOVE獲得量+<span
         class="text-pink"
         >{{
           (
             Math.floor(
-              store.makeTotalMasteryLv(store.checkMasteryMember) * 0.05 * 100
+              store.makeTotalMasteryLv(checkMasteryMember) * 0.05 * 100
             ) / 100
           ).toFixed(2)
         }}</span
@@ -50,9 +50,10 @@
               <v-img
                 :src="store.getImagePath('icons/bonusSkill', bonusSkillName)"
                 style="width: 32px; height: 32px; border-radius: 3px"
-              ></v-img>
+                eager
+              />
               <p class="text-center" style="font-size: 14px">
-                Lv.{{ store.skillLevels[bonusSkillName] }}
+                Lv.{{ skillLevels[bonusSkillName] }}
               </p>
             </div>
             <dl class="d-flex flex-column ml-1">
@@ -67,12 +68,10 @@
             </dl>
           </div>
 
-          <v-divider
-            v-if="i + 1 < Object.keys(store.skillLevels).length"
-          ></v-divider>
+          <v-divider v-if="i + 1 < Object.keys(skillLevels).length" />
         </li>
       </template>
-      <li v-if="Object.keys(store.skillLevels).length === 0">
+      <li v-if="Object.keys(skillLevels).length === 0">
         習得済みのボーナススキルはありません。
       </li>
     </ul>
@@ -80,15 +79,42 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
-import { makeMemberFullName } from '@/constants/memberNames';
+import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
 import {
   BONUS_SKILL_NAMES,
   BONUS_SKILL_LIST,
-  BonusSkillNames,
+  type BonusSkillNames,
 } from '@/constants/bonusSkills';
 
 const store = useStateStore();
+const checkMasteryMember = ref(MEMBER_KEYS.KAHO);
+
+/**
+ * 各メンバーの各ボーナススキルLv.を取得処理
+ *
+ * @description
+ * 各メンバーの各ボーナススキルLv.を取得して返す。
+ *
+ * @returns 各メンバーの各ボーナススキルLv.リスト
+ */
+const skillLevels = computed(() => {
+  const result: Record<string, number> = {};
+
+  for (const bonusSkillName of Object.values(BONUS_SKILL_NAMES)) {
+    const totalLevel =
+      store.memberData.centerList[checkMasteryMember.value].bonusSkill[
+        bonusSkillName
+      ] + store.supportSkill[checkMasteryMember.value][bonusSkillName];
+
+    if (totalLevel > 0) {
+      result[bonusSkillName] = totalLevel;
+    }
+  }
+
+  return result;
+});
 
 /**
  * ボーナススキルの説明文の作成処理
@@ -98,9 +124,9 @@ const store = useStateStore();
 const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames): number => {
   switch (bonusSkill) {
     case BONUS_SKILL_NAMES.BEAT_HEART_UP:
-      return store.skillLevels[bonusSkill] * 0.5;
+      return skillLevels.value[bonusSkill] * 0.5;
     case BONUS_SKILL_NAMES.LOVE_BONUS: {
-      const skillLevel = store.skillLevels[bonusSkill];
+      const skillLevel = skillLevels.value[bonusSkill];
 
       for (const tier of BONUS_SKILL_LIST[bonusSkill].ary) {
         if (skillLevel <= tier.limit) {
@@ -116,7 +142,7 @@ const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames): number => {
       let num = BONUS_SKILL_LIST[bonusSkill].init;
 
       for (const i of BONUS_SKILL_LIST[bonusSkill].ary) {
-        if (store.skillLevels[bonusSkill] <= i) {
+        if (skillLevels.value[bonusSkill] <= i) {
           break;
         } else {
           num -= 1;

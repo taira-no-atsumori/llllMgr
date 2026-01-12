@@ -29,7 +29,7 @@
           base-color="pink"
           :hint="`絞り込みたい${arr.label}系アイテムを選んでください`"
           persistent-hint
-        ></v-select>
+        />
       </v-col>
     </v-row>-->
 
@@ -43,7 +43,7 @@
           label="Select Season"
           multiple
           clearable
-        ></v-select>
+        />
       </v-col>
       <v-col cols="6">
         <v-select
@@ -54,7 +54,7 @@
           label="Select Area"
           multiple
           clearable
-        ></v-select>
+        />
       </v-col>-->
       <v-col
         v-for="(v, i) in ['技能書', 'ピース', 'チャーム']"
@@ -86,7 +86,7 @@
               <v-avatar left class="mr-1">
                 <v-img
                   :src="store.getImagePath('icons/trainingItem', item.title)"
-                ></v-img>
+                />
               </v-avatar>
               {{ item.title }}
             </v-chip>
@@ -105,13 +105,13 @@
                       (elm) => elm === item.title
                     )
                   "
-                ></v-checkbox-btn>
+                />
                 <v-img
                   v-if="item.title !== ITEMS.NONE"
                   :src="store.getImagePath('icons/trainingItem', item.title)"
                   :alt="item.title"
                   style="width: 40px"
-                ></v-img>
+                />
               </template>
             </v-list-item>
           </template>
@@ -159,7 +159,8 @@
                           item['獲得可能アイテム'][i - 1]
                         )
                       "
-                    ></v-img>
+                      eager
+                    />
                   </v-avatar>
                   {{ item['獲得可能アイテム'][i - 1] }}
                 </v-chip>
@@ -267,6 +268,7 @@ const filterItems = () => {
  */
 const searchColor = (target: string): string => {
   target = /技能書/.test(target) ? target : target.split('(')[0];
+
   for (const itemName in ITEM_COLOR_LIST) {
     if (target === itemName) {
       return ITEM_COLOR_LIST[itemName];

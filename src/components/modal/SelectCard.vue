@@ -7,7 +7,7 @@
         color="pink"
         density="compact"
         hide-details
-      ></v-switch>
+      />
     </div>
     <div class="d-inline-block ml-sm-3">
       <v-switch
@@ -16,7 +16,7 @@
         color="pink"
         density="compact"
         hide-details
-      ></v-switch>
+      />
     </div>
     <v-row
       v-for="rare in RARE"
@@ -82,7 +82,7 @@
                 )}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
               )
             "
-          ></v-img>
+          />
           <v-card-title class="px-2 py-1">{{ cardData.cardName }}</v-card-title>
         </v-card>
         <!--<v-tooltip location="bottom">
@@ -93,10 +93,18 @@
                 @click="openCheckDialog(cardName, rare)"
               >
                 <v-img
-                  :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
+                  :src="store.getImagePath(
+                    'images/cardIllust',
+                    `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
+                  )"
                   gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
                   class="d-flex align-center"
-                ><p class="text-center text-white font-weight-bold text-h6">{{ STYLE_HEADLINE[searchSetCard(cardName)] }}<br>選択中</p></v-img>
+                >
+                  <p class="text-center text-white font-weight-bold text-h6">
+                    {{ STYLE_HEADLINE[searchSetCard(cardName)] }}<br>
+                    選択中
+                  </p>
+                </v-img>
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
               <v-card
@@ -105,49 +113,77 @@
                 @click="openCheckDialog(cardName, rare)"
               >
                 <v-img
-                  :src="store.getImagePath('images/cardIllust', `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`)"
-                ></v-img>
+                  :src="store.getImagePath(
+                    'images/cardIllust',
+                    `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
+                  )"
+                />
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
               </v-card>
             </template>
-            <p class="mb-1">{{ rare }}{{ ['', '+', '++'][store.cardParam('trainingLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName})] }} [{{ cardName }}] {{ store.fullName(store.openCard.name) }} (Lv. {{ store.cardParam('cardLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName}) }})</p>
+            <p class="mb-1">
+              {{ rare }}{{ ['', '+', '++'][store.cardParam('trainingLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName})] }} [{{ cardName }}] {{ store.fullName(store.openCard.name) }} (Lv. {{ store.cardParam('cardLevel', {memberName: store.openCard.name, rare: rare, cardName: cardName}) }})
+            </p>
             <v-row no-gutters class="mb-1">
               <v-col cols="5">
                 <v-row no-gutters>
                   <v-col cols="6">スマイル</v-col>
-                  <v-col cols="6">{{ store.card[store.openCard.name][rare][cardName].uniqueStatus.smile }}</v-col>
-                  </v-row>
-                  <v-row no-gutters>
+                  <v-col cols="6">
+                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.smile }}
+                  </v-col>
+                </v-row>
+                <v-row no-gutters>
                   <v-col cols="6">クール</v-col>
-                  <v-col cols="6">{{ store.card[store.openCard.name][rare][cardName].uniqueStatus.cool }}</v-col>
-                  </v-row>
-                  <v-row no-gutters>
+                  <v-col cols="6">
+                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.cool }}
+                  </v-col>
+                </v-row>
+                <v-row no-gutters>
                   <v-col cols="6">ピュア</v-col>
-                  <v-col cols="6">{{ store.card[store.openCard.name][rare][cardName].uniqueStatus.pure }}</v-col>
+                  <v-col cols="6">
+                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.pure }}
+                  </v-col>
                 </v-row>
               </v-col>
               <v-col cols="7">
                 <v-row no-gutters>
                   <v-col cols="8">メンタル</v-col>
-                  <v-col cols="4">{{ store.card[store.openCard.name][rare][cardName].uniqueStatus.mental }}</v-col>
-                  </v-row>
-                  <v-row no-gutters>
+                  <v-col cols="4">
+                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.mental }}
+                  </v-col>
+                </v-row>
+                <v-row no-gutters>
                   <v-col cols="8">BP</v-col>
-                  <v-col cols="4">{{ store.card[store.openCard.name][rare][cardName].uniqueStatus.BP }}</v-col>
+                  <v-col cols="4">
+                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.BP }}
+                  </v-col>
                 </v-row>
                 <v-row no-gutters>
                   <v-col cols="8">解放Lv.</v-col>
-                  <v-col cols="4">{{ store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel }}</v-col>
-                  </v-row>
-                  <v-row no-gutters>
+                  <v-col cols="4">
+                    {{ store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel }}
+                  </v-col>
+                </v-row>
+                <v-row no-gutters>
                   <v-col cols="8">解放ボーナス</v-col>
-                  <v-col cols="4">{{ rare === 'DR' ? '-' : GRANDPRIX_BONUS.releaseLv[rare][store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel] }}</v-col>
+                  <v-col cols="4">
+                    {{ rare === 'DR' ? '-' : GRANDPRIX_BONUS.releaseLv[rare][store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel] }}
+                  </v-col>
                 </v-row>
               </v-col>
             </v-row>
-            <p><span class="mr-3">スペシャルアピール</span>{{ store.card[store.openCard.name][rare][cardName].specialAppeal.name }}</p>
-            <p><span class="mr-3">スキル</span>{{ store.card[store.openCard.name][rare][cardName].skill.name }}</p>
-            <p v-if="rare !== 'R'"><span class="mr-3">特性</span>{{ store.card[store.openCard.name][rare][cardName].characteristic.name }}</p>
+            <p>
+              <span class="mr-3">スペシャルアピール</span>
+              {{ store.card[store.openCard.name][rare][cardName].specialAppeal.name }}
+            </p>
+            <p>
+              <span class="mr-3">スキル</span>
+              {{ store.card[store.openCard.name][rare][cardName].skill.name }}
+            </p>
+            <p v-if="rare !== 'R'">
+              <span class="mr-3">特性</span>
+              {{ store.card[store.openCard.name][rare][cardName].characteristic.name }}
+            </p>
           </v-tooltip>-->
       </v-col>
       <!--</template>-->
@@ -180,7 +216,7 @@
                   )}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
                 )
               "
-            ></v-img>
+            />
             <v-card-title class="pa-2">{{
               store.conversion(
                 store.searchSelectDeckCard(
@@ -230,12 +266,16 @@
           </v-card>
         </v-col>
         <v-col cols="12" sm="2" class="d-flex align-center">
-          <v-icon class="my-0 mx-auto pc" style="font-size: 50px"
-            >mdi-arrow-right-bold</v-icon
-          >
-          <v-icon class="my-0 mx-auto sp" style="font-size: 50px"
-            >mdi-arrow-down-bold</v-icon
-          >
+          <v-icon
+            icon="mdi-arrow-right-bold"
+            class="my-0 mx-auto pc"
+            style="font-size: 50px"
+          />
+          <v-icon
+            icon="mdi-arrow-down-bold"
+            class="my-0 mx-auto sp"
+            style="font-size: 50px"
+          />
         </v-col>
         <v-col cols="12" sm="5">
           <v-card>
@@ -248,7 +288,7 @@
                   }_覚醒後`
                 )
               "
-            ></v-img>
+            />
             <v-card-title class="pa-2">{{
               store.conversion(selectCard)
             }}</v-card-title>
@@ -294,8 +334,9 @@
         </v-col>
       </v-row>
       <div class="mt-3 text-center">
-        <v-btn class="mr-4" @click="dialog = false"> CANCEL </v-btn>
+        <v-btn text="CANCEL" class="mr-4" @click="dialog = false" />
         <v-btn
+          text="OK"
           @click="
             dialog = false;
             store.setSelectCard(
@@ -303,9 +344,7 @@
             );
             store.switchDialog(false);
           "
-        >
-          OK
-        </v-btn>
+        />
       </div>
     </v-sheet>
   </v-dialog>

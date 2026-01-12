@@ -14,7 +14,7 @@
         :value="item.value"
         :text="item.text"
         :class="`${item.value === 'music' ? 'd-none d-sm-block' : ''}`"
-      ></v-tab>
+      />
     </template>
   </v-tabs>
 
@@ -30,7 +30,7 @@
         class="pl-2"
         hide-details
         @change="store.changeSettings('siteSettings')"
-      ></v-switch>
+      />
       <v-switch
         v-model="store.siteSettings.all.darkMode"
         color="pink"
@@ -41,7 +41,7 @@
         class="pl-2"
         hide-details
         @change="store.changeSettings('siteSettings')"
-      ></v-switch>
+      />
     </v-tabs-window-item>
 
     <v-tabs-window-item value="card">
@@ -59,7 +59,7 @@
               class="pl-2"
               hide-details
               @change="store.changeSettings('siteSettings')"
-            ></v-switch>
+            />
           </v-col>
           <v-col cols="12" sm="4">
             <v-switch
@@ -72,7 +72,7 @@
               class="pl-2"
               hide-details
               @change="store.changeSettings('siteSettings')"
-            ></v-switch>
+            />
           </v-col>
           <v-col cols="12" sm="4">
             <v-switch
@@ -85,7 +85,7 @@
               class="pl-2"
               hide-details
               @change="store.changeSettings('siteSettings')"
-            ></v-switch>
+            />
           </v-col>
         </v-row>
       </div>
@@ -102,7 +102,7 @@
           class="pl-2"
           hide-details
           @change="store.changeSettings('siteSettings')"
-        ></v-switch>
+        />
         <v-switch
           v-model="store.siteSettings.cardList.hover"
           color="pink"
@@ -113,7 +113,7 @@
           class="pl-2 d-none d-sm-block"
           hide-details
           @change="store.changeSettings('siteSettings')"
-        ></v-switch>
+        />
       </div>
     </v-tabs-window-item>
 
@@ -128,7 +128,7 @@
         class="pl-2 d-none d-sm-block"
         hide-details
         @change="store.changeSettings('siteSettings')"
-      ></v-switch>
+      />
     </v-tabs-window-item>
   </v-tabs-window>
 </template>

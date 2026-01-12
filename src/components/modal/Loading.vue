@@ -2,11 +2,7 @@
   <v-dialog v-model="store.loading" :max-width="400" persistent>
     <v-sheet class="pa-3">
       <p class="mb-3">Now Loading…</p>
-      <v-progress-linear
-        v-if="!store.dialogError"
-        color="pink"
-        indeterminate
-      ></v-progress-linear>
+      <v-progress-linear v-if="!store.dialogError" color="pink" indeterminate />
       <div v-else>
         <v-alert type="error">
           データの取得に失敗しました。<br />
@@ -15,11 +11,10 @@
         <div class="mt-2 text-center">
           <v-btn
             prepend-icon="mdi-close"
+            text="CLOSE"
             :theme="store.siteSettings.all.darkMode"
             @click="store.loading = false"
-          >
-            CLOSE
-          </v-btn>
+          />
         </div>
       </div>
     </v-sheet>

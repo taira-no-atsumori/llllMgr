@@ -8,16 +8,15 @@
       <v-app-bar-nav-icon
         class="hidden-sm-and-up"
         @click.stop="drawer = !drawer"
-      ></v-app-bar-nav-icon>
+      />
       <v-bottom-sheet v-if="false" v-model="drawer">
         <template #activator="{ props }">
           <v-icon
             v-bind="props"
+            icon="mdi-menu"
             class="ml-3 hidden-sm-and-up"
             @click="drawer = true"
-          >
-            mdi-menu
-          </v-icon>
+          />
         </template>
 
         <v-sheet class="py-2">
@@ -25,9 +24,9 @@
             class="px-2 pt-0 pb-2"
             title="リンクラ マネージャー！"
             :subtitle="`Ver. ${siteVersion}`"
-          ></v-list-item>
+          />
 
-          <v-divider class="pb-1"></v-divider>
+          <v-divider class="pb-1" />
 
           <v-list-item
             v-for="(arr, pageTitle) of pageList"
@@ -41,20 +40,47 @@
             "
           >
             <template #prepend>
-              <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+              <v-icon :icon="`mdi-${arr.icon}`" />
             </template>
           </v-list-item>
         </v-sheet>
       </v-bottom-sheet>
 
       <v-toolbar-title class="d-none d-sm-block">
-        リンクラ マネージャー！<span class="text-subtitle-2"
-          >Ver.{{ siteVersion }}</span
-        >
+        リンクラ マネージャー！
+        <span class="text-subtitle-2">
+          {{ `Ver.${siteVersion}` }}
+        </span>
+        <!-- <v-btn
+          v-if="uploadStore.hasDiff"
+          icon="mdi-cloud-arrow-up"
+          variant="text"
+          color="black"
+          density="compact"
+          class="ml-2"
+          @click="pageMove('AddData')"
+        /> -->
+        <v-chip
+          v-if="store.isDev"
+          text="Dev"
+          variant="flat"
+          color="yellow"
+          density="compact"
+          class="ml-2"
+        />
       </v-toolbar-title>
-      <v-toolbar-title class="hidden-sm-and-up">リンマネ</v-toolbar-title>
+      <v-toolbar-title class="hidden-sm-and-up">
+        リンマネ
+        <v-btn
+          v-if="uploadStore.hasDiff"
+          icon="mdi-cloud-arrow-up"
+          variant="text"
+          density="compact"
+          @click="pageMove('AddData')"
+        />
+      </v-toolbar-title>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
       <ul class="d-none d-sm-flex">
         <template v-for="(arr, pageTitle) of pageList" :key="arr">
@@ -66,7 +92,7 @@
                   class="px-2"
                   @click="pageMove(arr.name_en)"
                 >
-                  <v-icon class="mr-1">{{ `mdi-${arr.icon}` }}</v-icon>
+                  <v-icon :icon="`mdi-${arr.icon}`" class="mr-1" />
                   {{ pageTitle }}
                 </v-btn>
               </li>
@@ -82,45 +108,42 @@
             <template #activator="{ props }">
               <v-icon
                 v-bind="props"
+                icon="mdi-share-variant"
                 class="ml-1 mr-2"
                 @click="store.showModalEvent('share')"
-              >
-                mdi-share-variant
-              </v-icon>
+              />
             </template>
             シェア
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
-          <v-divider class="border-opacity-100" vertical></v-divider>
+          <v-divider class="border-opacity-100" vertical />
         </li>
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
             <template #activator="{ props }">
               <v-icon
                 v-bind="props"
+                icon="mdi-backup-restore"
                 class="ml-1 mr-2"
                 @click="store.showModalEvent('backup')"
-              >
-                mdi-backup-restore
-              </v-icon>
+              />
             </template>
             データバックアップ・リセット
           </v-tooltip>
         </li>
         <li class="d-none d-sm-flex">
-          <v-divider class="border-opacity-100" vertical></v-divider>
+          <v-divider class="border-opacity-100" vertical />
         </li>
         <li class="align-self-center ml-1">
           <v-tooltip location="bottom">
             <template #activator="{ props }">
               <v-icon
                 v-bind="props"
+                icon="mdi-cog"
                 class="ml-1 mr-2"
                 @click="store.showModalEvent('settings')"
-              >
-                mdi-cog
-              </v-icon>
+              />
             </template>
             サイト設定
           </v-tooltip>
@@ -138,9 +161,9 @@
         class="px-2 pt-0 pb-2"
         title="リンクラ マネージャー！"
         :subtitle="`Ver.${siteVersion}`"
-      ></v-list-item>
+      />
 
-      <v-divider class="pb-1"></v-divider>
+      <v-divider class="pb-1" />
 
       <v-list-item
         v-for="(arr, pageTitle) of pageList"
@@ -151,7 +174,7 @@
         @click="pageMove(arr.name_en)"
       >
         <template #prepend>
-          <v-icon>{{ `mdi-${arr.icon}` }}</v-icon>
+          <v-icon :icon="`mdi-${arr.icon}`" />
         </template>
       </v-list-item>
     </v-navigation-drawer>
@@ -167,7 +190,7 @@
       location="bottom"
       class="mb-10"
       @click="goToTop()"
-    ></v-fab>
+    />
 
     <Modal />
     <Loading />
@@ -197,14 +220,17 @@
       density="compact"
       class="d-flex flex-row align-center"
     >
-      ご意見・ご要望・バグ報告は「
-      <a
-        href="https://odaibako.net/u/taira_no_atsumori"
-        target="_blank"
-        class="text-white font-weight-bold"
-      >
-        お題箱 </a
-      >」まで
+      <span @click="handleAddDataClick">
+        ご意見・ご要望・バグ報告は「
+        <a
+          href="https://odaibako.net/u/taira_no_atsumori"
+          target="_blank"
+          class="text-white font-weight-bold"
+        >
+          {{ 'お題箱' }}
+        </a>
+        」まで
+      </span>
     </v-bottom-navigation>
   </v-app>
 </template>
@@ -216,6 +242,7 @@ import { useGoTo } from 'vuetify';
 import Modal from '@/components/modal/ModalArea.vue';
 import Loading from '@/components/modal/Loading.vue';
 import { useStateStore } from '@/stores/stateStore';
+import { useUploadDataStore } from '@/stores/uploadDataStore';
 
 interface pageContents {
   name_en: string;
@@ -226,6 +253,7 @@ interface pageContents {
 
 const siteVersion = ref(import.meta.env.VITE_SITEVERSION || '0.0.0');
 const store = useStateStore();
+const uploadStore = useUploadDataStore();
 const router = useRouter();
 const route = useRoute();
 const goTo = useGoTo();
@@ -291,6 +319,21 @@ const pageMove = (movePageName: string): void => {
 const goToTop = (): void => {
   goTo(0);
 };
+
+/**
+ * フッターが押されたときのイベント
+ *
+ * @description
+ * Ctrlキーが押されている場合はデータ追加ページに遷移する。
+ *
+ * @param event MouseEvent
+ */
+const handleAddDataClick = (event: MouseEvent): void => {
+  if (event.ctrlKey) {
+    event.preventDefault();
+    pageMove('AddData');
+  }
+};
 /* ----- Methods End ----- */
 
 /* ----- Created Start ----- */
@@ -320,11 +363,8 @@ if (localStorage.inflow !== undefined) {
 watch(
   () => route.meta,
   (newMeta) => {
-    if (newMeta && newMeta.title) {
-      document.title = `${newMeta.title} | ${siteName}`;
-    } else {
-      document.title = siteName;
-    }
+    document.title =
+      newMeta && newMeta.title ? `${newMeta.title} | ${siteName}` : siteName;
   },
   { immediate: true }
 );
@@ -335,6 +375,7 @@ store.init();
 
 onMounted(() => {
   store.initializeWindowResize();
+  uploadStore.startListening();
 });
 
 onUnmounted(() => {

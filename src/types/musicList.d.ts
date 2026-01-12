@@ -1,6 +1,6 @@
-import { MemberKeys } from '@/constants/memberNames';
-import { BonusSkillNames } from '@/constants/bonusSkills';
-import { AttributeEn } from '@/constants/music';
+import type { MemberKeys } from '@/constants/memberNames';
+import type { BonusSkillNames } from '@/constants/bonusSkills';
+import type { AttributeEn } from '@/constants/music';
 
 /**
  * 曲の詳細データを表すインターフェース
@@ -72,7 +72,7 @@ interface maxCombo {
  * 曲のアイテムデータを表すインターフェース
  *
  * @interface MusicItem
- * @property {string} ID 曲ID
+ * @property {string} title 曲タイトル
  * @property {MusicData} musicData 曲の詳細データ
  * @property {AttributeEn} attribute 曲の属性
  * @property {number} BHcount ビートハート発生回数
@@ -81,10 +81,12 @@ interface maxCombo {
  * @property {MemberKeys} center センターメンバーの名前
  * @property {BonusSkillNames} bonusSkill ボーナススキル
  * @property {MemberKeys[]} singingMembers 歌唱メンバーの名前の配列
- * @property {difficultyLevel} difficultyLevel 曲の難易度
+ * @property {imageUrl} imageUrl 楽曲画像のURL
+ * @property {difficultyLevel} difficultyLevel 楽曲の難易度
+ * @property {maxCombo} maxCombo 楽曲の最大コンボ数
  */
 export interface MusicItem {
-  ID: string;
+  title: string;
   musicData: MusicData;
   attribute: AttributeEn;
   BHcount: number;
@@ -93,6 +95,7 @@ export interface MusicItem {
   center: MemberKeys;
   bonusSkill: BonusSkillNames;
   singingMembers: MemberKeys[];
+  imageUrl?: string;
   scoreData?: {
     difficultyLevel: difficultyLevel;
     maxCombo: maxCombo;

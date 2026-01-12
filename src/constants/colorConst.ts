@@ -1,4 +1,4 @@
-import { type MemberKeyValues } from '@/constants/memberNames';
+import type { MemberKeyValues } from '@/constants/memberNames';
 
 /** メンバーのカラーコード */
 export const MEMBER_COLOR = {
@@ -14,7 +14,13 @@ export const MEMBER_COLOR = {
   seras: '#f56455',
   izumi: '#1ebecd',
 } as const;
-export type MemberColor = (typeof MEMBER_COLOR)[keyof typeof MEMBER_COLOR];
+
+/** メンバーカラーのキーの型 */
+export type MemberColorKeys = keyof typeof MEMBER_COLOR;
+
+/** メンバーカラーの値の型 */
+export type MemberColorValues =
+  (typeof MEMBER_COLOR)[keyof typeof MEMBER_COLOR];
 
 /**
  * メンバーカラー取得処理
@@ -22,9 +28,11 @@ export type MemberColor = (typeof MEMBER_COLOR)[keyof typeof MEMBER_COLOR];
  * メンバーキーからカラーコードを取得する。
  *
  * @param memberKey メンバーキー
- * @returns MemberColor
+ * @returns MemberColorValues
  */
-export const getMemberColor = (memberKey: MemberKeyValues): MemberColor => {
+export const getMemberColor = (
+  memberKey: MemberKeyValues
+): MemberColorValues => {
   return MEMBER_COLOR[memberKey];
 };
 
