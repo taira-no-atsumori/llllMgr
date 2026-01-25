@@ -28,4 +28,4 @@ import-firestore.js
 *.adminsdk*.json
 
 # Event List
-eventList.ts
+# eventList.ts

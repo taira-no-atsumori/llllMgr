@@ -107,7 +107,7 @@ import { ref, computed } from 'vue';
 import { ref as dbRef, update, get, set } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
-import { EVENT_LIST } from '@/constants/eventList.ts';
+import { EVENT_LIST } from '@/constants/eventList';
 
 const store = useStateStore();
 
