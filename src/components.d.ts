@@ -23,6 +23,7 @@ declare module 'vue' {
     ChangeDataList: typeof import('./components/addData/ChangeDataList.vue')['default']
     Chart: typeof import('./components/modal/Chart.vue')['default']
     Loading: typeof import('./components/modal/Loading.vue')['default']
+    Login: typeof import('./components/modal/Login.vue')['default']
     MasteryLevel: typeof import('./components/modal/MasteryLevel.vue')['default']
     ModalArea: typeof import('./components/modal/ModalArea.vue')['default']
     MusicListFilter: typeof import('./components/modal/MusicListFilter.vue')['default']

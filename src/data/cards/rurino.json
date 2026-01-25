@@ -324,6 +324,56 @@
     }
   },
   "UR": {
+    "rr_060": {
+      "cardName": "Echoes Beyond",
+      "styleType": "cheerLeader",
+      "mood": "neutral",
+      "series": "Echoes Beyond",
+      "kana": "えこーずびよんど",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.5",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4300,
+        "pure": 6200,
+        "cool": 3600,
+        "mental": 510,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "captivateSpirits_01",
+        "name": "キャプティベイトスピリッツ",
+        "AP": 12,
+        "detail": []
+      },
+      "skill": {
+        "ID": "beyondHealing_01",
+        "name": "ビヨンドヒーリング",
+        "AP": 20,
+        "detail": [
+          [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+          [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100],
+          [
+            400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920,
+            1000
+          ],
+          [
+            400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920,
+            1000
+          ],
+          [
+            400, 440, 480, 520, 560, 600, 640, 680, 720, 800, 840, 880, 920,
+            1000
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ストロングウィズフラジール",
+        "detail": "現在の残りメンタルが多いほど、このスキルの消費APが増加する。メンタルが200%でドローした後に手札にある間、メンタルが0になってもメンタルダウンしなくなり、1秒ごとにメンタル直接ダメージを受け続け、このスキルの効果値を+10000%する。",
+        "type": ["draw", "mentalDown", "mentalReduce", "boost_all"]
+      }
+    },
     "rr_059": {
       "cardName": "雪舞う空と二秒の永遠",
       "styleType": "cheerLeader",

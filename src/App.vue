@@ -58,7 +58,7 @@
           color="black"
           density="compact"
           class="ml-2"
-          @click="pageMove('AddData')"
+          @click="pageMove('Login')"
         /> -->
         <v-chip
           v-if="store.isDev"
@@ -76,7 +76,7 @@
           icon="mdi-cloud-arrow-up"
           variant="text"
           density="compact"
-          @click="pageMove('AddData')"
+          @click="pageMove('Login')"
         />
       </v-toolbar-title>
 
@@ -243,6 +243,7 @@ import Modal from '@/components/modal/ModalArea.vue';
 import Loading from '@/components/modal/Loading.vue';
 import { useStateStore } from '@/stores/stateStore';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
+import { cacheManager } from '@/utils/cacheManager';
 
 interface pageContents {
   name_en: string;
@@ -267,12 +268,12 @@ const pageList: Record<string, pageContents> = {
     url: `/${import.meta.env.VITE_PATHNAME}/`,
     icon: 'home',
   },
-  Simulation: {
-    name_en: 'Simulation',
-    name_ja: '編成シミュレーション',
-    url: 'simulation',
-    icon: 'calculator',
-  },
+  // Simulation: {
+  //   name_en: 'Simulation',
+  //   name_ja: '編成シミュレーション',
+  //   url: 'simulation',
+  //   icon: 'calculator',
+  // },
   'Card List': {
     name_en: 'CardList',
     name_ja: 'カード一覧 / 所持カード設定',
@@ -302,6 +303,7 @@ const pageList: Record<string, pageContents> = {
 /* ----- Methods Start ----- */
 /**
  * ページ遷移処理
+ *
  * @param movePageName 遷移先のページ名
  * @returns void
  */
@@ -314,6 +316,7 @@ const pageMove = (movePageName: string): void => {
 
 /**
  * ページトップへスクロール
+ *
  * @returns void
  */
 const goToTop = (): void => {
@@ -324,14 +327,20 @@ const goToTop = (): void => {
  * フッターが押されたときのイベント
  *
  * @description
- * Ctrlキーが押されている場合はデータ追加ページに遷移する。
+ * Ctrlキーが押されているときにフッターをクリックすると、ログインダイアログを開く。\
+ * ただし、ログイン状態であればデータ追加ページへ遷移する。
  *
  * @param event MouseEvent
  */
 const handleAddDataClick = (event: MouseEvent): void => {
   if (event.ctrlKey) {
     event.preventDefault();
-    pageMove('AddData');
+
+    if (store.user) {
+      pageMove('AddData');
+    } else {
+      store.showModalEvent('login');
+    }
   }
 };
 /* ----- Methods End ----- */
@@ -340,7 +349,7 @@ const handleAddDataClick = (event: MouseEvent): void => {
 const userAgent = window.navigator.userAgent.toLowerCase();
 if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
   alert(
-    '本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。'
+    '本サイトはInternet Explorerに対応しておりません。\n別のブラウザから閲覧することを推奨します。',
   );
 }
 
@@ -366,7 +375,17 @@ watch(
     document.title =
       newMeta && newMeta.title ? `${newMeta.title} | ${siteName}` : siteName;
   },
-  { immediate: true }
+  { immediate: true },
+);
+
+// ログインガード: AddDataページへのアクセス制御
+watch(
+  () => [route.name, store.isAuthLoaded, store.user],
+  ([routeName, isAuthLoaded, user]) => {
+    if (routeName === 'AddData' && isAuthLoaded && !user) {
+      pageMove('login');
+    }
+  },
 );
 
 /* ----- Watch Start ----- */
@@ -376,6 +395,8 @@ store.init();
 onMounted(() => {
   store.initializeWindowResize();
   uploadStore.startListening();
+  // 期限切れキャッシュをクリア
+  cacheManager.clearExpired();
 });
 
 onUnmounted(() => {

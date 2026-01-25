@@ -52,7 +52,7 @@ export const getMemberKeyValue = (key: MemberKeyKeys): MemberKeyValues => {
  * 'kaho' → 'KAHO'
  */
 export const getMemberKeyFromValue = (
-  value: MemberKeyValues
+  value: MemberKeyValues,
 ): MemberKeyKeys => {
   return Object.keys(MEMBER_KEYS).find((key) => MEMBER_KEYS[key] === value);
 };
@@ -84,7 +84,7 @@ export type MemberIds = (typeof MEMBER_IDS)[keyof typeof MEMBER_IDS];
  */
 export const conversionIdToKey = (id: MemberIds): MemberKeyValues => {
   return Object.keys(MEMBER_IDS).find(
-    (memberKey) => MEMBER_IDS[memberKey] === id
+    (memberKey) => MEMBER_IDS[memberKey] === id,
   );
 };
 
@@ -190,15 +190,17 @@ export const makeMemberFullName = (key: MemberKeyValues, isSpace = true) => {
  * @returns メンバー名
  */
 export const conversionCardIdToMemberName = (id: string): string => {
+  id = id.split('_')[0];
+
   switch (id) {
-    case 'ktm_001': {
+    case MEMBER_IDS.kozutsuzumegu: {
       return `${MEMBER_NAMES.kozutsuzumegu.first}${MEMBER_NAMES.kozutsuzumegu.last}`;
     }
-    case 'is_001': {
+    case MEMBER_IDS.selaIzu: {
       return makeMemberFullName(MEMBER_KEYS.SELAIZU);
     }
     default: {
-      const memberKey = conversionIdToKey(id.split('_')[0]);
+      const memberKey = conversionIdToKey(id);
       return MEMBER_NAMES[memberKey][
         `${memberKey === MEMBER_KEYS.SERAS ? 'fir' : 'la'}st`
       ];
@@ -371,7 +373,7 @@ export type MemberColors =
  */
 export const getMemberData = (key: MemberKeyValues): MemberData => {
   return Object.values(MEMBER_DATA).find(
-    (memberData) => memberData.key === key
+    (memberData) => memberData.key === key,
   );
 };
 
@@ -419,6 +421,11 @@ export type GroupName = (typeof GROUP_NAME)[keyof typeof GROUP_NAME];
 
 /** グループのメンバー */
 export const GROUP_MEMBER = {
+  HASUNOSORA_102: {
+    KEY: 'HASUNOSORA',
+    NAME: `${GROUP_NAME.HASUNOSORA}(102期)`,
+    MEMBERS: [MEMBER_KEYS.KOZUE, MEMBER_KEYS.TSUZURI, MEMBER_KEYS.MEGUMI],
+  },
   HASUNOSORA_RURI_MEGU: {
     KEY: 'HASUNOSORA',
     NAME: `${GROUP_NAME.HASUNOSORA}(103期/るりめぐ加入前)`,

@@ -2,8 +2,8 @@
   <v-container fluid class="pa-0">
     <v-row>
       <v-col cols="8">
-        <v-row no-gutters>
-          <v-col cols="12">
+        <v-row>
+          <v-col cols="3">
             <v-select
               v-model="card.member"
               label="Member Name"
@@ -11,33 +11,11 @@
               item-text="label"
               item-value="value"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
-        </v-row>
-
-        <v-row no-gutters class="mb-3">
-          <v-col cols="4">
-            <v-text-field
-              v-model="card.cardName"
-              label="Card Name"
-              class="pr-1"
-              required
-            />
-          </v-col>
-          <v-col cols="4">
-            <v-text-field
-              v-model="card.kana"
-              label="Kana"
-              class="pr-1 pl-1"
-              required
-            />
-          </v-col>
-          <v-col cols="4">
-            <v-text-field v-model="card.series" label="Series" class="pl-1" />
-          </v-col>
-        </v-row>
-
-        <v-row no-gutters>
           <v-col cols="2">
             <v-select
               v-model="card.rare"
@@ -45,8 +23,10 @@
               :items="RARE"
               item-text="label"
               item-value="value"
-              class="pr-1"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
           <v-col cols="2">
@@ -56,8 +36,10 @@
               :items="Object.values(STYLE_TYPE).map((style) => style.en)"
               item-text="label"
               item-value="value"
-              class="pl-1 pr-1"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
           <v-col cols="2">
@@ -67,54 +49,100 @@
               :items="Object.values(MOOD).map((mood) => mood.en)"
               item-text="text"
               item-value="value"
-              class="pl-1 pr-1"
               required
-            />
-          </v-col>
-          <v-col cols="1" />
-          <v-col cols="1">
-            <v-text-field
-              v-model="card.uniqueStatus.smile"
-              label="Smile"
-              type="number"
-              class="pl-1 pr-1"
-            />
-          </v-col>
-          <v-col cols="1">
-            <v-text-field
-              v-model="card.uniqueStatus.pure"
-              label="Pure"
-              type="number"
-              class="pl-1 pr-1"
-            />
-          </v-col>
-          <v-col cols="1">
-            <v-text-field
-              v-model="card.uniqueStatus.cool"
-              label="Cool"
-              type="number"
-              class="pl-1 pr-1"
-            />
-          </v-col>
-          <v-col cols="1">
-            <v-text-field
-              v-model="card.uniqueStatus.mental"
-              label="Mental"
-              type="number"
-              class="pl-1 pr-1"
-            />
-          </v-col>
-          <v-col cols="1">
-            <v-text-field
-              v-model="card.uniqueStatus.BP"
-              label="BP"
-              type="number"
-              class="pl-1"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
         </v-row>
 
-        <v-row no-gutters class="mb-3">
+        <v-row>
+          <v-col cols="4">
+            <v-text-field
+              v-model="card.cardName"
+              label="Card Name"
+              required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+          <v-col cols="4">
+            <v-text-field
+              v-model="card.kana"
+              label="Kana"
+              required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+          <v-col cols="4">
+            <v-text-field
+              v-model="card.series"
+              label="Series"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="2">
+            <v-text-field
+              v-model="card.uniqueStatus.smile"
+              label="Smile"
+              type="number"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              v-model="card.uniqueStatus.pure"
+              label="Pure"
+              type="number"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              v-model="card.uniqueStatus.cool"
+              label="Cool"
+              type="number"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              v-model="card.uniqueStatus.mental"
+              label="Mental"
+              type="number"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+          <v-col cols="2">
+            <v-text-field
+              v-model="card.uniqueStatus.BP"
+              label="BP"
+              type="number"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
+          </v-col>
+        </v-row>
+
+        <v-row>
           <v-col cols="3">
             <v-select
               v-model="card.period"
@@ -122,8 +150,10 @@
               :items="Object.values(LIMITED).map((style) => style.en)"
               item-text="label"
               item-value="value"
-              class="pr-1"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
           <v-col cols="2">
@@ -131,7 +161,9 @@
               v-model="card.year"
               label="Year"
               type="number"
-              class="pl-1 pr-1"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
           <v-col cols="1">
@@ -140,78 +172,123 @@
               label="Sprit"
               type="number"
               min="0"
-              class="pl-1 pr-1"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
           <v-col cols="6">
             <v-text-field
               v-model="card.season"
               label="Add Season"
-              class="pl-1"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
         </v-row>
 
-        <v-row no-gutters class="mb-3">
-          <v-col cols="6" class="pr-1">
+        <v-row>
+          <v-col cols="6">
             <v-text-field
               v-model="card.SAID"
               label="Special Appeal ID"
+              class="mb-2"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
             <v-text-field
               v-model="card.SAName"
               label="Special Appeal Name"
+              class="mb-2"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
             <v-text-field
               v-model.number="card.SAAP"
               label="Special Appeal AP"
               type="number"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
-          <v-col cols="6" class="pl-1">
+          <v-col cols="6">
             <v-textarea
               v-model="card.SADetail"
               label="Special Appeal Detail"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
         </v-row>
 
-        <v-row no-gutters class="mb-3">
-          <v-col cols="6" class="pr-1">
-            <v-text-field v-model="card.skillID" label="Skill ID" required />
+        <v-row>
+          <v-col cols="6">
+            <v-text-field
+              v-model="card.skillID"
+              label="Skill ID"
+              class="mb-2"
+              required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
             <v-text-field
               v-model="card.skillName"
               label="Skill Name"
+              class="mb-2"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
             <v-text-field
               v-model.number="card.skillAP"
               label="Skill AP"
               type="number"
               required
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
-          <v-col cols="6" class="pl-1">
-            <v-textarea v-model="card.skillDetail" label="Skill Detail" />
+          <v-col cols="6">
+            <v-textarea
+              v-model="card.skillDetail"
+              label="Skill Detail"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
+            />
           </v-col>
         </v-row>
 
-        <v-row no-gutters>
-          <v-col cols="6" class="pr-1">
+        <v-row>
+          <v-col cols="6">
             <v-text-field
               v-model="card.characteristicName"
               label="Characteristic Name"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
-          <v-col cols="6" class="pl-1">
+          <v-col cols="6">
             <v-textarea
               v-model="card.characteristicDetail"
               label="Characteristic Detail"
+              variant="outlined"
+              density="compact"
+              hide-details="auto"
             />
           </v-col>
         </v-row>
@@ -239,6 +316,34 @@
           @click="addToStore"
         />
       </v-col>
+
+      <v-col cols="12">
+        <v-divider />
+      </v-col>
+
+      <v-col cols="2">
+        <v-select
+          v-model="card.rare"
+          label="Rarity"
+          :items="RARE"
+          item-text="label"
+          item-value="value"
+          required
+          variant="outlined"
+          density="compact"
+          hide-details="auto"
+        />
+      </v-col>
+      <v-col cols="8">
+        <v-textarea v-model="inputData" />
+      </v-col>
+      <v-col cols="2">
+        <v-btn
+          color="green"
+          prepend-icon="mdi-cloud-upload"
+          :text="`${store.isDev ? 'Dev' : 'Prod'} Upload`"
+          @click="addCardData()"
+      /></v-col>
     </v-row>
 
     <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
@@ -250,11 +355,23 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { ref as dbRef, onValue, update } from 'firebase/database';
-import { rtdbDev } from '@/firebase';
+import {
+  getStorage,
+  ref as storageRef,
+  getDownloadURL,
+} from 'firebase/storage';
+import { rtdb, rtdbDev } from '@/firebase';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import { RARE, STYLE_TYPE, MOOD, LIMITED } from '@/constants/cards';
-import { MEMBER_KEYS, MEMBER_IDS } from '@/constants/memberNames';
+import {
+  MEMBER_KEYS,
+  MEMBER_IDS,
+  conversionIdToKey,
+} from '@/constants/memberNames';
 import type { CardDataType, CardDataByMember } from '@/types/card';
+import { useStateStore } from '@/stores/stateStore';
+
+const store = useStateStore();
 
 const uploadStore = useUploadDataStore();
 const dbCardList = ref<Record<string, CardDataByMember>>({});
@@ -262,6 +379,7 @@ const editingId = ref('');
 const snackbar = ref(false);
 const snackbarMessage = ref('');
 const snackbarColor = ref('success');
+const inputData = ref('');
 
 const card = ref({
   cardName: '',
@@ -295,6 +413,79 @@ const card = ref({
   characteristicName: '',
   characteristicDetail: '',
 });
+
+const addCardData = async () => {
+  if (!inputData.value) {
+    return;
+  }
+
+  let parsedData;
+
+  try {
+    parsedData = JSON.parse(inputData.value);
+  } catch (_) {
+    try {
+      parsedData = new Function('return ' + inputData.value)();
+      inputData.value = JSON.stringify(parsedData, null, 2);
+    } catch (__) {
+      snackbarMessage.value = 'JSONのフォーマットが不正です';
+      snackbarColor.value = 'error';
+      snackbar.value = true;
+      return;
+    }
+  }
+
+  try {
+    const db = store.isDev ? rtdbDev : rtdb;
+    const storage = getStorage(rtdb.app);
+    const updates: Record<string, any> = {};
+
+    for (const [cardId, data] of Object.entries(parsedData)) {
+      const rarity = card.value.rare;
+
+      let beforeUrl = '';
+      let afterUrl = '';
+
+      try {
+        beforeUrl = await getDownloadURL(
+          storageRef(storage, `cardIllust/${cardId}_before.webp`),
+        );
+      } catch (_) {
+        console.warn(`Before image not found for ${cardId}`);
+      }
+
+      try {
+        afterUrl = await getDownloadURL(
+          storageRef(storage, `cardIllust/${cardId}_after.webp`),
+        );
+      } catch (_) {
+        console.warn(`After image not found for ${cardId}`);
+      }
+
+      const cardData = {
+        ...(data as object),
+        imageUrl: {
+          before: beforeUrl,
+          after: afterUrl,
+        },
+      };
+
+      updates[
+        `cards/${conversionIdToKey(cardId.split('_')[0])}/${rarity}/${cardId}`
+      ] = cardData;
+    }
+
+    await update(dbRef(db), updates);
+    snackbarMessage.value = `Uploaded to ${store.isDev ? 'Dev' : 'Prod'}`;
+    snackbarColor.value = 'success';
+    snackbar.value = true;
+  } catch (error) {
+    console.error(error);
+    snackbarMessage.value = 'Error uploading card data';
+    snackbarColor.value = 'error';
+    snackbar.value = true;
+  }
+};
 
 onMounted(() => {
   const cardRef = dbRef(rtdbDev, 'card');
@@ -345,7 +536,7 @@ watch(
         card.value.mood = foundData.mood;
 
         const periodEntry = Object.entries(LIMITED).find(
-          ([key, _]) => key === foundData.gacha.period
+          ([key, _]) => key === foundData.gacha.period,
         );
         card.value.period = periodEntry ? periodEntry[1].en : LIMITED.normal.en;
         card.value.season = foundData.gacha.addSeason;
@@ -359,7 +550,7 @@ watch(
           card.value.SADetail = JSON.stringify(
             foundData.specialAppeal.detail,
             null,
-            2
+            2,
           );
         }
 
@@ -370,7 +561,7 @@ watch(
           card.value.skillDetail = JSON.stringify(
             foundData.skill.detail,
             null,
-            2
+            2,
           );
         }
 
@@ -383,7 +574,7 @@ watch(
       }
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 function generateNewCardId(): string {
@@ -415,7 +606,7 @@ function generateNewCardId(): string {
 // periodのEN値からLIMITEDのキーを取得
 function getPeriodKey(periodEn: string): string {
   const entry = Object.entries(LIMITED).find(
-    ([, value]) => value.en === periodEn
+    ([, value]) => value.en === periodEn,
   );
   return entry ? entry[0] : 'normal';
 }

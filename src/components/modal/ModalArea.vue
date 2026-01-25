@@ -35,6 +35,9 @@
       <div v-else-if="store.showModalName === 'settings'">
         <Settings />
       </div>
+      <div v-else-if="store.showModalName === 'login'">
+        <Login />
+      </div>
       <div class="mt-2 text-center">
         <v-btn
           prepend-icon="mdi-close"
@@ -59,6 +62,7 @@ import MasteryLevel from './MasteryLevel.vue';
 import Share from './Share.vue';
 import Backup from './Backup.vue';
 import Settings from './Settings.vue';
+import Login from './Login.vue';
 
 const store = useStateStore();
 
@@ -73,5 +77,6 @@ const maxWidth = {
   share: 400,
   backup: 600,
   settings: 600,
+  login: 600,
 };
 </script>

@@ -1,7 +1,6 @@
 import { ref } from 'vue';
-import { ref as dbRef, get } from 'firebase/database';
-import { rtdb, rtdbDev } from '@/firebase';
 import type { MusicItem } from '@/types/musicList';
+import { FirebaseService } from '@/services/FirebaseService';
 
 // グローバルステートとして定義（アプリケーション全体で共有）
 const musicListFromDB = ref<Record<string, MusicItem>>({});
@@ -19,14 +18,11 @@ export function useMusicData() {
       return;
     }
 
-    const db = isDev ? rtdbDev : rtdb;
-    const musicRef = dbRef(db, 'music');
-
     isMusicLoaded.value = false;
 
     try {
-      const snapshot = await get(musicRef);
-      const data: Record<string, MusicItem> = snapshot.val();
+      const data: Record<string, MusicItem> =
+        await FirebaseService.getMusicData(isDev);
 
       if (data) {
         musicListFromDB.value = data;
@@ -68,7 +64,7 @@ export function useMusicData() {
     const entry = Object.entries(musicListFromDB.value).find(
       ([_, v]: [string, MusicItem]) => {
         return normalize(v.title) === normalizedTitle;
-      }
+      },
     );
 
     return entry ? entry[0] : undefined;

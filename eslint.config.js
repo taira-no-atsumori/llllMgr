@@ -45,6 +45,16 @@ export default [
     },
   },
 
+  // Service Workerファイル用の設定
+  {
+    files: ['public/sw.js'],
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+      },
+    },
+  },
+
   // 3. Vueの推奨ルールを適用 (旧 extends: 'plugin:vue/vue3-recommended')
   ...pluginVue.configs['flat/recommended'],
 
@@ -105,6 +115,7 @@ export default [
             'Settings',
             'Loading',
             'License',
+            'Login',
             'Simulation',
           ],
         },

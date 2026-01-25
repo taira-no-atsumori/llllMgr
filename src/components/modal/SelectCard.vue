@@ -38,7 +38,7 @@
       </v-col>
       <v-col
         v-for="(cardData, i) in outputCardList(store).filter(
-          (data) => data.rare === rare
+          (data) => data.rare === rare,
         )"
         :key="i"
         cols="6"
@@ -51,14 +51,7 @@
           @click="openCheckDialog(cardData.cardName, rare, cardData)"
         >
           <v-img
-            :src="
-              store.getImagePath(
-                'images/cardIllust',
-                `${store.conversion(
-                  cardData.cardName
-                )}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
-              )
-            "
+            :src="cardImageUrls[cardData.ID]?.after || noImage"
             gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
             class="d-flex align-center"
           >
@@ -73,16 +66,7 @@
           v-else
           @click="openCheckDialog(cardData.cardName, rare, cardData)"
         >
-          <v-img
-            :src="
-              store.getImagePath(
-                'images/cardIllust',
-                `${store.conversion(
-                  cardData.cardName
-                )}_${conversionCardIdToMemberName(cardData.ID)}_覚醒後`
-              )
-            "
-          />
+          <v-img :src="cardImageUrls[cardData.ID]?.after || noImage" />
           <v-card-title class="px-2 py-1">{{ cardData.cardName }}</v-card-title>
         </v-card>
         <!--<v-tooltip location="bottom">
@@ -206,23 +190,20 @@
           <v-card>
             <v-img
               :src="
-                store.getImagePath(
-                  'images/cardIllust',
-                  `${store.conversion(
-                    store.searchSelectDeckCard(
-                      store.openCard.name,
-                      store.openCard.style
-                    )
-                  )}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
-                )
+                cardImageUrls[
+                  store.searchSelectDeckCard(
+                    store.openCard.name,
+                    store.openCard.style,
+                  )
+                ]?.after || noImage
               "
             />
             <v-card-title class="pa-2">{{
               store.conversion(
                 store.searchSelectDeckCard(
                   store.openCard.name,
-                  store.openCard.style
-                )
+                  store.openCard.style,
+                ),
               )
             }}</v-card-title>
             <v-card-text class="px-2 pb-2">
@@ -279,16 +260,7 @@
         </v-col>
         <v-col cols="12" sm="5">
           <v-card>
-            <v-img
-              :src="
-                store.getImagePath(
-                  'images/cardIllust',
-                  `${store.conversion(selectCard)}_${
-                    MEMBER_NAMES[store.openCard.name].last
-                  }_覚醒後`
-                )
-              "
-            />
+            <v-img :src="cardImageUrls[selectCardId]?.after || noImage" />
             <v-card-title class="pa-2">{{
               store.conversion(selectCard)
             }}</v-card-title>
@@ -340,7 +312,7 @@
           @click="
             dialog = false;
             store.setSelectCard(
-              store.findCardId(store.openCard.name, selectCard)
+              store.findCardId(store.openCard.name, selectCard),
             );
             store.switchDialog(false);
           "
@@ -383,20 +355,19 @@
 
 <script setup lang="ts">
 // import { ref } from 'vue';
-import { ref } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
-import {
-  MEMBER_NAMES,
-  FORMATION_MEMBER,
-  conversionCardIdToMemberName,
-} from '@/constants/memberNames';
+import { FORMATION_MEMBER } from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
+import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
+import type { CardDataType } from '@/types/cardList';
 
 const store = useStateStore();
 const dialog: boolean = ref(false);
 const selectCard = ref(undefined);
+const selectCardId = ref('');
 const rarity = ref(undefined);
 const snackbar = ref({
   sameCard: false,
@@ -413,6 +384,52 @@ const cardStatus = ref({
     rare: 'default',
   },
 });
+
+const cardImageUrls = computed(
+  () => store.imageCache['llllMgr_cardImageUrls_v2'] || {},
+);
+
+watch(
+  () => store.openCard.name,
+  (newMemberName) => {
+    if (!newMemberName) return;
+
+    const cards: CardDataType[] = [];
+    const memberCards = store.card[newMemberName];
+
+    if (memberCards) {
+      Object.values(memberCards).forEach((rarityGroup) => {
+        Object.values(rarityGroup).forEach((card) => {
+          if (card.cardName !== 'default') {
+            cards.push(card);
+          }
+        });
+      });
+    }
+
+    if (FORMATION_MEMBER[104].some((name) => name === newMemberName)) {
+      if (store.card.kozutsuzumegu?.UR)
+        cards.push(...Object.values(store.card.kozutsuzumegu.UR));
+      if (store.card.selaIzu?.SR)
+        cards.push(...Object.values(store.card.selaIzu.SR));
+    }
+    if (FORMATION_MEMBER[103].some((name) => name === newMemberName)) {
+      if (store.card.sachi?.UR)
+        cards.push(...Object.values(store.card.sachi.UR));
+    }
+
+    store.fetchImages(
+      'llllMgr_cardImageUrls_v2',
+      cards,
+      (card) => card.ID,
+      (card) => ({
+        before: `cardIllust/${store.makeCardIllustName(card.ID, false)}.webp`,
+        after: `cardIllust/${store.makeCardIllustName(card.ID, true)}.webp`,
+      }),
+    );
+  },
+  { immediate: true },
+);
 
 const searchSetCard = (cardId: string) => {
   let result = false;
@@ -485,9 +502,9 @@ const makeReleaseBonus = (isBefore: boolean) => {
               store.openCard.name,
               store.searchSelectDeckCard(
                 store.openCard.name,
-                store.openCard.style
-              )
-            )
+                store.openCard.style,
+              ),
+            ),
           )
         ][getCardStatus('releaseLevel', true) - 1]) *
       100
@@ -537,6 +554,7 @@ const makeClass = (attr, isBefore) => {
  */
 const openCheckDialog = (cardName: string, rare: string, ary) => {
   const p = (() => {
+    selectCardId.value = ary.ID;
     if (store.isParamReflect) {
       return {
         cardLevel: ary.fluctuationStatus.cardLevel,
@@ -627,7 +645,7 @@ export default {
           if (key !== 'default') {
             result = result.concat(
               [],
-              Object.values(store.card[store.openCard.name][key])
+              Object.values(store.card[store.openCard.name][key]),
             );
           }
         }
@@ -638,7 +656,7 @@ export default {
           result = result.concat(
             [],
             Object.values(store.card.kozutsuzumegu.UR),
-            Object.values(store.card.selaIzu.SR)
+            Object.values(store.card.selaIzu.SR),
           );
         }
 
@@ -650,7 +668,7 @@ export default {
 
         if (store.isPossessionFlg) {
           result = result.filter(
-            (data) => data.fluctuationStatus.cardLevel > 1
+            (data) => data.fluctuationStatus.cardLevel > 1,
           );
         }
 

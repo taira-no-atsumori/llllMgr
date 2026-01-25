@@ -57,7 +57,7 @@
                             color="pink"
                             :model-value="
                               selectBonusSkillList.some(
-                                (elm) => elm === item.title
+                                (elm) => elm === item.title,
                               )
                             "
                           />
@@ -95,7 +95,7 @@
                         :src="
                           store.getImagePath(
                             'icons/member',
-                            `icon_SD_${item.title}`
+                            `icon_SD_${item.title}`,
                           )
                         "
                         eager
@@ -119,7 +119,7 @@
                             :src="
                               store.getImagePath(
                                 'icons/member',
-                                `icon_SD_${item.title}`
+                                `icon_SD_${item.title}`,
                               )
                             "
                             :alt="item.title"
@@ -168,7 +168,7 @@
                         :src="
                           store.getImagePath(
                             'icons/attribute',
-                            `icon_${item.title}`
+                            `icon_${item.title}`,
                           )
                         "
                         eager
@@ -191,7 +191,7 @@
                             :src="
                               store.getImagePath(
                                 'icons/attribute',
-                                `icon_${item.title}`
+                                `icon_${item.title}`,
                               )
                             "
                             :alt="item.title"
@@ -477,7 +477,7 @@
                     @click="
                       sortingProcess(
                         'sortType',
-                        `difficultyLevel_${difficulty_val}`
+                        `difficultyLevel_${difficulty_val}`,
                       );
                       menuOpen = false;
                     "
@@ -572,7 +572,7 @@
           "
         >
           <v-img
-            :src="dbImageUrls[ary.ID] || noImage"
+            :src="musicImageUrls[ary.ID] || noImage"
             :alt="songTitle"
             aspect-ratio="1"
             cover
@@ -608,7 +608,7 @@
                   :src="
                     store.getImagePath(
                       'icons/attribute',
-                      `icon_${ary.attribute}`
+                      `icon_${ary.attribute}`,
                     )
                   "
                   :alt="ary.attribute"
@@ -640,7 +640,7 @@
               "
             >
               <v-img
-                :src="dbImageUrls[ary.ID] || noImage"
+                :src="musicImageUrls[ary.ID] || noImage"
                 :alt="songTitle"
                 aspect-ratio="1"
                 cover
@@ -678,7 +678,7 @@
                       :src="
                         store.getImagePath(
                           'icons/attribute',
-                          `icon_${ary.attribute}`
+                          `icon_${ary.attribute}`,
                         )
                       "
                       :alt="ary.attribute"
@@ -689,7 +689,7 @@
                       :src="
                         store.getImagePath(
                           'icons/member',
-                          `icon_SD_${ary.center}`
+                          `icon_SD_${ary.center}`,
                         )
                       "
                       :alt="ary.center"
@@ -720,7 +720,7 @@ import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { convertAttributeEnToJa } from '@/constants/music';
 import type { MusicItem } from '@/types/musicList';
-import { useMusicData } from '@/stores/useMusicData';
+import { useMusicData } from '@/composables/useMusicData';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
@@ -740,11 +740,15 @@ const selectBonusSkillList = ref([...bonusSkillList]);
 const selectAttrList = ref([...attrList]);
 const menuOpen = ref(false);
 
-const { dbImageUrls, initMusicData, isMusicLoaded } = useMusicData();
+const { initMusicData, isMusicLoaded } = useMusicData();
 
 if (!isMusicLoaded.value) {
   store.loading = true;
 }
+
+const musicImageUrls = computed(
+  () => store.imageCache['llllMgr_musicImageUrls'] || {},
+);
 
 const attributeColor = {
   smile: '#EF8DC8',
@@ -808,7 +812,7 @@ const makeMusicList = computed(() => (): MusicItem[] => {
       return sorting(
         store.sortSettings.musicList.order === 'ascending',
         a.scoreData[sortType][difficulty],
-        b.scoreData[sortType][difficulty]
+        b.scoreData[sortType][difficulty],
       );
     } else {
       switch (sortType) {
@@ -816,20 +820,20 @@ const makeMusicList = computed(() => (): MusicItem[] => {
           return sorting(
             store.sortSettings.musicList.order === 'ascending',
             store.musicLevel[a.ID],
-            store.musicLevel[b.ID]
+            store.musicLevel[b.ID],
           );
         case 'BHcount':
           return sorting(
             store.sortSettings.musicList.order === 'ascending',
             a[store.sortSettings.musicList.sortType],
-            b[store.sortSettings.musicList.sortType]
+            b[store.sortSettings.musicList.sortType],
           );
         case 'kana':
         case 'time':
           return sorting(
             store.sortSettings.musicList.order === 'ascending',
             a.musicData[store.sortSettings.musicList.sortType],
-            b.musicData[store.sortSettings.musicList.sortType]
+            b.musicData[store.sortSettings.musicList.sortType],
           );
         case 'releaseDate':
           return sorting(
@@ -837,19 +841,19 @@ const makeMusicList = computed(() => (): MusicItem[] => {
             new Date(
               a.musicData.releaseDate.year,
               a.musicData.releaseDate.month - 1,
-              a.musicData.releaseDate.date
+              a.musicData.releaseDate.date,
             ),
             new Date(
               b.musicData.releaseDate.year,
               b.musicData.releaseDate.month - 1,
-              b.musicData.releaseDate.date
-            )
+              b.musicData.releaseDate.date,
+            ),
           );
         default:
           return sorting(
             store.sortSettings.musicList?.order === 'ascending',
             a.ID,
-            b.ID
+            b.ID,
           );
       }
     }
@@ -865,7 +869,7 @@ const makeMusicList = computed(() => (): MusicItem[] => {
   function sorting(
     isAscending: boolean,
     aa: string | number | Date,
-    bb: string | number | Date
+    bb: string | number | Date,
   ): number {
     if (isAscending) {
       return aa < bb ? -1 : aa > bb ? 1 : 0;
@@ -890,7 +894,7 @@ function selectCenter(selector: string | null): void {
     selectCenterList.value = [];
   } else if (selectCenterList.value.some((x) => x === selector)) {
     selectCenterList.value = selectCenterList.value.filter(
-      (skill) => skill !== selector
+      (skill) => skill !== selector,
     );
   } else {
     selectCenterList.value.push(selector);
@@ -902,7 +906,7 @@ function selectSkill(selector: string | null): void {
     selectBonusSkillList.value = [];
   } else if (selectBonusSkillList.value.some((x) => x === selector)) {
     selectBonusSkillList.value = selectBonusSkillList.value.filter(
-      (skill) => skill !== selector
+      (skill) => skill !== selector,
     );
   } else {
     selectBonusSkillList.value.push(selector);
@@ -914,7 +918,7 @@ function selectAttr(selector: string | null): void {
     selectAttrList.value = [];
   } else if (selectAttrList.value.some((x) => x === selector)) {
     selectAttrList.value = selectAttrList.value.filter(
-      (skill) => skill !== selector
+      (skill) => skill !== selector,
     );
   } else {
     selectAttrList.value.push(selector);
@@ -946,11 +950,28 @@ onMounted(async () => {
 });
 
 watch(
+  () => store.musicList,
+  (newList) => {
+    const items = Object.entries(newList).map(([key, value]) => ({
+      ID: key,
+      ...value,
+    }));
+    store.fetchImages(
+      'llllMgr_musicImageUrls',
+      items,
+      (item) => item.ID,
+      (item) => `cdJacket/${store.conversion(item.title)}.webp`,
+    );
+  },
+  { immediate: true },
+);
+
+watch(
   isMusicLoaded,
   (val) => {
     if (val) store.loading = false;
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 onUnmounted(() => {

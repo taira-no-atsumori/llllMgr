@@ -18,7 +18,7 @@
               <v-img
                 v-if="event.type === 'other'"
                 class="white--text align-end text-center"
-                :src="store.getImagePath('images/eventInformation', event.img)"
+                :src="event.imageUrl"
                 aspect-ratio="16/9"
                 cover
                 eager
@@ -27,12 +27,10 @@
                   <v-skeleton-loader type="image" class="h-100 w-100" />
                 </template>
               </v-img>
-              <a v-else :href="event.url" target="_blank" class="mainVisual">
+              <a v-else :href="event.link" target="_blank" class="mainVisual">
                 <v-img
                   class="white--text align-end text-center"
-                  :src="
-                    store.getImagePath('images/eventInformation', event.img)
-                  "
+                  :src="event.imageUrl"
                   aspect-ratio="16/9"
                   cover
                   eager
@@ -82,7 +80,7 @@
       <v-col cols="12">
         <h2>メインメニュー</h2>
       </v-col>
-      <v-col>
+      <v-col v-if="false">
         <v-btn
           block
           prepend-icon="mdi-calculator"
@@ -173,7 +171,7 @@
         獲得グランプリPt.を計算できます。<br />
         なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
       </v-col>
-      <v-col cols="12">
+      <v-col v-if="false" cols="12">
         <b>SIMULATION（編成シミュレーション）</b><br />
         簡単な編成シミュレーションを行えます。<br />
         現在はおためし版となっております。<br />
@@ -213,91 +211,16 @@
 </template>
 
 <script setup lang="ts">
-import { useStateStore } from '@/stores/stateStore';
-import { reactive } from 'vue';
+import { ref, reactive, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { ref as dbRef, onValue } from 'firebase/database';
+import { rtdb, rtdbDev } from '@/firebase';
+import { useStateStore } from '@/stores/stateStore';
 
 const store = useStateStore();
 const router = useRouter();
 
-const eventList = {
-  liveGP: {
-    title: 'ライブグランプリ「105期 FinalTerm 第1回 個人戦」',
-    text: '',
-    type: 'liveGP',
-    firstDay: [2026, 1, 12, 12, 0],
-    lastDay: [2026, 1, 18, 3, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/appnews/detail/?p=2026-01-10-10-ezf74b13jp',
-    img: '105期 FinalTerm 第1回 個人戦_logo',
-  },
-  fesReCLive: {
-    title: 'Fes×ReC:LIVE ～Road to Bloom～',
-    text: '',
-    type: 'live',
-    firstDay: [2026, 1, 21, 0, 0],
-    lastDay: [2026, 1, 22, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/live-event/live_detail.php?p=RTB',
-    img: 'Fes×REC_RtB',
-  },
-  fesLive: {
-    title: 'Fes×LIVE「105期 FinalTerm Fes×LIVE」',
-    text: 'Bloom Garden Party',
-    type: 'live',
-    firstDay: [2026, 3, 30, 20, 0],
-    lastDay: [2026, 3, 30, 21, 0],
-    url: 'https://x.com/hasunosora_SIC/status/2005270008532775019?s=20',
-    img: '105期 FinalTerm Fes×LIVE_mv',
-  },
-  movie: {
-    title: '映画蓮ノ空 ～Bloom Garden Party～',
-    text: '',
-    type: 'movie',
-    firstDay: [2026, 5, 8, 0, 0],
-    lastDay: [2026, 6, 25, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/movie/',
-    img: 'movie_01',
-  },
-  '6thLiveDream_Bloom': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
-    text: 'Bloom Stage',
-    type: 'live',
-    firstDay: [2026, 5, 2, 0, 0],
-    lastDay: [2026, 5, 3, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/',
-    img: '6thLiveDream_bloom_logo',
-  },
-  '6thLiveDream_Garden': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
-    text: 'Garden Stage',
-    type: 'live',
-    firstDay: [2026, 5, 23, 0, 0],
-    lastDay: [2026, 5, 24, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/',
-    img: '6thLiveDream_garden_logo',
-  },
-  '6thLiveDream_Party': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
-    text: 'Party Stage',
-    type: 'live',
-    firstDay: [2026, 5, 30, 0, 0],
-    lastDay: [2026, 5, 31, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/',
-    img: '6thLiveDream_party_logo',
-  },
-  '6thLiveDream_BloomGardenParty': {
-    title:
-      'ライブ「ラブライブ！蓮ノ空女学院スクールアイドルクラブ 6th Live Dream ～Bloom Garden Party～」',
-    text: 'Bloom Garden Party Stage',
-    type: 'live',
-    firstDay: [2026, 7, 11, 0, 0],
-    lastDay: [2026, 7, 12, 23, 59],
-    url: 'https://www.lovelive-anime.jp/hasunosora/',
-    img: '6thLiveDream_party_logo',
-  },
-};
+const eventList = ref<Record<string, EventItem>>({});
 
 interface EventItem {
   title: string;
@@ -305,8 +228,8 @@ interface EventItem {
   type: string;
   firstDay: number[];
   lastDay: number[];
-  url: string;
-  img: string;
+  link: string;
+  imageUrl: string;
   state?: string;
   count?: {
     day?: number;
@@ -326,14 +249,14 @@ function countDown(eventName: string): {
   day?: number;
   time?: number;
 } {
-  const event = eventList[eventName as keyof typeof eventList];
+  const event = eventList.value[eventName];
   const firstDay = new Date(
     event.firstDay[0],
     event.firstDay[1] - 1,
     event.firstDay[2],
     event.firstDay[3],
     event.firstDay[4],
-    0
+    0,
   );
   const lastDay = new Date(
     event.lastDay[0],
@@ -341,19 +264,19 @@ function countDown(eventName: string): {
     event.lastDay[2],
     event.lastDay[3],
     event.lastDay[4],
-    59
+    59,
   );
   const today = new Date();
 
   const f = new Date(
     firstDay.getFullYear(),
     firstDay.getMonth(),
-    firstDay.getDate()
+    firstDay.getDate(),
   );
   const l = new Date(
     lastDay.getFullYear(),
     lastDay.getMonth(),
-    lastDay.getDate()
+    lastDay.getDate(),
   );
   const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
@@ -371,7 +294,7 @@ function countDown(eventName: string): {
     return {
       state: 'prev',
       day: -Math.floor(
-        (today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24)
+        (today.getTime() - firstDay.getTime()) / (1000 * 60 * 60 * 24),
       ),
       time: 0,
     };
@@ -386,21 +309,59 @@ function countDown(eventName: string): {
   return { state: 'after' };
 }
 
-for (const key in eventList) {
-  const arr = countDown(key);
+onMounted(() => {
+  const eventRef = dbRef(store.isDev ? rtdbDev : rtdb, 'eventInformation');
 
-  if (arr.state !== 'after') {
-    outputEventList[key] = eventList[key as keyof typeof eventList];
-    outputEventList[key].state = arr.state;
+  onValue(eventRef, (snapshot) => {
+    const data = snapshot.val();
 
-    if (arr.state === 'prev') {
-      outputEventList[key].count = {
-        day: arr.day,
-        time: arr.time,
-      };
+    if (data) {
+      eventList.value = data;
+    }
+  });
+});
+
+watch(eventList, (newList) => {
+  for (const key in outputEventList) {
+    delete outputEventList[key];
+  }
+
+  const sortedKeys = Object.keys(newList).sort((a, b) => {
+    const eventA = newList[a];
+    const eventB = newList[b];
+    const dateA = new Date(
+      eventA.firstDay[0],
+      eventA.firstDay[1] - 1,
+      eventA.firstDay[2],
+      eventA.firstDay[3],
+      eventA.firstDay[4],
+    );
+    const dateB = new Date(
+      eventB.firstDay[0],
+      eventB.firstDay[1] - 1,
+      eventB.firstDay[2],
+      eventB.firstDay[3],
+      eventB.firstDay[4],
+    );
+    return dateA.getTime() - dateB.getTime();
+  });
+
+  for (const key of sortedKeys) {
+    const arr = countDown(key);
+
+    if (arr.state !== 'after') {
+      outputEventList[key] = newList[key];
+      outputEventList[key].state = arr.state;
+
+      if (arr.state === 'prev') {
+        outputEventList[key].count = {
+          day: arr.day,
+          time: arr.time,
+        };
+      }
     }
   }
-}
+});
 </script>
 
 <style lang="scss" scoped>

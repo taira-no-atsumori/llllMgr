@@ -209,7 +209,7 @@
 
                     <v-list-item
                       v-for="season in Object.keys(
-                        mode.grade[store.selectDeck.period]
+                        mode.grade[store.selectDeck.period],
                       )"
                       :key="season"
                       :title="season"
@@ -236,7 +236,7 @@
               v-model="store.selectDeck.period"
               label="期"
               :items="Object.keys(FORMATION_MEMBER).reverse()"
-              :update:modelValue="(store.selectDeck.selectMusic = '')"
+              :update:modelValue="store.selectDeck.selectMusic = ''"
             />
           </v-col>
           <v-col cols="12" class="pa-0">
@@ -349,7 +349,7 @@
                               :src="
                                 store.getImagePath(
                                   'icons/bonusSkill',
-                                  skillName
+                                  skillName,
                                 )
                               "
                               style="width: 25px"
@@ -401,31 +401,27 @@
                                   memberName,
                                   store.selectDeck.cardData[memberName][
                                     styleName
-                                  ].cardName
+                                  ].cardName,
                                 ),
                                 memberName,
-                                styleName
+                                styleName,
                               );
                             "
                           >
                             <v-img
                               :src="
-                                store.getImagePath(
-                                  'images/cardIllust',
-                                  makeIllustCard(
-                                    store,
-                                    store.selectDeck.cardData[memberName][
-                                      styleName
-                                    ].id
-                                  )
-                                )
+                                cardImageUrls[
+                                  store.selectDeck.cardData[memberName][
+                                    styleName
+                                  ].id
+                                ]?.after || noImage
                               "
                               :alt="
                                 makeIllustCard(
                                   store,
                                   store.selectDeck.cardData[memberName][
                                     styleName
-                                  ].id
+                                  ].id,
                                 )
                               "
                             />
@@ -454,7 +450,7 @@
                                   store,
                                   store.selectDeck.cardData[memberName][
                                     styleName
-                                  ].id
+                                  ].id,
                                 )
                               }}
                             </dd>
@@ -471,7 +467,7 @@
                                 store.selectDeck.cardData[memberName][styleName]
                                   .id,
                                 memberName,
-                                styleName
+                                styleName,
                               );
                               dialog.paramSet = true;
                             "
@@ -594,7 +590,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'cardLevel'
+                                        'cardLevel',
                                       )
                                     }}
                                   </dd>
@@ -609,7 +605,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'SALevel'
+                                        'SALevel',
                                       )
                                     }}
                                   </dd>
@@ -624,7 +620,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'SLevel'
+                                        'SLevel',
                                       )
                                     }}
                                   </dd>
@@ -639,7 +635,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'releaseLevel'
+                                        'releaseLevel',
                                       )
                                     }}
                                   </dd>
@@ -654,7 +650,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'smile'
+                                        'smile',
                                       )
                                     }}
                                   </dd>
@@ -669,7 +665,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'cool'
+                                        'cool',
                                       )
                                     }}
                                   </dd>
@@ -684,7 +680,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'pure'
+                                        'pure',
                                       )
                                     }}
                                   </dd>
@@ -699,7 +695,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'mental'
+                                        'mental',
                                       )
                                     }}
                                   </dd>
@@ -740,7 +736,7 @@
                             :src="
                               store.getImagePath(
                                 'icons/member',
-                                `icon_illust_${memberName}_${store.selectDeck.period}`
+                                `icon_illust_${memberName}_${store.selectDeck.period}`,
                               )
                             "
                             class="mr-1"
@@ -787,7 +783,7 @@
                               :src="
                                 store.getImagePath(
                                   'icons/bonusSkill',
-                                  skillName
+                                  skillName,
                                 )
                               "
                               style="width: 25px"
@@ -847,31 +843,27 @@
                                   memberName,
                                   store.selectDeck.cardData[memberName][
                                     styleName
-                                  ].cardName
+                                  ].cardName,
                                 ),
                                 memberName,
-                                styleName
+                                styleName,
                               );
                             "
                           >
                             <v-img
                               :src="
-                                store.getImagePath(
-                                  'images/cardIllust',
-                                  makeIllustCard(
-                                    store,
-                                    store.selectDeck.cardData[memberName][
-                                      styleName
-                                    ].id
-                                  )
-                                )
+                                cardImageUrls[
+                                  store.selectDeck.cardData[memberName][
+                                    styleName
+                                  ].id
+                                ]?.after || noImage
                               "
                               :alt="
                                 makeIllustCard(
                                   store,
                                   store.selectDeck.cardData[memberName][
                                     styleName
-                                  ].id
+                                  ].id,
                                 )
                               "
                             />
@@ -900,7 +892,7 @@
                                   store,
                                   store.selectDeck.cardData[memberName][
                                     styleName
-                                  ].id
+                                  ].id,
                                 )
                               }}
                             </dd>
@@ -917,7 +909,7 @@
                                 store.selectDeck.cardData[memberName][styleName]
                                   .id,
                                 memberName,
-                                styleName
+                                styleName,
                               );
                               dialog.paramSet = true;
                             "
@@ -1040,7 +1032,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'cardLevel'
+                                        'cardLevel',
                                       )
                                     }}
                                   </dd>
@@ -1055,7 +1047,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'SALevel'
+                                        'SALevel',
                                       )
                                     }}
                                   </dd>
@@ -1070,7 +1062,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'SLevel'
+                                        'SLevel',
                                       )
                                     }}
                                   </dd>
@@ -1085,7 +1077,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'releaseLevel'
+                                        'releaseLevel',
                                       )
                                     }}
                                   </dd>
@@ -1100,7 +1092,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'smile'
+                                        'smile',
                                       )
                                     }}
                                   </dd>
@@ -1115,7 +1107,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'cool'
+                                        'cool',
                                       )
                                     }}
                                   </dd>
@@ -1130,7 +1122,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'pure'
+                                        'pure',
                                       )
                                     }}
                                   </dd>
@@ -1145,7 +1137,7 @@
                                         store,
                                         memberName,
                                         styleName,
-                                        'mental'
+                                        'mental',
                                       )
                                     }}
                                   </dd>
@@ -1185,22 +1177,8 @@
                   <v-card>
                     <v-img
                       :src="
-                        store.getImagePath(
-                          'images/cardIllust',
-                          `${
-                            showCenterCard(store).id.split('_')[1] === '000'
-                              ? 'NO IMAGE'
-                              : `${store.conversion(
-                                  store.findCardData(showCenterCard(store).id)
-                                    .cardName
-                                )}_${
-                                  MEMBER_NAMES[
-                                    MUSIC_LIST[store.selectDeck.selectMusic]
-                                      ?.center
-                                  ].last
-                                }_覚醒後`
-                          }`
-                        )
+                        cardImageUrls[showCenterCard(store).id]?.after ||
+                        noImage
                       "
                     />
                   </v-card>
@@ -1220,7 +1198,7 @@
                         ? ''
                         : convertStyleEnToJp(
                             store.findCardData(showCenterCard(store).id)
-                              .styleType
+                              .styleType,
                           )
                     }}
                   </div>
@@ -1247,25 +1225,9 @@
                 <v-col cols="6">
                   <v-card @click="dialog.selectMusic = true">
                     <v-img
-                      :lazy-src="
-                        store.getImagePath(
-                          'images/cdJacket',
-                          store.conversion(
-                            store.selectDeck.selectMusic === ''
-                              ? 'NO IMAGE'
-                              : store.selectDeck.selectMusic
-                          )
-                        )
-                      "
                       :src="
-                        store.getImagePath(
-                          'images/cdJacket',
-                          store.conversion(
-                            store.selectDeck.selectMusic === ''
-                              ? 'NO IMAGE'
-                              : store.selectDeck.selectMusic
-                          )
-                        )
+                        (currentMusicId && musicImageUrls[currentMusicId]) ||
+                        noImage
                       "
                       :alt="
                         store.selectDeck.selectMusic === ''
@@ -1280,7 +1242,7 @@
                     <span class="mr-2">属性</span>
                     {{
                       convertAttributeEnToJa(
-                        MUSIC_LIST[store.selectDeck.selectMusic]?.attribute
+                        MUSIC_LIST[store.selectDeck.selectMusic]?.attribute,
                       ) ?? ''
                     }}
                   </div>
@@ -1293,7 +1255,7 @@
                           'icons/member',
                           `icon_illust_${
                             MUSIC_LIST[store.selectDeck.selectMusic]?.center
-                          }_${store.selectDeck.period}`
+                          }_${store.selectDeck.period}`,
                         )
                       "
                       class="mr-1"
@@ -1311,7 +1273,7 @@
                       :src="
                         store.getImagePath(
                           'icons/member',
-                          `icon_illust_${memberName}_${store.selectDeck.period}`
+                          `icon_illust_${memberName}_${store.selectDeck.period}`,
                         )
                       "
                       class="mr-1"
@@ -1470,7 +1432,7 @@
                         @click="
                           setValue(
                             ['seasonFan', i - 1, memberName],
-                            bonus.seasonFan[i - 1][memberName] - 1
+                            bonus.seasonFan[i - 1][memberName] - 1,
                           )
                         "
                       />
@@ -1490,7 +1452,7 @@
                         @click="
                           setValue(
                             ['seasonFan', i - 1, memberName],
-                            bonus.seasonFan[i - 1][memberName] + 1
+                            bonus.seasonFan[i - 1][memberName] + 1,
                           )
                         "
                       />
@@ -1513,7 +1475,7 @@
                         @click="
                           setValue(
                             ['release', i - 1, memberName],
-                            bonus.release[i - 1][memberName] - 1
+                            bonus.release[i - 1][memberName] - 1,
                           )
                         "
                       />
@@ -1536,7 +1498,7 @@
                         @click="
                           setValue(
                             ['release', i - 1, memberName],
-                            bonus.release[i - 1][memberName] + 1
+                            bonus.release[i - 1][memberName] + 1,
                           )
                         "
                       />
@@ -1734,7 +1696,7 @@
                   :disabled="
                     store.deck.length <= 1 ||
                     !/デッキを入れ替えました|入れ替えをキャンセルしました/.test(
-                      shiftDeckMessage.text
+                      shiftDeckMessage.text,
                     )
                   "
                   @click="copyDeck(store, element.name)"
@@ -1796,7 +1758,7 @@
               :disabled="
                 store.deck.length <= 1 ||
                 !/デッキをコピーしました|コピーをキャンセルしました/.test(
-                  copyDeckMessage.text
+                  copyDeckMessage.text,
                 )
               "
               @click="shiftDeck(store, deck.name)"
@@ -1810,7 +1772,7 @@
               :disabled="
                 store.deck.length <= 1 ||
                 !/デッキを入れ替えました|入れ替えをキャンセルしました/.test(
-                  shiftDeckMessage.text
+                  shiftDeckMessage.text,
                 )
               "
               @click="copyDeck(store, deck.name)"
@@ -1895,11 +1857,9 @@
             "
           >
             <v-img
-              :lazy-src="
-                store.getImagePath('images/cdJacket', store.conversion(title))
-              "
               :src="
-                store.getImagePath('images/cdJacket', store.conversion(title))
+                (getMusicId(title) && musicImageUrls[getMusicId(title)]) ||
+                noImage
               "
               :alt="title"
             />
@@ -1988,6 +1948,7 @@
 </template>
 
 <script setup>
+import { computed, watch } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import draggable from 'vuedraggable';
 import { convertStyleEnToJp } from '@/constants/cards';
@@ -2001,8 +1962,135 @@ import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
+import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
 // import axios from 'axios';
 const store = useStateStore();
+
+const cardImageUrls = computed(
+  () => store.imageCache['llllMgr_cardImageUrls_v2'] || {},
+);
+
+const musicImageUrls = computed(
+  () => store.imageCache['llllMgr_musicImageUrls'] || {},
+);
+
+const currentMusicId = computed(() => {
+  const title = store.selectDeck.selectMusic;
+  if (!title) return null;
+  const entry = Object.entries(store.musicList).find(
+    ([_, v]) => v.title === title,
+  );
+  return entry ? entry[0] : null;
+});
+
+const getMusicId = (title) => {
+  const entry = Object.entries(store.musicList).find(
+    ([_, v]) => v.title === title,
+  );
+  return entry ? entry[0] : null;
+};
+
+watch(
+  () => store.selectDeck,
+  (newDeck) => {
+    if (!newDeck || !newDeck.cardData) return;
+
+    const cards = [];
+    for (const member in newDeck.cardData) {
+      for (const style in newDeck.cardData[member]) {
+        const cardInfo = newDeck.cardData[member][style];
+        if (cardInfo && cardInfo.id && cardInfo.id.split('_')[1] !== '000') {
+          cards.push({ ID: cardInfo.id });
+        }
+      }
+    }
+
+    if (cards.length > 0) {
+      store.fetchImages(
+        'llllMgr_cardImageUrls_v2',
+        cards,
+        (c) => c.ID,
+        (c) => ({
+          before: `cardIllust/${store.makeCardIllustName(c.ID, false)}.webp`,
+          after: `cardIllust/${store.makeCardIllustName(c.ID, true)}.webp`,
+        }),
+      );
+    }
+  },
+  { deep: true, immediate: true },
+);
+
+watch(
+  () => store.selectDeck.selectMusic,
+  (newTitle) => {
+    if (!newTitle) return;
+    const id = currentMusicId.value;
+    if (id) {
+      store.fetchImages(
+        'llllMgr_musicImageUrls',
+        [{ ID: id, title: newTitle }],
+        (item) => item.ID,
+        (item) => `cdJacket/${store.conversion(item.title)}.webp`,
+      );
+    }
+  },
+  { immediate: true },
+);
+
+watch(
+  [() => store.selectDeck.period, () => store.musicList],
+  ([newPeriod, musicList]) => {
+    if (!newPeriod || !musicList) return;
+
+    const targetMusic = Object.entries(musicList)
+      .filter(([_, val]) => val.term === Number(newPeriod))
+      .map(([key, val]) => ({ ID: key, ...val }));
+
+    if (targetMusic.length > 0) {
+      store.fetchImages(
+        'llllMgr_musicImageUrls',
+        targetMusic,
+        (item) => item.ID,
+        (item) => `cdJacket/${store.conversion(item.title)}.webp`,
+      );
+    }
+  },
+  { immediate: true },
+);
+
+const showCenterCard = (store) => {
+  if (store.selectDeck.selectMusic === '') {
+    return {
+      id: 'df_000',
+      isAce: false,
+      param: {
+        cardLevel: 1,
+        SALevel: 1,
+        SLevel: 1,
+        releaseLevel: 1,
+      },
+    };
+  } else if (
+    store.selectDeck.cardData[
+      MUSIC_LIST[store.selectDeck.selectMusic]?.center
+    ].main.id.split('_')[1] === '000'
+  ) {
+    return {
+      id: 'df_000',
+      isAce: false,
+      param: {
+        cardLevel: 1,
+        SALevel: 1,
+        SLevel: 1,
+        releaseLevel: 1,
+      },
+    };
+  } else {
+    return store.selectDeck.cardData[
+      MUSIC_LIST[store.selectDeck.selectMusic]?.center
+    ].main;
+  }
+};
 </script>
 
 <script>
@@ -2312,7 +2400,7 @@ export default {
           this.score[target] *
             this.clearRank[this.clearStage[target] - 1] *
             (1 + releaseLv) *
-            (1 + seasonFanLv)
+            (1 + seasonFanLv),
         ).toLocaleString();
       };
     },
@@ -2345,7 +2433,7 @@ export default {
                   releasePoint +=
                     this.releaseLv[
                       store.searchRarity(
-                        store.selectDeck.cardData[memberName][style].id
+                        store.selectDeck.cardData[memberName][style].id,
                       )
                     ][
                       store.selectDeck.cardData[memberName][style].param
@@ -2365,7 +2453,7 @@ export default {
 
             let param = store.cardParam(
               attr,
-              store.selectDeck.cardData[memberName][style].id
+              store.selectDeck.cardData[memberName][style].id,
             );
 
             if (MUSIC_LIST[store.selectDeck.selectMusic].attribute === attr) {
@@ -2399,10 +2487,10 @@ export default {
             for (const style in store.selectDeck.cardData[memberName]) {
               if (
                 store.selectDeck.cardData[memberName][style].id.split(
-                  '_'
+                  '_',
                 )[1] === '000' &&
                 Object.keys(STYLE_HEADLINE[store.selectDeck.period]).find(
-                  (v) => v === style
+                  (v) => v === style,
                 ) !== undefined
               ) {
                 sum[style === 'main' ? 'main' : 'side']++;
@@ -2416,41 +2504,6 @@ export default {
           leaves: sum.side,
           result: sum.side > 9 ? 95 : sum.side * 10,
         };
-      };
-    },
-    showCenterCard() {
-      return (store) => {
-        if (store.selectDeck.selectMusic === '') {
-          return {
-            id: 'df_000',
-            isAce: false,
-            param: {
-              cardLevel: 1,
-              SALevel: 1,
-              SLevel: 1,
-              releaseLevel: 1,
-            },
-          };
-        } else if (
-          store.selectDeck.cardData[
-            MUSIC_LIST[store.selectDeck.selectMusic]?.center
-          ].main.id.split('_')[1] === '000'
-        ) {
-          return {
-            id: 'df_000',
-            isAce: false,
-            param: {
-              cardLevel: 1,
-              SALevel: 1,
-              SLevel: 1,
-              releaseLevel: 1,
-            },
-          };
-        } else {
-          return store.selectDeck.cardData[
-            MUSIC_LIST[store.selectDeck.selectMusic]?.center
-          ].main;
-        }
       };
     },
   },
@@ -2574,10 +2627,10 @@ export default {
         this.snackbar.shiftDeck = true;
       } else {
         const before = store.deck.findIndex(
-          (item) => item.name === this.beforeDeckName
+          (item) => item.name === this.beforeDeckName,
         );
         const after = store.deck.findIndex(
-          (item) => item.name === targetDeckName
+          (item) => item.name === targetDeckName,
         );
 
         [store.deck[before], store.deck[after]] = [
@@ -2610,10 +2663,10 @@ export default {
         this.snackbar.copyDeck = true;
       } else {
         const before = store.deck.findIndex(
-          (item) => item.name === this.beforeDeckName
+          (item) => item.name === this.beforeDeckName,
         );
         const after = store.deck.findIndex(
-          (item) => item.name === targetDeckName
+          (item) => item.name === targetDeckName,
         );
 
         store.deck[after].period = Number(store.deck[before].period);
@@ -2677,7 +2730,7 @@ export default {
       return {
         'background-image': `url(${store.getImagePath(
           'icons/member',
-          `icon_${memberName}`
+          `icon_${memberName}`,
         )})`,
         'background-position': 'center',
       };
@@ -2699,13 +2752,13 @@ export default {
         const cardId = selectCardId.split('_')[0];
 
         return `${store.conversion(
-          store.findCardData(selectCardId).cardName
+          store.findCardData(selectCardId).cardName,
         )}_${
           cardId === MEMBER_IDS.SELAIZU
             ? '桂城泉＆セラス 柳田 リリエンフェルト'
             : cardId === MEMBER_IDS.KOZUTSUZUMEGU
-            ? '乙宗梢＆夕霧綴理＆藤島慈'
-            : MEMBER_NAMES[MEMBER_IDS[cardId]].last
+              ? '乙宗梢＆夕霧綴理＆藤島慈'
+              : MEMBER_NAMES[MEMBER_IDS[cardId]].last
         }_覚醒後`;
       }
     },
@@ -2733,8 +2786,8 @@ export default {
         rare: store.searchRarity(
           store.findCardId(
             name,
-            store.selectDeck.cardData[name][style].cardName
-          )
+            store.selectDeck.cardData[name][style].cardName,
+          ),
         ),
         cardName: store.selectDeck.cardData[name][style].cardName,
       });
@@ -2744,8 +2797,8 @@ export default {
         store.searchRarity(
           store.findCardId(
             name,
-            store.selectDeck.cardData[name][style].cardName
-          )
+            store.selectDeck.cardData[name][style].cardName,
+          ),
         )
       ][store.selectDeck.cardData[name][style].cardName];
     },

@@ -517,7 +517,6 @@
             <v-text-field
               v-model="music.imageURL"
               label="Image URL"
-              readonly
               prepend-icon="mdi-link-variant"
               density="compact"
               variant="outlined"
@@ -585,6 +584,7 @@ import {
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import type { MusicItem } from '@/types/musicList';
+import { useStateStore } from '@/stores/stateStore';
 
 const isIdOverride = ref(false);
 const singerTab = ref('group');
@@ -613,6 +613,7 @@ const kanaOptions = [
   '英数',
 ];
 const uploadStore = useUploadDataStore();
+const store = useStateStore();
 
 const dbMusicList = ref<MusicItem>({});
 
@@ -628,7 +629,7 @@ onMounted(() => {
       if (music.value.musicName === '') {
         const dbCount = Object.keys(data).length;
         const newPendingMusicCount = uploadStore.pendingList.filter(
-          (item) => item.type === 'music' && !data[Object.keys(item.data)[0]]
+          (item) => item.type === 'music' && !data[Object.keys(item.data)[0]],
         ).length;
         const nextId = `m_${dbCount + newPendingMusicCount + 1}`;
         music.value.ID = nextId;
@@ -655,7 +656,7 @@ watch(
       uploadStore.setEditTarget('', '');
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 const presetItems = computed(() => {
@@ -710,7 +711,7 @@ const getInitialMusicData = () => {
   const dbCount = Object.keys(dbMusicList.value).length;
   const newPendingMusicCount = uploadStore.pendingList.filter(
     (item) =>
-      item.type === 'music' && !dbMusicList.value[Object.keys(item.data)[0]]
+      item.type === 'music' && !dbMusicList.value[Object.keys(item.data)[0]],
   ).length;
   const nextId = `m_${dbCount + newPendingMusicCount + 1}`;
 
@@ -768,7 +769,7 @@ const releaseDateInput = computed({
   get: () => {
     const d = music.value.musicData.releaseDate;
     return `${d.year}-${String(d.month).padStart(2, '0')}-${String(
-      d.date
+      d.date,
     ).padStart(2, '0')}`;
   },
   set: (val: string) => {
@@ -832,14 +833,14 @@ const applyPreset = () => {
     singerTab.value = 'group';
 
     const groupNameEntry = Object.entries(GROUP_NAME).find(
-      ([_, name]) => name === preset.musicData.singer
+      ([_, name]) => name === preset.musicData.singer,
     );
     const groupNameKey = groupNameEntry ? groupNameEntry[0] : null;
 
     const matchingGroup = Object.entries(GROUP_MEMBER).find(
       ([_, group]) =>
         group.KEY === groupNameKey &&
-        JSON.stringify(group.MEMBERS) === JSON.stringify(preset.singingMembers)
+        JSON.stringify(group.MEMBERS) === JSON.stringify(preset.singingMembers),
     );
 
     if (matchingGroup) {
@@ -870,7 +871,7 @@ const applyPreset = () => {
     (
       (totalSeconds - music.value.musicData.time.minuts * 60 - seconds) *
       10
-    ).toFixed(1)
+    ).toFixed(1),
   );
 
   music.value.imageURL = preset.imageURL || '';
@@ -917,11 +918,16 @@ const addToStore = async () => {
       const storage = getStorage(rtdbDev.app);
       const fileRef = storageRef(
         storage,
-        `cdJacket/${selectedFile.value.name}`
+        `cdJacket/${selectedFile.value.name}`,
       );
       const snapshot = await uploadBytes(fileRef, selectedFile.value);
       const url = await getDownloadURL(snapshot.ref);
       data[id].imageURL = url;
+
+      if (!store.imageCache['llllMgr_musicImageUrls']) {
+        store.imageCache['llllMgr_musicImageUrls'] = {};
+      }
+      store.imageCache['llllMgr_musicImageUrls'][id] = url;
     }
 
     const updates: Record<string, MusicItem> = {};
@@ -963,6 +969,12 @@ const fetchImageByTitle = async () => {
     if (targetItem) {
       const url = await getDownloadURL(targetItem);
       music.value.imageURL = url;
+
+      if (!store.imageCache['llllMgr_musicImageUrls']) {
+        store.imageCache['llllMgr_musicImageUrls'] = {};
+      }
+      store.imageCache['llllMgr_musicImageUrls'][music.value.ID] = url;
+
       snackbarMessage.value = '画像URLを取得しました';
       snackbarColor.value = 'success';
       snackbar.value = true;
@@ -991,6 +1003,12 @@ const uploadImage = async () => {
     const snapshot = await uploadBytes(fileRef, targetFile);
     const url = await getDownloadURL(snapshot.ref);
     music.value.imageURL = url;
+
+    if (!store.imageCache['llllMgr_musicImageUrls']) {
+      store.imageCache['llllMgr_musicImageUrls'] = {};
+    }
+    store.imageCache['llllMgr_musicImageUrls'][music.value.ID] = url;
+
     cancelUpload();
   } catch (e) {
     console.error('Failed to upload image', e);

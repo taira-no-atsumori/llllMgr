@@ -5,19 +5,20 @@ import {
   MEMBER_IDS,
   EXCLUSION_MEMBER,
   type MemberIds,
+  type MemberKeyValues,
 } from '../../src/constants/memberNames';
 import { SKILL_LIST } from '../../src/constants/skillList';
-import type { CardDefaultData } from '../../src/types/cardList';
+import type { CardDataType } from '../../src/types/cardList';
 
 describe('データ整合性チェック', () => {
   let cardStore: ReturnType<typeof useCardStore>;
-  let allCards: CardDefaultData[];
+  let allCards: CardDataType[];
 
   // ヘルパー関数
   const getAllCards = (
-    store: ReturnType<typeof useCardStore>
-  ): CardDefaultData[] => {
-    const cards: CardDefaultData[] = [];
+    store: ReturnType<typeof useCardStore>,
+  ): CardDataType[] => {
+    const cards: CardDataType[] = [];
     Object.values(store.card).forEach((memberCards) => {
       Object.values(memberCards).forEach((rarityCards) => {
         Object.values(rarityCards).forEach((card) => {
@@ -90,7 +91,7 @@ describe('データ整合性チェック', () => {
 
     expect(
       duplicates,
-      `カードIDが重複しています:\n${duplicates.join('\n')}`
+      `カードIDが重複しています:\n${duplicates.join('\n')}`,
     ).toEqual([]);
   });
 
@@ -129,14 +130,14 @@ describe('データ整合性チェック', () => {
 
       if (missingNumbers.length > 0) {
         gapErrors.push(
-          `Prefix "${prefix}": 欠番があります: ${missingNumbers.join(', ')}`
+          `Prefix "${prefix}": 欠番があります: ${missingNumbers.join(', ')}`,
         );
       }
     });
 
     expect(
       gapErrors,
-      `カードIDに欠番が見つかりました:\n${gapErrors.join('\n')}`
+      `カードIDに欠番が見つかりました:\n${gapErrors.join('\n')}`,
     ).toEqual([]);
   });
 
@@ -149,17 +150,18 @@ describe('データ整合性チェック', () => {
     for (const characterKey in card) {
       if (
         characterKey === 'default' ||
-        EXCLUSION_MEMBER.includes(characterKey)
+        (EXCLUSION_MEMBER as readonly string[]).includes(characterKey)
       ) {
         continue;
       }
 
       // MEMBER_IDS（例: { kh: 'kaho' }）から、キャラクターキー（例: 'kaho'）に対応するIDプレフィックス（例: 'kh'）を検索
-      const expectedPrefix: MemberIds | undefined = MEMBER_IDS[characterKey];
+      const expectedPrefix: MemberIds | undefined =
+        MEMBER_IDS[characterKey as MemberKeyValues];
 
       if (!expectedPrefix) {
         errors.push(
-          `キャラクター「${characterKey}」に対応するIDプレフィックスがMEMBER_IDSに見つかりません。`
+          `キャラクター「${characterKey}」に対応するIDプレフィックスがMEMBER_IDSに見つかりません。`,
         );
         continue;
       }
@@ -181,7 +183,7 @@ describe('データ整合性チェック', () => {
 
           if (idPrefix !== expectedPrefix) {
             errors.push(
-              `不正なIDです: カード「${cardName}」（ID: ${cardId}）のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`
+              `不正なIDです: カード「${cardName}」（ID: ${cardId}）のプレフィックスが「${idPrefix}」になっています。キャラクター「${characterKey}」の正しいプレフィックスは「${expectedPrefix}」です。`,
             );
           }
         }
@@ -191,8 +193,8 @@ describe('データ整合性チェック', () => {
     expect(
       errors,
       `カードIDのプレフィックスがキャラクターの略称と一致しません:\n${errors.join(
-        '\n'
-      )}`
+        '\n',
+      )}`,
     ).toEqual([]);
   });
 
@@ -204,14 +206,14 @@ describe('データ整合性チェック', () => {
       const formatRegex = /^[a-z]+_\d{3}$/;
       if (!formatRegex.test(card.ID)) {
         formatErrors.push(
-          `ID: ${card.ID} - フォーマットが不正です（小文字アルファベット_数字3桁の形式が必要）`
+          `ID: ${card.ID} - フォーマットが不正です（小文字アルファベット_数字3桁の形式が必要）`,
         );
       }
     });
 
     expect(
       formatErrors,
-      `カードIDのフォーマットエラー:\n${formatErrors.join('\n')}`
+      `カードIDのフォーマットエラー:\n${formatErrors.join('\n')}`,
     ).toEqual([]);
   });
 
@@ -222,18 +224,18 @@ describe('データ整合性チェック', () => {
         const { name, ID } = card.specialAppeal;
         if (!SKILL_LIST[name]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`
+            `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`,
           );
         } else if (!SKILL_LIST[name][ID]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`
+            `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`,
           );
         }
       }
     });
     expect(
       errors,
-      `スペシャルアピールの不整合が見つかりました:\n${errors.join('\n')}`
+      `スペシャルアピールの不整合が見つかりました:\n${errors.join('\n')}`,
     ).toEqual([]);
   });
 
@@ -244,18 +246,18 @@ describe('データ整合性チェック', () => {
         const { name, ID } = card.skill;
         if (!SKILL_LIST[name]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスキル名「${name}」が skillList に存在しません。`
+            `カード [${card.ID}: ${card.kana}] のスキル名「${name}」が skillList に存在しません。`,
           );
         } else if (!SKILL_LIST[name][ID]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスキルID「${ID}」が skillList.${name} に存在しません。`
+            `カード [${card.ID}: ${card.kana}] のスキルID「${ID}」が skillList.${name} に存在しません。`,
           );
         }
       }
     });
     expect(
       errors,
-      `スキルの不整合が見つかりました:\n${errors.join('\n')}`
+      `スキルの不整合が見つかりました:\n${errors.join('\n')}`,
     ).toEqual([]);
   });
 });

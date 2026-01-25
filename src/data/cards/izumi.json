@@ -619,6 +619,61 @@
     }
   },
   "SR": {
+    "iz_017": {
+      "cardName": "ドライブ・スペード・クレイジー",
+      "styleType": "trickStar",
+      "mood": "melow",
+      "series": "4 Pair Power Spread",
+      "kana": "どらいぶすぺーどくれいじー",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.5",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 4100,
+        "pure": 4800,
+        "cool": 3400,
+        "mental": 450,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "thirdStage_01",
+        "name": "サードステージ",
+        "AP": 2,
+        "detail": [[3, 3, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8]]
+      },
+      "skill": {
+        "ID": "spadeImitationMellow_01",
+        "name": "スペードイミテーションメロウ",
+        "AP": 4,
+        "detail": [
+          [1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2],
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+        ]
+      },
+      "characteristic": {
+        "name": "Spade Pair Power Spread",
+        "detail": "スキル使用時1回まで、ペアカード[ドライブ・スペード・クレイジー]セラス 柳田 リリエンフェルトを1種類(合計1枚)山札に追加する。さらに手札にある状態でハートを4000個獲得したとき、ビートハート40回分のスキルハートを獲得し、このセクション中、AP回復速度を+10%する。",
+        "type": ["addCard", "heartCaptcha", "APQuick"],
+        "addSkill": [
+          {
+            "ID": "spadeVibesMellow_01",
+            "name": "スペードバイブスメロウ",
+            "AP": 4,
+            "detail": [
+              [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+              [40, 44, 48, 52, 56, 60, 64, 68, 72, 80, 84, 88, 92, 100]
+            ],
+            "characteristic": {
+              "name": "Spade Pair Power Spread",
+              "detail": "手札にある状態でハートを4000個回収したとき、ビートハート40回分のスキルハートを獲得し、APを4回復する。",
+              "type": ["heartCollect", "heartCaptcha", "APGain"]
+            }
+          }
+        ]
+      }
+    },
     "iz_011": {
       "cardName": "四蓮琴之龍",
       "styleType": "trickStar",
