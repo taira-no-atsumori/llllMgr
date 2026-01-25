@@ -47,7 +47,7 @@ export default [
 
   // Service Workerファイル用の設定
   {
-    files: ['public/sw.js'],
+    files: ['public/sw.js', 'docs/sw.js'],
     languageOptions: {
       globals: {
         ...globals.serviceworker,
