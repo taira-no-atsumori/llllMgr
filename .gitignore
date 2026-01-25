@@ -26,3 +26,6 @@ pnpm-debug.log*
 # Firebase関連
 import-firestore.js
 *.adminsdk*.json
+
+# Event List
+# eventList.ts

@@ -10473,5 +10473,164 @@ export const SKILL_LIST = {
       },
     },
   },
+  ファーストステージ: {
+    firstStage_01: {
+      text: [
+        '1セクション目で使用したとき、APを',
+        '回復し、このセクション中、手札の上限枚数を2枚増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+      },
+    },
+  },
+  クイーンアトラクトハッピー: {
+    queenAttractHappy_01: {
+      text: [
+        '4回の間ラブアトラクト効果を+',
+        '%し、このセクション中、ムード値をハッピー方向に+',
+        'する。さらにムードがハッピー100のとき、手札をリセットシャッフルする。この時ペアカード[ハートにQ]大沢瑠璃乃をドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.RESHUFFLE,
+        ],
+      },
+    },
+    queenAttractHappy_02: {
+      text: [
+        '4回の間ラブアトラクト効果を+',
+        '%し、このセクション中、ムード値をハッピー方向に+',
+        'する。さらにムードがハッピー100のとき、獲得するLOVEを+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  サードステージ: {
+    thirdStage_01: {
+      text: [
+        '3セクション目で使用したとき、APを',
+        '回復し、このセクション中、手札の上限枚数を2枚増加する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+      },
+    },
+  },
+  スペードイミテーションメロウ: {
+    spadeImitationMellow_01: {
+      text: [
+        'カードがステージにセットされ、AP回復効果を吸収する。AP回復効果を4吸収したとき、このセクション中、ビートハートの出現個数を+',
+        '、ムード値をメロウ方向に+',
+        'し、捨札に移動する。さらにムードがメロウ100のとき、手札をリセットシャッフルする。この時ペアカード[ドライブ・スペード・クレイジー]セラス 柳田 リリエンフェルトをドローする確率大幅アップ。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.IMITATION,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.DRAW,
+        ],
+      },
+    },
+  },
+  スペードバイブスメロウ: {
+    spadeVibesMellow_01: {
+      text: [
+        'このセクション中、ビートハートの出現個数を+2し、ムード値をメロウ方向に+',
+        'する。さらにムードが100のとき、このセクション中、ムード値をメロウ方向に+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.VIBES_SECTION,
+          SKILL_DETAIL.AMBIENCE_SECTION,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  キャプティベイトスピリッツ: {
+    captivateSpirits_01: {
+      text: [
+        'このセクション中、メンタルを回復する効果、またはメンタルプロテクト効果が発動した時、ボルテージPt.を獲得する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+      },
+    },
+    captivateSpirits_02: {
+      text: [
+        'このセクション中、メンタルを回復する効果、またはメンタルプロテクト効果が発動した時、スキルハートを獲得する。発動した効果の効果値とスペシャルアピールのLvが高いほど効果値が増加する。デッキ枚数が18枚より少ないほど、効果値が減少する。',
+      ],
+      detail: {
+        attr: '',
+        type: [SKILL_DETAIL.HEART_CAPTCHA],
+      },
+    },
+  },
+  ビヨンドヒーリング: {
+    beyondHealing_01: {
+      text: [
+        'メンタルを最大値の',
+        '%回復させる。さらにメンタルが200%以上のとき、このステージ中、ハート上限を+',
+        '、獲得するLOVEを+',
+        '%、ボルテージPt.を+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.HEART_LIMIT_UP,
+          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          SKILL_DETAIL.VOLTAGE_GAIN,
+          SKILL_DETAIL.HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
+  エコーズるりめぐ: {
+    echoesRuriMegu_01: {
+      text: [
+        '手札をリセットシャッフルし、メンタルを最大値の',
+        '%回復させる。この時瑠璃乃、慈のスキルをドローする確率大幅アップ。さらにムードがハッピー、メロウいずれか100のとき、8回の間スキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          SKILL_DETAIL.RESHUFFLE,
+          SKILL_DETAIL.MENTAL_RECOVER,
+          SKILL_DETAIL.DRAW,
+          SKILL_DETAIL.SOUND,
+          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+        ],
+      },
+    },
+  },
 } as const;
 export type skillList = keyof typeof SKILL_LIST;

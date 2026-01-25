@@ -317,6 +317,50 @@
     }
   },
   "UR": {
+    "hm_036": {
+      "cardName": "Echoes Beyond",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "Echoes Beyond",
+      "kana": "えこーずびよんど",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.5",
+        "period": "winter"
+      },
+      "uniqueStatus": {
+        "smile": 4350,
+        "pure": 6300,
+        "cool": 3450,
+        "mental": 510,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "captivateSpirits_02",
+        "name": "キャプティベイトスピリッツ",
+        "AP": 12,
+        "detail": []
+      },
+      "skill": {
+        "ID": "echoesRuriMegu_01",
+        "name": "エコーズるりめぐ",
+        "AP": 20,
+        "detail": [
+          [
+            72, 79.2, 86.4, 93.6, 100.8, 108, 115.2, 122.4, 129.6, 144, 151.2,
+            158.4, 165.6, 180
+          ],
+          [
+            72, 79.2, 86.4, 93.6, 100.8, 108, 115.2, 122.4, 129.6, 144, 151.2,
+            158.4, 165.6, 180
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ロードトゥみらくらぱーく！",
+        "detail": "現在の残りメンタルが多いほど、このスキルの消費APが減少する。ドローした時、デッキ内の瑠璃乃、慈のスキルの消費APを-8し、スキルハートを獲得する。手札にある状態で瑠璃乃、慈のスキルを使用したとき、手札をリセットシャッフルする。この時瑠璃乃、慈のスキルをドローする確率大幅アップ。",
+        "type": ["draw", "APReduce", "reshuffle", "heartCaptcha"]
+      }
+    },
     "hm_034": {
       "cardName": "キミがいなくちゃっ！",
       "styleType": "cheerLeader",
@@ -1569,6 +1613,68 @@
     }
   },
   "SR": {
+    "hm_035": {
+      "cardName": "ハートにQ",
+      "styleType": "moodMaker",
+      "mood": "happy",
+      "series": "4 Pair Power Spread",
+      "kana": "はーとにきゅー",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 FinalTerm 第1回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4000,
+        "pure": 4600,
+        "cool": 3700,
+        "mental": 450,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "firstStage_01",
+        "name": "ファーストステージ",
+        "AP": 2,
+        "detail": [[3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 7, 7, "7?"]]
+      },
+      "skill": {
+        "ID": "queenAttractHappy_01",
+        "name": "クイーンアトラクトハッピー",
+        "AP": 4,
+        "detail": [
+          [4.3, 4.8, 5.2, 5.6, 6, 6.5, 6.9, 7.3, 7.8, 8.6, 9.1, 9.5, 9.9, 10.8],
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+        ]
+      },
+      "characteristic": {
+        "name": "Heart Pair Power Spread",
+        "detail": "スキル使用時1回まで、ペアカード[ハートにQ]大沢瑠璃乃を1種類(合計1枚)山札に追加する。さらに手札にある状態でハートを4000個回収したとき、ビートハート40回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+400%する。",
+        "type": [
+          "addCard",
+          "heartCollect",
+          "heartCaptcha",
+          "loveAttract_stage"
+        ],
+        "addSkill": [
+          {
+            "ID": "queenAttractHappy_02",
+            "name": "クイーンアトラクトハッピー",
+            "AP": 2,
+            "detail": [
+              [
+                4.3, 4.8, 5.2, 5.6, 6, 6.5, 6.9, 7.3, 7.8, 8.6, 9.1, 9.5, 9.9,
+                10.8
+              ],
+              [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+            ],
+            "characteristic": {
+              "name": "Heart Pair Power Spread",
+              "detail": "手札にある状態でハートを4000個回収したとき、ビートハート40回分のスキルハートを獲得し、4回の間ラブアトラクト効果を+40%する。",
+              "type": ["heartCollect", "heartCaptcha", "boost_loveAttract"]
+            }
+          }
+        ]
+      }
+    },
     "hm_032": {
       "cardName": "Poupée en Lotus",
       "styleType": "cheerLeader",

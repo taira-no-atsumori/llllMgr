@@ -169,14 +169,9 @@
               "
             >
               <v-img
-                :src="
-                  store.getImagePath(
-                    'images/cardIllust',
-                    store.makeCardIllustName(cardData.ID)
-                  )
-                "
+                :src="cardImageUrls[cardData.ID]?.after || noImage"
                 :alt="`${store.conversion(
-                  cardData.cardName
+                  cardData.cardName,
                 )}_${conversionCardIdToMemberName(cardData.ID)}`"
                 aspect-ratio="16/9"
                 cover
@@ -201,11 +196,11 @@
                   :src="
                     store.getImagePath(
                       'icons/styleType',
-                      `icon_${cardData.styleType}`
+                      `icon_${cardData.styleType}`,
                     )
                   "
                   :alt="`${cardData.memberName}_${conversionCardIdToMemberName(
-                    cardData.ID
+                    cardData.ID,
                   )}`"
                   class="icon type mr-1"
                 />
@@ -240,9 +235,9 @@
                   <v-col cols="6" class="status">
                     <span>SA Lv. </span>
                     {{
-                      store.card[cardData.memberName][cardData.rare][
+                      (store.card[cardData.memberName][cardData.rare][
                         cardData.cardName
-                      ].specialAppeal ?? false
+                      ].specialAppeal ?? false)
                         ? store.card[cardData.memberName][cardData.rare][
                             cardData.cardName
                           ].fluctuationStatus.SALevel
@@ -252,9 +247,9 @@
                   <v-col cols="6" class="status">
                     <span>S Lv. </span>
                     {{
-                      store.card[cardData.memberName][cardData.rare][
+                      (store.card[cardData.memberName][cardData.rare][
                         cardData.cardName
-                      ].skill ?? false
+                      ].skill ?? false)
                         ? store.card[cardData.memberName][cardData.rare][
                             cardData.cardName
                           ].fluctuationStatus.SLevel
@@ -275,7 +270,7 @@
                       /^DR$/.test(
                         store.card[cardData.memberName][cardData.rare][
                           cardData.ID
-                        ].rare
+                        ].rare,
                       ) ||
                       store.card[cardData.memberName][cardData.rare][
                         cardData.ID
@@ -310,15 +305,12 @@
                     "
                   >
                     <v-img
-                      :src="
-                        store.getImagePath(
-                          'images/cardIllust',
-                          store.makeCardIllustName(cardData.ID)
-                        )
-                      "
+                      :src="cardImageUrls[cardData.ID]?.after || noImage"
                       :alt="`${store.conversion(
-                        cardData.cardName
+                        cardData.cardName,
                       )}_${conversionCardIdToMemberName(cardData.ID)}`"
+                      aspect-ratio="16/9"
+                      cover
                     >
                       <template #placeholder>
                         <v-skeleton-loader type="image" class="h-100 w-100" />
@@ -340,7 +332,7 @@
                         :src="
                           store.getImagePath(
                             'icons/styleType',
-                            `icon_${cardData.styleType}`
+                            `icon_${cardData.styleType}`,
                           )
                         "
                         :alt="`${
@@ -380,9 +372,9 @@
                         <v-col cols="6" class="status">
                           <span>SA Lv. </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][
+                            (store.card[cardData.memberName][cardData.rare][
                               cardData.cardName
-                            ].specialAppeal ?? false
+                            ].specialAppeal ?? false)
                               ? store.card[cardData.memberName][cardData.rare][
                                   cardData.cardName
                                 ].fluctuationStatus.SALevel
@@ -392,9 +384,9 @@
                         <v-col cols="6" class="status">
                           <span>S Lv. </span>
                           {{
-                            store.card[cardData.memberName][cardData.rare][
+                            (store.card[cardData.memberName][cardData.rare][
                               cardData.cardName
-                            ].skill ?? false
+                            ].skill ?? false)
                               ? store.card[cardData.memberName][cardData.rare][
                                   cardData.cardName
                                 ].fluctuationStatus.SLevel
@@ -415,7 +407,7 @@
                             /^DR$/.test(
                               store.card[cardData.memberName][cardData.rare][
                                 cardData.cardName
-                              ].rare
+                              ].rare,
                             ) ||
                             store.card[cardData.memberName][cardData.rare][
                               cardData.cardName
@@ -624,7 +616,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, watch, onMounted } from 'vue';
 import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
 import Chart from '@/components/modal/Chart.vue';
@@ -642,7 +634,7 @@ import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { SKILL_LIST } from '@/constants/skillList';
 import { SKILL_DETAIL } from '@/constants/skillDetail';
 import type { CardDefaultData, CardDataType } from '@/types/cardList';
-import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
+import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
 
 const store = useStateStore();
 const memberKeys = Object.keys(MEMBER_COLOR);
@@ -679,6 +671,10 @@ const moodColor = {
   neutral: '#A9FCC7',
   melow: '#A1BAFA',
 };
+
+const cardImageUrls = computed(
+  () => store.imageCache['llllMgr_cardImageUrls'] || {},
+);
 
 /**
  * カード絞り込み
@@ -892,21 +888,21 @@ const outputCardList = computed(() => {
               GRANDPRIX_BONUS.releaseLv[b.rare][bb]
               ? -1
               : GRANDPRIX_BONUS.releaseLv[a.rare][aa] >
-                GRANDPRIX_BONUS.releaseLv[b.rare][bb]
-              ? 1
-              : 0;
+                  GRANDPRIX_BONUS.releaseLv[b.rare][bb]
+                ? 1
+                : 0;
           } else {
             return GRANDPRIX_BONUS.releaseLv[a.rare][aa] >
               GRANDPRIX_BONUS.releaseLv[b.rare][bb]
               ? -1
               : GRANDPRIX_BONUS.releaseLv[a.rare][aa] <
-                GRANDPRIX_BONUS.releaseLv[b.rare][bb]
-              ? 1
-              : 0;
+                  GRANDPRIX_BONUS.releaseLv[b.rare][bb]
+                ? 1
+                : 0;
           }
         } else if (
           /(card|SA|S|release|training)Level/.test(
-            store.sortSettings.cardList.sortType
+            store.sortSettings.cardList.sortType,
           )
         ) {
           aa = a.fluctuationStatus[store.sortSettings.cardList.sortType];
@@ -997,6 +993,22 @@ const getTrainingLevelMark = (cardData: CardDataType): number => {
         .fluctuationStatus.trainingLevel + (cardData.rare === 'LR' ? 1 : 0)
     : 2;
 };
+
+watch(
+  () => store.cardList,
+  (newList) => {
+    store.fetchImages(
+      'llllMgr_cardImageUrls',
+      newList,
+      (card) => card.ID,
+      (card) => ({
+        before: `cardIllust/${store.makeCardIllustName(card.ID, false)}.webp`,
+        after: `cardIllust/${store.makeCardIllustName(card.ID, true)}.webp`,
+      }),
+    );
+  },
+  { immediate: true },
+);
 
 onMounted(() => {
   onResize();

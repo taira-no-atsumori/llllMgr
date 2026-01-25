@@ -43,16 +43,14 @@
           color="#e5762c"
         >
           <v-carousel-item
-            v-for="kakusei in /^(D|L|B)R$/.test(store.getSettingCard.rare) ||
-            store.getSettingCard.gacha.period === 'collaboration'
+            v-for="kakusei in !cardImageUrls[store.getSettingCard.ID]?.before
               ? [true]
               : [false, true]"
             :key="kakusei"
             :src="
-              store.getImagePath(
-                'images/cardIllust',
-                store.makeCardIllustName(store.getSettingCard.ID, kakusei)
-              )
+              (kakusei
+                ? cardImageUrls[store.getSettingCard.ID]?.after
+                : cardImageUrls[store.getSettingCard.ID]?.before) || noImage
             "
             aspect-ratio="16/9"
             cover
@@ -67,7 +65,7 @@
                 :src="
                   store.getImagePath(
                     'icons/styleType',
-                    `icon_${store.settingCardData.styleType}`
+                    `icon_${store.settingCardData.styleType}`,
                   )
                 "
                 class="icon type"
@@ -164,7 +162,7 @@
                 @click="
                   store.valueChange(
                     'trainingLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel - 1
+                    store.settingCardData.fluctuationStatus.trainingLevel - 1,
                   )
                 "
               />
@@ -191,7 +189,7 @@
                 @click="
                   store.valueChange(
                     'trainingLevel',
-                    store.settingCardData.fluctuationStatus.trainingLevel + 1
+                    store.settingCardData.fluctuationStatus.trainingLevel + 1,
                   )
                 "
               />
@@ -215,7 +213,7 @@
                     'cardLevel',
                     store.settingCardData.fluctuationStatus.trainingLevel === 0
                       ? 0
-                      : store.minCardLevel
+                      : store.minCardLevel,
                   )
                 "
               />
@@ -232,7 +230,7 @@
                 @click="
                   store.valueChange(
                     'cardLevel',
-                    store.settingCardData.fluctuationStatus.cardLevel - 1
+                    store.settingCardData.fluctuationStatus.cardLevel - 1,
                   )
                 "
               />
@@ -250,7 +248,7 @@
                 @click="
                   store.valueChange(
                     'cardLevel',
-                    store.settingCardData.fluctuationStatus.cardLevel + 1
+                    store.settingCardData.fluctuationStatus.cardLevel + 1,
                   )
                 "
               />
@@ -299,7 +297,7 @@
                 @click="
                   store.valueChange(
                     'SALevel',
-                    store.settingCardData.fluctuationStatus.SALevel - 1
+                    store.settingCardData.fluctuationStatus.SALevel - 1,
                   )
                 "
               />
@@ -317,7 +315,7 @@
                 @click="
                   store.valueChange(
                     'SALevel',
-                    store.settingCardData.fluctuationStatus.SALevel + 1
+                    store.settingCardData.fluctuationStatus.SALevel + 1,
                   )
                 "
               />
@@ -360,7 +358,7 @@
                 @click="
                   store.valueChange(
                     'SLevel',
-                    store.settingCardData.fluctuationStatus.SLevel - 1
+                    store.settingCardData.fluctuationStatus.SLevel - 1,
                   )
                 "
               />
@@ -378,7 +376,7 @@
                 @click="
                   store.valueChange(
                     'SLevel',
-                    store.settingCardData.fluctuationStatus.SLevel + 1
+                    store.settingCardData.fluctuationStatus.SLevel + 1,
                   )
                 "
               />
@@ -443,7 +441,7 @@
                 @click="
                   store.valueChange(
                     'releaseLevel',
-                    store.settingCardData.fluctuationStatus.releaseLevel - 1
+                    store.settingCardData.fluctuationStatus.releaseLevel - 1,
                   );
                   store.valueChange('releasePoint', maxReleasePoint(store));
                 "
@@ -461,15 +459,15 @@
                 @click="
                   store.valueChange(
                     'releaseLevel',
-                    store.settingCardData.fluctuationStatus.releaseLevel + 1
+                    store.settingCardData.fluctuationStatus.releaseLevel + 1,
                   );
                   store.valueChange(
                     'releasePoint',
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        getReleasePoint(store.settingCardData.rare, 'point')
-                    )
+                        getReleasePoint(store.settingCardData.rare, 'point'),
+                    ),
                   );
                 "
               />
@@ -515,8 +513,8 @@
                     Math.max(
                       0,
                       store.settingCardData.fluctuationStatus.releasePoint -
-                        getReleasePoint(store.settingCardData.rare, 'point')
-                    )
+                        getReleasePoint(store.settingCardData.rare, 'point'),
+                    ),
                   )
                 "
               >
@@ -538,7 +536,7 @@
                 @click="
                   store.valueChange(
                     'releasePoint',
-                    store.settingCardData.fluctuationStatus.releasePoint - 1
+                    store.settingCardData.fluctuationStatus.releasePoint - 1,
                   )
                 "
               />
@@ -556,7 +554,7 @@
                 @click="
                   store.valueChange(
                     'releasePoint',
-                    store.settingCardData.fluctuationStatus.releasePoint + 1
+                    store.settingCardData.fluctuationStatus.releasePoint + 1,
                   )
                 "
               />
@@ -573,8 +571,8 @@
                     Math.min(
                       store.settingCardData.fluctuationStatus.releasePoint +
                         getReleasePoint(store.settingCardData.rare, 'point'),
-                      limitReleasePoint(store)
-                    )
+                      limitReleasePoint(store),
+                    ),
                   )
                 "
               >
@@ -769,7 +767,7 @@
                       store.skillText(
                         targetSkill,
                         store.settingCardData[targetSkill],
-                        { targetSkillLv: i - 1 }
+                        { targetSkillLv: i - 1 },
                       )
                     }}
                   </td>
@@ -809,7 +807,7 @@
                         {
                           targetSkillLv: skillLevel - 1,
                           addSkillNum: i,
-                        }
+                        },
                       )
                     }}
                   </td>
@@ -911,6 +909,7 @@ import { getReleasePoint } from '@/constants/releasePoint';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
 import skillArea from '@/components/SkillAreaComponent.vue';
+import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
 
 const store = useStateStore();
 
@@ -919,6 +918,10 @@ const dynamicWidth = computed(() => {
     store.settingCardData.fluctuationStatus.releaseLevel;
   return `calc(${100 / (5 - releaseLevel)}% + ${1 / releaseLevel}px)`;
 });
+
+const cardImageUrls = computed(
+  () => store.imageCache['llllMgr_cardImageUrls'] || {},
+);
 
 const releasePoint_underlineColor = computed(() => {
   return store.isDarkMode ? 'white' : 'black';
@@ -1027,7 +1030,7 @@ export default {
     openDialog(
       openDialogName: string,
       dialogSize: number,
-      option?: { targetSkill?: string; skillID?: string } | null
+      option?: { targetSkill?: string; skillID?: string } | null,
     ): void {
       this.targetSkill = option === null ? null : option.targetSkill;
       this.openDialogName = openDialogName;
@@ -1050,7 +1053,7 @@ export default {
     maxReleasePoint(store: StoreState): number {
       const point = Math.min(
         store.settingCardData.fluctuationStatus.releasePoint,
-        this.limitReleasePoint(store)
+        this.limitReleasePoint(store),
       );
       store.valueChange('releasePoint', point);
       return point;

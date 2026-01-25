@@ -1,3 +1,4 @@
+import type { User } from 'firebase/auth';
 import type { MemberKeyValues } from '@/constants/memberNames';
 import type {
   Rare,
@@ -230,6 +231,7 @@ type Deck = {
  * サイト内共通の状態を表す型
  *
  * @property isDev データアップ先がデベロップ環境であるか
+ * @property loading ローディングモーダル表示フラグ
  * @property dialog ダイアログの状態
  * @property showModalName 表示するモーダル名
  * @property updateData データ更新状態
@@ -251,6 +253,7 @@ type Deck = {
  * @property supportSkill サポートスキル
  * @property windowSize ウィンドウサイズ
  * @property musicLevel 楽曲レベル
+ * @property imageCache ローカルストレージの画像キャッシュ
  */
 export type StoreState = {
   isDev: boolean;
@@ -295,4 +298,13 @@ export type StoreState = {
     w: number;
     h: number;
   };
+  imageCache: Record<
+    string,
+    Record<
+      string,
+      string | null | { before: string | null; after: string | null }
+    >
+  >;
+  user: User | null;
+  isAuthLoaded: boolean;
 };

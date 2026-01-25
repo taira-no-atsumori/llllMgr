@@ -152,6 +152,9 @@ export interface CardStatus {
  * @property kana カード名（かな）
  * @property gacha ガチャ関連
  * @property uniqueStatus 2解放目のカードステータス
+ * @property imageURL Firebase Storageにある画像のURL
+ * @property imageURL.before Firebase Storageにある覚醒前の画像のURL
+ * @property imageURL.after Firebase Storageにある覚醒後の画像のURL
  * @property specialAppeal スペシャルアピール
  * @property skill スキル
  * @property characteristic 特性
@@ -164,6 +167,10 @@ export interface CardDefaultData {
   kana: string;
   gacha: Gacha;
   uniqueStatus: BaseStatus;
+  imageURL: {
+    before: string | null;
+    after: string;
+  };
   specialAppeal?: SkillDetail;
   skill: SkillDetail;
   characteristic?: Characteristic;

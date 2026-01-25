@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
-import Dexie from 'dexie';
 import { watch } from 'vue';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { rtdb } from '@/firebase';
 import type {
   StoreState,
   SearchSettings,
@@ -24,7 +25,6 @@ import {
   FORMATION_MEMBER,
   type MemberKeyValues,
   conversionIdToKey,
-  conversionCardIdToMemberName,
   getMemberKeys,
 } from '@/constants/memberNames';
 import { MEMBER_COLOR, type MemberColorKeys } from '@/constants/colorConst';
@@ -47,7 +47,9 @@ import {
   DEFAULT_SITE_SETTINGS,
 } from '@/constants/defaultSettings';
 import { useCardStore } from '@/stores/cardList';
-import { useMusicData } from '@/stores/useMusicData';
+import { cacheManager } from '@/utils/cacheManager';
+import { useMusicData } from '@/composables/useMusicData';
+import { FirebaseService } from '@/services/FirebaseService';
 
 const { initMusicData, isMusicLoaded, musicListFromDB, getMusicIdByTitle } =
   useMusicData();
@@ -131,6 +133,9 @@ export const useStateStore = defineStore('store', {
       w: 0,
       h: 0,
     },
+    imageCache: {},
+    user: null,
+    isAuthLoaded: false,
   }),
   getters: {
     cardList(): CardDataType[] {
@@ -165,7 +170,7 @@ export const useStateStore = defineStore('store', {
         option?: {
           addSkillNum?: number[];
           targetSkillLv?: number;
-        }
+        },
       ): string[] => {
         let result = '';
         const targetLevel: number =
@@ -295,7 +300,7 @@ export const useStateStore = defineStore('store', {
                   (1 +
                     (target.cardLevel -
                       targetMaxCardLevel[targetMaxCardLevel.length - 3]) /
-                      100)
+                      100),
               );
         } else if (
           target.trainingLevel ===
@@ -303,14 +308,14 @@ export const useStateStore = defineStore('store', {
         ) {
           return Math.ceil(
             targetMaxStatus -
-              (maxStatus / 100) * 1.5 * (maxCardLevel - target.cardLevel)
+              (maxStatus / 100) * 1.5 * (maxCardLevel - target.cardLevel),
           );
         } else if (target.trainingLevel === 0) {
           if (selectCard.cardName === 'Oracle Étude') {
             return Math.ceil(
               targetMaxStatus -
                 ((targetMaxStatus - maxStatus / 2) / (maxCardLevel - 1)) *
-                  (maxCardLevel - target.cardLevel)
+                  (maxCardLevel - target.cardLevel),
             );
           } else if (/^(D|L|B)R$/.test(target.rare)) {
             return Math.ceil(
@@ -318,7 +323,7 @@ export const useStateStore = defineStore('store', {
                 ((targetMaxStatus -
                   Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
                   (maxCardLevel - 1)) *
-                  (maxCardLevel - target.cardLevel)
+                  (maxCardLevel - target.cardLevel),
             );
           } else {
             return Math.ceil(
@@ -326,14 +331,14 @@ export const useStateStore = defineStore('store', {
                 ((maxStatus / 2 -
                   Math.ceil(maxStatus / (style === 'mental' ? 5 : 100))) /
                   (maxCardLevel - 1)) *
-                  (maxCardLevel - target.cardLevel)
+                  (maxCardLevel - target.cardLevel),
             );
           }
         } else {
           return Math.ceil(
             targetMaxStatus -
               (maxStatus / (target.rare === 'R' ? 200 : 100)) *
-                (targetMaxCardLevel[target.trainingLevel] - target.cardLevel)
+                (targetMaxCardLevel[target.trainingLevel] - target.cardLevel),
           );
         }
       };
@@ -359,7 +364,7 @@ export const useStateStore = defineStore('store', {
             .centerMusic) {
             result += this.musicLevel[musicTitle];
             bonusSkill[this.musicList[musicTitle].bonusSkill] += Math.floor(
-              this.musicLevel[musicTitle] / 10
+              this.musicLevel[musicTitle] / 10,
             );
           }
 
@@ -434,9 +439,14 @@ export const useStateStore = defineStore('store', {
      */
     async init(): Promise<void> {
       this.loading = true;
-      // this.makeDb();
       this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
       this.loadSiteSettings();
+
+      const auth = getAuth(rtdb.app);
+      onAuthStateChanged(auth, (user) => {
+        this.user = user;
+        this.isAuthLoaded = true;
+      });
 
       watch(musicListFromDB, (newVal) => {
         this.musicList = newVal;
@@ -448,7 +458,7 @@ export const useStateStore = defineStore('store', {
           this.loading = true;
           await initMusicData(newVal);
           this.loading = false;
-        }
+        },
       );
       initMusicData(this.isDev);
 
@@ -511,7 +521,7 @@ export const useStateStore = defineStore('store', {
 
         for (const memberKey of getMemberKeys()) {
           this.supportSkill[memberKey] = JSON.parse(
-            JSON.stringify(bonusSkillList)
+            JSON.stringify(bonusSkillList),
           );
           this.memberData.centerList[memberKey] = {
             centerMusic: [],
@@ -579,11 +589,7 @@ export const useStateStore = defineStore('store', {
      * @returns カード画像名
      */
     makeCardIllustName(cardId: string, isAwaking = true): string {
-      return `${this.conversion(
-        this.findCardData(cardId).cardName
-      )}_${conversionCardIdToMemberName(cardId)}_覚醒${
-        isAwaking ? '後' : '前'
-      }`;
+      return `${cardId}_${isAwaking ? 'after' : 'before'}`;
     },
     makeNewDeck(): void {
       const a = {
@@ -626,47 +632,6 @@ export const useStateStore = defineStore('store', {
 
       this.selectDeckName = a.name;
       this.deck = [a];
-    },
-    /**
-     * DB作成
-     *
-     * @returns void
-     */
-    makeDb(): void {
-      // DBのオープン
-      const db = new Dexie('llllMgrDB_test');
-      // バージョン1
-      db.version(1).stores({
-        notes: '++id, title, body, *tags, updated_at',
-      });
-
-      // バージョン2 usersストアを追加
-      db.version(2).stores({
-        notes: '++id, title, body, *tags, updated_at',
-        users: '++id, name',
-      });
-
-      // バージョン3 notesストアにgoodを追加
-      // 更新時にtagsにgoodがあったら、新しく追加したキー「good」にtrueを入れるようにします。
-      db.version(3)
-        .stores({
-          notes: '++id, title, body, *tags, good, updated_at',
-          users: '++id, name',
-        })
-        .upgrade(function () {
-          return db.notes.modify(function (note) {
-            if (note.tags.indexOf('good')) {
-              note.good = true;
-            }
-          });
-        });
-
-      db.notes.add({
-        title: 'タイトル',
-        body: '本文',
-        tags: ['IndexedDB', 'Dexie.js'],
-        updated_at: new Date(),
-      });
     },
     /**
      * ローカルストレージ設定
@@ -751,8 +716,8 @@ export const useStateStore = defineStore('store', {
         const rawData: LocalStorageCardListType | undefined = isImportData
           ? importData?.cardList?.card
           : localStorage.llllMgr_card
-          ? JSON.parse(localStorage.llllMgr_card)
-          : undefined;
+            ? JSON.parse(localStorage.llllMgr_card)
+            : undefined;
         let lsCardList = null;
 
         if (rawData) {
@@ -764,7 +729,7 @@ export const useStateStore = defineStore('store', {
            * @returns LocalStorageCardListType
            */
           const remakeCardList = (
-            data: LocalStorageCardListType
+            data: LocalStorageCardListType,
           ): LocalStorageCardListType => {
             if (
               data.kaho?.DR &&
@@ -839,7 +804,7 @@ export const useStateStore = defineStore('store', {
         if (!isImportData) {
           // インポートデータがないとき
           const lsData: SearchSettings = JSON.parse(
-            localStorage.llllMgr_cardListFilter
+            localStorage.llllMgr_cardListFilter,
           );
 
           this.search = {
@@ -889,7 +854,7 @@ export const useStateStore = defineStore('store', {
       ) {
         if (!isImportData) {
           const getSelectItemList: SelectItemList = JSON.parse(
-            localStorage.llllMgr_selectItemList
+            localStorage.llllMgr_selectItemList,
           );
 
           for (let i = 1; i <= 3; i++) {
@@ -913,7 +878,7 @@ export const useStateStore = defineStore('store', {
       ) {
         if (!isImportData) {
           const getSortSettings: SortSettings = JSON.parse(
-            localStorage.llllMgr_sortSettings
+            localStorage.llllMgr_sortSettings,
           );
 
           for (const word of ['card', 'music']) {
@@ -952,7 +917,7 @@ export const useStateStore = defineStore('store', {
       ) {
         if (!isImportData) {
           const getSiteSettings: LocalStorageData = JSON.parse(
-            localStorage.llllMgr_siteSettings
+            localStorage.llllMgr_siteSettings,
           );
 
           for (const categoryName of ['all', 'cardList', 'musicList']) {
@@ -1006,7 +971,7 @@ export const useStateStore = defineStore('store', {
     },
     setLevel(a: keyof TrainingStatus, e: Event): void {
       this.settingCardData.fluctuationStatus[a] = Number(
-        (e.target as HTMLInputElement).value
+        (e.target as HTMLInputElement).value,
       );
     },
     /**
@@ -1048,7 +1013,7 @@ export const useStateStore = defineStore('store', {
      */
     findCardId(
       memberName: MemberKeyValues | 'default',
-      cardName: string
+      cardName: string,
     ): string {
       if (cardName === 'default') {
         return this.makeDefaultCardId(memberName);
@@ -1059,9 +1024,9 @@ export const useStateStore = defineStore('store', {
 
         return list.length === 1
           ? list[0].ID
-          : list.find((v) => {
+          : (list.find((v) => {
               return v.memberName === memberName;
-            })?.ID ?? this.makeDefaultCardId(memberName);
+            })?.ID ?? this.makeDefaultCardId(memberName));
       }
     },
     /**
@@ -1124,7 +1089,7 @@ export const useStateStore = defineStore('store', {
      * @returns カードデータ
      */
     makeExportCardData(
-      data?: Record<string, CardDataByMember>
+      data?: Record<string, CardDataByMember>,
     ): Record<string, CardDataByMember> {
       const result = {};
       const card = data ?? this.card;
@@ -1199,7 +1164,7 @@ export const useStateStore = defineStore('store', {
     changeFav(target: FavoriteIcon): void {
       if (this.settingCardData.favorite.some((v) => v === target)) {
         this.settingCardData.favorite = this.settingCardData.favorite.filter(
-          (v) => v !== target
+          (v) => v !== target,
         );
       } else {
         this.settingCardData.favorite.push(target);
@@ -1352,10 +1317,10 @@ export const useStateStore = defineStore('store', {
 
             for (const name of getMemberKeys()) {
               this.supportSkill[name] = JSON.parse(
-                JSON.stringify(bonusSkillList)
+                JSON.stringify(bonusSkillList),
               );
               this.memberData.centerList[name].bonusSkill = JSON.parse(
-                JSON.stringify(bonusSkillList)
+                JSON.stringify(bonusSkillList),
               );
 
               for (const musicTitle in this.musicList) {
@@ -1379,14 +1344,14 @@ export const useStateStore = defineStore('store', {
           }
           case 'sortSettings_card': {
             this.sortSettings.cardList = JSON.parse(
-              JSON.stringify(this.sortSettings.cardList)
+              JSON.stringify(this.sortSettings.cardList),
             );
             this.setLocalStorage('llllMgr_sortSettings', this.sortSettings);
             break;
           }
           case 'siteSettings': {
             this.siteSettings = JSON.parse(
-              JSON.stringify(DEFAULT_SITE_SETTINGS)
+              JSON.stringify(DEFAULT_SITE_SETTINGS),
             );
             this.setLocalStorage('llllMgr_siteSettings', this.siteSettings);
             break;
@@ -1405,7 +1370,7 @@ export const useStateStore = defineStore('store', {
     changeSettings(setLocalStorageName: string): void {
       this.setLocalStorage(
         `llllMgr_${setLocalStorageName}`,
-        this[setLocalStorageName]
+        this[setLocalStorageName],
       );
     },
     setSelectCard(
@@ -1415,7 +1380,7 @@ export const useStateStore = defineStore('store', {
         SALevel: number;
         SLevel: number;
         releaseLevel: number;
-      }
+      },
     ): void {
       this.selectDeck.cardData[this.openCard.name][this.openCard.style].id = id;
       this.selectDeck.cardData[this.openCard.name][
@@ -1496,6 +1461,89 @@ export const useStateStore = defineStore('store', {
         window.removeEventListener('resize', this._resizeHandler);
         this._resizeHandler = null;
       }
+    },
+    /**
+     * 画像取得・キャッシュ処理
+     *
+     * @param cacheKey キャッシュのキー
+     * @param items アイテムリスト
+     * @param idGenerator ID生成関数
+     * @param pathGenerator パス生成関数
+     */
+    async fetchImages<T>(
+      cacheKey: string,
+      items: T[],
+      idGenerator: (item: T) => string,
+      pathGenerator: (item: T) => string | { before: string; after: string },
+    ) {
+      if (items.length === 0) {
+        return;
+      }
+
+      if (!this.imageCache[cacheKey]) {
+        this.imageCache[cacheKey] = {};
+        // IndexedDBからキャッシュを読み込み（オプション）
+        // ここではメモリキャッシュのみを使用し、必要に応じてIndexedDBを活用
+      }
+
+      const pending = items.filter(
+        (item) => this.imageCache[cacheKey][idGenerator(item)] === undefined,
+      );
+
+      if (pending.length === 0) {
+        return;
+      }
+
+      await Promise.all(
+        pending.map(async (item) => {
+          const id = idGenerator(item);
+
+          if (id.split('_')[1] === '000') {
+            return;
+          }
+
+          const paths = pathGenerator(item);
+
+          if (typeof paths === 'string') {
+            // まずCacheManagerから取得を試みる
+            let url = await cacheManager.getImageUrl(id);
+            if (!url) {
+              url = await FirebaseService.getImageUrl(paths);
+              if (url) {
+                await cacheManager.setImageUrl(id, url);
+              }
+            }
+
+            this.imageCache[cacheKey][id] = url;
+          } else {
+            // beforeとafterの場合
+            const beforeId = `${id}_before`;
+            const afterId = `${id}_after`;
+
+            let before = await cacheManager.getImageUrl(beforeId);
+            let after = await cacheManager.getImageUrl(afterId);
+
+            if (!before || !after) {
+              const [beforeUrl, afterUrl] = await Promise.all([
+                FirebaseService.getImageUrl(paths.before),
+                FirebaseService.getImageUrl(paths.after),
+              ]);
+              before = beforeUrl;
+              after = afterUrl;
+
+              if (before) {
+                await cacheManager.setImageUrl(beforeId, before);
+              }
+
+              if (after) {
+                await cacheManager.setImageUrl(afterId, after);
+              }
+            }
+
+            this.imageCache[cacheKey][id] = { before, after };
+          }
+        }),
+      );
     },
   },
 });

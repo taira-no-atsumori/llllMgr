@@ -124,7 +124,7 @@
                   :src="
                     store.getImagePath(
                       'icons/member',
-                      `icon_SD_${selectMusicData.center}`
+                      `icon_SD_${selectMusicData.center}`,
                     )
                   "
                   width="30px"
@@ -172,15 +172,15 @@
                     'musicLevel',
                     musicLevel >= 10 + initMusicLevel
                       ? musicLevel - 10
-                      : musicLevel - (musicLevel - initMusicLevel)
+                      : musicLevel - (musicLevel - initMusicLevel),
                   )
                 "
                 >{{
                   musicLevel >= 10 + initMusicLevel
                     ? '-10'
                     : musicLevel === initMusicLevel
-                    ? 0
-                    : `-${musicLevel - initMusicLevel}`
+                      ? 0
+                      : `-${musicLevel - initMusicLevel}`
                 }}
               </v-btn>
             </div>
@@ -210,15 +210,15 @@
                 @click="
                   store.valueChange(
                     'musicLevel',
-                    musicLevel <= 40 ? musicLevel + 10 : 50
+                    musicLevel <= 40 ? musicLevel + 10 : 50,
                   )
                 "
                 >{{
                   musicLevel <= 40
                     ? '+10'
                     : 50 - musicLevel === 0
-                    ? 0
-                    : `+${50 - musicLevel}`
+                      ? 0
+                      : `+${50 - musicLevel}`
                 }}
               </v-btn>
             </div>
@@ -231,7 +231,7 @@
               :src="
                 store.getImagePath(
                   'icons/bonusSkill',
-                  selectMusicData.bonusSkill
+                  selectMusicData.bonusSkill,
                 )
               "
               :alt="selectMusicData.bonusSkill"
@@ -254,7 +254,7 @@
                   :src="
                     store.getImagePath(
                       'icons/attribute',
-                      `icon_${selectMusicData.attribute}`
+                      `icon_${selectMusicData.attribute}`,
                     )
                   "
                   eager
@@ -287,7 +287,7 @@ import { MEMBER_COLOR } from '@/constants/colorConst';
 import { ATTRIBUTE } from '@/constants/music';
 // import { MUSIC_LIST } from '@/constants/musicList';
 // import type { MusicItem } from '@/types/musicList';
-import { useMusicData } from '@/stores/useMusicData';
+import { useMusicData } from '@/composables/useMusicData';
 import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
 
 const store = useStateStore();

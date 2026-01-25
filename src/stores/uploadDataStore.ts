@@ -1,15 +1,13 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { ref as dbRef, onValue, type Unsubscribe } from 'firebase/database';
-import { rtdb, rtdbDev } from '@/firebase';
+import type { Unsubscribe } from 'firebase/database';
+import { FirebaseService } from '@/services/FirebaseService';
 import deepEqual from 'deep-is';
 import type { PendingItem } from '@/types/uploadDataStore';
 import type { CardDataType } from '@/types/cardList';
 import type { MusicItem } from '@/types/musicList';
 
-/**
- * DBデータ操作処理
- */
+/** DBデータ操作処理 */
 export const useUploadDataStore = defineStore('uploadData', () => {
   const pendingList = ref<PendingItem[]>([]);
 
@@ -47,15 +45,23 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     paths.forEach((path) => {
       // Dev環境の監視
       unsubscribes.push(
-        onValue(dbRef(rtdbDev, path), (snapshot) => {
-          devData.value[path] = snapshot.val() || {};
-        })
+        FirebaseService.subscribeToDatabase(
+          path,
+          (data) => {
+            devData.value[path] = data || {};
+          },
+          true,
+        ),
       );
       // 本番環境の監視
       unsubscribes.push(
-        onValue(dbRef(rtdb, path), (snapshot) => {
-          prodData.value[path] = snapshot.val() || {};
-        })
+        FirebaseService.subscribeToDatabase(
+          path,
+          (data) => {
+            prodData.value[path] = data || {};
+          },
+          false,
+        ),
       );
     });
   };
@@ -186,6 +192,26 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     pendingList.value = [];
   };
 
+  /**
+   * データをアップロード（上書き）する
+   * @param path パス
+   * @param data データ
+   * @param isDev 開発環境かどうか
+   */
+  const uploadData = async (path: string, data: any, isDev: boolean) => {
+    await FirebaseService.setData(path, data, isDev);
+  };
+
+  /**
+   * データを更新（マージ）する
+   * @param path パス
+   * @param data データ
+   * @param isDev 開発環境かどうか
+   */
+  const updateData = async (path: string, data: any, isDev: boolean) => {
+    await FirebaseService.updateData(path, data, isDev);
+  };
+
   return {
     pendingList,
     addItem,
@@ -199,5 +225,7 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     flattenCards,
     editTarget,
     setEditTarget,
+    uploadData,
+    updateData,
   };
 });
