@@ -173,6 +173,55 @@
     }
   },
   "UR": {
+    "iz_018": {
+      "cardName": "蓮ノ空歌留多",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "蓮ノ空歌留多",
+      "kana": "はすのそらかるた",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.6",
+        "period": "normal"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fiz_018_before.webp?alt=media&token=ea623c8a-5190-49ca-8b28-020567035e9f",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fiz_018_after.webp?alt=media&token=f04aad77-8b87-4472-ab4c-3d12e1cbcdec"
+      },
+      "uniqueStatus": {
+        "smile": 3850,
+        "pure": 4750,
+        "cool": 5700,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "groovyHeatBoost_01",
+        "name": "グルーヴィヒートブースト",
+        "AP": 4,
+        "detail": [
+          [4, 4.4, 4.8, 5.2, 5.6, 6, 6.4, 6.8, 7.2, 8, 8.4, 8.8, 9.2, 10],
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200]
+        ]
+      },
+      "skill": {
+        "ID": "imitationRefreshHeart_01",
+        "name": "イミテーションリフレッシュハート",
+        "AP": 5,
+        "detail": [[20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50]]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & ハートブースト：泉",
+        "detail": "手札にある状態でセクションが変わるたび、ボルテージPt.を+20、APを3回復し、ボルテージLv.55以上のときAP回復速度を+55%、APを15回復する。さらに手札にある状態で泉のスキルを使用するたび、デッキ内の泉のスキルの消費APを-5し、次に泉が使用するスキルハート吸収効果による獲得数を+450%する。",
+        "type": [
+          "overSection",
+          "voltageGain",
+          "APGain",
+          "APReduce",
+          "boost_heartCaptcha"
+        ]
+      }
+    },
     "iz_016": {
       "cardName": "FIRE BIRD",
       "styleType": "trickStar",

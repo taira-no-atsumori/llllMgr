@@ -16,15 +16,15 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     card: Record<string, CardDataType>;
     music: Record<string, MusicItem>;
   }>({
-    music: {},
     card: {},
+    music: {},
   });
   const prodData = ref<{
     card: Record<string, CardDataType>;
     music: Record<string, MusicItem>;
   }>({
-    music: {},
     card: {},
+    music: {},
   });
   const isListening = ref(false);
   const unsubscribes: Unsubscribe[] = [];
@@ -37,7 +37,10 @@ export const useUploadDataStore = defineStore('uploadData', () => {
 
   /** Firebaseのデータ監視を開始する */
   const startListening = () => {
-    if (isListening.value) return;
+    if (isListening.value) {
+      return;
+    }
+
     isListening.value = true;
 
     const paths = ['music', 'card'] as const;
@@ -83,12 +86,14 @@ export const useUploadDataStore = defineStore('uploadData', () => {
 
     for (const member in data) {
       const memberData = data[member];
+
       if (typeof memberData !== 'object') {
         continue;
       }
 
       for (const rare in memberData) {
         const rareData = memberData[rare];
+
         if (typeof rareData !== 'object') {
           continue;
         }
@@ -111,30 +116,6 @@ export const useUploadDataStore = defineStore('uploadData', () => {
   /** 差分リストを計算する */
   const diffList = computed(() => {
     const list = [];
-
-    // Music Diff
-    for (const key in devData.value.music) {
-      const devItem = devData.value.music[key];
-      const prodItem = prodData.value.music[key];
-
-      if (!prodItem) {
-        list.push({
-          key,
-          data: devItem,
-          status: 'new',
-          type: 'music',
-          path: `music/${key}`,
-        });
-      } else if (!deepEqual(devItem, prodItem)) {
-        list.push({
-          key,
-          data: devItem,
-          status: 'update',
-          type: 'music',
-          path: `music/${key}`,
-        });
-      }
-    }
 
     // Card Diff
     const devCards = flattenCards(devData.value.card);
@@ -162,6 +143,31 @@ export const useUploadDataStore = defineStore('uploadData', () => {
         });
       }
     }
+
+    // Music Diff
+    for (const key in devData.value.music) {
+      const devItem = devData.value.music[key];
+      const prodItem = prodData.value.music[key];
+
+      if (!prodItem) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'new',
+          type: 'music',
+          path: `music/${key}`,
+        });
+      } else if (!deepEqual(devItem, prodItem)) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'update',
+          type: 'music',
+          path: `music/${key}`,
+        });
+      }
+    }
+
     return list;
   });
 

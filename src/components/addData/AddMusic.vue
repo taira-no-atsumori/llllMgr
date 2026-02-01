@@ -524,9 +524,9 @@
             />
           </v-col>
 
-          <v-col v-if="previewImageUrl" cols="12" class="text-center">
-            <v-img :src="previewImageUrl" max-height="200" contain />
-            <v-btn
+          <v-col v-if="music.imageURL" cols="12" class="text-center">
+            <v-img :src="music.imageURL" max-height="200" contain />
+            <!-- <v-btn
               color="error"
               text="Clear"
               prepend-icon="mdi-close"
@@ -540,7 +540,7 @@
               class="mt-3"
               :loading="isUploading"
               @click="uploadImage"
-            />
+            /> -->
           </v-col>
 
           <v-col cols="12">
@@ -991,31 +991,31 @@ const fetchImageByTitle = async () => {
   }
 };
 
-const uploadImage = async () => {
-  const targetFile = selectedFile.value;
-  if (!targetFile) return;
+// const uploadImage = async () => {
+//   const targetFile = selectedFile.value;
+//   if (!targetFile) return;
 
-  isUploading.value = true;
-  const storage = getStorage(rtdbDev.app);
-  const fileRef = storageRef(storage, `cdJacket/${targetFile.name}`);
+//   isUploading.value = true;
+//   const storage = getStorage(rtdbDev.app);
+//   const fileRef = storageRef(storage, `cdJacket/${targetFile.name}`);
 
-  try {
-    const snapshot = await uploadBytes(fileRef, targetFile);
-    const url = await getDownloadURL(snapshot.ref);
-    music.value.imageURL = url;
+//   try {
+//     const snapshot = await uploadBytes(fileRef, targetFile);
+//     const url = await getDownloadURL(snapshot.ref);
+//     music.value.imageURL = url;
 
-    if (!store.imageCache['llllMgr_musicImageUrls']) {
-      store.imageCache['llllMgr_musicImageUrls'] = {};
-    }
-    store.imageCache['llllMgr_musicImageUrls'][music.value.ID] = url;
+//     if (!store.imageCache['llllMgr_musicImageUrls']) {
+//       store.imageCache['llllMgr_musicImageUrls'] = {};
+//     }
+//     store.imageCache['llllMgr_musicImageUrls'][music.value.ID] = url;
 
-    cancelUpload();
-  } catch (e) {
-    console.error('Failed to upload image', e);
-  } finally {
-    isUploading.value = false;
-  }
-};
+//     cancelUpload();
+//   } catch (e) {
+//     console.error('Failed to upload image', e);
+//   } finally {
+//     isUploading.value = false;
+//   }
+// };
 
 const handleFileSelect = (file: File | File[]) => {
   const targetFile = Array.isArray(file) ? file[0] : file;

@@ -1,6 +1,4 @@
-/**
- * 楽曲の属性
- */
+/** 楽曲の属性 */
 export const ATTRIBUTE = {
   SMILE: {
     en: 'smile',
@@ -43,8 +41,12 @@ export const getAttributeListJa = (): AttributeJa[] => {
  * @param en
  * @returns
  */
-export const convertAttributeEnToJa = (en: AttributeEn): AttributeJa | undefined => {
-  const entry = Object.values(ATTRIBUTE).find((attribute) => attribute.en === en);
+export const convertAttributeEnToJa = (
+  en: AttributeEn,
+): AttributeJa | undefined => {
+  const entry = Object.values(ATTRIBUTE).find(
+    (attribute) => attribute.en === en,
+  );
   return entry?.ja;
 };
 
@@ -53,7 +55,14 @@ export const convertAttributeEnToJa = (en: AttributeEn): AttributeJa | undefined
  * @param ja
  * @returns
  */
-export const convertAttributeJaToEn = (ja: AttributeJa): AttributeEn | undefined => {
-  const entry = Object.values(ATTRIBUTE).find((attribute) => attribute.ja === ja);
+export const convertAttributeJaToEn = (
+  ja: AttributeJa,
+): AttributeEn | undefined => {
+  const entry = Object.values(ATTRIBUTE).find(
+    (attribute) => attribute.ja === ja,
+  );
   return entry?.en;
 };
+
+/** 楽曲難易度のラベル */
+export const DIFFICULTY_LABEL = ['NORMAL', 'HARD', 'EXPERT', 'MASTER'] as const;

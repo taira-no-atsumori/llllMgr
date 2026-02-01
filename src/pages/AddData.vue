@@ -1,15 +1,20 @@
 <template>
   <v-container fluid class="py-2 px-0">
     <h1>DATA MANAGEMENT</h1>
-    <v-switch
-      v-model="store.isDev"
-      label="isDev"
-      color="pink"
-      density="compact"
-      hide-details
-      hide-input
-      class="pl-2"
-    />
+
+    <div class="d-flex">
+      <v-switch
+        v-model="store.isDev"
+        label="isDev"
+        color="pink"
+        density="compact"
+        hide-details
+        hide-input
+        class="px-2"
+      />
+
+      <v-btn text="Logout" color="yellow" @click="logout" />
+    </div>
 
     <v-tabs v-model="tab" color="pink">
       <v-tab value="pendingDataList" text="Pending Data" />
@@ -51,6 +56,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { getAuth, signOut } from 'firebase/auth';
 import { useStateStore } from '@/stores/stateStore';
 import PendingData from '@/components/addData/PendingData.vue';
 import AddCard from '@/components/addData/AddCard.vue';
@@ -62,14 +69,27 @@ import AddEvent from '@/components/addData/AddEvent.vue';
 
 const tab = ref('pendingDataList');
 const store = useStateStore();
+const router = useRouter();
+
+/**
+ * Firebaseからのログアウト処理
+ *
+ * @description
+ * LOGOUTボタンを押すと、Firebaseからログアウトする。\
+ * さらにログアウト完了後、Homeへ自動遷移する。
+ */
+const logout = async () => {
+  const auth = getAuth();
+
+  try {
+    await signOut(auth);
+    router.push({ name: 'Home' });
+  } catch (error) {
+    console.error('Logout failed', error);
+  }
+};
 
 const handleEdit = (type: string) => {
-  if (type === 'music') {
-    tab.value = 'music';
-  } else if (type === 'card') {
-    tab.value = 'cardList';
-  } else if (type === 'event') {
-    tab.value = 'event';
-  }
+  tab.value = `${type}${type === 'card' ? 'List' : ''}`;
 };
 </script>

@@ -161,7 +161,7 @@
                         'icons/member',
                         `icon_illust_${memberName}_${
                           /kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105
-                        }`
+                        }`,
                       )
                     "
                     class="icon member"
@@ -552,11 +552,12 @@ import {
 } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
 import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
-import { SKILL_DETAIL } from '@/constants/skillDetail';
 import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
 import CardFilterSlider from '@/components/CardFilterSliderComponent.vue';
+import { useSkillStore } from '@/stores/skillStore';
 
 const store = useStateStore();
+const skillStore = useSkillStore();
 
 const tab1 = ref('filter_status');
 
@@ -572,16 +573,16 @@ const statusName = {
 };
 
 const specialAppealNameList = computed(() =>
-  makeSkillFilterList('specialAppeal')
+  makeSkillFilterList('specialAppeal'),
 );
 const skillNameList = computed(() => makeSkillFilterList('skill'));
 const characteristicList = computed(() =>
-  makeSkillFilterList('characteristic')
+  makeSkillFilterList('characteristic'),
 );
 const cardSeriesList = computed(() => makeSkillFilterList('series'));
 
 const makeSkillFilterList = (
-  target: 'specialAppeal' | 'skill' | 'characteristic' | 'series'
+  target: 'specialAppeal' | 'skill' | 'characteristic' | 'series',
 ) => {
   const result = new Set<string>();
 
@@ -600,7 +601,9 @@ const makeSkillFilterList = (
 };
 
 const makeSkillTypeList = computed(() => {
-  return Object.values(SKILL_DETAIL).map((skill) => skill.name_ja);
+  return Object.values(skillStore.skillDetails).map(
+    (skill) => skill.skillDetailName,
+  );
 });
 
 onMounted(() => {
@@ -609,7 +612,7 @@ onMounted(() => {
     () => {
       store.setLocalStorage('llllMgr_cardListFilter', store.search);
     },
-    { deep: true } // 配列やオブジェクトの内部の変更を検知するために必要
+    { deep: true }, // 配列やオブジェクトの内部の変更を検知するために必要
   );
 });
 </script>
