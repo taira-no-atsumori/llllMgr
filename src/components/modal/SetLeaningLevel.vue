@@ -44,11 +44,10 @@
               <tr>
                 <th></th>
                 <template
-                  v-for="(difficulty, key) in selectMusicData.scoreData
-                    .difficultyLevel"
+                  v-for="(difficultyLabel, key) in DIFFICULTY_LABEL"
                   :key="key"
                 >
-                  <th class="px-1 text-center">{{ key }}</th>
+                  <th class="px-1 text-center">{{ difficultyLabel }}</th>
                 </template>
               </tr>
             </thead>
@@ -56,25 +55,31 @@
               <tr>
                 <td>難易度</td>
                 <template
-                  v-for="difficulty in selectMusicData.scoreData
-                    .difficultyLevel"
-                  :key="difficulty"
+                  v-for="difficultyLabel in DIFFICULTY_LABEL"
+                  :key="difficultyLabel"
                 >
-                  <td class="px-1 text-center">{{ difficulty }}</td>
+                  <td class="px-1 text-center">
+                    {{
+                      selectMusicData.scoreData.difficultyLevel[difficultyLabel]
+                    }}
+                  </td>
                 </template>
               </tr>
               <tr>
                 <td>コンボ数</td>
                 <template
-                  v-for="maxCombo in selectMusicData.scoreData.maxCombo"
-                  :key="maxCombo"
+                  v-for="difficultyLabel in DIFFICULTY_LABEL"
+                  :key="difficultyLabel"
                 >
-                  <td class="px-1 text-center">{{ maxCombo }}</td>
+                  <td class="px-1 text-center">
+                    {{ selectMusicData.scoreData.maxCombo[difficultyLabel] }}
+                  </td>
                 </template>
               </tr>
             </tbody>
           </v-table>
         </div>
+
         <v-expansion-panels>
           <v-expansion-panel>
             <v-expansion-panel-title>楽曲情報</v-expansion-panel-title>
@@ -289,6 +294,7 @@ import { ATTRIBUTE } from '@/constants/music';
 // import type { MusicItem } from '@/types/musicList';
 import { useMusicData } from '@/composables/useMusicData';
 import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
+import { DIFFICULTY_LABEL } from '@/constants/music';
 
 const store = useStateStore();
 const attributeName = {

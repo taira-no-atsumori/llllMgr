@@ -247,6 +247,69 @@
     }
   },
   "UR": {
+    "sz_034": {
+      "cardName": "Jolie Mademoiselle",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "Jolie Mademoiselle",
+      "kana": "じょりーまどもあぜる",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 FinalTerm 第1回サークル対抗戦」報酬",
+        "period": "prize"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_034_before.webp?alt=media&token=88081da6-2d16-4d6d-b5a8-f2f2cb79d076",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_034_after.webp?alt=media&token=2ea5667b-2613-4f62-80ea-5a069d4fa2e9"
+      },
+      "uniqueStatus": {
+        "smile": 4100,
+        "pure": 4450,
+        "cool": 5900,
+        "mental": 475,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "mellowAmbienceBoost_01",
+        "name": "メロウアンビエンスブースト",
+        "AP": 11,
+        "detail": [
+          [20, 22, 24, 26, 28, 30, 32, 34, 36, 40, 42, 44, 46, 50],
+          [
+            176, 193.6, 211.2, 228.8, 246.4, 264, 281.6, 299.2, 316.8, 352,
+            369.6, 387.2, 404.8, 440
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "imitationMademoiselle_01",
+        "name": "イミテーションマドモアゼル",
+        "AP": 9,
+        "detail": [
+          [12, 14, 15, 16, 17, 18, 20, 21, 22, 24, 26, "27?", "28?", "31?"],
+          [
+            1000,
+            1100,
+            1200,
+            1300,
+            1400,
+            1500,
+            1600,
+            1700,
+            1800,
+            2000,
+            2100,
+            2200,
+            2300,
+            "2500?"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ウォームアトラクト",
+        "detail": "泉のスキルを使用した後、ドローされる確率が大幅に増加する。さらにメロウ100でドローした時、次に使用するラブアトラクト効果を+100%する。",
+        "type": ["draw", "sound", "boost_loveAttract"]
+      }
+    },
     "sz_033": {
       "cardName": "壱雫空",
       "styleType": "trickStar",

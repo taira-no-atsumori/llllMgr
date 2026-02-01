@@ -471,7 +471,7 @@
                   </template>
 
                   <v-list-item
-                    v-for="difficulty_val in difficultyLevelLabels"
+                    v-for="difficulty_val in DIFFICULTY_LABEL"
                     :key="`difficultyLevel_${difficulty_val}`"
                     :title="difficulty_val"
                     @click="
@@ -492,7 +492,7 @@
                   </template>
 
                   <v-list-item
-                    v-for="combo_val in difficultyLevelLabels"
+                    v-for="combo_val in DIFFICULTY_LABEL"
                     :key="`maxCombo_${combo_val}`"
                     :title="combo_val"
                     @click="
@@ -559,156 +559,14 @@
       <li v-if="Object.keys(makeMusicList()).length === 0" class="w-100">
         見つかりませんでした…
       </li>
-      <li v-for="(ary, songTitle) in makeMusicList()" v-else :key="ary">
-        <v-card
-          v-if="
-            store.siteSettings.musicList.hover === 'false' ||
-            windowSize.w <= 600
-          "
-          :color="attributeColor[ary.attribute]"
-          @click="
-            store.selectMusicTitle = songTitle;
-            store.showModalEvent('setLeaningLevel');
-          "
-        >
-          <v-img
-            :src="musicImageUrls[ary.ID] || noImage"
-            :alt="songTitle"
-            aspect-ratio="1"
-            cover
-          >
-            <template #placeholder>
-              <v-skeleton-loader type="image" class="h-100 w-100" />
-            </template>
-            <template #error>
-              <v-img
-                :src="noImage"
-                aspect-ratio="1"
-                cover
-                class="h-100 w-100"
-              />
-            </template>
-          </v-img>
-          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
-            {{ songTitle }}
-          </v-card-title>
-
-          <v-divider class="mb-1 border-opacity-25" />
-
-          <v-card-text class="pt-0 px-1 pb-1">
-            <ul class="d-flex">
-              <li class="skillIconArea mr-1">
-                <img
-                  :src="store.getImagePath('icons/bonusSkill', ary.bonusSkill)"
-                  :alt="ary.bonusSkill"
-                />
-              </li>
-              <li class="skillIconArea mr-1">
-                <img
-                  :src="
-                    store.getImagePath(
-                      'icons/attribute',
-                      `icon_${ary.attribute}`,
-                    )
-                  "
-                  :alt="ary.attribute"
-                />
-              </li>
-              <li class="skillIconArea mr-1">
-                <img
-                  :src="
-                    store.getImagePath('icons/member', `icon_SD_${ary.center}`)
-                  "
-                  :alt="ary.center"
-                />
-              </li>
-              <li class="align-self-center text-caption">
-                MLv.{{ store.musicLevel[ary.ID] }}
-              </li>
-            </ul>
-          </v-card-text>
-        </v-card>
-
-        <v-tooltip v-else location="bottom">
-          <template #activator="{ props }">
-            <v-card
-              :color="attributeColor[ary.attribute]"
-              v-bind="props"
-              @click="
-                store.selectMusicTitle = songTitle;
-                store.showModalEvent('setLeaningLevel');
-              "
-            >
-              <v-img
-                :src="musicImageUrls[ary.ID] || noImage"
-                :alt="songTitle"
-                aspect-ratio="1"
-                cover
-              >
-                <template #placeholder>
-                  <v-skeleton-loader type="image" class="h-100 w-100" />
-                </template>
-                <template #error>
-                  <v-img
-                    :src="noImage"
-                    aspect-ratio="1"
-                    cover
-                    class="h-100 w-100"
-                  />
-                </template>
-              </v-img>
-              <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
-                {{ songTitle }}
-              </v-card-title>
-
-              <v-divider class="mb-1 border-opacity-25" />
-
-              <v-card-item class="pt-0 px-1 pb-1">
-                <ul class="d-flex">
-                  <li class="skillIconArea mr-1">
-                    <img
-                      :src="
-                        store.getImagePath('icons/bonusSkill', ary.bonusSkill)
-                      "
-                      :alt="ary.bonusSkill"
-                    />
-                  </li>
-                  <li class="skillIconArea mr-1">
-                    <img
-                      :src="
-                        store.getImagePath(
-                          'icons/attribute',
-                          `icon_${ary.attribute}`,
-                        )
-                      "
-                      :alt="ary.attribute"
-                    />
-                  </li>
-                  <li class="skillIconArea mr-1">
-                    <img
-                      :src="
-                        store.getImagePath(
-                          'icons/member',
-                          `icon_SD_${ary.center}`,
-                        )
-                      "
-                      :alt="ary.center"
-                    />
-                  </li>
-                  <li class="align-self-center text-caption">
-                    MLv.{{ store.musicLevel[ary.ID] }}
-                  </li>
-                </ul>
-              </v-card-item>
-            </v-card>
-          </template>
-          <p class="mb-2">{{ songTitle }}</p>
-          センター：{{ makeMemberFullName(ary.center) }}<br />
-          楽曲マスタリーLv.：{{ store.musicLevel[ary.ID] }}<br />
-          獲得ボーナススキル：{{ ary.bonusSkill }} ×
-          {{ Math.floor(store.musicLevel[ary.ID] / 10) }}
-        </v-tooltip>
-      </li>
+      <Music
+        v-for="(ary, songTitle) in makeMusicList()"
+        v-else
+        :key="ary"
+        :music-data="ary"
+        :song-title="songTitle"
+        :window-width="windowSize.w"
+      />
     </ul>
   </v-container>
 </template>
@@ -716,9 +574,10 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
+import Music from '@/components/common/Music.vue';
 import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
-import { convertAttributeEnToJa } from '@/constants/music';
+import { convertAttributeEnToJa, DIFFICULTY_LABEL } from '@/constants/music';
 import type { MusicItem } from '@/types/musicList';
 import { useMusicData } from '@/composables/useMusicData';
 
@@ -726,7 +585,6 @@ const store = useStateStore();
 store.setSupportSkillLevel();
 import { getAttributeListEn } from '@/constants/music';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
-import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
 
 const bonusSkillList = Object.values(BONUS_SKILL_NAMES);
 const attrList = getAttributeListEn();
@@ -746,16 +604,6 @@ if (!isMusicLoaded.value) {
   store.loading = true;
 }
 
-const musicImageUrls = computed(
-  () => store.imageCache['llllMgr_musicImageUrls'] || {},
-);
-
-const attributeColor = {
-  smile: '#EF8DC8',
-  pure: '#A9FCC7',
-  cool: '#A1BAFA',
-};
-
 const sortTypeList = {
   default: '標準',
   level: 'マスタリーレベル',
@@ -766,8 +614,6 @@ const sortTypeList = {
   difficultyLevel: '難易度',
   maxCombo: 'コンボ数',
 };
-
-const difficultyLevelLabels = ['NORMAL', 'HARD', 'EXPERT', 'MASTER'];
 
 const makeMusicList = computed(() => (): MusicItem[] => {
   if (
@@ -987,16 +833,6 @@ onUnmounted(() => {
 
   > li {
     width: calc((100% - 72px) / 10);
-  }
-}
-
-.skillIconArea {
-  width: 28px;
-  height: 28px;
-
-  img {
-    width: 100%;
-    border-radius: 3px;
   }
 }
 

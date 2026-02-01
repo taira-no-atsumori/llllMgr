@@ -12,7 +12,7 @@ export interface KeyValueItem {
   value: any;
 }
 
-class LllMgrDB extends Dexie {
+class llllMgrDB extends Dexie {
   images!: Table<ImageCacheItem, string>;
   keyValueStore!: Table<KeyValueItem, string>;
 
@@ -25,7 +25,7 @@ class LllMgrDB extends Dexie {
   }
 }
 
-const db = new LllMgrDB();
+const db = new llllMgrDB();
 
 export class CacheManager {
   async setImageUrl(

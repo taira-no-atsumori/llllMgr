@@ -117,6 +117,8 @@ export default [
             'License',
             'Login',
             'Simulation',
+            'Card',
+            'Music',
           ],
         },
       ],

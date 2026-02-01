@@ -189,6 +189,73 @@
     }
   },
   "UR": {
+    "sr_017": {
+      "cardName": "蓮ノ空歌留多",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "蓮ノ空歌留多",
+      "kana": "はすのそらかるた",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.6",
+        "period": "normal"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_017_before.webp?alt=media&token=c8b0b75a-0196-49da-acce-087f501b4bdc",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_017_after.webp?alt=media&token=779beaf3-3ec1-40d2-bfbc-c18d6a9441fe"
+      },
+      "uniqueStatus": {
+        "smile": 3750,
+        "pure": 4800,
+        "cool": 5750,
+        "mental": 490,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "groovySoundVibes_01",
+        "name": "グルーヴィサウンドバイブス",
+        "AP": 4,
+        "detail": [
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+          [
+            "1?",
+            "1?",
+            "1?",
+            "1?",
+            "1?",
+            "1?",
+            "1?",
+            "1?",
+            "1?",
+            "2?",
+            "2?",
+            "2?",
+            "2?",
+            2
+          ],
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]
+        ]
+      },
+      "skill": {
+        "ID": "ambienceExtendWide_01",
+        "name": "アンビエンスエクステワイド",
+        "AP": 5,
+        "detail": [
+          [8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20],
+          [120, 132, 144, 156, 168, 180, 192, 204, 216, 240, 252, 264, 276, 300]
+        ]
+      },
+      "characteristic": {
+        "name": "オーバーセクション：ボルテージゲイン & APゲイン & APレデュース & ムードブースト：セラス",
+        "detail": "手札にある状態でセクションが変わるたび、ボルテージPt.を+20、APを3回復し、ボルテージLv.55以上のときこのセクション中、ビートハートの出現個数を+5、APを15回復する。さらに手札にある状態でセラスのスキルを使用するたび、デッキ内のセラスのスキルの消費APを-5し、次にセラスが使用するムード値変動効果を+150%する。",
+        "type": [
+          "overSection",
+          "voltageGain",
+          "APGain",
+          "APReduce",
+          "boost_mood"
+        ]
+      }
+    },
     "sr_016": {
       "cardName": "令嬢モブ！",
       "styleType": "moodMaker",

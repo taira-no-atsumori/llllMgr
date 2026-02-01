@@ -1,13 +1,11 @@
 // vscode:wordWrap on
-import { SKILL_DETAIL } from '@/constants/skillDetail';
-
 export const SKILL_LIST = {
   ハートキャプチャ: {
     heartCaptcha: {
       text: ['ビートハート', '回分のスキルハートを獲得する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -16,21 +14,21 @@ export const SKILL_LIST = {
       text: ['次のハート回収時、獲得するLOVEを+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT],
+        type: ['loveAttract'],
       },
     },
     loveAttract_section: {
       text: ['このセクション中、獲得するLOVEを+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['loveAttract_section'],
       },
     },
     loveAttract_stage: {
       text: ['このステージ中、獲得するLOVEを+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
   },
@@ -39,7 +37,7 @@ export const SKILL_LIST = {
       text: ['ボルテージPt.を+', 'する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
   },
@@ -48,14 +46,14 @@ export const SKILL_LIST = {
       text: ['このセクション中、ボルテージゲイン効果を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: ['boost_voltageGain'],
       },
     },
     voltageBoost_stage: {
       text: ['このステージ中、ボルテージゲイン効果を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: ['boost_voltageGain'],
       },
     },
   },
@@ -64,7 +62,7 @@ export const SKILL_LIST = {
       text: ['メンタルを最大値の', '%回復させる。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -77,7 +75,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.PROTECT_SECTION],
+        type: ['mentalRecover', 'protect_section'],
       },
     },
     mentalProtect_stageProtect: {
@@ -87,7 +85,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.PROTECT_STAGE],
+        type: ['protect_stage'],
       },
     },
   },
@@ -96,7 +94,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、手札の上限枚数を1枚増加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.EXTEND_HAND],
+        type: ['extendHand'],
       },
     },
   },
@@ -105,7 +103,7 @@ export const SKILL_LIST = {
       text: ['APを', '回復させる。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN],
+        type: ['APGain'],
       },
     },
   },
@@ -117,7 +115,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['reshuffle', 'heartCaptcha'],
       },
     },
   },
@@ -130,11 +128,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['reshuffle', 'mentalRecover', 'voltageGain'],
       },
     },
   },
@@ -146,7 +140,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['reshuffle', 'mentalRecover'],
       },
     },
     refreshMind_stageProtect: {
@@ -157,11 +151,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'mentalRecover', 'protect_stage'],
       },
     },
     refreshMind_03: {
@@ -174,10 +164,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'refresh',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'reshuffle',
+          'mentalRecover',
+          'protect_stage',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -190,7 +180,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['reshuffle', 'protect_stage'],
       },
     },
   },
@@ -203,11 +193,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['reshuffle', 'mentalRecover', 'loveAttract_stage'],
       },
     },
   },
@@ -219,11 +205,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'protect_stage', 'APGain'],
       },
     },
     refreshGain_02: {
@@ -234,11 +216,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'protect_stage', 'APGain'],
       },
     },
   },
@@ -250,11 +228,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.ADD_CARD,
-        ],
+        type: ['reshuffle', 'mentalRecover', 'addCard'],
       },
     },
   },
@@ -266,11 +240,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'extendHand', 'protect_stage'],
       },
     },
   },
@@ -282,7 +252,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['reshuffle', 'boost_heartCaptcha'],
       },
     },
   },
@@ -294,7 +264,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['reshuffle', 'heartLimitUp'],
       },
     },
   },
@@ -306,11 +276,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['modeChange', 'reshuffle', 'protect_stage'],
       },
     },
   },
@@ -322,11 +288,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'refresh',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'modeChange', 'protect_stage'],
       },
     },
   },
@@ -339,7 +301,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     heartAttraction_stage: {
@@ -350,7 +312,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['heartCaptcha', 'loveAttract_stage'],
       },
     },
     heartAttraction_50: {
@@ -360,7 +322,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     heartAttraction_100: {
@@ -370,7 +332,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -379,21 +341,21 @@ export const SKILL_LIST = {
       text: ['次に使用するスキルハート獲得効果による獲得数を+', '%する。'],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
     heartBoost_limit2: {
       text: ['2回の間スキルハート獲得効果による獲得数を+', '%する。'],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
     heartBoost_limit5: {
       text: ['5回の間スキルハート獲得効果による獲得数を+', '%する。'],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
     heartBoost_section: {
@@ -403,7 +365,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -415,7 +377,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
     heartBoost_MiraCraPark_limit3: {
@@ -425,7 +387,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -437,7 +399,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'heartBoost',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -449,7 +411,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: ['heartCaptcha', 'APGain'],
       },
     },
     heartGain_3: {
@@ -459,7 +421,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: ['heartCaptcha', 'APGain'],
       },
     },
   },
@@ -471,7 +433,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'high',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -483,7 +445,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'high',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
+        type: ['voltageGain', 'APGain'],
       },
     },
     highVoltage_ver2: {
@@ -493,7 +455,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'high',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
+        type: ['voltageGain', 'APGain'],
       },
     },
     highVoltage_heartCaptcha: {
@@ -504,7 +466,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'high',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -516,7 +478,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: ['heartCaptcha', 'APGain'],
       },
     },
     cheerfulHeart_over75_heartCaptcha: {
@@ -527,7 +489,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
     cheerfulHeart_over100_heartCaptcha: {
@@ -538,7 +500,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
     cheerfulHeart_over75_heartCaptcha_over100_heartCaptcha: {
@@ -550,7 +512,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
     cheerfulHeart_05: {
@@ -562,7 +524,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -575,7 +537,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['loveAttract_section'],
       },
     },
     cheerfulAttract_APGain_over75: {
@@ -585,7 +547,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_stage', 'APGain'],
       },
     },
     cheerfulAttract_loveAttract_over50: {
@@ -596,7 +558,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
     cheerfulAttract_over75_stageAttract_over100_stageAttract: {
@@ -608,7 +570,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
     cheerfulAttract_05: {
@@ -620,7 +582,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['loveAttract_section'],
       },
     },
     cheerfulAttract_06: {
@@ -631,7 +593,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -644,7 +606,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     cheerfulAttraction_over100_stage: {
@@ -655,7 +617,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     'cheerfulAttraction-sectionAttract-over50_heart-over75_heart-over100_heart':
@@ -670,7 +632,7 @@ export const SKILL_LIST = {
         ],
         detail: {
           attr: 'cheerful',
-          type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+          type: ['heartCaptcha', 'loveAttract_section'],
         },
       },
   },
@@ -683,7 +645,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
     cheerfulVoltage_voltageGain_over75_over100: {
@@ -695,7 +657,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
     cheerfulVoltage_heartCaptcha: {
@@ -706,7 +668,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -718,7 +680,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: ['boost_voltageGain'],
       },
     },
   },
@@ -730,7 +692,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
+        type: ['mentalRecover', 'APGain'],
       },
     },
     cheerfulRecover_upper100_stageProtect: {
@@ -741,7 +703,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
+        type: ['mentalRecover', 'APGain'],
       },
     },
   },
@@ -755,7 +717,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['heartCaptcha', 'mentalRecover'],
       },
     },
   },
@@ -769,11 +731,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['mentalRecover', 'protect_stage', 'boost_heartCaptcha'],
       },
     },
   },
@@ -786,7 +744,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['protect_stage', 'loveAttract_stage'],
       },
     },
   },
@@ -798,7 +756,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['reshuffle', 'voltageGain'],
       },
     },
   },
@@ -810,11 +768,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.EXTEND_HAND,
-        ],
+        type: ['reshuffle', 'voltageGain', 'extendHand'],
       },
     },
   },
@@ -827,7 +781,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['mentalRecover', 'heartCaptcha'],
       },
     },
   },
@@ -840,7 +794,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['mentalRecover', 'loveAttract_section'],
       },
     },
     cheerfulSupport_over75_stage: {
@@ -851,7 +805,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['mentalRecover', 'loveAttract_stage'],
       },
     },
     cheerfulSupport_over75_section_over100: {
@@ -863,11 +817,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['mentalRecover', 'loveAttract_section', 'protect_stage'],
       },
     },
   },
@@ -880,7 +830,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['voltageGain', 'mentalRecover'],
       },
     },
   },
@@ -893,7 +843,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['voltageGain', 'protect_stage'],
       },
     },
   },
@@ -906,7 +856,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['loveAttract_section', 'voltageGain'],
       },
     },
     cheerfulFascinate_stage_over50: {
@@ -917,7 +867,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['loveAttract_stage', 'voltageGain'],
       },
     },
   },
@@ -930,7 +880,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -943,10 +893,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -960,7 +907,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -972,7 +919,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['extendHand', 'heartLimitUp'],
       },
     },
   },
@@ -987,10 +934,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'cheerful',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'heartLimitUp',
+          'boost_loveAttract',
+          'heartCaptcha',
+          'mentalReduce',
         ],
       },
     },
@@ -1004,7 +951,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'cheerful',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VIBES_SECTION],
+        type: ['mentalRecover', 'vibes_section'],
       },
     },
   },
@@ -1016,7 +963,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fulness',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['extendHand', 'heartCaptcha'],
       },
     },
   },
@@ -1028,7 +975,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fulness',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['extendHand', 'voltageGain'],
       },
     },
   },
@@ -1040,7 +987,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fulness',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.PROTECT_SECTION],
+        type: ['extendHand', 'protect_section'],
       },
     },
   },
@@ -1052,7 +999,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['heartCaptcha', 'mentalReduce'],
       },
     },
     aggressiveHeart_mentalReduce15: {
@@ -1062,7 +1009,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['heartCaptcha', 'mentalReduce'],
       },
     },
   },
@@ -1074,7 +1021,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['loveAttract_section', 'mentalReduce'],
       },
     },
     aggressiveAttract_mentalReduce25_stage: {
@@ -1084,11 +1031,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['loveAttract_stage', 'mentalReduce', 'APReduce'],
       },
     },
   },
@@ -1101,11 +1044,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'mentalReduce'],
       },
     },
   },
@@ -1117,7 +1056,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['voltageGain', 'mentalReduce'],
       },
     },
   },
@@ -1129,11 +1068,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['reshuffle', 'loveAttract_stage', 'mentalReduce'],
       },
     },
   },
@@ -1145,7 +1080,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['boost_loveAttract', 'mentalReduce'],
       },
     },
     aggressiveAttractBoost_mentalReduce3: {
@@ -1155,7 +1090,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['boost_loveAttract', 'mentalReduce'],
       },
     },
     aggressiveAttractBoost_mentalReduce10: {
@@ -1165,7 +1100,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['boost_loveAttract', 'mentalReduce'],
       },
     },
   },
@@ -1178,7 +1113,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['boost_loveAttract', 'mentalReduce'],
       },
     },
   },
@@ -1190,7 +1125,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['boost_heartCaptcha', 'mentalReduce'],
       },
     },
   },
@@ -1202,11 +1137,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['reshuffle', 'voltageGain', 'mentalReduce'],
       },
     },
   },
@@ -1218,11 +1149,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
       },
     },
     aggressiveBelieveHeart_reduce100: {
@@ -1232,11 +1159,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'heartCaptcha', 'mentalReduce'],
       },
     },
   },
@@ -1249,10 +1172,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'aggressive',
         type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          'mentalDown_section',
+          'mentalReduce',
+          'extendHand',
+          'loveAttract_section',
         ],
       },
     },
@@ -1266,11 +1189,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['boost_loveAttract', 'boost_heartCaptcha', 'mentalReduce'],
       },
     },
   },
@@ -1283,7 +1202,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['heartCaptcha', 'mentalReduce'],
       },
     },
     aggressiveBraveHeart_under1_under0: {
@@ -1295,11 +1214,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
       },
     },
   },
@@ -1312,11 +1227,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_section', 'mentalReduce', 'heartCaptcha'],
       },
     },
   },
@@ -1329,11 +1240,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['loveAttract_section', 'mentalReduce', 'voltageGain'],
       },
     },
   },
@@ -1346,11 +1253,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['boost_loveAttract', 'mentalReduce', 'loveAttract_section'],
       },
     },
   },
@@ -1362,11 +1265,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['extendHand', 'protect_stage', 'mentalReduce'],
       },
     },
   },
@@ -1378,7 +1277,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['protect_stage', 'mentalReduce'],
       },
     },
   },
@@ -1390,11 +1289,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'boost_heartCaptcha', 'mentalReduce'],
       },
     },
     aggressiveBeliefBoost_heatUp_minus100: {
@@ -1404,11 +1299,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'APQuick', 'mentalReduce'],
       },
     },
   },
@@ -1420,11 +1311,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'voltageGain', 'mentalReduce'],
       },
     },
   },
@@ -1436,11 +1323,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['mentalDown_section', 'mentalReduce', 'protect_stage'],
       },
     },
   },
@@ -1452,11 +1335,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce'],
       },
     },
   },
@@ -1469,11 +1348,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['voltageGain', 'mentalReduce', 'boost_voltageGain'],
       },
     },
   },
@@ -1486,7 +1361,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'aggressive',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['boost_loveAttract', 'mentalReduce'],
       },
     },
   },
@@ -1495,14 +1370,14 @@ export const SKILL_LIST = {
       text: ['このステージ中、獲得するLOVEを+', '%する。さらにAPを3回復する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_stage', 'APGain'],
       },
     },
     'attractGain-stageAttract-APGain7': {
       text: ['このステージ中、獲得するLOVEを+', '%する。さらにAPを7回復する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -1511,14 +1386,14 @@ export const SKILL_LIST = {
       text: ['次に使用するラブアトラクト効果を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['boost_loveAttract'],
       },
     },
     attractBoost2: {
       text: ['2回の間ラブアトラクト効果を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['boost_loveAttract'],
       },
     },
   },
@@ -1530,7 +1405,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['boost_loveAttract'],
       },
     },
   },
@@ -1542,7 +1417,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['reshuffle', 'voltageGain'],
       },
     },
   },
@@ -1554,7 +1429,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['reshuffle', 'mentalRecover'],
       },
     },
   },
@@ -1566,7 +1441,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['reshuffle', 'loveAttract_section'],
       },
     },
     regainAttract_stage: {
@@ -1576,7 +1451,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['reshuffle', 'loveAttract_stage'],
       },
     },
   },
@@ -1589,11 +1464,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['reshuffle', 'loveAttract_stage', 'voltageGain'],
       },
     },
   },
@@ -1605,11 +1476,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['reshuffle', 'extendHand', 'voltageGain'],
       },
     },
   },
@@ -1621,11 +1488,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['reshuffle', 'extendHand', 'voltageGain'],
       },
     },
   },
@@ -1637,11 +1500,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.ADD_CARD,
-        ],
+        type: ['reshuffle', 'voltageGain', 'addCard'],
       },
     },
   },
@@ -1653,11 +1512,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'regain',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['reshuffle', 'voltageGain', 'modeChange'],
       },
     },
   },
@@ -1669,7 +1524,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['extensions_section', 'heartCaptcha'],
       },
     },
     extensionsHeart_stage1: {
@@ -1679,7 +1534,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['extensions_stage', 'heartCaptcha'],
       },
     },
   },
@@ -1691,10 +1546,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['extensions_section', 'boost_heartCaptcha'],
       },
     },
   },
@@ -1706,11 +1558,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['heartCaptcha', 'extensions_section', 'modeChange'],
       },
     },
   },
@@ -1722,10 +1570,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['extensions_section', 'loveAttract_stage'],
       },
     },
     extensions2_stageAttract_section: {
@@ -1735,10 +1580,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['extensions_section', 'loveAttract_stage'],
       },
     },
     extensions3_stageAttract_section: {
@@ -1748,10 +1590,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['extensions_section', 'loveAttract_stage'],
       },
     },
     extensions4_stageAttract_section: {
@@ -1761,10 +1600,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['extensions_section', 'loveAttract_section'],
       },
     },
     extensions1_stageAttract_stage: {
@@ -1774,7 +1610,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['extensions_stage', 'loveAttract_stage'],
       },
     },
     extensions1_sectionAttract_section: {
@@ -1784,10 +1620,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['extensions_section', 'loveAttract_section'],
       },
     },
     extensions3_sectionAttract_section: {
@@ -1797,10 +1630,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['extensions_section', 'loveAttract_section'],
       },
     },
     extensionsAttract_08: {
@@ -1810,10 +1640,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-        ],
+        type: ['loveAttract_section', 'extensions_section'],
       },
     },
   },
@@ -1825,7 +1652,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['extensions_section', 'voltageGain'],
       },
     },
     extensions3_voltage_section: {
@@ -1835,7 +1662,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['extensions_section', 'voltageGain'],
       },
     },
     extensions1_voltage_stage: {
@@ -1845,7 +1672,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['extensions_stage', 'voltageGain'],
       },
     },
     extensions2_voltage_stage: {
@@ -1855,7 +1682,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['extensions_stage', 'voltageGain'],
       },
     },
   },
@@ -1867,7 +1694,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_STAGE, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['extensions_stage', 'protect_stage'],
       },
     },
     extensions3_protect: {
@@ -1877,7 +1704,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['extensions_section', 'protect_stage'],
       },
     },
   },
@@ -1889,11 +1716,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['extensions_section', 'APQuick', 'protect_stage'],
       },
     },
   },
@@ -1905,7 +1728,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['extensions_section', 'mentalRecover'],
       },
     },
   },
@@ -1917,11 +1740,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MENTAL_RECOVER,
-        ],
+        type: ['extensions_section', 'APQuick', 'mentalRecover'],
       },
     },
   },
@@ -1933,11 +1752,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.EXTENSIONS_STAGE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-        ],
+        type: ['modeChange', 'extensions_stage', 'mentalRecover'],
       },
     },
   },
@@ -1949,11 +1764,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.AP_QUICK,
-        ],
+        type: ['extensions_stage', 'boost_heartCaptcha', 'APQuick'],
       },
     },
     'extensions_stage-boost_loveAttract-heatUp_section': {
@@ -1963,11 +1774,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_STAGE,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AP_QUICK,
-        ],
+        type: ['extensions_stage', 'boost_loveAttract', 'APQuick'],
       },
     },
   },
@@ -1979,11 +1786,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.ADD_CARD,
-        ],
+        type: ['extensions_stage', 'voltageGain', 'addCard'],
       },
     },
   },
@@ -1995,7 +1798,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: ['extensions_section', 'APGain'],
       },
     },
   },
@@ -2007,7 +1810,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AP_QUICK],
+        type: ['extensions_section', 'APQuick'],
       },
     },
   },
@@ -2019,7 +1822,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['extendHand', 'boost_loveAttract'],
       },
     },
   },
@@ -2032,11 +1835,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['extensions_stage', 'APQuick', 'APGain'],
       },
     },
   },
@@ -2048,7 +1847,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'extensions',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['extensions_section', 'ambience_section'],
       },
     },
   },
@@ -2060,11 +1859,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.VIBES_SECTION,
-        ],
+        type: ['extensions_section', 'ambience_section', 'vibes_section'],
       },
     },
   },
@@ -2076,11 +1871,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['reshuffle', 'extensions_section', 'heartLimitUp'],
       },
     },
   },
@@ -2092,11 +1883,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['reshuffle', 'extensions_section', 'boost_voltageGain'],
       },
     },
   },
@@ -2108,11 +1895,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-        ],
+        type: ['reshuffle', 'extensions_section', 'APQuick'],
       },
     },
   },
@@ -2124,11 +1907,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'extensions_section', 'APGain'],
       },
     },
   },
@@ -2142,7 +1921,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fascination',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['voltageGain', 'loveAttract_stage'],
       },
     },
     fascination_voltageGain: {
@@ -2153,7 +1932,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fascination',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['voltageGain', 'loveAttract_stage'],
       },
     },
     fascination_section: {
@@ -2164,7 +1943,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fascination',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['loveAttract_section', 'voltageGain'],
       },
     },
     fascination_stage: {
@@ -2175,7 +1954,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fascination',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['loveAttract_stage', 'voltageGain'],
       },
     },
     fascination_stageAttract_stageProtect: {
@@ -2187,11 +1966,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'fascination',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['loveAttract_stage', 'voltageGain', 'protect_stage'],
       },
     },
   },
@@ -2204,11 +1979,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'replay',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -2221,7 +1992,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['mentalRecover', 'loveAttract_section'],
       },
     },
     supportedFeel_stage: {
@@ -2232,7 +2003,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['mentalRecover', 'loveAttract_stage'],
       },
     },
     supportedFeel_sectionAttract_mentalRecover: {
@@ -2243,7 +2014,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['loveAttract_section', 'mentalRecover'],
       },
     },
     supportedFeel_stageAttract_mentalRecover: {
@@ -2254,7 +2025,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['loveAttract_stage', 'mentalRecover'],
       },
     },
   },
@@ -2267,11 +2038,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['protect_stage', 'loveAttract_stage', 'APGain'],
       },
     },
     protectFeel_sectionAttract: {
@@ -2282,7 +2049,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['protect_stage', 'loveAttract_section'],
       },
     },
     protectFeel_stageAttract: {
@@ -2293,7 +2060,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['protect_stage', 'loveAttract_stage'],
       },
     },
     protectFeel_sectionAttract_stageProtect: {
@@ -2304,7 +2071,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['protect_stage', 'loveAttract_stage'],
       },
     },
     protectFeel_stageAttract_stageProtect: {
@@ -2315,7 +2082,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'feel',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['loveAttract_stage', 'protect_stage'],
       },
     },
   },
@@ -2327,7 +2094,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['protect_stage', 'APGain'],
       },
     },
     'protectGain-AP9': {
@@ -2337,7 +2104,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['protect_stage', 'APGain'],
       },
     },
   },
@@ -2350,7 +2117,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'protect',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['APQuick', 'protect_stage'],
       },
     },
   },
@@ -2363,7 +2130,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'invocation',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['voltageGain', 'loveAttract_stage'],
       },
     },
   },
@@ -2376,7 +2143,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
     voltageHeart_voltageGain_heartCaptcha: {
@@ -2387,7 +2154,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['heartCaptcha', 'voltageGain'],
       },
     },
   },
@@ -2399,7 +2166,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'recover',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_REDUCE],
+        type: ['mentalRecover', 'APReduce'],
       },
     },
   },
@@ -2413,11 +2180,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'recover',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['mentalRecover', 'heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -2426,14 +2189,14 @@ export const SKILL_LIST = {
       text: ['メンタルを最大値の', '%回復させる。さらにAPを+5する。'],
       detail: {
         attr: 'recover',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
+        type: ['mentalRecover', 'APGain'],
       },
     },
     recoverGain_gain3: {
       text: ['メンタルを最大値の', '%回復させる。さらにAPを+3する。'],
       detail: {
         attr: 'recover',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.AP_GAIN],
+        type: ['mentalRecover', 'APGain'],
       },
     },
   },
@@ -2446,7 +2209,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['loveAttract_section'],
       },
     },
     chillAttract_under3_stage: {
@@ -2457,7 +2220,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
   },
@@ -2470,7 +2233,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_section', 'APGain'],
       },
     },
   },
@@ -2483,7 +2246,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
     chillVoltage_under3: {
@@ -2494,7 +2257,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
     chillVoltage_under5: {
@@ -2505,7 +2268,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
     chillVoltage_under5_heartCaptcha: {
@@ -2516,7 +2279,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['heartCaptcha', 'voltageGain'],
       },
     },
   },
@@ -2529,7 +2292,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
+        type: ['voltageGain', 'APGain'],
       },
     },
   },
@@ -2542,7 +2305,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.PROTECT_STAGE],
+        type: ['protect_stage'],
       },
     },
     chillProtect_under5_stageProtect: {
@@ -2553,7 +2316,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.PROTECT_STAGE],
+        type: ['protect_stage'],
       },
     },
   },
@@ -2566,7 +2329,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['protect_stage', 'APGain'],
       },
     },
   },
@@ -2579,11 +2342,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['voltageGain', 'loveAttract_stage', 'APGain'],
       },
     },
     chillFascinate_under2_stageAttract_voltageGain: {
@@ -2594,7 +2353,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['loveAttract_stage', 'voltageGain'],
       },
     },
     chillFascinate_under5_stageAttract_voltageGain: {
@@ -2605,7 +2364,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['loveAttract_stage', 'voltageGain'],
       },
     },
   },
@@ -2618,7 +2377,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['mentalRecover', 'voltageGain'],
       },
     },
   },
@@ -2631,7 +2390,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chill',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['mentalRecover', 'loveAttract_stage'],
       },
     },
   },
@@ -2644,10 +2403,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['loveAttract_stage', 'loveAttract_section'],
       },
     },
     groovyAttract_stage_over6_stageAttract: {
@@ -2658,7 +2414,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
     groovyAttract_section_over6_sectionAttract: {
@@ -2669,7 +2425,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['loveAttract_section'],
       },
     },
     groovyAttract_stage_over10_stageAttract: {
@@ -2680,7 +2436,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
   },
@@ -2693,7 +2449,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['loveAttract_section', 'heartCaptcha'],
       },
     },
     groovyAttraction_section_over8_heartCaptcha: {
@@ -2704,7 +2460,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['loveAttract_section', 'heartCaptcha'],
       },
     },
     groovyAttraction_stage_over8_heartCaptcha: {
@@ -2715,7 +2471,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['loveAttract_stage', 'heartCaptcha'],
       },
     },
     groovyAttraction_over8_heartCaptcha_sectionAttract: {
@@ -2726,7 +2482,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     groovyAttraction_section_over10_heartCaptcha_sectionAttract: {
@@ -2737,7 +2493,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -2750,7 +2506,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['heartCaptcha', 'mentalRecover'],
       },
     },
     groovyHeart_over8_heartCaptcha: {
@@ -2761,7 +2517,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
     groovyHeart_over8_voltageGain_heartCaptcha: {
@@ -2772,7 +2528,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
     groovyHeart_over10_voltageGain_heartCaptcha: {
@@ -2783,7 +2539,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
     groovyHeart_over8_mentalRecover_heartCaptcha: {
@@ -2794,7 +2550,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['mentalRecover', 'heartCaptcha'],
       },
     },
   },
@@ -2806,7 +2562,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_GAIN],
+        type: ['heartCaptcha', 'APGain'],
       },
     },
   },
@@ -2819,7 +2575,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
     'groovyVoltage-voltageOver8_heartCaptcha-voltageOver10_heartCaptcha': {
@@ -2831,7 +2587,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -2844,7 +2600,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
     'groovyRecover-voltageOver8_mentalRecover-voltageOver10_mentalRecover': {
@@ -2856,7 +2612,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -2869,10 +2625,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_stage', 'boost_heartCaptcha'],
       },
     },
     groovyBoost_over10_boost_heartCaptcha: {
@@ -2883,7 +2636,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['boost_heartCaptcha', 'heartCaptcha'],
       },
     },
   },
@@ -2896,7 +2649,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['voltageGain', 'protect_stage'],
       },
     },
   },
@@ -2909,7 +2662,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['voltageGain', 'loveAttract_section'],
       },
     },
     groovyFascinate_over10_voltageGain_sectionAttract: {
@@ -2920,7 +2673,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['voltageGain', 'loveAttract_section'],
       },
     },
   },
@@ -2933,7 +2686,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['protect_stage', 'loveAttract_section'],
       },
     },
   },
@@ -2945,7 +2698,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['APQuick', 'boost_loveAttract'],
       },
     },
   },
@@ -2957,7 +2710,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.VIBES_SECTION],
+        type: ['APQuick', 'vibes_section'],
       },
     },
   },
@@ -2971,7 +2724,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['heartCaptcha', 'voltageGain'],
       },
     },
   },
@@ -2983,7 +2736,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_DOWN_SECTION],
+        type: ['voltageGain', 'mentalDown_section'],
       },
     },
   },
@@ -2996,7 +2749,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['voltageGain', 'boost_loveAttract'],
       },
     },
   },
@@ -3010,11 +2763,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -3026,7 +2775,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['modeChange', 'boost_loveAttract'],
       },
     },
   },
@@ -3040,7 +2789,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
+        type: ['heartCaptcha', 'modeChange'],
       },
     },
   },
@@ -3053,11 +2802,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['sound', 'ambience_section', 'APGain'],
       },
     },
   },
@@ -3072,11 +2817,11 @@ export const SKILL_LIST = {
       detail: {
         attr: 'groovy',
         type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'voltageGain',
+          'extensions_section',
+          'boost_voltageGain',
+          'reshuffle',
+          'heartLimitUp',
         ],
       },
     },
@@ -3091,12 +2836,40 @@ export const SKILL_LIST = {
       detail: {
         attr: 'groovy',
         type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'voltageGain',
+          'APQuick',
+          'boost_voltageGain',
+          'reshuffle',
+          'heartLimitUp',
         ],
+      },
+    },
+  },
+  グルーヴィサウンドバイブス: {
+    groovySoundVibes_01: {
+      text: [
+        'このステージ中、ムード値を+',
+        'する。さらにボルテージLv.8以上のとき、このステージ中、ビートハートの出現個数を+',
+        '、ボルテージLv.55以上のとき、このステージ中、ビートハートの出現個数を+',
+        'する。',
+      ],
+      detail: {
+        attr: 'groovy',
+        type: ['vibes_stage', 'ambience_section', 'APGain'],
+      },
+    },
+  },
+  グルーヴィヒートブースト: {
+    groovyHeatBoost_01: {
+      text: [
+        'このステージ中、AP回復速度を+',
+        '%する。さらにボルテージLv.8以上のとき、このステージ中、スキルハート獲得効果による獲得数を+',
+        '%、ボルテージLv.55以上のとき、このステージ中、スキルハート獲得効果による獲得数を+',
+        '%する。',
+      ],
+      detail: {
+        attr: 'groovy',
+        type: ['APQuick', 'boost_heartCaptcha'],
       },
     },
   },
@@ -3107,7 +2880,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'groovy',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['modeChange', 'voltageGain'],
       },
     },
   },
@@ -3120,7 +2893,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'switch',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -3134,11 +2907,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'switch',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['loveAttract_stage', 'heartCaptcha', 'loveAttract_section'],
       },
     },
     switchAttraction_basis5_voltageGain_heartCaptcha_sectionAttract: {
@@ -3150,11 +2919,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'switch',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -3167,7 +2932,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'switch',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['protect_stage', 'loveAttract_section'],
       },
     },
   },
@@ -3179,7 +2944,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: ['heartCaptcha', 'voltageReduce'],
       },
     },
   },
@@ -3191,7 +2956,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: ['loveAttract_section', 'voltageReduce'],
       },
     },
     calmAttract20_sectionExtensions2: {
@@ -3201,11 +2966,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
-        ],
+        type: ['extensions_section', 'loveAttract_section', 'voltageReduce'],
       },
     },
   },
@@ -3218,11 +2979,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
-        ],
+        type: ['heartCaptcha', 'loveAttract_stage', 'voltageReduce'],
       },
     },
     calmAttraction30_heartCaptcha_sectionAttract: {
@@ -3233,11 +2990,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'voltageReduce'],
       },
     },
   },
@@ -3249,7 +3002,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: ['boost_heartCaptcha', 'voltageReduce'],
       },
     },
   },
@@ -3261,7 +3014,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'calm',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: ['protect_stage', 'voltageReduce'],
       },
     },
   },
@@ -3274,7 +3027,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['mentalRecover', 'heartCaptcha'],
       },
     },
     healingHeart_heart_recover: {
@@ -3285,7 +3038,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['heartCaptcha', 'mentalRecover'],
       },
     },
   },
@@ -3298,10 +3051,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['loveAttract_stage', 'loveAttract_section'],
       },
     },
   },
@@ -3314,7 +3064,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'endurance',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
+        type: ['voltageGain', 'APGain'],
       },
     },
     endurance_mentalVoltage: {
@@ -3325,7 +3075,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'endurance',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['mentalRecover', 'voltageGain'],
       },
     },
     endurance_voltageMental: {
@@ -3336,7 +3086,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'endurance',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['voltageGain', 'mentalRecover'],
       },
     },
   },
@@ -3349,7 +3099,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'low',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['protect_stage', 'mentalRecover'],
       },
     },
   },
@@ -3362,7 +3112,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'initiative',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['voltageGain', 'protect_stage'],
       },
     },
   },
@@ -3375,7 +3125,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'clutch',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -3390,12 +3140,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['voltageGain', 'APQuick', 'heartCaptcha', 'boost_voltageGain'],
       },
     },
   },
@@ -3409,11 +3154,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'voltageGain'],
       },
     },
     vortexAttraction_stage: {
@@ -3425,11 +3166,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['heartCaptcha', 'loveAttract_stage', 'voltageGain'],
       },
     },
   },
@@ -3438,7 +3175,7 @@ export const SKILL_LIST = {
       text: ['ボルテージPt.を+', 'する。さらにAPを9回復する。'],
       detail: {
         attr: 'vortex',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_GAIN],
+        type: ['voltageGain', 'APGain'],
       },
     },
   },
@@ -3451,7 +3188,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['protect_stage', 'voltageGain'],
       },
     },
   },
@@ -3463,7 +3200,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vortex',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -3475,7 +3212,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.CARD_REDUCE_STAGE, SKILL_DETAIL.AP_QUICK],
+        type: ['cardReduce_stage', 'APQuick'],
       },
     },
   },
@@ -3487,7 +3224,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allMight',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -3500,11 +3237,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['heartCaptcha', 'APGain', 'loveAttract_section'],
       },
     },
   },
@@ -3516,11 +3249,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-        ],
+        type: ['extendHand', 'loveAttract_stage', 'APQuick'],
       },
     },
   },
@@ -3532,7 +3261,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -3545,11 +3274,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'trio',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'reshuffle'],
       },
     },
   },
@@ -3563,11 +3288,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'triangle',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['loveAttract_stage', 'voltageGain', 'protect_stage'],
       },
     },
   },
@@ -3579,11 +3300,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AP_SLOW,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['APSlow', 'boost_heartCaptcha', 'heartLimitUp'],
       },
     },
   },
@@ -3595,7 +3312,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.VOLTAGE_REDUCE],
+        type: ['heartCaptcha', 'voltageReduce'],
       },
     },
   },
@@ -3608,10 +3325,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['loveAttract_stage', 'loveAttract_section'],
       },
     },
   },
@@ -3622,7 +3336,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chowchow',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.CARD_REDUCE_STAGE],
+        type: ['addCard', 'cardReduce_stage'],
       },
     },
   },
@@ -3635,7 +3349,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chowchow',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -3648,7 +3362,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chowchow',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['loveAttract_section', 'heartCaptcha'],
       },
     },
   },
@@ -3661,7 +3375,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'chowchow',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['mentalRecover', 'heartCaptcha'],
       },
     },
   },
@@ -3672,7 +3386,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE],
+        type: ['reshuffle'],
       },
     },
   },
@@ -3681,7 +3395,7 @@ export const SKILL_LIST = {
       text: ['チャウチャウカードを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -3693,11 +3407,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.MENTAL_RECOVER,
-        ],
+        type: ['reshuffle', 'extensions_section', 'mentalRecover'],
       },
     },
   },
@@ -3712,10 +3422,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'dreaming',
         type: [
-          SKILL_DETAIL.AP_REDUCE_ALL,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.PROTECT_STAGE,
+          'APReduce_all',
+          'loveAttract_stage',
+          'voltageGain',
+          'protect_stage',
         ],
       },
     },
@@ -3729,7 +3439,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
     braveHeart_under50_under25: {
@@ -3741,11 +3451,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['heartCaptcha', 'modeChange', 'reshuffle'],
       },
     },
   },
@@ -3757,7 +3463,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['loveAttract_section'],
       },
     },
     braveAttract_under50_sectionAttract_APGain: {
@@ -3767,7 +3473,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_section', 'APGain'],
       },
     },
   },
@@ -3780,7 +3486,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     braveAttraction_under5_heartCaptcha_sectionAttract: {
@@ -3791,7 +3497,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     braveAttraction_under25_sectionAttract_heartCaptcha: {
@@ -3802,7 +3508,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     braveAttraction_under50_heartCaptcha_sectionAttract: {
@@ -3813,7 +3519,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     braveAttraction_sectionAttract_under50_heartCaptcha_under25_heartCaptcha: {
@@ -3826,7 +3532,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     braveAttraction_06: {
@@ -3838,11 +3544,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'heartCaptcha'],
       },
     },
   },
@@ -3856,11 +3558,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'mentalReduce'],
       },
     },
   },
@@ -3873,7 +3571,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['voltageGain', 'loveAttract_section'],
       },
     },
   },
@@ -3886,7 +3584,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
     braveVoltageHeart_under10: {
@@ -3897,7 +3595,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -3909,7 +3607,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: ['voltageGain', 'extensions_section'],
       },
     },
   },
@@ -3922,7 +3620,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['heartLimitUp', 'boost_heartCaptcha'],
       },
     },
   },
@@ -3936,11 +3634,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['heartCaptcha', 'heartLimitUp', 'loveAttract_stage'],
       },
     },
     braveWideAttraction_02: {
@@ -3952,11 +3646,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_stage', 'heartLimitUp', 'heartCaptcha'],
       },
     },
     braveWideAttraction_03: {
@@ -3968,11 +3658,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['loveAttract_stage', 'loveAttract_section', 'heartLimitUp'],
       },
     },
   },
@@ -3986,11 +3672,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'loveAttract_stage'],
       },
     },
     braveVortexAttraction_02: {
@@ -4002,11 +3684,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'voltageGain'],
       },
     },
   },
@@ -4020,11 +3698,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          'loveAttract',
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'loveAttract'],
       },
     },
   },
@@ -4037,7 +3711,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'brave',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['boost_loveAttract', 'mentalRecover'],
       },
     },
   },
@@ -4046,7 +3720,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《室咲格子》を山札に1枚追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4055,7 +3729,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《レインボーシフォン》を山札に1枚追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4064,7 +3738,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《Dream Believers》を2種類(合計2枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4075,7 +3749,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4084,7 +3758,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《青嵐の鯉流し》を1種類(合計2枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4093,7 +3767,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《Ether Aria》を1種類(合計9枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4104,7 +3778,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4115,21 +3789,21 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+        type: ['addCard', 'reshuffle'],
       },
     },
     dress_aokuharuka_kozue: {
       text: ['ドレスカード《アオクハルカ》を1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
     dress_aokuharuka_ginko: {
       text: ['ドレスカード《アオクハルカ》を1種類(合計3枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4138,7 +3812,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《PASSION!!!!!!》を1種類(合計2枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4147,7 +3821,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《16th Birthday》を1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4158,7 +3832,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4169,7 +3843,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4180,7 +3854,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+        type: ['addCard', 'reshuffle'],
       },
     },
   },
@@ -4189,7 +3863,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《聖夜譚》を1種類(合計5枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4198,7 +3872,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《加賀友禅》を9種類(合計9枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4207,7 +3881,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《ノヴァホワイト》を1種類(合計2枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4216,7 +3890,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《翠鱗舞》を1種類(合計2枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4227,7 +3901,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+        type: ['addCard', 'reshuffle'],
       },
     },
   },
@@ -4236,7 +3910,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《Her-bath-rium》を1種類(合計3枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4247,7 +3921,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4260,11 +3934,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['reshuffle', 'APQuick', 'heartLimitUp'],
       },
     },
   },
@@ -4276,7 +3946,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.ADD_CARD],
+        type: ['heartLimitUp', 'addCard'],
       },
     },
   },
@@ -4292,12 +3962,12 @@ export const SKILL_LIST = {
       detail: {
         attr: 'dress',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'heartLimitUp',
+          'APQuick',
+          'extendHand',
+          'addCard',
+          'loveAttract_stage',
+          'heartCaptcha',
         ],
       },
     },
@@ -4311,11 +3981,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bouquet',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.EXTEND_HAND,
-        ],
+        type: ['heartLimitUp', 'heartCaptcha', 'extendHand'],
       },
     },
   },
@@ -4328,11 +3994,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bouquet',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET,
-        ],
+        type: ['heartLimitUp', 'heartCaptcha', 'APReduce_deck_ceriseBouquet'],
       },
     },
   },
@@ -4346,12 +4008,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bouquet',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-        ],
+        type: ['heartLimitUp', 'heartCaptcha', 'loveAttract_stage', 'APQuick'],
       },
     },
   },
@@ -4360,7 +4017,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《キセキ》を3種類(合計3枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4373,7 +4030,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['APQuick', 'heartCaptcha'],
       },
     },
   },
@@ -4387,11 +4044,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'boost_heartCaptcha', 'heartCaptcha'],
       },
     },
   },
@@ -4403,7 +4056,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
+        type: ['reshuffle', 'APQuick'],
       },
     },
   },
@@ -4412,7 +4065,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、AP回復速度を+3%する。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.AP_QUICK],
+        type: ['APQuick'],
       },
     },
   },
@@ -4421,7 +4074,7 @@ export const SKILL_LIST = {
       text: ['ボルテージPt.を+', 'する。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
   },
@@ -4430,7 +4083,7 @@ export const SKILL_LIST = {
       text: ['メンタルを最大値の', '%回復させる。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -4439,7 +4092,7 @@ export const SKILL_LIST = {
       text: ['ビートハート', '回分のスキルハートを獲得する。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -4448,7 +4101,7 @@ export const SKILL_LIST = {
       text: ['次に使用するラブアトラクト効果を+', '%する。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['boost_loveAttract'],
       },
     },
   },
@@ -4457,7 +4110,7 @@ export const SKILL_LIST = {
       text: ['手札を全て捨てて、デッキから手札上限までスキルを引く。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.RESHUFFLE],
+        type: ['reshuffle'],
       },
     },
   },
@@ -4466,7 +4119,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、手札の上限枚数を1枚増加する。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.EXTEND_HAND],
+        type: ['extendHand'],
       },
     },
   },
@@ -4478,7 +4131,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.PROTECT_STAGE],
+        type: ['protect_stage'],
       },
     },
   },
@@ -4487,7 +4140,7 @@ export const SKILL_LIST = {
       text: ['姫芽の《イグニッションモード》の状態を切り替える。'],
       detail: {
         attr: 'design',
-        type: [SKILL_DETAIL.MODE_CHANGE],
+        type: ['modeChange'],
       },
     },
   },
@@ -4499,7 +4152,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['addCard', 'heartCaptcha'],
       },
     },
   },
@@ -4513,7 +4166,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['heartCaptcha', 'heartLimitUp'],
       },
     },
     celebration_02: {
@@ -4524,7 +4177,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['heartCaptcha', 'heartLimitUp'],
       },
     },
   },
@@ -4536,11 +4189,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['addCard', 'heartCaptcha', 'reshuffle'],
       },
     },
   },
@@ -4555,10 +4204,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'reshuffle',
+          'heartLimitUp',
+          'heartCaptcha',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -4573,11 +4222,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'heartLimitUp'],
       },
     },
   },
@@ -4586,7 +4231,7 @@ export const SKILL_LIST = {
       text: ['エーデルカードを2種類(合計2枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4598,11 +4243,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'extendHand', 'protect_stage'],
       },
     },
   },
@@ -4614,11 +4255,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['addCard', 'heartCaptcha', 'reshuffle'],
       },
     },
   },
@@ -4632,11 +4269,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['heartCaptcha', 'boost_voltageGain', 'loveAttract_stage'],
       },
     },
     fruitPunch_02: {
@@ -4648,11 +4281,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -4664,12 +4293,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
-        ],
+        type: ['addCard', 'heartCaptcha', 'reshuffle', 'APReduce_deckAll'],
       },
     },
   },
@@ -4685,10 +4309,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'atarayoHanabi',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'heartCaptcha',
+          'loveAttract_stage',
+          'heartLimitUp',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -4702,10 +4326,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'atarayoHanabi',
         type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'loveAttract_stage',
+          'reshuffle',
+          'heartLimitUp',
+          'boost_loveAttract',
         ],
       },
     },
@@ -4717,7 +4341,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.ADD_CARD],
+        type: ['extensions_section', 'addCard'],
       },
     },
   },
@@ -4730,11 +4354,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['reshuffle', 'boost_voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -4745,7 +4365,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+        type: ['addCard', 'reshuffle'],
       },
     },
   },
@@ -4758,11 +4378,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['reshuffle', 'voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -4771,7 +4387,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《乙女詞華集》を2種類(合計4枚)山札に追加する。'],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4786,11 +4402,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'heartLimitUp', 'boost_heartCaptcha'],
       },
     },
     otomeAnthology_02: {
@@ -4804,10 +4416,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'heartLimitUp',
+          'loveAttract_stage',
+          'boost_heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -4819,7 +4431,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.CHANGE_DECK, SKILL_DETAIL.ADD_CARD],
+        type: ['changeDeck', 'addCard'],
       },
     },
   },
@@ -4828,7 +4440,7 @@ export const SKILL_LIST = {
       text: ['APを', '回復する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN],
+        type: ['APGain'],
       },
     },
   },
@@ -4837,35 +4449,35 @@ export const SKILL_LIST = {
       text: ['Poupée en Lotus/Ginkoを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
     alterEgo_02: {
       text: ['Poupée en Lotus/Himeを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
     alterEgo_03: {
       text: ['Poupée en Lotus/Kahoを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
     alterEgo_04: {
       text: ['Poupée en Lotus/Rurinoを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
     alterEgo_05: {
       text: ['Poupée en Lotus/Kosuzuを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -4876,7 +4488,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.RESHUFFLE],
+        type: ['addCard', 'reshuffle'],
       },
     },
   },
@@ -4889,11 +4501,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['protect_stage', 'mentalRecover', 'reshuffle'],
       },
     },
   },
@@ -4902,7 +4510,7 @@ export const SKILL_LIST = {
       text: ['このセクション中、AP回復速度を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK],
+        type: ['APQuick'],
       },
     },
   },
@@ -4914,12 +4522,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['addCard', 'ambience_section', 'sound', 'reshuffle'],
       },
     },
   },
@@ -4928,7 +4531,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、ハート上限を+', 'する。さらにAPを4回復する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VIBES_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['vibes_stage', 'APGain'],
       },
     },
   },
@@ -4939,11 +4542,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dress',
-        type: [
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-        ],
+        type: ['addCard', 'reshuffle', 'draw'],
       },
     },
   },
@@ -4955,7 +4554,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['reshuffle', 'heartCaptcha'],
       },
     },
   },
@@ -4967,7 +4566,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: ['addCard', 'boost_voltageGain'],
       },
     },
   },
@@ -4979,7 +4578,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: ['reshuffle', 'boost_voltageGain'],
       },
     },
   },
@@ -4990,11 +4589,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['addCard', 'sound', 'reshuffle'],
       },
     },
   },
@@ -5008,12 +4603,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['ambience_section', 'sound', 'voltageGain', 'heartCaptcha'],
       },
     },
     sayoShigure_02: {
@@ -5025,12 +4615,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['boost_heartCaptcha', 'sound', 'voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -5043,7 +4628,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['voltageGain', 'protect_stage'],
       },
     },
   },
@@ -5056,11 +4641,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['extendHand', 'reshuffle', 'boost_heartCaptcha'],
       },
     },
   },
@@ -5072,11 +4653,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['reshuffle', 'extendHand', 'boost_loveAttract'],
       },
     },
   },
@@ -5088,7 +4665,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['reshuffle', 'boost_heartCaptcha'],
       },
     },
     rebootHeart_02: {
@@ -5098,7 +4675,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['reshuffle', 'boost_heartCaptcha'],
       },
     },
   },
@@ -5110,7 +4687,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['reshuffle', 'boost_loveAttract'],
       },
     },
   },
@@ -5122,7 +4699,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['reshuffle', 'boost_loveAttract'],
       },
     },
   },
@@ -5135,11 +4712,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'boost_loveAttract', 'protect_stage'],
       },
     },
   },
@@ -5151,11 +4724,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['reshuffle', 'boost_loveAttract', 'APReduce'],
       },
     },
   },
@@ -5167,7 +4736,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
+        type: ['reshuffle', 'boost_mentalRecover'],
       },
     },
   },
@@ -5179,7 +4748,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.AP_REDUCE_VOLTAGE_GAIN],
+        type: ['voltageGain', 'APReduce_voltageGain'],
       },
     },
   },
@@ -5192,7 +4761,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartLimitUp', 'heartCaptcha'],
       },
     },
   },
@@ -5205,7 +4774,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['heartCaptcha', 'boost_heartCaptcha'],
       },
     },
   },
@@ -5217,7 +4786,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartLimitUp', 'heartCaptcha'],
       },
     },
   },
@@ -5229,7 +4798,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -5238,7 +4807,7 @@ export const SKILL_LIST = {
       text: ['このセクション中、メンタルが1秒ごとに最大値の', '%回復する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -5251,11 +4820,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['heartCaptcha', 'loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -5269,11 +4834,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'tuning',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['boost_heartCaptcha', 'loveAttract_section', 'heartLimitUp'],
       },
     },
   },
@@ -5285,7 +4846,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'blessing',
-        type: [SKILL_DETAIL.AP_REDUCE_HEART, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['APReduce_heart', 'boost_heartCaptcha'],
       },
     },
   },
@@ -5299,11 +4860,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'gift',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract', 'heartLimitUp'],
       },
     },
   },
@@ -5315,7 +4872,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'blessing',
-        type: [SKILL_DETAIL.AP_REDUCE_ALL, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['APReduce_all', 'protect_stage'],
       },
     },
   },
@@ -5327,7 +4884,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'apex',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['voltageGain', 'loveAttract_stage'],
       },
     },
   },
@@ -5336,7 +4893,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、ハートの上限を+', 'する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['heartLimitUp'],
       },
     },
   },
@@ -5348,7 +4905,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
+        type: ['heartLimitUp', 'extendHand'],
       },
     },
     wideExtend_stage1: {
@@ -5358,7 +4915,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
+        type: ['heartLimitUp', 'extendHand'],
       },
     },
     wideExtend_stage1_2: {
@@ -5368,7 +4925,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
+        type: ['heartLimitUp', 'extendHand'],
       },
     },
     wideExtend_section4: {
@@ -5378,7 +4935,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.EXTEND_HAND],
+        type: ['heartLimitUp', 'extendHand'],
       },
     },
   },
@@ -5387,7 +4944,7 @@ export const SKILL_LIST = {
       text: ['このセクション中、ハートの上限を+', 'する。さらにAPを+5する。'],
       detail: {
         attr: 'wide',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.AP_GAIN],
+        type: ['heartLimitUp', 'APGain'],
       },
     },
   },
@@ -5400,7 +4957,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['APQuick', 'heartLimitUp'],
       },
     },
   },
@@ -5415,9 +4972,9 @@ export const SKILL_LIST = {
       detail: {
         attr: 'celebration',
         type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          'boost_heartCaptcha',
+          'boost_loveAttract',
+          'boost_mentalRecover',
         ],
       },
     },
@@ -5431,9 +4988,9 @@ export const SKILL_LIST = {
       detail: {
         attr: 'celebration',
         type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+          'boost_heartCaptcha',
+          'boost_loveAttract',
+          'boost_mentalProtect',
         ],
       },
     },
@@ -5446,11 +5003,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-        ],
+        type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalRecover'],
       },
     },
     celebration_voltage_mental_heart: {
@@ -5463,9 +5016,9 @@ export const SKILL_LIST = {
       detail: {
         attr: 'celebration',
         type: [
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'boost_voltageGain',
+          'boost_mentalRecover',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -5478,11 +5031,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
       },
     },
     celebration_attract_voltage_protect: {
@@ -5494,11 +5043,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'celebration',
-        type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
-        ],
+        type: ['boost_loveAttract', 'boost_voltageGain', 'boost_mentalProtect'],
       },
     },
     celebration_heart_recover_protect: {
@@ -5511,9 +5056,9 @@ export const SKILL_LIST = {
       detail: {
         attr: 'celebration',
         type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+          'boost_loveAttract',
+          'boost_mentalRecover',
+          'boost_mentalProtect',
         ],
       },
     },
@@ -5527,11 +5072,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'belief',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['mentalDown_section', 'boost_heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -5543,10 +5084,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'belief',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['mentalDown_section', 'boost_loveAttract'],
       },
     },
   },
@@ -5558,11 +5096,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'belief',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_STAGE,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['mentalDown_stage', 'mentalReduce', 'heartLimitUp'],
       },
     },
   },
@@ -5576,11 +5110,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['mentalRecover', 'voltageGain', 'boost_loveAttract'],
       },
     },
   },
@@ -5593,11 +5123,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'boost',
-        type: [
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['boost_mentalRecover', 'boost_voltageGain', 'APGain'],
       },
     },
   },
@@ -5609,11 +5135,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'boost',
-        type: [
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['boost_voltageGain', 'extendHand', 'APGain'],
       },
     },
     'boostedExtendGain-boost_recover-addCard1_stage-gain10': {
@@ -5623,11 +5145,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'boost',
-        type: [
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['boost_mentalRecover', 'extendHand', 'APGain'],
       },
     },
   },
@@ -5636,14 +5154,14 @@ export const SKILL_LIST = {
       text: ['このセクション中、AP回復速度を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK],
+        type: ['APQuick'],
       },
     },
     heatUp_stage: {
       text: ['このステージ中、AP回復速度を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK],
+        type: ['APQuick'],
       },
     },
   },
@@ -5655,7 +5173,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'alternate',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['modeChange', 'boost_heartCaptcha'],
       },
     },
     ignitionBoost_mentalRecover: {
@@ -5665,7 +5183,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'alternate',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.BOOST_MENTAL_RECOVER],
+        type: ['modeChange', 'boost_mentalRecover'],
       },
     },
   },
@@ -5677,7 +5195,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['modeChange', 'voltageGain'],
       },
     },
   },
@@ -5689,7 +5207,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['modeChange', 'protect_stage'],
       },
     },
   },
@@ -5698,7 +5216,7 @@ export const SKILL_LIST = {
       text: ['姫芽の《イグニッションモード》の状態に応じて効果が変化する。'],
       detail: {
         attr: 'alternate',
-        type: [SKILL_DETAIL.IGNITION],
+        type: ['ignition'],
       },
     },
   },
@@ -5713,11 +5231,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'reshuffle',
+          'mentalRecover',
+          'modeChange',
+          'boost_heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -5734,11 +5252,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'mentalRecover',
+          'voltageGain',
+          'modeChange',
+          'boost_heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -5752,11 +5270,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['mentalRecover', 'voltageGain', 'modeChange'],
       },
     },
   },
@@ -5770,11 +5284,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'triangle',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
       },
     },
   },
@@ -5787,11 +5297,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
       },
     },
     abunDanceAttraction_over30_stage_over33: {
@@ -5803,11 +5309,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
       },
     },
   },
@@ -5821,11 +5323,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abundance',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['heartCaptcha', 'voltageGain', 'loveAttract_stage'],
       },
     },
   },
@@ -5838,7 +5336,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['loveAttract_stage'],
       },
     },
   },
@@ -5851,11 +5349,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['voltageGain', 'APQuick', 'heartCaptcha'],
       },
     },
   },
@@ -5868,11 +5362,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['protect_stage', 'APGain', 'heartCaptcha'],
       },
     },
   },
@@ -5885,11 +5375,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['reshuffle', 'heartCaptcha', 'loveAttract_stage'],
       },
     },
   },
@@ -5902,11 +5388,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
       },
     },
   },
@@ -5919,7 +5401,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -5932,10 +5414,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['loveAttract_section', 'boost_loveAttract'],
       },
     },
   },
@@ -5949,11 +5428,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['mentalRecover', 'heartCaptcha', 'boost_loveAttract'],
       },
     },
     abunDanceAttraction_over30_stage_over33: {
@@ -5965,11 +5440,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'abunDance',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['loveAttract_stage', 'APQuick', 'heartCaptcha'],
       },
     },
   },
@@ -5982,9 +5453,9 @@ export const SKILL_LIST = {
       detail: {
         attr: 'bubble',
         type: [
-          SKILL_DETAIL.AP_REDUCE_DECK_CERISE_BOUQUET,
-          SKILL_DETAIL.AP_REDUCE_DECK_DRESS_CARD,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'APReduce_deck_ceriseBouquet',
+          'APReduce_deck_dressCard',
+          'boost_loveAttract',
         ],
       },
     },
@@ -5997,7 +5468,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'tag',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE],
+        type: ['heartCaptcha', 'APReduce'],
       },
     },
   },
@@ -6010,11 +5481,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'tag',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract', 'APReduce'],
       },
     },
   },
@@ -6026,7 +5493,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mentor',
-        type: [SKILL_DETAIL.MODE_CHANGE, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['modeChange', 'mentalRecover'],
       },
     },
   },
@@ -6039,11 +5506,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mentor',
-        type: [
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['modeChange', 'boost_heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -6056,11 +5519,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'modeChange'],
       },
     },
   },
@@ -6072,12 +5531,8 @@ export const SKILL_LIST = {
         'する。',
       ],
       detail: {
-        attr: SKILL_DETAIL.MODE_CHANGE,
-        type: [
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        attr: 'modeChange',
+        type: ['modeChange', 'mentalRecover', 'voltageGain'],
       },
     },
   },
@@ -6088,7 +5543,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'infinity',
-        type: [SKILL_DETAIL.INFINITY_AP_STAGE, SKILL_DETAIL.COOL_TIME],
+        type: ['infinity_AP_stage', 'coolTime'],
       },
     },
   },
@@ -6099,11 +5554,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'infinity',
-        type: [
-          SKILL_DETAIL.INFINITY_VOLTAGE_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['infinity_voltage_stage', 'loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -6114,11 +5565,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'infinity',
-        type: [
-          SKILL_DETAIL.INFINITY_MENTAL_STAGE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['infinity_mental_stage', 'heartCaptcha', 'APGain'],
       },
     },
   },
@@ -6132,12 +5579,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'modulate',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['voltageGain', 'mentalReduce', 'APGain', 'heartCaptcha'],
       },
     },
   },
@@ -6152,10 +5594,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'modulate',
         type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'extensions_section',
+          'loveAttract_stage',
+          'protect_stage',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -6171,11 +5613,11 @@ export const SKILL_LIST = {
       detail: {
         attr: 'upDraft',
         type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'boost_loveAttract',
+          'reshuffle',
+          'heartCaptcha',
+          'mentalReduce',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -6190,10 +5632,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'upDraft',
         type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'boost_loveAttract',
+          'reshuffle',
+          'loveAttract_stage',
+          'mentalReduce',
         ],
       },
     },
@@ -6205,11 +5647,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'torikago',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-        ],
+        type: ['mentalDown_section', 'APQuick', 'mentalDown_section'],
       },
     },
   },
@@ -6222,7 +5660,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'tokinoito',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_LOVE_ATTRACT],
+        type: ['reshuffle', 'boost_loveAttract'],
       },
     },
   },
@@ -6231,7 +5669,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、スキルハート獲得効果による獲得数を+', '%する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -6243,7 +5681,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -6256,7 +5694,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['loveAttract_section', 'heartCaptcha'],
       },
     },
   },
@@ -6269,11 +5707,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['heartCaptcha', 'boost_loveAttract', 'reshuffle'],
       },
     },
   },
@@ -6284,7 +5718,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN],
+        type: ['APGain'],
       },
     },
   },
@@ -6297,7 +5731,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['heartCaptcha', 'loveAttract_stage'],
       },
     },
   },
@@ -6308,11 +5742,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AP_REDUCE_ALL,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.EXTEND_HAND,
-        ],
+        type: ['APReduce_all', 'APQuick', 'extendHand'],
       },
     },
   },
@@ -6324,7 +5754,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.AP_GAIN],
+        type: ['loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -6336,7 +5766,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.SKILL_USE_HANDS_CARD, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['skillUse-handsCard', 'heartCaptcha'],
       },
     },
   },
@@ -6349,7 +5779,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -6362,7 +5792,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.PROTECT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['protect_stage', 'heartCaptcha'],
       },
     },
   },
@@ -6375,7 +5805,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['boost_loveAttract', 'heartCaptcha'],
       },
     },
   },
@@ -6387,7 +5817,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.EXTEND_HAND, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['extendHand', 'heartCaptcha'],
       },
     },
   },
@@ -6400,7 +5830,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.LOVE_ATTRACT_STAGE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['loveAttract_stage', 'heartCaptcha'],
       },
     },
   },
@@ -6412,7 +5842,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.ADD_CARD],
+        type: ['heartCaptcha', 'addCard'],
       },
     },
   },
@@ -6425,7 +5855,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -6437,7 +5867,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.MODE_CHANGE],
+        type: ['heartCaptcha', 'modeChange'],
       },
     },
   },
@@ -6449,11 +5879,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'nineHeart',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['heartCaptcha', 'reshuffle', 'modeChange'],
       },
     },
   },
@@ -6467,11 +5893,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'auroraFlower',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['heartCaptcha', 'loveAttract_stage', 'APGain'],
       },
     },
   },
@@ -6485,11 +5907,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'auroraFlower',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'boost_loveAttract'],
       },
     },
   },
@@ -6502,11 +5920,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'auroraFlower',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'heartCaptcha', 'protect_stage'],
       },
     },
   },
@@ -6518,7 +5932,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -6530,7 +5944,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE_ALL],
+        type: ['boost_heartCaptcha', 'APReduce_all'],
       },
     },
   },
@@ -6542,7 +5956,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_QUICK, SKILL_DETAIL.AP_REDUCE_ALL],
+        type: ['APQuick', 'APReduce_all'],
       },
     },
   },
@@ -6557,12 +5971,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'APQuick', 'voltageGain', 'heartCaptcha'],
       },
     },
   },
@@ -6578,11 +5987,11 @@ export const SKILL_LIST = {
       detail: {
         attr: 'allRange',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          'heartLimitUp',
+          'APQuick',
+          'modeChange',
+          'heartCaptcha',
+          'loveAttract_section',
         ],
       },
     },
@@ -6596,11 +6005,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['heartLimitUp', 'reshuffle', 'protect_stage'],
       },
     },
   },
@@ -6613,7 +6018,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['heartLimitUp', 'protect_stage'],
       },
     },
   },
@@ -6626,11 +6031,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['heartLimitUp', 'reshuffle', 'protect_stage'],
       },
     },
   },
@@ -6645,10 +6046,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'allRange',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AP_GAIN,
+          'heartLimitUp',
+          'boost_heartCaptcha',
+          'boost_loveAttract',
+          'APGain',
         ],
       },
     },
@@ -6662,11 +6063,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'allRange',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'reshuffle', 'boost_heartCaptcha'],
       },
     },
   },
@@ -6680,12 +6077,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
       },
     },
   },
@@ -6700,12 +6092,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dream',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'APQuick', 'addCard', 'heartCaptcha'],
       },
     },
   },
@@ -6717,12 +6104,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['heartLimitUp', 'APQuick', 'boost_heartCaptcha', 'reshuffle'],
       },
     },
   },
@@ -6738,12 +6120,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dream',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.ADD_CARD,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'boost_heartCaptcha', 'addCard', 'heartCaptcha'],
       },
     },
   },
@@ -6755,7 +6132,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -6764,7 +6141,7 @@ export const SKILL_LIST = {
       text: ['ダイナソーカードを1種類(合計1枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -6776,11 +6153,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dinosaur',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.MENTAL_REDUCE,
-        ],
+        type: ['mentalDown_section', 'heartLimitUp', 'mentalReduce'],
       },
     },
   },
@@ -6793,11 +6166,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['mentalDown_section', 'APQuick', 'boost_heartCaptcha'],
       },
     },
   },
@@ -6813,10 +6182,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'transcend',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          'heartLimitUp',
+          'voltageGain',
+          'heartCaptcha',
+          'loveAttract_section',
         ],
       },
     },
@@ -6833,12 +6202,12 @@ export const SKILL_LIST = {
       detail: {
         attr: 'transcend',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_REDUCE,
+          'heartLimitUp',
+          'voltageGain',
+          'mentalReduce',
+          'boost_heartCaptcha',
+          'heartCaptcha',
+          'APReduce',
         ],
       },
     },
@@ -6853,10 +6222,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'transcend',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          'heartLimitUp',
+          'voltageGain',
+          'heartCaptcha',
+          'loveAttract_section',
         ],
       },
     },
@@ -6874,12 +6243,12 @@ export const SKILL_LIST = {
       detail: {
         attr: 'transcend',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_REDUCE,
+          'heartLimitUp',
+          'voltageGain',
+          'mentalReduce',
+          'boost_heartCaptcha',
+          'heartCaptcha',
+          'APReduce',
         ],
       },
     },
@@ -6893,12 +6262,12 @@ export const SKILL_LIST = {
       detail: {
         attr: 'wardrobe',
         type: [
-          SKILL_DETAIL.CHANGE_DECK,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+          'changeDeck',
+          'boost_heartCaptcha',
+          'boost_loveAttract',
+          'boost_voltageGain',
+          'boost_mentalRecover',
+          'boost_mentalProtect',
         ],
       },
     },
@@ -6910,7 +6279,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'skstChallenge',
-        type: [SKILL_DETAIL.CHALLENGE],
+        type: ['challenge'],
       },
     },
   },
@@ -6928,15 +6297,15 @@ export const SKILL_LIST = {
       detail: {
         attr: 'skillChallenge',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'reshuffle',
+          'heartCaptcha',
+          'voltageGain',
+          'mentalRecover',
+          'protect_stage',
+          'loveAttract_section',
+          'extendHand',
+          'APQuick',
+          'heartLimitUp',
         ],
       },
     },
@@ -6948,7 +6317,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.DRIVE_IGNITION],
+        type: ['driveIgnition'],
       },
     },
   },
@@ -6959,7 +6328,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.MODE_CHANGE],
+        type: ['reshuffle', 'modeChange'],
       },
     },
   },
@@ -6972,11 +6341,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'reboot',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['reshuffle', 'boost_loveAttract', 'modeChange'],
       },
     },
   },
@@ -6988,7 +6353,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'reboot',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.BOOST_VOLTAGE_GAIN],
+        type: ['reshuffle', 'boost_voltageGain'],
       },
     },
     rebootVoltage_02: {
@@ -6998,7 +6363,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'reboot',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.RESHUFFLE],
+        type: ['boost_voltageGain', 'reshuffle'],
       },
     },
   },
@@ -7012,11 +6377,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'grandFinale',
-        type: [
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['APGain', 'boost_heartCaptcha', 'heartLimitUp'],
       },
     },
   },
@@ -7029,11 +6390,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'powerOfYell',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['loveAttract_stage', 'APQuick', 'APGain'],
       },
     },
     powerOfYell_02: {
@@ -7043,11 +6400,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'powerOfYell',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['voltageGain', 'APQuick', 'APGain'],
       },
     },
     powerOfYell_03: {
@@ -7057,11 +6410,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'powerOfYell',
-        type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['protect_stage', 'APQuick', 'APGain'],
       },
     },
   },
@@ -7070,7 +6419,7 @@ export const SKILL_LIST = {
       text: ['山札にあるすべてのスキルの消費AP-3。'],
       detail: {
         attr: 'reunionCharm',
-        type: [SKILL_DETAIL.AP_REDUCE],
+        type: ['APReduce'],
       },
     },
   },
@@ -7079,7 +6428,7 @@ export const SKILL_LIST = {
       text: ['山札にあるすべてのスキルの消費AP-3。'],
       detail: {
         attr: 'reunionCharm',
-        type: [SKILL_DETAIL.AP_REDUCE],
+        type: ['APReduce'],
       },
     },
   },
@@ -7088,7 +6437,7 @@ export const SKILL_LIST = {
       text: ['山札にあるすべてのスキルの消費AP-3。'],
       detail: {
         attr: 'reunionCharm',
-        type: [SKILL_DETAIL.AP_REDUCE],
+        type: ['APReduce'],
       },
     },
   },
@@ -7100,12 +6449,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'dreaming',
-        type: [
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-        ],
+        type: ['APReduce', 'reshuffle', 'APQuick', 'mentalDown_section'],
       },
     },
   },
@@ -7118,7 +6462,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vibes',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['vibes_section', 'voltageGain'],
       },
     },
   },
@@ -7130,7 +6474,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vibes',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['vibes_section', 'loveAttract_section'],
       },
     },
   },
@@ -7139,7 +6483,7 @@ export const SKILL_LIST = {
       text: ['このセクション中、ムードをハッピー方向に+', 'する。'],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['ambience_section'],
       },
     },
   },
@@ -7148,7 +6492,7 @@ export const SKILL_LIST = {
       text: ['このセクション中、ムードをメロウ方向に+', 'する。'],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['ambience_section'],
       },
     },
   },
@@ -7160,7 +6504,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.EXTENSIONS_SECTION, SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['extensions_section', 'ambience_section'],
       },
     },
   },
@@ -7172,7 +6516,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['reshuffle', 'ambience_section'],
       },
     },
   },
@@ -7184,11 +6528,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vibes',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['reshuffle', 'mentalRecover', 'heartLimitUp'],
       },
     },
   },
@@ -7200,11 +6540,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['vibes_section', 'sound', 'heartLimitUp'],
       },
     },
   },
@@ -7216,7 +6552,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'vibes',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['vibes_section', 'heartLimitUp'],
       },
     },
   },
@@ -7228,7 +6564,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['APSlow', 'ambience_section'],
       },
     },
   },
@@ -7241,11 +6577,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.AP_SLOW,
-        ],
+        type: ['vibes_section', 'loveAttract_section', 'APSlow'],
       },
     },
   },
@@ -7257,7 +6589,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['ambience_section'],
       },
     },
   },
@@ -7270,7 +6602,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'ambience',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['ambience_section', 'heartCaptcha'],
       },
     },
   },
@@ -7283,7 +6615,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['sound', 'heartCaptcha'],
       },
     },
     soundHeart_02: {
@@ -7294,11 +6626,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['heartCaptcha', 'sound', 'heartLimitUp'],
       },
     },
     soundHeart_03: {
@@ -7309,11 +6637,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['heartCaptcha', 'sound', 'heartLimitUp'],
       },
     },
   },
@@ -7328,11 +6652,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'reshuffle',
+          'sound',
+          'voltageGain',
+          'heartLimitUp',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -7348,11 +6672,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'reshuffle',
+          'sound',
+          'loveAttract_stage',
+          'heartLimitUp',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -7365,11 +6689,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['protect_stage', 'sound', 'APGain'],
       },
     },
   },
@@ -7382,7 +6702,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.SOUND],
+        type: ['boost_heartCaptcha', 'sound'],
       },
     },
   },
@@ -7395,7 +6715,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.SOUND],
+        type: ['heartLimitUp', 'sound'],
       },
     },
     soundWideHeart_02: {
@@ -7406,11 +6726,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'sound', 'heartCaptcha'],
       },
     },
     soundWideHeart_03: {
@@ -7421,11 +6737,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['heartCaptcha', 'sound', 'heartLimitUp'],
       },
     },
   },
@@ -7438,11 +6750,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
       },
     },
     soundBoostedHeart_02: {
@@ -7453,11 +6761,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
       },
     },
     soundBoostedHeart_03: {
@@ -7468,11 +6772,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
       },
     },
     soundBoostedHeart_04: {
@@ -7483,11 +6783,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'sound', 'boost_heartCaptcha'],
       },
     },
   },
@@ -7500,11 +6796,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['loveAttract_section', 'sound', 'boost_loveAttract'],
       },
     },
     soundBoostedAttract_02: {
@@ -7515,11 +6807,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['loveAttract_section', 'sound', 'boost_loveAttract'],
       },
     },
   },
@@ -7534,10 +6822,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'heartCaptcha',
+          'loveAttract_section',
+          'sound',
+          'boost_loveAttract',
         ],
       },
     },
@@ -7553,10 +6841,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'loveAttract_section',
+          'voltageGain',
+          'sound',
+          'boost_loveAttract',
         ],
       },
     },
@@ -7570,11 +6858,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['voltageGain', 'sound', 'boost_voltageGain'],
       },
     },
     soundBoostedVoltage_02: {
@@ -7585,11 +6869,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['voltageGain', 'sound', 'boost_voltageGain'],
       },
     },
   },
@@ -7601,7 +6881,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['sound', 'ambience_section'],
       },
     },
     soundAmbience_02: {
@@ -7611,7 +6891,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.SOUND, SKILL_DETAIL.AMBIENCE_STAGE],
+        type: ['sound', 'ambience_stage'],
       },
     },
   },
@@ -7623,11 +6903,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['mentalRecover', 'sound', 'reshuffle'],
       },
     },
   },
@@ -7639,11 +6915,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['vibes_section', 'sound', 'voltageGain'],
       },
     },
   },
@@ -7658,12 +6930,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.AP_SLOW,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'ambience_section',
+          'heartCaptcha',
+          'boost_heartCaptcha',
+          'reshuffle',
+          'APSlow',
+          'mentalReduce',
         ],
       },
     },
@@ -7677,7 +6949,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.SOUND],
+        type: ['boost_loveAttract', 'sound'],
       },
     },
   },
@@ -7691,11 +6963,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'sound',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -7707,7 +6975,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['imitation', 'heartCaptcha'],
       },
     },
     imitationHeart_02: {
@@ -7717,7 +6985,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['imitation', 'heartCaptcha'],
       },
     },
   },
@@ -7729,7 +6997,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['imitation', 'heartCaptcha'],
       },
     },
   },
@@ -7741,7 +7009,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['imitation', 'voltageGain'],
       },
     },
     imitationVoltage_02: {
@@ -7751,7 +7019,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['imitation', 'voltageGain'],
       },
     },
   },
@@ -7763,7 +7031,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.AP_QUICK],
+        type: ['imitation', 'APQuick'],
       },
     },
   },
@@ -7775,7 +7043,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['imitation', 'heartLimitUp'],
       },
     },
   },
@@ -7787,11 +7055,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['imitation', 'reshuffle', 'protect_stage'],
       },
     },
   },
@@ -7803,7 +7067,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.AMBIENCE_SECTION],
+        type: ['imitation', 'ambience_section'],
       },
     },
   },
@@ -7817,10 +7081,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'imitation',
         type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_QUICK,
+          'imitation',
+          'loveAttract_section',
+          'extensions_section',
+          'APQuick',
         ],
       },
     },
@@ -7830,7 +7094,7 @@ export const SKILL_LIST = {
       text: ['ハピネスチェリーカードを1種類(合計2枚)山札に追加する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -7842,7 +7106,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_REDUCE, SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['APReduce', 'heartCaptcha'],
       },
     },
   },
@@ -7857,7 +7121,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_SECTION],
+        type: ['heartCaptcha', 'loveAttract_section'],
       },
     },
     exhaustAttract_02: {
@@ -7870,7 +7134,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.LOVE_ATTRACT_STAGE],
+        type: ['heartCaptcha', 'loveAttract_stage'],
       },
     },
   },
@@ -7882,7 +7146,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.AP_REDUCE],
+        type: ['boost_heartCaptcha', 'APReduce'],
       },
     },
     bloomMySelf_02: {
@@ -7892,7 +7156,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.AP_REDUCE],
+        type: ['ambience_section', 'APReduce'],
       },
     },
     bloomMySelf_03: {
@@ -7902,11 +7166,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['reshuffle', 'boost_mentalRecover', 'APReduce'],
       },
     },
     bloomMySelf_04: {
@@ -7916,11 +7176,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [
-          SKILL_DETAIL.MODE_CHANGE,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['modeChange', 'boost_voltageGain', 'APReduce'],
       },
     },
     bloomMySelf_05: {
@@ -7930,7 +7186,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [SKILL_DETAIL.BOOST_WIDE_HEART, SKILL_DETAIL.AP_REDUCE],
+        type: ['boost_wideHeart', 'APReduce'],
       },
     },
     bloomMySelf_06: {
@@ -7940,11 +7196,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.BOOST_ALL,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['imitation', 'boost_all', 'APReduce'],
       },
     },
     bloomMySelf_07: {
@@ -7955,11 +7207,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'bloomMySelf',
-        type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['boost_loveAttract', 'boost_voltageGain', 'APReduce'],
       },
     },
   },
@@ -7971,11 +7219,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['mentalDown_section', 'heartLimitUp', 'APReduce'],
       },
     },
   },
@@ -7991,10 +7235,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'protect_stage',
+          'boost_heartCaptcha',
+          'heartLimitUp',
+          'heartCaptcha',
         ],
       },
     },
@@ -8013,10 +7257,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'timeless',
-        type: [
-          SKILL_DETAIL.INFINITY_AP_SECTION,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['infinity_AP_section', 'boost_heartCaptcha'],
       },
     },
   },
@@ -8037,10 +7278,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'timeless',
         type: [
-          SKILL_DETAIL.INFINITY_VOLTAGE_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'infinity_voltage_section',
+          'loveAttract_stage',
+          'APGain',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -8062,10 +7303,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'timeless',
         type: [
-          SKILL_DETAIL.INFINITY_MENTAL_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'infinity_mental_section',
+          'heartCaptcha',
+          'APGain',
+          'boost_heartCaptcha',
         ],
       },
     },
@@ -8089,11 +7330,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'rawEdge',
-        type: [
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.CARD_REDUCE_SECTION,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
-        ],
+        type: ['APQuick', 'cardReduce_section', 'APReduce_deckAll'],
       },
     },
   },
@@ -8114,11 +7351,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'rawEdge',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.CARD_REDUCE_SECTION,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
-        ],
+        type: ['voltageGain', 'cardReduce_section', 'APReduce_deckAll'],
       },
     },
   },
@@ -8139,11 +7372,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'rawEdge',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.CARD_REDUCE_SECTION,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
-        ],
+        type: ['mentalRecover', 'cardReduce_section', 'APReduce_deckAll'],
       },
     },
   },
@@ -8172,11 +7401,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
+          'heartCaptcha',
+          'loveAttract_section',
+          'voltageGain',
+          'mentalRecover',
+          'voltageReduce',
         ],
       },
     },
@@ -8205,11 +7434,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
+          'heartCaptcha',
+          'loveAttract_section',
+          'APQuick',
+          'protect_stage',
+          'voltageReduce',
         ],
       },
     },
@@ -8239,11 +7468,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'heartCaptcha',
+          'loveAttract_section',
+          'APQuick',
+          'voltageGain',
+          'mentalReduce',
         ],
       },
     },
@@ -8268,11 +7497,11 @@ export const SKILL_LIST = {
       detail: {
         attr: 'stubborn',
         type: [
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'APGain',
+          'voltageReduce',
+          'mentalReduce',
+          'heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -8298,11 +7527,11 @@ export const SKILL_LIST = {
       detail: {
         attr: 'stubborn',
         type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'voltageGain',
+          'APReduce',
+          'mentalReduce',
+          'heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -8330,12 +7559,12 @@ export const SKILL_LIST = {
       detail: {
         attr: 'stubborn',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.VOLTAGE_REDUCE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'mentalRecover',
+          'protect_stage',
+          'APReduce',
+          'voltageReduce',
+          'heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -8348,7 +7577,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.VIBES_STAGE],
+        type: ['APSlow', 'vibes_stage'],
       },
     },
     elysion_02: {
@@ -8358,7 +7587,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['APSlow', 'mentalRecover'],
       },
     },
     elysion_03: {
@@ -8368,7 +7597,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['APSlow', 'protect_stage'],
       },
     },
     elysion_04: {
@@ -8378,7 +7607,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.AMBIENCE_STAGE],
+        type: ['APSlow', 'ambience_stage'],
       },
     },
     elysion_05: {
@@ -8388,7 +7617,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.EXTEND_HAND],
+        type: ['APSlow', 'extendHand'],
       },
     },
     elysion_06: {
@@ -8398,7 +7627,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['APSlow', 'voltageGain'],
       },
     },
     elysion_07: {
@@ -8408,7 +7637,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'Elysion',
-        type: [SKILL_DETAIL.AP_SLOW, SKILL_DETAIL.PROTECT_STAGE],
+        type: ['APSlow', 'protect_stage'],
       },
     },
   },
@@ -8421,11 +7650,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-        ],
+        type: ['reshuffle', 'heartCaptcha', 'loveAttract_section'],
       },
     },
   },
@@ -8438,12 +7663,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['reshuffle', 'extendHand', 'mentalRecover', 'protect_stage'],
       },
     },
   },
@@ -8457,11 +7677,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['voltageGain', 'heartCaptcha', 'heartLimitUp'],
       },
     },
   },
@@ -8475,11 +7691,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [
-          SKILL_DETAIL.AMBIENCE_STAGE,
-          SKILL_DETAIL.VIBES_STAGE,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-        ],
+        type: ['ambience_stage', 'vibes_stage', 'boost_loveAttract'],
       },
     },
   },
@@ -8488,7 +7700,7 @@ export const SKILL_LIST = {
       text: ['ドレスカード《Oracle Étude》を1種類(合計11枚)山札に追加する。'],
       detail: {
         attr: 'mode',
-        type: [SKILL_DETAIL.ADD_CARD],
+        type: ['addCard'],
       },
     },
   },
@@ -8501,7 +7713,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.HEART_LIMIT_UP],
+        type: ['heartCaptcha', 'heartLimitUp'],
       },
     },
   },
@@ -8515,11 +7727,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_WIDE_HEART,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_wideHeart'],
       },
     },
   },
@@ -8532,7 +7740,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mode',
-        type: [SKILL_DETAIL.HEART_CAPTCHA, SKILL_DETAIL.AP_QUICK],
+        type: ['heartCaptcha', 'APQuick'],
       },
     },
   },
@@ -8544,7 +7752,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AMBIENCE_SECTION, SKILL_DETAIL.MENTAL_REDUCE],
+        type: ['ambience_section', 'mentalReduce'],
       },
     },
   },
@@ -8558,11 +7766,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['boost_heartCaptcha', 'boost_loveAttract', 'boost_voltageGain'],
       },
     },
   },
@@ -8573,11 +7777,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['reshuffle', 'APReduce', 'modeChange'],
       },
     },
   },
@@ -8593,12 +7793,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.MODE_CHANGE,
+          'heartCaptcha',
+          'loveAttract_section',
+          'voltageGain',
+          'heartLimitUp',
+          'mentalReduce',
+          'modeChange',
         ],
       },
     },
@@ -8615,10 +7815,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'SRK',
         type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'voltageGain',
+          'loveAttract_section',
+          'heartLimitUp',
+          'heartCaptcha',
         ],
       },
     },
@@ -8633,10 +7833,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'SRK',
         type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'loveAttract_section',
+          'heartLimitUp',
+          'voltageGain',
+          'heartCaptcha',
         ],
       },
     },
@@ -8651,10 +7851,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'SRK',
         type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'heartLimitUp',
+          'loveAttract_section',
+          'voltageGain',
+          'heartCaptcha',
         ],
       },
     },
@@ -8666,11 +7866,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.MODE_CHANGE,
-        ],
+        type: ['reshuffle', 'APReduce', 'modeChange'],
       },
     },
   },
@@ -8684,11 +7880,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'voltageGain', 'boost_heartCaptcha'],
       },
     },
     tripletVoltage_02: {
@@ -8700,11 +7892,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['heartCaptcha', 'loveAttract_section', 'boost_heartCaptcha'],
       },
     },
   },
@@ -8720,11 +7908,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.MODE_CHANGE,
+          'heartCaptcha',
+          'heartLimitUp',
+          'boost_voltageGain',
+          'boost_loveAttract',
+          'modeChange',
         ],
       },
     },
@@ -8737,7 +7925,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_LIMIT_UP, SKILL_DETAIL.RESHUFFLE],
+        type: ['heartLimitUp', 'reshuffle'],
       },
     },
   },
@@ -8749,7 +7937,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.ADD_CARD, SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['addCard', 'boost_heartCaptcha'],
       },
     },
   },
@@ -8760,7 +7948,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE],
+        type: ['reshuffle'],
       },
     },
   },
@@ -8776,10 +7964,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'heartCaptcha',
+          'voltageGain',
+          'loveAttract_section',
+          'heartLimitUp',
         ],
       },
     },
@@ -8792,7 +7980,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE],
+        type: ['reshuffle'],
       },
     },
   },
@@ -8808,7 +7996,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE],
+        type: ['reshuffle'],
       },
     },
   },
@@ -8822,12 +8010,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['vibes_section', 'extendHand', 'APQuick', 'APGain'],
       },
     },
   },
@@ -8843,12 +8026,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.AP_REDUCE,
+          'boost_heartCaptcha',
+          'ambience_section',
+          'reshuffle',
+          'boost_voltageGain',
+          'loveAttract_section',
+          'APReduce',
         ],
       },
     },
@@ -8865,12 +8048,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AP_REDUCE,
+          'boost_heartCaptcha',
+          'ambience_section',
+          'reshuffle',
+          'voltageGain',
+          'boost_loveAttract',
+          'APReduce',
         ],
       },
     },
@@ -8884,11 +8067,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['APQuick', 'extensions_section', 'APGain'],
       },
     },
   },
@@ -8902,11 +8081,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+          'boost_heartCaptcha',
+          'ambience_section',
+          'reshuffle',
+          'extensions_section',
+          'APReduce_deckAll',
         ],
       },
     },
@@ -8919,11 +8098,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+          'boost_loveAttract',
+          'ambience_section',
+          'reshuffle',
+          'mentalDown_section',
+          'APReduce_deckAll',
         ],
       },
     },
@@ -8937,11 +8116,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['vibes_section', 'APQuick', 'reshuffle'],
       },
     },
   },
@@ -8956,11 +8131,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
+          'heartCaptcha',
+          'reshuffle',
+          'heartLimitUp',
+          'boost_heartCaptcha',
+          'APReduce_deckAll',
         ],
       },
     },
@@ -8972,11 +8147,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['heartCaptcha', 'loveAttract_stage', 'heartLimitUp'],
       },
     },
   },
@@ -8990,11 +8161,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.VIBES_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['ambience_section', 'vibes_stage', 'heartLimitUp'],
       },
     },
     summerMagicHour_02: {
@@ -9006,11 +8173,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.VIBES_STAGE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['APQuick', 'vibes_stage', 'loveAttract_stage'],
       },
     },
   },
@@ -9025,10 +8188,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.EXTENSIONS_STAGE,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
+          'extensions_stage',
+          'ambience_section',
+          'heartLimitUp',
+          'voltageGain',
         ],
       },
     },
@@ -9042,12 +8205,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['APQuick', 'ambience_section', 'heartLimitUp', 'voltageGain'],
       },
     },
   },
@@ -9059,11 +8217,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'extensions_section', 'APGain'],
       },
     },
   },
@@ -9075,11 +8229,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'extensions_section', 'APGain'],
       },
     },
   },
@@ -9091,11 +8241,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'extensions_section', 'APGain'],
       },
     },
   },
@@ -9107,11 +8253,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['reshuffle', 'extensions_section', 'APGain'],
       },
     },
   },
@@ -9123,11 +8265,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AP_REDUCE,
-        ],
+        type: ['imitation', 'heartLimitUp', 'APReduce'],
       },
     },
   },
@@ -9139,7 +8277,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'imitation',
-        type: [SKILL_DETAIL.VIBES_SECTION, SKILL_DETAIL.AP_REDUCE],
+        type: ['vibes_section', 'APReduce'],
       },
     },
   },
@@ -9155,11 +8293,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
+          'heartCaptcha',
+          'heartLimitUp',
+          'loveAttract_stage',
+          'voltageGain',
+          'APReduce',
         ],
       },
     },
@@ -9176,11 +8314,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_REDUCE,
+          'voltageGain',
+          'heartLimitUp',
+          'loveAttract_stage',
+          'heartCaptcha',
+          'APReduce',
         ],
       },
     },
@@ -9194,7 +8332,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.VIBES_STAGE],
+        type: ['boost_loveAttract', 'vibes_stage'],
       },
     },
   },
@@ -9207,7 +8345,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_LOVE_ATTRACT, SKILL_DETAIL.AP_QUICK],
+        type: ['boost_loveAttract', 'APQuick'],
       },
     },
   },
@@ -9218,7 +8356,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.COOL_TIME],
+        type: ['coolTime'],
       },
     },
   },
@@ -9233,12 +8371,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_RECOVER,
-        ],
+        type: ['heartCaptcha', 'APQuick', 'voltageGain', 'mentalRecover'],
       },
     },
   },
@@ -9247,7 +8380,7 @@ export const SKILL_LIST = {
       text: ['このステージ中、あらゆるスキル効果量を', '%増幅する。'],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_ALL_STAGE],
+        type: ['boost_all_stage'],
       },
     },
   },
@@ -9263,10 +8396,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
+          'heartCaptcha',
+          'APGain',
+          'boost_voltageGain',
+          'boost_mentalRecover',
         ],
       },
     },
@@ -9278,11 +8411,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.ADD_SPECIAL_APPEAL,
-        ],
+        type: ['reshuffle', 'extendHand', 'addSpecialAppeal'],
       },
     },
   },
@@ -9298,12 +8427,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTEND_HAND,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'heartCaptcha',
+          'reshuffle',
+          'extendHand',
+          'ambience_section',
+          'loveAttract_stage',
+          'heartLimitUp',
         ],
       },
     },
@@ -9315,11 +8444,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9330,11 +8455,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9345,11 +8466,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9360,11 +8477,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9375,11 +8488,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9390,11 +8499,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9405,11 +8510,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9420,11 +8521,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9435,11 +8532,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9450,11 +8543,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9465,11 +8554,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.COOL_TIME,
-        ],
+        type: ['reshuffle', 'draw', 'coolTime'],
       },
     },
   },
@@ -9483,11 +8568,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-        ],
+        type: ['loveAttract_section', 'vibes_section', 'heartLimitUp'],
       },
     },
   },
@@ -9501,11 +8582,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['mentalRecover', 'protect_section', 'voltageGain'],
       },
     },
   },
@@ -9517,7 +8594,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA, SKILL_DETAIL.ADD_CARD],
+        type: ['boost_heartCaptcha', 'addCard'],
       },
     },
   },
@@ -9531,11 +8608,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['heartCaptcha', 'heartLimitUp', 'loveAttract_stage'],
       },
     },
   },
@@ -9549,11 +8622,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-        ],
+        type: ['heartCaptcha', 'heartLimitUp', 'loveAttract_stage'],
       },
     },
   },
@@ -9569,10 +8638,10 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_WIDE_HEART,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
+          'reshuffle',
+          'boost_wideHeart',
+          'boost_heartCaptcha',
+          'boost_loveAttract',
         ],
       },
     },
@@ -9586,11 +8655,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
-          SKILL_DETAIL.AP_SLOW,
-        ],
+        type: ['boost_mentalRecover', 'boost_mentalProtect', 'APSlow'],
       },
     },
   },
@@ -9606,12 +8671,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+          'protect_stage',
+          'boost_heartCaptcha',
+          'mentalReduce',
+          'boost_voltageGain',
+          'reshuffle',
+          'boost_mentalProtect',
         ],
       },
     },
@@ -9626,12 +8691,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.BOOST_MENTAL_PROTECT,
+          'protect_stage',
+          'boost_heartCaptcha',
+          'mentalReduce',
+          'boost_loveAttract',
+          'reshuffle',
+          'boost_mentalProtect',
         ],
       },
     },
@@ -9645,11 +8710,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['mentalRecover', 'protect_stage', 'reshuffle'],
       },
     },
   },
@@ -9660,11 +8721,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.INFINITY_VOLTAGE_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['infinity_voltage_section', 'heartCaptcha', 'APGain'],
       },
     },
     dancingVoltage_02: {
@@ -9673,11 +8730,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.INFINITY_VOLTAGE_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.AP_GAIN,
-        ],
+        type: ['infinity_voltage_section', 'loveAttract_section', 'APGain'],
       },
     },
   },
@@ -9693,12 +8746,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'mentalRecover',
+          'heartCaptcha',
+          'loveAttract_section',
+          'voltageGain',
+          'mentalDown_section',
+          'mentalReduce',
         ],
       },
     },
@@ -9715,13 +8768,13 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'mentalRecover',
+          'reshuffle',
+          'heartCaptcha',
+          'boost_loveAttract',
+          'boost_voltageGain',
+          'APReduce',
+          'mentalReduce',
         ],
       },
     },
@@ -9736,12 +8789,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['mentalRecover', 'reshuffle', 'heartCaptcha', 'protect_stage'],
       },
     },
   },
@@ -9752,7 +8800,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.RESHUFFLE, SKILL_DETAIL.AP_QUICK],
+        type: ['reshuffle', 'APQuick'],
       },
     },
   },
@@ -9765,11 +8813,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.AP_SLOW,
-        ],
+        type: ['mentalRecover', 'boost_mentalRecover', 'APSlow'],
       },
     },
     doNotBeShy_02: {
@@ -9780,11 +8824,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_MENTAL_RECOVER,
-          SKILL_DETAIL.CARD_REDUCE_SECTION,
-        ],
+        type: ['mentalRecover', 'boost_mentalRecover', 'cardReduce_section'],
       },
     },
   },
@@ -9800,12 +8840,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'protect_stage',
+          'voltageGain',
+          'mentalRecover',
+          'boost_voltageGain',
+          'APReduce',
+          'mentalReduce',
         ],
       },
     },
@@ -9822,12 +8862,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_REDUCE,
-          SKILL_DETAIL.MENTAL_REDUCE,
+          'heartCaptcha',
+          'voltageGain',
+          'mentalRecover',
+          'boost_voltageGain',
+          'APReduce',
+          'mentalReduce',
         ],
       },
     },
@@ -9842,11 +8882,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['ambience_section', 'APQuick', 'boost_heartCaptcha'],
       },
     },
   },
@@ -9862,12 +8898,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.VIBES_SECTION,
+          'imitation',
+          'heartCaptcha',
+          'APQuick',
+          'voltageGain',
+          'protect_stage',
+          'vibes_section',
         ],
       },
     },
@@ -9880,11 +8916,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_REDUCE_DECK_ALL,
-        ],
+        type: ['ambience_section', 'extensions_section', 'APReduce_deckAll'],
       },
     },
   },
@@ -9897,11 +8929,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_STAGE,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-        ],
+        type: ['ambience_stage', 'sound', 'boost_heartCaptcha'],
       },
     },
   },
@@ -9913,7 +8941,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_ALL_SECTION],
+        type: ['boost_all_section'],
       },
     },
   },
@@ -9928,10 +8956,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'dolls',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'protect_stage',
+          'reshuffle',
+          'extensions_section',
+          'heartCaptcha',
         ],
       },
     },
@@ -9947,10 +8975,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'dolls',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'protect_stage',
+          'reshuffle',
+          'extensions_section',
+          'heartLimitUp',
         ],
       },
     },
@@ -9966,10 +8994,10 @@ export const SKILL_LIST = {
       detail: {
         attr: 'dolls',
         type: [
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
+          'protect_stage',
+          'reshuffle',
+          'extensions_section',
+          'loveAttract_section',
         ],
       },
     },
@@ -9982,7 +9010,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_ALL_SECTION],
+        type: ['boost_all_section'],
       },
     },
   },
@@ -9995,12 +9023,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.VIBES_SECTION,
-        ],
+        type: ['imitation', 'voltageGain', 'ambience_section', 'vibes_section'],
       },
     },
   },
@@ -10014,11 +9037,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MENTAL_RECOVER,
-        ],
+        type: ['ambience_section', 'APQuick', 'mentalRecover'],
       },
     },
     goForIt_02: {
@@ -10030,11 +9049,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.MENTAL_RECOVER,
-        ],
+        type: ['ambience_section', 'APQuick', 'mentalRecover'],
       },
     },
   },
@@ -10051,12 +9066,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.EXTENSIONS_SECTION,
+          'mentalRecover',
+          'reshuffle',
+          'protect_stage',
+          'heartCaptcha',
+          'boost_voltageGain',
+          'extensions_section',
         ],
       },
     },
@@ -10075,12 +9090,12 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.PROTECT_STAGE,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
-          SKILL_DETAIL.AP_QUICK,
+          'mentalRecover',
+          'reshuffle',
+          'protect_stage',
+          'heartLimitUp',
+          'boost_heartCaptcha',
+          'APQuick',
         ],
       },
     },
@@ -10093,11 +9108,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mission',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['extensions_section', 'ambience_section', 'reshuffle'],
       },
     },
   },
@@ -10109,11 +9120,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: 'mission',
-        type: [
-          SKILL_DETAIL.EXTENSIONS_SECTION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['extensions_section', 'APQuick', 'reshuffle'],
       },
     },
   },
@@ -10126,11 +9133,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.AMBIENCE_STAGE,
-          SKILL_DETAIL.CARD_REDUCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VIBES_STAGE,
-          SKILL_DETAIL.RESHUFFLE,
+          'ambience_stage',
+          'cardReduce_section',
+          'sound',
+          'vibes_stage',
+          'reshuffle',
         ],
       },
     },
@@ -10143,7 +9150,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.IMITATION, SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['imitation', 'voltageGain'],
       },
     },
   },
@@ -10156,12 +9163,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['imitation', 'APQuick', 'heartLimitUp', 'reshuffle'],
       },
     },
   },
@@ -10173,7 +9175,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: ['APGain', 'extensions_section'],
       },
     },
   },
@@ -10185,7 +9187,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: ['APGain', 'extensions_section'],
       },
     },
   },
@@ -10200,12 +9202,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['heartLimitUp', 'ambience_section', 'sound', 'heartCaptcha'],
       },
     },
   },
@@ -10218,12 +9215,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['boost_voltageGain', 'ambience_section', 'sound', 'reshuffle'],
       },
       jackVoltageMellow_02: {
         text: [
@@ -10236,11 +9228,11 @@ export const SKILL_LIST = {
         detail: {
           attr: '',
           type: [
-            SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-            SKILL_DETAIL.AMBIENCE_SECTION,
-            SKILL_DETAIL.SOUND,
-            SKILL_DETAIL.VOLTAGE_GAIN,
-            SKILL_DETAIL.HEART_CAPTCHA,
+            'boost_voltageGain',
+            'ambience_section',
+            'sound',
+            'voltageGain',
+            'heartCaptcha',
           ],
         },
       },
@@ -10256,11 +9248,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.AP_QUICK,
-          SKILL_DETAIL.PROTECT_STAGE,
-        ],
+        type: ['voltageGain', 'APQuick', 'protect_stage'],
       },
     },
   },
@@ -10272,7 +9260,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.SKILL_USE_HANDS_CARD, SKILL_DETAIL.AP_GAIN],
+        type: ['skillUse-handsCard', 'APGain'],
       },
     },
   },
@@ -10283,7 +9271,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.SKILL_USE_HANDS_CARD],
+        type: ['skillUse-handsCard'],
       },
     },
   },
@@ -10295,7 +9283,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
   },
@@ -10307,7 +9295,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER],
+        type: ['mentalRecover'],
       },
     },
   },
@@ -10319,7 +9307,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_VOLTAGE_GAIN, SKILL_DETAIL.RESHUFFLE],
+        type: ['boost_voltageGain', 'reshuffle'],
       },
     },
   },
@@ -10331,7 +9319,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_RECOVER, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: ['mentalRecover', 'extensions_section'],
       },
     },
   },
@@ -10343,7 +9331,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.BOOST_HEART_CAPTCHA],
+        type: ['boost_heartCaptcha'],
       },
     },
   },
@@ -10357,11 +9345,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_VOLTAGE_GAIN,
-        ],
+        type: ['ambience_section', 'boost_loveAttract', 'boost_voltageGain'],
       },
     },
   },
@@ -10376,11 +9360,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
+          'ambience_section',
+          'sound',
+          'voltageGain',
+          'mentalReduce',
+          'loveAttract_stage',
         ],
       },
     },
@@ -10395,11 +9379,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.BOOST_WIDE_HEART,
-        ],
+        type: ['ambience_section', 'boost_loveAttract', 'boost_wideHeart'],
       },
     },
   },
@@ -10414,11 +9394,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.AP_GAIN,
-          SKILL_DETAIL.HEART_LIMIT_UP,
+          'mentalRecover',
+          'sound',
+          'loveAttract_stage',
+          'APGain',
+          'heartLimitUp',
         ],
       },
     },
@@ -10431,7 +9411,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.MENTAL_DOWN_SECTION, SKILL_DETAIL.BOOST_ALL],
+        type: ['mentalDown_section', 'boost_all'],
       },
     },
   },
@@ -10446,13 +9426,25 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.MENTAL_DOWN_SECTION,
-          SKILL_DETAIL.MENTAL_REDUCE,
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.VIBES_SECTION,
+          'imitation',
+          'mentalDown_section',
+          'mentalReduce',
+          'heartCaptcha',
+          'voltageGain',
+          'vibes_section',
         ],
+      },
+    },
+  },
+  イミテーションリフレッシュハート: {
+    imitationRefreshHeart_01: {
+      text: [
+        'カードがステージにセットされ、AP回復速度増加効果を吸収する。AP回復速度増加効果を20%吸収したとき、ビートハート',
+        '回分のスキルハートを獲得、手札をシャッフルし、捨札に移動する。',
+      ],
+      detail: {
+        attr: '',
+        type: ['imitation', 'heartCaptcha', 'reshuffle'],
       },
     },
   },
@@ -10465,11 +9457,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.HEART_CAPTCHA,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-        ],
+        type: ['heartCaptcha', 'sound', 'voltageGain'],
       },
     },
   },
@@ -10481,7 +9469,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: ['APGain', 'extensions_section'],
       },
     },
   },
@@ -10494,12 +9482,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.RESHUFFLE,
-        ],
+        type: ['boost_loveAttract', 'ambience_section', 'sound', 'reshuffle'],
       },
     },
     queenAttractHappy_02: {
@@ -10513,11 +9496,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.BOOST_LOVE_ATTRACT,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.LOVE_ATTRACT_SECTION,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'boost_loveAttract',
+          'ambience_section',
+          'sound',
+          'loveAttract_section',
+          'heartCaptcha',
         ],
       },
     },
@@ -10530,7 +9513,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.AP_GAIN, SKILL_DETAIL.EXTENSIONS_SECTION],
+        type: ['APGain', 'extensions_section'],
       },
     },
   },
@@ -10543,12 +9526,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.IMITATION,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.DRAW,
-        ],
+        type: ['imitation', 'ambience_section', 'sound', 'draw'],
       },
     },
   },
@@ -10562,12 +9540,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [
-          SKILL_DETAIL.VIBES_SECTION,
-          SKILL_DETAIL.AMBIENCE_SECTION,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.HEART_CAPTCHA,
-        ],
+        type: ['vibes_section', 'ambience_section', 'sound', 'heartCaptcha'],
       },
     },
   },
@@ -10578,7 +9551,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.VOLTAGE_GAIN],
+        type: ['voltageGain'],
       },
     },
     captivateSpirits_02: {
@@ -10587,7 +9560,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: [SKILL_DETAIL.HEART_CAPTCHA],
+        type: ['heartCaptcha'],
       },
     },
   },
@@ -10604,11 +9577,11 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.HEART_LIMIT_UP,
-          SKILL_DETAIL.LOVE_ATTRACT_STAGE,
-          SKILL_DETAIL.VOLTAGE_GAIN,
-          SKILL_DETAIL.HEART_CAPTCHA,
+          'mentalRecover',
+          'heartLimitUp',
+          'loveAttract_stage',
+          'voltageGain',
+          'heartCaptcha',
         ],
       },
     },
@@ -10623,12 +9596,56 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: [
-          SKILL_DETAIL.RESHUFFLE,
-          SKILL_DETAIL.MENTAL_RECOVER,
-          SKILL_DETAIL.DRAW,
-          SKILL_DETAIL.SOUND,
-          SKILL_DETAIL.BOOST_HEART_CAPTCHA,
+          'reshuffle',
+          'mentalRecover',
+          'draw',
+          'sound',
+          'boost_heartCaptcha',
         ],
+      },
+    },
+  },
+  アンビエンスエクステワイド: {
+    ambienceExtendWide_01: {
+      text: [
+        'このセクション中、ムード値を+',
+        'する。さらにムードがハッピー、メロウいずれか100のとき、このセクション中、手札の上限枚数を2枚増加し、このステージ中、ハート上限を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          'ambience_section',
+          'sound',
+          'extensions_section',
+          'heartLimitUp',
+        ],
+      },
+    },
+  },
+  メロウアンビエンスブースト: {
+    mellowAmbienceBoost_01: {
+      text: [
+        'このセクション中、ムード値をメロウ方向に+',
+        'する。さらにメロウ100のとき、3回の間ラブアトラクト効果を+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: ['ambience_section', 'sound', 'imitation', 'boost_loveAttract'],
+      },
+    },
+  },
+  イミテーションマドモアゼル: {
+    imitationMademoiselle_01: {
+      text: [
+        'このセクション中、ムード値をメロウ方向に+',
+        'する。さらにメロウ100のとき、カードがステージにセットされ、ラブアトラクト効果を吸収する。ラブアトラクト効果を1000%吸収したとき、このステージ中、獲得するLOVEを+',
+        '%し、捨札に移動する。',
+      ],
+      detail: {
+        attr: '',
+        type: ['ambience_section', 'sound', 'imitation', 'loveAttract_stage'],
       },
     },
   },

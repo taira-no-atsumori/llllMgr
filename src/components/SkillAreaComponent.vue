@@ -10,8 +10,8 @@
           skillType === 'specialAppeal'
             ? 'スペシャルアピール'
             : skillType === 'skill'
-            ? 'スキル'
-            : '特性'
+              ? 'スキル'
+              : '特性'
         }}
       </span>
       {{ store.settingCardData[skillType].name }}
@@ -40,7 +40,7 @@
           store.settingCardData[skillType].name
         ][store.settingCardData[skillType].ID].detail.type"
         :key="skillID"
-        :color="skillID.COLOR_CODE"
+        :color="skillStore.getSkillDetailData(skillID, 'colorCode')"
         :class="`chipSize mb-1${
           i + 1 <
           SKILL_LIST[store.settingCardData[skillType].name][
@@ -56,7 +56,7 @@
           })
         "
       >
-        {{ skillID.name_ja }}
+        {{ skillStore.getSkillDetailData(skillID, 'skillDetailName') }}
       </v-chip>
     </div>
 
@@ -122,7 +122,9 @@
                         v-for="(skillID, ii) in SKILL_LIST[list.name][list.ID]
                           .detail.type"
                         :key="skillID"
-                        :color="skillID.COLOR_CODE"
+                        :color="
+                          skillStore.getSkillDetailData(skillID, 'colorCode')
+                        "
                         :class="`chipSize mt-1 ${
                           ii + 1 <
                           SKILL_LIST[list.name][list.ID].detail.type.length
@@ -136,7 +138,12 @@
                           })
                         "
                       >
-                        {{ skillID.name_ja }}
+                        {{
+                          skillStore.getSkillDetailData(
+                            skillID,
+                            'skillDetailName',
+                          )
+                        }}
                       </v-chip>
                     </div>
                   </div>
@@ -211,7 +218,12 @@
                                   addSkillList.name
                                 ][addSkillList.ID].detail.type"
                                 :key="skill"
-                                :color="skill.COLOR_CODE"
+                                :color="
+                                  skillStore.getSkillDetailData(
+                                    skill,
+                                    'colorCode',
+                                  )
+                                "
                                 :class="`chipSize mt-1 ${
                                   ii + 1 <
                                   SKILL_LIST[addSkillList.name][addSkillList.ID]
@@ -226,7 +238,12 @@
                                   })
                                 "
                               >
-                                {{ skill.name_ja }}
+                                {{
+                                  skillStore.getSkillDetailData(
+                                    skill,
+                                    'skillDetailName',
+                                  )
+                                }}
                               </v-chip>
                             </div>
                           </div>
@@ -255,9 +272,9 @@
 
   <v-dialog v-model="dialog" scrollable :max-width="dialogSize">
     <v-sheet class="pa-3">
-      <div v-if="openDialogName === 'skillDescription'">
+      <div v-if="openDialogName === 'skillDescription' && skillDetail">
         <h2 class="text-center mb-2">スキル詳細</h2>
-        {{ skillDetail.DESCRIPTION }}
+        {{ skillStore.getSkillDetailData(skillDetail, 'description') }}
       </div>
       <div class="mt-1 text-center">
         <v-btn
@@ -273,6 +290,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
+import { useSkillStore } from '@/stores/skillStore';
 import { SKILL_LIST } from '@/constants/skillList';
 import type { SKILL_DETAIL } from '@/constants/skillDetail';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
@@ -283,6 +301,7 @@ const props = defineProps<{
 }>();
 
 const store = useStateStore();
+const skillStore = useSkillStore();
 
 /** 追加スキル・SAリスト算出 */
 const outputAddSkillList = computed(() => {
@@ -341,7 +360,7 @@ const openDialog = (
   option: {
     skillID: (typeof SKILL_DETAIL)[keyof typeof SKILL_DETAIL];
     targetSkill: string | null;
-  }
+  },
 ): void => {
   targetSkill.value = option === null ? null : option.targetSkill;
   openDialogName.value = openDialogNameValue;
