@@ -173,6 +173,67 @@
     }
   },
   "UR": {
+    "iz_019": {
+      "cardName": "廻天の車窓",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "車窓",
+      "kana": "かいてんのしゃそう",
+      "gacha": {
+        "addSeason": "2025 PARTY LIMITED COLLECTION",
+        "period": "party"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fiz_019_before.webp?alt=media&token=99c85859-0cb6-4f21-9cef-9b023a1768ea",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_018_after.webp?alt=media&token=1cc2bcc4-5f21-485b-b0d1-376af3d1e00d"
+      },
+      "uniqueStatus": {
+        "smile": 3200,
+        "pure": 6400,
+        "cool": 4900,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "designReality_01",
+        "name": "デザインリアリティ",
+        "AP": 13,
+        "detail": [],
+        "addSA": [
+          {
+            "ID": "designReality_02",
+            "name": "デザインリアリティ",
+            "AP": 7,
+            "EXAP": [18, 17, 17, 16, 16, 15, 15, 14, 14, 13, 13, 12, 12, 11],
+            "detail": []
+          }
+        ]
+      },
+      "skill": {
+        "ID": "trueImitation_01",
+        "name": "トゥルーイミテーション",
+        "AP": 11,
+        "detail": [
+          [14, 15, 17, 18, 20, 21, 22, 24, 25, 28, 29, 31, 32, 35],
+          [
+            8, 8.8, 9.6, 10.4, 11.2, 12, 12.8, 13.6, 14.4, 16, 16.8, 17.6, 18.4,
+            20
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ブルームオペレーター",
+        "detail": "ドローしたとき、2回の間ムード値変動効果を+20%する。さらにムードが0でドローしたとき、APを5回復し、このスキルの消費APを5、ムードがハッピー、メロウいずれか100でドローしたとき、このスキルの消費APを-8、このステージ中、ビートハートの出現個数を+1し、ボルテージLv.に応じてスキルハートを獲得する。",
+        "type": [
+          "draw",
+          "boost_mood",
+          "sound",
+          "APReduce",
+          "vibes_stage",
+          "heartCaptcha"
+        ]
+      }
+    },
     "iz_018": {
       "cardName": "蓮ノ空歌留多",
       "styleType": "trickStar",
