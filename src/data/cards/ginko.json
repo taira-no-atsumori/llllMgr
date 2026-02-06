@@ -2532,7 +2532,7 @@
         "ID": "dress_myLuckyClover_01",
         "name": "ドレス《My Lucky Clover》",
         "AP": 4,
-        "detail": [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 18, 20]],
+        "detail": [[8, 9, 10, 10, 11, 12, 13, 14, 14, 16, 17, 18, 19, 20]],
         "addSkill": [
           {
             "ID": "myLuckyClover_01",

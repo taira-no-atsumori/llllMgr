@@ -8411,7 +8411,7 @@ export const SKILL_LIST = {
       ],
       detail: {
         attr: '',
-        type: ['reshuffle', 'extendHand', 'addSpecialAppeal'],
+        type: ['addSA', 'reshuffle', 'extendHand'],
       },
     },
   },
@@ -9646,6 +9646,94 @@ export const SKILL_LIST = {
       detail: {
         attr: '',
         type: ['ambience_section', 'sound', 'imitation', 'loveAttract_stage'],
+      },
+    },
+  },
+  デザインリアリティ: {
+    designReality_01: {
+      text: [
+        'スペシャルアピールから、ステージ上にセットされたイミテーションカードを強制発動できるようになる。',
+      ],
+      detail: {
+        attr: '',
+        type: ['addSA'],
+      },
+    },
+    designReality_02: {
+      text: ['ステージ上にセットされたイミテーションカードを強制発動する。'],
+      detail: {
+        attr: '',
+        type: ['imitation_forcedActivation'],
+      },
+    },
+  },
+  コンサートミストレス: {
+    concertMistress_01: {
+      text: [
+        'スペシャルアピールから、ムード値を指定値に変動できるようになる。',
+      ],
+      detail: {
+        attr: '',
+        type: ['addSA'],
+      },
+    },
+    concertMistress_02: {
+      text: ['ムード値をハッピー100にする。'],
+      detail: {
+        attr: '',
+        type: ['ambience_fix_stage'],
+      },
+    },
+    concertMistress_03: {
+      text: ['ムード値を0にする。'],
+      detail: {
+        attr: '',
+        type: ['ambience_fix_stage'],
+      },
+    },
+    concertMistress_04: {
+      text: ['ムード値をメロウ100にする。'],
+      detail: {
+        attr: '',
+        type: ['ambience_fix_stage'],
+      },
+    },
+  },
+  ポエティックパフォーマンス: {
+    poeticPerformance_01: {
+      text: [
+        'ムードが0のとき、それぞれ2回の間ラブアトラクト効果を+',
+        '%、ボルテージゲイン効果を+',
+        '%し、手札をリセットシャッフルする。ムードがハッピー100のとき、ビートハート',
+        '回分のスキルハートを獲得し、このステージ中、獲得するLOVEを+',
+        '%する。ムードがメロウ100のとき、ビートハート',
+        '回分のスキルハートを獲得し、ボルテージPt.を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          'sound',
+          'boost_loveAttract',
+          'boost_voltageGain',
+          'reshuffle',
+          'heartCaptcha',
+          'loveAttract_stage',
+          'voltageGain',
+        ],
+      },
+    },
+  },
+  トゥルーイミテーション: {
+    trueImitation_01: {
+      text: [
+        'ビートハート',
+        '回分のスキルハートを獲得する。このセクション中、AP回復速度を+',
+        '%する。さらにムードがハッピー、メロウいずれか100のとき、カードがステージにセットされ、1セクションの間獲得するムード値変動効果を吸収する。セクションが変わったとき、このステージ中、ハート上限、獲得するLOVE、ボルテージPt.を増加し、捨て札に移動する。このとき、吸収した効果量が多いほど発動する効果の効果量が大きくなる。',
+      ],
+      detail: {
+        attr: '',
+        type: ['heartCaptcha', 'APQuick', 'sound', 'imitation'],
       },
     },
   },

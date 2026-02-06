@@ -189,6 +189,95 @@
     }
   },
   "UR": {
+    "sr_018": {
+      "cardName": "再臨の車窓",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "車窓",
+      "kana": "さいりんのしゃそう",
+      "gacha": {
+        "addSeason": "2025 PARTY LIMITED COLLECTION",
+        "period": "party"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_018_before.webp?alt=media&token=732a759f-4afc-4c70-8fa1-4c5a8dd7990f",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_018_after.webp?alt=media&token=1cc2bcc4-5f21-485b-b0d1-376af3d1e00d"
+      },
+      "uniqueStatus": {
+        "smile": 3150,
+        "pure": 6200,
+        "cool": 5150,
+        "mental": 470,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "concertMistress_01",
+        "name": "コンサートミストレス",
+        "AP": 13,
+        "detail": [],
+        "addSA": [
+          {
+            "ID": "concertMistress_02",
+            "name": "コンサートミストレス",
+            "AP": 7,
+            "EXAP": [7, 6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0],
+            "detail": []
+          },
+          {
+            "ID": "concertMistress_03",
+            "name": "コンサートミストレス",
+            "AP": 7,
+            "EXAP": [7, 6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0],
+            "detail": []
+          },
+          {
+            "ID": "concertMistress_04",
+            "name": "コンサートミストレス",
+            "AP": 7,
+            "EXAP": [7, 6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0],
+            "detail": []
+          }
+        ]
+      },
+      "skill": {
+        "ID": "poeticPerformance_01",
+        "name": "ポエティックパフォーマンス",
+        "AP": 11,
+        "detail": [
+          [
+            800, 880, 960, 1040, 1120, 1200, 1280, 1360, 1440, 1600, 1680, 1760,
+            1840, 2000
+          ],
+          [
+            800, 880, 960, 1040, 1120, 1200, 1280, 1360, 1440, 1600, 1680, 1760,
+            1840, 2000
+          ],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+          [
+            800, 880, 960, 1040, 1120, 1200, 1280, 1360, 1440, 1600, 1680, 1760,
+            1840, 2000
+          ],
+          [80, 88, 96, 104, 112, 120, 128, 136, 144, 160, 168, 176, 184, 200],
+          [240, 264, 288, 312, 336, 360, 384, 408, 432, 480, 504, 528, 552, 600]
+        ]
+      },
+      "characteristic": {
+        "name": "ブルームコンダクター",
+        "detail": "ムードが0でドローしたとき、このステージ中、ビートハートの出現個数を+2、メンタルに応じてスキルハートを獲得し、このスキルの消費APを-8する。ムードがハッピー100でドローしたとき、メンタルを最大値の100%回復、2回の間ハート上限増加効果を+100%、ムードをハッピー方向に+100、このスキルの消費APを-5する。ムードがメロウ100でドローしたとき、このセクション中、手札の上限枚数を2枚増加、2回の間メンタルリカバー効果を+100%、ムードをメロウ方向に+100、このスキルの消費APを-5する。",
+        "type": [
+          "draw",
+          "vibes_stage",
+          "heartCaptcha",
+          "APGain",
+          "mentalRecover",
+          "boost_wideHeart",
+          "ambience_section",
+          "APReduce",
+          "extensions_section",
+          "boost_mentalRecover"
+        ]
+      }
+    },
     "sr_017": {
       "cardName": "蓮ノ空歌留多",
       "styleType": "moodMaker",
