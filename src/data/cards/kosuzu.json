@@ -271,7 +271,7 @@
       "specialAppeal": {
         "ID": "darknessSun_01",
         "name": "ダークネスサン",
-        "AP": 0,
+        "AP": 5,
         "detail": [
           [
             "1334",
@@ -294,7 +294,7 @@
       "skill": {
         "ID": "rebootVoltage_01",
         "name": "リブウトボルテージ",
-        "AP": 0,
+        "AP": 22,
         "detail": [
           [
             "800",
