@@ -39,5 +39,6 @@ declare module 'vue' {
     Settings: typeof import('./components/modal/Settings.vue')['default']
     Share: typeof import('./components/modal/Share.vue')['default']
     SkillAreaComponent: typeof import('./components/SkillAreaComponent.vue')['default']
+    SkillFormComponent: typeof import('./components/SkillFormComponent.vue')['default']
   }
 }

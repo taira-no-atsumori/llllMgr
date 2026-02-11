@@ -97,10 +97,8 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row>
-          <v-col>
+          <v-col cols="12">
             <v-radio-group
               v-model="singerTab"
               label="Singer"
@@ -112,9 +110,7 @@
               <v-radio label="Solo" value="solo" color="pink" />
             </v-radio-group>
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-col cols="6">
             <v-select
               v-model="music.musicData.singer_group"
@@ -145,9 +141,7 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-col cols="3">
             <v-text-field
               v-model="releaseDateInput"
@@ -169,9 +163,7 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-col cols="12">
             <v-text-field
               v-model="music.musicData.numbering"
@@ -182,9 +174,7 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-col cols="2">
             <v-text-field
               v-model.number="music.musicData.BPM.original"
@@ -261,9 +251,7 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-col cols="2">
             <v-select
               v-model="music.attribute"
@@ -315,9 +303,7 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row>
           <v-col cols="6">
             <v-select
               v-model="music.center"
@@ -346,137 +332,67 @@
               hide-details
             />
           </v-col>
-        </v-row>
 
-        <v-row class="pl-2">
-          <v-col>
-            <v-switch
-              v-model="hasScoreData"
-              color="pink"
-              label="Include Score Data (Difficulty Level & Max Combo)"
-              density="compact"
-              hide-details
+          <v-col cols="12">
+            <v-btn
+              v-if="!hasScoreData"
+              text="Include Score Data (Difficulty Level & Max Combo)"
+              prepend-icon="mdi-plus"
+              block
+              @click="hasScoreData = true"
             />
-          </v-col>
-        </v-row>
+            <v-card v-else>
+              <v-card-title class="mb-2">
+                <v-row>
+                  <v-col cols="6">Difficulty Level</v-col>
+                  <v-col cols="6" class="d-flex">
+                    Max Combo
+                    <v-spacer />
+                    <v-btn
+                      icon="mdi-close"
+                      variant="text"
+                      density="compact"
+                      color="error"
+                      @click="hasScoreData = false"
+                    />
+                  </v-col>
+                </v-row>
+              </v-card-title>
 
-        <v-row>
-          <v-col cols="6">
-            <h3 class="mb-3">Difficulty Level</h3>
-
-            <v-row>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.difficultyLevel.NORMAL"
-                  label="NORMAL"
-                  type="number"
-                  max="99"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.difficultyLevel.HARD"
-                  label="HARD"
-                  type="number"
-                  max="99"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.difficultyLevel.EXPERT"
-                  label="EXPERT"
-                  type="number"
-                  max="99"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.difficultyLevel.MASTER"
-                  label="MASTER"
-                  type="number"
-                  max="99"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-            </v-row>
-          </v-col>
-
-          <v-col cols="6">
-            <h3 class="mb-3">Max Combo</h3>
-
-            <v-row>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.maxCombo.NORMAL"
-                  label="NORMAL"
-                  type="number"
-                  max="9999"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.maxCombo.HARD"
-                  label="HARD"
-                  type="number"
-                  max="9999"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.maxCombo.EXPERT"
-                  label="EXPERT"
-                  type="number"
-                  max="9999"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-              <v-col cols="3">
-                <v-text-field
-                  v-model.number="music.scoreData.maxCombo.MASTER"
-                  label="MASTER"
-                  type="number"
-                  max="9999"
-                  min="1"
-                  :disabled="!hasScoreData"
-                  density="compact"
-                  variant="outlined"
-                  hide-details
-                />
-              </v-col>
-            </v-row>
+              <v-card-text>
+                <v-row>
+                  <v-col
+                    v-for="value in ['difficultyLevel', 'maxCombo']"
+                    :key="value"
+                    cols="6"
+                  >
+                    <v-row>
+                      <v-col
+                        v-for="difficulty in [
+                          'NORMAL',
+                          'HARD',
+                          'EXPERT',
+                          'MASTER',
+                        ]"
+                        :key="difficulty"
+                        cols="3"
+                      >
+                        <v-text-field
+                          v-model.number="music.scoreData[value][difficulty]"
+                          :label="difficulty"
+                          type="number"
+                          max="99"
+                          min="1"
+                          density="compact"
+                          variant="outlined"
+                          hide-details
+                        />
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+            </v-card>
           </v-col>
         </v-row>
       </v-col>
@@ -500,19 +416,29 @@
             />
           </v-col>
 
-          <v-col cols="12">
-            <v-file-input
-              v-model="fileInputModel"
-              label="Jacket Image"
+          <v-col cols="12" align="center">
+            <v-img
+              :src="previewImageUrl || music.imageURL || noImage"
+              :width="300"
+              class="mb-3 cursor-pointer"
+              @click="triggerFileInput"
+            />
+            <v-btn
+              :disabled="!selectedFile"
+              color="error"
+              prepend-icon="mdi-close"
+              text="Deselect"
+              @click="cancelUpload"
+            />
+            <input
+              ref="fileInputRef"
+              type="file"
               accept="image/webp"
-              prepend-icon="mdi-image"
-              density="compact"
-              variant="outlined"
-              hide-details
-              :loading="isUploading"
-              @update:model-value="handleFileSelect"
+              class="d-none"
+              @change="onNativeFileChange"
             />
           </v-col>
+
           <v-col cols="12">
             <v-text-field
               v-model="music.imageURL"
@@ -525,7 +451,6 @@
           </v-col>
 
           <v-col v-if="music.imageURL" cols="12" class="text-center">
-            <v-img :src="music.imageURL" max-height="200" contain />
             <!-- <v-btn
               color="error"
               text="Clear"
@@ -572,7 +497,7 @@ import {
   getDownloadURL,
   listAll,
 } from 'firebase/storage';
-import { rtdbDev } from '@/firebase';
+import { rtdb, rtdbDev } from '@/firebase';
 import { ATTRIBUTE } from '@/constants/music';
 import {
   MEMBER_KEYS,
@@ -585,10 +510,12 @@ import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import type { MusicItem } from '@/types/musicList';
 import { useStateStore } from '@/stores/stateStore';
+import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
 
 const isIdOverride = ref(false);
 const singerTab = ref('group');
 const isUploading = ref(false);
+const fileInputRef = ref<File[] | null>(null);
 const fileInputModel = ref<File[]>([]);
 const selectedFile = ref<File | null>(null);
 const previewImageUrl = ref<string | null>(null);
@@ -895,6 +822,7 @@ const applyPreset = () => {
   }
 
   selectedPreset.value = null;
+  fileInputRef.value = null;
 };
 
 /** 入力データリセット処理 */
@@ -902,6 +830,8 @@ const resetForm = () => {
   isIdOverride.value = false;
   selectedPreset.value = null;
   hasScoreData.value = false;
+  fileInputRef.value = null;
+  singerTab.value = 'group';
   music.value = getInitialMusicData();
   isReleaseDateUnknown.value = false;
 };
@@ -915,11 +845,26 @@ const addToStore = async () => {
     isUploading.value = true;
 
     if (selectedFile.value) {
-      const storage = getStorage(rtdbDev.app);
+      const storage = getStorage(rtdb.app);
       const fileRef = storageRef(
         storage,
         `cdJacket/${selectedFile.value.name}`,
       );
+
+      try {
+        await getDownloadURL(fileRef);
+        if (
+          !confirm(
+            `同名のファイル (${selectedFile.value.name}) が既に存在します。\n上書きしますか？`,
+          )
+        ) {
+          isUploading.value = false;
+          return;
+        }
+      } catch (_) {
+        // ファイルが存在しない場合は何もしない
+      }
+
       const snapshot = await uploadBytes(fileRef, selectedFile.value);
       const url = await getDownloadURL(snapshot.ref);
       data[id].imageURL = url;
@@ -953,7 +898,7 @@ const fetchImageByTitle = async () => {
     return;
   }
 
-  const storage = getStorage(rtdbDev.app);
+  const storage = getStorage(rtdb.app);
   const listRef = storageRef(storage, 'cdJacket');
 
   try {
@@ -1036,6 +981,22 @@ const cancelUpload = () => {
   selectedFile.value = null;
   previewImageUrl.value = null;
   fileInputModel.value = [];
+
+  if (fileInputRef.value) {
+    fileInputRef.value.value = '';
+  }
+};
+
+const triggerFileInput = () => {
+  fileInputRef.value?.click();
+};
+
+const onNativeFileChange = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+
+  if (target.files && target.files.length > 0) {
+    handleFileSelect(target.files[0]);
+  }
 };
 
 /** リアルタイムにJSONを生成 */
