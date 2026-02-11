@@ -295,6 +295,111 @@
     }
   },
   "UR": {
+    "sy_069": {
+      "cardName": "リブウト",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "リブウト",
+      "kana": "りぶうと",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.7",
+        "period": "normal"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsy_069_before.webp?alt=media&token=feba3e0e-a515-4f0a-ba0f-85242e9ce95b",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsy_069_after.webp?alt=media&token=4d3cfb15-b030-456c-92d4-5114c9363d5a"
+      },
+      "uniqueStatus": {
+        "smile": 4350,
+        "pure": 5850,
+        "cool": 4200,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "frozenSun_01",
+        "name": "フローズンサン",
+        "AP": 5,
+        "detail": [
+          [
+            "1333",
+            "1466",
+            "1599",
+            "1733",
+            "1866",
+            "1999",
+            "2133",
+            "2266",
+            "2399",
+            "2666",
+            "2799",
+            "2933",
+            "3066",
+            "3333"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "rebootAttract_01",
+        "name": "リブウトアトラクト",
+        "AP": 22,
+        "detail": [
+          [
+            "800",
+            "880",
+            "960",
+            "1040",
+            "1120",
+            "1200",
+            "1280",
+            "1360",
+            "1440",
+            "1600",
+            "1680",
+            "1760",
+            "1840",
+            "2000"
+          ],
+          [
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "40",
+            "42",
+            "44",
+            "46",
+            "50"
+          ],
+          [
+            "480",
+            "528",
+            "576",
+            "624",
+            "672",
+            "720",
+            "768",
+            "816",
+            "864",
+            "960",
+            "1008",
+            "1056",
+            "1104",
+            "1200"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ワイルドドリーム",
+        "detail": "手札にある状態で小鈴のスキルを使用するたび、手札をシャッフル、このセクション中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の100%減少、デッキ内のさやかのスキルの消費APを-20する。",
+        "type": ["reshuffle", "mentalDown_section", "mentalReduce", "APReduce"]
+      }
+    },
     "sy_067": {
       "cardName": "雪舞う空と二秒の永遠",
       "styleType": "moodMaker",

@@ -247,6 +247,111 @@
     }
   },
   "UR": {
+    "sz_035": {
+      "cardName": "リブウト",
+      "styleType": "trickStar",
+      "mood": "neutral",
+      "series": "リブウト",
+      "kana": "りぶうと",
+      "gacha": {
+        "addSeason": "2025 WINTER LIMITED COLLECTION vol.7",
+        "period": "normal"
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_035_before.webp?alt=media&token=7f3f4cc8-d07e-47a7-a34a-43cb21c7d9e8",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_035_after.webp?alt=media&token=11351cd6-0725-4764-88bb-c4e274161231"
+      },
+      "uniqueStatus": {
+        "smile": 4500,
+        "pure": 5750,
+        "cool": 4150,
+        "mental": 480,
+        "BP": 100
+      },
+      "specialAppeal": {
+        "ID": "darknessSun_01",
+        "name": "ダークネスサン",
+        "AP": 0,
+        "detail": [
+          [
+            "1334",
+            "1467",
+            "1600",
+            "1734",
+            "1867",
+            "2000",
+            "2134",
+            "2267",
+            "2400",
+            "2667",
+            "2800",
+            "2934",
+            "3067",
+            "3333"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "rebootVoltage_01",
+        "name": "リブウトボルテージ",
+        "AP": 0,
+        "detail": [
+          [
+            "800",
+            "880",
+            "960",
+            "1040",
+            "1120",
+            "1200",
+            "1280",
+            "1360",
+            "1440",
+            "1600",
+            "1680",
+            "1760",
+            "1840",
+            "2000"
+          ],
+          [
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "40",
+            "42",
+            "44",
+            "46",
+            "50"
+          ],
+          [
+            "800",
+            "880",
+            "960",
+            "1040",
+            "1120",
+            "1200",
+            "1280",
+            "1360",
+            "1440",
+            "1600",
+            "1680",
+            "1760",
+            "1840",
+            "2000"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ワイルドソウル",
+        "detail": "手札にある状態でさやかのスキルを使用するたび、手札をシャッフル、このセクション中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の100%減少、デッキ内の小鈴のスキルの消費APを-20する。",
+        "type": ["reshuffle", "mentalDown_section", "mentalReduce", "APReduce"]
+      }
+    },
     "sz_034": {
       "cardName": "Jolie Mademoiselle",
       "styleType": "moodMaker",

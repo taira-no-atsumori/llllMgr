@@ -26,6 +26,7 @@ declare module 'vue' {
     Loading: typeof import('./components/modal/Loading.vue')['default']
     Login: typeof import('./components/modal/Login.vue')['default']
     MasteryLevel: typeof import('./components/modal/MasteryLevel.vue')['default']
+    MgrInfo: typeof import('./components/addData/MgrInfo.vue')['default']
     ModalArea: typeof import('./components/modal/ModalArea.vue')['default']
     Music: typeof import('./components/common/Music.vue')['default']
     MusicListFilter: typeof import('./components/modal/MusicListFilter.vue')['default']
@@ -39,5 +40,6 @@ declare module 'vue' {
     Settings: typeof import('./components/modal/Settings.vue')['default']
     Share: typeof import('./components/modal/Share.vue')['default']
     SkillAreaComponent: typeof import('./components/SkillAreaComponent.vue')['default']
+    SkillFormComponent: typeof import('./components/SkillFormComponent.vue')['default']
   }
 }

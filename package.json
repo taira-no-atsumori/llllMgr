@@ -26,7 +26,7 @@
     "vue-gtag-next": "^1.14.0",
     "vue-router": "^4.6.3",
     "vuedraggable": "^2.24.3",
-    "vuetify": "^3.10.9",
+    "vuetify": "^3.11.8",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {

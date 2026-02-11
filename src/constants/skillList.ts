@@ -9737,5 +9737,69 @@ export const SKILL_LIST = {
       },
     },
   },
+  フローズンサン: {
+    frozenSun_01: {
+      text: [
+        'このステージ中、メンタルが0になってもメンタルダウンしなくなり、ボルテージPt.が1秒ごとに',
+        'pt増加する。さらにこのセクション中、AP回復速度を-33%する。',
+      ],
+      detail: {
+        attr: '',
+        type: ['mentalDown_stage', 'voltageGain', 'APSlow'],
+      },
+    },
+  },
+  ダークネスサン: {
+    darknessSun_01: {
+      text: [
+        'このステージ中、メンタルが0になってもメンタルダウンしなくなり、ボルテージPt.が1秒ごとに',
+        'pt増加する。さらにこのセクション中、手札の上限枚数を3枚減少する。',
+      ],
+      detail: {
+        attr: '',
+        type: ['mentalDown_stage', 'voltageGain', 'cardReduce_section'],
+      },
+    },
+  },
+  リブウトアトラクト: {
+    rebootAttract_01: {
+      text: [
+        '手札をシャッフルする。さらにムードがハッピー、メロウいずれか100のとき、5回の間小鈴が使用するラブアトラクト効果を+',
+        '%、メンタルが0のとき、このセクション中、ムード値を+',
+        '、ムードがハッピー、メロウ100でメンタルが0のとき、ボルテージPt.を+',
+        'する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          'reshuffle',
+          'sound',
+          'boost_loveAttract',
+          'ambience_section',
+          'voltageGain',
+        ],
+      },
+    },
+  },
+  リブウトボルテージ: {
+    rebootVoltage_01: {
+      text: [
+        '手札をシャッフルする。さらにムードがハッピー、メロウいずれか100のとき、5回の間さやかが使用するボルテージゲイン効果を+',
+        '%、メンタルが0のとき、このセクション中、ムード値を+',
+        '、ムードがハッピー、メロウ100でメンタルが0のとき、このステージ中、獲得するLOVEを+',
+        '%する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          'reshuffle',
+          'sound',
+          'boost_voltageGain',
+          'ambience_section',
+          'loveAttract_stage',
+        ],
+      },
+    },
+  },
 } as const;
 export type skillList = keyof typeof SKILL_LIST;

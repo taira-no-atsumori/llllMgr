@@ -216,26 +216,12 @@ import { useRouter } from 'vue-router';
 import { ref as dbRef, onValue } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
+import type { EventItem } from '@/types/event';
 
 const store = useStateStore();
 const router = useRouter();
 
 const eventList = ref<Record<string, EventItem>>({});
-
-interface EventItem {
-  title: string;
-  text: string;
-  type: string;
-  firstDay: number[];
-  lastDay: number[];
-  link: string;
-  imageUrl: string;
-  state?: string;
-  count?: {
-    day?: number;
-    time?: number;
-  };
-}
 
 const outputEventList = reactive<Record<string, EventItem>>({});
 

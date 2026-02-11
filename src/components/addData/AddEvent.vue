@@ -1,7 +1,6 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-toolbar density="compact" color="transparent">
-      <v-toolbar-title>Event List</v-toolbar-title>
+    <div class="text-right mb-3">
       <v-spacer />
       <v-btn
         color="primary"
@@ -9,7 +8,7 @@
         text="New"
         @click="openCreateDialog"
       />
-    </v-toolbar>
+    </div>
 
     <v-data-table
       :headers="headers"
@@ -49,74 +48,100 @@
       </template>
     </v-data-table>
 
-    <v-dialog v-model="dialog" max-width="800px">
+    <v-dialog v-model="dialog" max-width="1000px">
       <v-card>
         <v-card-title>
-          <span class="text-h5">{{ isNew ? 'New Event' : 'Edit Event' }}</span>
+          <span class="text-h5">{{ `${isNew ? 'New' : 'Edit'} Event` }}</span>
         </v-card-title>
 
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col cols="12">
-                <v-text-field
-                  v-model="eventData.id"
-                  label="ID"
-                  :readonly="!isNew"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
-                />
-              </v-col>
-              <v-col cols="6">
-                <v-text-field
-                  v-model="eventData.title"
-                  label="Event Title"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
-                />
+              <v-col cols="8">
+                <v-row>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="eventData.id"
+                      label="ID"
+                      :readonly="!isNew"
+                      variant="outlined"
+                      density="compact"
+                      hide-details="auto"
+                    />
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="eventData.title"
+                      label="Event Title"
+                      variant="outlined"
+                      density="compact"
+                      hide-details="auto"
+                    />
+                  </v-col>
+
+                  <v-col cols="8">
+                    <v-text-field
+                      v-model="eventData.text"
+                      label="Text"
+                      variant="outlined"
+                      density="compact"
+                      hide-details="auto"
+                    />
+                  </v-col>
+
+                  <v-col cols="4">
+                    <v-select
+                      v-model="eventData.type"
+                      label="Event Type"
+                      :items="eventTypes"
+                      variant="outlined"
+                      density="compact"
+                      hide-details="auto"
+                    />
+                  </v-col>
+
+                  <v-col cols="6">
+                    <v-text-field
+                      v-model="eventData.firstDay"
+                      label="First Day"
+                      type="datetime-local"
+                      variant="outlined"
+                      density="compact"
+                      hide-details="auto"
+                    />
+                  </v-col>
+                  <v-col cols="6">
+                    <v-text-field
+                      v-model="eventData.lastDay"
+                      label="End Day"
+                      type="datetime-local"
+                      variant="outlined"
+                      density="compact"
+                      hide-details="auto"
+                    />
+                  </v-col>
+                </v-row>
               </v-col>
 
-              <v-col cols="6">
-                <v-text-field
-                  v-model="eventData.text"
-                  label="Text"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
+              <v-col cols="4" align="center">
+                <v-img
+                  :src="previewImageUrl || eventData.imageUrl || noImage"
+                  class="mb-2 cursor-pointer"
+                  @click="triggerFileInput"
                 />
-              </v-col>
-
-              <v-col cols="4">
-                <v-select
-                  v-model="eventData.type"
-                  label="Event Type"
-                  :items="eventTypes"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
+                <v-btn
+                  :disabled="!selectedFile"
+                  color="error"
+                  prepend-icon="mdi-close"
+                  text="Deselect"
+                  @click="cancelUpload"
                 />
-              </v-col>
-
-              <v-col cols="4">
-                <v-text-field
-                  v-model="eventData.firstDay"
-                  label="First Day"
-                  type="datetime-local"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
-                />
-              </v-col>
-              <v-col cols="4">
-                <v-text-field
-                  v-model="eventData.lastDay"
-                  label="End Day"
-                  type="datetime-local"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
+                <input
+                  ref="fileInputRef"
+                  type="file"
+                  accept="image/webp"
+                  style="display: none"
+                  @change="onNativeFileChange"
                 />
               </v-col>
 
@@ -129,28 +154,24 @@
                   hide-details="auto"
                 />
               </v-col>
-
-              <v-col cols="12">
-                <v-text-field
-                  v-model="eventData.imageUrl"
-                  label="Image URL"
-                  variant="outlined"
-                  density="compact"
-                  hide-details="auto"
-                />
-              </v-col>
             </v-row>
           </v-container>
         </v-card-text>
 
         <v-card-actions>
           <v-spacer />
-          <v-btn color="blue-darken-1" variant="text" @click="closeDialog">
-            Cancel
-          </v-btn>
-          <v-btn color="blue-darken-1" variant="text" @click="saveEvent">
-            Save
-          </v-btn>
+          <v-btn
+            text="Cancel"
+            color="red"
+            variant="text"
+            @click="closeDialog"
+          />
+          <v-btn
+            text="Save"
+            color="primary"
+            variant="text"
+            @click="saveEvent"
+          />
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -176,9 +197,17 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { ref as dbRef, update, get, set, remove } from 'firebase/database';
+import {
+  getStorage,
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL,
+} from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import { EVENT_LIST } from '@/constants/eventList';
+import type { EventItem } from '@/types/event';
+import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
 
 const store = useStateStore();
 
@@ -187,14 +216,53 @@ const snackbarMessage = ref('');
 const snackbarColor = ref('success');
 const dialog = ref(false);
 const isNew = ref(false);
+const previewImageUrl = ref<string | null>(null);
+const fileInputRef = ref<HTMLInputElement | null>(null);
+const selectedFile = ref<File | null>(null);
 
 const headers = [
   { title: 'ID', key: 'id', sortable: false },
   { title: 'Title', key: 'title', sortable: false },
+  { title: 'SubTitle', key: 'text', sortable: false },
   { title: 'First Day', key: 'firstDay' },
   { title: 'Last Day', key: 'lastDay' },
   { title: 'Edit', key: 'edit', sortable: false },
 ];
+
+const handleFileSelect = (file: File | File[]) => {
+  const targetFile = Array.isArray(file) ? file[0] : file;
+  if (!targetFile) {
+    cancelUpload();
+    return;
+  }
+
+  selectedFile.value = targetFile;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    previewImageUrl.value = e.target?.result as string;
+  };
+  reader.readAsDataURL(targetFile);
+};
+
+const cancelUpload = () => {
+  selectedFile.value = null;
+  previewImageUrl.value = null;
+  if (fileInputRef.value) {
+    fileInputRef.value.value = '';
+  }
+};
+
+const triggerFileInput = () => {
+  fileInputRef.value?.click();
+};
+
+const onNativeFileChange = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+
+  if (target.files && target.files.length > 0) {
+    handleFileSelect(target.files[0]);
+  }
+};
 
 const formatDateArray = (dateArr: number[] | undefined) => {
   if (!dateArr || !Array.isArray(dateArr)) return '';
@@ -205,7 +273,7 @@ const formatDateArray = (dateArr: number[] | undefined) => {
   )} ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
 };
 
-const events = ref<Record<string, any>>({});
+const events = ref<Record<string, EventItem>>({});
 
 const fetchEvents = async () => {
   const db = store.isDev ? rtdbDev : rtdb;
@@ -221,10 +289,12 @@ onMounted(fetchEvents);
 watch(() => store.isDev, fetchEvents);
 
 const items = computed(() => {
-  return Object.entries(events.value).map(([key, value]: [string, any]) => ({
-    id: key,
-    ...value,
-  }));
+  return Object.entries(events.value).map(
+    ([key, value]: [string, EventItem]) => ({
+      id: key,
+      ...value,
+    }),
+  );
 });
 
 const uploadEvents = async () => {
@@ -291,7 +361,7 @@ const eventData = ref({
   imageUrl: '',
 });
 
-const openEditDialog = (mode: 'edit' | 'copy', item: any) => {
+const openEditDialog = (mode: 'edit' | 'copy', item: EventItem) => {
   eventData.value.id = mode === 'edit' ? item.id : '';
   isNew.value = mode !== 'edit';
   eventData.value.title = item.title || '';
@@ -299,6 +369,8 @@ const openEditDialog = (mode: 'edit' | 'copy', item: any) => {
   eventData.value.type = item.type || 'liveGP';
   eventData.value.link = item.link || '';
   eventData.value.imageUrl = item.imageUrl || '';
+  selectedFile.value = null;
+  previewImageUrl.value = null;
 
   const toDatetimeLocal = (arr: number[]) => {
     if (!Array.isArray(arr) || arr.length < 5) return '';
@@ -322,12 +394,16 @@ const openCreateDialog = () => {
     link: '',
     imageUrl: '',
   };
+  selectedFile.value = null;
+  previewImageUrl.value = null;
   isNew.value = true;
   dialog.value = true;
 };
 
-const deleteEvent = async (item: any) => {
-  if (!confirm(`Are you sure you want to delete "${item.title}"?`)) return;
+const deleteEvent = async (item: EventItem) => {
+  if (!confirm(`Are you sure you want to delete "${item.title}"?`)) {
+    return;
+  }
 
   const db = store.isDev ? rtdbDev : rtdb;
   try {
@@ -361,6 +437,14 @@ const saveEvent = async () => {
   const { id, ...rest } = updateData;
 
   try {
+    if (selectedFile.value) {
+      const storage = getStorage(rtdb.app);
+      const fileRef = storageRef(storage, `event/${selectedFile.value.name}`);
+      const snapshot = await uploadBytes(fileRef, selectedFile.value);
+      const url = await getDownloadURL(snapshot.ref);
+      rest.imageUrl = url;
+    }
+
     await update(dbRef(db, `eventInformation/${id}`), rest);
     snackbarMessage.value = 'Saved successfully';
     snackbarColor.value = 'success';
