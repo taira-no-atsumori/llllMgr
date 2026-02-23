@@ -2,7 +2,6 @@
 node_modules
 /dist
 
-
 # local env files
 .env.local
 .env.*.local
@@ -26,6 +25,18 @@ pnpm-debug.log*
 # Firebase関連
 import-firestore.js
 *.adminsdk*.json
+
+# Image Folders
+/src/assets/images/cardIllust
+/src/assets/images/cdJacket
+/src/assets/images/eventInformation
+
+# Screen Design
+/docs/screen_design
+
+# Old Files
+/src/data/music/musicList.json
+/src/constants/musicList.ts
 
 # Event List
 # eventList.ts

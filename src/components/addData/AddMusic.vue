@@ -8,6 +8,8 @@
               v-model="selectedKanaRow"
               label="五十音"
               :items="kanaOptions"
+              item-title="title"
+              item-value="value"
               clearable
               density="compact"
               variant="outlined"
@@ -52,17 +54,6 @@
             <v-divider />
           </v-col>
 
-          <v-col cols="12">
-            <v-switch
-              v-model="isIdOverride"
-              label="ID Override"
-              color="pink"
-              :disabled="music.ID_preset === music.ID_original"
-              class="pl-2"
-              density="compact"
-              hide-details
-            />
-          </v-col>
           <!-- Music IDは自動生成されるため、表示のみ -->
           <v-col cols="2">
             <v-text-field
@@ -75,18 +66,29 @@
               hide-details
             />
           </v-col>
+          <v-col cols="10">
+            <v-switch
+              v-model="isIdOverride"
+              label="ID Override"
+              color="pink"
+              :disabled="music.ID_preset === music.ID_original"
+              class="pl-2"
+              density="compact"
+              hide-details
+            />
+          </v-col>
 
-          <v-col cols="5">
+          <v-col cols="6">
             <v-text-field
               v-model="music.musicName"
-              label="Music Name"
+              label="Song Title"
               required
               density="compact"
               variant="outlined"
               hide-details
             />
           </v-col>
-          <v-col cols="5">
+          <v-col cols="6">
             <v-text-field
               v-model="music.musicData.kana"
               label="Kana"
@@ -303,8 +305,10 @@
               hide-details
             />
           </v-col>
+        </v-row>
 
-          <v-col cols="6">
+        <v-row>
+          <v-col cols="2">
             <v-select
               v-model="music.center"
               label="Center"
@@ -317,7 +321,7 @@
               hide-details
             />
           </v-col>
-          <v-col cols="6">
+          <v-col cols="3">
             <v-select
               v-model="music.bonusSkill"
               label="Bonus Skill"
@@ -332,7 +336,9 @@
               hide-details
             />
           </v-col>
+        </v-row>
 
+        <v-row>
           <v-col cols="12">
             <v-btn
               v-if="!hasScoreData"
@@ -417,19 +423,25 @@
           </v-col>
 
           <v-col cols="12" align="center">
-            <v-img
-              :src="previewImageUrl || music.imageURL || noImage"
-              :width="300"
-              class="mb-3 cursor-pointer"
-              @click="triggerFileInput"
-            />
-            <v-btn
-              :disabled="!selectedFile"
-              color="error"
-              prepend-icon="mdi-close"
-              text="Deselect"
-              @click="cancelUpload"
-            />
+            <div style="max-width: 300px">
+              <v-img :src="previewImageUrl || music.imageURL || noImage" />
+
+              <div class="d-flex justify-space-evenly mt-3">
+                <v-btn
+                  color="primary"
+                  prepend-icon="mdi-file-import"
+                  text="Import Image"
+                  @click="triggerFileInput"
+                />
+                <v-btn
+                  color="error"
+                  prepend-icon="mdi-close"
+                  text="Delete"
+                  :disabled="!selectedFile"
+                  @click="cancelUpload"
+                />
+              </div>
+            </div>
             <input
               ref="fileInputRef"
               type="file"
@@ -507,10 +519,12 @@ import {
   makeMemberFullName,
 } from '@/constants/memberNames';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
+import { KANA_OPTIONS } from '@/constants/kana';
+import { getRow } from '@/utils/stringUtil';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import type { MusicItem } from '@/types/musicList';
 import { useStateStore } from '@/stores/stateStore';
-import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
+import noImage from '@/assets/images/NO IMAGE_music.webp';
 
 const isIdOverride = ref(false);
 const singerTab = ref('group');
@@ -526,19 +540,7 @@ const snackbarColor = ref('success');
 const isReleaseDateUnknown = ref(false);
 const selectedPreset = ref<string | null>(null);
 const selectedKanaRow = ref<string | null>(null);
-const kanaOptions = [
-  'あ',
-  'か',
-  'さ',
-  'た',
-  'な',
-  'は',
-  'ま',
-  'や',
-  'ら',
-  'わ',
-  '英数',
-];
+const kanaOptions = KANA_OPTIONS;
 const uploadStore = useUploadDataStore();
 const store = useStateStore();
 
@@ -592,39 +594,10 @@ const presetItems = computed(() => {
   if (selectedKanaRow.value) {
     items = items.filter(([_, item]) => {
       const k = item.musicData.kana;
-
       if (!k) {
         return false;
       }
-
-      const char = k.charAt(0);
-
-      switch (selectedKanaRow.value) {
-        case '英数':
-          return !/[ぁ-んゔ]/.test(char);
-        case 'あ':
-          return /[ぁ-おゔ]/.test(char);
-        case 'か':
-          return /[か-ご]/.test(char);
-        case 'さ':
-          return /[さ-ぞ]/.test(char);
-        case 'た':
-          return /[た-ど]/.test(char);
-        case 'な':
-          return /[な-の]/.test(char);
-        case 'は':
-          return /[は-ぽ]/.test(char);
-        case 'ま':
-          return /[ま-も]/.test(char);
-        case 'や':
-          return /[や-よ]/.test(char);
-        case 'ら':
-          return /[ら-ろ]/.test(char);
-        case 'わ':
-          return /[わ-ん]/.test(char);
-        default:
-          return true;
-      }
+      return getRow(k.charAt(0)) === selectedKanaRow.value;
     });
   }
 

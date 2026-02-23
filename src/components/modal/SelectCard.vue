@@ -361,7 +361,7 @@ import { useStateStore } from '@/stores/stateStore';
 import { FORMATION_MEMBER } from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
-import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
+import noImage from '@/assets/images/NO IMAGE_card.webp';
 import type { CardDataType } from '@/types/cardList';
 
 const store = useStateStore();

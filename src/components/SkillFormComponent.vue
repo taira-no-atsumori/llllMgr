@@ -1,6 +1,15 @@
 <template>
-  <v-row>
-    <v-col cols="5">
+  <div class="d-flex mb-3">
+    <div class="pr-3" style="width: 90%">
+      <v-select
+        v-model="selectedKanaRow"
+        :items="kanaRows"
+        label="Filter by Kana"
+        variant="outlined"
+        density="compact"
+        hide-details
+        class="mb-3"
+      />
       <v-select
         v-model="model.name"
         :items="skillNames"
@@ -9,10 +18,9 @@
         variant="outlined"
         density="compact"
         hide-details
+        class="mb-3"
         @update:model-value="onNameChange"
       />
-    </v-col>
-    <v-col cols="5">
       <v-select
         v-model="model.ID"
         :items="idOptions"
@@ -23,8 +31,8 @@
         hide-details
         @update:model-value="onIdChange"
       />
-    </v-col>
-    <v-col cols="2">
+    </div>
+    <div style="width: 10%">
       <v-text-field
         v-model.number="model.AP"
         label="AP"
@@ -35,54 +43,71 @@
         variant="outlined"
         density="compact"
         hide-details
+        :bg-color="model.AP === 0 ? 'error' : undefined"
+        class="mb-3"
       />
-    </v-col>
+      <v-btn text="Reset" color="primary" block @click="reset" />
+    </div>
+  </div>
 
-    <v-col v-if="type === 'SA' && model.ID" cols="12">
-      <v-btn
-        v-if="!isEXAP"
-        text="Add EXAP"
-        prepend-icon="mdi-plus"
-        block
-        @click="isEXAP = true"
-      />
-      <v-text-field
-        v-else
-        v-model.number="model.EXAP"
-        label="SA EXAP"
-        type="number"
-        max="999"
-        min="0"
-        required
-        variant="outlined"
-        density="compact"
-        hide-details
-      >
-        <template #append>
-          <v-icon color="error" icon="mdi-delete" @click="isEXAP = false" />
-        </template>
-      </v-text-field>
-    </v-col>
+  <div v-if="type === 'SA' && model.ID" class="mb-3">
+    <v-btn
+      v-if="!isEXAP"
+      text="Add EXAP"
+      prepend-icon="mdi-plus"
+      block
+      @click="isEXAP = true"
+    />
+    <v-text-field
+      v-else
+      v-model.number="model.EXAP"
+      label="SA EXAP"
+      type="number"
+      max="999"
+      min="0"
+      required
+      variant="outlined"
+      density="compact"
+      hide-details
+    >
+      <template #append>
+        <v-icon color="error" icon="mdi-delete" @click="isEXAP = false" />
+      </template>
+    </v-text-field>
+  </div>
 
+  <v-row>
     <v-col
       v-if="model.detail && model.detail.length > 0"
       cols="12"
       class="d-flex align-center"
     >
-      <span class="text-subtitle-1">{{ labelPrefix }} Detail</span>
+      <p class="text-subtitle-1">{{ labelPrefix }} Detail</p>
     </v-col>
 
     <template v-for="(_, detailIndex) in model.detail" :key="detailIndex">
-      <v-col cols="12">
-        <v-text-field
-          v-model="model.detail[detailIndex]"
-          :label="`Detail ${detailIndex + 1}`"
-          variant="underlined"
+      <v-col cols="12" class="py-0">Detail {{ detailIndex + 1 }}</v-col>
+      <v-col cols="12" class="d-flex">
+        <template
+          v-for="(__, dataLevelIndex) in model.detail[detailIndex]"
+          :key="dataLevelIndex"
+        >
+          <v-text-field
+            v-model="model.detail[detailIndex][dataLevelIndex]"
+            :label="`Level ${dataLevelIndex + 1}`"
+            variant="underlined"
+            density="compact"
+            hide-details
+            readonly
+            class="pr-3"
+            style="width: calc(100% / 15)"
+          />
+        </template>
+        <v-btn
+          icon="mdi-pencil"
+          variant="text"
           density="compact"
-          hide-details
-          readonly
-          append-icon="mdi-pencil"
-          @click:append="$emit('open-detail', model.detail, detailIndex)"
+          @click="$emit('open-detail', model.detail, detailIndex)"
         />
       </v-col>
     </template>
@@ -100,15 +125,14 @@
                 variant="text"
                 density="compact"
                 color="error"
-                @click.stop="removeAddSA(i)"
+                @click.stop="removeSAorSkill('SA', i)"
               />
             </v-expansion-panel-title>
             <v-expansion-panel-text>
-              <SkillForm
+              <SkillFormComponent
                 v-model="model.addSA[i]"
                 type="addSA"
                 :index="i"
-                :auto-complete-ap="autoCompleteAp"
                 @open-detail="(l, idx) => $emit('open-detail', l, idx)"
               />
             </v-expansion-panel-text>
@@ -124,7 +148,7 @@
         prepend-icon="mdi-plus"
         text="Add SA"
         block
-        @click="addSA"
+        @click="addSAorSkill('SA')"
       />
     </v-col>
 
@@ -141,15 +165,14 @@
                 variant="text"
                 density="compact"
                 color="error"
-                @click.stop="removeAddSkill(i)"
+                @click.stop="removeSAorSkill('Skill', i)"
               />
             </v-expansion-panel-title>
             <v-expansion-panel-text>
-              <SkillForm
+              <SkillFormComponent
                 v-model="model.addSkill[i]"
                 type="addSkill"
                 :index="i"
-                :auto-complete-ap="autoCompleteAp"
                 @open-detail="(l, idx) => $emit('open-detail', l, idx)"
               />
             </v-expansion-panel-text>
@@ -165,28 +188,35 @@
         prepend-icon="mdi-plus"
         text="Add Skill"
         block
-        @click="addSkill"
+        @click="addSAorSkill('Skill')"
       />
     </v-col>
   </v-row>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { SKILL_LIST } from '@/constants/skillList';
+import { computed, ref, onMounted, watch } from 'vue';
+import { ref as dbRef, onValue } from 'firebase/database';
+import { rtdb } from '@/firebase';
+import { useStateStore } from '@/stores/stateStore';
+import SkillFormComponent from '@/components/SkillFormComponent.vue';
+import { KANA_OPTIONS } from '@/constants/kana';
+import { getRow } from '@/utils/stringUtil';
+import type { SkillDetail } from '@/types/cardList';
+import type { SkillType } from '@/types/skill';
 
 const isEXAP = ref(false);
+const defaultDetail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 const props = defineProps<{
-  modelValue: any;
+  modelValue: SkillDetail;
   type: 'SA' | 'skill' | 'addSA' | 'addSkill';
   index?: number;
-  autoCompleteAp?: (id: string) => number | undefined;
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: any): void;
-  (e: 'open-detail', list: any[], index: number): void;
+  (e: 'update:modelValue', value: boolean): void;
+  (e: 'open-detail', list: (string | number | null)[], index: number): void;
 }>();
 
 const model = computed({
@@ -194,61 +224,153 @@ const model = computed({
   set: (val) => emit('update:modelValue', val),
 });
 
-const skillNames = Object.keys(SKILL_LIST);
+const store = useStateStore();
+const skillList = ref<Record<string, SkillType>>({});
+
+const fetchSkillList = () => {
+  const skillRef = dbRef(rtdb, 'skills/skill');
+
+  onValue(skillRef, (snapshot) => {
+    const data: SkillType = snapshot.val();
+
+    if (data) {
+      for (const skillID in data) {
+        data[skillID] = {
+          ID: skillID,
+          ...data[skillID],
+        };
+      }
+
+      skillList.value = data;
+    }
+  });
+};
+
+onMounted(fetchSkillList);
+watch(() => store.isDev, fetchSkillList);
+
+watch(skillList, (newList) => {
+  // 新規作成時（modelに値がない）かつリストがロードされた場合
+  if (
+    Object.keys(newList).length > 0 &&
+    !props.modelValue.name &&
+    !props.modelValue.ID
+  ) {
+    const firstSkillName = skillNames.value[0];
+
+    if (firstSkillName) {
+      onNameChange(firstSkillName.value);
+    }
+  }
+});
+
+const selectedKanaRow = ref('all');
+
+const kanaRows = [{ title: 'All', value: 'all' }, ...KANA_OPTIONS];
+
+const skillNames = computed(() => {
+  const list: { title: string; value: string }[] = [];
+  const seen = new Set<string>();
+
+  for (const skillID in skillList.value) {
+    const skillGroup = skillList.value[skillID];
+    const skillName = skillGroup.name;
+    const skillKana = skillGroup.kana;
+
+    if (selectedKanaRow.value !== 'all') {
+      const row = getRow(skillKana.charAt(0));
+
+      if (row !== selectedKanaRow.value) {
+        continue;
+      }
+    }
+
+    if (!seen.has(skillName)) {
+      seen.add(skillName);
+      list.push({ title: skillName, value: skillID });
+    }
+  }
+
+  return list.sort((a, b) => a.title.localeCompare(b.title, 'ja'));
+});
 
 const labelPrefix = computed(() => {
-  if (props.type === 'SA') return 'Special Appeal';
-  if (props.type === 'skill') return 'Skill';
-  if (props.type === 'addSA') return 'Add Special Appeal';
-  return 'Skill';
+  switch (props.type) {
+    case 'SA':
+      return 'Special Appeal';
+    case 'skill':
+      return 'Skill';
+    case 'addSA':
+      return 'Add Special Appeal';
+    default:
+      return 'Skill';
+  }
 });
 
 const idOptions = computed(() => {
-  const name = model.value.name;
-  if (!name || !(name in SKILL_LIST)) return [];
-  return Object.keys(SKILL_LIST[name as keyof typeof SKILL_LIST]);
+  const skillName = model.value.name;
+  const skillIDs: string[] = [];
+
+  if (!skillName) {
+    return skillIDs;
+  }
+
+  for (const skillID in skillList.value) {
+    if (skillList.value[skillID].name === skillName) {
+      skillIDs.push(skillList.value[skillID].ID);
+    }
+  }
+
+  return skillIDs;
 });
 
 const currentTypes = computed(() => {
   const name = model.value.name;
   const id = model.value.ID;
 
-  if (name && id && name in SKILL_LIST) {
-    const skillGroup = SKILL_LIST[name as keyof typeof SKILL_LIST];
-    return (skillGroup as any)[id]?.detail?.type || [];
+  if (name && id && Object.keys(skillList.value).includes(id)) {
+    const skillGroup: SkillType = skillList.value[id];
+    return skillGroup.detail.type;
+  } else {
+    return [];
   }
-
-  return [];
 });
 
-const onNameChange = (newName: string) => {
-  if (!newName || !(newName in SKILL_LIST)) return;
-  const ids = Object.keys(SKILL_LIST[newName as keyof typeof SKILL_LIST]);
+const onNameChange = (newSkillID: string) => {
+  if (!newSkillID) {
+    return;
+  }
+
+  const ids = [];
+
+  for (const key in skillList.value) {
+    if (skillList.value[key].ID === newSkillID) {
+      ids.push(skillList.value[key]);
+    }
+  }
+
   if (ids.length > 0) {
-    model.value.ID = ids[0];
-    onIdChange(ids[0]);
+    model.value.ID = ids[0].ID;
+    model.value.name = ids[0].name;
+    onIdChange(ids[0].ID);
   }
 };
 
 const onIdChange = (newId: string) => {
-  if (!newId) return;
+  if (!newId) {
+    return;
+  }
 
   const name = model.value.name;
-  if (name && name in SKILL_LIST) {
-    const skillData = SKILL_LIST[name as keyof typeof SKILL_LIST][newId];
+
+  if (name) {
+    const skillData = skillList.value[newId];
+
     if (skillData && skillData.text) {
       const count = Math.max(0, skillData.text.length - 1);
-      const defaultDetail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       model.value.detail = new Array(count)
         .fill(null)
         .map(() => [...defaultDetail]);
-    }
-  }
-
-  if (props.autoCompleteAp) {
-    const ap = props.autoCompleteAp(newId);
-    if (ap !== undefined) {
-      model.value.AP = ap;
     }
   }
 };
@@ -257,7 +379,7 @@ const addSADetailData = {
   ID: '',
   name: '',
   AP: 0,
-  detail: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
+  detail: [...defaultDetail],
 };
 
 const addSkillDetailData = {
@@ -269,21 +391,53 @@ const addSkillDetailData = {
   },
 };
 
-const addSA = () => {
-  if (!model.value.addSA) model.value.addSA = [];
-  model.value.addSA.push(JSON.parse(JSON.stringify(addSADetailData)));
+const addSAorSkill = (target: 'SA' | 'Skill') => {
+  if (!model.value[`add${target}`]) {
+    model.value[`add${target}`] = [];
+  }
+
+  model.value[`add${target}`].push(
+    JSON.parse(
+      JSON.stringify(target === 'SA' ? addSADetailData : addSkillDetailData),
+    ),
+  );
 };
 
-const addSkill = () => {
-  if (!model.value.addSkill) model.value.addSkill = [];
-  model.value.addSkill.push(JSON.parse(JSON.stringify(addSkillDetailData)));
+const removeSAorSkill = (target: 'SA' | 'Skill', index: number) => {
+  model.value[`add${target}`].splice(index, 1);
 };
 
-const removeAddSA = (index: number) => {
-  model.value.addSA.splice(index, 1);
-};
+const reset = () => {
+  let initialID = '';
+  let initialName = '';
+  let initialDetail: (string | number | null)[] = [];
 
-const removeAddSkill = (index: number) => {
-  model.value.addSkill.splice(index, 1);
+  if (skillNames.value.length > 0) {
+    const firstSkill = skillNames.value[0];
+    const skillData = skillList.value[firstSkill.value];
+
+    if (skillData) {
+      initialID = skillData.ID;
+      initialName = skillData.name;
+
+      if (skillData.text) {
+        const count = Math.max(0, skillData.text.length - 1);
+        initialDetail = new Array(count)
+          .fill(null)
+          .map(() => [...defaultDetail]);
+      }
+    }
+  }
+
+  model.value = {
+    ...model.value,
+    ID: initialID,
+    name: initialName,
+    AP: 0,
+    detail: initialDetail,
+    addSA: [],
+    addSkill: [],
+  };
+  isEXAP.value = false;
 };
 </script>

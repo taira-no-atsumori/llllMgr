@@ -3,12 +3,14 @@ import { ref, watch } from 'vue';
 import { ref as dbRef, onValue, type Unsubscribe } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
-import type { SkillDetailType } from '@/types/skill';
+import type { SkillDetailType, SkillType } from '@/types/skill';
 
 export const useSkillStore = defineStore('skill', () => {
   const stateStore = useStateStore();
   const skillDetails = ref<Record<string, SkillDetailType>>({});
+  const skills = ref<Record<string, SkillType>>({});
   let unsubscribe: Unsubscribe | null = null;
+  let unsubscribeSkills: Unsubscribe | null = null;
 
   const subscribe = () => {
     if (unsubscribe) {
@@ -16,10 +18,13 @@ export const useSkillStore = defineStore('skill', () => {
       unsubscribe = null;
     }
 
-    const skillDetailRef = dbRef(
-      stateStore.isDev ? rtdbDev : rtdb,
-      'skills/skillDetail',
-    );
+    if (unsubscribeSkills) {
+      unsubscribeSkills();
+      unsubscribeSkills = null;
+    }
+
+    const db = stateStore.isDev ? rtdbDev : rtdb;
+    const skillDetailRef = dbRef(db, 'skills/skillDetail');
 
     unsubscribe = onValue(skillDetailRef, (snapshot) => {
       const data = snapshot.val() || {};
@@ -30,6 +35,11 @@ export const useSkillStore = defineStore('skill', () => {
       });
 
       skillDetails.value = formattedData;
+    });
+
+    const skillRef = dbRef(db, 'skills/skill');
+    unsubscribeSkills = onValue(skillRef, (snapshot) => {
+      skills.value = snapshot.val() || {};
     });
   };
 
@@ -50,6 +60,7 @@ export const useSkillStore = defineStore('skill', () => {
 
   return {
     skillDetails,
+    skills,
     getSkillDetailData,
   };
 });

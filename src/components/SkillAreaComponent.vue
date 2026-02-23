@@ -36,16 +36,15 @@
     </div>
     <div v-if="skillType !== 'characteristic'">
       <v-chip
-        v-for="(skillID, i) in SKILL_LIST[
-          store.settingCardData[skillType].name
-        ][store.settingCardData[skillType].ID].detail.type"
+        v-for="(skillID, i) in skillStore.skills?.[
+          store.settingCardData[skillType].ID
+        ]?.detail?.type"
         :key="skillID"
         :color="skillStore.getSkillDetailData(skillID, 'colorCode')"
         :class="`chipSize mb-1${
           i + 1 <
-          SKILL_LIST[store.settingCardData[skillType].name][
-            store.settingCardData[skillType].ID
-          ].detail.type.length
+          (skillStore.skills?.[store.settingCardData[skillType].ID]?.detail
+            ?.type.length || 0)
             ? ' mr-1'
             : ''
         }`"
@@ -110,8 +109,8 @@
                       </template>
                       <template v-else>
                         {{
-                          list?.ID
-                            ? SKILL_LIST[list.name][list.ID].text[0]
+                          list?.ID && skillStore.skills?.[list.ID]
+                            ? skillStore.skills[list.ID].text[0]
                             : list.detail
                         }}
                       </template>
@@ -119,15 +118,16 @@
 
                     <div v-if="skillType !== 'characteristic'">
                       <v-chip
-                        v-for="(skillID, ii) in SKILL_LIST[list.name][list.ID]
-                          .detail.type"
+                        v-for="(skillID, ii) in skillStore.skills?.[list.ID]
+                          ?.detail?.type"
                         :key="skillID"
                         :color="
                           skillStore.getSkillDetailData(skillID, 'colorCode')
                         "
                         :class="`chipSize mt-1 ${
                           ii + 1 <
-                          SKILL_LIST[list.name][list.ID].detail.type.length
+                          (skillStore.skills?.[list.ID]?.detail?.type.length ||
+                            0)
                             ? 'mr-1'
                             : ''
                         }`"
@@ -205,18 +205,19 @@
                               </template>
                               <template v-else>
                                 {{
-                                  list?.ID
-                                    ? SKILL_LIST[list.name][list.ID].text[0]
-                                    : list.detail
+                                  addSkillList?.ID &&
+                                  skillStore.skills?.[addSkillList.ID]
+                                    ? skillStore.skills[addSkillList.ID].text[0]
+                                    : addSkillList.detail
                                 }}
                               </template>
                             </p>
 
                             <div v-if="skillType !== 'characteristic'">
                               <v-chip
-                                v-for="(skill, ii) in SKILL_LIST[
-                                  addSkillList.name
-                                ][addSkillList.ID].detail.type"
+                                v-for="(skill, ii) in skillStore.skills?.[
+                                  addSkillList.ID
+                                ]?.detail?.type"
                                 :key="skill"
                                 :color="
                                   skillStore.getSkillDetailData(
@@ -226,8 +227,8 @@
                                 "
                                 :class="`chipSize mt-1 ${
                                   ii + 1 <
-                                  SKILL_LIST[addSkillList.name][addSkillList.ID]
-                                    .detail.type.length
+                                  (skillStore.skills?.[addSkillList.ID]?.detail
+                                    ?.type.length || 0)
                                     ? 'mr-1'
                                     : ''
                                 }`"
@@ -291,7 +292,6 @@
 import { ref, computed } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import { SKILL_LIST } from '@/constants/skillList';
 import type { SKILL_DETAIL } from '@/constants/skillDetail';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import type { SkillDetail } from '@/types/cardList';

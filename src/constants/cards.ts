@@ -56,7 +56,7 @@ export const getStyleTypeListJp = (): StyleTypeJp[] => {
  * @returns 日本語のスタイルタイプ
  */
 export const convertStyleEnToJp = (
-  en: StyleTypeEn
+  en: StyleTypeEn,
 ): StyleTypeJp | undefined => {
   const entry = Object.values(STYLE_TYPE).find((style) => style.en === en);
   return entry?.jp;
@@ -69,7 +69,7 @@ export const convertStyleEnToJp = (
  * @returns 英語のスタイルタイプ
  */
 export const convertStyleJpToEn = (
-  jp: StyleTypeJp
+  jp: StyleTypeJp,
 ): StyleTypeEn | undefined => {
   const entry = Object.values(STYLE_TYPE).find((style) => style.jp === jp);
   return entry?.en;
@@ -191,6 +191,10 @@ export const LIMITED = {
     en: 'COLLABORATION',
     jp: 'コラボ限定',
   },
+  shuffle: {
+    en: 'SHUFFLE LIMITED',
+    jp: 'シャッフルユニット限定',
+  },
   prize: {
     en: 'GP PRIZE',
     jp: 'ライブGP報酬',
@@ -249,4 +253,6 @@ export const SPECIAL_CARD_LEVEL_IDS = [
   'sz_033',
   'hm_034',
   'iz_016',
+  'rr_061',
+  'hm_037',
 ] as const;

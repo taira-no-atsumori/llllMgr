@@ -9531,25 +9531,27 @@
     "detail": {
       "attr": "",
       "type": ["boost_voltageGain", "ambience_section", "sound", "reshuffle"]
-    },
-    "jackVoltageMellow_02": {
-      "text": [
-        "4回の間ボルテージゲイン効果を+",
-        "%し、このセクション中、ムード値をメロウ方向に+",
-        "する。さらにムードがメロウ100のとき、ボルテージPt.を+",
-        "し、ビートハート",
-        "回分のスキルハートを獲得する。"
-      ],
-      "detail": {
-        "attr": "",
-        "type": [
-          "boost_voltageGain",
-          "ambience_section",
-          "sound",
-          "voltageGain",
-          "heartCaptcha"
-        ]
-      }
+    }
+  },
+  "jackVoltageMellow_02": {
+    "name": "ジャックボルテージメロウ",
+    "kana": "じゃっくぼるてーじめろう",
+    "text": [
+      "4回の間ボルテージゲイン効果を+",
+      "%し、このセクション中、ムード値をメロウ方向に+",
+      "する。さらにムードがメロウ100のとき、ボルテージPt.を+",
+      "し、ビートハート",
+      "回分のスキルハートを獲得する。"
+    ],
+    "detail": {
+      "attr": "",
+      "type": [
+        "boost_voltageGain",
+        "ambience_section",
+        "sound",
+        "voltageGain",
+        "heartCaptcha"
+      ]
     }
   },
   "snowmeltBloomLink_01": {
@@ -10061,6 +10063,70 @@
     "detail": {
       "attr": "",
       "type": ["heartCaptcha", "APQuick", "sound", "imitation"]
+    }
+  },
+  "frozenSun_01": {
+    "name": "フローズンサン",
+    "kana": "ふろーずんさん",
+    "text": [
+      "このステージ中、メンタルが0になってもメンタルダウンしなくなり、ボルテージPt.が1秒ごとに",
+      "pt増加する。さらにこのセクション中、AP回復速度を-33%する。"
+    ],
+    "detail": {
+      "attr": "",
+      "type": ["mentalDown_stage", "voltageGain", "APSlow"]
+    }
+  },
+  "darknessSun_01": {
+    "name": "ダークネスサン",
+    "kana": "だーくねすさん",
+    "text": [
+      "このステージ中、メンタルが0になってもメンタルダウンしなくなり、ボルテージPt.が1秒ごとに",
+      "pt増加する。さらにこのセクション中、手札の上限枚数を3枚減少する。"
+    ],
+    "detail": {
+      "attr": "",
+      "type": ["mentalDown_stage", "voltageGain", "cardReduce_section"]
+    }
+  },
+  "rebuutoAttract_01": {
+    "name": "リブウトアトラクト",
+    "kana": "りぶうとあとらくと",
+    "text": [
+      "手札をシャッフルする。さらにムードがハッピー、メロウいずれか100のとき、5回の間小鈴が使用するラブアトラクト効果を+",
+      "%、メンタルが0のとき、このセクション中、ムード値を+",
+      "、ムードがハッピー、メロウ100でメンタルが0のとき、ボルテージPt.を+",
+      "する。"
+    ],
+    "detail": {
+      "attr": "",
+      "type": [
+        "reshuffle",
+        "sound",
+        "boost_loveAttract",
+        "ambience_section",
+        "voltageGain"
+      ]
+    }
+  },
+  "rebuutoVoltage_01": {
+    "name": "リブウトボルテージ",
+    "kana": "りぶうとぼるてーじ",
+    "text": [
+      "手札をシャッフルする。さらにムードがハッピー、メロウいずれか100のとき、5回の間さやかが使用するボルテージゲイン効果を+",
+      "%、メンタルが0のとき、このセクション中、ムード値を+",
+      "、ムードがハッピー、メロウ100でメンタルが0のとき、このステージ中、獲得するLOVEを+",
+      "%する。"
+    ],
+    "detail": {
+      "attr": "",
+      "type": [
+        "reshuffle",
+        "sound",
+        "boost_voltageGain",
+        "ambience_section",
+        "loveAttract_stage"
+      ]
     }
   }
 }

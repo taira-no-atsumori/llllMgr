@@ -15,7 +15,8 @@
 
       <v-btn
         text="Logout"
-        color="yellow"
+        color="error"
+        prepend-icon="mdi-logout"
         size="small"
         class="mr-2"
         @click="logout"
@@ -64,6 +65,9 @@
       <v-tabs-window-item value="event">
         <AddEvent :key="refreshKey" />
       </v-tabs-window-item>
+      <v-tabs-window-item value="info">
+        <MngInfo :key="refreshKey" />
+      </v-tabs-window-item>
     </v-tabs-window>
   </v-container>
 </template>
@@ -80,6 +84,7 @@ import AddItem from '@/components/addData/AddItem.vue';
 import AddSkill from '@/components/addData/AddSkill.vue';
 import AddSkillDetail from '@/components/addData/AddSkillDetail.vue';
 import AddEvent from '@/components/addData/AddEvent.vue';
+import MngInfo from '@/components/addData/MngInfo.vue';
 
 const tab = ref('pendingDataList');
 const store = useStateStore();

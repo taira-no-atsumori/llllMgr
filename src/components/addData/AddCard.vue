@@ -1,12 +1,11 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-btn text="Transform SkillList" @click="transformSkillList" />
     <v-row>
       <v-col cols="8">
         <v-row class="mb-3">
           <v-col cols="3">
             <v-select
-              v-model="card.member"
+              v-model="card.memberName"
               label="Member Name"
               :items="Object.values(MEMBER_KEYS)"
               item-title="label"
@@ -92,7 +91,7 @@
           <v-card-title class="mb-2">Unique Status</v-card-title>
 
           <v-card-text>
-            <v-table>
+            <v-table density="compact">
               <thead>
                 <tr>
                   <th>Training Level</th>
@@ -115,7 +114,7 @@
                     />
                   </td>
                   <td
-                    v-for="value in ['smile', 'pure', 'cool', 'mental', 'BP']"
+                    v-for="value in cardParamKey"
                     :key="value"
                     style="width: calc(100% / 6)"
                   >
@@ -133,7 +132,7 @@
                 <tr>
                   <td style="width: calc(100% / 6)"></td>
                   <td
-                    v-for="value in ['smile', 'pure', 'cool', 'mental', 'BP']"
+                    v-for="value in cardParamKey"
                     :key="value"
                     style="width: calc(100% / 6)"
                   >
@@ -160,7 +159,7 @@
             <v-row>
               <v-col cols="3">
                 <v-select
-                  v-model="card.period"
+                  v-model="card.gacha.period"
                   label="Period"
                   :items="Object.values(LIMITED).map((style) => style.en)"
                   item-title="label"
@@ -183,7 +182,7 @@
               </v-col>
               <v-col cols="1">
                 <v-text-field
-                  v-model="card.sprit"
+                  v-model="card.split"
                   label="Sprit"
                   type="number"
                   min="0"
@@ -194,7 +193,7 @@
               </v-col>
               <v-col cols="6">
                 <v-text-field
-                  v-model="card.season"
+                  v-model="card.gacha.addSeason"
                   label="Add Season"
                   required
                   variant="outlined"
@@ -231,7 +230,6 @@
               <SkillFormComponent
                 v-model="card.specialAppeal"
                 type="SA"
-                :auto-complete-ap="(id) => findAPFromDb(id, 'SA')"
                 @open-detail="openDetailDialog"
               />
             </v-card-text>
@@ -244,7 +242,6 @@
             <SkillFormComponent
               v-model="card.skill"
               type="skill"
-              :auto-complete-ap="(id) => findAPFromDb(id, 'skill')"
               @open-detail="openDetailDialog"
             />
           </v-card-text>
@@ -350,7 +347,6 @@
                           v-model="card.characteristic.addSkill[index]"
                           type="addSkill"
                           :index="index"
-                          :auto-complete-ap="(id) => findAPFromDb(id, 'skill')"
                           @open-detail="openDetailDialog"
                         />
                       </v-expansion-panel-text>
@@ -374,6 +370,51 @@
       </v-col>
 
       <v-col cols="4">
+        <div class="d-flex justify-space-between mb-3">
+          <div
+            v-for="type in ['before', 'after']"
+            :key="type"
+            class="position-relative cursor-pointer"
+            style="width: 49%"
+            @click="triggerFile(type)"
+          >
+            <p class="text-subtitle-1 text-center mb-1">
+              {{ type === 'before' ? 'Before' : 'After' }}
+            </p>
+            <v-img
+              :src="
+                (type === 'before' ? previewBefore : previewAfter) ||
+                card.imageUrl[type] ||
+                noImage
+              "
+              width="100%"
+            />
+            <v-btn
+              v-if="
+                (type === 'before' ? previewBefore : previewAfter) ||
+                card.imageUrl[type]
+              "
+              icon="mdi-close"
+              size="x-small"
+              color="error"
+              style="position: absolute; top: 5px; right: 5px; z-index: 1"
+              @click.stop="clearImage(type)"
+            />
+            <input
+              :ref="
+                (el) =>
+                  type === 'before'
+                    ? (fileInputBeforeRef = el)
+                    : (fileInputAfterRef = el)
+              "
+              type="file"
+              accept="image/webp"
+              class="d-none"
+              @change="onFileChange($event, type)"
+            />
+          </div>
+        </div>
+
         <v-textarea
           label="Result"
           auto-grow
@@ -425,171 +466,11 @@
       /></v-col>
     </v-row>
 
-    <v-dialog v-model="detailDialog" max-width="1200px">
-      <v-card>
-        <v-card-title>Edit Detail Data</v-card-title>
-        <v-card-text>
-          <v-row>
-            <v-col cols="2">
-              <v-text-field
-                v-model="initNumber"
-                label="Init Number"
-                type="number"
-                min="0"
-                step="0.1"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="2">
-              <v-switch
-                v-model="is14"
-                label="14"
-                color="pink"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="2">
-              <v-text-field
-                v-model="decimalPoint"
-                label="Decimal Point"
-                type="number"
-                max="9"
-                min="0"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="3">
-              <div class="d-flex align-center">
-                <v-select
-                  v-model="selectedDataFormat"
-                  :items="
-                    Object.entries(dataFormatType).map(([key, label]) => ({
-                      title: label,
-                      value: key,
-                    }))
-                  "
-                  item-title="title"
-                  item-value="value"
-                  label="Data Format Type"
-                  variant="outlined"
-                  density="compact"
-                  hide-details
-                  class="mr-3"
-                />
-                <v-btn
-                  text="Set"
-                  color="primary"
-                  prepend-icon="mdi-plus"
-                  @click="copyToDetail(selectedDataFormat)"
-                />
-              </div>
-            </v-col>
-
-            <v-col cols="12">
-              <v-table density="compact">
-                <thead>
-                  <tr>
-                    <th class="text-center">Level</th>
-                    <th class="text-center">倍率</th>
-                    <th
-                      v-for="(value, key) in dataFormatType"
-                      :key="key"
-                      class="text-center"
-                    >
-                      {{ value }}
-                    </th>
-                    <th class="text-center" style="width: 125px">Result</th>
-                    <th class="text-center">
-                      <v-checkbox
-                        v-model="selectAll"
-                        color="pink"
-                        density="compact"
-                        hide-details
-                        @update:model-value="toggleAll"
-                      />
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <tr v-for="(value, i) in multipliers" :key="i">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ value }}</td>
-                    <td>{{ Math.trunc(fixFloat(baseNumber * value)) }}</td>
-                    <td>
-                      {{
-                        Math.floor(
-                          fixFloat(
-                            baseNumber * value * Math.pow(10, decimalPoint),
-                          ),
-                        ) / Math.pow(10, decimalPoint)
-                      }}
-                    </td>
-                    <td>
-                      {{
-                        Math.round(
-                          fixFloat(
-                            baseNumber * value * Math.pow(10, decimalPoint),
-                          ),
-                        ) / Math.pow(10, decimalPoint)
-                      }}
-                    </td>
-                    <td>
-                      {{
-                        Math.ceil(
-                          fixFloat(
-                            baseNumber * value * Math.pow(10, decimalPoint),
-                          ),
-                        ) / Math.pow(10, decimalPoint)
-                      }}
-                    </td>
-                    <td>
-                      <v-text-field
-                        v-model="detailInput[i]"
-                        variant="underlined"
-                        density="compact"
-                        hide-details
-                        @keyup.enter="editDetailData"
-                      >
-                        <template #append-inner>
-                          <v-btn
-                            size="x-small"
-                            variant="text"
-                            color="grey"
-                            class="pa-0"
-                            style="min-width: 24px"
-                            text="null"
-                            @click="detailInput[i] = 'null'"
-                          />
-                        </template>
-                      </v-text-field>
-                    </td>
-                    <td>
-                      <v-checkbox
-                        v-model="selectedRows[i]"
-                        color="pink"
-                        density="compact"
-                        hide-details
-                        @update:model-value="updateQuestionMark(i)"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </v-table>
-            </v-col>
-          </v-row>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="error" text="Cancel" @click="detailDialog = false" />
-          <v-btn color="primary" text="Edit" @click="editDetailData" />
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <EditDetailDataDialog
+      v-model="detailDialog"
+      :initial-values="currentDetailValues"
+      @save="onSaveDetail"
+    />
 
     <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
       {{ snackbarMessage }}
@@ -604,6 +485,7 @@ import {
   getStorage,
   ref as storageRef,
   getDownloadURL,
+  uploadBytes,
 } from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
@@ -612,25 +494,21 @@ import {
   MEMBER_KEYS,
   MEMBER_IDS,
   conversionIdToKey,
+  type MemberKeyValues,
+  type MemberIds,
 } from '@/constants/memberNames';
-import type { CardDataType, CardDataByMember } from '@/types/card';
+import type { Rare } from '@/constants/cards';
+import type { CardDataType, CardDataByMember } from '@/types/cardList';
 import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import { SKILL_LIST } from '@/constants/skillList';
 import SkillFormComponent from '@/components/SkillFormComponent.vue';
+import EditDetailDataDialog from '@/components/modal/EditDetailDataDialog.vue';
+import noImage from '@/assets/images/NO IMAGE_card.webp';
 
 const store = useStateStore();
 const skillStore = useSkillStore();
 
-const multipliers = [
-  1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 2, 2.1, 2.2, 2.3, 2.5,
-];
-const dataFormatType = {
-  trunc: '整数',
-  floor: '切り捨て',
-  round: '四捨五入',
-  ceil: '切り上げ',
-};
+const cardParamKey = ['smile', 'pure', 'cool', 'mental', 'BP'];
 
 const skillDetailOptions = computed(() => {
   return Object.entries(skillStore.skillDetails).map(([key, value]) => ({
@@ -638,28 +516,6 @@ const skillDetailOptions = computed(() => {
     value: key,
   }));
 });
-
-const findAPFromDb = (id: string, type: 'SA' | 'skill'): number | undefined => {
-  for (const member in dbCardList.value) {
-    for (const rare in dbCardList.value[member]) {
-      const cardData = dbCardList.value[member][rare];
-
-      for (const cId in cardData) {
-        const c = cardData[cId];
-
-        if (type === 'SA' && c.specialAppeal?.ID === id) {
-          return c.specialAppeal.AP;
-        }
-
-        if (type === 'skill' && c.skill?.ID === id) {
-          return c.skill.AP;
-        }
-      }
-    }
-  }
-
-  return undefined;
-};
 
 const deleteSpecialAppeal = () => {
   isSA.value = false;
@@ -677,19 +533,92 @@ const snackbarMessage = ref('');
 const snackbarColor = ref('success');
 const inputData = ref('');
 const detailDialog = ref(false);
-const detailInput = ref([]);
-const editingList = ref<any[]>([]);
+const editingList = ref<(number | null)[]>([]);
 const editingDetailIndex = ref<number | null>(null);
-const initNumber = ref(0);
-const is14 = ref(false);
 const isSA = ref(true);
 const isCharacteristic = ref(true);
 
-const selectedRows = ref<boolean[]>([]);
-const selectAll = ref(false);
-const selectedDataFormat = ref('ceil');
+const fileInputBeforeRef = ref<HTMLInputElement | null>(null);
+const fileInputAfterRef = ref<HTMLInputElement | null>(null);
+const fileBefore = ref<File | null>(null);
+const fileAfter = ref<File | null>(null);
+const previewBefore = ref<string | null>(null);
+const previewAfter = ref<string | null>(null);
 
-const decimalPoint = ref(2);
+const triggerFile = (a: 'before' | 'after') => {
+  if (a === 'before') {
+    fileInputBeforeRef.value?.click();
+  } else {
+    fileInputAfterRef.value?.click();
+  }
+};
+
+const onFileChange = (event: Event, type: 'before' | 'after') => {
+  const target = event.target as HTMLInputElement;
+
+  if (target.files && target.files.length > 0) {
+    const file = target.files[0];
+
+    // 画像サイズチェック
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+
+    img.onload = () => {
+      const targetWidth = 600;
+      const expectedHeight = 389;
+      const scale = targetWidth / img.width;
+      const calculatedHeight = Math.round(img.height * scale);
+
+      if (calculatedHeight !== expectedHeight) {
+        snackbarMessage.value = `画像のアスペクト比が不正です。\n期待値: 600x389相当\n検出: ${img.width}x${img.height} (リサイズ後: 600x${calculatedHeight})`;
+        snackbarColor.value = 'warning';
+        snackbar.value = true;
+      }
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+
+    const reader = new FileReader();
+
+    if (type === 'before') {
+      fileBefore.value = file;
+      reader.onload = (e) => (previewBefore.value = e.target?.result);
+    } else {
+      fileAfter.value = file;
+      reader.onload = (e) => (previewAfter.value = e.target?.result);
+    }
+
+    reader.readAsDataURL(file);
+  }
+};
+
+/**
+ * 画像消去処理
+ *
+ * @property
+ * アップロード待機中の画像の右上に表示する×ボタンを押したときの処理。
+ *
+ * @param type before | after
+ */
+const clearImage = (type: 'before' | 'after') => {
+  if (type === 'before') {
+    fileBefore.value = null;
+    previewBefore.value = null;
+    card.value.imageUrl.before = '';
+
+    if (fileInputBeforeRef.value) {
+      fileInputBeforeRef.value.value = '';
+    }
+  } else {
+    fileAfter.value = null;
+    previewAfter.value = null;
+    card.value.imageUrl.after = '';
+
+    if (fileInputAfterRef.value) {
+      fileInputAfterRef.value.value = '';
+    }
+  }
+};
 
 const trainingLevelList = ['standard', 'max'];
 const selectTrainingLevel = ref(trainingLevelList[1]);
@@ -705,7 +634,7 @@ watch(
   [editUniqueStatus, selectTrainingLevel],
   () => {
     const divisor = selectTrainingLevel.value === 'max' ? 1.2 : 1;
-    (['smile', 'pure', 'cool', 'mental', 'BP'] as const).forEach((key) => {
+    cardParamKey.forEach((key) => {
       const val = Number(editUniqueStatus.value[key]);
       const currentDivisor = /mental|BP/.test(key) ? 1 : divisor;
       card.value.uniqueStatus[key] = isNaN(val)
@@ -716,85 +645,24 @@ watch(
   { deep: true },
 );
 
-const baseNumber = computed(() => {
-  return is14.value ? initNumber.value / 2.5 : initNumber.value;
+const currentDetailValues = computed(() => {
+  if (editingList.value && editingDetailIndex.value !== null) {
+    return editingList.value[editingDetailIndex.value] || [];
+  } else {
+    return [];
+  }
 });
 
-const updateQuestionMark = (index: number) => {
-  const currentVal = String(detailInput.value[index] || '');
-  if (selectedRows.value[index]) {
-    if (!currentVal.endsWith('?')) {
-      detailInput.value[index] = currentVal + '?';
-    }
-  } else {
-    if (currentVal.endsWith('?')) {
-      detailInput.value[index] = currentVal.slice(0, -1);
-    }
-  }
-};
-
-const toggleAll = () => {
-  selectedRows.value = selectedRows.value.map(() => selectAll.value);
-  selectedRows.value.forEach((_, i) => updateQuestionMark(i));
-};
-
-const fixFloat = (num: number) => parseFloat(num.toFixed(10));
-
-const copyToDetail = (type: 'trunc' | 'floor' | 'round' | 'ceil') => {
-  const p = Math.pow(10, decimalPoint.value);
-  detailInput.value = multipliers.map((value, i) => {
-    const num = baseNumber.value * value;
-    let result: number | string = 0;
-
-    switch (type) {
-      case 'trunc':
-        result = Math.trunc(fixFloat(num));
-        break;
-      case 'floor':
-        result = Math.floor(fixFloat(num * p)) / p;
-        break;
-      case 'round':
-        result = Math.round(fixFloat(num * p)) / p;
-        break;
-      case 'ceil':
-        result = Math.ceil(fixFloat(num * p)) / p;
-        break;
-      default:
-        result = 0;
-    }
-
-    if (selectedRows.value[i]) {
-      return String(result) + '?';
-    }
-    return result;
-  });
-};
-
-const openDetailDialog = (list: any[], index: number) => {
+const openDetailDialog = (list: number[][], index: number) => {
   editingList.value = list;
   editingDetailIndex.value = index;
-  const rawValues = JSON.parse(JSON.stringify(list[index]));
-  detailInput.value = rawValues.map((v: any) => (v === null ? 'null' : v));
-  selectedRows.value = detailInput.value.map((val: string | number) =>
-    String(val).endsWith('?'),
-  );
-  selectAll.value = selectedRows.value.every(Boolean);
   detailDialog.value = true;
 };
 
-const editDetailData = () => {
-  const values = detailInput.value.map((v: any) => {
-    const strVal = String(v);
-    return strVal === 'null' ? null : strVal;
-  });
-
+const onSaveDetail = (newValues: (string | null)[]) => {
   if (editingDetailIndex.value !== null) {
-    editingList.value[editingDetailIndex.value] = values;
-  } else {
-    editingList.value.push(values);
+    editingList.value[editingDetailIndex.value] = newValues;
   }
-
-  detailDialog.value = false;
 };
 
 const addCharacteristicSkill = () => {
@@ -823,18 +691,29 @@ const addSkillDetailData = {
   },
 };
 
-const card = ref({
+interface EditCardDataType extends CardDataType {
+  year: number;
+  split: number;
+}
+
+const card = ref<EditCardDataType>({
   cardName: '',
-  member: MEMBER_KEYS.KAHO,
+  memberName: MEMBER_KEYS.KAHO,
   rare: RARE[3],
   styleType: STYLE_TYPE.PERFORMER.en,
   mood: MOOD.HAPPY.en,
-  period: LIMITED.normal.en,
-  season: '',
+  gacha: {
+    addSeason: '',
+    period: LIMITED.normal.en,
+  },
   year: 2025,
-  sprit: 1,
+  split: 1,
   series: '',
   kana: '',
+  imageUrl: {
+    before: '',
+    after: '',
+  },
   uniqueStatus: {
     smile: 0,
     pure: 0,
@@ -847,31 +726,32 @@ const card = ref({
     name: '',
     AP: 0,
     EXAP: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    detail: [] as string[],
-    addSA: [] as any[],
-    addSkill: [] as any[],
+    detail: [],
+    addSA: [],
+    addSkill: [],
   },
   skill: {
     ID: '',
     name: '',
     AP: 0,
-    detail: [] as string[],
-    addSkill: [] as any[],
+    detail: [],
+    addSkill: [],
   },
   characteristic: {
     name: '',
     detail: '',
-    type: [] as string[],
-    addSkill: [] as any[],
+    type: [],
+    addSkill: [],
   },
 });
 
+/** そのうち消す処理 */
 const addCardData = async () => {
   if (!inputData.value) {
     return;
   }
 
-  let parsedData;
+  let parsedData: CardDataType;
 
   try {
     parsedData = JSON.parse(inputData.value);
@@ -943,7 +823,7 @@ onMounted(() => {
   const cardRef = dbRef(rtdbDev, 'card');
 
   onValue(cardRef, (snapshot) => {
-    const data = snapshot.val();
+    const data: CardDataByMember | null = snapshot.val();
 
     if (data) {
       dbCardList.value = data;
@@ -961,9 +841,9 @@ watch(
       list &&
       Object.keys(list).length > 0
     ) {
-      let foundData = null;
-      let foundMember = '';
-      let foundRare = '';
+      let foundData: CardDataType | null = null;
+      let foundMember: MemberKeyValues;
+      let foundRare: Rare;
 
       for (const member in list) {
         for (const rare in list[member]) {
@@ -974,61 +854,76 @@ watch(
             break;
           }
         }
-        if (foundData) break;
+
+        if (foundData) {
+          break;
+        }
       }
 
-      if (foundData) {
-        editingId.value = target.id;
-        card.value.member = foundMember;
-        card.value.rare = foundRare;
-        card.value.cardName = foundData.cardName;
-        card.value.kana = foundData.kana;
-        card.value.series = foundData.series || '';
-        card.value.styleType = foundData.styleType;
-        card.value.mood = foundData.mood;
-
-        const periodEntry = Object.entries(LIMITED).find(
-          ([key, _]) => key === foundData.gacha.period,
-        );
-        card.value.period = periodEntry ? periodEntry[1].en : LIMITED.normal.en;
-        card.value.season = foundData.gacha.addSeason;
-
-        card.value.uniqueStatus = { ...foundData.uniqueStatus };
-
-        if (foundData.specialAppeal) {
-          card.value.specialAppeal.ID = foundData.specialAppeal.ID;
-          card.value.specialAppeal.name = foundData.specialAppeal.name;
-          card.value.specialAppeal.AP = foundData.specialAppeal.AP;
-          card.value.specialAppeal.detail =
-            foundData.specialAppeal.detail || [];
-        }
-
-        if (foundData.skill) {
-          card.value.skill.ID = foundData.skill.ID;
-          card.value.skill.name = foundData.skill.name;
-          card.value.skill.AP = foundData.skill.AP;
-          card.value.skill.detail = foundData.skill.detail || [];
-        }
-
-        if (foundData.characteristic) {
-          card.value.characteristic.name = foundData.characteristic.name;
-          card.value.characteristic.detail = foundData.characteristic.detail;
-          card.value.characteristic.type = foundData.characteristic.type || [];
-        }
-
-        uploadStore.setEditTarget('', '');
+      if (!foundData) {
+        return;
       }
+
+      editingId.value = target.id;
+      card.value.memberName = foundMember;
+      card.value.rare = foundRare;
+      card.value.cardName = foundData.cardName;
+      card.value.kana = foundData.kana;
+      card.value.series = foundData.series || '';
+      card.value.styleType = foundData.styleType;
+      card.value.mood = foundData.mood;
+
+      const periodEntry = Object.entries(LIMITED).find(
+        ([key, _]) => key === foundData.gacha.period,
+      );
+      card.value.gacha.period = periodEntry
+        ? periodEntry[1].en
+        : LIMITED.normal.en;
+      card.value.gacha.addSeason = foundData.gacha.addSeason;
+
+      card.value.uniqueStatus = { ...foundData.uniqueStatus };
+
+      if (foundData.specialAppeal) {
+        card.value.specialAppeal.ID = foundData.specialAppeal.ID;
+        card.value.specialAppeal.name = foundData.specialAppeal.name;
+        card.value.specialAppeal.AP = foundData.specialAppeal.AP;
+        card.value.specialAppeal.detail = foundData.specialAppeal.detail || [];
+      }
+
+      if (foundData.skill) {
+        card.value.skill.ID = foundData.skill.ID;
+        card.value.skill.name = foundData.skill.name;
+        card.value.skill.AP = foundData.skill.AP;
+        card.value.skill.detail = foundData.skill.detail || [];
+      }
+
+      if (foundData.characteristic) {
+        card.value.characteristic.name = foundData.characteristic.name;
+        card.value.characteristic.detail = foundData.characteristic.detail;
+        card.value.characteristic.type = foundData.characteristic.type || [];
+      }
+
+      if (foundData.imageUrl) {
+        card.value.imageUrl.before = foundData.imageUrl.before || '';
+        card.value.imageUrl.after = foundData.imageUrl.after || '';
+      } else {
+        card.value.imageUrl.before = '';
+        card.value.imageUrl.after = '';
+      }
+
+      uploadStore.setEditTarget('', '');
     }
   },
   { immediate: true },
 );
 
 function generateNewCardId(): string {
-  if (editingId.value) return editingId.value;
+  if (editingId.value) {
+    return editingId.value;
+  }
 
-  const memberKey = card.value.member;
-  const prefix = MEMBER_IDS[memberKey];
-  if (!prefix) return '???_000';
+  const memberKey: MemberKeyValues = card.value.memberName;
+  const prefix: MemberIds = MEMBER_IDS[memberKey];
 
   let maxNum = 0;
   const memberData = dbCardList.value[memberKey];
@@ -1061,16 +956,16 @@ function getPeriodKey(periodEn: string): string {
 // リアクティブにJSONを生成
 const jsonOutput = computed(() => {
   const cardId = generateNewCardId();
-  const periodKey = getPeriodKey(card.value.period);
+  const periodKey = getPeriodKey(card.value.gacha.period);
 
   const cardData = {
     cardName: card.value.cardName,
     styleType: card.value.styleType,
     mood: card.value.mood,
-    ...(card.value.series && { series: card.value.series }),
+    series: card.value.series,
     kana: card.value.kana,
     gacha: {
-      addSeason: card.value.season,
+      addSeason: card.value.gacha.addSeason,
       period: periodKey,
     },
     uniqueStatus: {
@@ -1080,15 +975,18 @@ const jsonOutput = computed(() => {
       mental: card.value.uniqueStatus.mental,
       BP: card.value.uniqueStatus.BP,
     },
-    ...(isSA.value &&
-      card.value.specialAppeal.name && {
-        specialAppeal: {
-          ID: card.value.specialAppeal.ID,
-          name: card.value.specialAppeal.name,
-          AP: card.value.specialAppeal.AP,
-          detail: card.value.specialAppeal.detail,
-        },
-      }),
+    imageUrl: {
+      ...(card.value.imageUrl.before && { before: '' }),
+      after: '',
+    },
+    ...(isSA.value && {
+      specialAppeal: {
+        ID: card.value.specialAppeal.ID,
+        name: card.value.specialAppeal.name,
+        AP: card.value.specialAppeal.AP,
+        detail: card.value.specialAppeal.detail,
+      },
+    }),
     skill: {
       ID: card.value.skill.ID,
       name: card.value.skill.name,
@@ -1105,21 +1003,90 @@ const jsonOutput = computed(() => {
   };
 
   const result = {
-    [card.value.rare]: {
-      [cardId]: cardData,
-    },
+    [cardId]: cardData,
   };
 
   return JSON.stringify(result, null, 2);
 });
 
+const resizeImage = (
+  file: File,
+  targetWidth: number,
+  expectedHeight?: number,
+): Promise<Blob> => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      img.src = e.target?.result as string;
+    };
+    reader.onerror = (e) => reject(e);
+
+    img.onload = () => {
+      const scale = targetWidth / img.width;
+      const canvas = document.createElement('canvas');
+      canvas.width = targetWidth;
+      canvas.height = Math.round(img.height * scale);
+
+      if (expectedHeight && canvas.height !== expectedHeight) {
+        reject(
+          new Error(
+            `画像サイズが不正です。\n期待値: ${targetWidth}x${expectedHeight}\n実際: ${canvas.width}x${canvas.height}`,
+          ),
+        );
+        return;
+      }
+
+      const ctx = canvas.getContext('2d');
+
+      if (ctx) {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Canvas to Blob failed'));
+          }
+        }, 'image/webp');
+      } else {
+        reject(new Error('Canvas context not available'));
+      }
+    };
+  });
+};
+
 const addToStore = async () => {
   try {
     const data: CardDataType = JSON.parse(jsonOutput.value);
-    const rare = Object.keys(data)[0];
+    const rare = card.value.rare;
     const id = Object.keys(data[rare])[0];
-    const cardData = data[rare][id];
-    const member = card.value.member;
+    const cardData: CardDataType = data[rare][id];
+    const member = card.value.memberName;
+
+    const storage = getStorage(rtdb.app);
+    const fileResizeAndUpload = async (type: 'before' | 'after') => {
+      const file = type === 'before' ? fileBefore.value : fileAfter.value;
+
+      if (!file) {
+        return;
+      }
+
+      const resizedBlob = await resizeImage(file, 600, 389);
+      const fileRef = storageRef(storage, `cardIllust/${id}_${type}.webp`);
+      await uploadBytes(fileRef, resizedBlob);
+      cardData.imageUrl[type] = await getDownloadURL(fileRef);
+    };
+
+    if (fileAfter.value) {
+      await fileResizeAndUpload('after');
+    } else {
+      throw new Error('覚醒後画像(After)を設定してください');
+    }
+
+    if (fileBefore.value) {
+      await fileResizeAndUpload('before');
+    }
 
     const updates: Record<string, CardDataType> = {};
     updates[`card/${member}/${rare}/${id}`] = cardData;
@@ -1130,69 +1097,13 @@ const addToStore = async () => {
     snackbarColor.value = 'success';
     snackbar.value = true;
     editingId.value = '';
+    clearImage('before');
+    clearImage('after');
   } catch (e) {
     console.error(e);
-    snackbarMessage.value = 'アップロードに失敗しました';
+    snackbarMessage.value = e.message || 'アップロードに失敗しました';
     snackbarColor.value = 'error';
     snackbar.value = true;
   }
-};
-
-// スキル関数名とカナのマッピング
-const skillNameToKanaMap: Record<string, string> = {
-  ハートキャプチャ: 'はーときゃぷちゃ',
-  ラブアトラクト: 'らぶあとらくと',
-  ボルテージゲイン: 'ぼるてーじげいん',
-  ボルテージブースト: 'ぼるてーじぶーすと',
-  メンタルリカバー: 'めんたるりかばー',
-  メンタルプロテクト: 'めんたるぷろてくと',
-  エクステンドハンド: 'えくすてんどはんど',
-  ドロー: 'どろー',
-  HP回復: 'えいちぴーかいふく',
-  HPゲイン: 'えいちぴーげいん',
-  ストレスダメージ: 'すとれすだめーじ',
-  SPARK: 'すぱーく',
-  カームハート: 'かーむはーと',
-  カームアトラクト: 'かーむあとらくと',
-  カームアトラクション: 'かーむあとらくしょん',
-  カームブースト: 'かーむぶーすと',
-  グルーヴィハート: 'ぐるーゔぃはーと',
-  グルーヴィアトラクト: 'ぐるーゔぃあとらくと',
-  グルーヴィアトラクション: 'ぐるーゔぃあとらくしょん',
-  グルーヴィブースト: 'ぐるーゔぃぶーすと',
-  チルハート: 'ちるはーと',
-  チルアトラクト: 'ちるあとらくと',
-  チルアトラクション: 'ちるあとらくしょん',
-  チルブースト: 'ちるぶーすと',
-};
-
-const transformSkillList = () => {
-  const transformed: Record<string, any> = {};
-
-  // SKILL_LIST を反復処理
-  for (const [skillFunctionName, patterns] of Object.entries(SKILL_LIST)) {
-    let kana = skillNameToKanaMap[skillFunctionName] || '';
-
-    if (!kana && /^[\u3040-\u30FF]+$/.test(skillFunctionName)) {
-      kana = skillFunctionName.replace(/[\u30A1-\u30F6]/g, (match) =>
-        String.fromCharCode(match.charCodeAt(0) - 0x60),
-      );
-    }
-
-    // 各パターンを反復処理
-    for (const [patternKey, patternData] of Object.entries(patterns)) {
-      transformed[patternKey] = {
-        name: skillFunctionName,
-        kana: kana,
-        ...patternData,
-      };
-    }
-  }
-
-  console.log(JSON.stringify(transformed, null, 2));
-
-  snackbarMessage.value = 'スキルリストを変換してconsoleに出力しました';
-  snackbarColor.value = 'success';
-  snackbar.value = true;
 };
 </script>
