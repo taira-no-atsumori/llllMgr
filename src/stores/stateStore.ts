@@ -41,11 +41,11 @@ import {
   BONUS_SKILL_NAMES,
   DEFAULT_BONUS_SKILL_LIST,
 } from '@/constants/bonusSkills';
-import { SKILL_LIST } from '@/constants/skillList';
 import {
   DEFAULT_SEARCH,
   DEFAULT_SITE_SETTINGS,
 } from '@/constants/defaultSettings';
+import { useSkillStore } from '@/stores/skillStore';
 import { useCardStore } from '@/stores/cardList';
 import { cacheManager } from '@/utils/cacheManager';
 import { useMusicData } from '@/composables/useMusicData';
@@ -171,7 +171,8 @@ export const useStateStore = defineStore('store', {
           addSkillNum?: number[];
           targetSkillLv?: number;
         },
-      ): string[] => {
+      ): string => {
+        const skillStore = useSkillStore();
         let result = '';
         const targetLevel: number =
           option?.targetSkillLv ??
@@ -179,13 +180,15 @@ export const useStateStore = defineStore('store', {
             `S${target === 'specialAppeal' ? 'A' : ''}Level`
           ] - 1;
 
-        const skillTextList = (() => {
-          let returnText: string[] =
-            SKILL_LIST[skillData.name][skillData.ID].text;
+        const skill = skillStore.skills[skillData.ID];
 
-          if (SKILL_LIST[skillData.name][skillData.ID]?.exText) {
-            for (const exTextData of SKILL_LIST[skillData.name][skillData.ID]
-              .exText) {
+        if (!skill) return '';
+
+        const skillTextList = (() => {
+          let returnText: string[] = skill.text || [];
+
+          if (skill.exText) {
+            for (const exTextData of skill.exText) {
               if (
                 exTextData.level <=
                 targetLevel + (option?.targetSkillLv === undefined ? 0 : 1)

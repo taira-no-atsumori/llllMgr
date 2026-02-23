@@ -289,12 +289,9 @@ import { computed, onMounted } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
-import { ATTRIBUTE } from '@/constants/music';
-// import { MUSIC_LIST } from '@/constants/musicList';
-// import type { MusicItem } from '@/types/musicList';
+import { ATTRIBUTE, DIFFICULTY_LABEL } from '@/constants/music';
 import { useMusicData } from '@/composables/useMusicData';
-import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
-import { DIFFICULTY_LABEL } from '@/constants/music';
+import noImage from '@/assets/images/NO IMAGE_music.webp';
 
 const store = useStateStore();
 const attributeName = {

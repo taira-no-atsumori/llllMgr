@@ -1,158 +1,144 @@
 <template>
-  <li>
-    <v-card
-      v-if="
-        store.siteSettings.musicList.hover === 'false' || windowWidth <= 600
-      "
-      :color="attributeColor[musicData.attribute]"
-      @click="handleClick"
+  <v-card
+    v-if="store.siteSettings.musicList.hover === 'false' || windowWidth <= 600"
+    :color="attributeColor[musicData.attribute]"
+    @click="handleClick"
+  >
+    <v-img
+      :src="currentSrc"
+      :alt="songTitle"
+      aspect-ratio="1"
+      cover
+      @load="onImgLoad"
+      @error="onImgError"
     >
-      <v-img
-        :src="currentSrc"
-        :alt="songTitle"
-        aspect-ratio="1"
-        cover
-        @load="onImgLoad"
-        @error="onImgError"
-      >
-        <template #placeholder>
-          <v-skeleton-loader type="image" class="h-100 w-100" />
-        </template>
-        <template #error>
-          <v-img :src="noImage" aspect-ratio="1" cover class="h-100 w-100" />
-        </template>
-      </v-img>
-      <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
-        {{ songTitle }}
-      </v-card-title>
-
-      <v-divider class="mb-1 border-opacity-25" />
-
-      <v-card-text class="pt-0 px-1 pb-1">
-        <ul class="d-flex">
-          <li class="skillIconArea mr-1">
-            <img
-              :src="
-                store.getImagePath('icons/bonusSkill', musicData.bonusSkill)
-              "
-              :alt="musicData.bonusSkill"
-            />
-          </li>
-          <li class="skillIconArea mr-1">
-            <img
-              :src="
-                store.getImagePath(
-                  'icons/attribute',
-                  `icon_${musicData.attribute}`,
-                )
-              "
-              :alt="musicData.attribute"
-            />
-          </li>
-          <li class="skillIconArea mr-1">
-            <img
-              :src="
-                store.getImagePath(
-                  'icons/member',
-                  `icon_SD_${musicData.center}`,
-                )
-              "
-              :alt="musicData.center"
-            />
-          </li>
-          <li class="align-self-center text-caption">
-            MLv.{{ store.musicLevel[musicData.ID] }}
-          </li>
-        </ul>
-      </v-card-text>
-    </v-card>
-
-    <v-tooltip v-else location="bottom">
-      <template #activator="{ props: tooltipProps }">
-        <v-card
-          :color="attributeColor[musicData.attribute]"
-          v-bind="tooltipProps"
-          @click="handleClick"
-        >
-          <v-img
-            :src="currentSrc"
-            :alt="songTitle"
-            aspect-ratio="1"
-            cover
-            @load="onImgLoad"
-            @error="onImgError"
-          >
-            <template #placeholder>
-              <v-skeleton-loader type="image" class="h-100 w-100" />
-            </template>
-            <template #error>
-              <v-img
-                :src="noImage"
-                aspect-ratio="1"
-                cover
-                class="h-100 w-100"
-              />
-            </template>
-          </v-img>
-          <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
-            {{ songTitle }}
-          </v-card-title>
-
-          <v-divider class="mb-1 border-opacity-25" />
-
-          <v-card-item class="pt-0 px-1 pb-1">
-            <ul class="d-flex">
-              <li class="skillIconArea mr-1">
-                <img
-                  :src="
-                    store.getImagePath('icons/bonusSkill', musicData.bonusSkill)
-                  "
-                  :alt="musicData.bonusSkill"
-                />
-              </li>
-              <li class="skillIconArea mr-1">
-                <img
-                  :src="
-                    store.getImagePath(
-                      'icons/attribute',
-                      `icon_${musicData.attribute}`,
-                    )
-                  "
-                  :alt="musicData.attribute"
-                />
-              </li>
-              <li class="skillIconArea mr-1">
-                <img
-                  :src="
-                    store.getImagePath(
-                      'icons/member',
-                      `icon_SD_${musicData.center}`,
-                    )
-                  "
-                  :alt="musicData.center"
-                />
-              </li>
-              <li class="align-self-center text-caption">
-                MLv.{{ store.musicLevel[musicData.ID] }}
-              </li>
-            </ul>
-          </v-card-item>
-        </v-card>
+      <template #placeholder>
+        <v-skeleton-loader type="image" class="h-100 w-100" />
       </template>
-      <p class="mb-2">{{ songTitle }}</p>
-      センター：{{ makeMemberFullName(musicData.center) }}<br />
-      楽曲マスタリーLv.：{{ store.musicLevel[musicData.ID] }}<br />
-      獲得ボーナススキル：{{ musicData.bonusSkill }} ×
-      {{ Math.floor(store.musicLevel[musicData.ID] / 10) }}
-    </v-tooltip>
-  </li>
+      <template #error>
+        <v-img :src="noImage" aspect-ratio="1" cover class="h-100 w-100" />
+      </template>
+    </v-img>
+    <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
+      {{ songTitle }}
+    </v-card-title>
+
+    <v-divider class="mb-1 border-opacity-25" />
+
+    <v-card-text class="pt-0 px-1 pb-1">
+      <ul class="d-flex">
+        <li class="skillIconArea mr-1">
+          <img
+            :src="store.getImagePath('icons/bonusSkill', musicData.bonusSkill)"
+            :alt="musicData.bonusSkill"
+          />
+        </li>
+        <li class="skillIconArea mr-1">
+          <img
+            :src="
+              store.getImagePath(
+                'icons/attribute',
+                `icon_${musicData.attribute}`,
+              )
+            "
+            :alt="musicData.attribute"
+          />
+        </li>
+        <li class="skillIconArea mr-1">
+          <img
+            :src="
+              store.getImagePath('icons/member', `icon_SD_${musicData.center}`)
+            "
+            :alt="musicData.center"
+          />
+        </li>
+        <li class="align-self-center text-caption">
+          MLv.{{ store.musicLevel[musicData.ID] }}
+        </li>
+      </ul>
+    </v-card-text>
+  </v-card>
+
+  <v-tooltip v-else location="bottom">
+    <template #activator="{ props: tooltipProps }">
+      <v-card
+        :color="attributeColor[musicData.attribute]"
+        v-bind="tooltipProps"
+        @click="handleClick"
+      >
+        <v-img
+          :src="currentSrc"
+          :alt="songTitle"
+          aspect-ratio="1"
+          cover
+          @load="onImgLoad"
+          @error="onImgError"
+        >
+          <template #placeholder>
+            <v-skeleton-loader type="image" class="h-100 w-100" />
+          </template>
+          <template #error>
+            <v-img :src="noImage" aspect-ratio="1" cover class="h-100 w-100" />
+          </template>
+        </v-img>
+        <v-card-title class="text-subtitle-2 text-center px-2 pt-1 pb-0">
+          {{ songTitle }}
+        </v-card-title>
+
+        <v-divider class="mb-1 border-opacity-25" />
+
+        <v-card-item class="pt-0 px-1 pb-1">
+          <ul class="d-flex">
+            <li class="skillIconArea mr-1">
+              <img
+                :src="
+                  store.getImagePath('icons/bonusSkill', musicData.bonusSkill)
+                "
+                :alt="musicData.bonusSkill"
+              />
+            </li>
+            <li class="skillIconArea mr-1">
+              <img
+                :src="
+                  store.getImagePath(
+                    'icons/attribute',
+                    `icon_${musicData.attribute}`,
+                  )
+                "
+                :alt="musicData.attribute"
+              />
+            </li>
+            <li class="skillIconArea mr-1">
+              <img
+                :src="
+                  store.getImagePath(
+                    'icons/member',
+                    `icon_SD_${musicData.center}`,
+                  )
+                "
+                :alt="musicData.center"
+              />
+            </li>
+            <li class="align-self-center text-caption">
+              MLv.{{ store.musicLevel[musicData.ID] }}
+            </li>
+          </ul>
+        </v-card-item>
+      </v-card>
+    </template>
+    <p class="mb-2">{{ songTitle }}</p>
+    センター：{{ makeMemberFullName(musicData.center) }}<br />
+    楽曲マスタリーLv.：{{ store.musicLevel[musicData.ID] }}<br />
+    獲得ボーナススキル：{{ musicData.bonusSkill }} ×
+    {{ Math.floor(store.musicLevel[musicData.ID] / 10) }}
+  </v-tooltip>
 </template>
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
-import noImage from '@/assets/images/cdJacket/NO IMAGE.webp';
+import noImage from '@/assets/images/NO IMAGE_music.webp';
 import type { MusicItem } from '@/types/musicList';
 
 const props = defineProps<{

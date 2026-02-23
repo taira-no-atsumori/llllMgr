@@ -32,6 +32,17 @@ interface SupportSkill {
 }
 
 /**
+ * カード画像URL
+ *
+ * @property before 覚醒前のカード画像のURL
+ * @property after 覚醒後のカード画像のURL
+ */
+interface ImageUrl {
+  before?: string;
+  after: string;
+}
+
+/**
  * ガチャの追加シーズンと期間情報
  *
  * @property addSeason 初登場ガチャ
@@ -88,6 +99,7 @@ export interface TrainingStatus {
  *
  * @property ID カードID
  * @property name カード名
+ * @property kana かな
  * @property AP 消費AP
  * @property EXAP 消費EXAP
  * @property detail 各レベルごとの効果量
@@ -97,6 +109,7 @@ export interface TrainingStatus {
 export interface SkillDetail {
   ID: string;
   name: string;
+  kana: string;
   AP: number;
   EXAP?: number[];
   detail: number[][] | Record<string, unknown>;
@@ -163,12 +176,13 @@ export interface CardDefaultData {
   memberName: MemberKeyValues;
   styleType: StyleTypeEn;
   mood: MoodEn;
-  series?: string;
+  series: string;
   kana: string;
   gacha: Gacha;
+  imageUrl: ImageUrl;
   uniqueStatus: BaseStatus;
   imageURL: {
-    before: string | null;
+    before?: string;
     after: string;
   };
   specialAppeal?: SkillDetail;

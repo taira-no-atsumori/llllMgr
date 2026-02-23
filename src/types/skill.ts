@@ -3,8 +3,9 @@ import type { skillTypeKeyTypes } from '@/constants/skillDetail';
 /**
  * スキルの型
  *
- * @property id スキルID
+ * @property ID スキルID
  * @property text スキル説明文
+ * @property kana スキルかな
  * @property exText 追加スキル
  * @property exText.level 追加スキルが追加されるレベル
  * @property exText.text 追加スキル説明文
@@ -13,7 +14,9 @@ import type { skillTypeKeyTypes } from '@/constants/skillDetail';
  * @property detail.type スキルタイプ
  */
 export interface SkillType {
-  id: string;
+  ID: string;
+  name: string;
+  kana: string;
   text: string[];
   exText?: [
     {
@@ -30,14 +33,14 @@ export interface SkillType {
 /**
  * スキル詳細の型
  *
- * @property id スキルID
+ * @property ID スキルID
  * @property skillDetailName スキル名
  * @property colorCode カラーコード
  * @property description 詳細説明
  * @property skillTypeKey スキルタイプ
  */
 export interface SkillDetailType {
-  id: string;
+  ID: string;
   skillDetailName: string;
   colorCode: string;
   description: string;

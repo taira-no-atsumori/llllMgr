@@ -8,6 +8,9 @@
               v-model="selectPeriod"
               :items="[103, 104, 105]"
               label="Period"
+              density="compact"
+              variant="outlined"
+              hide-details
             />
           </v-col>
           <v-col cols="4">
@@ -15,6 +18,9 @@
               v-model="selectSeason"
               :items="['Spring', 'Summer', 'Autumn', 'Winter']"
               label="Season"
+              density="compact"
+              variant="outlined"
+              hide-details
             />
           </v-col>
           <v-col cols="4">
@@ -22,13 +28,16 @@
               v-model="selectArea"
               :items="[1, 2, 3, 4, 5]"
               label="Area"
+              density="compact"
+              variant="outlined"
+              hide-details
             />
           </v-col>
         </v-row>
 
-        <v-divider class="mb-5" />
+        <v-divider class="my-5" />
 
-        <v-table>
+        <v-table density="compact">
           <thead>
             <tr>
               <th style="width: 15%">期/季節</th>
@@ -54,7 +63,7 @@
                   item-title="title"
                   item-value="value"
                   variant="underlined"
-                  :hide-details="true"
+                  hide-details
                 >
                   <template #item="{ props, item }">
                     <v-list-item v-bind="props" :title="item.title">
@@ -97,7 +106,7 @@
                   item-title="title"
                   item-value="value"
                   variant="underlined"
-                  :hide-details="true"
+                  hide-details
                 >
                   <template #item="{ props, item }">
                     <v-list-item v-bind="props" :title="item.title">
@@ -140,7 +149,7 @@
                   item-title="title"
                   item-value="value"
                   variant="underlined"
-                  :hide-details="true"
+                  hide-details
                 >
                   <template #item="{ props, item }">
                     <v-list-item v-bind="props" :title="item.title">
@@ -218,7 +227,7 @@ const stages = ref(
     skillBook: 'ITEMS.NONE',
     piece: 'ITEMS.NONE',
     charm: 'ITEMS.NONE',
-  }))
+  })),
 );
 
 const skillBookList = computed(() => {

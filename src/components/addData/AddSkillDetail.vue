@@ -37,13 +37,7 @@
           {{ SKILL_TYPE_KEY[value] || value }}
         </template>
         <template #[`item.edit`]="{ item }">
-          <v-btn
-            class="me-2"
-            size="small"
-            variant="tonal"
-            icon="mdi-pencil"
-            @click="openEditDialog(item)"
-          />
+          <v-btn icon="mdi-pencil" size="small" @click="openEditDialog(item)" />
         </template>
       </v-data-table>
     </v-card>

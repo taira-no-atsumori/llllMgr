@@ -347,7 +347,7 @@ import {
   conversionCardIdToMemberName,
   makeMemberFullName,
 } from '@/constants/memberNames';
-import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
+import noImage from '@/assets/images/NO IMAGE_card.webp';
 import type { CardDataType } from '@/types/cardList';
 
 const props = defineProps<{

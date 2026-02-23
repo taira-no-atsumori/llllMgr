@@ -9,7 +9,7 @@ export interface ImageCacheItem {
 
 export interface KeyValueItem {
   key: string;
-  value: any;
+  value: unknown;
 }
 
 class llllMgrDB extends Dexie {

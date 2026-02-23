@@ -365,8 +365,8 @@
           v-if="!store.isOtherMember(memberName)"
           cols="4"
           lg="2"
-          :class="`text-center align-self-end ${
-            windowSize.w > 600 ? '' : 'px-1'
+          :class="`text-center align-self-end${
+            windowSize.w > 600 ? '' : ' px-1'
           }`"
         >
           <v-row no-gutters class="mb-1">
@@ -442,7 +442,7 @@
     <v-divider class="mb-2" />
 
     <div class="align-self-center d-inline-block mb-2 mb-md-0">
-      <div class="d-flex flex-row align-center">
+      <div class="d-flex align-center">
         <v-btn color="blue" class="mr-2">
           <v-icon icon="mdi-sort" class="mr-2" />ソート
           <v-menu
@@ -544,10 +544,8 @@
     </div>
 
     <p class="align-self-center d-block d-md-inline-block">
-      絞り込み結果：{{ Object.keys(makeMusicList()).length }} 曲<span
-        class="ml-1 mr-md-1"
-        >/</span
-      >
+      絞り込み結果：{{ Object.keys(makeMusicList()).length }} 曲
+      <span class="mr-md-1">/</span>
     </p>
     <p class="align-self-center d-block d-md-inline-block">
       現在のソート：{{ sortTypeLabel(store.sortSettings.musicList.sortType) }}
@@ -559,14 +557,13 @@
       <li v-if="Object.keys(makeMusicList()).length === 0" class="w-100">
         見つかりませんでした…
       </li>
-      <Music
-        v-for="(ary, songTitle) in makeMusicList()"
-        v-else
-        :key="ary"
-        :music-data="ary"
-        :song-title="songTitle"
-        :window-width="windowSize.w"
-      />
+      <li v-for="(ary, songTitle) in makeMusicList()" v-else :key="ary">
+        <Music
+          :music-data="ary"
+          :song-title="songTitle"
+          :window-width="windowSize.w"
+        />
+      </li>
     </ul>
   </v-container>
 </template>

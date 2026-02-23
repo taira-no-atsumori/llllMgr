@@ -1962,7 +1962,7 @@ import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
-import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
+import noImage from '@/assets/images/NO IMAGE_card.webp';
 // import axios from 'axios';
 const store = useStateStore();
 

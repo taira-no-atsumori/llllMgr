@@ -909,7 +909,7 @@ import { getReleasePoint } from '@/constants/releasePoint';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
 import skillArea from '@/components/SkillAreaComponent.vue';
-import noImage from '@/assets/images/cardIllust/NO IMAGE.webp';
+import noImage from '@/assets/images/NO IMAGE_card.webp';
 
 const store = useStateStore();
 

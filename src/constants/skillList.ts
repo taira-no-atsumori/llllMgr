@@ -9217,24 +9217,24 @@ export const SKILL_LIST = {
         attr: '',
         type: ['boost_voltageGain', 'ambience_section', 'sound', 'reshuffle'],
       },
-      jackVoltageMellow_02: {
-        text: [
-          '4回の間ボルテージゲイン効果を+',
-          '%し、このセクション中、ムード値をメロウ方向に+',
-          'する。さらにムードがメロウ100のとき、ボルテージPt.を+',
-          'し、ビートハート',
-          '回分のスキルハートを獲得する。',
+    },
+    jackVoltageMellow_02: {
+      text: [
+        '4回の間ボルテージゲイン効果を+',
+        '%し、このセクション中、ムード値をメロウ方向に+',
+        'する。さらにムードがメロウ100のとき、ボルテージPt.を+',
+        'し、ビートハート',
+        '回分のスキルハートを獲得する。',
+      ],
+      detail: {
+        attr: '',
+        type: [
+          'boost_voltageGain',
+          'ambience_section',
+          'sound',
+          'voltageGain',
+          'heartCaptcha',
         ],
-        detail: {
-          attr: '',
-          type: [
-            'boost_voltageGain',
-            'ambience_section',
-            'sound',
-            'voltageGain',
-            'heartCaptcha',
-          ],
-        },
       },
     },
   },
