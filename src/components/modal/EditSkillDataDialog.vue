@@ -17,7 +17,13 @@
               label="SkillName"
               variant="outlined"
               density="compact"
-              hide-details
+              :base-color="isDuplicate('name') ? 'warning' : undefined"
+              :color="isDuplicate('name') ? 'warning' : undefined"
+              :messages="
+                isDuplicate('name')
+                  ? 'Warning: Skill Name already exists'
+                  : undefined
+              "
             />
           </v-col>
           <v-col cols="4">
@@ -26,7 +32,8 @@
               label="Kana"
               variant="outlined"
               density="compact"
-              hide-details
+              :rules="kanaRules"
+              validate-on="blur"
             />
           </v-col>
           <v-col cols="4">
@@ -35,7 +42,7 @@
               label="ID"
               variant="outlined"
               density="compact"
-              hide-details
+              :rules="idRules"
             />
           </v-col>
 
@@ -163,8 +170,8 @@
         <v-btn
           color="primary"
           variant="text"
-          :text="`Save to ${store.isDev ? 'Dev' : 'Prod'}`"
-          :disabled="!editedItem.name || !editedItem.ID"
+          text="Save"
+          :disabled="!editedItem.name || !editedItem.ID || isDuplicate('ID')"
           :loading="isSaving"
           @click="saveItem"
         />
@@ -281,6 +288,53 @@ const isAddTypeDialog = ref(false);
 const selectSkillTab = ref(0);
 const editingTypeIndex = ref<number | null>(null);
 const isSaving = ref(false);
+
+const isDuplicate = (a: 'ID' | 'name') => {
+  const value = editedItem.value[a];
+
+  if (!value) {
+    return false;
+  }
+
+  // 編集モードで、かつ名前が変更されていない場合はOK
+  if (!props.isNew && props.item && value === props.item[a]) {
+    return false;
+  }
+
+  // 既存のリスト内に同じ名前があるか検索
+  return props.existingItems.some((item) => item[a] === value);
+};
+
+const kanaRules = [
+  (value: string) => {
+    if (!value) return true;
+    return (
+      /^[\u3040-\u309F0-9ー]+$/.test(value) ||
+      'Only Hiragana and Numbers are allowed'
+    );
+  },
+];
+
+const idRules = [
+  (value: string) => {
+    if (!value) {
+      return 'ID is required';
+    }
+
+    if (!/^[a-zA-Z0-9_-]+$/.test(value)) {
+      return 'Only half-width alphanumeric characters, "_", and "-" are allowed';
+    }
+
+    // 編集モードで、かつIDが変更されていない場合はOK
+    if (!props.isNew && value === props.item?.ID) {
+      return true;
+    }
+
+    // 既存のリスト内に同じIDがあるか検索
+    const exists = props.existingItems.some((item) => item.ID === value);
+    return !exists || 'ID already exists';
+  },
+];
 
 watch(
   () => props.modelValue,

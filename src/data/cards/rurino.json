@@ -1878,7 +1878,7 @@
             "ID": "chowchowTrick",
             "name": "チャウチャウトリック",
             "AP": 1,
-            "detail": [[]],
+            "detail": [],
             "characteristic": {
               "name": "チャウチャウフォーエバー",
               "detail": "このカードはスキル使用時にデッキから除外されない。さらにスキル使用時ボルテージLv.10以上のとき、APを1回復する。",
@@ -2940,7 +2940,7 @@
         ]
       },
       "skill": {
-        "ID": "cheerfulHeart_over100_heartCaptcha",
+        "ID": "cheerfulHeart_05",
         "name": "チアフルハート",
         "AP": 6,
         "detail": [

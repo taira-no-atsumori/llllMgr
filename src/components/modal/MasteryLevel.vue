@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-0">
+  <v-container id="bonusSkillDetailArea" class="pa-0">
     <h2>獲得ボーナススキル詳細</h2>
 
     <div>
@@ -28,7 +28,7 @@
         >{{
           (
             Math.floor(
-              store.makeTotalMasteryLv(checkMasteryMember) * 0.05 * 100
+              store.makeTotalMasteryLv(checkMasteryMember) * 0.05 * 100,
             ) / 100
           ).toFixed(2)
         }}</span
@@ -154,3 +154,15 @@ const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames): number => {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+#bonusSkillDetailArea {
+  height: 468px;
+}
+
+@media screen and (max-width: 600px) {
+  #bonusSkillDetailArea {
+    height: 530px;
+  }
+}
+</style>

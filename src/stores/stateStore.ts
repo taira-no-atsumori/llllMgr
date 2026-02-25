@@ -182,7 +182,9 @@ export const useStateStore = defineStore('store', {
 
         const skill = skillStore.skills[skillData.ID];
 
-        if (!skill) return '';
+        if (!skill) {
+          return '';
+        }
 
         const skillTextList = (() => {
           let returnText: string[] = skill.text || [];

@@ -385,7 +385,7 @@
                 <span
                   v-if="windowSize.w > 600"
                   class="pt-1 pl-1"
-                  :style="`font-size: ${memberName === 'seras' ? 0.8 : 1}em;`"
+                  :style="`font-size: ${memberName === MEMBER_KEYS.SERAS ? 0.8 : 1}em;`"
                 >
                   {{ makeMemberFullName(memberName) }}
                   <span class="text-body-2">
@@ -572,6 +572,7 @@
 import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import Music from '@/components/common/Music.vue';
+import { MEMBER_KEYS } from '@/constants/memberNames';
 import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { convertAttributeEnToJa, DIFFICULTY_LABEL } from '@/constants/music';

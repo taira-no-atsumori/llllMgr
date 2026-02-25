@@ -1,79 +1,63 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, beforeAll } from 'vitest';
 import { setActivePinia, createPinia } from 'pinia';
-import { useCardStore } from '../../src/stores/cardList';
+import { get, ref as dbRef } from 'firebase/database';
+import { useStateStore } from '../../src/stores/stateStore';
 import {
   MEMBER_IDS,
   EXCLUSION_MEMBER,
   type MemberIds,
   type MemberKeyValues,
 } from '../../src/constants/memberNames';
-import { SKILL_LIST } from '../../src/constants/skillList';
-import type { CardDataType } from '../../src/types/cardList';
+import type {
+  CardDataType,
+  CardDataByMember,
+  // SkillDetail,
+} from '../../src/types/cardList';
+import { rtdb } from '../../src/firebase';
+import type { SkillType } from '../../src/types/skill';
 
 describe('データ整合性チェック', () => {
-  let cardStore: ReturnType<typeof useCardStore>;
+  let stateStore: ReturnType<typeof useStateStore>;
   let allCards: CardDataType[];
+  let skillList: Record<string, SkillType>;
 
   // ヘルパー関数
+  /**
+   * カード情報取得処理
+   *
+   * @param store store
+   * @returns CardDataType
+   */
   const getAllCards = (
-    store: ReturnType<typeof useCardStore>,
+    store: ReturnType<typeof useStateStore>,
   ): CardDataType[] => {
-    const cards: CardDataType[] = [];
-    Object.values(store.card).forEach((memberCards) => {
-      Object.values(memberCards).forEach((rarityCards) => {
-        Object.values(rarityCards).forEach((card) => {
-          if (card.ID && !card.ID.endsWith('_000')) {
-            cards.push(card);
-          }
-        });
-      });
-    });
-    return cards;
+    const cardData = store.card as unknown as CardDataByMember;
+
+    return Object.values(cardData).flatMap((memberCards) =>
+      Object.values(memberCards).flatMap((rarityCards) =>
+        Object.values(rarityCards).filter(
+          (card): card is CardDataType =>
+            !!(
+              card &&
+              typeof card === 'object' &&
+              'ID' in card &&
+              !card.ID.endsWith('_000')
+            ),
+        ),
+      ),
+    );
   };
 
-  // const checkIDFormat = (id: string): boolean => {
-  //   return /^[a-z]+_\d{3}$/.test(id);
-  // };
+  beforeAll(async () => {
+    const snapshot = await get(dbRef(rtdb, 'skills/skill'));
+    skillList = snapshot.val() || {};
+  });
 
-  // const getNumbersFromIDs = (items: any[], pattern: RegExp): number[] => {
-  //   return items
-  //     .map((item) => {
-  //       const match = item.ID.match(pattern);
-  //       return match ? parseInt(match[1], 10) : null;
-  //     })
-  //     .filter((num): num is number => num !== null);
-  // };
-
-  // const findMissingNumbers = (numbers: number[]): number[] => {
-  //   if (numbers.length === 0) return [];
-  //   const sorted = [...new Set(numbers)].sort((a, b) => a - b);
-  //   const [min, max] = [sorted[0], sorted[sorted.length - 1]];
-  //   return Array.from({ length: max - min + 1 }, (_, i) => min + i).filter(
-  //     (num) => !sorted.includes(num)
-  //   );
-  // };
-
-  // const checkSkillExists = (card: CardDefaultData, skillType: 'skill' | 'specialAppeal'): string | null => {
-  //   const skill = card[skillType];
-  //   if (!skill?.name || !skill?.ID) return null;
-
-  //   if (!SKILL_LIST[skill.name]) {
-  //     return `カード [${card.ID}: ${card.kana}] の${skillType === 'skill' ? 'スキル' : 'スペシャルアピール'}名「${
-  //       skill.name
-  //     }」が skillList に存在しません。`;
-  //   }
-  //   if (!SKILL_LIST[skill.name][skill.ID]) {
-  //     return `カード [${card.ID}: ${card.kana}] の${skillType === 'skill' ? 'スキル' : 'スペシャルアピール'}ID「${
-  //       skill.ID
-  //     }」が skillList.${skill.name} に存在しません。`;
-  //   }
-  //   return null;
-  // };
-
-  beforeEach(() => {
+  beforeEach(async () => {
     setActivePinia(createPinia());
-    cardStore = useCardStore();
-    allCards = getAllCards(cardStore);
+    stateStore = useStateStore();
+    await stateStore.initializeData();
+    allCards = getAllCards(stateStore);
   });
 
   it('カードIDが重複していないこと', () => {
@@ -82,6 +66,7 @@ describe('データ整合性チェック', () => {
       if (!idMap.has(card.ID)) {
         idMap.set(card.ID, []);
       }
+
       idMap.get(card.ID)!.push(card.kana || card.ID);
     });
 
@@ -101,12 +86,15 @@ describe('データ整合性チェック', () => {
     // プレフィックスごとにIDの数字部分を収集
     allCards.forEach((card) => {
       const match = card.ID.match(/^([a-z]+)_(\d+)$/);
+
       if (match) {
         const [, prefix, numStr] = match;
         const num = parseInt(numStr, 10);
+
         if (!idsByPrefix.has(prefix)) {
           idsByPrefix.set(prefix, []);
         }
+
         idsByPrefix.get(prefix)!.push(num);
       }
     });
@@ -115,7 +103,9 @@ describe('データ整合性チェック', () => {
 
     // 各プレフィックスで連番になっているかチェック
     idsByPrefix.forEach((numbers, prefix) => {
-      if (numbers.length === 0) return;
+      if (numbers.length === 0) {
+        return;
+      }
 
       const sorted = [...new Set(numbers)].sort((a, b) => a - b);
       const min = sorted[0];
@@ -142,7 +132,7 @@ describe('データ整合性チェック', () => {
   });
 
   it('各カードのIDが、対応するキャラクターの略称と一致していること', () => {
-    const { card } = cardStore;
+    const { card } = stateStore;
 
     const errors: string[] = [];
 
@@ -150,7 +140,7 @@ describe('データ整合性チェック', () => {
     for (const characterKey in card) {
       if (
         characterKey === 'default' ||
-        (EXCLUSION_MEMBER as readonly string[]).includes(characterKey)
+        EXCLUSION_MEMBER.includes(characterKey)
       ) {
         continue;
       }
@@ -168,16 +158,22 @@ describe('データ整合性チェック', () => {
 
       // レアリティごとにループ
       for (const rarity in card[characterKey]) {
-        if (rarity === 'default') continue;
+        if (rarity === 'default') {
+          continue;
+        }
 
         // カード名ごとにループ
         for (const cardName in card[characterKey][rarity]) {
-          if (cardName === 'default') continue;
+          if (cardName === 'default') {
+            continue;
+          }
 
           const cardData = card[characterKey][rarity][cardName];
           const cardId = cardData.ID;
 
-          if (!cardId || cardId.endsWith('_000')) continue;
+          if (!cardId || cardId.endsWith('_000')) {
+            continue;
+          }
 
           const idPrefix = cardId.split('_')[0];
 
@@ -204,6 +200,7 @@ describe('データ整合性チェック', () => {
     allCards.forEach((card) => {
       // 基本フォーマット: 小文字アルファベット_数字3桁
       const formatRegex = /^[a-z]+_\d{3}$/;
+
       if (!formatRegex.test(card.ID)) {
         formatErrors.push(
           `ID: ${card.ID} - フォーマットが不正です（小文字アルファベット_数字3桁の形式が必要）`,
@@ -222,13 +219,10 @@ describe('データ整合性チェック', () => {
     allCards.forEach((card) => {
       if (card.specialAppeal?.name && card.specialAppeal?.ID) {
         const { name, ID } = card.specialAppeal;
-        if (!SKILL_LIST[name]) {
+
+        if (!skillList[ID]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスペシャルアピール名「${name}」が skillList に存在しません。`,
-          );
-        } else if (!SKILL_LIST[name][ID]) {
-          errors.push(
-            `カード [${card.ID}: ${card.kana}] のスペシャルアピールID「${ID}」が skillList.${name} に存在しません。`,
+            `カード [${card.ID}: ${card.cardName}] のスペシャルアピール名「${name}」が skillList に存在しません。`,
           );
         }
       }
@@ -244,13 +238,10 @@ describe('データ整合性チェック', () => {
     allCards.forEach((card) => {
       if (card.skill?.name && card.skill?.ID) {
         const { name, ID } = card.skill;
-        if (!SKILL_LIST[name]) {
+
+        if (!skillList[ID]) {
           errors.push(
-            `カード [${card.ID}: ${card.kana}] のスキル名「${name}」が skillList に存在しません。`,
-          );
-        } else if (!SKILL_LIST[name][ID]) {
-          errors.push(
-            `カード [${card.ID}: ${card.kana}] のスキルID「${ID}」が skillList.${name} に存在しません。`,
+            `カード [${card.ID}: ${card.cardName}] のスキル名「${name}」が skillList に存在しません。`,
           );
         }
       }
@@ -260,4 +251,101 @@ describe('データ整合性チェック', () => {
       `スキルの不整合が見つかりました:\n${errors.join('\n')}`,
     ).toEqual([]);
   });
+
+  it('カードデータの必須プロパティ（ID, cardName, rareなど）が欠落していないこと', () => {
+    const errors: string[] = [];
+
+    allCards.forEach((card) => {
+      const cardIdentifier = `カード [${card.ID || 'ID不明'}: ${
+        card.cardName || '名前不明'
+      }]`;
+
+      // 文字列であるべき必須プロパティをチェック
+      ['ID', 'cardName', 'rare', 'memberName', 'styleType', 'mood'].forEach(
+        (prop) => {
+          if (typeof card[prop] !== 'string' || card[prop] === '') {
+            errors.push(
+              `${cardIdentifier}: 必須プロパティ「${prop}」が存在しないか、空です。`,
+            );
+          }
+        },
+      );
+
+      // オブジェクトであるべき必須プロパティをチェック
+      ['uniqueStatus', 'skill', 'gacha'].forEach((prop) => {
+        if (typeof card[prop] !== 'object' || card[prop] === null) {
+          errors.push(
+            `${cardIdentifier}: 必須プロパティ「${prop}」が存在しないか、オブジェクトではありません。`,
+          );
+        }
+      });
+
+      // uniqueStatus内のネストされたプロパティをチェック
+      if (card.uniqueStatus) {
+        ['smile', 'pure', 'cool', 'mental', 'BP'].forEach((prop) => {
+          if (typeof card.uniqueStatus[prop] !== 'number') {
+            errors.push(
+              `${cardIdentifier}: uniqueStatus内に必須プロパティ「${prop}」が存在しないか、数値ではありません。`,
+            );
+          }
+        });
+      }
+    });
+
+    expect(
+      errors,
+      `必須プロパティに関するエラー:\n${errors.join('\n')}`,
+    ).toEqual([]);
+  });
+
+  // it('スキルテキストと効果量の数が一致していること', () => {
+  //   const errors: string[] = [];
+
+  //   const checkSkillConsistency = (
+  //     card: CardDataType,
+  //     skill: SkillDetail | undefined,
+  //     path: string,
+  //   ) => {
+  //     if (!skill?.ID) return;
+
+  //     const skillInfo = skillList[skill.ID];
+  //     if (
+  //       !skillInfo ||
+  //       !Array.isArray(skill.detail) ||
+  //       !Array.isArray(skillInfo.text)
+  //     ) {
+  //       return;
+  //     }
+
+  //     const textList =
+  //       skillInfo.exText && skillInfo.exText.length > 0
+  //         ? skillInfo.exText[skillInfo.exText.length - 1].text
+  //         : skillInfo.text;
+  //     const expectedLength = textList.length > 0 ? textList.length - 1 : 0;
+  //     const actualLength = skill.detail.length;
+
+  //     if (actualLength !== expectedLength) {
+  //       errors.push(
+  //         `カード [${card.ID}: ${card.cardName}] の \`${path}\` (スキルID: ${skill.ID}): skill.text の要素数(${skillInfo.text.length})から期待される detail の要素数(${expectedLength})と、実際の要素数(${actualLength})が一致しません。`,
+  //       );
+  //     }
+
+  //     skill.addSkill?.flat().forEach((add, i) => {
+  //       checkSkillConsistency(card, add, `${path}.addSkill[${i}]`);
+  //     });
+  //     skill.addSA?.flat().forEach((add, i) => {
+  //       checkSkillConsistency(card, add, `${path}.addSA[${i}]`);
+  //     });
+  //   };
+
+  //   allCards.forEach((card) => {
+  //     checkSkillConsistency(card, card.specialAppeal, 'specialAppeal');
+  //     checkSkillConsistency(card, card.skill, 'skill');
+  //   });
+
+  //   expect(
+  //     errors,
+  //     `スキルテキストと効果量の数に不整合が見つかりました:\n${errors.join('\n')}`,
+  //   ).toEqual([]);
+  // });
 });
