@@ -102,16 +102,18 @@
                     </p>
 
                     <p class="mt-1">
-                      <template v-if="skillType !== 'characteristic'">
-                        {{
-                          store.skillText(skillType, list, { addSkillNum: i })
-                        }}
-                      </template>
-                      <template v-else>
+                      <template
+                        v-if="list?.modeName && skillType === 'characteristic'"
+                      >
                         {{
                           list?.ID && skillStore.skills?.[list.ID]
                             ? skillStore.skills[list.ID].text[0]
                             : list.detail
+                        }}
+                      </template>
+                      <template v-else>
+                        {{
+                          store.skillText(skillType, list, { addSkillNum: i })
                         }}
                       </template>
                     </p>
@@ -196,19 +198,23 @@
                             </p>
 
                             <p class="mt-1">
-                              <template v-if="skillType !== 'characteristic'">
+                              <template
+                                v-if="
+                                  list?.modeName &&
+                                  skillType === 'characteristic'
+                                "
+                              >
                                 {{
-                                  store.skillText('addSkill', addSkillList, {
-                                    addSkillNum: [i, addSkillNum],
-                                  })
+                                  list?.ID && skillStore.skills?.[list.ID]
+                                    ? skillStore.skills[list.ID].text[0]
+                                    : list.detail
                                 }}
                               </template>
                               <template v-else>
                                 {{
-                                  addSkillList?.ID &&
-                                  skillStore.skills?.[addSkillList.ID]
-                                    ? skillStore.skills[addSkillList.ID].text[0]
-                                    : addSkillList.detail
+                                  store.skillText('addSkill', addSkillList, {
+                                    addSkillNum: [i, addSkillNum],
+                                  })
                                 }}
                               </template>
                             </p>
@@ -306,25 +312,20 @@ const skillStore = useSkillStore();
 /** 追加スキル・SAリスト算出 */
 const outputAddSkillList = computed(() => {
   const cardData = store.settingCardData;
-
-  switch (props.skillType) {
-    case 'changeCharacteristic': {
-      return [
-        ...(cardData.characteristic?.changeCharacteristic ?? []),
-        ...(cardData.characteristic?.addSkill ?? []),
-      ].flat();
-    }
-    default: {
-      const addSAWithFlag = (cardData[props.skillType]?.addSA ?? [])
-        .flat()
-        .map((skill) => ({
+  const addSAWithFlag =
+    props.skillType !== 'specialAppeal'
+      ? []
+      : (cardData.specialAppeal?.addSA ?? []).flat().map((skill) => ({
           ...skill,
           isMinus: false,
         }));
-      const addSkill = (cardData[props.skillType]?.addSkill ?? []).flat();
-      return [...addSAWithFlag, ...addSkill];
-    }
-  }
+  const addSkill = (cardData[props.skillType]?.addSkill ?? []).flat();
+  const addChangeCharacteristic =
+    props.skillType !== 'characteristic'
+      ? []
+      : (cardData.characteristic?.changeCharacteristic ?? []).flat();
+
+  return [...addSAWithFlag, ...addSkill, ...addChangeCharacteristic];
 });
 
 const tab_addSkill = ref('one');

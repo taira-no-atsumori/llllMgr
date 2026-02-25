@@ -129,6 +129,19 @@ interface AdditionalSkill extends SkillDetail {
 }
 
 /**
+ * キャラクター特性変更
+ *
+ * @property modeName モード名
+ * @property name 特性名
+ * @property detail モード詳細
+ */
+interface ChangeCharacteristic {
+  modeName: string;
+  name: string;
+  detail: string;
+}
+
+/**
  * キャラクター特性
  *
  * @property name 特性名
@@ -136,11 +149,12 @@ interface AdditionalSkill extends SkillDetail {
  * @property interface
  * @property addSkill 追加スキル
  */
-interface Characteristic {
+export interface Characteristic {
   name: string;
   detail: string;
   interface?: string[];
   addSkill?: AdditionalSkill[];
+  changeCharacteristic?: ChangeCharacteristic[];
 }
 
 /**
@@ -179,12 +193,8 @@ export interface CardDefaultData {
   series: string;
   kana: string;
   gacha: Gacha;
-  imageUrl: ImageUrl;
   uniqueStatus: BaseStatus;
-  imageURL: {
-    before?: string;
-    after: string;
-  };
+  imageURL: ImageUrl;
   specialAppeal?: SkillDetail;
   skill: SkillDetail;
   characteristic?: Characteristic;

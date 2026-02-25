@@ -53,7 +53,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { ref as dbRef, onValue } from 'firebase/database';
-import { rtdb, rtdbDev } from '@/firebase';
+import { rtdb } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import EditSkillDataDialog from '@/components/modal/EditSkillDataDialog.vue';
 import type { SkillEditType } from '@/components/modal/EditSkillDataDialog.vue';
@@ -64,8 +64,7 @@ const skillList = ref<Record<string, SkillType>>({});
 const search = ref('');
 
 const fetchSkillList = () => {
-  const db = store.isDev ? rtdbDev : rtdb;
-  const skillRef = dbRef(db, 'skills/skill');
+  const skillRef = dbRef(rtdb, 'skills/skill');
 
   onValue(skillRef, (snapshot) => {
     const data: Record<string, SkillType> = snapshot.val();
