@@ -36,6 +36,118 @@
     }
   },
   "DR": {
+    "kh_070": {
+      "cardName": "Oracle Étude",
+      "styleType": "performer",
+      "mood": "neutral",
+      "series": "Oracle Étude",
+      "kana": "おらくるえちゅーど",
+      "gacha": {
+        "addSeason": "「ドリームスタイルクエスト」クリア報酬",
+        "period": "normal"
+      },
+      "uniqueStatus": {
+        "smile": 7100,
+        "pure": 5500,
+        "cool": 4800,
+        "mental": 580,
+        "BP": 100
+      },
+      "imageUrl": {
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fkh_070_after.webp?alt=media&token=061d7783-ad8a-4e37-85c4-daa170b7a6f3"
+      },
+      "specialAppeal": {
+        "ID": "elysion_08",
+        "name": "Elysion",
+        "AP": 2,
+        "detail": [
+          [
+            "3999.6",
+            "4399.6",
+            "4799.5",
+            "5199.5",
+            "5599.4",
+            "5999.4",
+            "6399.4",
+            "6799.3",
+            "7199.3",
+            "7999.2",
+            "8399.2",
+            "8799.1",
+            "9199.1",
+            "9999"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "mode_dreamer_01",
+        "name": "mode:DREAMER",
+        "AP": 1,
+        "detail": [
+          [
+            "2222",
+            "2444",
+            "2666",
+            "2889",
+            "3111",
+            "3333",
+            "3555",
+            "3777",
+            "4000",
+            "4444",
+            "4666",
+            "4888",
+            "5111",
+            "5555"
+          ],
+          [
+            "2222",
+            "2444",
+            "2666",
+            "2889",
+            "3111",
+            "3333",
+            "3555",
+            "3777",
+            "4000",
+            "4444",
+            "4666",
+            "4888",
+            "5111",
+            "5555"
+          ],
+          [
+            "2222",
+            "2444.2",
+            "2666.4",
+            "2888.6",
+            "3110.8",
+            "3333",
+            "3555.2",
+            "3777.4",
+            "3999.6",
+            "4444",
+            "4666.2",
+            "4888.4",
+            "5110.6",
+            "5555"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "Supernova",
+        "detail": "ドローした時、AP、ボルテージPt.、メンタルを0にする。さらにデッキ枚数が1枚でこのスキルを使用した時、このステージ中、AP、ボルテージLv.、メンタルを無限にし、デッキから除外される。",
+        "type": [
+          "draw",
+          "APLoss",
+          "mentalReduce",
+          "infinity_AP_stage",
+          "infinity_mental_stage",
+          "infinity_voltage_stage",
+          "exclusion"
+        ]
+      }
+    },
     "kh_045": {
       "cardName": "Ether Aria",
       "styleType": "performer",
