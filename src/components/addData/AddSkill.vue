@@ -96,6 +96,7 @@ const headers = [
   { title: 'ID', key: 'ID' },
   { title: 'Skill Name', key: 'name' },
   { title: 'Kana', key: 'kana' },
+  { title: 'Attr', key: 'detail.attr' },
   { title: 'Edit', key: 'edit', sortable: false },
 ];
 

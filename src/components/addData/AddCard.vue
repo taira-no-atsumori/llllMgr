@@ -475,6 +475,19 @@
     <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
       {{ snackbarMessage }}
     </v-snackbar>
+
+    <v-row>
+      <v-col v-for="illust in filteredIllusts" :key="illust.name" cols="2">
+        <v-card>
+          <v-card-title class="pa-0">
+            <v-img :src="illust.url" aspect-ratio="16/9" cover />
+          </v-card-title>
+          <v-card-text class="py-2">
+            {{ illust.name }}
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -486,6 +499,7 @@ import {
   ref as storageRef,
   getDownloadURL,
   uploadBytes,
+  listAll,
 } from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
@@ -544,6 +558,21 @@ const fileBefore = ref<File | null>(null);
 const fileAfter = ref<File | null>(null);
 const previewBefore = ref<string | null>(null);
 const previewAfter = ref<string | null>(null);
+
+const illusts = ref<{ name: string; url: string }[]>([]);
+
+const filteredIllusts = computed(() => {
+  if (!card.value.memberName) {
+    return [];
+  }
+  const memberKey = card.value.memberName as MemberKeyValues;
+  const prefix = MEMBER_IDS[memberKey];
+  if (!prefix) {
+    return [];
+  }
+
+  return illusts.value.filter((illust) => illust.name.startsWith(`${prefix}_`));
+});
 
 const triggerFile = (a: 'before' | 'after') => {
   if (a === 'before') {
@@ -819,7 +848,7 @@ const addCardData = async () => {
   }
 };
 
-onMounted(() => {
+onMounted(async () => {
   const cardRef = dbRef(rtdbDev, 'card');
 
   onValue(cardRef, (snapshot) => {
@@ -829,6 +858,27 @@ onMounted(() => {
       dbCardList.value = data;
     }
   });
+
+  try {
+    const storage = getStorage(rtdb.app);
+    const illustsRef = storageRef(storage, 'cardIllust');
+    const res = await listAll(illustsRef);
+    const fetchedIllusts = await Promise.all(
+      res.items.map(async (itemRef) => {
+        const url = await getDownloadURL(itemRef);
+        return {
+          name: itemRef.name,
+          url,
+        };
+      }),
+    );
+    illusts.value = fetchedIllusts;
+  } catch (error) {
+    console.error('Error fetching card illustrations:', error);
+    snackbarMessage.value = 'カード画像の読み込みに失敗しました';
+    snackbarColor.value = 'error';
+    snackbar.value = true;
+  }
 });
 
 watch(
