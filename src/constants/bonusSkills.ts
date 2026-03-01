@@ -8,6 +8,8 @@ export const BONUS_SKILL_NAMES = {
 export type BonusSkillNames =
   (typeof BONUS_SKILL_NAMES)[keyof typeof BONUS_SKILL_NAMES];
 
+export const bonusSkillNames = Object.values(BONUS_SKILL_NAMES);
+
 /** ボーナススキルの詳細情報 */
 export const BONUS_SKILL_LIST = {
   [BONUS_SKILL_NAMES.VOLTAGE_UP]: {

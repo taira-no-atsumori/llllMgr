@@ -29,7 +29,7 @@
 
                   <v-select
                     v-model="selectBonusSkillList"
-                    :items="bonusSkillList"
+                    :items="bonusSkillNames"
                     clearable
                     color="pink"
                     hint="絞り込みたい獲得ボーナススキルを選んでください"
@@ -403,7 +403,7 @@
               </p>
               <v-row no-gutters>
                 <v-col
-                  v-for="skillName in bonusSkillList"
+                  v-for="skillName in bonusSkillNames"
                   :key="skillName"
                   cols="6"
                   sm="3"
@@ -572,19 +572,20 @@
 import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue';
 import { useStateStore } from '@/stores/stateStore';
 import Music from '@/components/common/Music.vue';
-import { MEMBER_KEYS } from '@/constants/memberNames';
-import { makeMemberFullName } from '@/constants/memberNames';
+import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
-import { convertAttributeEnToJa, DIFFICULTY_LABEL } from '@/constants/music';
+import {
+  convertAttributeEnToJa,
+  DIFFICULTY_LABEL,
+  getAttributeListEn,
+} from '@/constants/music';
+import { bonusSkillNames } from '@/constants/bonusSkills';
 import type { MusicItem } from '@/types/musicList';
 import { useMusicData } from '@/composables/useMusicData';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
-import { getAttributeListEn } from '@/constants/music';
-import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 
-const bonusSkillList = Object.values(BONUS_SKILL_NAMES);
 const attrList = getAttributeListEn();
 
 const windowSize = reactive({ w: 0, h: 0 });
@@ -592,7 +593,7 @@ const isSchoolShow = ref(false);
 const inputMusicTitle = ref<string | null>(null);
 const masteryLv = ref([0, 50]);
 const selectCenterList = ref<string[]>([]);
-const selectBonusSkillList = ref([...bonusSkillList]);
+const selectBonusSkillList = ref([...bonusSkillNames]);
 const selectAttrList = ref([...attrList]);
 const menuOpen = ref(false);
 

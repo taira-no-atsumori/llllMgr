@@ -118,7 +118,18 @@
       <v-card-actions class="py-0">
         <v-spacer />
         <v-btn text="Cancel" color="red" variant="text" @click="closeDialog" />
-        <v-btn text="Save" color="primary" variant="text" @click="save" />
+        <v-btn
+          text="Save"
+          color="primary"
+          variant="text"
+          :disabled="
+            !editableItem.id ||
+            !editableItem.title ||
+            !firstDayInput ||
+            !lastDayInput
+          "
+          @click="save"
+        />
       </v-card-actions>
     </v-card>
   </v-dialog>

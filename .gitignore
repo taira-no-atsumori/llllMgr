@@ -26,11 +26,6 @@ pnpm-debug.log*
 import-firestore.js
 *.adminsdk*.json
 
-# Image Folders
-/src/assets/images/cardIllust
-/src/assets/images/cdJacket
-/src/assets/images/eventInformation
-
 # Screen Design
 /docs/screen_design
 

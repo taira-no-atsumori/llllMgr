@@ -62,7 +62,11 @@
       </v-col>
     </v-row>
 
-    <v-snackbar v-model="snackbar" :color="snackbarColor" :timeout="2000">
+    <v-snackbar
+      v-model="snackbar"
+      :color="snackbarColor"
+      :timeout="snackbarTimeout"
+    >
       {{ snackbarMessage }}
     </v-snackbar>
   </v-container>
@@ -87,6 +91,7 @@ const store = useStateStore();
 const snackbar = ref(false);
 const snackbarMessage = ref('');
 const snackbarColor = ref('success');
+const snackbarTimeout = ref(2000);
 const dialog = ref(false);
 const isNew = ref(false);
 
@@ -225,24 +230,18 @@ const saveEvent = async ({
   event: EventItem;
   file: File | null;
 }) => {
-  if (!event.id) {
-    snackbarMessage.value = 'ID is required';
-    snackbarColor.value = 'error';
-    snackbar.value = true;
-    return;
-  }
-
   const db = store.isDev ? rtdbDev : rtdb;
   const { id, ...rest } = event;
 
   try {
     snackbarMessage.value = 'Uploading Now...';
     snackbarColor.value = 'yellow';
+    snackbarTimeout.value = -1;
     snackbar.value = true;
 
     if (file) {
       const storage = getStorage(rtdb.app);
-      const fileRef = storageRef(storage, `event/${file.name}`);
+      const fileRef = storageRef(storage, `eventInformation/${file.name}`);
       const snapshot = await uploadBytes(fileRef, file);
       const url = await getDownloadURL(snapshot.ref);
       rest.imageUrl = url;
@@ -251,12 +250,14 @@ const saveEvent = async ({
     await update(dbRef(db, `eventInformation/${id}`), rest);
     snackbarMessage.value = 'Saved successfully';
     snackbarColor.value = 'success';
+    snackbarTimeout.value = 5000;
     dialog.value = false;
     await fetchEvents();
   } catch (error) {
     console.error(error);
     snackbarMessage.value = 'Error saving event';
     snackbarColor.value = 'error';
+    snackbarTimeout.value = 5000;
   }
 };
 </script>
