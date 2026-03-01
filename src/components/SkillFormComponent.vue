@@ -1,26 +1,32 @@
 <template>
   <div class="d-flex mb-3">
     <div class="pr-3" style="width: 90%">
-      <v-select
-        v-model="selectedKanaRow"
-        :items="kanaRows"
-        label="Filter by Kana"
-        variant="outlined"
-        density="compact"
-        hide-details
-        class="mb-3"
-      />
-      <v-select
-        v-model="model.name"
-        :items="skillNames"
-        :label="`${labelPrefix} Name`"
-        required
-        variant="outlined"
-        density="compact"
-        hide-details
-        class="mb-3"
-        @update:model-value="onNameChange"
-      />
+      <v-row>
+        <v-col cols="2" class="mb-1">
+          <v-select
+            v-model="selectedKanaRow"
+            :items="kanaRows"
+            label="Filter by Kana"
+            variant="outlined"
+            density="compact"
+            hide-details
+            class="mb-3"
+          />
+        </v-col>
+        <v-col cols="10">
+          <v-select
+            v-model="model.name"
+            :items="skillNames"
+            :label="`${labelPrefix} Name`"
+            required
+            variant="outlined"
+            density="compact"
+            hide-details
+            class="mb-3"
+            @update:model-value="onNameChange"
+          />
+        </v-col>
+      </v-row>
       <v-select
         v-model="model.ID"
         :items="idOptions"
@@ -44,7 +50,7 @@
         density="compact"
         hide-details
         :bg-color="model.AP === 0 ? 'error' : undefined"
-        class="mb-3"
+        class="mb-4"
       />
       <v-btn text="Reset" color="primary" block @click="reset" />
     </div>
@@ -135,6 +141,21 @@
                 :index="i"
                 @open-detail="(l, idx) => $emit('open-detail', l, idx)"
               />
+              <div v-if="model.addSA[i].characteristic" class="mt-3">
+                <CharacteristicAreaComponent
+                  v-model="model.addSA[i].characteristic"
+                  @delete="deleteCharacteristic(model.addSA[i])"
+                  @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+                />
+              </div>
+              <v-btn
+                v-else
+                text="Add Characteristic"
+                prepend-icon="mdi-plus"
+                block
+                class="mt-3"
+                @click="addCharacteristic(model.addSA[i])"
+              />
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -175,6 +196,21 @@
                 :index="i"
                 @open-detail="(l, idx) => $emit('open-detail', l, idx)"
               />
+              <div v-if="model.addSkill[i].characteristic" class="mt-3">
+                <CharacteristicAreaComponent
+                  v-model="model.addSkill[i].characteristic"
+                  @delete="deleteCharacteristic(model.addSkill[i])"
+                  @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+                />
+              </div>
+              <v-btn
+                v-else
+                text="Add Characteristic"
+                prepend-icon="mdi-plus"
+                block
+                class="mt-3"
+                @click="addCharacteristic(model.addSkill[i])"
+              />
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -200,6 +236,7 @@ import { ref as dbRef, onValue } from 'firebase/database';
 import { rtdb } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import SkillFormComponent from '@/components/SkillFormComponent.vue';
+import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
 import { KANA_OPTIONS } from '@/constants/kana';
 import { getRow } from '@/utils/stringUtil';
 import type { SkillDetail } from '@/types/cardList';
@@ -405,6 +442,19 @@ const addSAorSkill = (target: 'SA' | 'Skill') => {
 
 const removeSAorSkill = (target: 'SA' | 'Skill', index: number) => {
   model.value[`add${target}`].splice(index, 1);
+};
+
+const addCharacteristic = (item: any) => {
+  item.characteristic = {
+    name: '',
+    detail: '',
+    type: [],
+    addSkill: [],
+  };
+};
+
+const deleteCharacteristic = (item: any) => {
+  delete item.characteristic;
 };
 
 const reset = () => {

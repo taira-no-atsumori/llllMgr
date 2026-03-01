@@ -153,6 +153,84 @@
           </v-card-text>
         </v-card>
 
+        <div class="mb-3">
+          <v-btn
+            v-if="!isSupportSkill"
+            text="Add Support Skill"
+            prepend-icon="mdi-plus"
+            variant="outlined"
+            block
+            class="mb-3"
+            @click="isSupportSkill = true"
+          />
+
+          <v-card v-else>
+            <v-card-title class="d-flex text-no-wrap">
+              Support Skill
+              <v-spacer />
+              <v-btn
+                icon="mdi-close"
+                variant="text"
+                density="compact"
+                color="error"
+                @click="isSupportSkill = false"
+              />
+            </v-card-title>
+
+            <v-card-text>
+              <v-text-field
+                label="Support Skill Title"
+                variant="underlined"
+                density="compact"
+                hide-details
+                class="mb-5"
+              />
+
+              <v-row>
+                <v-col
+                  v-for="skillName in bonusSkillNames"
+                  :key="skillName"
+                  cols="3"
+                >
+                  <div class="d-flex align-center justify-center mb-3">
+                    <img
+                      :src="store.getImagePath('icons/bonusSkill', skillName)"
+                      class="mr-2"
+                      style="width: 35px; border-radius: 3.5px"
+                    />
+                    <span class="font-weight-bold">{{ skillName }}</span>
+                  </div>
+
+                  <v-row no-gutters>
+                    <template
+                      v-for="(value, i) in ['initLevel', 'levelUp', 'upLevel']"
+                      :key="value"
+                    >
+                      <v-col cols="4">
+                        <v-text-field
+                          v-model="
+                            card.uniqueStatus.supportSkill.supportSkillList[
+                              skillName
+                            ][value]
+                          "
+                          :label="value"
+                          type="number"
+                          max="5"
+                          min="0"
+                          variant="underlined"
+                          density="compact"
+                          hide-details
+                          :class="`m${['r', 'x', 'l'][i]}-1`"
+                        />
+                      </v-col>
+                    </template>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-card-text>
+          </v-card>
+        </div>
+
         <v-card class="mb-3">
           <v-card-title class="mb-2">Gacha</v-card-title>
           <v-card-text>
@@ -210,6 +288,7 @@
             v-if="!isSA"
             text="Add Special Appeal"
             prepend-icon="mdi-plus"
+            variant="outlined"
             block
             @click="isSA = true"
           />
@@ -255,117 +334,12 @@
             block
             @click="isCharacteristic = true"
           />
-          <v-card v-else>
-            <v-card-title class="d-flex text-no-wrap">
-              Characteristic
-              <v-spacer />
-              <v-btn
-                icon="mdi-close"
-                variant="text"
-                density="compact"
-                color="error"
-                @click="deleteCharacteristic"
-              />
-            </v-card-title>
-
-            <v-card-text>
-              <v-text-field
-                v-model="card.characteristic.name"
-                label="Characteristic Name"
-                variant="outlined"
-                density="compact"
-                hide-details
-                class="mb-3"
-              />
-              <v-textarea
-                v-model="card.characteristic.detail"
-                label="Characteristic Detail"
-                variant="outlined"
-                density="compact"
-                hide-details
-                class="mb-3"
-              />
-
-              <p class="text-subtitle-1 mb-3">Type</p>
-
-              <v-row>
-                <v-col
-                  v-for="(_, index) in card.characteristic.type"
-                  :key="index"
-                  cols="4"
-                  class="d-flex align-center"
-                >
-                  <v-select
-                    v-model="card.characteristic.type[index]"
-                    :items="skillDetailOptions"
-                    item-title="title"
-                    item-value="value"
-                    :label="`Type ${index + 1}`"
-                    variant="outlined"
-                    density="compact"
-                    hide-details
-                  />
-                  <v-btn
-                    icon="mdi-delete"
-                    variant="text"
-                    density="compact"
-                    color="error"
-                    class="ml-3"
-                    @click="card.characteristic.type.splice(index, 1)"
-                  />
-                </v-col>
-                <v-col cols="4">
-                  <v-btn
-                    text="Add Type"
-                    prepend-icon="mdi-plus"
-                    block
-                    @click="card.characteristic.type.push('')"
-                  />
-                </v-col>
-              </v-row>
-
-              <template
-                v-for="(item, index) in card.characteristic.addSkill"
-                :key="index"
-              >
-                <v-col cols="12" class="mt-3">
-                  <v-expansion-panels color="yellow">
-                    <v-expansion-panel>
-                      <v-expansion-panel-title>
-                        {{ `Add Skill ${index + 1}` }}
-                        <v-spacer />
-                        <v-btn
-                          icon="mdi-delete"
-                          variant="text"
-                          density="compact"
-                          color="error"
-                          @click.stop="removeCharacteristicSkill(index)"
-                        />
-                      </v-expansion-panel-title>
-                      <v-expansion-panel-text>
-                        <SkillFormComponent
-                          v-model="card.characteristic.addSkill[index]"
-                          type="addSkill"
-                          :index="index"
-                          @open-detail="openDetailDialog"
-                        />
-                      </v-expansion-panel-text>
-                    </v-expansion-panel>
-                  </v-expansion-panels>
-                </v-col>
-              </template>
-
-              <v-btn
-                v-if="card.characteristic.type.includes('addCard')"
-                color="yellow"
-                prepend-icon="mdi-plus"
-                text="Add Skill"
-                block
-                class="mt-3"
-                @click="addCharacteristicSkill"
-              />
-            </v-card-text>
-          </v-card>
+          <CharacteristicAreaComponent
+            v-else
+            v-model="card.characteristic"
+            @delete="deleteCharacteristic"
+            @open-detail="openDetailDialog"
+          />
         </div>
       </v-col>
 
@@ -478,7 +452,7 @@
 
     <v-row>
       <v-col v-for="illust in filteredIllusts" :key="illust.name" cols="2">
-        <v-card>
+        <v-card class="cursor-pointer" @click="copyUrl(illust.url)">
           <v-card-title class="pa-0">
             <v-img :src="illust.url" aspect-ratio="16/9" cover />
           </v-card-title>
@@ -514,22 +488,15 @@ import {
 import type { Rare } from '@/constants/cards';
 import type { CardDataType, CardDataByMember } from '@/types/cardList';
 import { useStateStore } from '@/stores/stateStore';
-import { useSkillStore } from '@/stores/skillStore';
 import SkillFormComponent from '@/components/SkillFormComponent.vue';
+import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
 import EditDetailDataDialog from '@/components/modal/EditDetailDataDialog.vue';
 import noImage from '@/assets/images/NO IMAGE_card.webp';
+import { BONUS_SKILL_NAMES, bonusSkillNames } from '@/constants/bonusSkills';
 
 const store = useStateStore();
-const skillStore = useSkillStore();
 
 const cardParamKey = ['smile', 'pure', 'cool', 'mental', 'BP'];
-
-const skillDetailOptions = computed(() => {
-  return Object.entries(skillStore.skillDetails).map(([key, value]) => ({
-    title: value.skillDetailName,
-    value: key,
-  }));
-});
 
 const deleteSpecialAppeal = () => {
   isSA.value = false;
@@ -549,6 +516,7 @@ const inputData = ref('');
 const detailDialog = ref(false);
 const editingList = ref<(number | null)[]>([]);
 const editingDetailIndex = ref<number | null>(null);
+const isSupportSkill = ref(false);
 const isSA = ref(true);
 const isCharacteristic = ref(true);
 
@@ -558,6 +526,20 @@ const fileBefore = ref<File | null>(null);
 const fileAfter = ref<File | null>(null);
 const previewBefore = ref<string | null>(null);
 const previewAfter = ref<string | null>(null);
+
+const copyUrl = async (url: string) => {
+  try {
+    await navigator.clipboard.writeText(url);
+    snackbarMessage.value = '画像URLをコピーしました';
+    snackbarColor.value = 'success';
+    snackbar.value = true;
+  } catch (err) {
+    console.error('Failed to copy URL:', err);
+    snackbarMessage.value = 'コピーに失敗しました';
+    snackbarColor.value = 'error';
+    snackbar.value = true;
+  }
+};
 
 const illusts = ref<{ name: string; url: string }[]>([]);
 
@@ -694,32 +676,6 @@ const onSaveDetail = (newValues: (string | null)[]) => {
   }
 };
 
-const addCharacteristicSkill = () => {
-  card.value.characteristic.addSkill.push(
-    JSON.parse(JSON.stringify(addSkillDetailData)),
-  );
-};
-
-const removeCharacteristicSkill = (index: number) => {
-  card.value.characteristic.addSkill.splice(index, 1);
-};
-
-const addSADetailData = {
-  ID: '',
-  name: '',
-  AP: 0,
-  detail: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],
-};
-
-const addSkillDetailData = {
-  ...addSADetailData,
-  characteristic: {
-    name: '',
-    detail: '',
-    type: [''],
-  },
-};
-
 interface EditCardDataType extends CardDataType {
   year: number;
   split: number;
@@ -749,6 +705,31 @@ const card = ref<EditCardDataType>({
     cool: 0,
     mental: 0,
     BP: 100,
+    supportSkill: {
+      supportSkillTitle: '',
+      supportSkillList: {
+        [BONUS_SKILL_NAMES.VOLTAGE_UP]: {
+          initLevel: 1,
+          levelUp: 1,
+          upLevel: 1,
+        },
+        [BONUS_SKILL_NAMES.MENTAL_RECOVER]: {
+          initLevel: 1,
+          levelUp: 1,
+          upLevel: 1,
+        },
+        [BONUS_SKILL_NAMES.BEAT_HEART_UP]: {
+          initLevel: 1,
+          levelUp: 1,
+          upLevel: 1,
+        },
+        [BONUS_SKILL_NAMES.LOVE_BONUS]: {
+          initLevel: 1,
+          levelUp: 1,
+          upLevel: 1,
+        },
+      },
+    },
   },
   specialAppeal: {
     ID: '',
@@ -938,6 +919,14 @@ watch(
         card.value.specialAppeal.name = foundData.specialAppeal.name;
         card.value.specialAppeal.AP = foundData.specialAppeal.AP;
         card.value.specialAppeal.detail = foundData.specialAppeal.detail || [];
+
+        if (foundData.specialAppeal.addSA.length > 0) {
+          card.value.specialAppeal.addSA = foundData.specialAppeal.addSA;
+        }
+
+        if (foundData.specialAppeal.addSkill.length > 0) {
+          card.value.specialAppeal.addSkill = foundData.specialAppeal.addSkill;
+        }
       }
 
       if (foundData.skill) {
@@ -951,6 +940,11 @@ watch(
         card.value.characteristic.name = foundData.characteristic.name;
         card.value.characteristic.detail = foundData.characteristic.detail;
         card.value.characteristic.type = foundData.characteristic.type || [];
+      }
+
+      if (foundData.uniqueStatus.supportSkill) {
+        card.value.uniqueStatus.supportSkill =
+          foundData.uniqueStatus.supportSkill;
       }
 
       if (foundData.imageUrl) {
@@ -1024,6 +1018,14 @@ const jsonOutput = computed(() => {
       cool: card.value.uniqueStatus.cool,
       mental: card.value.uniqueStatus.mental,
       BP: card.value.uniqueStatus.BP,
+      ...(isSupportSkill.value && {
+        supportSkill: {
+          supportSkillTitle:
+            card.value.uniqueStatus.supportSkill.supportSkillTitle,
+          supportSkillList:
+            card.value.uniqueStatus.supportSkill.supportSkillList,
+        },
+      }),
     },
     imageUrl: {
       ...(card.value.imageUrl.before && { before: '' }),
@@ -1035,6 +1037,12 @@ const jsonOutput = computed(() => {
         name: card.value.specialAppeal.name,
         AP: card.value.specialAppeal.AP,
         detail: card.value.specialAppeal.detail,
+        ...(card.value.specialAppeal.addSA.length > 0 && {
+          addSA: card.value.specialAppeal.addSA,
+        }),
+        ...(card.value.specialAppeal.addSkill.length > 0 && {
+          addSkill: card.value.specialAppeal.addSkill,
+        }),
       },
     }),
     skill: {
@@ -1042,6 +1050,9 @@ const jsonOutput = computed(() => {
       name: card.value.skill.name,
       AP: card.value.skill.AP,
       detail: card.value.skill.detail,
+      ...(card.value.skill.addSkill.length > 0 && {
+        addSkill: card.value.skill.addSkill,
+      }),
     },
     ...(isCharacteristic.value && {
       characteristic: {

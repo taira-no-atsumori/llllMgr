@@ -52,7 +52,6 @@
               <v-text-field
                 v-model="editedItem.id"
                 label="ID"
-                :readonly="!isNew"
                 :disabled="!isNew"
                 variant="outlined"
                 density="compact"

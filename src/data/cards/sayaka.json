@@ -191,7 +191,32 @@
         "pure": 4800,
         "cool": 4800,
         "mental": 480,
-        "BP": 100
+        "BP": 100,
+        "supportSkill": {
+          "supportSkillTitle": "18th Birthday",
+          "supportSkillList": {
+            "ボルテージアップ": {
+              "initLevel": 1,
+              "levelUp": 2,
+              "upLevel": 1
+            },
+            "メンタルリカバー": {
+              "initLevel": 1,
+              "levelUp": 4,
+              "upLevel": 1
+            },
+            "ビートハートアップ": {
+              "initLevel": 1,
+              "levelUp": 5,
+              "upLevel": 1
+            },
+            "LOVEボーナス": {
+              "initLevel": 1,
+              "levelUp": 3,
+              "upLevel": 1
+            }
+          }
+        }
       },
       "specialAppeal": {
         "ID": "voltageBoost_section",

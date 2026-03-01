@@ -154,6 +154,86 @@
     }
   },
   "BR": {
+    "sz_037": {
+      "cardName": "17th Birthday",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "Birthday",
+      "kana": "せぶんてぃーんすばーすでー",
+      "gacha": {
+        "addSeason": "2025 BIRTHDAY LIMITED COLLECTION -Kosuzu-",
+        "period": "birthday"
+      },
+      "uniqueStatus": {
+        "smile": 4800,
+        "pure": 4800,
+        "cool": 4800,
+        "mental": 480,
+        "BP": 100,
+        "supportSkill": {
+          "supportSkillTitle": "17th Birthday",
+          "supportSkillList": {
+            "ボルテージアップ": {
+              "initLevel": 1,
+              "levelUp": 5,
+              "upLevel": 1
+            },
+            "メンタルリカバー": {
+              "initLevel": 1,
+              "levelUp": 3,
+              "upLevel": 1
+            },
+            "ビートハートアップ": {
+              "initLevel": 1,
+              "levelUp": 2,
+              "upLevel": 1
+            },
+            "LOVEボーナス": {
+              "initLevel": 1,
+              "levelUp": 4,
+              "upLevel": 1
+            }
+          }
+        }
+      },
+      "imageUrl": {
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_037_after.webp?alt=media&token=b303c754-5af1-4d01-b430-795e59f64e3c"
+      },
+      "specialAppeal": {
+        "ID": "skstLesson_01",
+        "name": "スクステレッスン",
+        "AP": 6,
+        "detail": []
+      },
+      "skill": {
+        "ID": "bloomMySelf_08",
+        "name": "ブルームマイセルフ",
+        "AP": 2,
+        "detail": [
+          [
+            "8",
+            "8.8",
+            "9.6",
+            "10.4",
+            "11.2",
+            "12",
+            "12.8",
+            "13.6",
+            "14.4",
+            "16",
+            "16.8",
+            "17.6",
+            "18.4",
+            "20"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "バースデイキャンドル",
+        "detail": "スキル使用時、17回までAPを2回復する。",
+        "type": ["APGain"]
+      }
+    },
     "sz_017": {
       "cardName": "16th Birthday",
       "styleType": "trickStar",

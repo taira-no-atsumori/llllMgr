@@ -177,61 +177,12 @@
         />
       </v-card-actions>
     </v-card>
-  </v-dialog>
 
-  <v-dialog v-model="isAddTypeDialog" max-width="1080px">
-    <v-sheet class="pa-3">
-      <h3>Add Type</h3>
-
-      <div>
-        <v-tabs v-model="selectSkillTab" color="pink">
-          <v-tab v-for="(key, id) in SKILL_TYPE_KEY" :key="id" :value="id">
-            {{ key }}
-          </v-tab>
-        </v-tabs>
-
-        <v-divider />
-
-        <v-tabs-window v-model="selectSkillTab">
-          <v-tabs-window-item
-            v-for="(_, id) in SKILL_TYPE_KEY"
-            :key="id"
-            :value="id"
-          >
-            <v-sheet style="height: 500px; overflow-y: auto">
-              <v-list density="compact">
-                <v-list-item
-                  v-for="(detail, key) in getSkillDetailsByType(id)"
-                  :key="key"
-                  :title="detail.skillDetailName"
-                  :subtitle="detail.description"
-                  :disabled="editedItem.detail?.type?.includes(key)"
-                  style="border-bottom: 1px solid #888"
-                  @click="onSelectSkillDetail(key, id)"
-                >
-                  <template #prepend>
-                    <v-avatar
-                      :color="detail.colorCode"
-                      size="small"
-                      class="mr-2"
-                    />
-                  </template>
-                </v-list-item>
-              </v-list>
-            </v-sheet>
-          </v-tabs-window-item>
-        </v-tabs-window>
-      </div>
-
-      <div class="d-flex justify-end mt-3">
-        <v-btn
-          color="error"
-          variant="text"
-          text="Cancel"
-          @click="isAddTypeDialog = false"
-        />
-      </div>
-    </v-sheet>
+    <EditSkillTypeDialog
+      v-model="isAddTypeDialog"
+      :existing-types="editedItem.detail?.type || []"
+      @select="onSelectSkillDetail"
+    />
   </v-dialog>
 </template>
 
@@ -241,7 +192,7 @@ import { ref as dbRef, update } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import { SKILL_TYPE_KEY } from '@/constants/skillDetail';
+import EditSkillTypeDialog from '@/components/modal/EditSkillTypeDialog.vue';
 import type { SkillType } from '@/types/skill';
 
 /**
@@ -285,7 +236,6 @@ const skillStore = useSkillStore();
 const editedItem = ref<SkillEditType>({ ...props.item });
 
 const isAddTypeDialog = ref(false);
-const selectSkillTab = ref(0);
 const editingTypeIndex = ref<number | null>(null);
 const isSaving = ref(false);
 
@@ -363,32 +313,7 @@ const removeType = (index: number) => {
   editedItem.value.detail.type.splice(index, 1);
 };
 
-const getSkillDetailsByType = (typeKey: string) => {
-  const list: Record<
-    string,
-    {
-      id: string;
-      skillDetailName: string;
-      skillTypeKey: string;
-      colorCode: string;
-      description: string;
-    }
-  > = {};
-
-  if (!skillStore.skillDetails) {
-    return list;
-  }
-
-  for (const [key, value] of Object.entries(skillStore.skillDetails)) {
-    if (value.skillTypeKey === typeKey) {
-      list[key] = value;
-    }
-  }
-
-  return list;
-};
-
-const onSelectSkillDetail = (detailId: string, _typeKey: string) => {
+const onSelectSkillDetail = (detailId: string) => {
   if (!editedItem.value.detail) {
     editedItem.value.detail = { attr: '', type: [] };
   }
