@@ -14,7 +14,10 @@
         :text="isLive(item) ? STREAM_CONST.LIVE : STREAM_CONST[item.type]"
         density="compact"
         class="mr-2"
-      />{{ store.formatDate(item.startDate) }} START
+      />
+      <p class="text-subtitle-1 font-weight-bold">
+        {{ store.formatDate(item.startDate) }}
+      </p>
     </v-card-title>
     <v-card-text>
       <v-avatar

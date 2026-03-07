@@ -115,6 +115,7 @@
           hide-delimiters
           :show-arrows="false"
           height="auto"
+          :touch="false"
         >
           <v-carousel-item v-for="(item, i) in streamInfoData" :key="i">
             <StreamCardComponent :item="item" />
@@ -128,6 +129,7 @@
           hide-delimiters
           :show-arrows="false"
           height="auto"
+          :touch="false"
         >
           <v-carousel-item v-for="(group, i) in groupedStreamInfoData" :key="i">
             <v-row>
