@@ -784,6 +784,117 @@
     }
   },
   "SR": {
+    "sr_019": {
+      "cardName": "いちご123",
+      "styleType": "cheerLeader",
+      "mood": "happy",
+      "series": "いちご123",
+      "kana": "いちごわんつーすりー",
+      "gacha": {
+        "addSeason": "ライブグランプリ「105期 FinalTerm 第2回個人戦」報酬",
+        "period": "prize"
+      },
+      "uniqueStatus": {
+        "smile": 4950,
+        "pure": 4200,
+        "cool": 3350,
+        "mental": 430,
+        "BP": 100
+      },
+      "imageUrl": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_019_before.webp?alt=media&token=4c53c8d7-28dd-44ce-a561-ef272efd4ae5",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_019_after.webp?alt=media&token=29bbde83-b7d2-4b67-8c09-657d27e13e0f"
+      },
+      "specialAppeal": {
+        "ID": "123Happiness_01",
+        "name": "123ハピネス",
+        "AP": 7,
+        "detail": [
+          [
+            "6",
+            "7",
+            "8",
+            "8",
+            "9",
+            "9",
+            "10",
+            "11",
+            "11",
+            "12",
+            "13",
+            "14",
+            "14",
+            "15"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "shortAndSweet_01",
+        "name": "ショートアンドスウィート",
+        "AP": 15,
+        "detail": [
+          [
+            "60.4",
+            "66.44",
+            "72.48",
+            "78.52",
+            "84.56",
+            "90.6",
+            "96.64",
+            "102.68",
+            "108.72",
+            "120.8",
+            "126.84",
+            "132.88",
+            "138.92",
+            "151"
+          ],
+          [
+            "61",
+            "67",
+            "73",
+            "79",
+            "85",
+            "92",
+            "98",
+            "104",
+            "110",
+            "122",
+            "128",
+            "134",
+            "140",
+            "153"
+          ],
+          [
+            "61",
+            "67",
+            "73",
+            "79",
+            "85",
+            "92",
+            "98",
+            "104",
+            "110",
+            "122",
+            "128",
+            "134",
+            "140",
+            "153"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "ハッピーストロベリー",
+        "detail": "ムードがハッピー100で手札にある間、セラス、瑠璃乃、小鈴のスキルを使用した時、それぞれ15回の間、メンタルリカバー効果を+15%、スキルハート獲得効果による獲得量を+15%、ムード値変動効果を+15%し、このスキルの消費APを-10する。",
+        "type": [
+          "sound",
+          "boost_mentalRecover",
+          "boost_heartCaptcha",
+          "boost_mood",
+          "APReduce"
+        ]
+      }
+    },
     "sr_013": {
       "cardName": "四蓮琴之雀",
       "styleType": "moodMaker",

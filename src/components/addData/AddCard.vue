@@ -63,7 +63,6 @@
               required
               variant="outlined"
               density="compact"
-              hide-details
             />
           </v-col>
           <v-col cols="4">
@@ -73,7 +72,8 @@
               required
               variant="outlined"
               density="compact"
-              hide-details
+              :rules="kanaRules"
+              validate-on="blur"
             />
           </v-col>
           <v-col cols="4">
@@ -82,7 +82,6 @@
               label="Series"
               variant="outlined"
               density="compact"
-              hide-details
             />
           </v-col>
         </v-row>
@@ -451,7 +450,11 @@
     </v-snackbar>
 
     <v-row>
-      <v-col v-for="illust in filteredIllusts" :key="illust.name" cols="2">
+      <v-col
+        v-for="illust in filteredIllustrations"
+        :key="illust.name"
+        cols="2"
+      >
         <v-card class="cursor-pointer" @click="copyUrl(illust.url)">
           <v-card-title class="pa-0">
             <v-img :src="illust.url" aspect-ratio="16/9" cover />
@@ -493,6 +496,7 @@ import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponen
 import EditDetailDataDialog from '@/components/modal/EditDetailDataDialog.vue';
 import noImage from '@/assets/images/NO IMAGE_card.webp';
 import { BONUS_SKILL_NAMES, bonusSkillNames } from '@/constants/bonusSkills';
+import { MESSAGES } from '@/constants/messageConst';
 
 const store = useStateStore();
 
@@ -541,19 +545,22 @@ const copyUrl = async (url: string) => {
   }
 };
 
-const illusts = ref<{ name: string; url: string }[]>([]);
+const illustrations = ref<{ name: string; url: string }[]>([]);
 
-const filteredIllusts = computed(() => {
+const filteredIllustrations = computed(() => {
   if (!card.value.memberName) {
     return [];
   }
   const memberKey = card.value.memberName as MemberKeyValues;
   const prefix = MEMBER_IDS[memberKey];
+
   if (!prefix) {
     return [];
   }
 
-  return illusts.value.filter((illust) => illust.name.startsWith(`${prefix}_`));
+  return illustrations.value.filter((illust) =>
+    illust.name.startsWith(`${prefix}_`),
+  );
 });
 
 const triggerFile = (a: 'before' | 'after') => {
@@ -842,9 +849,9 @@ onMounted(async () => {
 
   try {
     const storage = getStorage(rtdb.app);
-    const illustsRef = storageRef(storage, 'cardIllust');
-    const res = await listAll(illustsRef);
-    const fetchedIllusts = await Promise.all(
+    const illustrationsRef = storageRef(storage, 'cardIllust');
+    const res = await listAll(illustrationsRef);
+    const fetchedIllustrations = await Promise.all(
       res.items.map(async (itemRef) => {
         const url = await getDownloadURL(itemRef);
         return {
@@ -853,10 +860,10 @@ onMounted(async () => {
         };
       }),
     );
-    illusts.value = fetchedIllusts;
+    illustrations.value = fetchedIllustrations;
   } catch (error) {
-    console.error('Error fetching card illustrations:', error);
-    snackbarMessage.value = 'カード画像の読み込みに失敗しました';
+    console.error(MESSAGES.E004, error);
+    snackbarMessage.value = MESSAGES.E003;
     snackbarColor.value = 'error';
     snackbar.value = true;
   }
@@ -1142,7 +1149,7 @@ const addToStore = async () => {
     if (fileAfter.value) {
       await fileResizeAndUpload('after');
     } else {
-      throw new Error('覚醒後画像(After)を設定してください');
+      throw new Error(MESSAGES.E005);
     }
 
     if (fileBefore.value) {
@@ -1167,4 +1174,23 @@ const addToStore = async () => {
     snackbar.value = true;
   }
 };
+
+/**
+ * ひらがな入力判定
+ *
+ * @property
+ * ひらがなが入力されているか判定する。\
+ * ひらがなのみ入力されていればtrue、それ以外か空文字はエラー文言を返す。
+ *
+ * @returns true | エラー文言
+ */
+const kanaRules = [
+  (value: string) => {
+    if (!value) {
+      return MESSAGES.E001;
+    } else {
+      return /^[\u3040-\u309F0-9ー]+$/.test(value) || MESSAGES.E002;
+    }
+  },
+];
 </script>

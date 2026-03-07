@@ -312,7 +312,7 @@ export const MEMBER_DATA = {
   },
   IZUMI: {
     id: 'iz',
-    last: '泉',
+    key: '泉',
     period: 105,
     color: {
       code: '#1ebecd',

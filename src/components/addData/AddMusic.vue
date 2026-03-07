@@ -41,13 +41,6 @@
               class="mx-2"
               @click="resetForm"
             />
-            <v-btn
-              color="yellow"
-              prepend-icon="mdi-image-sync"
-              text="get"
-              :disabled="!music.musicName"
-              @click="fetchImageByTitle"
-            />
           </v-col>
 
           <v-col cols="12">
@@ -507,7 +500,6 @@ import {
   ref as storageRef,
   uploadBytes,
   getDownloadURL,
-  listAll,
 } from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
 import { ATTRIBUTE } from '@/constants/music';
@@ -517,6 +509,7 @@ import {
   GROUP_MEMBER,
   getMemberKeys,
   makeMemberFullName,
+  type MemberKeys,
 } from '@/constants/memberNames';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { KANA_OPTIONS } from '@/constants/kana';
@@ -540,11 +533,11 @@ const snackbarColor = ref('success');
 const isReleaseDateUnknown = ref(false);
 const selectedPreset = ref<string | null>(null);
 const selectedKanaRow = ref<string | null>(null);
-const kanaOptions = KANA_OPTIONS;
+const kanaOptions = [...KANA_OPTIONS];
 const uploadStore = useUploadDataStore();
 const store = useStateStore();
 
-const dbMusicList = ref<MusicItem>({});
+const dbMusicList = ref<Record<string, MusicItem>>({});
 
 onMounted(() => {
   const musicRef = dbRef(rtdbDev, 'music');
@@ -649,7 +642,7 @@ const getInitialMusicData = () => {
     term: 105,
     center: MEMBER_KEYS.KAHO,
     bonusSkill: BONUS_SKILL_NAMES.BEAT_HEART_UP,
-    singingMembers: [] as string[],
+    singingMembers: [] as MemberKeys[],
     scoreData: {
       difficultyLevel: { NORMAL: 1, HARD: 1, EXPERT: 1, MASTER: 1 },
       maxCombo: { NORMAL: 1, HARD: 1, EXPERT: 1, MASTER: 1 },
@@ -812,7 +805,7 @@ const resetForm = () => {
 /** データ保持 */
 const addToStore = async () => {
   try {
-    const data = JSON.parse(jsonOutput.value);
+    const data: Record<string, MusicItem> = JSON.parse(jsonOutput.value);
     const id = Object.keys(data)[0];
 
     isUploading.value = true;
@@ -863,49 +856,6 @@ const addToStore = async () => {
     snackbar.value = true;
   } finally {
     isUploading.value = false;
-  }
-};
-
-const fetchImageByTitle = async () => {
-  if (!music.value.musicName) {
-    return;
-  }
-
-  const storage = getStorage(rtdb.app);
-  const listRef = storageRef(storage, 'cdJacket');
-
-  try {
-    const res = await listAll(listRef);
-    const targetItem = res.items.find((itemRef) => {
-      const name = itemRef.name;
-      const lastDotIndex = name.lastIndexOf('.');
-      const title =
-        lastDotIndex !== -1 ? name.substring(0, lastDotIndex) : name;
-      return title === music.value.musicName;
-    });
-
-    if (targetItem) {
-      const url = await getDownloadURL(targetItem);
-      music.value.imageURL = url;
-
-      if (!store.imageCache['llllMgr_musicImageUrls']) {
-        store.imageCache['llllMgr_musicImageUrls'] = {};
-      }
-      store.imageCache['llllMgr_musicImageUrls'][music.value.ID] = url;
-
-      snackbarMessage.value = '画像URLを取得しました';
-      snackbarColor.value = 'success';
-      snackbar.value = true;
-    } else {
-      snackbarMessage.value = '画像が見つかりませんでした';
-      snackbarColor.value = 'warning';
-      snackbar.value = true;
-    }
-  } catch (e) {
-    console.error('Failed to fetch image', e);
-    snackbarMessage.value = '画像の取得に失敗しました';
-    snackbarColor.value = 'error';
-    snackbar.value = true;
   }
 };
 
