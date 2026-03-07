@@ -1,13 +1,17 @@
 <template>
   <v-container fluid class="pa-2">
-    <v-row v-if="Object.keys(outputEventList).length > 0" class="mt-0">
+    <v-row class="mt-0 mb-5">
       <v-col cols="12">
         <h2>ライブ・イベント情報</h2>
+        <div v-if="eventsLoading" style="max-width: 800px; margin: 0 auto">
+          <v-skeleton-loader type="image, article" />
+        </div>
         <v-carousel
-          cycle
+          v-else-if="Object.keys(outputEventList).length > 0"
           hide-delimiters
           show-arrows="hover"
           style="max-width: 800px; height: auto; margin: 0 auto"
+          cycle
         >
           <v-carousel-item
             v-for="(event, eventName) in outputEventList"
@@ -76,51 +80,112 @@
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-col cols="12">
-        <h2>メインメニュー</h2>
-      </v-col>
-      <v-col v-if="false">
-        <v-btn
-          block
-          prepend-icon="mdi-calculator"
-          text="Simulation"
-          @click="pageMove('simulation')"
-        />
-      </v-col>
-      <v-col v-if="false">
-        <v-btn
-          block
-          prepend-icon="mdi-star"
-          text="WithStar Mgr"
-          @click="pageMove('withStarMgr')"
-        />
-      </v-col>
-      <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-cards"
-          text="Card List"
-          @click="pageMove('cardlist')"
-        />
-      </v-col>
-      <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-music"
-          text="Music List"
-          @click="pageMove('musiclist')"
-        />
-      </v-col>
-      <v-col>
-        <v-btn
-          block
-          prepend-icon="mdi-book"
-          text="Item List"
-          @click="pageMove('itemlist')"
-        />
-      </v-col>
-    </v-row>
+    <div class="mb-5">
+      <div class="d-flex align-center mb-2">
+        <h2>With×MEETS 予定表</h2>
+        <div v-if="streamInfoData.length > (display.smAndDown.value ? 1 : 3)">
+          <v-btn
+            icon="mdi-chevron-left"
+            variant="text"
+            density="compact"
+            class="ml-3"
+            @click="updateCarousel(-1)"
+          />
+          <v-btn
+            icon="mdi-chevron-right"
+            variant="text"
+            density="compact"
+            class="ml-2"
+            @click="updateCarousel(1)"
+          />
+        </div>
+      </div>
+
+      <div
+        v-if="streamInfoData.length === 0"
+        class="text-center text-grey py-4"
+      >
+        現在予定されている配信はありません。
+      </div>
+      <template v-else>
+        <!-- Mobile Carousel -->
+        <v-carousel
+          v-if="display.smAndDown.value"
+          v-model="carouselModel"
+          hide-delimiters
+          :show-arrows="false"
+          height="auto"
+        >
+          <v-carousel-item v-for="(item, i) in streamInfoData" :key="i">
+            <StreamCardComponent :item="item" />
+          </v-carousel-item>
+        </v-carousel>
+
+        <!-- Desktop Carousel -->
+        <v-carousel
+          v-else
+          v-model="carouselModel"
+          hide-delimiters
+          :show-arrows="false"
+          height="auto"
+        >
+          <v-carousel-item v-for="(group, i) in groupedStreamInfoData" :key="i">
+            <v-row>
+              <v-col v-for="(item, j) in group" :key="j" cols="4">
+                <StreamCardComponent :item="item" />
+              </v-col>
+            </v-row>
+          </v-carousel-item>
+        </v-carousel>
+      </template>
+    </div>
+
+    <div class="mb-5">
+      <h2 class="mb-2">メインメニュー</h2>
+
+      <v-row>
+        <v-col v-if="false">
+          <v-btn
+            block
+            prepend-icon="mdi-calculator"
+            text="Simulation"
+            @click="pageMove('simulation')"
+          />
+        </v-col>
+        <v-col v-if="false">
+          <v-btn
+            block
+            prepend-icon="mdi-star"
+            text="WithStar Mgr"
+            @click="pageMove('withStarMgr')"
+          />
+        </v-col>
+        <v-col>
+          <v-btn
+            block
+            prepend-icon="mdi-cards"
+            text="Card List"
+            @click="pageMove('cardlist')"
+          />
+        </v-col>
+        <v-col>
+          <v-btn
+            block
+            prepend-icon="mdi-music"
+            text="Music List"
+            @click="pageMove('musiclist')"
+          />
+        </v-col>
+        <v-col>
+          <v-btn
+            block
+            prepend-icon="mdi-book"
+            text="Item List"
+            @click="pageMove('itemlist')"
+          />
+        </v-col>
+      </v-row>
+    </div>
 
     <v-row>
       <v-col cols="12">
@@ -128,9 +193,7 @@
         このサイトは、アプリ「Link！Like！ラブライブ！」（通称リンクラ）のゲームパートである「スクールアイドルステージ」（通称スクステ）をもっと楽しく！もっと深く！もっと便利に！をモットーに作成された、非公式のサイトです。<br />
         ただ眺めるだけでも良いですが、ぜひご自身のデータを入力して使い倒してください！
       </v-col>
-    </v-row>
 
-    <v-row>
       <v-col cols="12">
         <h2>Attention</h2>
         このサイトは、PC／スマホ両方からの利用に対応していますが、一部ページはスマホで利用する場合、表示崩れが起こる可能性があります。<br />
@@ -159,9 +222,7 @@
           >SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！</u
         >
       </v-col>
-    </v-row>
 
-    <v-row>
       <v-col cols="12">
         <h2>Page Introduction</h2>
         各ページを簡単に紹介します。
@@ -211,19 +272,52 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, watch } from 'vue';
+import { ref, reactive, onMounted, watch, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { ref as dbRef, onValue } from 'firebase/database';
+import { useDisplay } from 'vuetify';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import type { EventItem } from '@/types/event';
+import type { StreamInfoItem, StreamInfoFirebaseData } from '@/types/stream';
+import StreamCardComponent from '@/components/streamCardComponent.vue';
+import { RTDB_PATH } from '@/constants/envConst';
 
 const store = useStateStore();
 const router = useRouter();
+const display = useDisplay();
 
+const eventsLoading = ref(true);
 const eventList = ref<Record<string, EventItem>>({});
 
 const outputEventList = reactive<Record<string, EventItem>>({});
+
+const streamInfoData = ref<StreamInfoItem[]>([]);
+
+const carouselModel = ref(0);
+
+const updateCarousel = (val: number) => {
+  const len = display.smAndDown.value
+    ? streamInfoData.value.length
+    : groupedStreamInfoData.value.length;
+
+  if (len === 0) {
+    return;
+  }
+
+  carouselModel.value = (carouselModel.value + val + len) % len;
+};
+
+const groupedStreamInfoData = computed(() => {
+  const groups: { startDate: Date; type: string; member: string }[][] = [];
+  const items = streamInfoData.value;
+
+  for (let i = 0; i < items.length; i += 3) {
+    groups.push(items.slice(i, i + 3));
+  }
+
+  return groups;
+});
 
 function pageMove(movePageName: string): void {
   router.replace(movePageName);
@@ -296,13 +390,39 @@ function countDown(eventName: string): {
 }
 
 onMounted(() => {
-  const eventRef = dbRef(store.isDev ? rtdbDev : rtdb, 'eventInformation');
+  const eventRef = dbRef(store.isDev ? rtdbDev : rtdb, RTDB_PATH.EVENT);
 
   onValue(eventRef, (snapshot) => {
     const data = snapshot.val();
 
     if (data) {
       eventList.value = data;
+    }
+    eventsLoading.value = false;
+  });
+
+  const streamInfoDataRef = dbRef(
+    store.isDev ? rtdbDev : rtdb,
+    RTDB_PATH.STREAM,
+  );
+
+  onValue(streamInfoDataRef, (snapshot) => {
+    const data: Record<string, StreamInfoFirebaseData> = snapshot.val();
+
+    if (data) {
+      const today = new Date();
+      const upcoming = Object.values(data)
+        .map((item) => ({
+          ...item,
+          startDate: new Date(item.startDate),
+          endDate: new Date(item.endDate),
+        }))
+        .filter((item) => item.endDate >= today)
+        .sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+
+      streamInfoData.value = upcoming;
+    } else {
+      streamInfoData.value = [];
     }
   });
 });
@@ -348,6 +468,18 @@ watch(eventList, (newList) => {
     }
   }
 });
+
+watch(
+  outputEventList,
+  (newEvents) => {
+    Object.values(newEvents).forEach((event) => {
+      if (event.imageUrl) {
+        new Image().src = event.imageUrl;
+      }
+    });
+  },
+  { deep: true },
+);
 </script>
 
 <style lang="scss" scoped>

@@ -32,6 +32,7 @@ declare module 'vue' {
     Login: typeof import('./components/modal/Login.vue')['default']
     MasteryLevel: typeof import('./components/modal/MasteryLevel.vue')['default']
     MngInfo: typeof import('./components/addData/MngInfo.vue')['default']
+    MngStreamingSchedule: typeof import('./components/addData/MngStreamingSchedule.vue')['default']
     ModalArea: typeof import('./components/modal/ModalArea.vue')['default']
     Music: typeof import('./components/common/Music.vue')['default']
     MusicListFilter: typeof import('./components/modal/MusicListFilter.vue')['default']
@@ -46,5 +47,6 @@ declare module 'vue' {
     Share: typeof import('./components/modal/Share.vue')['default']
     SkillAreaComponent: typeof import('./components/SkillAreaComponent.vue')['default']
     SkillFormComponent: typeof import('./components/SkillFormComponent.vue')['default']
+    StreamCardComponent: typeof import('./components/streamCardComponent.vue')['default']
   }
 }

@@ -255,13 +255,25 @@ const isDuplicate = (a: 'ID' | 'name') => {
   return props.existingItems.some((item) => item[a] === value);
 };
 
+/**
+ * ひらがな入力判定
+ *
+ * @property
+ * ひらがなが入力されているか判定する。\
+ * ひらがなのみ入力されていればtrue、それ以外か空文字はfalseを返す。
+ *
+ * @returns true | false
+ */
 const kanaRules = [
   (value: string) => {
-    if (!value) return true;
-    return (
-      /^[\u3040-\u309F0-9ー]+$/.test(value) ||
-      'Only Hiragana and Numbers are allowed'
-    );
+    if (!value) {
+      return true;
+    } else {
+      return (
+        /^[\u3040-\u309F0-9ー]+$/.test(value) ||
+        'Only Hiragana and Numbers are allowed'
+      );
+    }
   },
 ];
 

@@ -1550,5 +1550,22 @@ export const useStateStore = defineStore('store', {
         }),
       );
     },
+    /**
+     * 日付整形処理
+     *
+     * @param date 整形したい日付
+     * @param zeroPad 0埋めするか
+     * @returns 整形された日付
+     */
+    formatDate(date: Date, zeroPad: boolean = false) {
+      const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][
+        date.getDay()
+      ];
+
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+
+      return `${date.getFullYear()}/${zeroPad ? String(month).padStart(2, '0') : month}/${zeroPad ? String(day).padStart(2, '0') : day}(${dayOfWeek}) ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
+    },
   },
 });

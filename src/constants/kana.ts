@@ -10,4 +10,4 @@ export const KANA_OPTIONS = [
   { title: 'ら行', value: 'ら' },
   { title: 'わ行', value: 'わ' },
   { title: '数字', value: 'other' },
-];
+] as const;

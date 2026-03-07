@@ -239,7 +239,7 @@ import SkillFormComponent from '@/components/SkillFormComponent.vue';
 import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
 import { KANA_OPTIONS } from '@/constants/kana';
 import { getRow } from '@/utils/stringUtil';
-import type { SkillDetail } from '@/types/cardList';
+import type { SkillDetail, AdditionalSkill } from '@/types/cardList';
 import type { SkillType } from '@/types/skill';
 
 const isEXAP = ref(false);
@@ -444,7 +444,7 @@ const removeSAorSkill = (target: 'SA' | 'Skill', index: number) => {
   model.value[`add${target}`].splice(index, 1);
 };
 
-const addCharacteristic = (item: any) => {
+const addCharacteristic = (item: AdditionalSkill) => {
   item.characteristic = {
     name: '',
     detail: '',
@@ -453,7 +453,7 @@ const addCharacteristic = (item: any) => {
   };
 };
 
-const deleteCharacteristic = (item: any) => {
+const deleteCharacteristic = (item: AdditionalSkill) => {
   delete item.characteristic;
 };
 

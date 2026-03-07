@@ -39,6 +39,7 @@
       <v-tab value="item" text="Item" />
       <v-tab value="event" text="Event" />
       <v-tab value="info" text="Info" />
+      <v-tab value="streamingSchedule" text="Streaming Schedule" />
     </v-tabs>
 
     <v-divider class="mb-2" />
@@ -68,6 +69,9 @@
       <v-tabs-window-item value="info">
         <MngInfo :key="refreshKey" />
       </v-tabs-window-item>
+      <v-tabs-window-item value="streamingSchedule">
+        <MngStreamingSchedule :key="refreshKey" />
+      </v-tabs-window-item>
     </v-tabs-window>
   </v-container>
 </template>
@@ -85,6 +89,7 @@ import AddSkill from '@/components/addData/AddSkill.vue';
 import AddSkillDetail from '@/components/addData/AddSkillDetail.vue';
 import AddEvent from '@/components/addData/AddEvent.vue';
 import MngInfo from '@/components/addData/MngInfo.vue';
+import MngStreamingSchedule from '@/components/addData/MngStreamingSchedule.vue';
 
 const tab = ref('pendingDataList');
 const store = useStateStore();

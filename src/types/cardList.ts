@@ -123,7 +123,7 @@ export interface SkillDetail {
  * @property modeName モード
  * @property characteristic メンバー特性
  */
-interface AdditionalSkill extends SkillDetail {
+export interface AdditionalSkill extends SkillDetail {
   modeName?: string;
   characteristic?: Characteristic;
 }
