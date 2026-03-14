@@ -49,6 +49,5 @@ declare module 'vue' {
     SkillAreaComponent: typeof import('./components/SkillAreaComponent.vue')['default']
     SkillFormComponent: typeof import('./components/SkillFormComponent.vue')['default']
     StreamCard: typeof import('./components/common/StreamCard.vue')['default']
-    StreamCardComponent: typeof import('./components/streamCardComponent.vue')['default']
   }
 }
