@@ -138,6 +138,7 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
+import { useDisplay } from 'vuetify';
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
 import noImage from '@/assets/images/NO IMAGE_music.webp';
@@ -149,6 +150,7 @@ const props = defineProps<{
 }>();
 
 const store = useStateStore();
+const display = useDisplay();
 
 const attributeColor: Record<string, string> = {
   smile: '#EF8DC8',
