@@ -341,7 +341,7 @@
         "mental": 500,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Frr_062_before.webp?alt=media&token=1530aa8b-8acb-4c45-a78a-3da87a319d26",
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Frr_062_after.webp?alt=media&token=b94f3810-8613-439a-a9c7-4ed5c71bba80"
       },
@@ -489,7 +489,7 @@
         "mental": 470,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Frr_061_after.webp?alt=media&token=64333944-3ce9-4073-8081-d40874d686df"
       },
       "specialAppeal": {
@@ -2876,7 +2876,7 @@
     },
     "rr_013": {
       "cardName": "Au Bord du Lac",
-      "styleType": "moodMaker",
+      "styleType": "trickStar",
       "mood": "neutral",
       "series": "Au Bord du Lac",
       "kana": "あうぼーどどぅらっく",
@@ -2916,7 +2916,7 @@
     },
     "rr_011": {
       "cardName": "ゆのくにガールズ！",
-      "styleType": "moodMaker",
+      "styleType": "performer",
       "mood": "neutral",
       "series": "ゆのくにガールズ！",
       "kana": "ゆのくにがーるず",

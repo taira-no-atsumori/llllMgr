@@ -129,10 +129,6 @@ export const useStateStore = defineStore('store', {
     },
     localStorageData: [],
     supportSkill: {},
-    windowSize: {
-      w: 0,
-      h: 0,
-    },
     imageCache: {},
     user: null,
     isAuthLoaded: false,
@@ -147,6 +143,23 @@ export const useStateStore = defineStore('store', {
         });
       });
     },
+    // cardList(): CardDataType[] {
+    //   const result: CardDataType[] = [];
+    //   for (const memberName of Object.values(MEMBER_KEYS)) {
+    //     const memberCards = this.card[memberName];
+
+    //     if (memberCards) {
+    //       for (const rare of RARE) {
+    //         const rarityCards = memberCards[rare];
+
+    //         if (rarityCards) {
+    //           result.push(...Object.values(rarityCards));
+    //         }
+    //       }
+    //     }
+    //   }
+    //   return result;
+    // },
     /**
      * メンバーのリストを作成
      *
@@ -165,7 +178,7 @@ export const useStateStore = defineStore('store', {
      */
     skillText() {
       return (
-        target: string,
+        target: 'specialAppeal' | 'skill' | 'characteristic',
         skillData?: SkillDetail,
         option?: {
           addSkillNum?: number[];
@@ -488,6 +501,57 @@ export const useStateStore = defineStore('store', {
       // }
       this.loading = false;
     },
+    // async init(): Promise<void> {
+    //   this.loading = true;
+    //   this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
+    //   this.loadSiteSettings();
+
+    //   const auth = getAuth(rtdb.app);
+    //   onAuthStateChanged(auth, (user) => {
+    //     this.user = user;
+    //     this.isAuthLoaded = true;
+    //   });
+
+    //   const cardStore = useCardStore();
+
+    //   watch(musicListFromDB, (newVal) => {
+    //     this.musicList = newVal;
+    //   });
+
+    //   watch(
+    //     () => this.isDev,
+    //     async (newVal) => {
+    //       this.loading = true;
+    //       await initMusicData(newVal);
+    //       this.loading = false;
+    //     },
+    //   );
+    //   initMusicData(this.isDev);
+
+    //   if (!isMusicLoaded.value || !cardStore.isLoaded) {
+    //     await new Promise<void>((resolve) => {
+    //       const unwatch = watch(
+    //         [isMusicLoaded, () => cardStore.isLoaded],
+    //         ([musicLoaded, cardsLoaded]) => {
+    //           if (musicLoaded && cardsLoaded) {
+    //             unwatch();
+    //             resolve();
+    //           }
+    //         },
+    //       );
+    //     });
+    //   }
+
+    //   await this.initializeData();
+    //   await this.getLocalStorage();
+    //   await this.setSupportSkillLevel();
+    //   // this.makeNewDeck();
+    //   // console.log(window.location.search.replace('?', ''));
+    //   // if (window.location.search.replace('?', '') !== '') {
+    //   //   window.location.replace('/llllMgr/musicList');
+    //   // }
+    //   this.loading = false;
+    // },
     /**
      * 補助関数: 指定した処理を非同期として実行するPromiseを返す。
      *
@@ -913,7 +977,7 @@ export const useStateStore = defineStore('store', {
      *
      * @param importData インポートデータ
      */
-    loadSiteSettings(importData?: { siteSettings: SiteSettings }): void {
+    loadSiteSettings(importData?: { siteSettings: SiteSettings }) {
       const isImportData = importData !== undefined;
 
       if (
@@ -946,12 +1010,13 @@ export const useStateStore = defineStore('store', {
     /**
      * ローカルストレージデータ削除
      *
+     * @property
      * ローカルストレージのデータを削除する。
      *
-     * @property deleteDataName 削除したいデータ名
+     * @param deleteDataName 削除したいデータ名
      * @returns void
      */
-    deleteLocalStorage(deleteDataName: string): void {
+    deleteLocalStorage(deleteDataName: string) {
       switch (deleteDataName) {
         case 'music':
           localStorage.removeItem('llllMgr_musicData');
@@ -970,11 +1035,11 @@ export const useStateStore = defineStore('store', {
      * @param showModalName 表示するダイアログの名前
      * @returns void
      */
-    showModalEvent(showModalName: string): void {
+    showModalEvent(showModalName: string) {
       this.switchDialog(showModalName);
       this.showModalName = showModalName;
     },
-    setLevel(a: keyof TrainingStatus, e: Event): void {
+    setLevel(a: keyof TrainingStatus, e: Event) {
       this.settingCardData.fluctuationStatus[a] = Number(
         (e.target as HTMLInputElement).value,
       );
@@ -982,6 +1047,7 @@ export const useStateStore = defineStore('store', {
     /**
      * boolean判定
      *
+     * @property
      * 与えられた文字がtrueであるか判定する処理。
      *
      * @param value 判定したい文字
@@ -993,15 +1059,16 @@ export const useStateStore = defineStore('store', {
     /**
      * 文字変換
      *
+     * @property
      * ファイル名で使えない文字を使える文字に変換する処理。
      *
      * @param val 変換したい文字
      * @returns 変換後の文字
      */
-    conversion(val: string): string {
+    conversion(val: string) {
       return val.replace(/!/g, '！').replace(/\//g, '／');
     },
-    setOpenCard(id: string, name: string, style: string): void {
+    setOpenCard(id: string, name: string, style: string) {
       this.openCard.ID = id;
       this.openCard.name = name;
       this.openCard.style = style;
@@ -1010,6 +1077,9 @@ export const useStateStore = defineStore('store', {
       return name === 'special';
     },
     /**
+     * カードID検索処理
+     *
+     * @property
      * メンバー名とカード名からカードIDを検索
      *
      * @param memberName メンバー名
@@ -1035,7 +1105,10 @@ export const useStateStore = defineStore('store', {
       }
     },
     /**
-     * カードIDからカードデータを検索
+     * カードデータ検索処理
+     *
+     * @property
+     * カードIDからカードデータを検索する。
      *
      * @param cardId カードID
      * @return カードデータ
@@ -1061,12 +1134,15 @@ export const useStateStore = defineStore('store', {
       }
     },
     /**
-     * 各メンバーのデフォルトのカードIDを作成
+     * デフォルトカードID作成処理
+     *
+     * @property
+     * 各メンバーのデフォルトのカードIDを作成。
      *
      * @param memberName メンバー名
      * @return デフォルトのカードID
      */
-    makeDefaultCardId(memberName: MemberKeyValues): string {
+    makeDefaultCardId(memberName: MemberKeyValues) {
       return `${memberName === 'default' ? 'df' : MEMBER_IDS[memberName]}_000`;
     },
     /**
@@ -1278,7 +1354,7 @@ export const useStateStore = defineStore('store', {
      * @param resetDataNames リセットするデータ名
      * @returns void
      */
-    dataReset(resetDataNames: string[]): void {
+    dataReset(resetDataNames: string[]) {
       for (const removeDataName of resetDataNames) {
         switch (removeDataName) {
           case 'card': {
@@ -1414,58 +1490,8 @@ export const useStateStore = defineStore('store', {
       const filePath = `../assets${
         path ? `/${path}` : ''
       }/${imageName}.${extension}`;
+
       return images[filePath]?.default || '';
-    },
-    /**
-     * 画面サイズ更新処理
-     *
-     * @description
-     * 現在のウィンドウサイズを更新する。\
-     * このメソッドは、initializeWindowResizeメソッドで初期化時に呼び出される。
-     *
-     * @return void
-     */
-    updateWindowSize() {
-      this.windowSize = {
-        w: window.innerWidth,
-        h: window.innerHeight,
-      };
-    },
-    /**
-     * 画面サイズ初期化処理
-     *
-     * @description
-     * 画面サイズの初期値を設定し、リサイズイベントリスナーを登録します。\
-     * リサイズイベントが発生するたびに画面サイズを更新します。\
-     * cleanupWindowResizeメソッドでイベントリスナーを削除できます。
-     *
-     * @return void
-     */
-    initializeWindowResize() {
-      // 初期値設定
-      this.updateWindowSize();
-
-      // リサイズイベントリスナーの登録
-      const handleResize = () => this.updateWindowSize();
-      window.addEventListener('resize', handleResize);
-
-      // イベントリスナーの参照を保持（cleanup用）
-      this._resizeHandler = handleResize;
-    },
-    /**
-     * 画面リサイズのイベントリスナー削除処理
-     *
-     * @description
-     * initializeWindowResizeメソッドで登録されたリサイズイベントリスナーを削除します。\
-     * これにより、メモリリークを防ぎ、不要なイベントリスナーの登録を避けることができます。
-     *
-     * @return void
-     */
-    cleanupWindowResize() {
-      if (this._resizeHandler) {
-        window.removeEventListener('resize', this._resizeHandler);
-        this._resizeHandler = null;
-      }
     },
     /**
      * 画像取得・キャッシュ処理
@@ -1554,14 +1580,16 @@ export const useStateStore = defineStore('store', {
      * 日付整形処理
      *
      * @param date 整形したい日付
+     * @param lang 曜日の言語
      * @param zeroPad 0埋めするか
      * @returns 整形された日付
      */
-    formatDate(date: Date, zeroPad: boolean = false) {
-      const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][
-        date.getDay()
-      ];
-
+    formatDate(date: Date, lang: 'ja' | 'en', zeroPad: boolean = false) {
+      const week = {
+        ja: ['日', '月', '火', '水', '木', '金', '土'],
+        en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      };
+      const dayOfWeek = week[lang][date.getDay()];
       const month = date.getMonth() + 1;
       const day = date.getDate();
 

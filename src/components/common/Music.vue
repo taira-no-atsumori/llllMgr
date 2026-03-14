@@ -1,6 +1,8 @@
 <template>
   <v-card
-    v-if="store.siteSettings.musicList.hover === 'false' || windowWidth <= 600"
+    v-if="
+      store.siteSettings.musicList.hover === 'false' || display.smAndDown.value
+    "
     :color="attributeColor[musicData.attribute]"
     @click="handleClick"
   >
@@ -144,7 +146,6 @@ import type { MusicItem } from '@/types/musicList';
 const props = defineProps<{
   musicData: MusicItem;
   songTitle: string;
-  windowWidth: number;
 }>();
 
 const store = useStateStore();

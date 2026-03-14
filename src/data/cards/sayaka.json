@@ -320,6 +320,170 @@
     }
   },
   "UR": {
+    "sy_071": {
+      "cardName": "アイシイ",
+      "styleType": "performer",
+      "mood": "melow",
+      "series": "アイシイ",
+      "kana": "あいしい",
+      "gacha": {
+        "addSeason": "2025 GRADUATION LIMITED COLLECTION vol.3",
+        "period": "graduation"
+      },
+      "uniqueStatus": {
+        "smile": 3900,
+        "pure": 4000,
+        "cool": 6600,
+        "mental": 470,
+        "BP": 100
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsy_071_before.webp?alt=media&token=01699d8b-5c97-4b43-953a-a60699cb2e18",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsy_071_after.webp?alt=media&token=42bca9ba-e7a8-4adc-bc34-9f02498cd047"
+      },
+      "specialAppeal": {
+        "ID": "iSeeInfinity_01",
+        "name": "アイシイインフィニティ",
+        "AP": 2,
+        "detail": [
+          [
+            "6?",
+            "7?",
+            "7?",
+            "8?",
+            "8?",
+            "9?",
+            "9?",
+            "10?",
+            "11?",
+            "12?",
+            "12?",
+            "13?",
+            "13?",
+            "14"
+          ],
+          [
+            "56000",
+            "61600",
+            "67200",
+            "72800",
+            "78400",
+            "84000",
+            "89600",
+            "95200",
+            "100800",
+            "112000",
+            "117600",
+            "123200",
+            "128800",
+            "140000"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "iSeeAct_01",
+        "name": "アイシイアクト",
+        "AP": 14,
+        "detail": [
+          [
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "40",
+            "42",
+            "44",
+            "46",
+            "50"
+          ],
+          [
+            "80",
+            "88",
+            "96",
+            "104",
+            "112",
+            "120",
+            "128",
+            "136",
+            "144",
+            "160",
+            "168",
+            "176",
+            "184",
+            "200"
+          ],
+          [
+            "1200",
+            "1320",
+            "1440",
+            "1560",
+            "1680",
+            "1800",
+            "1920",
+            "2040",
+            "2160",
+            "2400",
+            "2520",
+            "2640",
+            "2760",
+            "3000"
+          ],
+          [
+            "200",
+            "220",
+            "240",
+            "260",
+            "280",
+            "300",
+            "320",
+            "340",
+            "360",
+            "400",
+            "420",
+            "440",
+            "460",
+            "500"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "プライムスケーター",
+        "detail": "スキル使用時1回まで、アイディアルシャドウカードを1種類(合計1枚)山札に追加する。手札にある間、DOLLCHESTRAのメンバーのスキルを使用したとき、手札をシャッフルし、APを9回復、さらにボルテージLv.950以上かつメンタルが0でハートを500000個回収したとき、手札をシャッフルし、ボルテージPt.を-1400000、ボルテージLv.が1000のときさらにボルテージPt.を-14000000する。このときDOLLCHESTRAのカードをドローする確率大幅アップ。",
+        "type": [
+          "addCard",
+          "reshuffle",
+          "APGain",
+          "heartCollect",
+          "voltageReduce",
+          "draw"
+        ],
+        "addSkill": [
+          {
+            "ID": "idealShadow_01",
+            "name": "アイディアルシャドウ",
+            "AP": 14,
+            "detail": [],
+            "characteristic": {
+              "name": "ビートユアベスト",
+              "detail": "DOLLCHESTRAのスキル使用後以外ドローされず、ドローしたとき、メンタルを最大値の14%減少、手札の上限枚数を1枚減少させる。さらにこのスキルを14回使用したとき、デッキから除外、このステージ中、メンタルが0になってもメンタルダウンしなくなり、メンタルを最大値の1000%減少させ、ボルテージLv.を1000にする。",
+              "type": [
+                "mentalReduce",
+                "APSlow",
+                "cardReduce_section",
+                "exclusion",
+                "mentalDown_stage",
+                "voltageGain"
+              ]
+            }
+          }
+        ]
+      }
+    },
     "sy_070": {
       "cardName": "拝啓、未来の君へ",
       "styleType": "moodMaker",
@@ -337,7 +501,7 @@
         "mental": 480,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsy_070_before.webp?alt=media&token=fc415319-7488-410e-8583-10c2cf807ffc",
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsy_070_after.webp?alt=media&token=af1fdd02-d497-45a1-86c7-2b8692030a1b"
       },

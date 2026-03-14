@@ -292,7 +292,7 @@
             @click="isSA = true"
           />
           <v-card v-else>
-            <v-card-title class="d-flex text-no-wrap mb-2">
+            <v-card-title class="d-flex text-no-wrap">
               Special Appeal
               <v-spacer />
               <v-btn
@@ -315,7 +315,7 @@
         </div>
 
         <v-card class="mb-3">
-          <v-card-title class="text-no-wrap mb-2">Skill</v-card-title>
+          <v-card-title class="text-no-wrap">Skill</v-card-title>
           <v-card-text>
             <SkillFormComponent
               v-model="card.skill"
@@ -357,7 +357,7 @@
             <v-img
               :src="
                 (type === 'before' ? previewBefore : previewAfter) ||
-                card.imageUrl[type] ||
+                card.imageURL[type] ||
                 noImage
               "
               width="100%"
@@ -365,7 +365,7 @@
             <v-btn
               v-if="
                 (type === 'before' ? previewBefore : previewAfter) ||
-                card.imageUrl[type]
+                card.imageURL[type]
               "
               icon="mdi-close"
               size="x-small"
@@ -436,18 +436,9 @@
           prepend-icon="mdi-cloud-upload"
           :text="`${store.isDev ? 'Dev' : 'Prod'} Upload`"
           @click="addCardData()"
-      /></v-col>
+        />
+      </v-col>
     </v-row>
-
-    <EditDetailDataDialog
-      v-model="detailDialog"
-      :initial-values="currentDetailValues"
-      @save="onSaveDetail"
-    />
-
-    <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
-      {{ snackbarMessage }}
-    </v-snackbar>
 
     <v-row>
       <v-col
@@ -465,6 +456,16 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <EditDetailDataDialog
+      v-model="detailDialog"
+      :initial-values="currentDetailValues"
+      @save="onSaveDetail"
+    />
+
+    <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
+      {{ snackbarMessage }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -486,7 +487,6 @@ import {
   MEMBER_IDS,
   conversionIdToKey,
   type MemberKeyValues,
-  type MemberIds,
 } from '@/constants/memberNames';
 import type { Rare } from '@/constants/cards';
 import type { CardDataType, CardDataByMember } from '@/types/cardList';
@@ -497,6 +497,7 @@ import EditDetailDataDialog from '@/components/modal/EditDetailDataDialog.vue';
 import noImage from '@/assets/images/NO IMAGE_card.webp';
 import { BONUS_SKILL_NAMES, bonusSkillNames } from '@/constants/bonusSkills';
 import { MESSAGES } from '@/constants/messageConst';
+import { RTDB_PATH, STRG_PATH } from '@/constants/envConst';
 
 const store = useStateStore();
 
@@ -622,7 +623,7 @@ const clearImage = (type: 'before' | 'after') => {
   if (type === 'before') {
     fileBefore.value = null;
     previewBefore.value = null;
-    card.value.imageUrl.before = '';
+    card.value.imageURL.before = '';
 
     if (fileInputBeforeRef.value) {
       fileInputBeforeRef.value.value = '';
@@ -630,7 +631,7 @@ const clearImage = (type: 'before' | 'after') => {
   } else {
     fileAfter.value = null;
     previewAfter.value = null;
-    card.value.imageUrl.after = '';
+    card.value.imageURL.after = '';
 
     if (fileInputAfterRef.value) {
       fileInputAfterRef.value.value = '';
@@ -702,7 +703,7 @@ const card = ref<EditCardDataType>({
   split: 1,
   series: '',
   kana: '',
-  imageUrl: {
+  imageURL: {
     before: '',
     after: '',
   },
@@ -786,37 +787,38 @@ const addCardData = async () => {
 
   try {
     const db = store.isDev ? rtdbDev : rtdb;
-    const storage = getStorage(rtdb.app);
-    const updates: Record<string, any> = {};
+    // const storage = getStorage(rtdb.app);
+    const updates: Record<string, CardDataType> = {};
 
     for (const [cardId, data] of Object.entries(parsedData)) {
       const rarity = card.value.rare;
 
-      let beforeUrl = '';
-      let afterUrl = '';
+      // let beforeUrl = '';
+      // let afterUrl = '';
 
-      try {
-        beforeUrl = await getDownloadURL(
-          storageRef(storage, `cardIllust/${cardId}_before.webp`),
-        );
-      } catch (_) {
-        console.warn(`Before image not found for ${cardId}`);
-      }
+      // try {
+      //   beforeUrl = await getDownloadURL(
+      //     storageRef(storage, `cardIllust/${cardId}_before.webp`),
+      //   );
+      // } catch (_) {
+      //   console.warn(`Before image not found for ${cardId}`);
+      // }
 
-      try {
-        afterUrl = await getDownloadURL(
-          storageRef(storage, `cardIllust/${cardId}_after.webp`),
-        );
-      } catch (_) {
-        console.warn(`After image not found for ${cardId}`);
-      }
+      // try {
+      //   afterUrl = await getDownloadURL(
+      //     storageRef(storage, `cardIllust/${cardId}_after.webp`),
+      //   );
+      // } catch (_) {
+      //   console.warn(`After image not found for ${cardId}`);
+      // }
 
       const cardData = {
+        id: cardId,
         ...(data as object),
-        imageUrl: {
-          before: beforeUrl,
-          after: afterUrl,
-        },
+        // imageURL: {
+        //   before: beforeUrl,
+        //   after: afterUrl,
+        // },
       };
 
       updates[
@@ -837,7 +839,7 @@ const addCardData = async () => {
 };
 
 onMounted(async () => {
-  const cardRef = dbRef(rtdbDev, 'card');
+  const cardRef = dbRef(rtdbDev, RTDB_PATH.CARDS);
 
   onValue(cardRef, (snapshot) => {
     const data: CardDataByMember | null = snapshot.val();
@@ -849,7 +851,7 @@ onMounted(async () => {
 
   try {
     const storage = getStorage(rtdb.app);
-    const illustrationsRef = storageRef(storage, 'cardIllust');
+    const illustrationsRef = storageRef(storage, STRG_PATH.CARDS);
     const res = await listAll(illustrationsRef);
     const fetchedIllustrations = await Promise.all(
       res.items.map(async (itemRef) => {
@@ -954,12 +956,12 @@ watch(
           foundData.uniqueStatus.supportSkill;
       }
 
-      if (foundData.imageUrl) {
-        card.value.imageUrl.before = foundData.imageUrl.before || '';
-        card.value.imageUrl.after = foundData.imageUrl.after || '';
+      if (foundData.imageURL) {
+        card.value.imageURL.before = foundData.imageURL.before || '';
+        card.value.imageURL.after = foundData.imageURL.after || '';
       } else {
-        card.value.imageUrl.before = '';
-        card.value.imageUrl.after = '';
+        card.value.imageURL.before = '';
+        card.value.imageURL.after = '';
       }
 
       uploadStore.setEditTarget('', '');
@@ -968,39 +970,38 @@ watch(
   { immediate: true },
 );
 
-function generateNewCardId(): string {
+/**
+ * カードID生成処理
+ *
+ * @property
+ * DBのカード情報の件数を元に、
+ *
+ * @returns カードID
+ */
+function generateNewCardId() {
   if (editingId.value) {
     return editingId.value;
   }
 
-  const memberKey: MemberKeyValues = card.value.memberName;
-  const prefix: MemberIds = MEMBER_IDS[memberKey];
+  const memberKey = card.value.memberName;
+  const prefix = MEMBER_IDS[memberKey];
 
-  let maxNum = 0;
-  const memberData = dbCardList.value[memberKey];
+  let cardCount = 0;
+  const memberCardData = dbCardList.value[memberKey];
 
-  if (memberData) {
-    for (const rare in memberData) {
-      for (const cardId in memberData[rare]) {
-        if (cardId.startsWith(prefix + '_')) {
-          const num = parseInt(cardId.split('_')[1], 10);
-
-          if (!isNaN(num) && num > maxNum) {
-            maxNum = num;
-          }
-        }
-      }
-    }
+  for (const rare in memberCardData) {
+    cardCount += Object.keys(memberCardData[rare]).length;
   }
 
-  return `${prefix}_${String(maxNum + 1).padStart(3, '0')}`;
+  return `${prefix}_${String(cardCount).padStart(3, '0')}`;
 }
 
-// periodのEN値からLIMITEDのキーを取得
-function getPeriodKey(periodEn: string): string {
+/** periodのEN値からLIMITEDのキーを取得 */
+function getPeriodKey(periodEn: string) {
   const entry = Object.entries(LIMITED).find(
     ([, value]) => value.en === periodEn,
   );
+
   return entry ? entry[0] : 'normal';
 }
 
@@ -1034,8 +1035,8 @@ const jsonOutput = computed(() => {
         },
       }),
     },
-    imageUrl: {
-      ...(card.value.imageUrl.before && { before: '' }),
+    imageURL: {
+      ...(card.value.imageURL.before && { before: '' }),
       after: '',
     },
     ...(isSA.value && {
@@ -1066,6 +1067,10 @@ const jsonOutput = computed(() => {
         name: card.value.characteristic.name,
         detail: card.value.characteristic.detail,
         type: card.value.characteristic.type,
+        ...(card.value.characteristic.addSkill &&
+          card.value.characteristic.addSkill.length > 0 && {
+            addSkill: card.value.characteristic.addSkill,
+          }),
       },
     }),
   };
@@ -1143,7 +1148,7 @@ const addToStore = async () => {
       const resizedBlob = await resizeImage(file, 600, 389);
       const fileRef = storageRef(storage, `cardIllust/${id}_${type}.webp`);
       await uploadBytes(fileRef, resizedBlob);
-      cardData.imageUrl[type] = await getDownloadURL(fileRef);
+      cardData.imageURL[type] = await getDownloadURL(fileRef);
     };
 
     if (fileAfter.value) {
@@ -1157,7 +1162,7 @@ const addToStore = async () => {
     }
 
     const updates: Record<string, CardDataType> = {};
-    updates[`card/${member}/${rare}/${id}`] = cardData;
+    updates[`cards/${member}/${rare}/${id}`] = cardData;
 
     await update(dbRef(rtdbDev), updates);
 

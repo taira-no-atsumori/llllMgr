@@ -251,7 +251,6 @@ type Deck = {
  * @property openCard 開放カード
  * @property localStorageData ローカルストレージデータ
  * @property supportSkill サポートスキル
- * @property windowSize ウィンドウサイズ
  * @property musicLevel 楽曲レベル
  * @property imageCache ローカルストレージの画像キャッシュ
  */
@@ -294,10 +293,6 @@ export type StoreState = {
   };
   localStorageData: LocalStorageData[];
   supportSkill: Record<string, Record<string, number>>;
-  windowSize: {
-    w: number;
-    h: number;
-  };
   imageCache: Record<
     string,
     Record<

@@ -53,7 +53,7 @@
         "mental": 580,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fkh_070_after.webp?alt=media&token=061d7783-ad8a-4e37-85c4-daa170b7a6f3"
       },
       "specialAppeal": {
@@ -387,7 +387,7 @@
         "mental": 480,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fkh_071_before.webp?alt=media&token=81252c90-c280-46ea-b0aa-5ef240e20904",
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fkh_071_after.webp?alt=media&token=3e29374d-01d7-41ae-8cb5-279217744504"
       },

@@ -41,12 +41,14 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelectCard: typeof import('./components/modal/SelectCard.vue')['default']
+    SelectSkillDialog: typeof import('./components/modal/SelectSkillDialog.vue')['default']
     SetCardData: typeof import('./components/modal/SetCardData.vue')['default']
     SetLeaningLevel: typeof import('./components/modal/SetLeaningLevel.vue')['default']
     Settings: typeof import('./components/modal/Settings.vue')['default']
     Share: typeof import('./components/modal/Share.vue')['default']
     SkillAreaComponent: typeof import('./components/SkillAreaComponent.vue')['default']
     SkillFormComponent: typeof import('./components/SkillFormComponent.vue')['default']
+    StreamCard: typeof import('./components/common/StreamCard.vue')['default']
     StreamCardComponent: typeof import('./components/streamCardComponent.vue')['default']
   }
 }

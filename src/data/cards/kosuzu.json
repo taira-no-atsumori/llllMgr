@@ -196,7 +196,7 @@
           }
         }
       },
-      "imageUrl": {
+      "imageURL": {
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_037_after.webp?alt=media&token=b303c754-5af1-4d01-b430-795e59f64e3c"
       },
       "specialAppeal": {
@@ -327,6 +327,119 @@
     }
   },
   "UR": {
+    "sz_038": {
+      "cardName": "アイシイ",
+      "styleType": "moodMaker",
+      "mood": "melow",
+      "series": "アイシイ",
+      "kana": "あいしい",
+      "gacha": {
+        "addSeason": "2025 GRADUATION LIMITED COLLECTION vol.3",
+        "period": "graduation"
+      },
+      "uniqueStatus": {
+        "smile": 3850,
+        "pure": 4260,
+        "cool": 6400,
+        "mental": 470,
+        "BP": 100
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_038_before.webp?alt=media&token=cb508f4e-7ca2-4ce9-8b3c-207e7704bce9",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_038_after.webp?alt=media&token=a36d3cc7-0c34-45fe-828d-4d5b5c998b72"
+      },
+      "specialAppeal": {
+        "ID": "iSeeMoment_01",
+        "name": "アイシイモーメント",
+        "AP": 2,
+        "detail": [
+          [
+            "56",
+            "61.6",
+            "67.2",
+            "72.8",
+            "78.4",
+            "84",
+            "89.6",
+            "95.2",
+            "100.8",
+            "112",
+            "117.6",
+            "123.2",
+            "128.8",
+            "140"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "iSeeWorld_01",
+        "name": "アイシイワールド",
+        "AP": 14,
+        "detail": [
+          [
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "30",
+            "32",
+            "34",
+            "36",
+            "40",
+            "42",
+            "44",
+            "46",
+            "50"
+          ],
+          [
+            "5.6",
+            "6.2?",
+            "6.8?",
+            "7.3?",
+            "7.9?",
+            "8.4",
+            "9?",
+            "9.6?",
+            "10.1?",
+            "11.2",
+            "11.8?",
+            "12.4?",
+            "12.9?",
+            "14"
+          ],
+          [
+            "56",
+            "61.6",
+            "67.2",
+            "72.8",
+            "78.4",
+            "84",
+            "89.6",
+            "95.2",
+            "100.8",
+            "112",
+            "117.6",
+            "123.2",
+            "128.8",
+            "140"
+          ]
+        ]
+      },
+      "characteristic": {
+        "name": "パラレルブライト",
+        "detail": "ドローしたとき、ボルテージLv.が高いほど、スキルハートを獲得し、このステージ中さやかのあらゆるスキルの効果量を増幅する。手札にある間、DOLLCHESTRAのメンバーのスキルを使用したとき、手札をシャッフルし、デッキ内のDOLLCHESTRA、シャドウカードのスキルの消費APを-9、さらにボルテージLv.950以上かつメンタルが0でハートを500000個回収したとき、手札をシャッフルし、ボルテージPt.を-1400000、ボルテージLv.が1000のときさらにボルテージPt.を-14000000する。このときDOLLCHESTRAのカードをドローする確率大幅アップ。",
+        "type": [
+          "draw",
+          "heartCaptcha",
+          "boost_all",
+          "reshuffle",
+          "APReduce",
+          "heartCollect",
+          "voltageReduce"
+        ]
+      }
+    },
     "sz_035": {
       "cardName": "リブウト",
       "styleType": "trickStar",
@@ -1558,7 +1671,7 @@
         "mental": 420,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_036_before.webp?alt=media&token=3642c637-19aa-4fa3-9717-c32bb1bd6b63",
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsz_036_after.webp?alt=media&token=72d38895-fc60-4610-b275-85d9847e4279"
       },

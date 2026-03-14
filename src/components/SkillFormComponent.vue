@@ -1,44 +1,25 @@
 <template>
   <div class="d-flex mb-3">
     <div class="pr-3" style="width: 90%">
-      <v-row>
-        <v-col cols="2" class="mb-1">
-          <v-select
-            v-model="selectedKanaRow"
-            :items="kanaRows"
-            label="Filter by Kana"
-            variant="outlined"
-            density="compact"
-            hide-details
-            class="mb-3"
-          />
-        </v-col>
-        <v-col cols="10">
-          <v-select
-            v-model="model.name"
-            :items="skillNames"
-            :label="`${labelPrefix} Name`"
-            required
-            variant="outlined"
-            density="compact"
-            hide-details
-            class="mb-3"
-            @update:model-value="onNameChange"
-          />
-        </v-col>
-      </v-row>
-      <v-select
+      <v-text-field
+        v-model="model.name"
+        :label="`${labelPrefix} Name`"
+        readonly
+        variant="underlined"
+        class="mb-3"
+        hide-details
+      />
+      <v-text-field
         v-model="model.ID"
         :items="idOptions"
         :label="`${labelPrefix} ID`"
         required
-        variant="outlined"
-        density="compact"
+        readonly
+        variant="underlined"
         hide-details
-        @update:model-value="onIdChange"
       />
     </div>
-    <div style="width: 10%">
+    <div style="width: 10%" class="mt-2">
       <v-text-field
         v-model.number="model.AP"
         label="AP"
@@ -50,13 +31,19 @@
         density="compact"
         hide-details
         :bg-color="model.AP === 0 ? 'error' : undefined"
-        class="mb-4"
+        class="mb-6"
       />
-      <v-btn text="Reset" color="primary" block @click="reset" />
+      <v-btn
+        text="Set"
+        color="primary"
+        prepend-icon="mdi-plus"
+        block
+        @click="skillDialog = true"
+      />
     </div>
   </div>
 
-  <div v-if="type === 'SA' && model.ID" class="mb-3">
+  <div v-if="type === 'SA' && model.ID" class="mb-6">
     <v-btn
       v-if="!isEXAP"
       text="Add EXAP"
@@ -117,130 +104,134 @@
         />
       </v-col>
     </template>
-
-    <!-- Add SA List (Only for SA) -->
-    <template v-if="model.addSA">
-      <v-col v-for="(item, i) in model.addSA" :key="i" cols="12">
-        <v-expansion-panels color="yellow">
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              {{ `Add Special Appeal ${i + 1}` }}
-              <v-spacer />
-              <v-btn
-                icon="mdi-delete"
-                variant="text"
-                density="compact"
-                color="error"
-                @click.stop="removeSAorSkill('SA', i)"
-              />
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <SkillFormComponent
-                v-model="model.addSA[i]"
-                type="addSA"
-                :index="i"
-                @open-detail="(l, idx) => $emit('open-detail', l, idx)"
-              />
-              <div v-if="model.addSA[i].characteristic" class="mt-3">
-                <CharacteristicAreaComponent
-                  v-model="model.addSA[i].characteristic"
-                  @delete="deleteCharacteristic(model.addSA[i])"
-                  @open-detail="(l, idx) => $emit('open-detail', l, idx)"
-                />
-              </div>
-              <v-btn
-                v-else
-                text="Add Characteristic"
-                prepend-icon="mdi-plus"
-                block
-                class="mt-3"
-                @click="addCharacteristic(model.addSA[i])"
-              />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-col>
-    </template>
-
-    <!-- Add SA Button -->
-    <v-col v-if="model.addSA && currentTypes.includes('addSA')" cols="12">
-      <v-btn
-        color="yellow"
-        prepend-icon="mdi-plus"
-        text="Add SA"
-        block
-        @click="addSAorSkill('SA')"
-      />
-    </v-col>
-
-    <!-- Add Skill List -->
-    <template v-if="model.addSkill">
-      <v-col v-for="(item, i) in model.addSkill" :key="i" cols="12">
-        <v-expansion-panels color="yellow">
-          <v-expansion-panel>
-            <v-expansion-panel-title>
-              {{ `Add Skill ${i + 1}` }}
-              <v-spacer />
-              <v-btn
-                icon="mdi-delete"
-                variant="text"
-                density="compact"
-                color="error"
-                @click.stop="removeSAorSkill('Skill', i)"
-              />
-            </v-expansion-panel-title>
-            <v-expansion-panel-text>
-              <SkillFormComponent
-                v-model="model.addSkill[i]"
-                type="addSkill"
-                :index="i"
-                @open-detail="(l, idx) => $emit('open-detail', l, idx)"
-              />
-              <div v-if="model.addSkill[i].characteristic" class="mt-3">
-                <CharacteristicAreaComponent
-                  v-model="model.addSkill[i].characteristic"
-                  @delete="deleteCharacteristic(model.addSkill[i])"
-                  @open-detail="(l, idx) => $emit('open-detail', l, idx)"
-                />
-              </div>
-              <v-btn
-                v-else
-                text="Add Characteristic"
-                prepend-icon="mdi-plus"
-                block
-                class="mt-3"
-                @click="addCharacteristic(model.addSkill[i])"
-              />
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-col>
-    </template>
-
-    <!-- Add Skill Button -->
-    <v-col v-if="model.addSkill && currentTypes.includes('addCard')" cols="12">
-      <v-btn
-        color="yellow"
-        prepend-icon="mdi-plus"
-        text="Add Skill"
-        block
-        @click="addSAorSkill('Skill')"
-      />
-    </v-col>
   </v-row>
+
+  <!-- Add SA List (Only for SA) -->
+  <template v-for="(item, i) in model.addSA" :key="i">
+    <v-expansion-panels color="yellow" class="mt-3">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          {{ `Add Special Appeal ${i + 1}` }}
+          <v-spacer />
+          <v-btn
+            icon="mdi-delete"
+            variant="text"
+            density="compact"
+            color="error"
+            @click.stop="removeSAorSkill('SA', i)"
+          />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <SkillFormComponent
+            v-model="model.addSA[i]"
+            type="addSA"
+            :index="i"
+            @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+          />
+          <div v-if="model.addSA[i].characteristic" class="mt-3">
+            <CharacteristicAreaComponent
+              v-model="model.addSA[i].characteristic"
+              @delete="deleteCharacteristic(model.addSA[i])"
+              @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+            />
+          </div>
+          <v-btn
+            v-else
+            text="Add Characteristic"
+            prepend-icon="mdi-plus"
+            block
+            class="mt-3"
+            @click="addCharacteristic(model.addSA[i])"
+          />
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </template>
+
+  <!-- Add SA Button -->
+  <v-btn
+    v-if="model.addSA && currentTypes.includes('addSA')"
+    color="yellow"
+    prepend-icon="mdi-plus"
+    text="Add SA"
+    block
+    @click="addSAorSkill('SA')"
+  />
+
+  <!-- Add Skill List -->
+  <template v-for="(item, i) in model.addSkill" :key="i">
+    <v-expansion-panels color="yellow" class="mt-3">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          {{ `Add Skill ${i + 1}` }}
+          <v-spacer />
+          <v-btn
+            icon="mdi-delete"
+            variant="text"
+            density="compact"
+            color="error"
+            @click.stop="removeSAorSkill('Skill', i)"
+          />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <SkillFormComponent
+            v-model="model.addSkill[i]"
+            type="addSkill"
+            :index="i"
+            @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+          />
+          <div v-if="model.addSkill[i].characteristic" class="mt-3">
+            <CharacteristicAreaComponent
+              v-model="model.addSkill[i].characteristic"
+              @delete="deleteCharacteristic(model.addSkill[i])"
+              @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+            />
+          </div>
+          <v-btn
+            v-else
+            text="Add Characteristic"
+            prepend-icon="mdi-plus"
+            block
+            class="mt-3"
+            @click="addCharacteristic(model.addSkill[i])"
+          />
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </template>
+
+  <!-- Add Skill Button -->
+  <v-btn
+    v-if="model.addSkill && currentTypes.includes('addCard')"
+    cols="12"
+    color="yellow"
+    prepend-icon="mdi-plus"
+    text="Add Skill"
+    block
+    class="mt-3"
+    @click="addSAorSkill('Skill')"
+  />
+
+  <SelectSkillDialog
+    v-model="skillDialog"
+    :skill-list="skillList"
+    :current-skill-id="model.ID"
+    :initial-skill-name="model.name"
+    @select="onNameChange"
+  />
 </template>
 
 <script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue';
 import { ref as dbRef, onValue } from 'firebase/database';
-import { rtdb } from '@/firebase';
+import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
+import SelectSkillDialog from '@/components/modal/SelectSkillDialog.vue';
 import SkillFormComponent from '@/components/SkillFormComponent.vue';
 import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
-import { KANA_OPTIONS } from '@/constants/kana';
-import { getRow } from '@/utils/stringUtil';
 import type { SkillDetail, AdditionalSkill } from '@/types/cardList';
 import type { SkillType } from '@/types/skill';
+import { RTDB_PATH } from '@/constants/envConst';
 
 const isEXAP = ref(false);
 const defaultDetail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -263,9 +254,11 @@ const model = computed({
 
 const store = useStateStore();
 const skillList = ref<Record<string, SkillType>>({});
+const skillDialog = ref(false);
 
 const fetchSkillList = () => {
-  const skillRef = dbRef(rtdb, 'skills/skill');
+  const db = store.isDev ? rtdbDev : rtdb;
+  const skillRef = dbRef(db, RTDB_PATH.SKILL);
 
   onValue(skillRef, (snapshot) => {
     const data: SkillType = snapshot.val();
@@ -301,10 +294,6 @@ watch(skillList, (newList) => {
   }
 });
 
-const selectedKanaRow = ref('all');
-
-const kanaRows = [{ title: 'All', value: 'all' }, ...KANA_OPTIONS];
-
 const skillNames = computed(() => {
   const list: { title: string; value: string }[] = [];
   const seen = new Set<string>();
@@ -312,15 +301,6 @@ const skillNames = computed(() => {
   for (const skillID in skillList.value) {
     const skillGroup = skillList.value[skillID];
     const skillName = skillGroup.name;
-    const skillKana = skillGroup.kana;
-
-    if (selectedKanaRow.value !== 'all') {
-      const row = getRow(skillKana.charAt(0));
-
-      if (row !== selectedKanaRow.value) {
-        continue;
-      }
-    }
 
     if (!seen.has(skillName)) {
       seen.add(skillName);
@@ -455,39 +435,5 @@ const addCharacteristic = (item: AdditionalSkill) => {
 
 const deleteCharacteristic = (item: AdditionalSkill) => {
   delete item.characteristic;
-};
-
-const reset = () => {
-  let initialID = '';
-  let initialName = '';
-  let initialDetail: (string | number | null)[] = [];
-
-  if (skillNames.value.length > 0) {
-    const firstSkill = skillNames.value[0];
-    const skillData = skillList.value[firstSkill.value];
-
-    if (skillData) {
-      initialID = skillData.ID;
-      initialName = skillData.name;
-
-      if (skillData.text) {
-        const count = Math.max(0, skillData.text.length - 1);
-        initialDetail = new Array(count)
-          .fill(null)
-          .map(() => [...defaultDetail]);
-      }
-    }
-  }
-
-  model.value = {
-    ...model.value,
-    ID: initialID,
-    name: initialName,
-    AP: 0,
-    detail: initialDetail,
-    addSA: [],
-    addSkill: [],
-  };
-  isEXAP.value = false;
 };
 </script>
