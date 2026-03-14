@@ -115,16 +115,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { ref as dbRef, update } from 'firebase/database';
-import {
-  getStorage,
-  ref as storageRef,
-  uploadBytes,
-  getDownloadURL,
-} from 'firebase/storage';
+// import {
+//   getStorage,
+//   ref as storageRef,
+//   uploadBytes,
+//   getDownloadURL,
+// } from 'firebase/storage';
 import { rtdb } from '@/firebase';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import type { CardDataByMember } from '@/types/cardList';
 import type { MusicItem } from '@/types/musicList';
+import type { StreamInfoFirebaseData } from '@/types/stream';
 
 const uploadStore = useUploadDataStore();
 const loading = ref(false);
@@ -137,9 +138,9 @@ const dialogText = ref('');
 
 const emit = defineEmits(['edit']);
 const handleEdit = (item: {
-  type: 'card' | 'music';
+  type: 'card' | 'music' | 'stream';
   key: string;
-  data: CardDataByMember | MusicItem;
+  data: CardDataByMember | MusicItem | StreamInfoFirebaseData;
   status: 'new' | 'update';
   path: string;
 }) => {
@@ -147,17 +148,23 @@ const handleEdit = (item: {
   emit('edit', item.type);
 };
 
-const showDiff = (item: CardDataByMember | MusicItem) => {
+const showDiff = (
+  item: CardDataByMember | MusicItem | StreamInfoFirebaseData,
+) => {
   afterData.value = JSON.stringify(item.data, null, 2);
 
   if (item.status === 'update') {
     let prodItemData = null;
+
     if (item.type === 'music') {
       prodItemData = uploadStore.prodData.music[item.key];
     } else if (item.type === 'card') {
       const prodCards = uploadStore.flattenCards(uploadStore.prodData.card);
       prodItemData = prodCards[item.key]?.data;
+    } else if (item.type === 'stream') {
+      prodItemData = uploadStore.prodData.stream[item.key];
     }
+
     beforeData.value = JSON.stringify(prodItemData, null, 2);
   } else {
     beforeData.value = 'New Data';
@@ -170,7 +177,7 @@ const deployData = async () => {
   }
 
   loading.value = true;
-  const storage = getStorage(rtdb.app);
+  // const storage = getStorage(rtdb.app);
 
   try {
     const updates: Record<string, CardDataByMember | MusicItem> = {};
@@ -184,60 +191,62 @@ const deployData = async () => {
 
       const data = JSON.parse(JSON.stringify(item.data));
 
-      let prodItemData = null;
+      // let prodItemData = null;
 
-      if (item.type === 'music') {
-        prodItemData = uploadStore.prodData.music[item.key];
-      } else if (item.type === 'card') {
-        const prodCards = uploadStore.flattenCards(uploadStore.prodData.card);
-        prodItemData = prodCards[item.key]?.data;
-      }
+      // if (item.type === 'music') {
+      //   prodItemData = uploadStore.prodData.music[item.key];
+      // } else if (item.type === 'card') {
+      //   const prodCards = uploadStore.flattenCards(uploadStore.prodData.card);
+      //   prodItemData = prodCards[item.key]?.data;
+      // } else if (item.type === 'stream') {
+      //   prodItemData = uploadStore.prodData.stream[item.key];
+      // }
 
-      // 画像URLが含まれている場合、本番環境へコピーする
-      if (
-        data.imageURL &&
-        data.imageURL.startsWith('http') &&
-        (!prodItemData || !prodItemData.imageURL)
-      ) {
-        try {
-          // 1. Dev環境の画像を本番環境にアップするために取得
-          const response = await fetch(data.imageURL);
-          const blob = await response.blob();
+      // // 画像URLが含まれている場合、本番環境へコピーする
+      // if (
+      //   data.imageURL &&
+      //   data.imageURL.startsWith('http') &&
+      //   (!prodItemData || !prodItemData.imageURL)
+      // ) {
+      //   try {
+      //     // 1. Dev環境の画像を本番環境にアップするために取得
+      //     const response = await fetch(data.imageURL);
+      //     const blob = await response.blob();
 
-          // 拡張子をURLから取得（デフォルトはwebp）
-          let ext = 'webp';
-          try {
-            const urlObj = new URL(data.imageURL);
-            const path = decodeURIComponent(urlObj.pathname);
-            const match = path.match(/\.([a-zA-Z0-9]+)$/);
+      //     // 拡張子をURLから取得（デフォルトはwebp）
+      //     let ext = 'webp';
+      //     try {
+      //       const urlObj = new URL(data.imageURL);
+      //       const path = decodeURIComponent(urlObj.pathname);
+      //       const match = path.match(/\.([a-zA-Z0-9]+)$/);
 
-            if (match) {
-              ext = match[1];
-            }
-          } catch (_) {
-            // URL解析失敗時はデフォルトを使用
-          }
+      //       if (match) {
+      //         ext = match[1];
+      //       }
+      //     } catch (_) {
+      //       // URL解析失敗時はデフォルトを使用
+      //     }
 
-          const fileName = `${key}.${ext}`;
-          const folder =
-            item.type === 'card'
-              ? 'cardIllust'
-              : item.type === 'music'
-              ? 'cdJacket'
-              : 'eventInformation';
-          const fileRef = storageRef(storage, `${folder}/${fileName}`);
+      //     const fileName = `${key}.${ext}`;
+      //     const folder =
+      //       item.type === 'card'
+      //         ? 'cardIllust'
+      //         : item.type === 'music'
+      //           ? 'cdJacket'
+      //           : 'eventInformation';
+      //     const fileRef = storageRef(storage, `${folder}/${fileName}`);
 
-          const snapshot = await uploadBytes(fileRef, blob);
-          // 2. 1でアップした画像のURLを取得
-          const url = await getDownloadURL(snapshot.ref);
-          // 3. 本番環境にアップする用のデータのimageURLを2に書き換え
-          data.imageURL = url;
-        } catch (e) {
-          console.error(`Failed to copy image for ${key}:`, e);
-          // 画像コピーに失敗してもデータ更新は続行するか、ここで中断するか
-          // ここではログを出して続行
-        }
-      }
+      //     const snapshot = await uploadBytes(fileRef, blob);
+      //     // 2. 1でアップした画像のURLを取得
+      //     const url = await getDownloadURL(snapshot.ref);
+      //     // 3. 本番環境にアップする用のデータのimageURLを2に書き換え
+      //     data.imageURL = url;
+      //   } catch (e) {
+      //     console.error(`Failed to copy image for ${key}:`, e);
+      //     // 画像コピーに失敗してもデータ更新は続行するか、ここで中断するか
+      //     // ここではログを出して続行
+      //   }
+      // }
 
       updates[item.path] = data;
     }

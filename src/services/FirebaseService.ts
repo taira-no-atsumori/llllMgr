@@ -14,6 +14,7 @@ import {
 import { rtdb, rtdbDev } from '@/firebase';
 import type { CardDataByMember } from '@/types/cardList';
 import type { MusicItem } from '@/types/musicList';
+import { RTDB_PATH, type RtdbPath } from '@/constants/envConst';
 
 export const FirebaseService = {
   /**
@@ -21,8 +22,8 @@ export const FirebaseService = {
    * @param path Storageのパス
    */
   async getImageUrl(path: string): Promise<string | null> {
-    // 現状の実装に合わせてrtdb.appを使用
     const storage = getStorage(rtdb.app);
+
     try {
       return await getDownloadURL(storageRef(storage, path));
     } catch (_) {
@@ -36,7 +37,19 @@ export const FirebaseService = {
    */
   async getMusicData(isDev: boolean) {
     const db = isDev ? rtdbDev : rtdb;
-    const snapshot = await get(dbRef(db, 'music'));
+
+    const snapshot = await get(dbRef(db, RTDB_PATH.MUSIC));
+    return snapshot.val();
+  },
+
+  /**
+   * Realtime Databaseから楽曲データを取得
+   * @param isDev 開発環境かどうか
+   */
+  async getCardData(isDev: boolean) {
+    const db = isDev ? rtdbDev : rtdb;
+
+    const snapshot = await get(dbRef(db, RTDB_PATH.CARDS));
     return snapshot.val();
   },
 
@@ -48,11 +61,12 @@ export const FirebaseService = {
    * @returns 監視解除関数
    */
   subscribeToDatabase(
-    path: string,
-    callback: (data: any) => void,
+    path: RtdbPath,
+    callback: (data: CardDataByMember | Record<string, MusicItem>) => void,
     isDev: boolean,
   ): Unsubscribe {
     const db = isDev ? rtdbDev : rtdb;
+
     return onValue(dbRef(db, path), (snapshot) => {
       callback(snapshot.val());
     });
@@ -70,6 +84,7 @@ export const FirebaseService = {
     isDev: boolean,
   ): Promise<void> {
     const db = isDev ? rtdbDev : rtdb;
+
     await set(dbRef(db, path), data);
   },
 
@@ -81,6 +96,7 @@ export const FirebaseService = {
    */
   async updateData(path: string, data: any, isDev: boolean): Promise<void> {
     const db = isDev ? rtdbDev : rtdb;
+
     await update(dbRef(db, path), data);
   },
 };

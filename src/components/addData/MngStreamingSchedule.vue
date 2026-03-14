@@ -1,7 +1,14 @@
 <template>
   <v-container fluid class="pa-0">
-    <div class="d-flex mb-3">
+    <div class="d-flex align-center mb-3">
       <v-spacer />
+      <v-select
+        v-model="selectedFilter"
+        :items="filterOptions"
+        density="compact"
+        hide-details
+        class="mr-3"
+      />
       <v-btn
         text="New Schedule"
         prepend-icon="mdi-plus"
@@ -12,7 +19,7 @@
 
     <v-data-table
       :headers="headers"
-      :items="schedules"
+      :items="filteredSchedules"
       :loading="loading"
       class="elevation-1"
       item-value="id"
@@ -22,6 +29,9 @@
       </template>
       <template #[`item.endDate`]="{ item }">
         {{ formatDisplayDate(item.endDate) }}
+      </template>
+      <template #[`item.type`]="{ item }">
+        {{ STREAM_LABEL_CONST[item.type] }}
       </template>
       <template #[`item.member`]="{ item }">
         <v-avatar
@@ -91,8 +101,9 @@
               <v-select
                 v-model="editedItem.type"
                 :items="[
-                  { key: 'With×MEETS', value: 'WM' },
-                  { key: 'Fes×LIVE', value: 'FES' },
+                  { key: STREAM_LABEL_CONST.WM, value: 'WM' },
+                  { key: STREAM_LABEL_CONST.FES, value: 'FES' },
+                  { key: STREAM_LABEL_CONST.YT, value: 'YT' },
                 ]"
                 item-title="key"
                 item-value="value"
@@ -166,6 +177,7 @@ import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { RTDB_PATH } from '@/constants/envConst';
+import { STREAM_LABEL_CONST } from '@/constants/streamLabelConst';
 
 interface ScheduleItem {
   id: string;
@@ -174,6 +186,8 @@ interface ScheduleItem {
   type: string;
   member: string[];
 }
+
+const filterOptions = ['All', 'Upcoming', 'Ended'];
 
 const store = useStateStore();
 const schedules = ref<ScheduleItem[]>([]);
@@ -189,6 +203,31 @@ const editedItem = ref<ScheduleItem>({
 const isNew = ref(true);
 const inputDate = ref('');
 const inputTime = ref('20:30');
+const selectedFilter = ref('Upcoming');
+
+/**
+ * 選択されたフィルター条件に基づいてスケジュール一覧をフィルタリングします。
+ *
+ * - `all`: 全てのスケジュールを表示
+ * - `upcoming`: 開始日時が現在時刻より後のスケジュールを表示（配信前）
+ * - `ended`: 終了日時が現在時刻より前のスケジュールを表示（配信終了）
+ *
+ * @returns {ScheduleItem[]} フィルタリングされたスケジュールの配列
+ */
+const filteredSchedules = computed(() => {
+  const now = new Date();
+
+  return schedules.value.filter((item) => {
+    switch (selectedFilter.value) {
+      case 'Upcoming':
+        return new Date(item.startDate) > now;
+      case 'Ended':
+        return item.endDate && new Date(item.endDate) < now;
+      default:
+        return true;
+    }
+  });
+});
 
 const timeOptions = computed(() => {
   const times = [];

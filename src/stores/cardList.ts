@@ -76,3 +76,90 @@ export const useCardStore = defineStore('cardList', {
   getters: {},
   actions: {},
 });
+
+// import { defineStore } from 'pinia';
+// import { ref, watch } from 'vue';
+// import { ref as dbRef, onValue, type Unsubscribe } from 'firebase/database';
+// import { rtdb, rtdbDev } from '@/firebase';
+// import { useStateStore } from '@/stores/stateStore';
+// import type { CardListState } from '@/types/cardList';
+// import { STYLE_TYPE, MOOD } from '@/constants/cards';
+// import { RTDB_PATH } from '@/constants/envConst';
+
+// const defaultCardData: CardListState['card'] = {
+//   default: {
+//     default: {
+//       df_000: {
+//         cardName: 'default',
+//         styleType: STYLE_TYPE.PERFORMER.en,
+//         mood: MOOD.NEUTRAL.en,
+//         series: '',
+//         kana: '',
+//         gacha: {
+//           addSeason: '',
+//           period: 'normal',
+//         },
+//         uniqueStatus: {
+//           smile: 30,
+//           pure: 30,
+//           cool: 30,
+//           mental: 3,
+//           BP: 100,
+//         },
+//         specialAppeal: {
+//           name: '',
+//           AP: 1,
+//           detail: {},
+//         },
+//         skill: {
+//           name: '',
+//           AP: 1,
+//           detail: {},
+//         },
+//         characteristic: {
+//           name: '',
+//           detail: '',
+//           type: [],
+//         },
+//       },
+//     },
+//   },
+// };
+
+// export const useCardStore = defineStore('cardList', () => {
+//   const stateStore = useStateStore();
+//   const card = ref<CardListState['card']>(
+//     JSON.parse(JSON.stringify(defaultCardData)),
+//   );
+//   const isLoaded = ref(false);
+//   let unsubscribe: Unsubscribe | null = null;
+
+//   const subscribe = () => {
+//     if (unsubscribe) {
+//       unsubscribe();
+//       unsubscribe = null;
+//     }
+//     isLoaded.value = false;
+
+//     const db = stateStore.isDev ? rtdbDev : rtdb;
+//     const cardsRef = dbRef(db, RTDB_PATH.CARDS);
+
+//     unsubscribe = onValue(cardsRef, (snapshot) => {
+//       const data = snapshot.val() || {};
+//       card.value = {
+//         ...JSON.parse(JSON.stringify(defaultCardData)),
+//         ...data,
+//       };
+//       if (!isLoaded.value) {
+//         isLoaded.value = true;
+//       }
+//     });
+//   };
+
+//   watch(() => stateStore.isDev, subscribe, { immediate: true });
+
+//   return {
+//     card,
+//     isLoaded,
+//   };
+// });

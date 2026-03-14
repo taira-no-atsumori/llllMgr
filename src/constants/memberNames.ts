@@ -77,6 +77,9 @@ export const MEMBER_IDS = {
 export type MemberIds = (typeof MEMBER_IDS)[keyof typeof MEMBER_IDS];
 
 /**
+ * メンバーキー変換処理
+ *
+ * @property
  * メンバーIDをメンバーキーに変換
  *
  * @param id メンバーID
@@ -89,6 +92,9 @@ export const conversionIdToKey = (id: MemberIds): MemberKeyValues => {
 };
 
 /**
+ * メンバーID変換処理
+ *
+ * @property
  * メンバーキーをメンバーIDに変換
  *
  * @param key メンバーキー
@@ -100,6 +106,7 @@ export const conversionKeyToId = (key: MemberKeyValues): MemberIds => {
   ];
 };
 
+/** メンバーフルネーム */
 export const MEMBER_NAMES = {
   [MEMBER_KEYS.KAHO]: {
     first: '日野下',
@@ -158,6 +165,7 @@ export const MEMBER_NAMES = {
     last: '藤島慈',
   },
 } as const;
+/** メンバーフルネームの型 */
 export type MemberNames = (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES];
 
 /** 名字の型 */

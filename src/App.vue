@@ -71,13 +71,13 @@
       </v-toolbar-title>
       <v-toolbar-title class="hidden-sm-and-up">
         リンマネ
-        <v-btn
+        <!-- <v-btn
           v-if="uploadStore.hasDiff"
           icon="mdi-cloud-arrow-up"
           variant="text"
           density="compact"
           @click="pageMove('Login')"
-        />
+        /> -->
       </v-toolbar-title>
 
       <v-spacer />
@@ -227,7 +227,7 @@
           target="_blank"
           class="text-white font-weight-bold"
         >
-          {{ 'お題箱' }}
+          お題箱
         </a>
         」まで
       </span>
@@ -236,7 +236,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useGoTo } from 'vuetify';
 import Modal from '@/components/modal/ModalArea.vue';
@@ -393,14 +393,9 @@ watch(
 store.init();
 
 onMounted(() => {
-  store.initializeWindowResize();
   uploadStore.startListening();
   // 期限切れキャッシュをクリア
   cacheManager.clearExpired();
-});
-
-onUnmounted(() => {
-  store.cleanupWindowResize();
 });
 </script>
 

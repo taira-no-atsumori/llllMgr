@@ -4,8 +4,14 @@ import type { Unsubscribe } from 'firebase/database';
 import { FirebaseService } from '@/services/FirebaseService';
 import deepEqual from 'deep-is';
 import type { PendingItem } from '@/types/uploadDataStore';
-import type { CardDataType } from '@/types/cardList';
+import type {
+  CardDataType,
+  CardDataByMember,
+  CardsByRarity,
+  SkillDetail,
+} from '@/types/cardList';
 import type { MusicItem } from '@/types/musicList';
+import { RTDB_PATH } from '@/constants/envConst';
 
 /** DBデータ操作処理 */
 export const useUploadDataStore = defineStore('uploadData', () => {
@@ -13,18 +19,22 @@ export const useUploadDataStore = defineStore('uploadData', () => {
 
   // --- Diff Check Logic ---
   const devData = ref<{
-    card: Record<string, CardDataType>;
-    music: Record<string, MusicItem>;
+    [RTDB_PATH.CARDS]: CardDataByMember;
+    [RTDB_PATH.MUSIC]: Record<string, MusicItem>;
+    [RTDB_PATH.SKILL]: Record<string, SkillDetail>;
   }>({
-    card: {},
-    music: {},
+    [RTDB_PATH.CARDS]: {},
+    [RTDB_PATH.MUSIC]: {},
+    [RTDB_PATH.SKILL]: {},
   });
   const prodData = ref<{
-    card: Record<string, CardDataType>;
-    music: Record<string, MusicItem>;
+    [RTDB_PATH.CARDS]: CardDataByMember;
+    [RTDB_PATH.MUSIC]: Record<string, MusicItem>;
+    [RTDB_PATH.SKILL]: Record<string, SkillDetail>;
   }>({
-    card: {},
-    music: {},
+    [RTDB_PATH.CARDS]: {},
+    [RTDB_PATH.MUSIC]: {},
+    [RTDB_PATH.SKILL]: {},
   });
   const isListening = ref(false);
   const unsubscribes: Unsubscribe[] = [];
@@ -43,14 +53,19 @@ export const useUploadDataStore = defineStore('uploadData', () => {
 
     isListening.value = true;
 
-    const paths = ['music', 'card'] as const;
+    const paths = [RTDB_PATH.CARDS, RTDB_PATH.MUSIC, RTDB_PATH.SKILL];
 
     paths.forEach((path) => {
       // Dev環境の監視
       unsubscribes.push(
         FirebaseService.subscribeToDatabase(
           path,
-          (data) => {
+          (
+            data:
+              | CardDataByMember
+              | Record<string, MusicItem>
+              | Record<string, SkillDetail>,
+          ) => {
             devData.value[path] = data || {};
           },
           true,
@@ -60,7 +75,12 @@ export const useUploadDataStore = defineStore('uploadData', () => {
       unsubscribes.push(
         FirebaseService.subscribeToDatabase(
           path,
-          (data) => {
+          (
+            data:
+              | CardDataByMember
+              | Record<string, MusicItem>
+              | Record<string, SkillDetail>,
+          ) => {
             prodData.value[path] = data || {};
           },
           false,
@@ -77,7 +97,7 @@ export const useUploadDataStore = defineStore('uploadData', () => {
   };
 
   /** カードデータをフラット化するヘルパー関数 */
-  const flattenCards = (data: CardDataType, prefix = 'card') => {
+  const flattenCards = (data: CardDataByMember) => {
     const result: Record<string, { data: CardDataType; path: string }> = {};
 
     if (!data) {
@@ -85,31 +105,33 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     }
 
     for (const member in data) {
-      const memberData = data[member];
+      const memberData: CardsByRarity = data[member];
 
       if (typeof memberData !== 'object') {
         continue;
       }
 
       for (const rare in memberData) {
-        const rareData = memberData[rare];
+        const rareData: Record<string, CardDataType> | CardDataType =
+          memberData[rare];
 
         if (typeof rareData !== 'object') {
           continue;
         }
 
         for (const id in rareData) {
-          const cardData = rareData[id];
+          const cardData: CardDataType = rareData[id];
 
           if (cardData && typeof cardData === 'object') {
             result[id] = {
               data: cardData,
-              path: `${prefix}/${member}/${rare}/${id}`,
+              path: `${RTDB_PATH.CARDS}/${member}/${rare}/${id}`,
             };
           }
         }
       }
     }
+
     return result;
   };
 
@@ -118,8 +140,8 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     const list = [];
 
     // Card Diff
-    const devCards = flattenCards(devData.value.card);
-    const prodCards = flattenCards(prodData.value.card);
+    const devCards = flattenCards(devData.value[RTDB_PATH.CARDS]);
+    const prodCards = flattenCards(prodData.value[RTDB_PATH.CARDS]);
 
     for (const key in devCards) {
       const devItem = devCards[key];
@@ -130,40 +152,64 @@ export const useUploadDataStore = defineStore('uploadData', () => {
           key,
           data: devItem.data,
           status: 'new',
-          type: 'card',
+          type: RTDB_PATH.CARDS,
           path: devItem.path,
         });
-      } else if (!deepEqual(devItem.data, prodItem.data)) {
-        list.push({
-          key,
-          data: devItem.data,
-          status: 'update',
-          type: 'card',
-          path: devItem.path,
-        });
+        // } else if (!deepEqual(devItem.data, prodItem.data)) {
+        //   list.push({
+        //     key,
+        //     data: devItem.data,
+        //     status: 'update',
+        //     type: 'cards',
+        //     path: devItem.path,
+        //   });
       }
     }
 
     // Music Diff
-    for (const key in devData.value.music) {
-      const devItem = devData.value.music[key];
-      const prodItem = prodData.value.music[key];
+    for (const key in devData.value[RTDB_PATH.MUSIC]) {
+      const devItem = devData.value[RTDB_PATH.MUSIC][key];
+      const prodItem = prodData.value[RTDB_PATH.MUSIC][key];
 
       if (!prodItem) {
         list.push({
           key,
           data: devItem,
           status: 'new',
-          type: 'music',
-          path: `music/${key}`,
+          type: RTDB_PATH.MUSIC,
+          path: `${RTDB_PATH.MUSIC}/${key}`,
         });
       } else if (!deepEqual(devItem, prodItem)) {
         list.push({
           key,
           data: devItem,
           status: 'update',
-          type: 'music',
-          path: `music/${key}`,
+          type: RTDB_PATH.MUSIC,
+          path: `${RTDB_PATH.MUSIC}/${key}`,
+        });
+      }
+    }
+
+    // Skill Diff
+    for (const key in devData.value[RTDB_PATH.SKILL]) {
+      const devItem = devData.value[RTDB_PATH.SKILL][key];
+      const prodItem = prodData.value[RTDB_PATH.SKILL][key];
+
+      if (!prodItem) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'new',
+          type: 'skill',
+          path: `${RTDB_PATH.SKILL}/${key}`,
+        });
+      } else if (!deepEqual(devItem, prodItem)) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'update',
+          type: 'skill',
+          path: `${RTDB_PATH.SKILL}/${key}`,
         });
       }
     }
@@ -177,7 +223,7 @@ export const useUploadDataStore = defineStore('uploadData', () => {
   /**
    * アイテム追加処理
    *
-   * @param type 'card' | 'music' | 'event'
+   * @param type 'card' | 'music' | 'event' | 'skill'
    * @param data データの型
    */
   const addItem = (type: PendingItem['type'], data: PendingItem['data']) => {

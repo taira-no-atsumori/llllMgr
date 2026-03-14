@@ -8,6 +8,6 @@ import type { MusicItem } from '@/types/musicList';
  * @property data データの型
  */
 export interface PendingItem {
-  type: 'card' | 'music' | 'event';
+  type: 'card' | 'music' | 'event' | 'skill';
   data: CardsByRarity | MusicItem;
 }

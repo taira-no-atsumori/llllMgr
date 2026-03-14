@@ -81,7 +81,7 @@
     </v-row>
 
     <div class="mb-5">
-      <div class="d-flex align-center mb-2">
+      <div class="d-flex align-center">
         <h2>With×MEETS 予定表</h2>
         <div v-if="streamInfoData.length > (display.smAndDown.value ? 1 : 3)">
           <v-btn
@@ -109,36 +109,26 @@
       </div>
       <template v-else>
         <!-- Mobile Carousel -->
-        <v-carousel
+        <v-window
           v-if="display.smAndDown.value"
           v-model="carouselModel"
-          hide-delimiters
-          :show-arrows="false"
-          height="auto"
           :touch="false"
         >
-          <v-carousel-item v-for="(item, i) in streamInfoData" :key="i">
-            <StreamCardComponent :item="item" />
-          </v-carousel-item>
-        </v-carousel>
+          <v-window-item v-for="(item, i) in streamInfoData" :key="i">
+            <StreamCard :item="item" />
+          </v-window-item>
+        </v-window>
 
         <!-- Desktop Carousel -->
-        <v-carousel
-          v-else
-          v-model="carouselModel"
-          hide-delimiters
-          :show-arrows="false"
-          height="auto"
-          :touch="false"
-        >
-          <v-carousel-item v-for="(group, i) in groupedStreamInfoData" :key="i">
+        <v-window v-else v-model="carouselModel" :touch="false">
+          <v-window-item v-for="(group, i) in groupedStreamInfoData" :key="i">
             <v-row>
               <v-col v-for="(item, j) in group" :key="j" cols="4">
-                <StreamCardComponent :item="item" />
+                <StreamCard :item="item" />
               </v-col>
             </v-row>
-          </v-carousel-item>
-        </v-carousel>
+          </v-window-item>
+        </v-window>
       </template>
     </div>
 
@@ -282,7 +272,7 @@ import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import type { EventItem } from '@/types/event';
 import type { StreamInfoItem, StreamInfoFirebaseData } from '@/types/stream';
-import StreamCardComponent from '@/components/streamCardComponent.vue';
+import StreamCard from '@/components/common/StreamCard.vue';
 import { RTDB_PATH } from '@/constants/envConst';
 
 const store = useStateStore();

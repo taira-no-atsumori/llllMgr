@@ -24,26 +24,22 @@
     </v-expansion-panels>
 
     <v-btn
-      elevation="3"
-      class="mb-1 mr-2 px-3"
+      text="絞り込み"
+      prepend-icon="mdi-filter"
       color="pink"
+      class="mb-1 mr-2 px-3"
       @click="store.showModalEvent('CardListFilter')"
-    >
-      <v-icon icon="mdi-filter" class="mr-2" />
-      絞り込み
-    </v-btn>
+    />
 
     <v-btn
-      elevation="3"
-      class="mb-1 mr-2 px-3"
+      text="分析"
+      prepend-icon="mdi-chart-box-outline"
       color="yellow"
+      class="mb-1 mr-2 px-3"
       @click="dialog = true"
-    >
-      <v-icon icon="mdi-chart-box-outline" class="mr-2" />
-      分析
-    </v-btn>
+    />
 
-    <v-btn elevation="3" class="mb-1 mr-2 px-3" color="blue">
+    <v-btn color="blue" class="mb-1 mr-2 px-3">
       <v-icon icon="mdi-sort" class="mr-2" />
       ソート
       <v-menu activator="parent" transition="slide-y-transition">

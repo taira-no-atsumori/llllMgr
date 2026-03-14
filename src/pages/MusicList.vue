@@ -366,12 +366,11 @@
           cols="4"
           lg="2"
           :class="`text-center align-self-end${
-            windowSize.w > 600 ? '' : ' px-1'
+            display.mdAndUp.value ? '' : ' px-1'
           }`"
         >
           <v-row no-gutters class="mb-1">
             <v-col
-              v-resize="onResize"
               cols="12"
               class="d-flex flex-row align-center justify-center mb-1"
             >
@@ -383,7 +382,7 @@
                   style="width: 30px"
                 />
                 <span
-                  v-if="windowSize.w > 600"
+                  v-if="display.mdAndUp.value"
                   class="pt-1 pl-1"
                   :style="`font-size: ${memberName === MEMBER_KEYS.SERAS ? 0.8 : 1}em;`"
                 >
@@ -399,7 +398,7 @@
             </v-col>
             <v-col cols="12" class="px-sm-2">
               <p class="font-weight-bold mb-2 subtitle">
-                <span v-if="windowSize.w > 600">獲得済</span>ボーナススキル
+                <span v-if="display.mdAndUp.value">獲得済</span>ボーナススキル
               </p>
               <v-row no-gutters>
                 <v-col
@@ -557,19 +556,16 @@
       <li v-if="Object.keys(makeMusicList()).length === 0" class="w-100">
         見つかりませんでした…
       </li>
-      <li v-for="(ary, songTitle) in makeMusicList()" v-else :key="ary">
-        <Music
-          :music-data="ary"
-          :song-title="songTitle"
-          :window-width="windowSize.w"
-        />
+      <li v-for="(item, songTitle) in makeMusicList()" v-else :key="item">
+        <Music :music-data="item" :song-title="songTitle" />
       </li>
     </ul>
   </v-container>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onMounted, onUnmounted, watch } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
+import { useDisplay } from 'vuetify';
 import { useStateStore } from '@/stores/stateStore';
 import Music from '@/components/common/Music.vue';
 import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
@@ -585,10 +581,10 @@ import { useMusicData } from '@/composables/useMusicData';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
+const display = useDisplay();
 
 const attrList = getAttributeListEn();
 
-const windowSize = reactive({ w: 0, h: 0 });
 const isSchoolShow = ref(false);
 const inputMusicTitle = ref<string | null>(null);
 const masteryLv = ref([0, 50]);
@@ -770,11 +766,6 @@ function selectAttr(selector: string | null): void {
   }
 }
 
-function onResize(): void {
-  windowSize.w = window.innerWidth;
-  windowSize.h = window.innerHeight;
-}
-
 function sortTypeLabel(sortTypeValue: string): string {
   const sortType = sortTypeValue.split('_')[0];
   const difficulty = sortTypeValue.split('_')[1] ?? '';
@@ -785,9 +776,6 @@ function sortTypeLabel(sortTypeValue: string): string {
 }
 
 onMounted(async () => {
-  onResize();
-  window.addEventListener('resize', onResize);
-
   // データ初期化と画像取得
   store.loading = true;
   await initMusicData(store.isDev);
@@ -818,10 +806,6 @@ watch(
   },
   { immediate: true },
 );
-
-onUnmounted(() => {
-  window.removeEventListener('resize', onResize);
-});
 </script>
 
 <style lang="scss" scoped>

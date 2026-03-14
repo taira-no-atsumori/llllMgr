@@ -406,7 +406,7 @@
         "mental": 480,
         "BP": 100
       },
-      "imageUrl": {
+      "imageURL": {
         "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fgn_036_before.webp?alt=media&token=2b792440-c4ad-4c58-848f-468d987876ed",
         "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fgn_036_after.webp?alt=media&token=e28dc58c-3562-4a5c-a132-4ce49c7e4291"
       },

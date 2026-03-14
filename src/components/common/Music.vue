@@ -1,6 +1,8 @@
 <template>
   <v-card
-    v-if="store.siteSettings.musicList.hover === 'false' || windowWidth <= 600"
+    v-if="
+      store.siteSettings.musicList.hover === 'false' || display.smAndDown.value
+    "
     :color="attributeColor[musicData.attribute]"
     @click="handleClick"
   >
@@ -136,6 +138,7 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from 'vue';
+import { useDisplay } from 'vuetify';
 import { useStateStore } from '@/stores/stateStore';
 import { makeMemberFullName } from '@/constants/memberNames';
 import noImage from '@/assets/images/NO IMAGE_music.webp';
@@ -144,10 +147,10 @@ import type { MusicItem } from '@/types/musicList';
 const props = defineProps<{
   musicData: MusicItem;
   songTitle: string;
-  windowWidth: number;
 }>();
 
 const store = useStateStore();
+const display = useDisplay();
 
 const attributeColor: Record<string, string> = {
   smile: '#EF8DC8',

@@ -75,31 +75,29 @@
       </v-row>
 
       <template v-for="(item, index) in model.addSkill" :key="index">
-        <v-col cols="12" class="mt-3">
-          <v-expansion-panels color="yellow">
-            <v-expansion-panel>
-              <v-expansion-panel-title>
-                {{ `Add Skill ${index + 1}` }}
-                <v-spacer />
-                <v-btn
-                  icon="mdi-delete"
-                  variant="text"
-                  density="compact"
-                  color="error"
-                  @click.stop="removeCharacteristicSkill(index)"
-                />
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <SkillFormComponent
-                  v-model="model.addSkill[index]"
-                  type="addSkill"
-                  :index="index"
-                  @open-detail="(list, idx) => $emit('open-detail', list, idx)"
-                />
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </v-col>
+        <v-expansion-panels color="yellow" variant="accordion" class="mt-3">
+          <v-expansion-panel>
+            <v-expansion-panel-title>
+              {{ `Add Skill ${index + 1}` }}
+              <v-spacer />
+              <v-btn
+                icon="mdi-delete"
+                variant="text"
+                density="compact"
+                color="error"
+                @click.stop="removeCharacteristicSkill(index)"
+              />
+            </v-expansion-panel-title>
+            <v-expansion-panel-text>
+              <SkillFormComponent
+                v-model="model.addSkill[index]"
+                type="addSkill"
+                :index="index"
+                @open-detail="(list, idx) => $emit('open-detail', list, idx)"
+              />
+            </v-expansion-panel-text>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </template>
 
       <v-btn
