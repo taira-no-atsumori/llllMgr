@@ -2,7 +2,7 @@
   <v-container fluid class="py-2 px-0">
     <h1>DATA MANAGEMENT</h1>
 
-    <div class="d-flex align-center">
+    <div class="d-flex align-center mb-2">
       <v-switch
         v-model="store.isDev"
         label="isDev"
@@ -31,15 +31,12 @@
     </div>
 
     <v-tabs v-model="tab" color="pink">
-      <v-tab value="pendingDataList" text="Pending Data" />
-      <v-tab value="cardList" text="Card" />
-      <v-tab value="skillList" text="Skill" />
-      <v-tab value="skillDetail" text="Skill Detail" />
-      <v-tab value="music" text="Music" />
-      <v-tab value="item" text="Item" />
-      <v-tab value="event" text="Event" />
-      <v-tab value="info" text="Info" />
-      <v-tab value="streamingSchedule" text="Streaming Schedule" />
+      <v-tab
+        v-for="tabItem in tabs"
+        :key="tabItem.value"
+        :value="tabItem.value"
+        :text="tabItem.text"
+      />
     </v-tabs>
 
     <v-divider class="mb-2" />
@@ -91,11 +88,32 @@ import AddEvent from '@/components/addData/AddEvent.vue';
 import MngInfo from '@/components/addData/MngInfo.vue';
 import MngStreamingSchedule from '@/components/addData/MngStreamingSchedule.vue';
 
-const tab = ref('pendingDataList');
+function handleEdit(type: string) {
+  switch (type) {
+    case 'card':
+      tab.value = 'cardList';
+      return;
+    default:
+      tab.value = type;
+  }
+}
+
+const tabs = [
+  { text: 'Pending Data', value: 'pendingDataList' },
+  { text: 'Card', value: 'cardList' },
+  { text: 'Skill', value: 'skillList' },
+  { text: 'Skill Detail', value: 'skillDetail' },
+  { text: 'Music', value: 'music' },
+  { text: 'Item', value: 'item' },
+  { text: 'Event', value: 'event' },
+  { text: 'Info', value: 'info' },
+  { text: 'Streaming Schedule', value: 'streamingSchedule' },
+] as const;
+
+const tab = ref<(typeof tabs)[number]['value']>('pendingDataList');
 const store = useStateStore();
 const router = useRouter();
 const refreshKey = ref(0);
-
 /**
  * Firebaseからのログアウト処理
  *
@@ -124,8 +142,4 @@ watch(
     refreshData();
   },
 );
-
-const handleEdit = (type: string) => {
-  tab.value = `${type}${type === 'card' ? 'List' : ''}`;
-};
 </script>

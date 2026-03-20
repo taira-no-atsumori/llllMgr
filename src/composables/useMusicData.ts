@@ -1,9 +1,9 @@
 import { ref } from 'vue';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 import { FirebaseService } from '@/services/FirebaseService';
 
 // グローバルステートとして定義（アプリケーション全体で共有）
-const musicListFromDB = ref<Record<string, MusicItem>>({});
+const musicListFromDB = ref<Record<string, MusicItemData>>({});
 const dbImageUrls = ref<Record<string, string>>({});
 const isMusicLoaded = ref(false);
 const isImagesLoaded = ref(false);
@@ -21,7 +21,7 @@ export function useMusicData() {
     isMusicLoaded.value = false;
 
     try {
-      const data: Record<string, MusicItem> =
+      const data: Record<string, MusicItemData> =
         await FirebaseService.getMusicData(isDev);
 
       if (data) {
@@ -29,7 +29,7 @@ export function useMusicData() {
 
         // データからimageURLを抽出してfirebaseImagesを更新
         const images: Record<string, string> = {};
-        Object.entries(data).forEach(([key, val]: [string, MusicItem]) => {
+        Object.entries(data).forEach(([key, val]: [string, MusicItemData]) => {
           if (val.imageURL) {
             images[key] = val.imageURL;
           }
@@ -62,7 +62,7 @@ export function useMusicData() {
     const normalizedTitle = normalize(title);
 
     const entry = Object.entries(musicListFromDB.value).find(
-      ([_, v]: [string, MusicItem]) => {
+      ([_, v]: [string, MusicItemData]) => {
         return normalize(v.title) === normalizedTitle;
       },
     );

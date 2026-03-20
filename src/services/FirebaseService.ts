@@ -13,7 +13,7 @@ import {
 } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
 import type { CardDataByMember } from '@/types/cardList';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 import { RTDB_PATH, type RtdbPath } from '@/constants/envConst';
 
 export const FirebaseService = {
@@ -62,7 +62,7 @@ export const FirebaseService = {
    */
   subscribeToDatabase(
     path: RtdbPath,
-    callback: (data: CardDataByMember | Record<string, MusicItem>) => void,
+    callback: (data: CardDataByMember | Record<string, MusicItemData>) => void,
     isDev: boolean,
   ): Unsubscribe {
     const db = isDev ? rtdbDev : rtdb;
@@ -80,7 +80,7 @@ export const FirebaseService = {
    */
   async setData(
     path: string,
-    data: CardDataByMember | Record<string, MusicItem>,
+    data: CardDataByMember | Record<string, MusicItemData>,
     isDev: boolean,
   ): Promise<void> {
     const db = isDev ? rtdbDev : rtdb;

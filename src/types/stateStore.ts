@@ -9,7 +9,7 @@ import type {
   Limited,
 } from '@/constants/cards';
 import type { SkillBook, CharmItems, PieceItems } from '@/constants/items';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 import type { BonusSkillNames } from '@/constants/bonusSkills';
 import type { CardDataByMember, TrainingStatus } from '@/types/cardList';
 
@@ -274,7 +274,7 @@ export type StoreState = {
   search: SearchSettings;
   card: Record<string, CardDataByMember>;
   musicLevel: Record<string, number>;
-  musicList: Record<string, MusicItem>;
+  musicList: Record<string, MusicItemData>;
   memberData: {
     centerList: Record<
       string,

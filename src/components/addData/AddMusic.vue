@@ -515,7 +515,7 @@ import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { KANA_OPTIONS } from '@/constants/kana';
 import { getRow } from '@/utils/stringUtil';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 import { useStateStore } from '@/stores/stateStore';
 import noImage from '@/assets/images/NO IMAGE_music.webp';
 
@@ -537,7 +537,7 @@ const kanaOptions = [...KANA_OPTIONS];
 const uploadStore = useUploadDataStore();
 const store = useStateStore();
 
-const dbMusicList = ref<Record<string, MusicItem>>({});
+const dbMusicList = ref<Record<string, MusicItemData>>({});
 
 onMounted(() => {
   const musicRef = dbRef(rtdbDev, 'music');
@@ -805,7 +805,7 @@ const resetForm = () => {
 /** データ保持 */
 const addToStore = async () => {
   try {
-    const data: Record<string, MusicItem> = JSON.parse(jsonOutput.value);
+    const data: Record<string, MusicItemData> = JSON.parse(jsonOutput.value);
     const id = Object.keys(data)[0];
 
     isUploading.value = true;
@@ -841,7 +841,7 @@ const addToStore = async () => {
       store.imageCache['llllMgr_musicImageUrls'][id] = url;
     }
 
-    const updates: Record<string, MusicItem> = {};
+    const updates: Record<string, MusicItemData> = {};
     updates[`music/${id}`] = data[id];
     await update(dbRef(rtdbDev), updates);
 

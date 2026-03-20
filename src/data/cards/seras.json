@@ -189,6 +189,146 @@
     }
   },
   "UR": {
+    "sr_020": {
+      "cardName": "EdelinieN",
+      "styleType": "moodMaker",
+      "mood": "neutral",
+      "series": "EdelinieN",
+      "kana": "えーでりーにえん",
+      "gacha": {
+        "addSeason": "2025 GRADUATION LIMITED COLLECTION Vol.4",
+        "period": "graduation"
+      },
+      "uniqueStatus": {
+        "smile": 5350,
+        "pure": 4550,
+        "cool": 4500,
+        "mental": 480,
+        "BP": 100
+      },
+      "imageURL": {
+        "before": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_020_before.webp?alt=media&token=14d583ef-5eaf-4025-945b-65ad378319aa",
+        "after": "https://firebasestorage.googleapis.com/v0/b/llllmgr-5e18d.firebasestorage.app/o/cardIllust%2Fsr_020_after.webp?alt=media&token=90dc6063-4125-427b-bae0-0c25fda54e03"
+      },
+      "specialAppeal": {
+        "ID": "lastToFirst_01",
+        "name": "ラストトゥファースト",
+        "AP": 3,
+        "detail": [
+          [
+            "3?",
+            "4?",
+            "4?",
+            "4?",
+            "4?",
+            "5?",
+            "5?",
+            "5?",
+            "6?",
+            "6?",
+            "7?",
+            "7?",
+            "7?",
+            "8"
+          ],
+          [
+            "32",
+            "35.2?",
+            "38.4?",
+            "41.6?",
+            "44.8?",
+            "48",
+            "51.2?",
+            "54.4?",
+            "57.6?",
+            "64",
+            "67.2?",
+            "70.4?",
+            "73.6?",
+            "80"
+          ]
+        ]
+      },
+      "skill": {
+        "ID": "soundFromCheer_01",
+        "name": "サウンドフロムチアー",
+        "AP": 8,
+        "detail": []
+      },
+      "characteristic": {
+        "name": "Neustart Linien",
+        "detail": "このスキルを2回使用すると、デッキから除外され、Walküreカードを1種類(合計1枚)山札に追加する。",
+        "type": ["addCard"],
+        "addSkill": [
+          {
+            "ID": "walkure_01",
+            "name": "Walküre",
+            "AP": 2,
+            "detail": [
+              [
+                "800",
+                "880",
+                "960",
+                "1040",
+                "1120",
+                "1200",
+                "1280",
+                "1360",
+                "1440",
+                "1600",
+                "1680",
+                "1760",
+                "1840",
+                "2000"
+              ],
+              [
+                "8000000",
+                "8800000",
+                "9600000",
+                "10400000",
+                "11200000",
+                "12000000",
+                "12800000",
+                "13600000",
+                "14400000",
+                "16000000",
+                "16800000",
+                "17600000",
+                "18400000",
+                "20000000"
+              ],
+              [
+                "80000",
+                "88000",
+                "96000",
+                "104000",
+                "112000",
+                "120000",
+                "128000",
+                "136000",
+                "144000",
+                "160000",
+                "168000",
+                "176000",
+                "184000",
+                "200000"
+              ]
+            ],
+            "characteristic": {
+              "name": "E-N",
+              "detail": "ドローしたとき、スキルハートを獲得し、8回の間ラブアトラクト効果の効果量を増加する。セラスのMember Fan Lv.が高いほど効果量が増加する。さらに泉のMember Fan Lv.が100以上でハートを80000個回収したとき、手札をリセットシャッフルする。",
+              "type": [
+                "draw",
+                "heartCaptcha",
+                "boost_loveAttract",
+                "heartCollect",
+                "reshuffle"
+              ]
+            }
+          }
+        ]
+      }
+    },
     "sr_018": {
       "cardName": "再臨の車窓",
       "styleType": "moodMaker",

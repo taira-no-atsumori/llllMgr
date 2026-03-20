@@ -106,8 +106,10 @@
                   cols="12"
                   class="mb-1"
                 >
-                  <h4>秒数</h4>
-                  {{ selectMusicData.musicData.time }}
+                  <h4>再生時間</h4>
+                  {{
+                    `${selectMusicData.musicData.time}秒 (${formatTime(selectMusicData.musicData.time)})`
+                  }}
                 </v-col>
               </v-row>
             </v-expansion-panel-text>
@@ -291,6 +293,7 @@ import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { ATTRIBUTE, DIFFICULTY_LABEL } from '@/constants/music';
 import { useMusicData } from '@/composables/useMusicData';
+import { formatTime } from '@/utils/stringUtil';
 import noImage from '@/assets/images/NO IMAGE_music.webp';
 
 const store = useStateStore();

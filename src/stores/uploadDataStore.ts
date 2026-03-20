@@ -10,31 +10,34 @@ import type {
   CardsByRarity,
   SkillDetail,
 } from '@/types/cardList';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
+import type { StreamInfoFirebaseData } from '@/types/stream';
+import type { EventItem } from '@/types/event';
 import { RTDB_PATH } from '@/constants/envConst';
 
 /** DBデータ操作処理 */
 export const useUploadDataStore = defineStore('uploadData', () => {
   const pendingList = ref<PendingItem[]>([]);
 
+  const a: {
+    [RTDB_PATH.CARDS]: CardDataByMember;
+    [RTDB_PATH.MUSIC]: Record<string, MusicItemData>;
+    [RTDB_PATH.SKILL]: Record<string, SkillDetail>;
+    [RTDB_PATH.EVENT]: Record<string, EventItem>;
+    [RTDB_PATH.STREAM]: Record<string, StreamInfoFirebaseData>;
+  } = {
+    [RTDB_PATH.CARDS]: {},
+    [RTDB_PATH.MUSIC]: {},
+    [RTDB_PATH.SKILL]: {},
+    [RTDB_PATH.EVENT]: {},
+    [RTDB_PATH.STREAM]: {},
+  };
   // --- Diff Check Logic ---
-  const devData = ref<{
-    [RTDB_PATH.CARDS]: CardDataByMember;
-    [RTDB_PATH.MUSIC]: Record<string, MusicItem>;
-    [RTDB_PATH.SKILL]: Record<string, SkillDetail>;
-  }>({
-    [RTDB_PATH.CARDS]: {},
-    [RTDB_PATH.MUSIC]: {},
-    [RTDB_PATH.SKILL]: {},
+  const devData = ref({
+    ...a,
   });
-  const prodData = ref<{
-    [RTDB_PATH.CARDS]: CardDataByMember;
-    [RTDB_PATH.MUSIC]: Record<string, MusicItem>;
-    [RTDB_PATH.SKILL]: Record<string, SkillDetail>;
-  }>({
-    [RTDB_PATH.CARDS]: {},
-    [RTDB_PATH.MUSIC]: {},
-    [RTDB_PATH.SKILL]: {},
+  const prodData = ref({
+    ...a,
   });
   const isListening = ref(false);
   const unsubscribes: Unsubscribe[] = [];
@@ -53,40 +56,35 @@ export const useUploadDataStore = defineStore('uploadData', () => {
 
     isListening.value = true;
 
-    const paths = [RTDB_PATH.CARDS, RTDB_PATH.MUSIC, RTDB_PATH.SKILL];
+    const paths = [
+      RTDB_PATH.CARDS,
+      RTDB_PATH.MUSIC,
+      RTDB_PATH.SKILL,
+      RTDB_PATH.EVENT,
+      RTDB_PATH.STREAM,
+    ];
 
-    paths.forEach((path) => {
-      // Dev環境の監視
-      unsubscribes.push(
-        FirebaseService.subscribeToDatabase(
-          path,
-          (
-            data:
-              | CardDataByMember
-              | Record<string, MusicItem>
-              | Record<string, SkillDetail>,
-          ) => {
-            devData.value[path] = data || {};
-          },
-          true,
-        ),
-      );
-      // 本番環境の監視
-      unsubscribes.push(
-        FirebaseService.subscribeToDatabase(
-          path,
-          (
-            data:
-              | CardDataByMember
-              | Record<string, MusicItem>
-              | Record<string, SkillDetail>,
-          ) => {
-            prodData.value[path] = data || {};
-          },
-          false,
-        ),
-      );
-    });
+    // DBデータの取得
+    for (const isDev of [true, false]) {
+      paths.forEach((path) => {
+        unsubscribes.push(
+          FirebaseService.subscribeToDatabase(
+            path,
+            (
+              data:
+                | CardDataByMember
+                | Record<string, MusicItemData>
+                | Record<string, SkillDetail>
+                | Record<string, EventItem>
+                | Record<string, StreamInfoFirebaseData>,
+            ) => {
+              (isDev ? devData : prodData).value[path] = data || {};
+            },
+            isDev,
+          ),
+        );
+      });
+    }
   };
 
   /** Firebaseのデータ監視を停止する */
@@ -107,27 +105,15 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     for (const member in data) {
       const memberData: CardsByRarity = data[member];
 
-      if (typeof memberData !== 'object') {
-        continue;
-      }
-
       for (const rare in memberData) {
         const rareData: Record<string, CardDataType> | CardDataType =
           memberData[rare];
 
-        if (typeof rareData !== 'object') {
-          continue;
-        }
-
         for (const id in rareData) {
-          const cardData: CardDataType = rareData[id];
-
-          if (cardData && typeof cardData === 'object') {
-            result[id] = {
-              data: cardData,
-              path: `${RTDB_PATH.CARDS}/${member}/${rare}/${id}`,
-            };
-          }
+          result[id] = {
+            data: rareData[id],
+            path: `${RTDB_PATH.CARDS}/${member}/${rare}/${id}`,
+          };
         }
       }
     }
@@ -210,6 +196,64 @@ export const useUploadDataStore = defineStore('uploadData', () => {
           status: 'update',
           type: 'skill',
           path: `${RTDB_PATH.SKILL}/${key}`,
+        });
+      }
+    }
+
+    // Streaming Schedule Diff
+    for (const key in devData.value[RTDB_PATH.STREAM]) {
+      const devItem = devData.value[RTDB_PATH.STREAM][key];
+      const prodItem = prodData.value[RTDB_PATH.STREAM][key];
+
+      if (!prodItem) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'new',
+          type: 'stream',
+          path: `${RTDB_PATH.STREAM}/${key}`,
+        });
+      } else if (!deepEqual(devItem, prodItem)) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'update',
+          type: 'stream',
+          path: `${RTDB_PATH.STREAM}/${key}`,
+        });
+      }
+    }
+
+    // Event Diff
+    for (const key in devData.value[RTDB_PATH.EVENT]) {
+      const devItem = devData.value[RTDB_PATH.EVENT][key];
+      const prodItem = prodData.value[RTDB_PATH.EVENT][key];
+
+      if (!prodItem) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'new',
+          type: 'event',
+          path: `${RTDB_PATH.EVENT}/${key}`,
+        });
+      } else {
+        // imageUrlは環境ごとにアップロード先が変わるため、差分判定から除外する
+        const devComparable = { ...devItem };
+        const prodComparable = { ...prodItem };
+        delete devComparable.imageUrl;
+        delete prodComparable.imageUrl;
+
+        if (deepEqual(devComparable, prodComparable)) {
+          continue;
+        }
+
+        list.push({
+          key,
+          data: devItem,
+          status: 'update',
+          type: 'event',
+          path: `${RTDB_PATH.EVENT}/${key}`,
         });
       }
     }
