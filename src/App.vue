@@ -9,6 +9,7 @@
         class="hidden-sm-and-up"
         @click.stop="drawer = !drawer"
       />
+      <!-- ↓サイドメニューが使えないときの代替↓ -->
       <v-bottom-sheet v-if="false" v-model="drawer">
         <template #activator="{ props }">
           <v-icon
@@ -45,10 +46,11 @@
           </v-list-item>
         </v-sheet>
       </v-bottom-sheet>
+      <!-- ↑サイドメニューが使えないときの代替↑ -->
 
-      <v-toolbar-title class="d-none d-sm-block">
-        リンクラ マネージャー！
-        <span class="text-subtitle-2">
+      <v-toolbar-title :class="display.smAndDown.value ? 'ml-0' : ''">
+        {{ display.smAndDown.value ? 'リンマネ' : 'リンクラ マネージャー！' }}
+        <span v-if="display.mdAndUp.value" class="text-subtitle-2">
           {{ `Ver.${siteVersion}` }}
         </span>
         <!-- <v-btn
@@ -68,16 +70,6 @@
           density="compact"
           class="ml-2"
         />
-      </v-toolbar-title>
-      <v-toolbar-title class="hidden-sm-and-up">
-        リンマネ
-        <!-- <v-btn
-          v-if="uploadStore.hasDiff"
-          icon="mdi-cloud-arrow-up"
-          variant="text"
-          density="compact"
-          @click="pageMove('Login')"
-        /> -->
       </v-toolbar-title>
 
       <v-spacer />
@@ -104,49 +96,19 @@
 
       <ul class="d-flex" style="height: 36px">
         <li class="align-self-center ml-1">
-          <v-tooltip location="bottom">
-            <template #activator="{ props }">
-              <v-icon
-                v-bind="props"
-                icon="mdi-share-variant"
-                class="ml-1 mr-2"
-                @click="store.showModalEvent('share')"
-              />
-            </template>
-            シェア
-          </v-tooltip>
+          <Share @click="store.showModalEvent('share')" />
         </li>
         <li class="d-none d-sm-flex">
           <v-divider class="border-opacity-100" vertical />
         </li>
         <li class="align-self-center ml-1">
-          <v-tooltip location="bottom">
-            <template #activator="{ props }">
-              <v-icon
-                v-bind="props"
-                icon="mdi-backup-restore"
-                class="ml-1 mr-2"
-                @click="store.showModalEvent('backup')"
-              />
-            </template>
-            データバックアップ・リセット
-          </v-tooltip>
+          <Backup @click="store.showModalEvent('backup')" />
         </li>
         <li class="d-none d-sm-flex">
           <v-divider class="border-opacity-100" vertical />
         </li>
         <li class="align-self-center ml-1">
-          <v-tooltip location="bottom">
-            <template #activator="{ props }">
-              <v-icon
-                v-bind="props"
-                icon="mdi-cog"
-                class="ml-1 mr-2"
-                @click="store.showModalEvent('settings')"
-              />
-            </template>
-            サイト設定
-          </v-tooltip>
+          <Settings @click="store.showModalEvent('settings')" />
         </li>
       </ul>
     </v-app-bar>
@@ -170,13 +132,10 @@
         :key="arr"
         :title="pageTitle.toUpperCase()"
         :subtitle="arr.name_ja"
+        :prepend-icon="`mdi-${arr.icon}`"
         class="px-2"
         @click="pageMove(arr.name_en)"
-      >
-        <template #prepend>
-          <v-icon :icon="`mdi-${arr.icon}`" />
-        </template>
-      </v-list-item>
+      />
     </v-navigation-drawer>
 
     <v-main class="pb-2">
@@ -196,8 +155,8 @@
     <Loading />
 
     <v-footer color="pink" class="mb-10">
-      <v-row no-gutters justify="center">
-        <v-col cols="12" class="mx-2 text-center">
+      <div class="mx-auto text-center">
+        <div>
           <a
             v-for="(arr, pageTitle) of pageList"
             :key="arr"
@@ -207,19 +166,15 @@
           >
             {{ pageTitle.toUpperCase() }}
           </a>
-        </v-col>
-        <v-col cols="12" class="text-center">
+        </div>
+        <div>
           © 2023 - {{ new Date().getFullYear() }}
           <strong>taira no atsumori</strong>
-        </v-col>
-      </v-row>
+        </div>
+      </div>
     </v-footer>
 
-    <v-bottom-navigation
-      bg-color="pink"
-      density="compact"
-      class="d-flex flex-row align-center"
-    >
+    <v-bottom-navigation bg-color="pink" density="compact" class="align-center">
       <span @click="handleAddDataClick">
         ご意見・ご要望・バグ報告は「
         <a
@@ -238,9 +193,12 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { useGoTo } from 'vuetify';
+import { useGoTo, useDisplay } from 'vuetify';
+import Backup from '@/components/common/header/Backup.vue';
 import Modal from '@/components/modal/ModalArea.vue';
 import Loading from '@/components/modal/Loading.vue';
+import Settings from '@/components/common/header/Settings.vue';
+import Share from '@/components/common/header/Share.vue';
 import { useStateStore } from '@/stores/stateStore';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import { cacheManager } from '@/utils/cacheManager';
@@ -258,6 +216,7 @@ const uploadStore = useUploadDataStore();
 const router = useRouter();
 const route = useRoute();
 const goTo = useGoTo();
+const display = useDisplay();
 
 const drawer = ref(false);
 const siteName = 'リンクラ マネージャー！(リンマネ)';

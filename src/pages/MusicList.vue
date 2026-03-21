@@ -567,7 +567,7 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { useDisplay } from 'vuetify';
 import { useStateStore } from '@/stores/stateStore';
-import Music from '@/components/common/Music.vue';
+import Music from '@/components/common/music/Music.vue';
 import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import {
@@ -576,7 +576,7 @@ import {
   getAttributeListEn,
 } from '@/constants/music';
 import { bonusSkillNames } from '@/constants/bonusSkills';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 import { useMusicData } from '@/composables/useMusicData';
 
 const store = useStateStore();
@@ -610,7 +610,7 @@ const sortTypeList = {
   maxCombo: 'コンボ数',
 };
 
-const makeMusicList = computed(() => (): MusicItem[] => {
+const makeMusicList = computed(() => (): MusicItemData[] => {
   if (
     !isSchoolShow.value &&
     (store.sortSettings.musicList?.sortType?.includes('difficultyLevel') ||

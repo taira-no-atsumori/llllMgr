@@ -1,84 +1,75 @@
 <template>
   <v-container fluid class="pa-2">
-    <v-row class="mt-0 mb-5">
-      <v-col cols="12">
-        <h2>ライブ・イベント情報</h2>
-        <div v-if="eventsLoading" style="max-width: 800px; margin: 0 auto">
-          <v-skeleton-loader type="image, article" />
-        </div>
-        <v-carousel
-          v-else-if="Object.keys(outputEventList).length > 0"
-          hide-delimiters
-          show-arrows="hover"
-          style="max-width: 800px; height: auto; margin: 0 auto"
-          cycle
-        >
-          <v-carousel-item
-            v-for="(event, eventName) in outputEventList"
-            :key="eventName"
-            class="text-center"
+    <div
+      v-if="eventsLoading || Object.keys(outputEventList).length > 0"
+      class="mt-2 mb-7"
+    >
+      <h2 class="mb-2">ライブ・イベント情報</h2>
+
+      <div v-if="eventsLoading" style="max-width: 800px; margin: 0 auto">
+        <v-skeleton-loader type="image, article" />
+      </div>
+
+      <div v-else-if="display.smAndDown.value">
+        <MainVisual
+          v-model="mainVisualModel"
+          :output-event-list="sortedEvents"
+        />
+
+        <v-slide-group v-model="mainVisualModel" center-active class="mt-2">
+          <v-slide-group-item
+            v-for="(event, i) in sortedEvents"
+            :key="i"
+            v-slot="{ toggle }"
           >
-            <v-card variant="flat" rounded="0">
-              <v-img
-                v-if="event.type === 'other'"
-                class="white--text align-end text-center"
-                :src="event.imageUrl"
-                aspect-ratio="16/9"
-                cover
-                eager
-              >
-                <template #placeholder>
-                  <v-skeleton-loader type="image" class="h-100 w-100" />
-                </template>
-              </v-img>
-              <a v-else :href="event.link" target="_blank" class="mainVisual">
+            <v-card class="ma-1" width="30vw" @click="toggle">
+              <div class="d-flex">
+                <v-img :src="event.imageUrl" aspect-ratio="16/9" cover />
+              </div>
+            </v-card>
+          </v-slide-group-item>
+        </v-slide-group>
+      </div>
+
+      <div v-else class="d-flex ga-5 justify-center">
+        <MainVisual
+          v-model="mainVisualModel"
+          :output-event-list="sortedEvents"
+        />
+
+        <v-slide-group
+          v-model="mainVisualModel"
+          direction="vertical"
+          prev-icon="mdi-chevron-up"
+          next-icon="mdi-chevron-down"
+          style="width: 380px; height: 530px"
+        >
+          <v-slide-group-item
+            v-for="(event, i) in sortedEvents"
+            :key="i"
+            v-slot="{ isSelected, toggle }"
+          >
+            <v-card
+              :color="isSelected ? 'pink-lighten-2' : undefined"
+              :class="`${i === 0 ? '' : 'mt-2'}`"
+              @click="toggle"
+            >
+              <div class="d-flex">
                 <v-img
-                  class="white--text align-end text-center"
                   :src="event.imageUrl"
+                  width="145"
                   aspect-ratio="16/9"
                   cover
-                  eager
-                >
-                  <template #placeholder>
-                    <v-skeleton-loader type="image" class="h-100 w-100" />
-                  </template>
-                </v-img>
-              </a>
-              <v-card-title class="text-left">
-                {{ event.title }}
-                <div v-if="event.type === 'other'">
-                  {{ event.text }}
-                </div>
-                <div v-else-if="event.state === 'prev'">
-                  {{ event.text }}まで<span class="d-inline-block">
-                    あと
-                    <template v-if="event.count.day > 0">
-                      <b class="text-red">{{ event.count.day }}</b>
-                      日
-                    </template>
-                    <template v-else>
-                      <b class="text-red">{{ event.count.time }}</b>
-                      時間
-                    </template>
-                  </span>
-                </div>
-                <div v-else>
-                  {{ event.text }}
-                  <span class="d-inline-block">
-                    <b class="text-red">
-                      <span v-if="event.type === 'movie'">公開</span
-                      ><span v-else>開催</span
-                      ><span v-if="event.type === 'live'">日</span
-                      ><span v-else>中</span>
-                    </b>
-                  </span>
-                </div>
-              </v-card-title>
+                />
+                <p class="pa-2">
+                  {{ event.title }}
+                </p>
+              </div>
             </v-card>
-          </v-carousel-item>
-        </v-carousel>
-      </v-col>
-    </v-row>
+          </v-slide-group-item>
+        </v-slide-group>
+      </div>
+    </div>
 
     <div class="mb-5">
       <div class="d-flex align-center">
@@ -135,63 +126,67 @@
     <div class="mb-5">
       <h2 class="mb-2">メインメニュー</h2>
 
-      <v-row>
-        <v-col v-if="false">
-          <v-btn
-            block
-            prepend-icon="mdi-calculator"
-            text="Simulation"
-            @click="pageMove('simulation')"
-          />
-        </v-col>
-        <v-col v-if="false">
-          <v-btn
-            block
-            prepend-icon="mdi-star"
-            text="WithStar Mgr"
-            @click="pageMove('withStarMgr')"
-          />
-        </v-col>
-        <v-col>
-          <v-btn
-            block
-            prepend-icon="mdi-cards"
-            text="Card List"
-            @click="pageMove('cardlist')"
-          />
-        </v-col>
-        <v-col>
-          <v-btn
-            block
-            prepend-icon="mdi-music"
-            text="Music List"
-            @click="pageMove('musiclist')"
-          />
-        </v-col>
-        <v-col>
-          <v-btn
-            block
-            prepend-icon="mdi-book"
-            text="Item List"
-            @click="pageMove('itemlist')"
-          />
-        </v-col>
-      </v-row>
+      <div class="d-flex flex-wrap ga-2">
+        <v-btn
+          v-if="false"
+          block
+          prepend-icon="mdi-calculator"
+          text="Simulation"
+          @click="pageMove('simulation')"
+        />
+        <v-btn
+          v-if="false"
+          block
+          prepend-icon="mdi-star"
+          text="WithStar Mgr"
+          @click="pageMove('withStarMgr')"
+        />
+        <v-btn
+          prepend-icon="mdi-cards"
+          text="Card List"
+          class="flex-grow-1"
+          :style="{
+            width: display.smAndDown.value ? 'calc(50% - 4px)' : undefined,
+          }"
+          @click="pageMove('cardlist')"
+        />
+        <v-btn
+          prepend-icon="mdi-music"
+          text="Music List"
+          class="flex-grow-1"
+          :style="{
+            width: display.smAndDown.value ? 'calc(50% - 4px)' : undefined,
+          }"
+          @click="pageMove('musiclist')"
+        />
+        <v-btn
+          prepend-icon="mdi-book"
+          text="Item List"
+          class="flex-grow-1"
+          :style="{
+            width: display.smAndDown.value ? 'calc(50% - 4px)' : undefined,
+          }"
+          @click="pageMove('itemlist')"
+        />
+      </div>
     </div>
 
-    <v-row>
-      <v-col cols="12">
-        <h2>About</h2>
-        このサイトは、アプリ「Link！Like！ラブライブ！」（通称リンクラ）のゲームパートである「スクールアイドルステージ」（通称スクステ）をもっと楽しく！もっと深く！もっと便利に！をモットーに作成された、非公式のサイトです。<br />
-        ただ眺めるだけでも良いですが、ぜひご自身のデータを入力して使い倒してください！
-      </v-col>
+    <div class="mb-3">
+      <h2>About</h2>
 
-      <v-col cols="12">
-        <h2>Attention</h2>
+      このサイトは、アプリ「Link！Like！ラブライブ！」（通称リンクラ）のゲームパートである「スクールアイドルステージ」（通称スクステ）をもっと楽しく！もっと深く！もっと便利に！をモットーに作成された、非公式のサイトです。<br />
+      ただ眺めるだけでも良いですが、ぜひご自身のデータを入力して使い倒してください！
+    </div>
+
+    <div class="mb-5">
+      <h2>Attention</h2>
+
+      <p class="mb-3">
         このサイトは、PC／スマホ両方からの利用に対応していますが、一部ページはスマホで利用する場合、表示崩れが起こる可能性があります。<br />
         利用できないほどのものでない限り、メイン機能を一通り実装し終えた後の対応となります。
-      </v-col>
-      <v-col cols="12">
+      </p>
+
+      <p class="mb-3">
         このサイトは、スクステをある程度理解している(ライブグランプリに参加するような)方に向けたサイトになります。<br />
         「スクステってなに？」という方は、<a
           href="https://youtu.be/fkcQL4Mnz4k?si=FqGv2R0JHBPiEV5C"
@@ -202,64 +197,62 @@
           target="_blank"
           >Wiki</a
         >、SNS/動画サイトで解説してくださっている方がいるので、そちらをご覧ください。
-      </v-col>
-      <v-col cols="12">
+      </p>
+
+      <p class="mb-3">
         完全個人制作のため、一部デザインが崩れていたり、動かない場合があります。<br />
         順次対応していきますので、大目に見てください…<br />
         （あと、教えてもらえると助かります…）
-      </v-col>
-      <v-col cols="12">
-        このサイトはリンクフリーです。<br />
-        <u
-          >SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！</u
-        >
-      </v-col>
+      </p>
 
-      <v-col cols="12">
-        <h2>Page Introduction</h2>
-        各ページを簡単に紹介します。
-      </v-col>
-      <v-col v-if="false" cols="12">
-        <b>SIMULATION（獲得グランプリPt.計算ツール）</b><br />
-        獲得グランプリPt.を計算できます。<br />
-        なお、簡単な編成シミュレーションと編成情報の保存機能を搭載し、リニューアルする予定です。
-      </v-col>
-      <v-col v-if="false" cols="12">
+      <p>
+        このサイトはリンクフリーです。<br />
+        <u>
+          SNSや動画などで紹介する場合の許可も不要ですので、ガンガン広めてください！
+        </u>
+      </p>
+    </div>
+
+    <div class="mb-5">
+      <h2>Page Introduction</h2>
+      <p class="mb-3">各ページを簡単に紹介します。</p>
+
+      <p v-if="false" class="mb-3">
         <b>SIMULATION（編成シミュレーション）</b><br />
         簡単な編成シミュレーションを行えます。<br />
         現在はおためし版となっております。<br />
         リロードすると編成データは消えるため、ご注意ください。<br />
         なお、このページのみ、PCからの利用を推奨しています。
-      </v-col>
-      <v-col cols="12">
+      </p>
+
+      <p class="mb-3">
         <b>CARD LIST（カード一覧）</b><br />
         リンクラ内に実装されているカードの一覧と、カードの属性／スペシャルアピール／スキルレベル／特性／カードシリーズでの絞り込みができます。<br />
         また、自分が所持しているカードのデータを入力して管理することもできます。
-      </v-col>
-      <v-col cols="12">
+      </p>
+
+      <p class="mb-3">
         <b>MUSIC LIST（楽曲一覧）</b><br />
         リンクラ内に実装されている楽曲の一覧と、獲得ボーナススキル／センター／マスタリーレベル／曲名で絞り込みができます。<br />
         また、自分のアカウントの楽曲マスタリーレベルの設定ができます。
-      </v-col>
-      <v-col cols="12">
+      </p>
+
+      <p class="mb-3">
         <b>ITEM LIST（アイテム一覧）</b><br />
         Quest
         Liveの各ステージで獲得できるスキルレベルアップ用アイテムの一覧表示と検索ができます。
-      </v-col>
-      <v-col cols="12">※機能は変更になる可能性があります。</v-col>
-    </v-row>
+      </p>
 
-    <v-row>
-      <v-col cols="12">
-        <iframe
-          src="https://tairanoatsumori.notion.site/ebd/1c7409d7465680edbd1bee7f2542a7a2"
-          width="100%"
-          height="600"
-          frameborder="0"
-          allowfullscreen
-        />
-      </v-col>
-    </v-row>
+      <p>※機能は変更になる可能性があります。</p>
+    </div>
+
+    <iframe
+      src="https://tairanoatsumori.notion.site/ebd/1c7409d7465680edbd1bee7f2542a7a2"
+      width="100%"
+      height="600"
+      frameborder="0"
+      allowfullscreen
+    />
   </v-container>
 </template>
 
@@ -272,6 +265,7 @@ import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import type { EventItem } from '@/types/event';
 import type { StreamInfoItem, StreamInfoFirebaseData } from '@/types/stream';
+import MainVisual from '@/components/common/MainVisual.vue';
 import StreamCard from '@/components/common/StreamCard.vue';
 import { RTDB_PATH } from '@/constants/envConst';
 
@@ -285,6 +279,7 @@ const eventList = ref<Record<string, EventItem>>({});
 const outputEventList = reactive<Record<string, EventItem>>({});
 
 const streamInfoData = ref<StreamInfoItem[]>([]);
+const mainVisualModel = ref(0);
 
 const carouselModel = ref(0);
 
@@ -299,6 +294,10 @@ const updateCarousel = (val: number) => {
 
   carouselModel.value = (carouselModel.value + val + len) % len;
 };
+
+const sortedEvents = computed(() => {
+  return Object.values(outputEventList);
+});
 
 const groupedStreamInfoData = computed(() => {
   const groups: { startDate: Date; type: string; member: string }[][] = [];
@@ -473,14 +472,3 @@ watch(
   { deep: true },
 );
 </script>
-
-<style lang="scss" scoped>
-.mainVisual {
-  &:hover {
-    opacity: 0.75;
-  }
-}
-
-@media screen and (max-width: 600px) {
-}
-</style>

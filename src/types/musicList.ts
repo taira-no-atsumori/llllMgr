@@ -71,7 +71,7 @@ interface maxCombo {
 /**
  * 曲のアイテムデータを表すインターフェース
  *
- * @interface MusicItem
+ * @interface MusicItemData
  * @property {string} title 曲タイトル
  * @property {MusicData} musicData 曲の詳細データ
  * @property {AttributeEn} attribute 曲の属性
@@ -85,7 +85,7 @@ interface maxCombo {
  * @property {difficultyLevel} difficultyLevel 楽曲の難易度
  * @property {maxCombo} maxCombo 楽曲の最大コンボ数
  */
-export interface MusicItem {
+export interface MusicItemData {
   title: string;
   musicData: MusicData;
   attribute: AttributeEn;
@@ -106,8 +106,8 @@ export interface MusicItem {
  * 曲リストの状態を表すインターフェース
  *
  * @interface MusicListState
- * @property {Record<string, MusicItem>} musicList 曲名をキーとした曲データのオブジェクト
+ * @property {Record<string, MusicItemData>} musicList 曲名をキーとした曲データのオブジェクト
  */
 export interface MusicListState {
-  musicList: Record<string, MusicItem>;
+  musicList: Record<string, MusicItemData>;
 }

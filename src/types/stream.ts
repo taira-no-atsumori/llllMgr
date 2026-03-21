@@ -1,3 +1,5 @@
+import type { MemberKeyValues } from '@/constants/memberNames';
+
 /**
  * 配信情報のインターフェース（サイト内）
  *
@@ -10,7 +12,7 @@ export interface StreamInfoItem {
   startDate: Date;
   endDate: Date;
   type: string;
-  member: string[];
+  member: MemberKeyValues[];
 }
 
 /**

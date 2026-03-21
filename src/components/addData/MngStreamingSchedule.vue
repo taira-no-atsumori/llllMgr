@@ -203,7 +203,7 @@ const editedItem = ref<ScheduleItem>({
 const isNew = ref(true);
 const inputDate = ref('');
 const inputTime = ref('20:30');
-const selectedFilter = ref('Upcoming');
+const selectedFilter = ref(filterOptions[1]);
 
 /**
  * 選択されたフィルター条件に基づいてスケジュール一覧をフィルタリングします。

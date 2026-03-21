@@ -27,13 +27,13 @@
         <SetLeaningLevel />
       </div>
       <div v-else-if="store.showModalName === 'share'">
-        <Share />
+        <ShareDialog />
       </div>
       <div v-else-if="store.showModalName === 'backup'">
-        <Backup />
+        <BackupDialog />
       </div>
       <div v-else-if="store.showModalName === 'settings'">
-        <Settings />
+        <SettingsDialog />
       </div>
       <div v-else-if="store.showModalName === 'login'">
         <Login />
@@ -59,9 +59,9 @@ import CardListFilter from './CardListFilter.vue';
 import SelectCard from './SelectCard.vue';
 import SetLeaningLevel from './SetLeaningLevel.vue';
 import MasteryLevel from './MasteryLevel.vue';
-import Share from './Share.vue';
-import Backup from './Backup.vue';
-import Settings from './Settings.vue';
+import ShareDialog from './ShareDialog.vue';
+import BackupDialog from './BackupDialog.vue';
+import SettingsDialog from './SettingsDialog.vue';
 import Login from './Login.vue';
 
 const store = useStateStore();

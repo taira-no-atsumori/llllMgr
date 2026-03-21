@@ -47,14 +47,23 @@
               ? [true]
               : [false, true]"
             :key="kakusei"
-            :src="
-              (kakusei
-                ? cardImageUrls[store.getSettingCard.ID]?.after
-                : cardImageUrls[store.getSettingCard.ID]?.before) || noImage
-            "
-            aspect-ratio="16/9"
-            cover
-          />
+          >
+            <v-responsive :aspect-ratio="16 / 9">
+              <v-img
+                class="h-100"
+                :src="
+                  (kakusei
+                    ? cardImageUrls[store.getSettingCard.ID]?.after
+                    : cardImageUrls[store.getSettingCard.ID]?.before) || noImage
+                "
+                cover
+              >
+                <template #placeholder>
+                  <v-skeleton-loader type="image" class="h-100 w-100" />
+                </template>
+              </v-img>
+            </v-responsive>
+          </v-carousel-item>
         </v-carousel>
         <v-row id="styleAndMoodArea" no-gutters class="text-center">
           <v-col cols="12" sm="6" class="pt-2 pb-1">

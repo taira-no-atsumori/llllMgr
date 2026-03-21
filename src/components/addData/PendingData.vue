@@ -124,8 +124,9 @@ import { ref as dbRef, update } from 'firebase/database';
 import { rtdb } from '@/firebase';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
 import type { CardDataByMember } from '@/types/cardList';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 import type { StreamInfoFirebaseData } from '@/types/stream';
+import type { EventItem } from '@/types/event';
 
 const uploadStore = useUploadDataStore();
 const loading = ref(false);
@@ -138,9 +139,9 @@ const dialogText = ref('');
 
 const emit = defineEmits(['edit']);
 const handleEdit = (item: {
-  type: 'card' | 'music' | 'stream';
+  type: 'card' | 'music' | 'stream' | 'event';
   key: string;
-  data: CardDataByMember | MusicItem | StreamInfoFirebaseData;
+  data: CardDataByMember | MusicItemData | StreamInfoFirebaseData | EventItem;
   status: 'new' | 'update';
   path: string;
 }) => {
@@ -149,7 +150,12 @@ const handleEdit = (item: {
 };
 
 const showDiff = (
-  item: CardDataByMember | MusicItem | StreamInfoFirebaseData,
+  item: {
+    type: 'card' | 'music' | 'stream' | 'event';
+    key: string;
+    data: CardDataByMember | MusicItemData | StreamInfoFirebaseData | EventItem;
+    status: 'new' | 'update';
+  },
 ) => {
   afterData.value = JSON.stringify(item.data, null, 2);
 
@@ -163,6 +169,8 @@ const showDiff = (
       prodItemData = prodCards[item.key]?.data;
     } else if (item.type === 'stream') {
       prodItemData = uploadStore.prodData.stream[item.key];
+    } else if (item.type === 'event') {
+      prodItemData = uploadStore.prodData.eventInformation[item.key];
     }
 
     beforeData.value = JSON.stringify(prodItemData, null, 2);
@@ -180,7 +188,7 @@ const deployData = async () => {
   // const storage = getStorage(rtdb.app);
 
   try {
-    const updates: Record<string, CardDataByMember | MusicItem> = {};
+    const updates: Record<string, CardDataByMember | MusicItemData> = {};
 
     for (const key of checkedItems.value) {
       const item = uploadStore.diffList.find((i) => i.key === key);

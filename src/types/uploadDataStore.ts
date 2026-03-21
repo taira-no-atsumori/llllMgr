@@ -1,5 +1,5 @@
 import type { CardsByRarity } from '@/types/cardList';
-import type { MusicItem } from '@/types/musicList';
+import type { MusicItemData } from '@/types/musicList';
 
 /**
  * 保留アイテムのデータ型
@@ -9,5 +9,5 @@ import type { MusicItem } from '@/types/musicList';
  */
 export interface PendingItem {
   type: 'card' | 'music' | 'event' | 'skill';
-  data: CardsByRarity | MusicItem;
+  data: CardsByRarity | MusicItemData;
 }

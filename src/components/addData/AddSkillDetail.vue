@@ -68,8 +68,11 @@
               />
             </v-col>
             <v-col cols="6">
-              <v-text-field
+              <v-select
                 v-model="editedItem.colorCode"
+                :item-props="itemProps"
+                :items="colorList"
+                item-title="name"
                 label="Color Code"
                 density="compact"
                 variant="outlined"
@@ -102,7 +105,7 @@
 
         <v-card-actions>
           <v-spacer />
-          <v-btn text="Cancel" color="error" @click="closeDialog" />
+          <v-btn text="Cancel" color="error" @click="dialog = false" />
           <v-btn text="Save" color="primary" @click="saveItem" />
         </v-card-actions>
       </v-card>
@@ -141,6 +144,32 @@ const skillTypeOptions = computed(() => {
     value: key,
   }));
 });
+const colorList = [
+  {
+    name: 'red',
+    caption: 'ハートキャプチャ系',
+  },
+  {
+    name: 'lime-darken-3',
+    caption: 'ラブアトラクト系',
+  },
+  {
+    name: 'green',
+    caption: 'メンタル系',
+  },
+  {
+    name: 'lime-darken-4',
+    caption: 'AP変化系',
+  },
+  {
+    name: 'purple',
+    caption: '手札枚数変更系',
+  },
+  {
+    name: 'black',
+    caption: 'その他',
+  },
+];
 
 const headers = [
   { title: 'ID', key: 'id' },
@@ -184,7 +213,7 @@ const openCreateDialog = () => {
   editedItem.value = {
     id: '',
     skillDetailName: '',
-    colorCode: '',
+    colorCode: colorList[5].name,
     description: '',
     skillTypeKey: 'heartCaptcha',
   };
@@ -198,9 +227,12 @@ const openEditDialog = (item: SkillDetailFilterType) => {
   dialog.value = true;
 };
 
-const closeDialog = () => {
-  dialog.value = false;
-};
+function itemProps(item) {
+  return {
+    title: item.name,
+    subtitle: `主に${item.caption}に使用`,
+  };
+}
 
 const saveItem = async () => {
   const updates: Record<string, SkillDetailType> = {};

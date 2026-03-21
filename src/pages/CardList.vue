@@ -109,18 +109,20 @@
 
     <v-tabs-window v-model="selectTab">
       <v-tabs-window-item value="single">
-        <ul id="cardListArea" class="mt-1">
-          <li v-if="outputCardList.length === 0">
-            見つからなかったよ😢<br />
-            絞り込み条件を変えてね
+        <v-empty-state
+          v-if="outputCardList.length === 0"
+          title="Not Found"
+          text="絞り込み条件を変えてね"
+        />
+        <ul v-else id="cardListArea" class="mt-1">
+          <li
+            v-for="(cardData, i) in outputCardList"
+            :key="i"
+            class="card position-relative"
+            :data-card-id="cardData.ID"
+          >
+            <Card :card-data="cardData" />
           </li>
-          <Card
-            v-for="cardData in outputCardList"
-            v-else
-            :key="cardData"
-            :card-data="cardData"
-            :window-width="windowSize.w"
-          />
         </ul>
       </v-tabs-window-item>
       <v-tabs-window-item value="multi">
@@ -197,7 +199,7 @@ import { ref, computed, watch, onMounted } from 'vue';
 import { RARE } from '@/constants/cards';
 import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import Card from '@/components/common/Card.vue';
+import Card from '@/components/common/card/Card.vue';
 import Chart from '@/components/modal/Chart.vue';
 import {
   MEMBER_KEYS,

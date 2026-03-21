@@ -34,3 +34,18 @@ export const getRow = (char: string): string => {
     return 'other';
   }
 };
+
+/**
+ * 秒を分秒に変換する
+ * @param time 秒
+ * @returns mm:ss形式の文字列
+ */
+export const formatTime = (time: number): string => {
+  if (!time || time <= 0) {
+    return '0分00秒';
+  }
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  const ms = String(time).split('.')[1]?.padEnd(2, '0') || '00';
+  return `${minutes}分${seconds.toString().padStart(2, '0')}秒${ms}`;
+};
