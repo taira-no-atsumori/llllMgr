@@ -23,7 +23,7 @@ export interface StreamInfoItem {
  * @param type With×MEETS | Fes×LIVE
  * @param member 配信参加メンバー
  */
-export interface StreamInfoFirebaseData {
+export interface StreamInfoDBData {
   startDate: string;
   endDate: string;
   type: string;

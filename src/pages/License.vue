@@ -133,19 +133,6 @@
   </v-container>
 </template>
 
-<script lang="ts">
-export default {
-  name: 'License',
-  components: {},
-  data() {
-    return {};
-  },
-  computed: {},
-  created() {},
-  methods: {},
-};
-</script>
-
 <style lang="scss" scoped>
 .dot_list {
   display: flex;

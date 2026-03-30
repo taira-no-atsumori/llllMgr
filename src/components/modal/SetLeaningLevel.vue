@@ -9,7 +9,7 @@
               .replaceAll('）', ')')}`"
             target="_blank"
             v-bind="props"
-            :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
+            :class="`text-${settingsStore.isDarkMode ? 'white' : 'black'}`"
           >
             {{ store.selectMusicTitle }}
           </a>
@@ -22,7 +22,7 @@
     <v-row v-if="selectMusicData" no-gutters>
       <v-col cols="12" sm="6" class="mb-3 mb-sm-0">
         <v-img
-          :src="firebaseImage || noImage"
+          :src="selectMusicData.imageURL || noImage"
           :alt="store.selectMusicTitle"
           aspect-ratio="1"
           cover
@@ -129,7 +129,7 @@
               <v-avatar left>
                 <v-img
                   :src="
-                    store.getImagePath(
+                    imageStore.getImagePath(
                       'icons/member',
                       `icon_SD_${selectMusicData.center}`,
                     )
@@ -157,7 +157,10 @@
               <v-avatar left>
                 <v-img
                   :src="
-                    store.getImagePath('icons/member', `icon_SD_${memberName}`)
+                    imageStore.getImagePath(
+                      'icons/member',
+                      `icon_SD_${memberName}`,
+                    )
                   "
                   width="30px"
                   eager
@@ -236,7 +239,7 @@
           <div class="d-flex flex-row align-center">
             <img
               :src="
-                store.getImagePath(
+                imageStore.getImagePath(
                   'icons/bonusSkill',
                   selectMusicData.bonusSkill,
                 )
@@ -259,7 +262,7 @@
               <v-avatar left>
                 <v-img
                   :src="
-                    store.getImagePath(
+                    imageStore.getImagePath(
                       'icons/attribute',
                       `icon_${selectMusicData.attribute}`,
                     )
@@ -288,15 +291,20 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useMusicStore } from '@/stores/musicStore';
+import { useImageStore } from '@/stores/imageStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
+import { formatTime } from '@/utils/stringUtil';
+
 import { makeMemberFullName } from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { ATTRIBUTE, DIFFICULTY_LABEL } from '@/constants/music';
-import { useMusicData } from '@/composables/useMusicData';
-import { formatTime } from '@/utils/stringUtil';
+
 import noImage from '@/assets/images/NO IMAGE_music.webp';
 
-const store = useStateStore();
 const attributeName = {
   [ATTRIBUTE.SMILE.en]: {
     name: ATTRIBUTE.SMILE.ja,
@@ -312,10 +320,14 @@ const attributeName = {
   },
 };
 
-const { dbImageUrls, initMusicData, getMusicIdByTitle } = useMusicData();
+const store = useStateStore();
+const { initMusicData, getMusicIdByTitle } = useMusicStore();
+const imageStore = useImageStore();
+const settingsStore = useSettingsStore();
 
 const selectMusicData = computed(() => {
   const id = getMusicIdByTitle(store.selectMusicTitle);
+
   return id ? store.musicList[id] : undefined;
 });
 
@@ -341,11 +353,6 @@ const releaseDate = computed(() => {
       new Date(date.year, date.month - 1, date.date).getDay()
     ]
   })`;
-});
-
-const firebaseImage = computed(() => {
-  const id = getMusicIdByTitle(store.selectMusicTitle);
-  return (id && dbImageUrls.value[id]) || '';
 });
 
 onMounted(() => {

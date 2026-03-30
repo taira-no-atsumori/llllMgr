@@ -137,7 +137,9 @@
 
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue';
+
 import type { EventItem } from '@/types/event';
+
 import noImage from '@/assets/images/NO IMAGE_card.webp';
 
 const props = defineProps<{
@@ -151,12 +153,12 @@ const emit = defineEmits<{
   (e: 'save', payload: { event: EventItem; file: File | null }): void;
 }>();
 
+const eventTypes = ['liveGP', 'live', 'movie', 'other'];
+
 const editableItem = ref<EventItem>({} as EventItem);
 const previewImageUrl = ref<string | null>(null);
 const fileInputRef = ref<HTMLInputElement | null>(null);
 const selectedFile = ref<File | null>(null);
-
-const eventTypes = ['liveGP', 'live', 'movie', 'other'];
 
 const toDatetimeLocal = (arr: number[] | undefined) => {
   if (!arr || !Array.isArray(arr) || arr.length < 5) {
@@ -222,6 +224,7 @@ const handleFileSelect = (file: File | File[]) => {
 const cancelUpload = () => {
   selectedFile.value = null;
   previewImageUrl.value = null;
+
   if (fileInputRef.value) {
     fileInputRef.value.value = '';
   }

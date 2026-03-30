@@ -11,8 +11,8 @@
         <div class="mt-2 text-center">
           <v-btn
             prepend-icon="mdi-close"
-            text="CLOSE"
-            :theme="store.siteSettings.all.darkMode"
+            text="Close"
+            :theme="settingsStore.siteSettings.all.darkMode"
             @click="store.loading = false"
           />
         </div>
@@ -21,21 +21,10 @@
   </v-dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useStateStore } from '@/stores/stateStore';
-const store = useStateStore();
-</script>
+import { useSettingsStore } from '@/stores/settingsStore';
 
-<script>
-export default {
-  name: 'Loading',
-  components: {},
-  data() {
-    return {};
-  },
-  computed: {},
-  watch() {},
-  created() {},
-  methods: {},
-};
+const store = useStateStore();
+const settingsStore = useSettingsStore();
 </script>

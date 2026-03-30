@@ -1,7 +1,8 @@
 <template>
   <v-card
     v-if="
-      store.siteSettings.musicList.hover === 'false' || display.smAndDown.value
+      settingsStore.siteSettings.musicList.hover === 'false' ||
+      display.smAndDown.value
     "
     :color="attributeColor[musicData.attribute]"
     hover
@@ -41,9 +42,16 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useImageStore } from '@/stores/imageStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
 import { makeMemberFullName } from '@/constants/memberNames';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
 import type { MusicItemData } from '@/types/musicList';
+
 import MusicItem from './MusicItem.vue';
 
 const props = defineProps<{
@@ -52,16 +60,18 @@ const props = defineProps<{
 }>();
 
 const store = useStateStore();
+const imageStore = useImageStore();
+const settingsStore = useSettingsStore();
 const display = useDisplay();
 
-const attributeColor: Record<string, string> = {
+const attributeColor = {
   smile: '#EF8DC8',
   pure: '#A9FCC7',
   cool: '#A1BAFA',
-};
+} as const;
 
 const imageUrl = computed(() => {
-  const urls = store.imageCache['llllMgr_musicImageUrls'];
+  const urls = imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC];
   return urls && urls[props.musicData.ID];
 });
 

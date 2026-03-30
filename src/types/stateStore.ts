@@ -272,7 +272,7 @@ export type StoreState = {
   sortSettings: SortSettings;
   selectItemList: SelectItemList;
   search: SearchSettings;
-  card: Record<string, CardDataByMember>;
+  card: Record<MemberKeyValues, CardDataByMember>;
   musicLevel: Record<string, number>;
   musicList: Record<string, MusicItemData>;
   memberData: {

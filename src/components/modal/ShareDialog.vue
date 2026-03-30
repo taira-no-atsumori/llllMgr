@@ -5,7 +5,7 @@
       <v-btn
         color="pink"
         prepend-icon="mdi-content-copy"
-        text="COPY"
+        text="Copy"
         @click="copyUrl()"
       />
     </v-col>
@@ -30,7 +30,7 @@
       <p>QRコードでシェア</p>
       <v-img
         :width="310"
-        :src="store.getImagePath('images', 'QRcode')"
+        :src="imageStore.getImagePath('images', 'QRcode')"
         aspect-ratio="1"
         cover
         class="my-0 mx-auto"
@@ -45,9 +45,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStateStore } from '@/stores/stateStore';
 
-const store = useStateStore();
+import { useImageStore } from '@/stores/imageStore';
+
+const imageStore = useImageStore();
 
 const snackbar = ref(false);
 

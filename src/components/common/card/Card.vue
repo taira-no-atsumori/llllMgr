@@ -1,7 +1,9 @@
 <template>
   <p
     v-if="
-      store.toBool(store.siteSettings.cardList.dot_releaseLevel) &&
+      settingsStore.toBool(
+        settingsStore.siteSettings.cardList.dot_releaseLevel,
+      ) &&
       cardData.fluctuationStatus.cardLevel > 0 &&
       MAX_CARD_LEVEL[cardData.rare][MAX_CARD_LEVEL[cardData.rare].length - 1] >
         cardData.fluctuationStatus.cardLevel &&
@@ -13,7 +15,7 @@
   />
   <p
     v-if="
-      store.toBool(store.siteSettings.cardList.dot_cardLevel) &&
+      settingsStore.toBool(settingsStore.siteSettings.cardList.dot_cardLevel) &&
       cardData.fluctuationStatus.cardLevel > 0 &&
       MAX_CARD_LEVEL[cardData.rare][cardData.fluctuationStatus.trainingLevel] >
         cardData.fluctuationStatus.cardLevel
@@ -22,7 +24,9 @@
   />
   <p
     v-if="
-      store.toBool(store.siteSettings.cardList.dot_releasePoint) &&
+      settingsStore.toBool(
+        settingsStore.siteSettings.cardList.dot_releasePoint,
+      ) &&
       cardData.fluctuationStatus.cardLevel > 0 &&
       getReleasePoint(cardData.rare, 'point') <=
         cardData.fluctuationStatus.releasePoint
@@ -32,7 +36,7 @@
   <!-- ↓hover off↓ -->
   <v-card
     v-if="
-      !store.toBool(store.siteSettings.cardList.hover) ||
+      !settingsStore.toBool(settingsStore.siteSettings.cardList.hover) ||
       display.smAndDown.value
     "
     :color="moodColor[cardData.mood]"
@@ -95,8 +99,9 @@
               <v-col class="pa-0">BP</v-col>
               <v-col class="pa-0">
                 {{
-                  store.card[cardData.memberName][cardData.rare][cardData.ID]
-                    .uniqueStatus.BP
+                  cardStore.card[cardData.memberName][cardData.rare][
+                    cardData.ID
+                  ].uniqueStatus.BP
                 }}
               </v-col>
             </v-row>
@@ -105,38 +110,39 @@
       </v-container>
       <p
         v-if="
-          store.card[cardData.memberName][cardData.rare][cardData.ID]
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
             .specialAppeal ?? false
         "
       >
         <span class="mr-3">スペシャルアピール</span>
         {{
-          store.card[cardData.memberName][cardData.rare][cardData.ID]
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
             .specialAppeal.name
         }}
         (Lv. {{ getCardParam('SALevel') }})
       </p>
       <p
         v-if="
-          store.card[cardData.memberName][cardData.rare][cardData.ID].skill ??
-          false
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
+            .skill ?? false
         "
       >
         <span class="mr-3">スキル</span>
         {{
-          store.card[cardData.memberName][cardData.rare][cardData.ID].skill.name
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID].skill
+            .name
         }}
         (Lv. {{ getCardParam('SLevel') }})
       </p>
       <p
         v-if="
-          store.card[cardData.memberName][cardData.rare][cardData.ID]
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
             .characteristic ?? false
         "
       >
         <span class="mr-3">特性</span>
         {{
-          store.card[cardData.memberName][cardData.rare][cardData.ID]
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
             .characteristic.name
         }}
       </p>
@@ -147,10 +153,17 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardStore';
+import { useImageStore } from '@/stores/imageStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import { getReleasePoint } from '@/constants/releasePoint';
 import { makeMemberFullName } from '@/constants/memberNames';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
 import type { CardDataType } from '@/types/cardList';
 import CardItem from './CardItem.vue';
 
@@ -159,6 +172,9 @@ const props = defineProps<{
 }>();
 
 const store = useStateStore();
+const cardStore = useCardStore();
+const imageStore = useImageStore();
+const settingsStore = useSettingsStore();
 const display = useDisplay();
 
 const moodColor = {
@@ -179,13 +195,13 @@ const getCardParam = (
     | 'cool'
     | 'mental',
 ): number => {
-  return store.card[props.cardData.memberName][props.cardData.rare][
+  return cardStore.card[props.cardData.memberName][props.cardData.rare][
     props.cardData.ID
   ].fluctuationStatus[paramKey];
 };
 
 const imageUrl = computed(() => {
-  const urls = store.imageCache['llllMgr_cardImageUrls'];
+  const urls = imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_CARD];
   return urls && urls[props.cardData.ID]?.after;
 });
 

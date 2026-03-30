@@ -494,6 +494,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
+
 import { ref as dbRef, onValue, update } from 'firebase/database';
 import {
   getStorage,
@@ -502,7 +503,11 @@ import {
   getDownloadURL,
 } from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
-import { ATTRIBUTE } from '@/constants/music';
+
+import { useUploadDataStore } from '@/stores/uploadDataStore';
+
+import { getRow } from '@/utils/stringUtil';
+
 import {
   MEMBER_KEYS,
   GROUP_NAME,
@@ -511,13 +516,17 @@ import {
   makeMemberFullName,
   type MemberKeys,
 } from '@/constants/memberNames';
+import { ATTRIBUTE } from '@/constants/music';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { KANA_OPTIONS } from '@/constants/kana';
-import { getRow } from '@/utils/stringUtil';
-import { useUploadDataStore } from '@/stores/uploadDataStore';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+import { MESSAGES } from '@/constants/messageConst';
+
 import type { MusicItemData } from '@/types/musicList';
-import { useStateStore } from '@/stores/stateStore';
+
 import noImage from '@/assets/images/NO IMAGE_music.webp';
+
+const uploadStore = useUploadDataStore();
 
 const isIdOverride = ref(false);
 const singerTab = ref('group');
@@ -528,14 +537,12 @@ const selectedFile = ref<File | null>(null);
 const previewImageUrl = ref<string | null>(null);
 const hasScoreData = ref(false);
 const snackbar = ref(false);
-const snackbarMessage = ref('データを一時保存しました');
-const snackbarColor = ref('success');
+const snackbarMessage = ref('');
+const snackbarColor = ref('');
 const isReleaseDateUnknown = ref(false);
 const selectedPreset = ref<string | null>(null);
 const selectedKanaRow = ref<string | null>(null);
 const kanaOptions = [...KANA_OPTIONS];
-const uploadStore = useUploadDataStore();
-const store = useStateStore();
 
 const dbMusicList = ref<Record<string, MusicItemData>>({});
 
@@ -587,10 +594,8 @@ const presetItems = computed(() => {
   if (selectedKanaRow.value) {
     items = items.filter(([_, item]) => {
       const k = item.musicData.kana;
-      if (!k) {
-        return false;
-      }
-      return getRow(k.charAt(0)) === selectedKanaRow.value;
+
+      return !k ? false : getRow(k.charAt(0)) === selectedKanaRow.value;
     });
   }
 
@@ -835,23 +840,24 @@ const addToStore = async () => {
       const url = await getDownloadURL(snapshot.ref);
       data[id].imageURL = url;
 
-      if (!store.imageCache['llllMgr_musicImageUrls']) {
-        store.imageCache['llllMgr_musicImageUrls'] = {};
+      if (!imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
+        imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
       }
-      store.imageCache['llllMgr_musicImageUrls'][id] = url;
+
+      imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC][id] = url;
     }
 
     const updates: Record<string, MusicItemData> = {};
     updates[`music/${id}`] = data[id];
     await update(dbRef(rtdbDev), updates);
 
-    snackbarMessage.value = 'Dev環境にデータをアップロードしました';
+    snackbarMessage.value = MESSAGES.M007;
     snackbarColor.value = 'success';
     snackbar.value = true;
     cancelUpload();
   } catch (e) {
     console.error('Failed to parse JSON', e);
-    snackbarMessage.value = 'アップロードに失敗しました';
+    snackbarMessage.value = MESSAGES.E013;
     snackbarColor.value = 'error';
     snackbar.value = true;
   } finally {
@@ -872,10 +878,10 @@ const addToStore = async () => {
 //     const url = await getDownloadURL(snapshot.ref);
 //     music.value.imageURL = url;
 
-//     if (!store.imageCache['llllMgr_musicImageUrls']) {
-//       store.imageCache['llllMgr_musicImageUrls'] = {};
+//     if (!imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
+//       imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
 //     }
-//     store.imageCache['llllMgr_musicImageUrls'][music.value.ID] = url;
+//     imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC][music.value.ID] = url;
 
 //     cancelUpload();
 //   } catch (e) {
@@ -887,6 +893,7 @@ const addToStore = async () => {
 
 const handleFileSelect = (file: File | File[]) => {
   const targetFile = Array.isArray(file) ? file[0] : file;
+
   if (!targetFile) {
     cancelUpload();
     return;

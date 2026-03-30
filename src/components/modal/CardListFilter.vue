@@ -71,7 +71,9 @@
                 >
                   <template #label>
                     <v-img
-                      :src="store.getImagePath('icons/mood', `icon_${mood.en}`)"
+                      :src="
+                        imageStore.getImagePath('icons/mood', `icon_${mood.en}`)
+                      "
                       class="icon mood"
                     />
                     {{ mood.jp }}
@@ -113,7 +115,10 @@
               <template #label>
                 <v-img
                   :src="
-                    store.getImagePath('icons/styleType', `icon_${style.en}`)
+                    imageStore.getImagePath(
+                      'icons/styleType',
+                      `icon_${style.en}`,
+                    )
                   "
                   class="icon type"
                 />
@@ -138,7 +143,7 @@
             />
           </v-col>
           <v-col
-            v-for="memberName in store.memberNameList"
+            v-for="memberName in memberNameList()"
             :key="memberName"
             cols="6"
             sm="4"
@@ -154,10 +159,10 @@
               density="compact"
             >
               <template #label>
-                <template v-if="!store.isOtherMember(memberName)">
+                <template v-if="!isOtherMember(memberName)">
                   <v-img
                     :src="
-                      store.getImagePath(
+                      imageStore.getImagePath(
                         'icons/member',
                         `icon_illust_${memberName}_${
                           /kozue|tsuzuri|megumi/.test(memberName) ? 104 : 105
@@ -542,6 +547,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
+
+import { useStateStore } from '@/stores/stateStore';
+import { useSkillStore } from '@/stores/skillStore';
+import { useImageStore } from '@/stores/imageStore';
+
 import {
   RARE,
   STYLE_TYPE,
@@ -550,14 +560,20 @@ import {
   RELEASE_STATUS,
   LIMITED,
 } from '@/constants/cards';
-import { useStateStore } from '@/stores/stateStore';
-import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
+import {
+  MEMBER_KEYS,
+  makeMemberFullName,
+  memberNameList,
+  isOtherMember,
+} from '@/constants/memberNames';
 import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
 import CardFilterSlider from '@/components/CardFilterSliderComponent.vue';
-import { useSkillStore } from '@/stores/skillStore';
 
 const store = useStateStore();
 const skillStore = useSkillStore();
+const imageStore = useImageStore();
 
 const tab1 = ref('filter_status');
 
@@ -610,7 +626,7 @@ onMounted(() => {
   watch(
     () => store.search,
     () => {
-      store.setLocalStorage('llllMgr_cardListFilter', store.search);
+      store.setLocalStorage(LOCAL_DB_KEY_NAMES.CARD_LIST_FILTER, store.search);
     },
     { deep: true }, // 配列やオブジェクトの内部の変更を検知するために必要
   );

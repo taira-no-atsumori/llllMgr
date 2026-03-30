@@ -85,7 +85,9 @@
             >
               <v-avatar left class="mr-1">
                 <v-img
-                  :src="store.getImagePath('icons/trainingItem', item.title)"
+                  :src="
+                    imageStore.getImagePath('icons/trainingItem', item.title)
+                  "
                 />
               </v-avatar>
               {{ item.title }}
@@ -102,13 +104,15 @@
                   color="pink"
                   :model-value="
                     store.selectItemList[`item${i + 1}`].some(
-                      (elm) => elm === item.title
+                      (elm) => elm === item.title,
                     )
                   "
                 />
                 <v-img
                   v-if="item.title !== ITEMS.NONE"
-                  :src="store.getImagePath('icons/trainingItem', item.title)"
+                  :src="
+                    imageStore.getImagePath('icons/trainingItem', item.title)
+                  "
                   :alt="item.title"
                   style="width: 40px"
                 />
@@ -154,9 +158,9 @@
                   <v-avatar left class="mr-1">
                     <v-img
                       :src="
-                        store.getImagePath(
+                        imageStore.getImagePath(
                           'icons/trainingItem',
-                          item['獲得可能アイテム'][i - 1]
+                          item['獲得可能アイテム'][i - 1],
                         )
                       "
                       eager
@@ -176,12 +180,17 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useImageStore } from '@/stores/imageStore';
+
 import { ITEMS } from '@/constants/items';
 import { ITEM_COLOR_LIST } from '@/constants/itemColorList';
 import { ENHANCED_ITEM_LIST } from '@/constants/enhancedItemList';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
 
 const store = useStateStore();
+const imageStore = useImageStore();
 
 const filterItemList = ref({
   season: [
@@ -190,6 +199,13 @@ const filterItemList = ref({
     '103期Autumn',
     '103期Winter',
     '104期Spring',
+    '104期Summer',
+    '104期Autumn',
+    '104期Winter',
+    '105期Spring',
+    '105期Summer',
+    '105期Autumn',
+    '105期Winter',
   ],
   area: ['Area1', 'Area2', 'Area3', 'Area4', 'Area5'],
   item1: [],
@@ -241,15 +257,15 @@ const filterItems = () => {
         store.selectItemList[`item${i}`]
           .join('|')
           .replace(/\(/g, '\\(')
-          .replace(/\)/g, '\\)')
+          .replace(/\)/g, '\\)'),
       );
       result = result.filter((arr) =>
-        regex.test(arr['獲得可能アイテム'][i - 1])
+        regex.test(arr['獲得可能アイテム'][i - 1]),
       );
     }
   }
 
-  store.setLocalStorage('llllMgr_selectItemList', {
+  store.setLocalStorage(LOCAL_DB_KEY_NAMES.SELECT_ITEM_LIST, {
     item1: store.selectItemList.item1,
     item2: store.selectItemList.item2,
     item3: store.selectItemList.item3,
@@ -261,6 +277,7 @@ const filterItems = () => {
 /**
  * アイテム色検索
  *
+ * @description
  * アイテムの色を検索する関数
  *
  * @param target 対象のアイテム名
@@ -279,7 +296,7 @@ const searchColor = (target: string): string => {
 const selectItem = (selector: string, i: number) => {
   if (store.selectItemList[`item${i}`].some((x) => x === selector)) {
     store.selectItemList[`item${i}`] = store.selectItemList[`item${i}`].filter(
-      (item) => item !== selector
+      (item) => item !== selector,
     );
   } else {
     store.selectItemList[`item${i}`].push(selector);
@@ -296,7 +313,8 @@ onMounted(() => {
 
 /**
  * フィルターリストの初期化関数
- * @returns {void}
+ *
+ * @returns void
  */
 const initializeFilterLists = () => {
   filterItemList.value.item1 = [ITEMS.NONE, ...Object.values(ITEMS.SKILL_BOOK)];
@@ -307,14 +325,15 @@ const initializeFilterLists = () => {
   filterItemList.value.item3 = [
     ITEMS.NONE,
     ...Object.values(ITEMS.CHARM).flatMap((charm) =>
-      typeof charm === 'object' ? Object.values(charm) : charm
+      typeof charm === 'object' ? Object.values(charm) : charm,
     ),
   ];
 };
 
 /**
  * アイテムリストの初期化関数
- * @returns {void}
+ *
+ * @returns void
  */
 const initializeItemList = () => {
   allItemList.value = Object.entries(ENHANCED_ITEM_LIST()).flatMap(
@@ -329,7 +348,7 @@ const initializeItemList = () => {
           }));
         });
       });
-    }
+    },
   );
 };
 </script>

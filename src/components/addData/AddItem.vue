@@ -71,7 +71,10 @@
                         <v-img
                           v-if="item.title !== ITEMS.NONE"
                           :src="
-                            store.getImagePath('icons/trainingItem', item.title)
+                            imageStore.getImagePath(
+                              'icons/trainingItem',
+                              item.title,
+                            )
                           "
                           style="width: 40px"
                           class="mr-2"
@@ -89,7 +92,10 @@
                       <v-avatar left class="mr-1">
                         <v-img
                           :src="
-                            store.getImagePath('icons/trainingItem', item.title)
+                            imageStore.getImagePath(
+                              'icons/trainingItem',
+                              item.title,
+                            )
                           "
                         />
                       </v-avatar>
@@ -114,7 +120,10 @@
                         <v-img
                           v-if="item.title !== ITEMS.NONE"
                           :src="
-                            store.getImagePath('icons/trainingItem', item.title)
+                            imageStore.getImagePath(
+                              'icons/trainingItem',
+                              item.title,
+                            )
                           "
                           style="width: 40px"
                           class="mr-2"
@@ -132,7 +141,10 @@
                       <v-avatar left class="mr-1">
                         <v-img
                           :src="
-                            store.getImagePath('icons/trainingItem', item.title)
+                            imageStore.getImagePath(
+                              'icons/trainingItem',
+                              item.title,
+                            )
                           "
                         />
                       </v-avatar>
@@ -157,7 +169,10 @@
                         <v-img
                           v-if="item.title !== ITEMS.NONE"
                           :src="
-                            store.getImagePath('icons/trainingItem', item.title)
+                            imageStore.getImagePath(
+                              'icons/trainingItem',
+                              item.title,
+                            )
                           "
                           style="width: 40px"
                           class="mr-2"
@@ -175,7 +190,10 @@
                       <v-avatar left class="mr-1">
                         <v-img
                           :src="
-                            store.getImagePath('icons/trainingItem', item.title)
+                            imageStore.getImagePath(
+                              'icons/trainingItem',
+                              item.title,
+                            )
                           "
                         />
                       </v-avatar>
@@ -213,11 +231,14 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+
+import { useImageStore } from '@/stores/imageStore';
+
 import { ITEMS } from '@/constants/items';
-import { useStateStore } from '@/stores/stateStore';
 import { ITEM_COLOR_LIST } from '@/constants/itemColorList';
 
-const store = useStateStore();
+const imageStore = useImageStore();
+
 const selectPeriod = ref(105);
 const selectSeason = ref('Spring');
 const selectArea = ref(1);

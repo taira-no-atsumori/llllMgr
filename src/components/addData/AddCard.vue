@@ -193,7 +193,9 @@
                 >
                   <div class="d-flex align-center justify-center mb-3">
                     <img
-                      :src="store.getImagePath('icons/bonusSkill', skillName)"
+                      :src="
+                        imageStore.getImagePath('icons/bonusSkill', skillName)
+                      "
                       class="mr-2"
                       style="width: 35px; border-radius: 3.5px"
                     />
@@ -434,7 +436,7 @@
         <v-btn
           color="green"
           prepend-icon="mdi-cloud-upload"
-          :text="`${store.isDev ? 'Dev' : 'Prod'} Upload`"
+          text="Dev Upload"
           @click="addCardData()"
         />
       </v-col>
@@ -471,6 +473,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
+
 import { ref as dbRef, onValue, update } from 'firebase/database';
 import {
   getStorage,
@@ -480,38 +483,34 @@ import {
   listAll,
 } from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
+
+import { useStateStore } from '@/stores/stateStore';
 import { useUploadDataStore } from '@/stores/uploadDataStore';
-import { RARE, STYLE_TYPE, MOOD, LIMITED } from '@/constants/cards';
+import { useImageStore } from '@/stores/imageStore';
+
+import { RARE, STYLE_TYPE, MOOD, LIMITED, type Rare } from '@/constants/cards';
 import {
   MEMBER_KEYS,
   MEMBER_IDS,
   conversionIdToKey,
   type MemberKeyValues,
 } from '@/constants/memberNames';
-import type { Rare } from '@/constants/cards';
-import type { CardDataType, CardDataByMember } from '@/types/cardList';
-import { useStateStore } from '@/stores/stateStore';
-import SkillFormComponent from '@/components/SkillFormComponent.vue';
-import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
-import EditDetailDataDialog from '@/components/modal/EditDetailDataDialog.vue';
-import noImage from '@/assets/images/NO IMAGE_card.webp';
 import { BONUS_SKILL_NAMES, bonusSkillNames } from '@/constants/bonusSkills';
 import { MESSAGES } from '@/constants/messageConst';
 import { RTDB_PATH, STRG_PATH } from '@/constants/envConst';
 
+import type { CardDataType, CardDataByMember } from '@/types/cardList';
+
+import SkillFormComponent from '@/components/SkillFormComponent.vue';
+import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
+import EditDetailDataDialog from '@/components/modal/EditDetailDataDialog.vue';
+
+import noImage from '@/assets/images/NO IMAGE_card.webp';
+
 const store = useStateStore();
-
-const cardParamKey = ['smile', 'pure', 'cool', 'mental', 'BP'];
-
-const deleteSpecialAppeal = () => {
-  isSA.value = false;
-};
-
-const deleteCharacteristic = () => {
-  isCharacteristic.value = false;
-};
-
 const uploadStore = useUploadDataStore();
+const imageStore = useImageStore();
+
 const dbCardList = ref<Record<string, CardDataByMember>>({});
 const editingId = ref('');
 const snackbar = ref(false);
@@ -531,6 +530,16 @@ const fileBefore = ref<File | null>(null);
 const fileAfter = ref<File | null>(null);
 const previewBefore = ref<string | null>(null);
 const previewAfter = ref<string | null>(null);
+
+const cardParamKey = ['smile', 'pure', 'cool', 'mental', 'BP'];
+
+const deleteSpecialAppeal = () => {
+  isSA.value = false;
+};
+
+const deleteCharacteristic = () => {
+  isCharacteristic.value = false;
+};
 
 const copyUrl = async (url: string) => {
   try {
@@ -552,7 +561,8 @@ const filteredIllustrations = computed(() => {
   if (!card.value.memberName) {
     return [];
   }
-  const memberKey = card.value.memberName as MemberKeyValues;
+
+  const memberKey = card.value.memberName;
   const prefix = MEMBER_IDS[memberKey];
 
   if (!prefix) {
@@ -593,6 +603,7 @@ const onFileChange = (event: Event, type: 'before' | 'after') => {
         snackbarColor.value = 'warning';
         snackbar.value = true;
       }
+
       URL.revokeObjectURL(url);
     };
     img.src = url;
@@ -614,7 +625,7 @@ const onFileChange = (event: Event, type: 'before' | 'after') => {
 /**
  * 画像消去処理
  *
- * @property
+ * @description
  * アップロード待機中の画像の右上に表示する×ボタンを押したときの処理。
  *
  * @param type before | after
@@ -786,7 +797,6 @@ const addCardData = async () => {
   }
 
   try {
-    const db = store.isDev ? rtdbDev : rtdb;
     // const storage = getStorage(rtdb.app);
     const updates: Record<string, CardDataType> = {};
 
@@ -826,7 +836,7 @@ const addCardData = async () => {
       ] = cardData;
     }
 
-    await update(dbRef(db), updates);
+    await update(dbRef(rtdbDev), updates);
     snackbarMessage.value = `Uploaded to ${store.isDev ? 'Dev' : 'Prod'}`;
     snackbarColor.value = 'success';
     snackbar.value = true;
@@ -973,7 +983,7 @@ watch(
 /**
  * カードID生成処理
  *
- * @property
+ * @description
  * DBのカード情報の件数を元に、
  *
  * @returns カードID
@@ -1166,7 +1176,7 @@ const addToStore = async () => {
 
     await update(dbRef(rtdbDev), updates);
 
-    snackbarMessage.value = 'Dev環境にデータをアップロードしました';
+    snackbarMessage.value = MESSAGES.M007;
     snackbarColor.value = 'success';
     snackbar.value = true;
     editingId.value = '';
@@ -1174,7 +1184,7 @@ const addToStore = async () => {
     clearImage('after');
   } catch (e) {
     console.error(e);
-    snackbarMessage.value = e.message || 'アップロードに失敗しました';
+    snackbarMessage.value = e.message || MESSAGES.E013;
     snackbarColor.value = 'error';
     snackbar.value = true;
   }
@@ -1183,7 +1193,7 @@ const addToStore = async () => {
 /**
  * ひらがな入力判定
  *
- * @property
+ * @description
  * ひらがなが入力されているか判定する。\
  * ひらがなのみ入力されていればtrue、それ以外か空文字はエラー文言を返す。
  *

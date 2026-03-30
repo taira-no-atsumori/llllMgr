@@ -1,13 +1,13 @@
 /**
  * 頭文字判定処理
  *
- * @property
+ * @description
  * 指定された文字の行（あ行、か行など）を取得する。
  *
  * @param char 判定する文字
  * @returns 行の先頭文字（あ、か、さ...）または 'other'
  */
-export const getRow = (char: string): string => {
+export const getRow = (char: string) => {
   if (!char) {
     return 'other';
   } else if (/[あ-おア-オ]/.test(char)) {
@@ -37,15 +37,31 @@ export const getRow = (char: string): string => {
 
 /**
  * 秒を分秒に変換する
+ *
  * @param time 秒
  * @returns mm:ss形式の文字列
  */
-export const formatTime = (time: number): string => {
+export const formatTime = (time: number) => {
   if (!time || time <= 0) {
     return '0分00秒';
   }
+
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time % 60);
   const ms = String(time).split('.')[1]?.padEnd(2, '0') || '00';
+
   return `${minutes}分${seconds.toString().padStart(2, '0')}秒${ms}`;
+};
+
+/**
+ * 文字変換
+ *
+ * @description
+ * ファイル名で使えない文字を使える文字に変換する処理。
+ *
+ * @param val 変換したい文字
+ * @returns 変換後の文字
+ */
+export const conversion = (val: string) => {
+  return val.replace(/!/g, '！').replace(/\//g, '／');
 };

@@ -63,11 +63,11 @@
               <v-stepper-window-item value="2">
                 <v-row no-gutters>
                   <template
-                    v-for="memberName in store.memberNameList"
+                    v-for="memberName in memberNameList()"
                     :key="memberName"
                   >
                     <v-col
-                      v-if="!store.isOtherMember(memberName)"
+                      v-if="!isOtherMember(memberName)"
                       cols="6"
                       md="4"
                       lg="2"
@@ -78,11 +78,11 @@
                           class="d-flex flex-row align-center justify-center"
                         >
                           <img
-                            v-if="!store.isOtherMember(memberName)"
+                            v-if="!isOtherMember(memberName)"
                             :src="
-                              store.getImagePath(
+                              imageStore.getImagePath(
                                 'icons/member',
-                                `icon_illust_${memberName}_${store.thisPeriod}`
+                                `icon_illust_${memberName}_${store.thisPeriod}`,
                               )
                             "
                             style="width: 50px"
@@ -136,7 +136,7 @@
                     :key="memberName"
                   >
                     <v-col
-                      v-if="!store.isOtherMember(memberName)"
+                      v-if="!isOtherMember(memberName)"
                       cols="6"
                       md="4"
                       lg="2"
@@ -147,11 +147,11 @@
                           class="d-flex flex-row align-center justify-center"
                         >
                           <img
-                            v-if="!store.isOtherMember(memberName)"
+                            v-if="!isOtherMember(memberName)"
                             :src="
-                              store.getImagePath(
+                              imageStore.getImagePath(
                                 'icons/member',
-                                `icon_illust_${memberName}_${store.thisPeriod}`
+                                `icon_illust_${memberName}_${store.thisPeriod}`,
                               )
                             "
                             style="width: 50px"
@@ -284,7 +284,7 @@
                   :key="memberName"
                 >
                   <v-col
-                    v-if="!store.isOtherMember(memberName)"
+                    v-if="!isOtherMember(memberName)"
                     cols="6"
                     md="4"
                     lg="2"
@@ -293,11 +293,11 @@
                     <v-card class="pa-2">
                       <div class="d-flex flex-row align-center justify-center">
                         <img
-                          v-if="!store.isOtherMember(memberName)"
+                          v-if="!isOtherMember(memberName)"
                           :src="
-                            store.getImagePath(
+                            imageStore.getImagePath(
                               'icons/member',
-                              `icon_illust_${memberName}_${store.thisPeriod}`
+                              `icon_illust_${memberName}_${store.thisPeriod}`,
                             )
                           "
                           :style="`width: 50px; filter: grayscale(${
@@ -418,7 +418,7 @@
             :key="memberName"
           >
             <v-col
-              v-if="!store.isOtherMember(memberName)"
+              v-if="!isOtherMember(memberName)"
               cols="12"
               md="4"
               lg="2"
@@ -432,11 +432,11 @@
               <v-row no-gutters>
                 <v-col cols="4" align="center" class="align-self-center">
                   <v-img
-                    v-if="!store.isOtherMember(memberName)"
+                    v-if="!isOtherMember(memberName)"
                     :src="
-                      store.getImagePath(
+                      imageStore.getImagePath(
                         'icons/member',
-                        `icon_illust_${memberName}_${store.thisPeriod}`
+                        `icon_illust_${memberName}_${store.thisPeriod}`,
                       )
                     "
                     style="width: 50px"
@@ -470,9 +470,13 @@
   </v-dialog>
 </template>
 
-<script setup>
+<script setup lang="ts">
 //import { useStateStore } from '@/stores/store';
 //const store = useStateStore();
+import { memberNameList, isOtherMember } from '@/constants/memberNames';
+import { useImageStore } from '@/stores/imageStore';
+
+const imageStore = useImageStore();
 </script>
 
 <script>
@@ -554,7 +558,7 @@ export default {
 
       return `${returnDate.year}/${returnDate.month}/${returnDate.date}(${returnDate.day})`.replace(
         /\n|\r/g,
-        ''
+        '',
       );
     },
   },

@@ -233,10 +233,8 @@ const updateQuestionMark = (index: number) => {
     if (!currentVal.endsWith('?')) {
       detailInput.value[index] = currentVal + '?';
     }
-  } else {
-    if (currentVal.endsWith('?')) {
-      detailInput.value[index] = currentVal.slice(0, -1);
-    }
+  } else if (currentVal.endsWith('?')) {
+    detailInput.value[index] = currentVal.slice(0, -1);
   }
 };
 
@@ -271,6 +269,7 @@ const copyToDetail = (type: string) => {
     if (selectedRows.value[i]) {
       return String(result) + '?';
     }
+
     return result;
   });
 };

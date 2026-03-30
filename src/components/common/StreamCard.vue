@@ -5,6 +5,7 @@
     :color="isLive(item) ? 'red' : 'orange'"
     :offset-x="isLive(item) ? '56' : '33'"
     offset-y="-2"
+    bordered
     class="pt-3 d-block"
   >
     <v-card
@@ -40,7 +41,7 @@
         <v-avatar
           v-for="m in item.member"
           :key="m"
-          :image="store.getImagePath('icons/member', `icon_SD_${m}`)"
+          :image="imageStore.getImagePath('icons/member', `icon_SD_${m}`)"
           class="mr-1"
           size="38"
         />
@@ -51,12 +52,18 @@
 
 <script setup lang="ts">
 import { useStateStore } from '@/stores/stateStore';
+import { useImageStore } from '@/stores/imageStore';
+
 import { STREAM_LABEL_CONST } from '@/constants/streamLabelConst';
+
 import type { StreamInfoItem } from '@/types/stream';
 
 defineProps<{
   item: StreamInfoItem;
 }>();
+
+const store = useStateStore();
+const imageStore = useImageStore();
 
 /**
  * 配信中判定処理
@@ -84,6 +91,4 @@ const isToday = (item: StreamInfoItem) => {
     now.getDate() === startDate.getDate()
   );
 };
-
-const store = useStateStore();
 </script>

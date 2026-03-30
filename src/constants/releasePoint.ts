@@ -1,8 +1,6 @@
 import type { Rare } from '@/constants/cards';
 
-/**
- * 解放レベル
- */
+/** 解放レベル */
 export const RELEASE_POINT = {
   DR: {
     point: 100,

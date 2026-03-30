@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -22,7 +23,7 @@ ChartJS.register(
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const props = defineProps<{

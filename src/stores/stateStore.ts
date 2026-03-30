@@ -1,13 +1,46 @@
 import { defineStore } from 'pinia';
 import { watch } from 'vue';
+
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { rtdb } from '@/firebase';
+
+import { useCardStore } from '@/stores/cardStore';
+import { useSkillStore } from '@/stores/skillStore';
+import { useMusicStore } from '@/stores/musicStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
+import {
+  MEMBER_KEYS,
+  FORMATION_MEMBER,
+  type MemberKeyValues,
+  conversionIdToKey,
+  getMemberKeys,
+} from '@/constants/memberNames';
+import {
+  RARE,
+  MAX_CARD_LEVEL,
+  FAVORITE,
+  SPECIAL_CARD_LEVEL_IDS,
+  type Rare,
+  type MaxCardLevel,
+  type FavoriteIcon,
+} from '@/constants/cards';
+import type { MemberColorKeys } from '@/constants/colorConst';
+import {
+  BONUS_SKILL_NAMES,
+  DEFAULT_BONUS_SKILL_LIST,
+} from '@/constants/bonusSkills';
+import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
+import {
+  LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES,
+  type LocalDBKeyNames,
+} from '@/constants/localDBKeyNames';
+
 import type {
   StoreState,
   SearchSettings,
   SortSettings,
   SelectItemList,
-  LocalStorageData,
   LocalStorageCardListType,
   SiteSettings,
 } from '@/types/stateStore';
@@ -19,40 +52,6 @@ import type {
   TrainingStatus,
 } from '@/types/cardList';
 import type { MusicListState } from '@/types/musicList';
-import {
-  MEMBER_KEYS,
-  MEMBER_IDS,
-  FORMATION_MEMBER,
-  type MemberKeyValues,
-  conversionIdToKey,
-  getMemberKeys,
-} from '@/constants/memberNames';
-import { MEMBER_COLOR, type MemberColorKeys } from '@/constants/colorConst';
-import {
-  RARE,
-  MAX_CARD_LEVEL,
-  FAVORITE,
-  SPECIAL_CARD_LEVEL_IDS,
-  type Rare,
-  type MaxCardLevel,
-  type FavoriteIcon,
-} from '@/constants/cards';
-import {
-  BONUS_SKILL_NAMES,
-  DEFAULT_BONUS_SKILL_LIST,
-} from '@/constants/bonusSkills';
-import {
-  DEFAULT_SEARCH,
-  DEFAULT_SITE_SETTINGS,
-} from '@/constants/defaultSettings';
-import { useSkillStore } from '@/stores/skillStore';
-import { useCardStore } from '@/stores/cardList';
-import { cacheManager } from '@/utils/cacheManager';
-import { useMusicData } from '@/composables/useMusicData';
-import { FirebaseService } from '@/services/FirebaseService';
-
-const { initMusicData, isMusicLoaded, musicListFromDB, getMusicIdByTitle } =
-  useMusicData();
 
 export const useStateStore = defineStore('store', {
   state: (): StoreState => ({
@@ -81,29 +80,12 @@ export const useStateStore = defineStore('store', {
       [MEMBER_KEYS.SERAS]: 1,
       [MEMBER_KEYS.IZUMI]: 1,
     },
-    card: {},
     musicList: {},
     musicLevel: {},
     selectItemList: {
       item1: [],
       item2: [],
       item3: [],
-    },
-    siteSettings: {
-      all: {
-        headerTracking: '',
-        darkMode: 'light',
-      },
-      cardList: {
-        isShowDetail: 'false',
-        hover: 'true',
-        dot_cardLevel: 'true',
-        dot_releasePoint: 'true',
-        dot_releaseLevel: 'true',
-      },
-      musicList: {
-        hover: 'true',
-      },
     },
     sortSettings: {
       cardList: {
@@ -129,51 +111,16 @@ export const useStateStore = defineStore('store', {
     },
     localStorageData: [],
     supportSkill: {},
-    imageCache: {},
     user: null,
     isAuthLoaded: false,
   }),
   getters: {
-    cardList(): CardDataType[] {
-      return Object.entries(this.card).flatMap(([_memberName, memberCards]) => {
-        return Object.entries(memberCards).flatMap(([_rare, rarityCards]) => {
-          return Object.entries(rarityCards).map(([_id, card]) => {
-            return card;
-          });
-        });
-      });
-    },
-    // cardList(): CardDataType[] {
-    //   const result: CardDataType[] = [];
-    //   for (const memberName of Object.values(MEMBER_KEYS)) {
-    //     const memberCards = this.card[memberName];
-
-    //     if (memberCards) {
-    //       for (const rare of RARE) {
-    //         const rarityCards = memberCards[rare];
-
-    //         if (rarityCards) {
-    //           result.push(...Object.values(rarityCards));
-    //         }
-    //       }
-    //     }
-    //   }
-    //   return result;
-    // },
-    /**
-     * メンバーのリストを作成
-     *
-     * @returns メンバーのリスト
-     */
-    memberNameList() {
-      const memberNames = Object.keys(MEMBER_COLOR);
-      memberNames.push('special');
-      return memberNames;
-    },
     /**
      * スキルテキスト作成
      *
      * @param target 'specialAppeal' | 'skill' | 'characteristic'
+     * @param skillData スキル情報
+     * @param option 追加スキル数
      * @returns スキルテキスト
      */
     skillText() {
@@ -184,7 +131,7 @@ export const useStateStore = defineStore('store', {
           addSkillNum?: number[];
           targetSkillLv?: number;
         },
-      ): string => {
+      ) => {
         const skillStore = useSkillStore();
         let result = '';
         const targetLevel: number =
@@ -230,7 +177,7 @@ export const useStateStore = defineStore('store', {
     settingCardData(): CardDataType {
       return this.findCardData(this.settingCardId);
     },
-    maxTrainingLevel(): number {
+    maxTrainingLevel() {
       return (
         MAX_CARD_LEVEL[
           this.isIrregularLvCard ? RARE[2] : this.settingCardData.rare
@@ -404,14 +351,6 @@ export const useStateStore = defineStore('store', {
         return result;
       };
     },
-    /**
-     * ダークモード判定
-     *
-     * @returns boolean
-     */
-    isDarkMode() {
-      return this.siteSettings.all.darkMode === 'dark';
-    },
     selectDeck() {
       return this.deck.find((v) => v.name === this.selectDeckName);
     },
@@ -423,7 +362,7 @@ export const useStateStore = defineStore('store', {
      *
      * @returns boolean
      */
-    isIrregularLvCard(): boolean {
+    isIrregularLvCard() {
       return SPECIAL_CARD_LEVEL_IDS.includes(this.settingCardId);
     },
     /*makeMusicList() {
@@ -455,52 +394,6 @@ export const useStateStore = defineStore('store', {
      *
      * @returns void
      */
-    async init(): Promise<void> {
-      this.loading = true;
-      this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
-      this.loadSiteSettings();
-
-      const auth = getAuth(rtdb.app);
-      onAuthStateChanged(auth, (user) => {
-        this.user = user;
-        this.isAuthLoaded = true;
-      });
-
-      watch(musicListFromDB, (newVal) => {
-        this.musicList = newVal;
-      });
-
-      watch(
-        () => this.isDev,
-        async (newVal) => {
-          this.loading = true;
-          await initMusicData(newVal);
-          this.loading = false;
-        },
-      );
-      initMusicData(this.isDev);
-
-      if (!isMusicLoaded.value) {
-        await new Promise<void>((resolve) => {
-          const unwatch = watch(isMusicLoaded, (val) => {
-            if (val) {
-              unwatch();
-              resolve();
-            }
-          });
-        });
-      }
-
-      await this.initializeData();
-      await this.getLocalStorage();
-      await this.setSupportSkillLevel();
-      // this.makeNewDeck();
-      // console.log(window.location.search.replace('?', ''));
-      // if (window.location.search.replace('?', '') !== '') {
-      //   window.location.replace('/llllMgr/musicList');
-      // }
-      this.loading = false;
-    },
     // async init(): Promise<void> {
     //   this.loading = true;
     //   this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
@@ -511,8 +404,6 @@ export const useStateStore = defineStore('store', {
     //     this.user = user;
     //     this.isAuthLoaded = true;
     //   });
-
-    //   const cardStore = useCardStore();
 
     //   watch(musicListFromDB, (newVal) => {
     //     this.musicList = newVal;
@@ -528,17 +419,14 @@ export const useStateStore = defineStore('store', {
     //   );
     //   initMusicData(this.isDev);
 
-    //   if (!isMusicLoaded.value || !cardStore.isLoaded) {
+    //   if (!isMusicLoaded.value) {
     //     await new Promise<void>((resolve) => {
-    //       const unwatch = watch(
-    //         [isMusicLoaded, () => cardStore.isLoaded],
-    //         ([musicLoaded, cardsLoaded]) => {
-    //           if (musicLoaded && cardsLoaded) {
-    //             unwatch();
-    //             resolve();
-    //           }
-    //         },
-    //       );
+    //       const unwatch = watch(isMusicLoaded, (val) => {
+    //         if (val) {
+    //           unwatch();
+    //           resolve();
+    //         }
+    //       });
     //     });
     //   }
 
@@ -552,6 +440,64 @@ export const useStateStore = defineStore('store', {
     //   // }
     //   this.loading = false;
     // },
+    async init() {
+      this.loading = true;
+      this.search = JSON.parse(JSON.stringify(DEFAULT_SEARCH));
+      const settingsStore = useSettingsStore();
+      settingsStore.loadSiteSettings();
+
+      const auth = getAuth(rtdb.app);
+      onAuthStateChanged(auth, (user) => {
+        this.user = user;
+        this.isAuthLoaded = true;
+      });
+
+      const musicStore = useMusicStore();
+      const cardStore = useCardStore();
+
+      watch(
+        () => musicStore.musicListFromDB,
+        (newVal) => {
+          this.musicList = newVal;
+        },
+      );
+
+      watch(
+        () => this.isDev,
+        async (newVal) => {
+          this.loading = true;
+          await cardStore.initCardData(newVal);
+          await musicStore.initMusicData(newVal);
+          this.loading = false;
+        },
+      );
+      musicStore.initMusicData(this.isDev);
+      cardStore.initCardData(this.isDev);
+
+      if (!musicStore.isMusicLoaded || !cardStore.isLoaded) {
+        await new Promise<void>((resolve) => {
+          const unwatch = watch(
+            [() => musicStore.isMusicLoaded, () => cardStore.isLoaded],
+            ([musicLoaded, cardsLoaded]: [boolean, boolean]) => {
+              if (musicLoaded && cardsLoaded) {
+                unwatch();
+                resolve();
+              }
+            },
+          );
+        });
+      }
+
+      await this.initializeData();
+      await this.getLocalStorage();
+      await this.setSupportSkillLevel();
+      // this.makeNewDeck();
+      // console.log(window.location.search.replace('?', ''));
+      // if (window.location.search.replace('?', '') !== '') {
+      //   window.location.replace('/llllMgr/musicList');
+      // }
+      this.loading = false;
+    },
     /**
      * 補助関数: 指定した処理を非同期として実行するPromiseを返す。
      *
@@ -574,9 +520,10 @@ export const useStateStore = defineStore('store', {
      *
      * @returns void
      */
-    async initializeData(): void {
+    async initializeData() {
       const makeInitMusicData = this.wrapInPromise(() => {
-        this.musicList = musicListFromDB.value;
+        const musicStore = useMusicStore();
+        this.musicList = musicStore.musicListFromDB;
 
         for (const musicID in this.musicList) {
           this.musicLevel[musicID] = this.musicList[musicID].level;
@@ -602,43 +549,8 @@ export const useStateStore = defineStore('store', {
       });
 
       const makeInitCardList = this.wrapInPromise(() => {
-        const cardStore = useCardStore();
-
-        if (!cardStore.card) {
-          this.card = {};
-        }
-
-        for (const memberName in cardStore.card) {
-          for (const rare in cardStore.card[memberName]) {
-            for (const cardId in cardStore.card[memberName][rare]) {
-              const addStatus: CardStatus = {
-                fluctuationStatus: {
-                  cardLevel: 0,
-                  trainingLevel: 0,
-                  SALevel: 1,
-                  SLevel: 1,
-                  releaseLevel: 1,
-                  releasePoint: 0,
-                },
-                sortPoint: 0,
-                favorite: [],
-              };
-
-              cardStore.card[memberName][rare][cardId] = {
-                ...cardStore.card[memberName][rare][cardId],
-                ...addStatus,
-                ID: cardId,
-                rare: rare as Rare,
-                memberName: memberName as MemberKeyValues,
-                limited: cardStore.card[memberName][rare][cardId].gacha
-                  .period as string,
-              };
-            }
-          }
-        }
-
-        this.card = cardStore.card;
-
+        // カードデータの初期化・拡張は useCardStore 側で行われるため、
+        // ここでの処理は不要になりました。
         return true;
       });
 
@@ -651,16 +563,17 @@ export const useStateStore = defineStore('store', {
     /**
      * カード画像名作成
      *
+     * @description
      * カード画像名を作成
      *
      * @param cardId カードID
      * @param isAwaking 覚醒フラグ
      * @returns カード画像名
      */
-    makeCardIllustName(cardId: string, isAwaking = true): string {
+    makeCardIllustName(cardId: string, isAwaking = true) {
       return `${cardId}_${isAwaking ? 'after' : 'before'}`;
     },
-    makeNewDeck(): void {
+    makeNewDeck() {
       const a = {
         name: `新規デッキ${this.deck.length + 1}`,
         period: this.thisPeriod,
@@ -712,7 +625,7 @@ export const useStateStore = defineStore('store', {
      * @param value 値
      * @returns void
      */
-    setLocalStorage(setLocalStorageName: string, value: string): void {
+    setLocalStorage(setLocalStorageName: LocalDBKeyNames, value: string) {
       localStorage[setLocalStorageName] = JSON.stringify(value);
     },
     /**
@@ -723,6 +636,7 @@ export const useStateStore = defineStore('store', {
      * また、引数にデータを持たせて、バックアップファイルをインポートしたときの処理も行える。
      *
      * @param importData バックアップデータ
+     * @returns void
      */
     getLocalStorage(importData?: {
       cardList?: CardListState;
@@ -730,24 +644,27 @@ export const useStateStore = defineStore('store', {
       sortSettings?: SortSettings;
       selectItemList?: SelectItemList;
       siteSettings?: SiteSettings;
-    }): void {
+    }) {
+      const musicStore = useMusicStore();
+      const cardStore = useCardStore();
+      const settingsStore = useSettingsStore();
       const isImportData = importData !== undefined;
 
       if (
-        (!isImportData && localStorage?.llllMgr_musicData) ||
+        (!isImportData && localStorage?.[LDB_KEY_NAMES.MUSIC_DATA]) ||
         (isImportData && importData?.musicData)
       ) {
         const loadedMusicLevel: Record<string, number> =
           isImportData && !!importData?.musicData
             ? importData.musicData.musicLevel
-            : JSON.parse(localStorage.llllMgr_musicData).musicLevel;
+            : JSON.parse(localStorage[LDB_KEY_NAMES.MUSIC_DATA]).musicLevel;
 
         const sampleTitle: string | null = this.musicList.m_001?.title;
         let isConverted = false;
 
         if (sampleTitle && loadedMusicLevel[sampleTitle] !== undefined) {
           for (const musicTitle in loadedMusicLevel) {
-            const id = getMusicIdByTitle(musicTitle);
+            const id = musicStore.getMusicIdByTitle(musicTitle);
 
             if (id) {
               loadedMusicLevel[id] = loadedMusicLevel[musicTitle];
@@ -755,6 +672,7 @@ export const useStateStore = defineStore('store', {
 
             delete loadedMusicLevel[musicTitle];
           }
+
           isConverted = true;
         }
 
@@ -764,7 +682,7 @@ export const useStateStore = defineStore('store', {
         };
 
         if (isImportData || isConverted) {
-          this.setLocalStorage('llllMgr_musicData', {
+          this.setLocalStorage(LDB_KEY_NAMES.MUSIC_DATA, {
             musicLevel: this.musicLevel,
           });
         }
@@ -779,27 +697,28 @@ export const useStateStore = defineStore('store', {
       }
 
       if (
-        (!isImportData && localStorage?.llllMgr_card) ||
+        (!isImportData && localStorage?.[LDB_KEY_NAMES.CARD]) ||
         (isImportData && importData?.cardList?.card)
       ) {
         const rawData: LocalStorageCardListType | undefined = isImportData
           ? importData?.cardList?.card
-          : localStorage.llllMgr_card
-            ? JSON.parse(localStorage.llllMgr_card)
+          : localStorage[LDB_KEY_NAMES.CARD]
+            ? JSON.parse(localStorage[LDB_KEY_NAMES.CARD])
             : undefined;
-        let lsCardList = null;
+        let lsCardList: Record<string, CardDataByMember> | null = null;
 
         if (rawData) {
           /**
+           * カードリスト旧式判定処理
+           *
+           * @description
            * カードリストのデータのつくりが旧式であるか判定。\
            *「xx_000」形式であればそのまま返す。
            *
            * @param data カードリスト
            * @returns LocalStorageCardListType
            */
-          const remakeCardList = (
-            data: LocalStorageCardListType,
-          ): LocalStorageCardListType => {
+          const remakeCardList = (data: LocalStorageCardListType) => {
             if (
               data.kaho?.DR &&
               Object.keys(data.kaho.DR).length > 0 &&
@@ -830,28 +749,28 @@ export const useStateStore = defineStore('store', {
         }
 
         if (lsCardList) {
-          for (const memberName in this.card) {
+          for (const memberName in cardStore.card) {
             if (lsCardList[memberName]) {
-              for (const rare in this.card[memberName]) {
+              for (const rare in cardStore.card[memberName]) {
                 if (lsCardList[memberName][rare]) {
-                  for (const id in this.card[memberName][rare]) {
+                  for (const id in cardStore.card[memberName][rare]) {
                     const lsCardData = lsCardList[memberName][rare][id];
 
                     if (lsCardData) {
-                      this.card[memberName][rare][id].fluctuationStatus = {
+                      cardStore.card[memberName][rare][id].fluctuationStatus = {
                         ...lsCardData.fluctuationStatus,
                       };
 
                       if (
                         lsCardData.fluctuationStatus.releasePoint === undefined
                       ) {
-                        this.card[memberName][rare][
+                        cardStore.card[memberName][rare][
                           id
                         ].fluctuationStatus.releasePoint = 0;
                       }
 
                       if (lsCardData.favorite) {
-                        this.card[memberName][rare][id].favorite = [
+                        cardStore.card[memberName][rare][id].favorite = [
                           ...lsCardData.favorite,
                         ];
                       }
@@ -863,17 +782,17 @@ export const useStateStore = defineStore('store', {
           }
         }
         // ローカルストレージのデータを更新
-        this.setLocalStorage('llllMgr_card', this.makeExportCardData());
+        this.setLocalStorage(LDB_KEY_NAMES.CARD, this.makeExportCardData());
       }
 
       if (
-        localStorage?.llllMgr_cardListFilter ||
+        localStorage?.[LDB_KEY_NAMES.CARD_LIST_FILTER] ||
         (isImportData && importData?.cardList?.cardListFilter)
       ) {
         if (!isImportData) {
           // インポートデータがないとき
           const lsData: SearchSettings = JSON.parse(
-            localStorage.llllMgr_cardListFilter,
+            localStorage[LDB_KEY_NAMES.CARD_LIST_FILTER],
           );
 
           this.search = {
@@ -913,17 +832,17 @@ export const useStateStore = defineStore('store', {
             };
           }
 
-          this.setLocalStorage('llllMgr_cardListFilter', this.search);
+          this.setLocalStorage(LDB_KEY_NAMES.CARD_LIST_FILTER, this.search);
         }
       }
 
       if (
-        localStorage?.llllMgr_selectItemList ||
+        localStorage?.[LDB_KEY_NAMES.SELECT_ITEM_LIST] ||
         (isImportData && importData?.selectItemList)
       ) {
         if (!isImportData) {
           const getSelectItemList: SelectItemList = JSON.parse(
-            localStorage.llllMgr_selectItemList,
+            localStorage[LDB_KEY_NAMES.SELECT_ITEM_LIST],
           );
 
           for (let i = 1; i <= 3; i++) {
@@ -935,19 +854,22 @@ export const useStateStore = defineStore('store', {
               importData.selectItemList[`item${i}`];
           }
 
-          this.setLocalStorage('llllMgr_selectItemList', this.selectItemList);
+          this.setLocalStorage(
+            LDB_KEY_NAMES.SELECT_ITEM_LIST,
+            this.selectItemList,
+          );
         }
       }
 
-      this.loadSiteSettings(importData);
+      settingsStore.loadSiteSettings(importData);
 
       if (
-        localStorage?.llllMgr_sortSettings ||
+        localStorage?.[LDB_KEY_NAMES.SORT_SETTINGS] ||
         (isImportData && importData?.sortSettings)
       ) {
         if (!isImportData) {
           const getSortSettings: SortSettings = JSON.parse(
-            localStorage.llllMgr_sortSettings,
+            localStorage[LDB_KEY_NAMES.SORT_SETTINGS],
           );
 
           for (const word of ['card', 'music']) {
@@ -968,49 +890,14 @@ export const useStateStore = defineStore('store', {
             }
           }
 
-          this.setLocalStorage('llllMgr_sortSettings', this.sortSettings);
-        }
-      }
-    },
-    /**
-     * サイト設定のロード
-     *
-     * @param importData インポートデータ
-     */
-    loadSiteSettings(importData?: { siteSettings: SiteSettings }) {
-      const isImportData = importData !== undefined;
-
-      if (
-        (!isImportData && localStorage?.llllMgr_siteSettings) ||
-        (isImportData && importData?.siteSettings)
-      ) {
-        if (!isImportData) {
-          const getSiteSettings: LocalStorageData = JSON.parse(
-            localStorage.llllMgr_siteSettings,
-          );
-
-          for (const categoryName of ['all', 'cardList', 'musicList']) {
-            this.siteSettings[categoryName] = {
-              ...this.siteSettings[categoryName],
-              ...getSiteSettings[categoryName],
-            };
-          }
-        } else if (importData?.siteSettings) {
-          for (const categoryName of ['all', 'cardList', 'musicList']) {
-            this.siteSettings[categoryName] = {
-              ...this.siteSettings[categoryName],
-              ...importData.siteSettings[categoryName],
-            };
-          }
-
-          this.setLocalStorage('llllMgr_siteSettings', this.siteSettings);
+          this.setLocalStorage(LDB_KEY_NAMES.SORT_SETTINGS, this.sortSettings);
         }
       }
     },
     /**
      * ローカルストレージデータ削除
      *
-     * @property
+     * @description
      * ローカルストレージのデータを削除する。
      *
      * @param deleteDataName 削除したいデータ名
@@ -1019,14 +906,14 @@ export const useStateStore = defineStore('store', {
     deleteLocalStorage(deleteDataName: string) {
       switch (deleteDataName) {
         case 'music':
-          localStorage.removeItem('llllMgr_musicData');
+          localStorage.removeItem(LDB_KEY_NAMES.MUSIC_DATA);
           break;
         case 'card':
-          localStorage.removeItem('llllMgr_card');
-          localStorage.removeItem('llllMgr_cardListFilter');
+          localStorage.removeItem(LDB_KEY_NAMES.CARD);
+          localStorage.removeItem(LDB_KEY_NAMES.CARD_LIST_FILTER);
           break;
         default:
-          localStorage.removeItem('llllMgr_selectItemList');
+          localStorage.removeItem(LDB_KEY_NAMES.SELECT_ITEM_LIST);
       }
     },
     /**
@@ -1044,56 +931,27 @@ export const useStateStore = defineStore('store', {
         (e.target as HTMLInputElement).value,
       );
     },
-    /**
-     * boolean判定
-     *
-     * @property
-     * 与えられた文字がtrueであるか判定する処理。
-     *
-     * @param value 判定したい文字
-     * @returns true | false
-     */
-    toBool(value: string): boolean {
-      return value === 'true';
-    },
-    /**
-     * 文字変換
-     *
-     * @property
-     * ファイル名で使えない文字を使える文字に変換する処理。
-     *
-     * @param val 変換したい文字
-     * @returns 変換後の文字
-     */
-    conversion(val: string) {
-      return val.replace(/!/g, '！').replace(/\//g, '／');
-    },
     setOpenCard(id: string, name: string, style: string) {
       this.openCard.ID = id;
       this.openCard.name = name;
       this.openCard.style = style;
     },
-    isOtherMember(name: string): boolean {
-      return name === 'special';
-    },
     /**
-     * カードID検索処理
+     * カードID検索
      *
-     * @property
+     * @description
      * メンバー名とカード名からカードIDを検索
      *
      * @param memberName メンバー名
      * @param cardName カード名
      * @return カードID
      */
-    findCardId(
-      memberName: MemberKeyValues | 'default',
-      cardName: string,
-    ): string {
+    findCardId(memberName: MemberKeyValues | 'default', cardName: string) {
+      const cardStore = useCardStore();
       if (cardName === 'default') {
-        return this.makeDefaultCardId(memberName);
+        return cardStore.makeDefaultCardId(memberName);
       } else {
-        const list = this.cardList.filter((v) => {
+        const list = cardStore.cardList.filter((v) => {
           return v.cardName === cardName;
         });
 
@@ -1101,30 +959,31 @@ export const useStateStore = defineStore('store', {
           ? list[0].ID
           : (list.find((v) => {
               return v.memberName === memberName;
-            })?.ID ?? this.makeDefaultCardId(memberName));
+            })?.ID ?? cardStore.makeDefaultCardId(memberName));
       }
     },
     /**
      * カードデータ検索処理
      *
-     * @property
+     * @description
      * カードIDからカードデータを検索する。
      *
      * @param cardId カードID
      * @return カードデータ
      */
     findCardData(cardId: string): CardDataType {
+      const cardStore = useCardStore();
       const id_split = cardId.split('_');
 
       if (id_split[1] === '000') {
         return {
-          ...this.card.default,
+          ...cardStore.card.default,
           ...{
             cardName: 'default',
           },
         };
       } else {
-        const memberCardList = this.card[conversionIdToKey(id_split[0])];
+        const memberCardList = cardStore.card[conversionIdToKey(id_split[0])];
 
         for (const rare in memberCardList) {
           if (memberCardList[rare][cardId]) {
@@ -1132,18 +991,6 @@ export const useStateStore = defineStore('store', {
           }
         }
       }
-    },
-    /**
-     * デフォルトカードID作成処理
-     *
-     * @property
-     * 各メンバーのデフォルトのカードIDを作成。
-     *
-     * @param memberName メンバー名
-     * @return デフォルトのカードID
-     */
-    makeDefaultCardId(memberName: MemberKeyValues) {
-      return `${memberName === 'default' ? 'df' : MEMBER_IDS[memberName]}_000`;
     },
     /**
      * カードIDからカードのレアリティを検索
@@ -1172,8 +1019,9 @@ export const useStateStore = defineStore('store', {
     makeExportCardData(
       data?: Record<string, CardDataByMember>,
     ): Record<string, CardDataByMember> {
+      const cardStore = useCardStore();
       const result = {};
-      const card = data ?? this.card;
+      const card = data ?? cardStore.card;
 
       for (const memberName of Object.keys(card)) {
         result[memberName] = {};
@@ -1194,14 +1042,17 @@ export const useStateStore = defineStore('store', {
 
       return result;
     },
-    switchDialog(switchFlg: boolean): void {
+    switchDialog(switchFlg: boolean) {
       this.dialog = !!switchFlg;
     },
-    valueChange(target: string, val: number): void {
+    valueChange(target: string, val: number) {
+      const musicStore = useMusicStore();
       if (target === 'musicLevel') {
-        this.musicLevel[getMusicIdByTitle(this.selectMusicTitle)] = val;
+        this.musicLevel[
+          musicStore.getMusicIdByTitle(this.selectMusicTitle as string)
+        ] = val;
 
-        this.setLocalStorage('llllMgr_musicData', {
+        this.setLocalStorage(LDB_KEY_NAMES.MUSIC_DATA, {
           musicLevel: this.musicLevel,
         });
       } else {
@@ -1234,7 +1085,7 @@ export const useStateStore = defineStore('store', {
           }
         }
 
-        this.setLocalStorage('llllMgr_card', this.makeExportCardData());
+        this.setLocalStorage(LDB_KEY_NAMES.CARD, this.makeExportCardData());
       }
     },
     /**
@@ -1242,7 +1093,7 @@ export const useStateStore = defineStore('store', {
      *
      * @param target クリックしたお気に入りの形
      */
-    changeFav(target: FavoriteIcon): void {
+    changeFav(target: FavoriteIcon) {
       if (this.settingCardData.favorite.some((v) => v === target)) {
         this.settingCardData.favorite = this.settingCardData.favorite.filter(
           (v) => v !== target,
@@ -1251,10 +1102,11 @@ export const useStateStore = defineStore('store', {
         this.settingCardData.favorite.push(target);
       }
 
-      this.setLocalStorage('llllMgr_card', this.makeExportCardData());
+      this.setLocalStorage(LDB_KEY_NAMES.CARD, this.makeExportCardData());
     },
     setSupportSkillLevel() {
-      const cardDataList = this.cardList.filter((targetCardData) => {
+      const cardStore = useCardStore();
+      const cardDataList = cardStore.cardList.filter((targetCardData) => {
         return targetCardData.uniqueStatus.supportSkill !== undefined;
       });
 
@@ -1355,12 +1207,13 @@ export const useStateStore = defineStore('store', {
      * @returns void
      */
     dataReset(resetDataNames: string[]) {
+      const cardStore = useCardStore();
       for (const removeDataName of resetDataNames) {
         switch (removeDataName) {
           case 'card': {
-            for (const memberName in this.card) {
-              for (const rare in this.card[memberName]) {
-                for (const cardId in this.card[memberName][rare]) {
+            for (const memberName in cardStore.card) {
+              for (const rare in cardStore.card[memberName]) {
+                for (const cardId in cardStore.card[memberName][rare]) {
                   const addStatus: CardStatus = {
                     fluctuationStatus: {
                       cardLevel: 0,
@@ -1374,15 +1227,15 @@ export const useStateStore = defineStore('store', {
                     favorite: [],
                   };
 
-                  this.card[memberName][rare][cardId] = {
-                    ...this.card[memberName][rare][cardId],
+                  cardStore.card[memberName][rare][cardId] = {
+                    ...cardStore.card[memberName][rare][cardId],
                     ...addStatus,
                   };
                 }
               }
             }
 
-            this.setLocalStorage('llllMgr_card', this.makeExportCardData());
+            this.setLocalStorage(LDB_KEY_NAMES.CARD, this.makeExportCardData());
             break;
           }
           case 'cardListFilter': {
@@ -1408,7 +1261,7 @@ export const useStateStore = defineStore('store', {
                 this.musicLevel[musicTitle] = this.musicList[musicTitle].level;
               }
 
-              this.setLocalStorage('llllMgr_musicData', {
+              this.setLocalStorage(LDB_KEY_NAMES.MUSIC_DATA, {
                 musicLevel: this.musicLevel,
               });
             }
@@ -1420,21 +1273,25 @@ export const useStateStore = defineStore('store', {
               item2: [],
               item3: [],
             };
-            this.setLocalStorage('llllMgr_selectItemList', this.selectItemList);
+            this.setLocalStorage(
+              LDB_KEY_NAMES.SELECT_ITEM_LIST,
+              this.selectItemList,
+            );
             break;
           }
           case 'sortSettings_card': {
             this.sortSettings.cardList = JSON.parse(
               JSON.stringify(this.sortSettings.cardList),
             );
-            this.setLocalStorage('llllMgr_sortSettings', this.sortSettings);
+            this.setLocalStorage(
+              LDB_KEY_NAMES.SORT_SETTINGS,
+              this.sortSettings,
+            );
             break;
           }
           case 'siteSettings': {
-            this.siteSettings = JSON.parse(
-              JSON.stringify(DEFAULT_SITE_SETTINGS),
-            );
-            this.setLocalStorage('llllMgr_siteSettings', this.siteSettings);
+            const settingsStore = useSettingsStore();
+            settingsStore.resetSettings();
             break;
           }
           default:
@@ -1445,14 +1302,19 @@ export const useStateStore = defineStore('store', {
     /**
      * 設定をlocalStorageに保存
      *
-     * @param setLocalStorageName 保存する設定の名前
+     * @param setLocalDBName 保存する設定の名前
      * @returns void
      */
-    changeSettings(setLocalStorageName: string): void {
-      this.setLocalStorage(
-        `llllMgr_${setLocalStorageName}`,
-        this[setLocalStorageName],
-      );
+    changeSettings(setLocalDBName: LocalDBKeyNames) {
+      if (setLocalDBName === LDB_KEY_NAMES.SITE_SETTINGS) {
+        const settingsStore = useSettingsStore();
+        settingsStore.saveSettings();
+      } else {
+        this.setLocalStorage(
+          setLocalDBName,
+          this[setLocalDBName.split('_')[1]],
+        );
+      }
     },
     setSelectCard(
       id: string,
@@ -1476,105 +1338,6 @@ export const useStateStore = defineStore('store', {
       this.selectDeck.cardData[this.openCard.name][
         this.openCard.style
       ].param.releaseLevel = param.releaseLevel;
-    },
-    /**
-     * 画像パスを返す処理
-     *
-     * @param path その画像が入っているフォルダ名
-     * @param imageName 画像の名前
-     * @param extension 画像の拡張子
-     * @returns 画像のパス
-     */
-    getImagePath(path: string, imageName: string, extension = 'webp'): string {
-      const images = import.meta.glob('../assets/**/*', { eager: true });
-      const filePath = `../assets${
-        path ? `/${path}` : ''
-      }/${imageName}.${extension}`;
-
-      return images[filePath]?.default || '';
-    },
-    /**
-     * 画像取得・キャッシュ処理
-     *
-     * @param cacheKey キャッシュのキー
-     * @param items アイテムリスト
-     * @param idGenerator ID生成関数
-     * @param pathGenerator パス生成関数
-     */
-    async fetchImages<T>(
-      cacheKey: string,
-      items: T[],
-      idGenerator: (item: T) => string,
-      pathGenerator: (item: T) => string | { before: string; after: string },
-    ) {
-      if (items.length === 0) {
-        return;
-      }
-
-      if (!this.imageCache[cacheKey]) {
-        this.imageCache[cacheKey] = {};
-        // IndexedDBからキャッシュを読み込み（オプション）
-        // ここではメモリキャッシュのみを使用し、必要に応じてIndexedDBを活用
-      }
-
-      const pending = items.filter(
-        (item) => this.imageCache[cacheKey][idGenerator(item)] === undefined,
-      );
-
-      if (pending.length === 0) {
-        return;
-      }
-
-      await Promise.all(
-        pending.map(async (item) => {
-          const id = idGenerator(item);
-
-          if (id.split('_')[1] === '000') {
-            return;
-          }
-
-          const paths = pathGenerator(item);
-
-          if (typeof paths === 'string') {
-            // まずCacheManagerから取得を試みる
-            let url = await cacheManager.getImageUrl(id);
-            if (!url) {
-              url = await FirebaseService.getImageUrl(paths);
-              if (url) {
-                await cacheManager.setImageUrl(id, url);
-              }
-            }
-
-            this.imageCache[cacheKey][id] = url;
-          } else {
-            // beforeとafterの場合
-            const beforeId = `${id}_before`;
-            const afterId = `${id}_after`;
-
-            let before = await cacheManager.getImageUrl(beforeId);
-            let after = await cacheManager.getImageUrl(afterId);
-
-            if (!before || !after) {
-              const [beforeUrl, afterUrl] = await Promise.all([
-                FirebaseService.getImageUrl(paths.before),
-                FirebaseService.getImageUrl(paths.after),
-              ]);
-              before = beforeUrl;
-              after = afterUrl;
-
-              if (before) {
-                await cacheManager.setImageUrl(beforeId, before);
-              }
-
-              if (after) {
-                await cacheManager.setImageUrl(afterId, after);
-              }
-            }
-
-            this.imageCache[cacheKey][id] = { before, after };
-          }
-        }),
-      );
     },
     /**
      * 日付整形処理

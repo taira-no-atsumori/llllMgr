@@ -1,4 +1,4 @@
-import type { skillTypeKeyTypes } from '@/constants/skillDetail';
+import type { skillTypeKeyTypes } from '@/constants/skillDetailType';
 
 /**
  * スキルの型

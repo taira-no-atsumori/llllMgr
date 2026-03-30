@@ -188,12 +188,18 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+
 import { ref as dbRef, update } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
+
 import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import EditSkillTypeDialog from '@/components/modal/EditSkillTypeDialog.vue';
+
+import { RTDB_PATH } from '@/constants/envConst';
+
 import type { SkillType } from '@/types/skill';
+
+import EditSkillTypeDialog from '@/components/modal/EditSkillTypeDialog.vue';
 
 /**
  * スキルの編集の型
@@ -258,7 +264,7 @@ const isDuplicate = (a: 'ID' | 'name') => {
 /**
  * ひらがな入力判定
  *
- * @property
+ * @description
  * ひらがなが入力されているか判定する。\
  * ひらがなのみ入力されていればtrue、それ以外か空文字はfalseを返す。
  *
@@ -329,6 +335,7 @@ const onSelectSkillDetail = (detailId: string) => {
   if (!editedItem.value.detail) {
     editedItem.value.detail = { attr: '', type: [] };
   }
+
   if (!editedItem.value.detail.type) {
     editedItem.value.detail.type = [];
   }
@@ -337,11 +344,13 @@ const onSelectSkillDetail = (detailId: string) => {
     if (editedItem.value.detail.type.includes(detailId)) {
       return;
     }
+
     editedItem.value.detail.type[editingTypeIndex.value] = detailId;
   } else {
     if (editedItem.value.detail.type.includes(detailId)) {
       return;
     }
+
     editedItem.value.detail.type.push(detailId);
   }
 
@@ -357,6 +366,7 @@ const saveItem = async () => {
       ...editedItem.value,
       error: 'SkillName and ID are required',
     });
+
     return;
   }
 
@@ -364,6 +374,7 @@ const saveItem = async () => {
     const exists = props.existingItems.some(
       (item) => item.ID === editedItem.value.ID,
     );
+
     if (exists) {
       emit('save', { ...editedItem.value, error: 'This ID already exists' });
       return;
@@ -374,7 +385,7 @@ const saveItem = async () => {
 
   const { ID, ...skillData } = editedItem.value;
   const updates: Record<string, SkillType> = {};
-  updates[`skills/skill/${ID}`] = skillData;
+  updates[`${RTDB_PATH.SKILL}/${ID}`] = skillData;
 
   try {
     await update(dbRef(db), updates);

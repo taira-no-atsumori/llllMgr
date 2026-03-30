@@ -25,10 +25,16 @@
       item-value="id"
     >
       <template #[`item.startDate`]="{ item }">
-        {{ formatDisplayDate(item.startDate) }}
+        {{
+          !item.startDate
+            ? ''
+            : store.formatDate(new Date(item.startDate), 'ja')
+        }}
       </template>
       <template #[`item.endDate`]="{ item }">
-        {{ formatDisplayDate(item.endDate) }}
+        {{
+          !item.endDate ? '' : store.formatDate(new Date(item.endDate), 'ja')
+        }}
       </template>
       <template #[`item.type`]="{ item }">
         {{ STREAM_LABEL_CONST[item.type] }}
@@ -37,7 +43,7 @@
         <v-avatar
           v-for="m in item.member"
           :key="m"
-          :image="store.getImagePath('icons/member', `icon_SD_${m}`)"
+          :image="imageStore.getImagePath('icons/member', `icon_SD_${m}`)"
           size="30"
           class="mr-1"
         />
@@ -131,7 +137,7 @@
                     <template #label>
                       <v-avatar
                         :image="
-                          store.getImagePath(
+                          imageStore.getImagePath(
                             'icons/member',
                             `icon_SD_${member}`,
                           )
@@ -172,9 +178,13 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed, watch } from 'vue';
+
 import { ref as dbRef, onValue, set, remove } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useImageStore } from '@/stores/imageStore';
+
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { RTDB_PATH } from '@/constants/envConst';
 import { STREAM_LABEL_CONST } from '@/constants/streamLabelConst';
@@ -188,8 +198,23 @@ interface ScheduleItem {
 }
 
 const filterOptions = ['All', 'Upcoming', 'Ended'];
+const headers = [
+  { title: 'Start Date', key: 'startDate', sortable: true, width: '15%' },
+  { title: 'End Date', key: 'endDate', sortable: false, width: '15%' },
+  { title: 'Type', key: 'type', width: '10%' },
+  { title: 'Members', key: 'member', sortable: false },
+  {
+    title: 'Actions',
+    key: 'actions',
+    sortable: false,
+    align: 'end',
+    width: '15%',
+  },
+];
 
 const store = useStateStore();
+const imageStore = useImageStore();
+
 const schedules = ref<ScheduleItem[]>([]);
 const loading = ref(true);
 const dialog = ref(false);
@@ -244,20 +269,6 @@ const snackbar = ref(false);
 const snackbarMessage = ref('');
 const snackbarColor = ref('success');
 
-const headers = [
-  { title: 'Start Date', key: 'startDate', sortable: true, width: '15%' },
-  { title: 'End Date', key: 'endDate', sortable: false, width: '15%' },
-  { title: 'Type', key: 'type', width: '10%' },
-  { title: 'Members', key: 'member', sortable: false },
-  {
-    title: 'Actions',
-    key: 'actions',
-    sortable: false,
-    align: 'end',
-    width: '15%',
-  },
-];
-
 const formTitle = computed(() =>
   isNew.value ? 'New Schedule' : 'Edit Schedule',
 );
@@ -286,16 +297,6 @@ onMounted(() => {
     loading.value = false;
   });
 });
-
-const formatDisplayDate = (dateStr: string) => {
-  if (!dateStr) {
-    return '';
-  }
-
-  const date = new Date(dateStr);
-  const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][date.getDay()];
-  return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}(${dayOfWeek}) ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
-};
 
 const openDialog = (item: ScheduleItem | null) => {
   if (item) {
@@ -418,10 +419,7 @@ watch(
 );
 
 watch([inputDate, inputTime], ([newDate, newTime]) => {
-  if (newDate && newTime) {
-    editedItem.value.startDate = `${newDate}T${newTime}`;
-  } else {
-    editedItem.value.startDate = '';
-  }
+  editedItem.value.startDate =
+    newDate && newTime ? `${newDate}T${newTime}` : '';
 });
 </script>

@@ -56,12 +56,6 @@
       @save="saveEvent"
     />
 
-    <v-row class="mt-2">
-      <v-col cols="12">
-        <v-btn text="Update Card List" color="yellow" @click="updateCardList" />
-      </v-col>
-    </v-row>
-
     <v-snackbar
       v-model="snackbar"
       :color="snackbarColor"
@@ -74,7 +68,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
-import { ref as dbRef, update, get, set, remove } from 'firebase/database';
+import { ref as dbRef, update, get, remove } from 'firebase/database';
 import {
   getStorage,
   ref as storageRef,
@@ -136,42 +130,6 @@ const items = computed(() => {
     }),
   );
 });
-
-/** 後で消す */
-const updateCardList = async () => {
-  const db = store.isDev ? rtdbDev : rtdb;
-  const cardsRef = dbRef(db, 'cards');
-
-  try {
-    const snapshot = await get(cardsRef);
-
-    if (snapshot.exists()) {
-      const cardsData = snapshot.val();
-
-      const deleteKey = (obj: any, keyToDelete: string) => {
-        for (const key in obj) {
-          if (key === keyToDelete) {
-            delete obj[key];
-          } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-            deleteKey(obj[key], keyToDelete);
-          }
-        }
-      };
-
-      deleteKey(cardsData, 'fluctuationStatus');
-
-      await set(cardsRef, cardsData);
-      snackbarMessage.value = 'Updated Card List (removed fluctuationStatus)';
-      snackbarColor.value = 'success';
-      snackbar.value = true;
-    }
-  } catch (error) {
-    console.error(error);
-    snackbarMessage.value = 'Error updating card list';
-    snackbarColor.value = 'error';
-    snackbar.value = true;
-  }
-};
 
 const editedItem = ref<EventItem | null>(null);
 

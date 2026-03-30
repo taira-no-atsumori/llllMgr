@@ -202,6 +202,7 @@ export interface CardDefaultData {
 
 /**
  * カードデータ
+ *
  * @property ID カードID
  * @property cardName カード名
  * @property rare レア

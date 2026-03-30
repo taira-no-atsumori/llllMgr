@@ -52,12 +52,16 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
+
 import { ref as dbRef, onValue } from 'firebase/database';
 import { rtdb } from '@/firebase';
+
 import { useStateStore } from '@/stores/stateStore';
+
+import type { SkillType } from '@/types/skill';
+
 import EditSkillDataDialog from '@/components/modal/EditSkillDataDialog.vue';
 import type { SkillEditType } from '@/components/modal/EditSkillDataDialog.vue';
-import type { SkillType } from '@/types/skill';
 
 const store = useStateStore();
 const skillList = ref<Record<string, SkillType>>({});
