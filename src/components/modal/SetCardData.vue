@@ -1,60 +1,66 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-row no-gutters class="mb-1 text-center">
-      <v-col class="pa-0">
-        <h2 class="hidden-xs">
-          <v-tooltip location="bottom">
-            <template #activator="{ props }">
-              <a
-                :href="makeWikiLink(store)"
-                target="_blank"
-                :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
-                v-bind="props"
-              >
-                {{ makeCardName(store) }}
-              </a>
-            </template>
-            Wikiを開く
-          </v-tooltip>
-        </h2>
-        <h3 class="hidden-sm-and-up">
-          <a
-            :href="makeWikiLink(store)"
-            target="_blank"
-            :class="`text-${store.isDarkMode ? 'white' : 'black'}`"
-          >
-            {{ makeCardName(store) }}
-          </a>
-        </h3>
-      </v-col>
-    </v-row>
+    <div class="mb-2 text-center">
+      <h2 class="hidden-xs">
+        <v-tooltip location="bottom">
+          <template #activator="{ props }">
+            <a
+              :href="makeWikiLink()"
+              target="_blank"
+              :class="`text-${settingsStore.isDarkMode ? 'white' : 'black'}`"
+              v-bind="props"
+            >
+              {{ makeCardName() }}
+            </a>
+          </template>
+          Wikiを開く
+        </v-tooltip>
+      </h2>
+      <h3 class="hidden-sm-and-up">
+        <a
+          :href="makeWikiLink()"
+          target="_blank"
+          :class="`text-${settingsStore.isDarkMode ? 'white' : 'black'}`"
+        >
+          {{ makeCardName() }}
+        </a>
+      </h3>
+    </div>
 
     <v-row no-gutters class="mb-2">
       <v-col cols="12" sm="7" class="py-0 pl-0 pr-0 pr-sm-4">
-        <v-carousel
+        <v-tabs
+          v-model="selectIllust"
+          color="pink"
+          density="compact"
+          grow
           class="mb-1"
+        >
+          <v-tab
+            v-for="kakusei in getIllustList"
+            :key="kakusei"
+            :value="kakusei"
+            :text="`覚醒${kakusei === 'before' ? '前' : '後'}`"
+          />
+        </v-tabs>
+        <v-carousel
+          v-model="selectIllust"
           height="auto"
           hide-delimiter-background
-          show-arrows="hover"
-          :hide-delimiters="
-            /^(D|L|B)R$/.test(store.getSettingCard.rare) ||
-            store.getSettingCard.gacha.period === 'collaboration'
-          "
-          color="#e5762c"
+          :show-arrows="false"
+          hide-delimiters
+          class="mb-1"
         >
           <v-carousel-item
-            v-for="kakusei in !cardImageUrls[store.getSettingCard.ID]?.before
-              ? [true]
-              : [false, true]"
+            v-for="kakusei in getIllustList"
             :key="kakusei"
+            :value="kakusei"
           >
             <v-responsive :aspect-ratio="16 / 9">
               <v-img
                 class="h-100"
                 :src="
-                  (kakusei
-                    ? cardImageUrls[store.getSettingCard.ID]?.after
-                    : cardImageUrls[store.getSettingCard.ID]?.before) || noImage
+                  cardImageUrls[store.getSettingCard.ID][kakusei] || noImage
                 "
                 cover
               >
@@ -72,7 +78,7 @@
               <v-img
                 v-if="false"
                 :src="
-                  store.getImagePath(
+                  imageStore.getImagePath(
                     'icons/styleType',
                     `icon_${store.settingCardData.styleType}`,
                   )
@@ -88,7 +94,10 @@
               <v-img
                 v-if="false"
                 :src="
-                  store.getImagePath('', `icon_${store.settingCardData.mood}`)
+                  imageStore.getImagePath(
+                    '',
+                    `icon_${store.settingCardData.mood}`,
+                  )
                 "
                 class="icon mood"
               />
@@ -437,7 +446,7 @@
                 "
                 @click="
                   store.valueChange('releaseLevel', 1);
-                  store.valueChange('releasePoint', maxReleasePoint(store));
+                  store.valueChange('releasePoint', maxReleasePoint());
                 "
               />
             </div>
@@ -452,7 +461,7 @@
                     'releaseLevel',
                     store.settingCardData.fluctuationStatus.releaseLevel - 1,
                   );
-                  store.valueChange('releasePoint', maxReleasePoint(store));
+                  store.valueChange('releasePoint', maxReleasePoint());
                 "
               />
             </div>
@@ -501,7 +510,7 @@
         >
           <h4 class="mb-1 d-flex flex-row">
             解放Pt.
-            <span class="ml-1">(上限：{{ limitReleasePoint(store) }})</span>
+            <span class="ml-1">(上限：{{ limitReleasePoint() }})</span>
             <v-btn
               size="small"
               density="compact"
@@ -558,7 +567,7 @@
                 text="+1"
                 :disabled="
                   store.settingCardData.fluctuationStatus.releasePoint ===
-                  limitReleasePoint(store)
+                  limitReleasePoint()
                 "
                 @click="
                   store.valueChange(
@@ -572,7 +581,7 @@
               <v-btn
                 :disabled="
                   store.settingCardData.fluctuationStatus.releasePoint ===
-                  limitReleasePoint(store)
+                  limitReleasePoint()
                 "
                 @click="
                   store.valueChange(
@@ -580,7 +589,7 @@
                     Math.min(
                       store.settingCardData.fluctuationStatus.releasePoint +
                         getReleasePoint(store.settingCardData.rare, 'point'),
-                      limitReleasePoint(store),
+                      limitReleasePoint(),
                     ),
                   )
                 "
@@ -588,8 +597,8 @@
                 +{{
                   store.settingCardData.fluctuationStatus.releasePoint +
                     getReleasePoint(store.settingCardData.rare, 'point') >
-                  limitReleasePoint(store)
-                    ? limitReleasePoint(store) -
+                  limitReleasePoint()
+                    ? limitReleasePoint() -
                       store.settingCardData.fluctuationStatus.releasePoint
                     : getReleasePoint(store.settingCardData.rare, 'point')
                 }}
@@ -647,7 +656,7 @@
             <v-slider
               v-model="store.settingCardData.fluctuationStatus.releasePoint"
               hide-details
-              :max="limitReleasePoint(store)"
+              :max="limitReleasePoint()"
               min="0"
               step="1"
               color="pink"
@@ -718,12 +727,12 @@
           class="pr-2"
         >
           <img
-            :src="store.getImagePath('icons/bonusSkill', supportSkillName)"
+            :src="imageStore.getImagePath('icons/bonusSkill', supportSkillName)"
             class="mr-1"
             style="width: 50px; border-radius: 5px"
           />
           <span style="font-size: 18px">
-            Lv.{{ makeSupportSkillLevel(store, supportSkillName) }}
+            Lv.{{ makeSupportSkillLevel(supportSkillName) }}
           </span>
         </li>
       </ul>
@@ -734,32 +743,34 @@
     <v-sheet class="pa-3">
       <div v-if="openDialogName === 'skillList'">
         <h2 class="text-center mb-2">スキル効果量一覧</h2>
-        <v-tabs v-model="selectAddSkillDetail" class="mb-2" color="pink" grow>
+        <v-tabs v-model="selectAddSkillDetail" color="pink" grow>
           <v-tab value="mainSkill" text="メインスキル" />
           <v-tab
             v-for="(addSkillData, i) in store.settingCardData[targetSkill]
               .addSkill"
             :key="i"
             :value="addSkillData.name"
-          >
-            {{ `${addSkillData?.modeName ?? `追加スキル${i + 1}`}` }}
-          </v-tab>
+            :text="`${addSkillData?.modeName ?? `追加スキル${i + 1}`}`"
+          />
         </v-tabs>
+
+        <v-divider class="mb-3" />
 
         <v-tabs-window v-model="selectAddSkillDetail">
           <v-tabs-window-item value="mainSkill">
             スキル名：{{ store.settingCardData[targetSkill].name }}
+
             <v-table density="compact">
               <thead>
                 <tr>
-                  <th class="text-center px-1">Lv</th>
+                  <th class="text-center px-1 font-weight-bold">Lv</th>
                   <th
                     v-if="store.settingCardData[targetSkill]?.EXAP"
-                    class="text-center px-2"
+                    class="text-center px-2 font-weight-bold"
                   >
                     AP
                   </th>
-                  <th class="text-center px-1">効果</th>
+                  <th class="text-center px-1 font-weight-bold">効果</th>
                 </tr>
               </thead>
               <tbody>
@@ -794,9 +805,14 @@
             <v-table density="compact">
               <thead>
                 <tr>
-                  <th class="text-center px-1">Lv</th>
-                  <th v-if="skillData?.EXAP" class="text-center px-2">AP</th>
-                  <th class="text-center px-1">効果</th>
+                  <th class="text-center px-1 font-weight-bold">Lv</th>
+                  <th
+                    v-if="skillData?.EXAP"
+                    class="text-center px-2 font-weight-bold"
+                  >
+                    AP
+                  </th>
+                  <th class="text-center px-1 font-weight-bold">効果</th>
                 </tr>
               </thead>
               <tbody>
@@ -810,14 +826,10 @@
                   </th>
                   <td class="px-1">
                     {{
-                      store.skillText(
-                        targetSkill,
-                        store.settingCardData[targetSkill],
-                        {
-                          targetSkillLv: skillLevel - 1,
-                          addSkillNum: i,
-                        },
-                      )
+                      store.skillText(targetSkill, skillData, {
+                        targetSkillLv: skillLevel - 1,
+                        addSkillNum: i,
+                      })
                     }}
                   </td>
                 </tr>
@@ -831,65 +843,10 @@
         {{ store.skillColor[skillID].description }}
       </div> -->
       <div v-else-if="openDialogName === 'GPPT'">
-        <h2 class="text-center mb-2">解放Lv.ボーナスとは？</h2>
-        <p>
-          楽曲の歌唱メンバーのMAIN
-          STYLEに設定しているカードの解放Lv.を上げると、ライブグランプリのグランプリPt.を増加させることができます。<br />
-          この増加できる値のことを「解放Lv.ボーナス」と呼びます。<br />
-          解放Lv.ボーナスは、レアリティと解放状況によって以下のように変わります。
-        </p>
-
-        <v-table>
-          <thead>
-            <tr>
-              <th rowspan="2" class="text-center">レアリティ</th>
-              <th colspan="5" class="text-center">解放状況</th>
-            </tr>
-            <tr>
-              <th v-for="i of 5" :key="i" class="text-center">♪×{{ i }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(list, rarity) of GRANDPRIX_BONUS.releaseLv"
-              :key="rarity"
-            >
-              <th>{{ rarity }}</th>
-              <td v-for="bonus of list" :key="bonus" class="text-center">
-                +{{ bonus * 100 }}%
-              </td>
-            </tr>
-          </tbody>
-        </v-table>
-        ※DRカードはライブグランプリに参加できないため、解放Lv.ボーナス対象外
+        <HowToGPPT />
       </div>
       <div v-else-if="openDialogName === 'releasePoint'">
-        <h2 class="text-center mb-2">解放Pt.とは？</h2>
-
-        <p>
-          ガチャで入手したカードが重複していた場合に獲得できるのが「解放Pt.」です。<br />
-          この解放Pt.を設定していると、カード一覧のカード画像の右上に<span
-            class="text-blue-accent-4"
-            >●</span
-          >がつきます。<br />
-          なお、解放Lv.を上げると、現在設定されている解放Pt.から解放Lv.を上げるのに必要な解放Pt.を自動的に消費し、設定できる解放Pt.の上限も変化します。<br />
-          ※解放Lv.を下げた場合は設定できる解放Pt.の上限は上がりますが、解放Pt.は変化しません。<br /><br />
-        </p>
-        <p>
-          例1）解放Pt.を250に設定してURカードの解放Lv.を1から2に上げた場合<br />
-          設定できる解放Pt.の上限：400→300<br />
-          解放Pt.：250→150<br /><br />
-        </p>
-        <p>
-          例2）解放Pt.を150に設定してURカードの解放Lv.を2から5(MAX)に上げた場合<br />
-          設定できる解放Pt.の上限：300→0<br />
-          解放Pt.：150→0<br /><br />
-        </p>
-        <p>
-          例3）解放Pt.を98に設定してURカードの解放Lv.を4から1(MIN)に下げた場合<br />
-          設定できる解放Pt.の上限：100→400<br />
-          解放Pt.：98→98
-        </p>
+        <howToReleasePoint />
       </div>
       <div class="mt-1 text-center">
         <v-btn
@@ -903,24 +860,54 @@
 </template>
 
 <script setup lang="ts">
-// import { ref } from 'vue';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
+
+import { useStateStore } from '@/stores/stateStore';
+import { useImageStore } from '@/stores/imageStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
 import {
   convertStyleEnToJp,
   convertMoodEnToJp,
   FAVORITE,
   LIMITED,
 } from '@/constants/cards';
-import type { StoreState } from '@/types/stateStore';
-import { useStateStore } from '@/stores/stateStore';
-import { MEMBER_NAMES, makeMemberFullName } from '@/constants/memberNames';
+import { makeMemberFullName } from '@/constants/memberNames';
 import { getReleasePoint } from '@/constants/releasePoint';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { DEFAULT_SEARCH } from '@/constants/defaultSettings';
+import type { BonusSkillNames } from '@/constants/bonusSkills';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
+import howToReleasePoint from '@/components/howTo/HowToReleasePoint.vue';
+import HowToGPPT from '@/components/howTo/HowToGPPT.vue';
 import skillArea from '@/components/SkillAreaComponent.vue';
+
 import noImage from '@/assets/images/NO IMAGE_card.webp';
 
 const store = useStateStore();
+const imageStore = useImageStore();
+const settingsStore = useSettingsStore();
+
+// const tab_addSkill = ref('one');
+const dialog = ref(false);
+const openDialogName = ref<
+  'skillList' | 'skillDescription' | 'GPPT' | 'releasePoint'
+>('skillList');
+const dialogSize = ref(0);
+const targetSkill = ref('');
+const skillID = ref('');
+// const isAlternate = ref(false);
+const selectAddSkillDetail = ref('');
+const gameMode = ref('stage');
+
+const cardImageUrls = computed(
+  () => imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_CARD] || {},
+);
+
+const selectIllust = ref(
+  !cardImageUrls.value[store.getSettingCard.ID]?.before ? 'after' : 'before',
+);
 
 const dynamicWidth = computed(() => {
   const releaseLevel: number =
@@ -928,159 +915,136 @@ const dynamicWidth = computed(() => {
   return `calc(${100 / (5 - releaseLevel)}% + ${1 / releaseLevel}px)`;
 });
 
-const cardImageUrls = computed(
-  () => store.imageCache['llllMgr_cardImageUrls'] || {},
-);
+const getIllustList = computed(() => {
+  return !cardImageUrls.value[store.getSettingCard.ID]?.before
+    ? ['after']
+    : ['before', 'after'];
+});
 
 const releasePoint_underlineColor = computed(() => {
-  return store.isDarkMode ? 'white' : 'black';
+  return settingsStore.isDarkMode ? 'white' : 'black';
 });
-</script>
 
-<script lang="ts">
-export default {
-  name: 'CardSetting',
-  components: {
-    skillArea: skillArea,
-  },
-  data() {
-    return {
-      tab_addSkill: 'one',
-      dialog: false,
-      openDialogName: null,
-      dialogSize: 0,
-      targetSkill: null,
-      skillID: '',
-      isAlternate: false,
-      selectAddSkillDetail: 'mainSkill',
-      gameMode: 'stage',
-    };
-  },
-  computed: {},
-  created() {},
-  mounted() {},
-  methods: {
-    /**
-     * リンク作成
-     *
-     * @param store ストア
-     * @returns string リンク
-     */
-    makeWikiLink(store: StoreState): string {
-      const name = MEMBER_NAMES[store.getSettingCard.memberName];
+/**
+ * リンク作成
+ *
+ * @returns リンク
+ */
+const makeWikiLink = () => {
+  return `https://wikiwiki.jp/llll_wiki/［${store.getSettingCard.cardName
+    .replaceAll('&', '＆')
+    .replaceAll('/', '／')}］${makeMemberFullName(
+    store.getSettingCard.memberName,
+  )}`;
+};
+/**
+ * カード名作成
+ *
+ * @returns カード名
+ */
+const makeCardName = () => {
+  return `${store.getSettingCard.rare} [${
+    store.getSettingCard.cardName
+  }] ${makeMemberFullName(store.getSettingCard.memberName)}`;
+};
 
-      return `https://wikiwiki.jp/llll_wiki/［${store.getSettingCard.cardName
-        .replaceAll('&', '＆')
-        .replaceAll('/', '／')}］${name.first}${
-        name.first === 'セラス' ? ' ' : ''
-      }${name.last}`;
-    },
-    /**
-     * カード名作成
-     *
-     * @param store ストア
-     * @returns string カード名
-     */
-    makeCardName(store: StoreState): string {
-      return `${store.getSettingCard.rare} [${
-        store.getSettingCard.cardName
-      }] ${makeMemberFullName(store.getSettingCard.memberName)}`;
-    },
-    /**
-     * サポートスキル作成
-     *
-     * @param store ストア
-     * @param supportSkillName サポートスキル名
-     * @returns number サポートスキルレベル
-     */
-    makeSupportSkillLevel(store: StoreState, supportSkillName: string): number {
-      const result =
-        store.settingCardData.uniqueStatus.supportSkill.supportSkillList[
-          supportSkillName
-        ].initLevel;
+/**
+ * サポートスキル作成
+ *
+ * @param supportSkillName サポートスキル名
+ * @returns サポートスキルレベル
+ */
+const makeSupportSkillLevel = (supportSkillName: BonusSkillNames) => {
+  const result =
+    store.settingCardData.uniqueStatus.supportSkill.supportSkillList[
+      supportSkillName
+    ].initLevel;
 
-      if (store.settingCardData.fluctuationStatus.cardLevel === 0) {
-        return 0;
-      } else if (
-        store.settingCardData.fluctuationStatus.releaseLevel >=
-        store.settingCardData.uniqueStatus.supportSkill.supportSkillList[
-          supportSkillName
-        ].levelUp
-      ) {
-        return (
-          result +
-          store.settingCardData.uniqueStatus.supportSkill.supportSkillList[
-            supportSkillName
-          ].upLevel
-        );
-      } else {
-        return result;
-      }
-    },
-    /**
-     * ダイアログスイッチ
-     *
-     * ダイアログの表示・非表示を切り替える
-     *
-     * @param flg フラグ
-     * @returns void
-     */
-    switchDialog(flg: null | boolean): void {
-      this.dialog = flg === null ? !this.dialog : flg;
-    },
-    /**
-     * ダイアログ開閉処理
-     *
-     * @param openDialogName 開きたいダイアログ名
-     * @param dialogSize ダイアログの横幅
-     * @param option オプション
-     * @returns void
-     */
-    openDialog(
-      openDialogName: string,
-      dialogSize: number,
-      option?: { targetSkill?: string; skillID?: string } | null,
-    ): void {
-      this.targetSkill = option === null ? null : option.targetSkill;
-      this.openDialogName = openDialogName;
-      this.dialogSize = dialogSize;
+  if (store.settingCardData.fluctuationStatus.cardLevel === 0) {
+    return 0;
+  } else if (
+    store.settingCardData.fluctuationStatus.releaseLevel >=
+    store.settingCardData.uniqueStatus.supportSkill.supportSkillList[
+      supportSkillName
+    ].levelUp
+  ) {
+    return (
+      result +
+      store.settingCardData.uniqueStatus.supportSkill.supportSkillList[
+        supportSkillName
+      ].upLevel
+    );
+  } else {
+    return result;
+  }
+};
 
-      if (openDialogName === 'skillDescription') {
-        this.skillID = option.skillID;
-      }
+/**
+ * ダイアログスイッチ
+ *
+ * @description
+ * ダイアログの表示・非表示を切り替える。
+ *
+ * @param flg フラグ
+ * @returns void
+ */
+const switchDialog = (flg: null | boolean) => {
+  dialog.value = flg === null ? !dialog.value : flg;
+};
 
-      this.switchDialog(null);
-    },
-    /**
-     * 解放Pt.最大値計算
-     *
-     * 各カードの解放Pt.の最大値を計算する。
-     *
-     * @param store store
-     * @returns number 最大値
-     */
-    maxReleasePoint(store: StoreState): number {
-      const point = Math.min(
-        store.settingCardData.fluctuationStatus.releasePoint,
-        this.limitReleasePoint(store),
-      );
-      store.valueChange('releasePoint', point);
-      return point;
-    },
-    /**
-     * 解放Pt.上限計算
-     *
-     * @param {Object} store store
-     * @returns string 上限値
-     */
-    limitReleasePoint(store: StoreState): number {
-      return (
-        getReleasePoint(store.settingCardData.rare, 'max') -
-        getReleasePoint(store.settingCardData.rare, 'point') *
-          (store.settingCardData.fluctuationStatus.releaseLevel - 1)
-      );
-    },
-  },
+/**
+ * ダイアログ開閉処理
+ *
+ * @param openDialogNameA 開きたいダイアログ名
+ * @param dialogSizeA ダイアログの横幅
+ * @param option オプション
+ * @returns void
+ */
+const openDialog = (
+  openDialogNameA: string,
+  dialogSizeA: number,
+  option?: { targetSkill?: string; skillID?: string } | null,
+) => {
+  targetSkill.value = option === null ? null : option.targetSkill;
+  openDialogName.value = openDialogNameA;
+  dialogSize.value = dialogSizeA;
+
+  if (openDialogName.value === 'skillDescription') {
+    skillID.value = option.skillID;
+  }
+
+  switchDialog(null);
+};
+
+/**
+ * 解放Pt.最大値計算
+ *
+ * @description
+ * 各カードの解放Pt.の最大値を計算する。
+ *
+ * @returns 最大値
+ */
+const maxReleasePoint = () => {
+  const point = Math.min(
+    store.settingCardData.fluctuationStatus.releasePoint,
+    limitReleasePoint(),
+  );
+  store.valueChange('releasePoint', point);
+
+  return point;
+};
+
+/**
+ * 解放Pt.上限計算
+ *
+ * @returns 上限値
+ */
+const limitReleasePoint = () => {
+  return (
+    getReleasePoint(store.settingCardData.rare, 'max') -
+    getReleasePoint(store.settingCardData.rare, 'point') *
+      (store.settingCardData.fluctuationStatus.releaseLevel - 1)
+  );
 };
 </script>
 

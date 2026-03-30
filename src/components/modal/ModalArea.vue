@@ -41,7 +41,7 @@
       <div class="mt-2 text-center">
         <v-btn
           prepend-icon="mdi-close"
-          :theme="store.siteSettings.all.darkMode"
+          :theme="settingsStore.siteSettings.all.darkMode"
           data-button="modalClose"
           text="CLOSE"
           @click="store.switchDialog(false)"
@@ -53,6 +53,8 @@
 
 <script setup lang="ts">
 import { useStateStore } from '@/stores/stateStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
 // import { CardSetting } from './PossessionCardList.vue'
 import SetCardData from './SetCardData.vue';
 import CardListFilter from './CardListFilter.vue';
@@ -65,6 +67,7 @@ import SettingsDialog from './SettingsDialog.vue';
 import Login from './Login.vue';
 
 const store = useStateStore();
+const settingsStore = useSettingsStore();
 
 const maxWidth = {
   selectCard: 1600,

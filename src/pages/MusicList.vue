@@ -41,7 +41,10 @@
                     <template #selection="{ item }">
                       <v-img
                         :src="
-                          store.getImagePath('icons/bonusSkill', item.title)
+                          imageStore.getImagePath(
+                            'icons/bonusSkill',
+                            item.title,
+                          )
                         "
                         eager
                         style="width: 25px; border-radius: 3px"
@@ -63,7 +66,10 @@
                           />
                           <v-img
                             :src="
-                              store.getImagePath('icons/bonusSkill', item.title)
+                              imageStore.getImagePath(
+                                'icons/bonusSkill',
+                                item.title,
+                              )
                             "
                             :alt="item.title"
                             eager
@@ -93,7 +99,7 @@
                     <template #selection="{ item }">
                       <v-img
                         :src="
-                          store.getImagePath(
+                          imageStore.getImagePath(
                             'icons/member',
                             `icon_SD_${item.title}`,
                           )
@@ -117,7 +123,7 @@
                           />
                           <v-img
                             :src="
-                              store.getImagePath(
+                              imageStore.getImagePath(
                                 'icons/member',
                                 `icon_SD_${item.title}`,
                               )
@@ -166,7 +172,7 @@
                     <template #selection="{ item }">
                       <v-img
                         :src="
-                          store.getImagePath(
+                          imageStore.getImagePath(
                             'icons/attribute',
                             `icon_${item.title}`,
                           )
@@ -189,7 +195,7 @@
                           />
                           <v-img
                             :src="
-                              store.getImagePath(
+                              imageStore.getImagePath(
                                 'icons/attribute',
                                 `icon_${item.title}`,
                               )
@@ -360,9 +366,9 @@
         <h3 class="mb-1">各メンバーのボーナス</h3>
       </v-col>
 
-      <template v-for="memberName in store.memberNameList" :key="memberName">
+      <template v-for="memberName in memberNameList()" :key="memberName">
         <v-col
-          v-if="!store.isOtherMember(memberName)"
+          v-if="!isOtherMember(memberName)"
           cols="4"
           lg="2"
           :class="`text-center align-self-end${
@@ -377,7 +383,10 @@
               <h4 class="d-flex flex-row align-center">
                 <img
                   :src="
-                    store.getImagePath('icons/member', `icon_SD_${memberName}`)
+                    imageStore.getImagePath(
+                      'icons/member',
+                      `icon_SD_${memberName}`,
+                    )
                   "
                   style="width: 30px"
                 />
@@ -416,7 +425,9 @@
                       :class="`d-flex align-center`"
                     >
                       <img
-                        :src="store.getImagePath('icons/bonusSkill', skillName)"
+                        :src="
+                          imageStore.getImagePath('icons/bonusSkill', skillName)
+                        "
                         style="width: 30px; border-radius: 3px"
                       />
                       <span style="padding: 0 1px 0 2px">×</span>
@@ -516,7 +527,7 @@
           <v-btn
             value="descending"
             class="px-0 px-sm-2"
-            @click="store.changeSettings('sortSettings')"
+            @click="store.changeSettings(LDB_KEY_NAMES.SORT_SETTINGS)"
           >
             <v-icon icon="mdi-sort-descending" />
             <span class="ml-2 hidden-sm-and-down">降順</span>
@@ -524,7 +535,7 @@
           <v-btn
             value="ascending"
             class="px-0 px-sm-2"
-            @click="store.changeSettings('sortSettings')"
+            @click="store.changeSettings(LDB_KEY_NAMES.SORT_SETTINGS)"
           >
             <v-icon icon="mdi-sort-ascending" />
             <span class="ml-2 hidden-sm-and-down">昇順</span>
@@ -564,11 +575,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch, toRefs } from 'vue';
 import { useDisplay } from 'vuetify';
+
 import { useStateStore } from '@/stores/stateStore';
-import Music from '@/components/common/music/Music.vue';
-import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
+import { useMusicStore } from '@/stores/musicStore';
+import { useImageStore } from '@/stores/imageStore';
+
+import { conversion } from '@/utils/stringUtil';
+
+import {
+  MEMBER_KEYS,
+  makeMemberFullName,
+  memberNameList,
+  isOtherMember,
+} from '@/constants/memberNames';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import {
   convertAttributeEnToJa,
@@ -576,12 +597,16 @@ import {
   getAttributeListEn,
 } from '@/constants/music';
 import { bonusSkillNames } from '@/constants/bonusSkills';
+import { LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
 import type { MusicItemData } from '@/types/musicList';
-import { useMusicData } from '@/composables/useMusicData';
+
+import Music from '@/components/common/music/Music.vue';
 
 const store = useStateStore();
 store.setSupportSkillLevel();
 const display = useDisplay();
+const imageStore = useImageStore();
 
 const attrList = getAttributeListEn();
 
@@ -593,7 +618,9 @@ const selectBonusSkillList = ref([...bonusSkillNames]);
 const selectAttrList = ref([...attrList]);
 const menuOpen = ref(false);
 
-const { initMusicData, isMusicLoaded } = useMusicData();
+const musicStore = useMusicStore();
+const { initMusicData } = musicStore;
+const { isMusicLoaded } = toRefs(musicStore);
 
 if (!isMusicLoaded.value) {
   store.loading = true;
@@ -608,7 +635,7 @@ const sortTypeList = {
   releaseDate: '発売日',
   difficultyLevel: '難易度',
   maxCombo: 'コンボ数',
-};
+} as const;
 
 const makeMusicList = computed(() => (): MusicItemData[] => {
   if (
@@ -711,7 +738,7 @@ const makeMusicList = computed(() => (): MusicItemData[] => {
     isAscending: boolean,
     aa: string | number | Date,
     bb: string | number | Date,
-  ): number {
+  ) {
     if (isAscending) {
       return aa < bb ? -1 : aa > bb ? 1 : 0;
     } else {
@@ -720,17 +747,17 @@ const makeMusicList = computed(() => (): MusicItemData[] => {
   }
 });
 
-function sortingProcess(type: 'sortType' | 'order', val: string): void {
+function sortingProcess(type: 'sortType' | 'order', val: string) {
   if (store.sortSettings.musicList[type] !== val) {
     if (type === 'sortType') {
       store.sortSettings.musicList[type] = val;
     }
 
-    store.changeSettings('sortSettings');
+    store.changeSettings(LDB_KEY_NAMES.SORT_SETTINGS);
   }
 }
 
-function selectCenter(selector: string | null): void {
+function selectCenter(selector: string | null) {
   if (selector === null) {
     selectCenterList.value = [];
   } else if (selectCenterList.value.some((x) => x === selector)) {
@@ -742,7 +769,7 @@ function selectCenter(selector: string | null): void {
   }
 }
 
-function selectSkill(selector: string | null): void {
+function selectSkill(selector: string | null) {
   if (selector === null) {
     selectBonusSkillList.value = [];
   } else if (selectBonusSkillList.value.some((x) => x === selector)) {
@@ -754,7 +781,7 @@ function selectSkill(selector: string | null): void {
   }
 }
 
-function selectAttr(selector: string | null): void {
+function selectAttr(selector: string | null) {
   if (selector === null) {
     selectAttrList.value = [];
   } else if (selectAttrList.value.some((x) => x === selector)) {
@@ -769,10 +796,12 @@ function selectAttr(selector: string | null): void {
 function sortTypeLabel(sortTypeValue: string): string {
   const sortType = sortTypeValue.split('_')[0];
   const difficulty = sortTypeValue.split('_')[1] ?? '';
+
   if (isSchoolShow.value && /difficultyLevel|maxCombo/.test(sortType)) {
     return `${sortTypeList[sortType]} (${difficulty})`;
+  } else {
+    return sortTypeList[sortType] || '標準';
   }
-  return sortTypeList[sortType] || '標準';
 }
 
 onMounted(async () => {
@@ -789,11 +818,11 @@ watch(
       ID: key,
       ...value,
     }));
-    store.fetchImages(
-      'llllMgr_musicImageUrls',
+    imageStore.fetchImages(
+      LDB_KEY_NAMES.CACHE_IMAGE_MUSIC,
       items,
       (item) => item.ID,
-      (item) => `cdJacket/${store.conversion(item.title)}.webp`,
+      (item) => `cdJacket/${conversion(item.title)}.webp`,
     );
   },
   { immediate: true },
@@ -801,8 +830,10 @@ watch(
 
 watch(
   isMusicLoaded,
-  (val) => {
-    if (val) store.loading = false;
+  (val: boolean) => {
+    if (val) {
+      store.loading = false;
+    }
   },
   { immediate: true },
 );

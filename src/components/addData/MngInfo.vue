@@ -94,6 +94,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+
 import {
   getStorage,
   ref as storageRef,
@@ -112,7 +113,7 @@ const previewTitle = ref('');
 const previewContent = ref('');
 const snackbar = ref(false);
 const snackbarMessage = ref('');
-const snackbarColor = ref('success');
+const snackbarColor = ref('');
 
 const storage = getStorage(rtdb.app);
 const listRef = storageRef(storage, 'info');
@@ -131,7 +132,9 @@ const fetchFileList = async () => {
 };
 
 const uploadFile = async () => {
-  if (!fileInput.value || fileInput.value.length === 0) return;
+  if (!fileInput.value || fileInput.value.length === 0) {
+    return;
+  }
 
   const file = fileInput.value[0];
   const fileRef = storageRef(storage, `info/${file.name}`);
@@ -162,7 +165,9 @@ const viewFile = async (file: { name: string; ref: StorageReference }) => {
 };
 
 const confirmDelete = async (file: { name: string; ref: StorageReference }) => {
-  if (!confirm(`Are you sure you want to delete "${file.name}"?`)) return;
+  if (!confirm(`Are you sure you want to delete "${file.name}"?`)) {
+    return;
+  }
 
   try {
     await deleteObject(file.ref);

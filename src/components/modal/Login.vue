@@ -1,42 +1,42 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <v-row align="center" justify="center">
-      <v-col cols="12">
-        <v-card class="elevation-12">
-          <v-toolbar color="pink" dark flat>
-            <v-toolbar-title>Login</v-toolbar-title>
-          </v-toolbar>
-          <v-card-text>
-            <v-form @submit.prevent="login">
-              <v-text-field
-                v-model="id"
-                label="ID"
-                name="id"
-                prepend-icon="mdi-account"
-                type="text"
-              />
-              <v-text-field
-                id="password"
-                v-model="password"
-                label="Password"
-                name="password"
-                prepend-icon="mdi-lock"
-                type="password"
-              />
-            </v-form>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn color="pink" @click="login">Login</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
+  <v-container>
+    <v-card class="elevation-12">
+      <v-toolbar color="pink" dark flat>
+        <v-toolbar-title text="Login" />
+      </v-toolbar>
+
+      <v-card-text>
+        <v-form @submit.prevent="login">
+          <v-text-field
+            v-model="id"
+            label="ID"
+            name="id"
+            prepend-icon="mdi-account"
+            type="text"
+          />
+          <v-text-field
+            id="password"
+            v-model="password"
+            label="Password"
+            name="password"
+            prepend-icon="mdi-lock"
+            :append-inner-icon="showPassword ? 'mdi-eye-off' : 'mdi-eye'"
+            :type="showPassword ? 'text' : 'password'"
+            @click:append-inner="showPassword = !showPassword"
+          />
+        </v-form>
+      </v-card-text>
+
+      <v-card-actions>
+        <v-spacer />
+        <v-btn text="Login" color="pink" @click="login" />
+      </v-card-actions>
+    </v-card>
 
     <v-snackbar v-model="snackbar" :color="snackbarColor">
       {{ snackbarMessage }}
       <template #actions>
-        <v-btn variant="text" @click="snackbar = false">Close</v-btn>
+        <v-btn text="Close" variant="text" @click="snackbar = false" />
       </template>
     </v-snackbar>
   </v-container>
@@ -44,35 +44,38 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { rtdb } from '@/firebase';
-import { useStateStore } from '@/stores/stateStore';
 import { useRouter } from 'vue-router';
 
-interface FirebaseError {
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { rtdb } from '@/firebase';
+
+import { useStateStore } from '@/stores/stateStore';
+
+import { MESSAGES } from '@/constants/messageConst';
+
+/** DBエラーの型定義 */
+interface DBError {
   code: string;
   message: string;
 }
 
 const id = ref('');
 const password = ref('');
+const showPassword = ref(false);
 const store = useStateStore();
 const router = useRouter();
 const snackbar = ref(false);
 const snackbarMessage = ref('');
-const snackbarColor = ref('error');
+const snackbarColor = ref('');
 
+/** ログイン処理 */
 const login = async () => {
   const auth = getAuth(rtdb.app);
-  // IDがメールアドレス形式でない場合、ドメインを付与する
-  // ※Firebase Authに登録されているドメインに合わせて変更してください
   const email = id.value.includes('@') ? id.value : `${id.value}@llllMgr.com`;
 
   try {
     await signInWithEmailAndPassword(auth, email, password.value);
-    snackbarMessage.value = 'ログインしました';
-    snackbarColor.value = 'success';
-    snackbar.value = true;
+    showSnackbar(MESSAGES.M001, 'success');
 
     setTimeout(() => {
       store.switchDialog(false);
@@ -80,29 +83,41 @@ const login = async () => {
     }, 1000);
   } catch (e) {
     console.error(e);
-    const error = e as FirebaseError;
-    let message = 'ログインに失敗しました';
+    const error = e as DBError;
+    let message = MESSAGES.E006;
 
     switch (error.code) {
       case 'auth/invalid-email':
-        message = 'メールアドレスの形式が正しくありません。';
+        message = MESSAGES.E008;
         break;
       case 'auth/user-disabled':
-        message = 'このユーザーは無効化されています。';
+        message = MESSAGES.E009;
         break;
       case 'auth/user-not-found':
-        message = 'ユーザーが見つかりません。';
+        message = MESSAGES.E010;
         break;
       case 'auth/wrong-password':
       case 'auth/invalid-credential':
-        message = 'パスワードまたはIDが間違っています。';
+        message = MESSAGES.E011;
         break;
       default:
         message += `: ${error.message}`;
     }
-    snackbarMessage.value = message;
-    snackbarColor.value = 'error';
-    snackbar.value = true;
+
+    showSnackbar(message, 'error');
   }
+};
+
+/**
+ * スナックバー表示
+ *
+ * @param message 表示するメッセージ
+ * @param color 色
+ * @returns void
+ */
+const showSnackbar = (message: string, color: string) => {
+  snackbarMessage.value = message;
+  snackbarColor.value = color;
+  snackbar.value = true;
 };
 </script>

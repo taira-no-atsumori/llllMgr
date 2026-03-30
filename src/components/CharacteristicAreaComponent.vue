@@ -92,6 +92,7 @@
               <SkillFormComponent
                 v-model="model.addSkill[index]"
                 type="addSkill"
+                :is-characteristic="true"
                 :index="index"
                 @open-detail="(list, idx) => $emit('open-detail', list, idx)"
               />
@@ -120,10 +121,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import SkillFormComponent from '@/components/SkillFormComponent.vue';
-import EditSkillTypeDialog from '@/components/modal/EditSkillTypeDialog.vue';
+import { computed, ref, defineAsyncComponent, watch } from 'vue';
+
 import type { Characteristic, SkillDetail } from '@/types/cardList';
+
+import EditSkillTypeDialog from '@/components/modal/EditSkillTypeDialog.vue';
+const SkillFormComponent = defineAsyncComponent(
+  () => import('@/components/SkillFormComponent.vue'),
+);
 
 const props = defineProps<{
   modelValue: Characteristic;
@@ -175,4 +180,14 @@ const removeCharacteristicSkill = (index: number) => {
     model.value.addSkill.splice(index, 1);
   }
 };
+
+watch(
+  () => model.value.type,
+  (newType) => {
+    if (!newType.includes('addCard')) {
+      model.value.addSkill = [];
+    }
+  },
+  { deep: true },
+);
 </script>

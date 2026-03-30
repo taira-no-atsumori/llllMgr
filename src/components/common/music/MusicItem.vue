@@ -20,14 +20,19 @@
     <ul class="d-flex">
       <li class="skillIconArea mr-1">
         <img
-          :src="store.getImagePath('icons/bonusSkill', musicData.bonusSkill)"
+          :src="
+            imageStore.getImagePath('icons/bonusSkill', musicData.bonusSkill)
+          "
           :alt="musicData.bonusSkill"
         />
       </li>
       <li class="skillIconArea mr-1">
         <img
           :src="
-            store.getImagePath('icons/attribute', `icon_${musicData.attribute}`)
+            imageStore.getImagePath(
+              'icons/attribute',
+              `icon_${musicData.attribute}`,
+            )
           "
           :alt="musicData.attribute"
         />
@@ -35,7 +40,10 @@
       <li class="skillIconArea mr-1">
         <img
           :src="
-            store.getImagePath('icons/member', `icon_SD_${musicData.center}`)
+            imageStore.getImagePath(
+              'icons/member',
+              `icon_SD_${musicData.center}`,
+            )
           "
           :alt="musicData.center"
         />
@@ -50,14 +58,19 @@
     <ul class="d-flex">
       <li class="skillIconArea mr-1">
         <img
-          :src="store.getImagePath('icons/bonusSkill', musicData.bonusSkill)"
+          :src="
+            imageStore.getImagePath('icons/bonusSkill', musicData.bonusSkill)
+          "
           :alt="musicData.bonusSkill"
         />
       </li>
       <li class="skillIconArea mr-1">
         <img
           :src="
-            store.getImagePath('icons/attribute', `icon_${musicData.attribute}`)
+            imageStore.getImagePath(
+              'icons/attribute',
+              `icon_${musicData.attribute}`,
+            )
           "
           :alt="musicData.attribute"
         />
@@ -65,7 +78,10 @@
       <li class="skillIconArea mr-1">
         <img
           :src="
-            store.getImagePath('icons/member', `icon_SD_${musicData.center}`)
+            imageStore.getImagePath(
+              'icons/member',
+              `icon_SD_${musicData.center}`,
+            )
           "
           :alt="musicData.center"
         />
@@ -79,8 +95,11 @@
 
 <script setup lang="ts">
 import { useStateStore } from '@/stores/stateStore';
-import noImage from '@/assets/images/NO IMAGE_music.webp';
+import { useImageStore } from '@/stores/imageStore';
+
 import type { MusicItemData } from '@/types/musicList';
+
+import noImage from '@/assets/images/NO IMAGE_music.webp';
 
 defineProps<{
   musicData: MusicItemData;
@@ -90,6 +109,7 @@ defineProps<{
 }>();
 
 const store = useStateStore();
+const imageStore = useImageStore();
 </script>
 
 <style lang="scss" scoped>

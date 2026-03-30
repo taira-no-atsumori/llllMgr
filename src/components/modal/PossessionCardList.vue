@@ -6,13 +6,31 @@
   <ul id="cardSettingArea">
     <li>
       <label for="trainingLevel">特訓度</label>
-      <select id="trainingLevel" v-model="store.card[store.submitData.memberName][store.submitData.rare][store.submitData.selectedCard].status.trainingLevel" name="trainingLevel">
-        <option v-for="i in ['', '+', '++']" :key="i" :value="i">{{ i }}</option>
+      <select
+        id="trainingLevel"
+        v-model="
+          cardStore.card[store.submitData.memberName][store.submitData.rare][
+            store.submitData.selectedCard
+          ].status.trainingLevel
+        "
+        name="trainingLevel"
+      >
+        <option v-for="i in ['', '+', '++']" :key="i" :value="i">
+          {{ i }}
+        </option>
       </select>
     </li>
     <li>
       <label for="cardLevel">レベル</label>
-      <input id="cardLevel" type="number" name="cardLevel" min="1" max="100" value="1" @update:model-value="set">
+      <input
+        id="cardLevel"
+        type="number"
+        name="cardLevel"
+        min="1"
+        max="100"
+        value="1"
+        @update:model-value="set"
+      />
     </li>
     <li>
       <label for="SALevel">スペシャルアピール</label>
@@ -35,6 +53,12 @@
   </ul>
 </template>
 
+<script setup lang="ts">
+import { useCardStore } from '@/stores/cardStore';
+
+const cardStore = useCardStore();
+</script>
+
 <script>
 export default {
   name: 'PossessionCardSetting',
@@ -46,8 +70,8 @@ export default {
       cardLevel: 1,
       SALevel: 1,
       SLevel: 1,
-      releaseLevel: 1
-    }
+      releaseLevel: 1,
+    };
   },
-}
+};
 </script>

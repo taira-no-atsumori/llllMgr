@@ -1,51 +1,58 @@
 <template>
   <v-dialog
     :model-value="modelValue"
-    max-width="1080px"
+    max-width="1200px"
     @update:model-value="$emit('update:modelValue', $event)"
   >
     <v-sheet class="pa-3">
       <h3>Add Type</h3>
 
-      <div>
-        <v-tabs v-model="selectSkillTab" color="pink">
-          <v-tab v-for="(key, id) in SKILL_TYPE_KEY" :key="id" :value="id">
-            {{ key }}
-          </v-tab>
-        </v-tabs>
-
-        <v-divider />
-
-        <v-tabs-window v-model="selectSkillTab">
-          <v-tabs-window-item
-            v-for="(_, id) in SKILL_TYPE_KEY"
-            :key="id"
-            :value="id"
-          >
-            <v-sheet style="height: 500px; overflow-y: auto">
-              <v-list density="compact">
-                <v-list-item
-                  v-for="(detail, key) in getSkillDetailsByType(String(id))"
-                  :key="key"
-                  :title="detail.skillDetailName"
-                  :subtitle="detail.description"
-                  :disabled="existingTypes.includes(String(key))"
-                  style="border-bottom: 1px solid #888"
-                  @click="onSelect(String(key))"
-                >
-                  <template #prepend>
-                    <v-avatar
-                      :color="detail.colorCode"
-                      size="small"
-                      class="mr-2"
-                    />
-                  </template>
-                </v-list-item>
-              </v-list>
-            </v-sheet>
-          </v-tabs-window-item>
-        </v-tabs-window>
-      </div>
+      <v-row>
+        <v-col cols="2"></v-col>
+        <v-col cols="10">item</v-col>
+        <v-col cols="12"><v-divider /></v-col>
+        <v-col cols="2">
+          <v-tabs v-model="selectSkillTab" color="pink" direction="vertical">
+            <v-tab
+              v-for="(key, id) in SKILL_TYPE_KEY"
+              :key="id"
+              :value="id"
+              :text="key"
+            />
+          </v-tabs>
+        </v-col>
+        <v-col cols="10">
+          <v-tabs-window v-model="selectSkillTab">
+            <v-tabs-window-item
+              v-for="(_, id) in SKILL_TYPE_KEY"
+              :key="id"
+              :value="id"
+            >
+              <v-sheet style="height: 600px; overflow-y: auto">
+                <v-list density="compact">
+                  <v-list-item
+                    v-for="(detail, key) in getSkillDetailsByType(id)"
+                    :key="key"
+                    :title="detail.skillDetailName"
+                    :subtitle="detail.description"
+                    :disabled="existingTypes.includes(String(key))"
+                    style="border-bottom: 1px solid #888"
+                    @click="onSelect(String(key))"
+                  >
+                    <template #prepend>
+                      <v-avatar
+                        :color="detail.colorCode"
+                        size="small"
+                        class="mr-2"
+                      />
+                    </template>
+                  </v-list-item>
+                </v-list>
+              </v-sheet>
+            </v-tabs-window-item>
+          </v-tabs-window>
+        </v-col>
+      </v-row>
 
       <div class="d-flex justify-end mt-3">
         <v-btn
@@ -62,7 +69,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useSkillStore } from '@/stores/skillStore';
-import { SKILL_TYPE_KEY } from '@/constants/skillDetail';
+import { SKILL_TYPE_KEY } from '@/constants/skillDetailType';
 import type { SkillDetailType } from '@/types/skill';
 
 defineProps<{

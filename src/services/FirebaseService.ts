@@ -19,9 +19,11 @@ import { RTDB_PATH, type RtdbPath } from '@/constants/envConst';
 export const FirebaseService = {
   /**
    * Storageから画像のダウンロードURLを取得
+   *
    * @param path Storageのパス
+   * @returns 画像のダウンロードURL
    */
-  async getImageUrl(path: string): Promise<string | null> {
+  async getImageUrl(path: string) {
     const storage = getStorage(rtdb.app);
 
     try {
@@ -33,9 +35,10 @@ export const FirebaseService = {
 
   /**
    * Realtime Databaseから楽曲データを取得
+   *
    * @param isDev 開発環境かどうか
    */
-  async getMusicData(isDev: boolean) {
+  async getMusicData(isDev: boolean): Promise<Record<string, MusicItemData>> {
     const db = isDev ? rtdbDev : rtdb;
 
     const snapshot = await get(dbRef(db, RTDB_PATH.MUSIC));
@@ -43,10 +46,12 @@ export const FirebaseService = {
   },
 
   /**
-   * Realtime Databaseから楽曲データを取得
+   * Realtime Databaseからカードデータを取得
+   *
    * @param isDev 開発環境かどうか
+   * @returns カードデータ
    */
-  async getCardData(isDev: boolean) {
+  async getCardData(isDev: boolean): Promise<CardDataByMember> {
     const db = isDev ? rtdbDev : rtdb;
 
     const snapshot = await get(dbRef(db, RTDB_PATH.CARDS));
@@ -55,6 +60,7 @@ export const FirebaseService = {
 
   /**
    * Realtime Databaseのデータを監視
+   *
    * @param path 監視するパス
    * @param callback データ更新時のコールバック
    * @param isDev 開発環境かどうか
@@ -74,6 +80,7 @@ export const FirebaseService = {
 
   /**
    * Realtime Databaseにデータを書き込む（上書き）
+   *
    * @param path 書き込むパス
    * @param data 書き込むデータ
    * @param isDev 開発環境かどうか
@@ -82,7 +89,7 @@ export const FirebaseService = {
     path: string,
     data: CardDataByMember | Record<string, MusicItemData>,
     isDev: boolean,
-  ): Promise<void> {
+  ) {
     const db = isDev ? rtdbDev : rtdb;
 
     await set(dbRef(db, path), data);
@@ -90,11 +97,16 @@ export const FirebaseService = {
 
   /**
    * Realtime Databaseのデータを更新する（部分更新）
+   *
    * @param path 更新するパス
    * @param data 更新するデータ
    * @param isDev 開発環境かどうか
    */
-  async updateData(path: string, data: any, isDev: boolean): Promise<void> {
+  async updateData(
+    path: string,
+    data: CardDataByMember | Record<string, MusicItemData>,
+    isDev: boolean,
+  ) {
     const db = isDev ? rtdbDev : rtdb;
 
     await update(dbRef(db, path), data);

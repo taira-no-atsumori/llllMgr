@@ -50,7 +50,7 @@
             :value="val"
             @click="
               store.sortSettings.cardList.sortType = val;
-              store.changeSettings('sortSettings');
+              store.changeSettings(LDB_KEY_NAMES.SORT_SETTINGS);
             "
           >
             <v-list-item-title>
@@ -72,7 +72,7 @@
       <v-btn
         value="descending"
         class="px-0 px-sm-2"
-        @click="store.changeSettings('sortSettings')"
+        @click="store.changeSettings(LDB_KEY_NAMES.SORT_SETTINGS)"
       >
         <v-icon icon="mdi-sort-descending" />
         <span class="ml-2 hidden-sm-and-down">降順</span>
@@ -80,7 +80,7 @@
       <v-btn
         value="ascending"
         class="px-0 px-sm-2"
-        @click="store.changeSettings('sortSettings')"
+        @click="store.changeSettings(LDB_KEY_NAMES.SORT_SETTINGS)"
       >
         <v-icon icon="mdi-sort-ascending" />
         <span class="ml-2 hidden-sm-and-down">昇順</span>
@@ -158,7 +158,7 @@
           <dt>{{ rare }}</dt>
           <dd>
             <v-btn
-              v-for="(ary, cardName) in store.card[name_en][rare]"
+              v-for="(ary, cardName) in cardStore.card[name_en][rare]"
               :key="ary"
               :data-mood="ary.mood"
               :text="cardName"
@@ -174,7 +174,7 @@
     </ul>
   </v-container>
 
-  <v-dialog v-model="dialog" :max-width="600" :height="windowSize.h * 0.5">
+  <v-dialog v-model="dialog" :max-width="600" :height="height * 0.5">
     <v-sheet class="pa-2 d-flex flex-column" style="height: 100%">
       <div style="flex-grow: 1; overflow-y: auto; min-height: 0">
         <Chart
@@ -185,7 +185,7 @@
       <div class="mt-2 text-center">
         <v-btn
           prepend-icon="mdi-close"
-          :theme="store.siteSettings.all.darkMode"
+          :theme="settingsStore.siteSettings.all.darkMode"
           text="CLOSE"
           @click="dialog = false"
         />
@@ -195,12 +195,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue';
-import { RARE } from '@/constants/cards';
+import { ref, computed, watch } from 'vue';
+import { useDisplay } from 'vuetify';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardStore';
 import { useSkillStore } from '@/stores/skillStore';
-import Card from '@/components/common/card/Card.vue';
-import Chart from '@/components/modal/Chart.vue';
+import { useImageStore } from '@/stores/imageStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
+import { RARE } from '@/constants/cards';
 import {
   MEMBER_KEYS,
   MEMBER_NAMES,
@@ -211,17 +215,25 @@ import { getReleasePoint } from '@/constants/releasePoint';
 import { MAX_CARD_LEVEL, SPECIAL_CARD_IDS } from '@/constants/cards';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
-import { SKILL_LIST } from '@/constants/skillList';
+import { LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
 import type { CardDefaultData, CardDataType } from '@/types/cardList';
 
+import Card from '@/components/common/card/Card.vue';
+import Chart from '@/components/modal/Chart.vue';
+
 const store = useStateStore();
+const cardStore = useCardStore();
 const skillStore = useSkillStore();
+const imageStore = useImageStore();
+const settingsStore = useSettingsStore();
+
+const { height } = useDisplay();
 
 const memberKeys = Object.keys(MEMBER_COLOR);
 const dialog = ref(false);
 const selectTab = ref('single');
 const selectTab2 = ref('kaho');
-const windowSize = ref({ w: 0, h: 0 });
 const tableHeaders = [
   { title: 'レア度', key: 'rare' },
   { title: 'カード名', key: 'cardName' },
@@ -247,11 +259,9 @@ const sortTypeList = {
   kana: '五十音',
 };
 
-/**
- * カード絞り込み
- */
+/** カード絞り込み */
 const outputCardList = computed(() => {
-  let result: CardDataType[] = store.cardList.slice();
+  let result: CardDataType[] = cardStore.cardList.slice();
   let filterList;
 
   if (result.length > 0) {
@@ -402,7 +412,7 @@ const outputCardList = computed(() => {
                 return false;
               }
 
-              return SKILL_LIST[cardData[searchKey].name][
+              return skillStore.skills[cardData[searchKey].name][
                 cardData[searchKey].ID
               ].detail.type.some((key: string) => {
                 return key === skillID.id;
@@ -514,14 +524,14 @@ const chartMemberNames: string[] = memberKeys.map((memberKey) => {
 });
 
 const cardList_max = memberKeys.map((memberKey) => {
-  return store.cardList.filter((cardData) => {
+  return cardStore.cardList.filter((cardData) => {
     return cardData.memberName === memberKey;
   }).length;
 });
 
 const chartCardList = computed(() => {
   return memberKeys.map((memberKey, i) => {
-    const a = store.cardList.filter((cardData) => {
+    const a = cardStore.cardList.filter((cardData) => {
       return (
         cardData.memberName === memberKey &&
         cardData.fluctuationStatus.cardLevel > 0
@@ -533,9 +543,9 @@ const chartCardList = computed(() => {
   });
 });
 
-const changeTab = (selectCharacter: string) => {
+function changeTab(selectCharacter: string) {
   selectTab2.value = selectCharacter;
-};
+}
 
 const makeCardList = computed(() => {
   return outputCardList.value.map((cardData) => {
@@ -550,18 +560,11 @@ const makeCardList = computed(() => {
   });
 });
 
-const onResize = () => {
-  windowSize.value = {
-    w: window.innerWidth,
-    h: window.innerHeight,
-  };
-};
-
 watch(
-  () => store.cardList,
+  () => cardStore.cardList,
   (newList) => {
-    store.fetchImages(
-      'llllMgr_cardImageUrls',
+    imageStore.fetchImages(
+      LDB_KEY_NAMES.CACHE_IMAGE_CARD,
       newList,
       (card) => card.ID,
       (card) => ({
@@ -572,10 +575,6 @@ watch(
   },
   { immediate: true },
 );
-
-onMounted(() => {
-  onResize();
-});
 </script>
 
 <style lang="scss" scoped>

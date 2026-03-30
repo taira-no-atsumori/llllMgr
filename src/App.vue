@@ -1,7 +1,7 @@
 <template>
-  <v-app :theme="store.siteSettings.all.darkMode">
+  <v-app :theme="settingsStore.siteSettings.all.darkMode">
     <v-app-bar
-      :scroll-behavior="store.siteSettings.all.headerTracking"
+      :scroll-behavior="settingsStore.siteSettings.all.headerTracking"
       density="comfortable"
       color="pink"
     >
@@ -194,14 +194,20 @@
 import { onMounted, ref, watch } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useGoTo, useDisplay } from 'vuetify';
+
+import { useStateStore } from '@/stores/stateStore';
+import { useUploadDataStore } from '@/stores/uploadDataStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
 import Backup from '@/components/common/header/Backup.vue';
 import Modal from '@/components/modal/ModalArea.vue';
 import Loading from '@/components/modal/Loading.vue';
 import Settings from '@/components/common/header/Settings.vue';
 import Share from '@/components/common/header/Share.vue';
-import { useStateStore } from '@/stores/stateStore';
-import { useUploadDataStore } from '@/stores/uploadDataStore';
+
 import { cacheManager } from '@/utils/cacheManager';
+
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
 
 interface pageContents {
   name_en: string;
@@ -213,6 +219,7 @@ interface pageContents {
 const siteVersion = ref(import.meta.env.VITE_SITEVERSION || '0.0.0');
 const store = useStateStore();
 const uploadStore = useUploadDataStore();
+const settingsStore = useSettingsStore();
 const router = useRouter();
 const route = useRoute();
 const goTo = useGoTo();
@@ -312,8 +319,8 @@ if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
   );
 }
 
-if (localStorage.inflow !== undefined) {
-  const pageName: string = localStorage.inflow;
+if (localStorage[LOCAL_DB_KEY_NAMES.INFLOW] !== undefined) {
+  const pageName: string = localStorage[LOCAL_DB_KEY_NAMES.INFLOW];
   localStorage.removeItem('inflow');
 
   for (const listName in pageList) {

@@ -296,10 +296,12 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+
 import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import type { SKILL_DETAIL } from '@/constants/skillDetail';
+
 import { MAX_CARD_LEVEL } from '@/constants/cards';
+
 import type { SkillDetail } from '@/types/cardList';
 
 const props = defineProps<{
@@ -308,6 +310,13 @@ const props = defineProps<{
 
 const store = useStateStore();
 const skillStore = useSkillStore();
+
+const tab_addSkill = ref('one');
+const dialog = ref(false);
+const openDialogName = ref<string | null>(null);
+const dialogSize = ref(0);
+const targetSkill = ref<string | null>(null);
+const skillDetail = ref<string | null>(null);
 
 /** 追加スキル・SAリスト算出 */
 const outputAddSkillList = computed(() => {
@@ -328,19 +337,11 @@ const outputAddSkillList = computed(() => {
   return [...addSAWithFlag, ...addSkill, ...addChangeCharacteristic];
 });
 
-const tab_addSkill = ref('one');
-const dialog = ref(false);
-const openDialogName = ref<string | null>(null);
-const dialogSize = ref(0);
-const targetSkill = ref<string | null>(null);
-const skillDetail = ref<
-  (typeof SKILL_DETAIL)[keyof typeof SKILL_DETAIL] | null
->(null);
-
 /**
  * ダイアログスイッチ
  *
- * ダイアログの表示・非表示を切り替える
+ * @description
+ * ダイアログの表示・非表示を切り替える。
  *
  * @param flg フラグ
  */
@@ -359,7 +360,7 @@ const openDialog = (
   openDialogNameValue: string,
   dialogSizeValue: number,
   option: {
-    skillID: (typeof SKILL_DETAIL)[keyof typeof SKILL_DETAIL];
+    skillID: string;
     targetSkill: string | null;
   },
 ): void => {
@@ -377,7 +378,8 @@ const openDialog = (
 /**
  * AP計算処理
  *
- * 消費するAPを計算して返す処理
+ * @description
+ * 消費するAPを計算して返す処理。
  *
  * @param skillType スキルタイプ
  * @param skillData スキルデータ

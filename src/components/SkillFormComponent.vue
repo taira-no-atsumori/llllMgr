@@ -180,10 +180,10 @@
             :index="i"
             @open-detail="(l, idx) => $emit('open-detail', l, idx)"
           />
-          <div v-if="model.addSkill[i].characteristic" class="mt-3">
+          <div v-if="item?.characteristic" class="mt-3">
             <CharacteristicAreaComponent
-              v-model="model.addSkill[i].characteristic"
-              @delete="deleteCharacteristic(model.addSkill[i])"
+              v-model="item.characteristic"
+              @delete="deleteCharacteristic(item)"
               @open-detail="(l, idx) => $emit('open-detail', l, idx)"
             />
           </div>
@@ -193,7 +193,7 @@
             prepend-icon="mdi-plus"
             block
             class="mt-3"
-            @click="addCharacteristic(model.addSkill[i])"
+            @click="addCharacteristic(item)"
           />
         </v-expansion-panel-text>
       </v-expansion-panel>
@@ -212,6 +212,22 @@
     @click="addSAorSkill('Skill')"
   />
 
+  <div v-if="props.isCharacteristic" class="mt-3">
+    <CharacteristicAreaComponent
+      v-if="model.characteristic"
+      v-model="model.characteristic"
+      @delete="deleteCharacteristic(model)"
+      @open-detail="(l, idx) => $emit('open-detail', l, idx)"
+    />
+    <v-btn
+      v-else
+      text="Add Characteristic"
+      prepend-icon="mdi-plus"
+      block
+      @click="addCharacteristic(model)"
+    />
+  </div>
+
   <SelectSkillDialog
     v-model="skillDialog"
     :skill-list="skillList"
@@ -222,16 +238,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, watch } from 'vue';
+import { computed, ref, onMounted, watch, defineAsyncComponent } from 'vue';
+
 import { ref as dbRef, onValue } from 'firebase/database';
 import { rtdb, rtdbDev } from '@/firebase';
+
 import { useStateStore } from '@/stores/stateStore';
-import SelectSkillDialog from '@/components/modal/SelectSkillDialog.vue';
-import SkillFormComponent from '@/components/SkillFormComponent.vue';
-import CharacteristicAreaComponent from '@/components/CharacteristicAreaComponent.vue';
+
+import { RTDB_PATH } from '@/constants/envConst';
+
 import type { SkillDetail, AdditionalSkill } from '@/types/cardList';
 import type { SkillType } from '@/types/skill';
-import { RTDB_PATH } from '@/constants/envConst';
+
+import SelectSkillDialog from '@/components/modal/SelectSkillDialog.vue';
+
+const CharacteristicAreaComponent = defineAsyncComponent(
+  () => import('@/components/CharacteristicAreaComponent.vue'),
+);
 
 const isEXAP = ref(false);
 const defaultDetail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -239,6 +262,7 @@ const defaultDetail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 const props = defineProps<{
   modelValue: SkillDetail;
   type: 'SA' | 'skill' | 'addSA' | 'addSkill';
+  isCharacteristic?: boolean;
   index?: number;
 }>();
 
@@ -436,4 +460,17 @@ const addCharacteristic = (item: AdditionalSkill) => {
 const deleteCharacteristic = (item: AdditionalSkill) => {
   delete item.characteristic;
 };
+
+watch(
+  currentTypes,
+  (newTypes) => {
+    if (model.value.addSA && !newTypes.includes('addSA')) {
+      model.value.addSA = [];
+    }
+    if (model.value.addSkill && !newTypes.includes('addCard')) {
+      model.value.addSkill = [];
+    }
+  },
+  { deep: true },
+);
 </script>

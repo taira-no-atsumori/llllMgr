@@ -77,9 +77,9 @@
                 @click="openCheckDialog(cardName, rare)"
               >
                 <v-img
-                  :src="store.getImagePath(
+                  :src="imageStore.getImagePath(
                     'images/cardIllust',
-                    `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
+                    `${conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
                   )"
                   gradient="to bottom, rgba(0,0,0,.3), rgba(0,0,0,.3)"
                   class="d-flex align-center"
@@ -97,9 +97,9 @@
                 @click="openCheckDialog(cardName, rare)"
               >
                 <v-img
-                  :src="store.getImagePath(
+                  :src="imageStore.getImagePath(
                     'images/cardIllust',
-                    `${store.conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
+                    `${conversion(cardName)}_${MEMBER_NAMES[store.openCard.name].last}_覚醒後`
                   )"
                 />
                 <v-card-title class="px-2 py-1">{{ cardName }}</v-card-title>
@@ -113,19 +113,19 @@
                 <v-row no-gutters>
                   <v-col cols="6">スマイル</v-col>
                   <v-col cols="6">
-                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.smile }}
+                    {{ cardStore.card[store.openCard.name][rare][cardName].uniqueStatus.smile }}
                   </v-col>
                 </v-row>
                 <v-row no-gutters>
                   <v-col cols="6">クール</v-col>
                   <v-col cols="6">
-                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.cool }}
+                    {{ cardStore.card[store.openCard.name][rare][cardName].uniqueStatus.cool }}
                   </v-col>
                 </v-row>
                 <v-row no-gutters>
                   <v-col cols="6">ピュア</v-col>
                   <v-col cols="6">
-                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.pure }}
+                    {{ cardStore.card[store.openCard.name][rare][cardName].uniqueStatus.pure }}
                   </v-col>
                 </v-row>
               </v-col>
@@ -133,40 +133,40 @@
                 <v-row no-gutters>
                   <v-col cols="8">メンタル</v-col>
                   <v-col cols="4">
-                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.mental }}
+                    {{ cardStore.card[store.openCard.name][rare][cardName].uniqueStatus.mental }}
                   </v-col>
                 </v-row>
                 <v-row no-gutters>
                   <v-col cols="8">BP</v-col>
                   <v-col cols="4">
-                    {{ store.card[store.openCard.name][rare][cardName].uniqueStatus.BP }}
+                    {{ cardStore.card[store.openCard.name][rare][cardName].uniqueStatus.BP }}
                   </v-col>
                 </v-row>
                 <v-row no-gutters>
                   <v-col cols="8">解放Lv.</v-col>
                   <v-col cols="4">
-                    {{ store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel }}
+                    {{ cardStore.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel }}
                   </v-col>
                 </v-row>
                 <v-row no-gutters>
                   <v-col cols="8">解放ボーナス</v-col>
                   <v-col cols="4">
-                    {{ rare === 'DR' ? '-' : GRANDPRIX_BONUS.releaseLv[rare][store.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel] }}
+                    {{ rare === 'DR' ? '-' : GRANDPRIX_BONUS.releaseLv[rare][cardStore.card[store.openCard.name][rare][cardName].fluctuationStatus.trainingLevel] }}
                   </v-col>
                 </v-row>
               </v-col>
             </v-row>
             <p>
               <span class="mr-3">スペシャルアピール</span>
-              {{ store.card[store.openCard.name][rare][cardName].specialAppeal.name }}
+              {{ cardStore.card[store.openCard.name][rare][cardName].specialAppeal.name }}
             </p>
             <p>
               <span class="mr-3">スキル</span>
-              {{ store.card[store.openCard.name][rare][cardName].skill.name }}
+              {{ cardStore.card[store.openCard.name][rare][cardName].skill.name }}
             </p>
             <p v-if="rare !== 'R'">
               <span class="mr-3">特性</span>
-              {{ store.card[store.openCard.name][rare][cardName].characteristic.name }}
+              {{ cardStore.card[store.openCard.name][rare][cardName].characteristic.name }}
             </p>
           </v-tooltip>-->
       </v-col>
@@ -199,7 +199,7 @@
               "
             />
             <v-card-title class="pa-2">{{
-              store.conversion(
+              conversion(
                 store.searchSelectDeckCard(
                   store.openCard.name,
                   store.openCard.style,
@@ -262,7 +262,7 @@
           <v-card>
             <v-img :src="cardImageUrls[selectCardId]?.after || noImage" />
             <v-card-title class="pa-2">{{
-              store.conversion(selectCard)
+              conversion(selectCard)
             }}</v-card-title>
             <v-card-text class="px-2 pb-2">
               <v-row no-gutters>
@@ -331,7 +331,7 @@
       <option label="" value="default"></option>
       <optgroup v-for="rare in store.rarity" :key="rare" :label="rare">
         <option
-          v-for="(ary, cardName) in store.card[store.openCard.name][rare]"
+          v-for="(ary, cardName) in cardStore.card[store.openCard.name][rare]"
           :key="ary"
           :label="cardName"
           :value="cardName"
@@ -354,18 +354,28 @@
 </template>
 
 <script setup lang="ts">
-// import { ref } from 'vue';
 import { ref, computed, watch } from 'vue';
-import { RARE } from '@/constants/cards';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardStore';
+import { useImageStore } from '@/stores/imageStore';
+
+import { conversion } from '@/utils/stringUtil';
+
+import { RARE } from '@/constants/cards';
 import { FORMATION_MEMBER } from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
-import noImage from '@/assets/images/NO IMAGE_card.webp';
+
 import type { CardDataType } from '@/types/cardList';
 
+import noImage from '@/assets/images/NO IMAGE_card.webp';
+
 const store = useStateStore();
-const dialog: boolean = ref(false);
+const cardStore = useCardStore();
+const imageStore = useImageStore();
+
+const dialog = ref(false);
 const selectCard = ref(undefined);
 const selectCardId = ref('');
 const rarity = ref(undefined);
@@ -386,7 +396,7 @@ const cardStatus = ref({
 });
 
 const cardImageUrls = computed(
-  () => store.imageCache['llllMgr_cardImageUrls_v2'] || {},
+  () => imageStore.imageCache['llllMgr_cardImageUrls_v2'] || {},
 );
 
 watch(
@@ -395,7 +405,7 @@ watch(
     if (!newMemberName) return;
 
     const cards: CardDataType[] = [];
-    const memberCards = store.card[newMemberName];
+    const memberCards = cardStore.card[newMemberName];
 
     if (memberCards) {
       Object.values(memberCards).forEach((rarityGroup) => {
@@ -408,17 +418,17 @@ watch(
     }
 
     if (FORMATION_MEMBER[104].some((name) => name === newMemberName)) {
-      if (store.card.kozutsuzumegu?.UR)
-        cards.push(...Object.values(store.card.kozutsuzumegu.UR));
-      if (store.card.selaIzu?.SR)
-        cards.push(...Object.values(store.card.selaIzu.SR));
+      if (cardStore.card.kozutsuzumegu?.UR)
+        cards.push(...Object.values(cardStore.card.kozutsuzumegu.UR));
+      if (cardStore.card.selaIzu?.SR)
+        cards.push(...Object.values(cardStore.card.selaIzu.SR));
     }
     if (FORMATION_MEMBER[103].some((name) => name === newMemberName)) {
-      if (store.card.sachi?.UR)
-        cards.push(...Object.values(store.card.sachi.UR));
+      if (cardStore.card.sachi?.UR)
+        cards.push(...Object.values(cardStore.card.sachi.UR));
     }
 
-    store.fetchImages(
+    imageStore.fetchImages(
       'llllMgr_cardImageUrls_v2',
       cards,
       (card) => card.ID,
@@ -619,11 +629,11 @@ const openCheckDialog = (cardName: string, rare: string, ary) => {
     // this.dialog = true;
     // this.cardStatus = {
     //   before: {
-    //     status: store.cardParam('all', {memberName: store.openCard.name, rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style)), cardName: store.conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}),
+    //     status: store.cardParam('all', {memberName: store.openCard.name, rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style)), cardName: conversion(store.searchSelectDeckCard(store.openCard.name, store.openCard.style))}),
     //     rare: store.searchRarity(store.openCard.name, store.searchSelectDeckCard(store.openCard.name, store.openCard.style))
     //   },
     //   after: {
-    //     status: store.cardParam('all', {memberName: store.openCard.name, rare: rare, cardName: store.conversion(cardName)})},
+    //     status: store.cardParam('all', {memberName: store.openCard.name, rare: rare, cardName: conversion(cardName)})},
     //     rare: rare
     // };
   }
@@ -641,11 +651,11 @@ export default {
       return (store) => {
         let result = [];
 
-        for (const key in store.card[store.openCard.name]) {
+        for (const key in cardStore.card[store.openCard.name]) {
           if (key !== 'default') {
             result = result.concat(
               [],
-              Object.values(store.card[store.openCard.name][key]),
+              Object.values(cardStore.card[store.openCard.name][key]),
             );
           }
         }
@@ -655,15 +665,15 @@ export default {
         ) {
           result = result.concat(
             [],
-            Object.values(store.card.kozutsuzumegu.UR),
-            Object.values(store.card.selaIzu.SR),
+            Object.values(cardStore.card.kozutsuzumegu.UR),
+            Object.values(cardStore.card.selaIzu.SR),
           );
         }
 
         if (
           FORMATION_MEMBER[103].some((name) => name === store.openCard.name)
         ) {
-          result = result.concat([], Object.values(store.card.sachi.UR));
+          result = result.concat([], Object.values(cardStore.card.sachi.UR));
         }
 
         if (store.isPossessionFlg) {

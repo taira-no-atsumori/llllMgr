@@ -3,10 +3,12 @@
     <h2>獲得ボーナススキル詳細</h2>
 
     <div>
-      <template v-for="memberName in store.memberNameList" :key="memberName">
+      <template v-for="memberName in memberNameList()" :key="memberName">
         <img
-          v-if="!store.isOtherMember(memberName)"
-          :src="store.getImagePath('icons/member', `icon_SD_${memberName}`)"
+          v-if="!isOtherMember(memberName)"
+          :src="
+            imageStore.getImagePath('icons/member', `icon_SD_${memberName}`)
+          "
           class="cursor-pointer"
           :style="`width: 10%; max-width: 45px; margin: 0 0.5%; filter: grayscale(${
             memberName === checkMasteryMember ? 0 : 1
@@ -48,7 +50,9 @@
           <div class="d-flex flex-row align-center mb-1">
             <div class="mr-1 mt-1">
               <v-img
-                :src="store.getImagePath('icons/bonusSkill', bonusSkillName)"
+                :src="
+                  imageStore.getImagePath('icons/bonusSkill', bonusSkillName)
+                "
                 style="width: 32px; height: 32px; border-radius: 3px"
                 eager
               />
@@ -80,8 +84,16 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+
 import { useStateStore } from '@/stores/stateStore';
-import { MEMBER_KEYS, makeMemberFullName } from '@/constants/memberNames';
+import { useImageStore } from '@/stores/imageStore';
+
+import {
+  MEMBER_KEYS,
+  makeMemberFullName,
+  memberNameList,
+  isOtherMember,
+} from '@/constants/memberNames';
 import {
   BONUS_SKILL_NAMES,
   BONUS_SKILL_LIST,
@@ -89,6 +101,8 @@ import {
 } from '@/constants/bonusSkills';
 
 const store = useStateStore();
+const imageStore = useImageStore();
+
 const checkMasteryMember = ref(MEMBER_KEYS.KAHO);
 
 /**
@@ -121,7 +135,7 @@ const skillLevels = computed(() => {
  *
  * @param bonusSkill ボーナススキル名
  */
-const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames): number => {
+const makeBonusSkillDescriptionText = (bonusSkill: BonusSkillNames) => {
   switch (bonusSkill) {
     case BONUS_SKILL_NAMES.BEAT_HEART_UP:
       return skillLevels.value[bonusSkill] * 0.5;

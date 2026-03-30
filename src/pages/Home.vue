@@ -74,6 +74,7 @@
     <div class="mb-5">
       <div class="d-flex align-center">
         <h2>With×MEETS 予定表</h2>
+
         <div v-if="streamInfoData.length > (display.smAndDown.value ? 1 : 3)">
           <v-btn
             icon="mdi-chevron-left"
@@ -92,12 +93,9 @@
         </div>
       </div>
 
-      <div
-        v-if="streamInfoData.length === 0"
-        class="text-center text-grey py-4"
-      >
+      <p v-if="streamInfoData.length === 0" class="text-center text-grey py-4">
         現在予定されている配信はありません。
-      </div>
+      </p>
       <template v-else>
         <!-- Mobile Carousel -->
         <v-window
@@ -264,7 +262,7 @@ import { useDisplay } from 'vuetify';
 import { rtdb, rtdbDev } from '@/firebase';
 import { useStateStore } from '@/stores/stateStore';
 import type { EventItem } from '@/types/event';
-import type { StreamInfoItem, StreamInfoFirebaseData } from '@/types/stream';
+import type { StreamInfoItem, StreamInfoDBData } from '@/types/stream';
 import MainVisual from '@/components/common/MainVisual.vue';
 import StreamCard from '@/components/common/StreamCard.vue';
 import { RTDB_PATH } from '@/constants/envConst';
@@ -398,7 +396,7 @@ onMounted(() => {
   );
 
   onValue(streamInfoDataRef, (snapshot) => {
-    const data: Record<string, StreamInfoFirebaseData> = snapshot.val();
+    const data: Record<string, StreamInfoDBData> = snapshot.val();
 
     if (data) {
       const today = new Date();

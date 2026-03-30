@@ -52,6 +52,7 @@ export class CacheManager {
       if (data) {
         await db.images.delete(id);
       }
+
       return null;
     }
   }

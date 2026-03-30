@@ -79,7 +79,7 @@ export type MemberIds = (typeof MEMBER_IDS)[keyof typeof MEMBER_IDS];
 /**
  * メンバーキー変換処理
  *
- * @property
+ * @description
  * メンバーIDをメンバーキーに変換
  *
  * @param id メンバーID
@@ -94,7 +94,7 @@ export const conversionIdToKey = (id: MemberIds): MemberKeyValues => {
 /**
  * メンバーID変換処理
  *
- * @property
+ * @description
  * メンバーキーをメンバーIDに変換
  *
  * @param key メンバーキー
@@ -187,7 +187,7 @@ export const makeMemberFullName = (key: MemberKeyValues, isSpace = true) => {
   const memberData = MEMBER_NAMES[key];
 
   return `${memberData.first}${
-    /kozutsuzumegu|selaIzu/.test(key) || !isSpace ? '' : ' '
+    /kozutsuzumegu|selaIzu/.test(key) || isSpace ? ' ' : ''
   }${memberData.last}`;
 };
 
@@ -394,6 +394,21 @@ export const getGenerationMembers = (generation: number): MemberData[] => {
   return Object.values(MEMBER_DATA).filter((memberData) => {
     return GENERATION_LIST[generation].includes(memberData.period);
   });
+};
+
+/**
+ * メンバーのリストを作成
+ *
+ * @returns メンバーのリスト
+ */
+export const memberNameList = () => {
+  const memberNames = Object.keys(MEMBER_COLOR);
+  memberNames.push('special');
+  return memberNames;
+};
+
+export const isOtherMember = (name: string): boolean => {
+  return name === 'special';
 };
 
 /** 生徒リストの定数 */

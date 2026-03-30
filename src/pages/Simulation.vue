@@ -347,7 +347,7 @@
                           >
                             <img
                               :src="
-                                store.getImagePath(
+                                imageStore.getImagePath(
                                   'icons/bonusSkill',
                                   skillName,
                                 )
@@ -438,7 +438,12 @@
                               variant="flat"
                               class="position-absolute right-0"
                               @click="
-                                deleteSelectCard(store, memberName, styleName)
+                                deleteSelectCard(
+                                  store,
+                                  cardStore,
+                                  memberName,
+                                  styleName,
+                                )
                               "
                             />
                           </v-row>
@@ -734,7 +739,7 @@
                         >
                           <img
                             :src="
-                              store.getImagePath(
+                              imageStore.getImagePath(
                                 'icons/member',
                                 `icon_illust_${memberName}_${store.selectDeck.period}`,
                               )
@@ -781,7 +786,7 @@
                           >
                             <img
                               :src="
-                                store.getImagePath(
+                                imageStore.getImagePath(
                                   'icons/bonusSkill',
                                   skillName,
                                 )
@@ -880,7 +885,12 @@
                               variant="flat"
                               class="position-absolute right-0"
                               @click="
-                                deleteSelectCard(store, memberName, styleName)
+                                deleteSelectCard(
+                                  store,
+                                  cardStore,
+                                  memberName,
+                                  styleName,
+                                )
                               "
                             />
                           </v-row>
@@ -1251,7 +1261,7 @@
                     <img
                       v-if="store.selectDeck.selectMusic !== ''"
                       :src="
-                        store.getImagePath(
+                        imageStore.getImagePath(
                           'icons/member',
                           `icon_illust_${
                             MUSIC_LIST[store.selectDeck.selectMusic]?.center
@@ -1271,7 +1281,7 @@
                       ]?.singingMembers"
                       :key="memberName"
                       :src="
-                        store.getImagePath(
+                        imageStore.getImagePath(
                           'icons/member',
                           `icon_illust_${memberName}_${store.selectDeck.period}`,
                         )
@@ -1399,7 +1409,7 @@
               </v-col>
             </v-row>
 
-            <div v-for="memberName in store.memberNameList" :key="memberName">
+            <div v-for="memberName in memberNameList()" :key="memberName">
               <v-checkbox
                 v-model="performance[i - 1]"
                 :label="arr.last"
@@ -1822,7 +1832,7 @@
             class="mr-1"
           >
             <img
-              :src="store.getImagePath('icons/bonusSkill', skillName)"
+              :src="imageStore.getImagePath('icons/bonusSkill', skillName)"
               style="width: 25px"
             />×{{ 0 }}
           </span>
@@ -1949,29 +1959,41 @@
 
 <script setup>
 import { computed, watch } from 'vue';
-import { useStateStore } from '@/stores/stateStore';
+
 import draggable from 'vuedraggable';
+
+import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardStore';
+import { useImageStore } from '@/stores/imageStore';
+
+import { conversion } from '@/utils/stringUtil';
+
 import { convertStyleEnToJp } from '@/constants/cards';
 import {
   MEMBER_IDS,
   MEMBER_NAMES,
   FORMATION_MEMBER,
   makeMemberFullName,
+  memberNameList,
 } from '@/constants/memberNames';
 import { MUSIC_LIST } from '@/constants/musicList';
 import { convertAttributeEnToJa } from '@/constants/music';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
+import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+
 import noImage from '@/assets/images/NO IMAGE_card.webp';
 // import axios from 'axios';
 const store = useStateStore();
+const cardStore = useCardStore();
+const imageStore = useImageStore();
 
 const cardImageUrls = computed(
-  () => store.imageCache['llllMgr_cardImageUrls_v2'] || {},
+  () => imageStore.imageCache['llllMgr_cardImageUrls_v2'] || {},
 );
 
 const musicImageUrls = computed(
-  () => store.imageCache['llllMgr_musicImageUrls'] || {},
+  () => imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC] || {},
 );
 
 const currentMusicId = computed(() => {
@@ -2006,7 +2028,7 @@ watch(
     }
 
     if (cards.length > 0) {
-      store.fetchImages(
+      imageStore.fetchImages(
         'llllMgr_cardImageUrls_v2',
         cards,
         (c) => c.ID,
@@ -2026,11 +2048,11 @@ watch(
     if (!newTitle) return;
     const id = currentMusicId.value;
     if (id) {
-      store.fetchImages(
-        'llllMgr_musicImageUrls',
+      imageStore.fetchImages(
+        LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC,
         [{ ID: id, title: newTitle }],
         (item) => item.ID,
-        (item) => `cdJacket/${store.conversion(item.title)}.webp`,
+        (item) => `cdJacket/${conversion(item.title)}.webp`,
       );
     }
   },
@@ -2047,11 +2069,11 @@ watch(
       .map(([key, val]) => ({ ID: key, ...val }));
 
     if (targetMusic.length > 0) {
-      store.fetchImages(
-        'llllMgr_musicImageUrls',
+      imageStore.fetchImages(
+        LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC,
         targetMusic,
         (item) => item.ID,
-        (item) => `cdJacket/${store.conversion(item.title)}.webp`,
+        (item) => `cdJacket/${conversion(item.title)}.webp`,
       );
     }
   },
@@ -2699,16 +2721,17 @@ export default {
      * 選択中のカードを削除
      *
      * @param {Object} store - store
+     * @param {Object} cardStore - cardStore
      * @param {string} memberName - メンバー名
      * @param {string} styleName - スタイル名
      */
-    deleteSelectCard(store, memberName, styleName) {
+    deleteSelectCard(store, cardStore, memberName, styleName) {
       if (store.selectDeck.cardData[memberName][styleName].isAce) {
         this.isSelectedAceCard = false;
       }
 
       store.selectDeck.cardData[memberName][styleName].isAce = false;
-      store.setSelectCard(store.makeDefaultCardId(memberName), {
+      store.setSelectCard(cardStore.makeDefaultCardId(memberName), {
         cardLevel: 1,
         SALevel: 1,
         SLevel: 1,
@@ -2728,7 +2751,7 @@ export default {
     },
     setIcon(memberName) {
       return {
-        'background-image': `url(${store.getImagePath(
+        'background-image': `url(${imageStore.getImagePath(
           'icons/member',
           `icon_${memberName}`,
         )})`,
@@ -2751,9 +2774,7 @@ export default {
       } else {
         const cardId = selectCardId.split('_')[0];
 
-        return `${store.conversion(
-          store.findCardData(selectCardId).cardName,
-        )}_${
+        return `${conversion(store.findCardData(selectCardId).cardName)}_${
           cardId === MEMBER_IDS.SELAIZU
             ? '桂城泉＆セラス 柳田 リリエンフェルト'
             : cardId === MEMBER_IDS.KOZUTSUZUMEGU
@@ -2792,8 +2813,8 @@ export default {
         cardName: store.selectDeck.cardData[name][style].cardName,
       });
     },
-    getParamList(store, name, style) {
-      return store.card[name][
+    getParamList(cardStore, name, style) {
+      return cardStore.card[name][
         store.searchRarity(
           store.findCardId(
             name,

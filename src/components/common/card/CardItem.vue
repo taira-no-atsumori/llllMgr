@@ -3,7 +3,7 @@
     <v-img
       class="h-100 w-100"
       :src="currentSrc"
-      :alt="`${store.conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}`"
+      :alt="`${conversion(cardData.cardName)}_${conversionCardIdToMemberName(cardData.ID)}`"
       cover
     >
       <template #placeholder>
@@ -20,7 +20,9 @@
     style="padding-bottom: 2px"
   >
     <img
-      :src="store.getImagePath('icons/styleType', `icon_${cardData.styleType}`)"
+      :src="
+        imageStore.getImagePath('icons/styleType', `icon_${cardData.styleType}`)
+      "
       :alt="`${cardData.memberName}_${conversionCardIdToMemberName(cardData.ID)}`"
       class="icon type mr-1"
     />
@@ -31,7 +33,9 @@
 
   <!-- ↓詳細表示↓ -->
   <v-card-text
-    v-if="store.toBool(store.siteSettings.cardList.isShowDetail)"
+    v-if="
+      settingsStore.toBool(settingsStore.siteSettings.cardList.isShowDetail)
+    "
     class="pa-0 cardName"
   >
     <v-divider opacity="100" />
@@ -48,7 +52,7 @@
       <v-col cols="6" class="status">
         <span>SA Lv. </span>
         {{
-          (store.card[cardData.memberName][cardData.rare][cardData.ID]
+          (cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
             .specialAppeal ?? false)
             ? getCardParam('SALevel')
             : '-'
@@ -57,8 +61,8 @@
       <v-col cols="6" class="status">
         <span>S Lv. </span>
         {{
-          (store.card[cardData.memberName][cardData.rare][cardData.ID].skill ??
-            false)
+          (cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
+            .skill ?? false)
             ? getCardParam('SLevel')
             : '-'
         }}
@@ -71,15 +75,17 @@
         <span>GP Pt. </span>
         {{
           /^DR$/.test(
-            store.card[cardData.memberName][cardData.rare][cardData.ID].rare,
+            cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
+              .rare,
           ) ||
-          store.card[cardData.memberName][cardData.rare][cardData.ID]
+          cardStore.card[cardData.memberName][cardData.rare][cardData.ID]
             .specialAppeal === undefined
             ? '-'
             : `+${
                 GRANDPRIX_BONUS.releaseLv[
-                  store.card[cardData.memberName][cardData.rare][cardData.ID]
-                    .rare
+                  cardStore.card[cardData.memberName][cardData.rare][
+                    cardData.ID
+                  ].rare
                 ][getCardParam('releaseLevel') - 1] * 100
               }%`
         }}
@@ -90,18 +96,27 @@
 </template>
 
 <script setup lang="ts">
-import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardStore';
+import { useImageStore } from '@/stores/imageStore';
+import { useSettingsStore } from '@/stores/settingsStore';
+
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { conversionCardIdToMemberName } from '@/constants/memberNames';
-import noImage from '@/assets/images/NO IMAGE_card.webp';
+
+import { conversion } from '@/utils/stringUtil';
+
 import type { CardDataType } from '@/types/cardList';
+
+import noImage from '@/assets/images/NO IMAGE_card.webp';
 
 const props = defineProps<{
   cardData: CardDataType;
   currentSrc: string;
 }>();
 
-const store = useStateStore();
+const cardStore = useCardStore();
+const imageStore = useImageStore();
+const settingsStore = useSettingsStore();
 
 const getCardParam = (
   paramKey:
@@ -115,7 +130,7 @@ const getCardParam = (
     | 'cool'
     | 'mental',
 ): number => {
-  return store.card[props.cardData.memberName][props.cardData.rare][
+  return cardStore.card[props.cardData.memberName][props.cardData.rare][
     props.cardData.ID
   ].fluctuationStatus[paramKey];
 };

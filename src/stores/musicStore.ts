@@ -1,16 +1,23 @@
+import { defineStore } from 'pinia';
 import { ref } from 'vue';
-import type { MusicItemData } from '@/types/musicList';
+
 import { FirebaseService } from '@/services/FirebaseService';
 
-// グローバルステートとして定義（アプリケーション全体で共有）
-const musicListFromDB = ref<Record<string, MusicItemData>>({});
-const dbImageUrls = ref<Record<string, string>>({});
-const isMusicLoaded = ref(false);
-const isImagesLoaded = ref(false);
-const currentEnv = ref<'prod' | 'dev' | null>(null);
+import type { MusicItemData } from '@/types/musicList';
 
-export function useMusicData() {
-  /** 楽曲データの初期化（一度だけ実行）*/
+export const useMusicStore = defineStore('music', () => {
+  const musicListFromDB = ref<Record<string, MusicItemData>>({});
+  const dbImageUrls = ref<Record<string, string>>({});
+  const isMusicLoaded = ref(false);
+  const isImagesLoaded = ref(false);
+  const currentEnv = ref<'prod' | 'dev' | null>(null);
+
+  /**
+   * 楽曲データの初期化
+   *
+   * @param isDev 開発環境かどうか
+   * @returns void
+   */
   const initMusicData = async (isDev: boolean = false) => {
     const targetEnv = isDev ? 'dev' : 'prod';
 
@@ -21,13 +28,12 @@ export function useMusicData() {
     isMusicLoaded.value = false;
 
     try {
-      const data: Record<string, MusicItemData> =
-        await FirebaseService.getMusicData(isDev);
+      const data = await FirebaseService.getMusicData(isDev);
 
       if (data) {
         musicListFromDB.value = data;
 
-        // データからimageURLを抽出してfirebaseImagesを更新
+        // データからimageURLを抽出してキャッシュ用URLリストを更新
         const images: Record<string, string> = {};
         Object.entries(data).forEach(([key, val]: [string, MusicItemData]) => {
           if (val.imageURL) {
@@ -46,12 +52,19 @@ export function useMusicData() {
   };
 
   /**
-   * タイトルからIDを検索するヘルパー関数
+   * 楽曲ID検索
+   *
+   * @description
+   * 楽曲名から楽曲IDを検索するヘルパー関数
    *
    * @param title 検索したい楽曲名
    * @returns 楽曲ID（見つからなければundefined）
    */
   const getMusicIdByTitle = (title: string): string | undefined => {
+    if (!title) {
+      return undefined;
+    }
+
     const normalize = (str: string) =>
       str
         .replace(/！/g, '!')
@@ -70,9 +83,9 @@ export function useMusicData() {
     return entry ? entry[0] : undefined;
   };
 
-  /** データの監視を停止する（必要に応じて呼び出す） */
+  /** データの同期停止（クリーンアップ用） */
   const stopMusicDataSync = () => {
-    // リアルタイム監視ではなくなったため、処理不要
+    // リアルタイム監視ではないため現在は未使用
   };
 
   return {
@@ -84,4 +97,4 @@ export function useMusicData() {
     stopMusicDataSync,
     getMusicIdByTitle,
   };
-}
+});

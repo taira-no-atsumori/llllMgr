@@ -17,7 +17,7 @@
               :color="MEMBER_COLOR[getMemberKeys()[index]]"
             >
               <v-avatar left>
-                <v-img :src="store.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)" />
+                <v-img :src="imageStore.getImagePath('icons/member', `icon_SD_${getMemberKeys()[index]}`)" />
               </v-avatar>
               {{ item.title }}
             </v-chip>
@@ -25,12 +25,12 @@
           <template #item="{ item, index }">
             <v-list-item :title="item.title" @click="selectCenter(item.title)">
               <template #prepend>
-                <template v-if="!store.isOtherMember(item.title)">
+                <template v-if="!isOtherMember(item.title)">
                   <v-img
                     :src="
-                      store.getImagePath(
+                      imageStore.getImagePath(
                         'icons/member',
-                        `icon_SD_${getMemberKeys()[index]}`
+                        `icon_SD_${getMemberKeys()[index]}`,
                       )
                     "
                     class="icon member"
@@ -58,7 +58,7 @@
           >
             <template v-slot:label>
               <v-img
-                :src="store.getImagePath('icons/member', `icon_SD_${name_en}`)"
+                :src="imageStore.getImagePath('icons/member', `icon_SD_${name_en}`)"
                 class="icon member"
               />{{ name_ja.first }} {{ name_ja.last }}
             </template>
@@ -71,23 +71,28 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStateStore } from '@/stores/stateStore';
+
+import { useImageStore } from '@/stores/imageStore';
+
 import {
   // MEMBER_NAMES,
   getMemberKeys,
   makeMemberFullName,
+  isOtherMember,
 } from '@/constants/memberNames';
 // import { MEMBER_COLOR } from '@/constants/colorConst';
 
-const store = useStateStore();
-const memberNameList = getMemberKeys().map((member) =>
-  makeMemberFullName(member)
-);
+const imageStore = useImageStore();
+
+const memberNameList = getMemberKeys().map((member) => {
+  return makeMemberFullName(member);
+});
+
 const center = ref<string | null>(null);
 
-function selectCenter(select: string | null) {
+const selectCenter = (select: string | null) => {
   center.value = select;
-}
+};
 </script>
 
 <style lang="scss" scoped>

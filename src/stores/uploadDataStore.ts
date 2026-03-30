@@ -1,8 +1,13 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import type { Unsubscribe } from 'firebase/database';
+
 import { FirebaseService } from '@/services/FirebaseService';
+import type { Unsubscribe } from 'firebase/database';
+
 import deepEqual from 'deep-is';
+
+import { RTDB_PATH } from '@/constants/envConst';
+
 import type { PendingItem } from '@/types/uploadDataStore';
 import type {
   CardDataType,
@@ -11,33 +16,35 @@ import type {
   SkillDetail,
 } from '@/types/cardList';
 import type { MusicItemData } from '@/types/musicList';
-import type { StreamInfoFirebaseData } from '@/types/stream';
+import type { SkillDetailType } from '@/types/skill';
+import type { StreamInfoDBData } from '@/types/stream';
 import type { EventItem } from '@/types/event';
-import { RTDB_PATH } from '@/constants/envConst';
 
 /** DBデータ操作処理 */
 export const useUploadDataStore = defineStore('uploadData', () => {
   const pendingList = ref<PendingItem[]>([]);
 
-  const a: {
+  const baseList: {
     [RTDB_PATH.CARDS]: CardDataByMember;
     [RTDB_PATH.MUSIC]: Record<string, MusicItemData>;
     [RTDB_PATH.SKILL]: Record<string, SkillDetail>;
+    [RTDB_PATH.SKILL_DETAIL]: Record<string, SkillDetailType>;
     [RTDB_PATH.EVENT]: Record<string, EventItem>;
-    [RTDB_PATH.STREAM]: Record<string, StreamInfoFirebaseData>;
+    [RTDB_PATH.STREAM]: Record<string, StreamInfoDBData>;
   } = {
     [RTDB_PATH.CARDS]: {},
     [RTDB_PATH.MUSIC]: {},
     [RTDB_PATH.SKILL]: {},
+    [RTDB_PATH.SKILL_DETAIL]: {},
     [RTDB_PATH.EVENT]: {},
     [RTDB_PATH.STREAM]: {},
   };
   // --- Diff Check Logic ---
   const devData = ref({
-    ...a,
+    ...baseList,
   });
   const prodData = ref({
-    ...a,
+    ...baseList,
   });
   const isListening = ref(false);
   const unsubscribes: Unsubscribe[] = [];
@@ -60,6 +67,7 @@ export const useUploadDataStore = defineStore('uploadData', () => {
       RTDB_PATH.CARDS,
       RTDB_PATH.MUSIC,
       RTDB_PATH.SKILL,
+      RTDB_PATH.SKILL_DETAIL,
       RTDB_PATH.EVENT,
       RTDB_PATH.STREAM,
     ];
@@ -75,8 +83,9 @@ export const useUploadDataStore = defineStore('uploadData', () => {
                 | CardDataByMember
                 | Record<string, MusicItemData>
                 | Record<string, SkillDetail>
+                | Record<string, SkillDetailType>
                 | Record<string, EventItem>
-                | Record<string, StreamInfoFirebaseData>,
+                | Record<string, StreamInfoDBData>,
             ) => {
               (isDev ? devData : prodData).value[path] = data || {};
             },
@@ -141,14 +150,14 @@ export const useUploadDataStore = defineStore('uploadData', () => {
           type: RTDB_PATH.CARDS,
           path: devItem.path,
         });
-        // } else if (!deepEqual(devItem.data, prodItem.data)) {
-        //   list.push({
-        //     key,
-        //     data: devItem.data,
-        //     status: 'update',
-        //     type: 'cards',
-        //     path: devItem.path,
-        //   });
+      } else if (!deepEqual(devItem.data, prodItem.data)) {
+        list.push({
+          key,
+          data: devItem.data,
+          status: 'update',
+          type: 'cards',
+          path: devItem.path,
+        });
       }
     }
 
@@ -196,6 +205,30 @@ export const useUploadDataStore = defineStore('uploadData', () => {
           status: 'update',
           type: 'skill',
           path: `${RTDB_PATH.SKILL}/${key}`,
+        });
+      }
+    }
+
+    // Skill Diff
+    for (const key in devData.value[RTDB_PATH.SKILL_DETAIL]) {
+      const devItem = devData.value[RTDB_PATH.SKILL_DETAIL][key];
+      const prodItem = prodData.value[RTDB_PATH.SKILL_DETAIL][key];
+
+      if (!prodItem) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'new',
+          type: 'skillDetails',
+          path: `${RTDB_PATH.SKILL_DETAIL}/${key}`,
+        });
+      } else if (!deepEqual(devItem, prodItem)) {
+        list.push({
+          key,
+          data: devItem,
+          status: 'update',
+          type: 'skillDetails',
+          path: `${RTDB_PATH.SKILL_DETAIL}/${key}`,
         });
       }
     }
@@ -288,25 +321,27 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     pendingList.value = [];
   };
 
-  /**
-   * データをアップロード（上書き）する
-   * @param path パス
-   * @param data データ
-   * @param isDev 開発環境かどうか
-   */
-  const uploadData = async (path: string, data: any, isDev: boolean) => {
-    await FirebaseService.setData(path, data, isDev);
-  };
+  // /**
+  //  * データをアップロード（上書き）する
+  //  *
+  //  * @param path パス
+  //  * @param data データ
+  //  * @param isDev 開発環境かどうか
+  //  */
+  // const uploadData = async (path: string, data: any, isDev: boolean) => {
+  //   await FirebaseService.setData(path, data, isDev);
+  // };
 
-  /**
-   * データを更新（マージ）する
-   * @param path パス
-   * @param data データ
-   * @param isDev 開発環境かどうか
-   */
-  const updateData = async (path: string, data: any, isDev: boolean) => {
-    await FirebaseService.updateData(path, data, isDev);
-  };
+  // /**
+  //  * データを更新（マージ）する
+  //  *
+  //  * @param path パス
+  //  * @param data データ
+  //  * @param isDev 開発環境かどうか
+  //  */
+  // const updateData = async (path: string, data: any, isDev: boolean) => {
+  //   await FirebaseService.updateData(path, data, isDev);
+  // };
 
   return {
     pendingList,
@@ -321,7 +356,7 @@ export const useUploadDataStore = defineStore('uploadData', () => {
     flattenCards,
     editTarget,
     setEditTarget,
-    uploadData,
-    updateData,
+    // uploadData,
+    // updateData,
   };
 });

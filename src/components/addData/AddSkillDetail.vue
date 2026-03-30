@@ -29,9 +29,13 @@
         hover
       >
         <template #[`item.colorCode`]="{ value }">
-          <v-chip v-if="value" :color="value" size="small" variant="flat">
-            {{ value }}
-          </v-chip>
+          <v-chip
+            v-if="value"
+            :text="value"
+            :color="value"
+            size="small"
+            variant="flat"
+          />
         </template>
         <template #[`item.skillTypeKey`]="{ value }">
           {{ SKILL_TYPE_KEY[value] || value }}
@@ -42,100 +46,22 @@
       </v-data-table>
     </v-card>
 
-    <v-dialog v-model="dialog" max-width="600px">
-      <v-card>
-        <v-card-title>Edit Skill Detail</v-card-title>
-
-        <v-card-text>
-          <v-row>
-            <v-col cols="12">
-              <v-text-field
-                v-model="editedItem.id"
-                label="ID"
-                :disabled="!isNew"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="6">
-              <v-text-field
-                v-model="editedItem.skillDetailName"
-                label="Skill Detail Name"
-                density="compact"
-                variant="outlined"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="6">
-              <v-select
-                v-model="editedItem.colorCode"
-                :item-props="itemProps"
-                :items="colorList"
-                item-title="name"
-                label="Color Code"
-                density="compact"
-                variant="outlined"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="6">
-              <v-select
-                v-model="editedItem.skillTypeKey"
-                :items="skillTypeOptions"
-                item-title="title"
-                item-value="value"
-                label="Skill Type"
-                density="compact"
-                variant="outlined"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="12">
-              <v-textarea
-                v-model="editedItem.description"
-                label="Description"
-                density="compact"
-                variant="outlined"
-                hide-details
-              />
-            </v-col>
-          </v-row>
-        </v-card-text>
-
-        <v-card-actions>
-          <v-spacer />
-          <v-btn text="Cancel" color="error" @click="dialog = false" />
-          <v-btn text="Save" color="primary" @click="saveItem" />
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
-    <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
-      {{ snackbarMessage }}
-    </v-snackbar>
+    <EditSkillDetailDialog
+      v-model="dialog"
+      :is-new="isNew"
+      :item="editedItem"
+      :existing-items="items"
+    />
   </v-container>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { ref as dbRef, update } from 'firebase/database';
-import { rtdb } from '@/firebase';
-import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
-import { SKILL_TYPE_KEY } from '@/constants/skillDetail';
+import { SKILL_TYPE_KEY } from '@/constants/skillDetailType';
 import type { SkillDetailType } from '@/types/skill';
+import EditSkillDetailDialog from '@/components/modal/EditSkillDetailDialog.vue';
 
-/**
- * フィルター用スキル詳細の型
- *
- * @property id スキルID
- */
-interface SkillDetailFilterType extends SkillDetailType {
-  id: string;
-}
-
-const store = useStateStore();
 const skillStore = useSkillStore();
 const search = ref('');
 const skillTypeOptions = computed(() => {
@@ -144,35 +70,9 @@ const skillTypeOptions = computed(() => {
     value: key,
   }));
 });
-const colorList = [
-  {
-    name: 'red',
-    caption: 'ハートキャプチャ系',
-  },
-  {
-    name: 'lime-darken-3',
-    caption: 'ラブアトラクト系',
-  },
-  {
-    name: 'green',
-    caption: 'メンタル系',
-  },
-  {
-    name: 'lime-darken-4',
-    caption: 'AP変化系',
-  },
-  {
-    name: 'purple',
-    caption: '手札枚数変更系',
-  },
-  {
-    name: 'black',
-    caption: 'その他',
-  },
-];
 
 const headers = [
-  { title: 'ID', key: 'id' },
+  { title: 'ID', key: 'ID' },
   { title: 'Skill Detail Name', key: 'skillDetailName' },
   { title: 'Color Code', key: 'colorCode' },
   { title: 'Skill Type', key: 'skillTypeKey' },
@@ -181,23 +81,22 @@ const headers = [
 ];
 
 const items = computed(() => {
-  const list = Object.entries(skillStore.skillDetails).map(([key, value]) => ({
-    id: key,
-    ...(typeof value === 'object' ? value : { value }),
-  }));
+  const list = Object.entries(skillStore.skillDetails).map(
+    ([_, value]) => value,
+  );
 
   if (search.value) {
-    return list.filter((item: SkillDetailFilterType) => {
+    return list.filter((item) => {
       return item.skillTypeKey === search.value;
     });
+  } else {
+    return list;
   }
-
-  return list;
 });
 
 const dialog = ref(false);
 const editedItem = ref({
-  id: '',
+  ID: '',
   skillDetailName: '',
   colorCode: '',
   description: '',
@@ -205,15 +104,12 @@ const editedItem = ref({
 });
 
 const isNew = ref(false);
-const snackbar = ref(false);
-const snackbarMessage = ref('');
-const snackbarColor = ref('success');
 
 const openCreateDialog = () => {
   editedItem.value = {
-    id: '',
+    ID: '',
     skillDetailName: '',
-    colorCode: colorList[5].name,
+    colorCode: 'grey',
     description: '',
     skillTypeKey: 'heartCaptcha',
   };
@@ -221,54 +117,9 @@ const openCreateDialog = () => {
   dialog.value = true;
 };
 
-const openEditDialog = (item: SkillDetailFilterType) => {
+const openEditDialog = (item: SkillDetailType) => {
   editedItem.value = { ...item };
   isNew.value = false;
   dialog.value = true;
-};
-
-function itemProps(item) {
-  return {
-    title: item.name,
-    subtitle: `主に${item.caption}に使用`,
-  };
-}
-
-const saveItem = async () => {
-  const updates: Record<string, SkillDetailType> = {};
-
-  if (!editedItem.value.id) {
-    snackbarMessage.value = 'ID is required';
-    snackbarColor.value = 'error';
-    snackbar.value = true;
-    return;
-  }
-
-  if (
-    isNew.value &&
-    items.value.some((item) => item.id === editedItem.value.id)
-  ) {
-    snackbarMessage.value = 'ID already exists';
-    snackbarColor.value = 'error';
-    snackbar.value = true;
-    return;
-  }
-
-  const { id, ...data } = editedItem.value;
-
-  updates[`skills/skillDetail/${id}`] = data;
-
-  try {
-    await update(dbRef(rtdb), updates);
-    snackbarMessage.value = `Saved to ${store.isDev ? 'Dev' : 'Prod'}`;
-    snackbarColor.value = 'success';
-    snackbar.value = true;
-    dialog.value = false;
-  } catch (error) {
-    console.error(error);
-    snackbarMessage.value = 'Error saving data';
-    snackbarColor.value = 'error';
-    snackbar.value = true;
-  }
 };
 </script>

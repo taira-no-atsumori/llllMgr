@@ -95,7 +95,7 @@ export interface MusicItemData {
   center: MemberKeys;
   bonusSkill: BonusSkillNames;
   singingMembers: MemberKeys[];
-  imageUrl?: string;
+  imageURL?: string;
   scoreData?: {
     difficultyLevel: difficultyLevel;
     maxCombo: maxCombo;

@@ -23,11 +23,12 @@
       <v-card-text class="pa-0" style="height: 500px">
         <v-row class="h-100 ma-0">
           <v-col cols="4" class="border-e h-100 overflow-y-auto">
-            <v-virtual-scroll :items="skillNames" item-height="41">
+            <v-virtual-scroll :items="skillNames">
               <template #default="{ item: skill }">
                 <v-list-item
                   :key="skill.value"
                   :title="skill.title"
+                  :subtitle="skill.kana"
                   :value="skill.value"
                   :active="tempSelectedName === skill.title"
                   class="border-b"
@@ -181,7 +182,7 @@ watch(
 );
 
 const skillNames = computed(() => {
-  const list: { title: string; value: string }[] = [];
+  const list: { title: string; value: string; kana: string }[] = [];
   const seen = new Set<string>();
 
   for (const skillID in props.skillList) {
@@ -191,6 +192,7 @@ const skillNames = computed(() => {
 
     if (selectedKanaRow.value !== 'all') {
       const row = getRow(skillKana.charAt(0));
+
       if (row !== selectedKanaRow.value) {
         continue;
       }
@@ -198,18 +200,20 @@ const skillNames = computed(() => {
 
     if (!seen.has(skillName)) {
       seen.add(skillName);
-      list.push({ title: skillName, value: skillID });
+      list.push({ title: skillName, value: skillID, kana: skillKana });
     }
   }
-  return list.sort((a, b) => a.title.localeCompare(b.title, 'ja'));
+
+  return list.sort((a, b) => a.kana.localeCompare(b.kana, 'ja'));
 });
 
 const filteredIds = computed(() => {
-  if (!tempSelectedName.value) return [];
-  return Object.values(props.skillList)
-    .filter((s) => s.name === tempSelectedName.value)
-    .map((s) => s.ID)
-    .sort();
+  return !tempSelectedName.value
+    ? []
+    : Object.values(props.skillList)
+        .filter((s) => s.name === tempSelectedName.value)
+        .map((s) => s.ID)
+        .sort();
 });
 
 const selectedSkillData = computed(() => {

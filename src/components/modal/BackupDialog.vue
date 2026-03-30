@@ -148,9 +148,14 @@
 
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted } from 'vue';
+
 import { useStateStore } from '@/stores/stateStore';
+import { useCardStore } from '@/stores/cardStore';
+import { useSettingsStore } from '@/stores/settingsStore';
 
 const store = useStateStore();
+const cardStore = useCardStore();
+const settingsStore = useSettingsStore();
 
 const files = ref([]);
 let fileReader = null;
@@ -250,7 +255,7 @@ const isFileImportError = computed(
     !files.value ||
     files.value.length === 0 ||
     importData.value.length === 0 ||
-    alertContent.import.type === 'error'
+    alertContent.import.type === 'error',
 );
 
 onMounted(() => {
@@ -274,7 +279,7 @@ onMounted(() => {
 });
 
 const makeBackup = () => {
-  const cardList = JSON.parse(JSON.stringify(store.card));
+  const cardList = JSON.parse(JSON.stringify(cardStore.card));
 
   for (const memberName in cardList) {
     for (const rare in cardList[memberName]) {
@@ -300,13 +305,13 @@ const makeBackup = () => {
           cardListFilter: store.search,
         },
         selectItemList: store.selectItemList,
-        siteSettings: store.siteSettings,
+        siteSettings: settingsStore.siteSettings,
         sortSettings: store.sortSettings,
       }),
     ],
     {
       type: 'text/json',
-    }
+    },
   );
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
