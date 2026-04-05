@@ -928,13 +928,14 @@ const releasePoint_underlineColor = computed(() => {
 /**
  * リンク作成
  *
- * @returns リンク
+ * @returns Wikiのリンク
  */
 const makeWikiLink = () => {
   return `https://wikiwiki.jp/llll_wiki/［${store.getSettingCard.cardName
     .replaceAll('&', '＆')
     .replaceAll('/', '／')}］${makeMemberFullName(
     store.getSettingCard.memberName,
+    false,
   )}`;
 };
 /**

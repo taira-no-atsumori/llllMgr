@@ -87,13 +87,13 @@
       </v-btn>
     </v-btn-toggle>
 
-    <div class="d-inline-block mr-1">
+    <p class="d-inline-block mr-1">
       絞り込み結果：{{ outputCardList.length }}枚 /
-    </div>
+    </p>
 
-    <div class="d-inline-block">
+    <p class="d-inline-block">
       現在のソート：{{ sortTypeList[store.sortSettings.cardList.sortType] }}
-    </div>
+    </p>
 
     <v-divider class="my-2" />
 
@@ -216,6 +216,7 @@ import { MAX_CARD_LEVEL, SPECIAL_CARD_IDS } from '@/constants/cards';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES } from '@/constants/localDBKeyNames';
+import { STRG_PATH } from '@/constants/envConst';
 
 import type { CardDefaultData, CardDataType } from '@/types/cardList';
 
@@ -519,7 +520,7 @@ const outputCardList = computed(() => {
 
 const chartMemberNames: string[] = memberKeys.map((memberKey) => {
   return MEMBER_NAMES[memberKey][
-    memberKey === MEMBER_KEYS.SERAS ? 'first' : 'last'
+    `${memberKey === MEMBER_KEYS.SERAS ? 'fir' : 'la'}st`
   ];
 });
 
@@ -568,8 +569,8 @@ watch(
       newList,
       (card) => card.ID,
       (card) => ({
-        before: `cardIllust/${store.makeCardIllustName(card.ID, false)}.webp`,
-        after: `cardIllust/${store.makeCardIllustName(card.ID, true)}.webp`,
+        before: `${STRG_PATH.CARDS}/${store.makeCardIllustName(card.ID, false)}.webp`,
+        after: `${STRG_PATH.CARDS}/${store.makeCardIllustName(card.ID, true)}.webp`,
       }),
     );
   },

@@ -1981,6 +1981,7 @@ import { convertAttributeEnToJa } from '@/constants/music';
 import { MAX_CARD_LEVEL } from '@/constants/cards';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
 import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+import { STRG_PATH } from '@/constants/envConst';
 
 import noImage from '@/assets/images/NO IMAGE_card.webp';
 // import axios from 'axios';
@@ -2033,8 +2034,8 @@ watch(
         cards,
         (c) => c.ID,
         (c) => ({
-          before: `cardIllust/${store.makeCardIllustName(c.ID, false)}.webp`,
-          after: `cardIllust/${store.makeCardIllustName(c.ID, true)}.webp`,
+          before: `${STRG_PATH.CARDS}/${store.makeCardIllustName(c.ID, false)}.webp`,
+          after: `${STRG_PATH.CARDS}/${store.makeCardIllustName(c.ID, true)}.webp`,
         }),
       );
     }
@@ -2052,7 +2053,7 @@ watch(
         LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC,
         [{ ID: id, title: newTitle }],
         (item) => item.ID,
-        (item) => `cdJacket/${conversion(item.title)}.webp`,
+        (item) => `${STRG_PATH.MUSIC}/${conversion(item.title)}.webp`,
       );
     }
   },
@@ -2073,7 +2074,7 @@ watch(
         LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC,
         targetMusic,
         (item) => item.ID,
-        (item) => `cdJacket/${conversion(item.title)}.webp`,
+        (item) => `${STRG_PATH.MUSIC}/${conversion(item.title)}.webp`,
       );
     }
   },

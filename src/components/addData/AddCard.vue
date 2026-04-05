@@ -808,7 +808,7 @@ const addCardData = async () => {
 
       // try {
       //   beforeUrl = await getDownloadURL(
-      //     storageRef(storage, `cardIllust/${cardId}_before.webp`),
+      //     storageRef(storage, `${STRG_PATH.CARDS}/${cardId}_before.webp`),
       //   );
       // } catch (_) {
       //   console.warn(`Before image not found for ${cardId}`);
@@ -816,7 +816,7 @@ const addCardData = async () => {
 
       // try {
       //   afterUrl = await getDownloadURL(
-      //     storageRef(storage, `cardIllust/${cardId}_after.webp`),
+      //     storageRef(storage, `${STRG_PATH.CARDS}/${cardId}_after.webp`),
       //   );
       // } catch (_) {
       //   console.warn(`After image not found for ${cardId}`);
@@ -832,7 +832,7 @@ const addCardData = async () => {
       };
 
       updates[
-        `cards/${conversionIdToKey(cardId.split('_')[0])}/${rarity}/${cardId}`
+        `${RTDB_PATH.CARDS}/${conversionIdToKey(cardId.split('_')[0])}/${rarity}/${cardId}`
       ] = cardData;
     }
 
@@ -866,6 +866,7 @@ onMounted(async () => {
     const fetchedIllustrations = await Promise.all(
       res.items.map(async (itemRef) => {
         const url = await getDownloadURL(itemRef);
+
         return {
           name: itemRef.name,
           url,
@@ -988,7 +989,7 @@ watch(
  *
  * @returns カードID
  */
-function generateNewCardId() {
+const generateNewCardId = () => {
   if (editingId.value) {
     return editingId.value;
   }
@@ -1004,16 +1005,16 @@ function generateNewCardId() {
   }
 
   return `${prefix}_${String(cardCount).padStart(3, '0')}`;
-}
+};
 
 /** periodのEN値からLIMITEDのキーを取得 */
-function getPeriodKey(periodEn: string) {
+const getPeriodKey = (periodEn: string) => {
   const entry = Object.entries(LIMITED).find(
-    ([, value]) => value.en === periodEn,
+    ([_, value]) => value.en === periodEn,
   );
 
   return entry ? entry[0] : 'normal';
-}
+};
 
 // リアクティブにJSONを生成
 const jsonOutput = computed(() => {
@@ -1156,7 +1157,10 @@ const addToStore = async () => {
       }
 
       const resizedBlob = await resizeImage(file, 600, 389);
-      const fileRef = storageRef(storage, `cardIllust/${id}_${type}.webp`);
+      const fileRef = storageRef(
+        storage,
+        `${STRG_PATH.CARDS}/${id}_${type}.webp`,
+      );
       await uploadBytes(fileRef, resizedBlob);
       cardData.imageURL[type] = await getDownloadURL(fileRef);
     };
@@ -1172,7 +1176,7 @@ const addToStore = async () => {
     }
 
     const updates: Record<string, CardDataType> = {};
-    updates[`cards/${member}/${rare}/${id}`] = cardData;
+    updates[`${RTDB_PATH.CARDS}/${member}/${rare}/${id}`] = cardData;
 
     await update(dbRef(rtdbDev), updates);
 
@@ -1201,11 +1205,9 @@ const addToStore = async () => {
  */
 const kanaRules = [
   (value: string) => {
-    if (!value) {
-      return MESSAGES.E001;
-    } else {
-      return /^[\u3040-\u309F0-9ー]+$/.test(value) || MESSAGES.E002;
-    }
+    return !value
+      ? MESSAGES.E001
+      : /^[\u3040-\u309F0-9ー]+$/.test(value) || MESSAGES.E002;
   },
 ];
 </script>

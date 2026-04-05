@@ -53,121 +53,144 @@
         <v-icon icon="mdi-delete" @click="deleteItem(item)" />
       </template>
     </v-data-table>
+    <v-btn
+      text="Migrate Detail Field"
+      prepend-icon="mdi-database-refresh"
+      color="secondary"
+      class="mt-4"
+      disabled
+      @click="migrateStreamDetails"
+    />
 
     <v-dialog v-model="dialog" max-width="600px">
-      <v-card>
-        <v-card-title>
-          <span class="text-h5">{{ formTitle }}</span>
-        </v-card-title>
+      <v-sheet class="pa-3">
+        <v-row>
+          <v-col cols="12">
+            <h2>{{ formTitle }} Schedule</h2>
+          </v-col>
 
-        <v-card-text>
-          <v-row>
-            <v-col cols="12">
-              <v-text-field
-                v-model="editedItem.id"
-                label="ID"
-                :readonly="!isNew"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="4">
-              <v-text-field
-                v-model="inputDate"
-                label="Start Date"
-                type="date"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="4">
-              <v-select
-                v-model="inputTime"
-                label="Time"
-                :items="timeOptions"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="4">
-              <v-text-field
-                v-model="editedItem.endDate"
-                label="End Date"
-                type="datetime-local"
-                variant="outlined"
-                density="compact"
-                hide-details
-                disabled
-              />
-            </v-col>
-            <v-col cols="12">
-              <v-select
-                v-model="editedItem.type"
-                :items="[
-                  { key: STREAM_LABEL_CONST.WM, value: 'WM' },
-                  { key: STREAM_LABEL_CONST.FES, value: 'FES' },
-                  { key: STREAM_LABEL_CONST.YT, value: 'YT' },
-                ]"
-                item-title="key"
-                item-value="value"
-                label="Type"
-                variant="outlined"
-                density="compact"
-                hide-details
-              />
-            </v-col>
-            <v-col cols="12">
-              <div class="text-subtitle-2 mb-2">Members</div>
-              <v-row dense>
-                <v-col
-                  v-for="member in Object.keys(MEMBER_COLOR)"
-                  :key="member"
-                  cols="2"
+          <v-col cols="6">
+            <v-text-field
+              v-model="editedItem.id"
+              label="ID"
+              variant="outlined"
+              density="compact"
+              hide-details
+              disabled
+            />
+          </v-col>
+
+          <v-col cols="6">
+            <v-select
+              v-model="editedItem.type"
+              :items="[
+                { key: STREAM_LABEL_CONST.WM, value: 'WM' },
+                { key: STREAM_LABEL_CONST.WS, value: 'WS' },
+                { key: STREAM_LABEL_CONST.FES, value: 'FES' },
+                { key: STREAM_LABEL_CONST.YT, value: 'YT' },
+              ]"
+              item-title="key"
+              item-value="value"
+              label="Type"
+              variant="outlined"
+              density="compact"
+              hide-details
+            />
+          </v-col>
+
+          <v-col cols="4">
+            <v-text-field
+              v-model="inputDate"
+              label="Start Date"
+              type="date"
+              variant="outlined"
+              density="compact"
+              hide-details
+            />
+          </v-col>
+          <v-col cols="4">
+            <v-select
+              v-model="inputTime"
+              label="Time"
+              :items="timeOptions"
+              variant="outlined"
+              density="compact"
+              hide-details
+            />
+          </v-col>
+          <v-col cols="4">
+            <v-text-field
+              v-model="editedItem.endDate"
+              label="End Date"
+              type="datetime-local"
+              variant="outlined"
+              density="compact"
+              hide-details
+              disabled
+            />
+          </v-col>
+
+          <v-col cols="12">
+            <v-text-field
+              v-model="editedItem.detail"
+              label="Detail"
+              variant="outlined"
+              density="compact"
+              hide-details
+            />
+          </v-col>
+
+          <v-col cols="12">
+            <h3 class="mb-2">Members</h3>
+
+            <v-row dense>
+              <v-col
+                v-for="member in Object.keys(MEMBER_COLOR)"
+                :key="member"
+                cols="2"
+              >
+                <v-checkbox
+                  v-model="editedItem.member"
+                  :value="member"
+                  color="pink"
+                  density="compact"
+                  hide-details
                 >
-                  <v-checkbox
-                    v-model="editedItem.member"
-                    :value="member"
-                    color="pink"
-                    density="compact"
-                    hide-details
-                  >
-                    <template #label>
-                      <v-avatar
-                        :image="
-                          imageStore.getImagePath(
-                            'icons/member',
-                            `icon_SD_${member}`,
-                          )
-                        "
-                        size="40"
-                        class="mr-2"
-                      />
-                    </template>
-                  </v-checkbox>
-                </v-col>
-              </v-row>
-            </v-col>
-          </v-row>
-        </v-card-text>
+                  <template #label>
+                    <v-avatar
+                      :image="
+                        imageStore.getImagePath(
+                          'icons/member',
+                          `icon_SD_${member}`,
+                        )
+                      "
+                      size="40"
+                      class="mr-2"
+                    />
+                  </template>
+                </v-checkbox>
+              </v-col>
+            </v-row>
+          </v-col>
 
-        <v-card-actions>
-          <v-spacer />
-          <v-btn text="Cancel" color="error" @click="closeDialog" />
-          <v-btn
-            text="Save"
-            color="primary"
-            :disabled="
-              !editedItem.id ||
-              !editedItem.startDate ||
-              editedItem.member.length === 0
-            "
-            @click="saveItem"
-          />
-        </v-card-actions>
-      </v-card>
+          <v-col cols="12" class="d-flex">
+            <v-spacer />
+            <v-btn
+              text="Cancel"
+              color="error"
+              variant="text"
+              @click="closeDialog"
+            />
+            <v-btn
+              text="Save"
+              color="primary"
+              variant="text"
+              :disabled="!editedItem.detail || editedItem.member.length === 0"
+              @click="saveItem"
+            />
+          </v-col>
+        </v-row>
+      </v-sheet>
     </v-dialog>
 
     <v-snackbar v-model="snackbar" :timeout="3000" :color="snackbarColor">
@@ -188,11 +211,13 @@ import { useImageStore } from '@/stores/imageStore';
 import { MEMBER_COLOR } from '@/constants/colorConst';
 import { RTDB_PATH } from '@/constants/envConst';
 import { STREAM_LABEL_CONST } from '@/constants/streamLabelConst';
+import { MESSAGES } from '@/constants/messageConst';
 
 interface ScheduleItem {
   id: string;
   startDate: string;
   endDate: string;
+  detail: string;
   type: string;
   member: string[];
 }
@@ -202,13 +227,14 @@ const headers = [
   { title: 'Start Date', key: 'startDate', sortable: true, width: '15%' },
   { title: 'End Date', key: 'endDate', sortable: false, width: '15%' },
   { title: 'Type', key: 'type', width: '10%' },
-  { title: 'Members', key: 'member', sortable: false },
+  { title: 'Detail', key: 'detail' },
+  { title: 'Members', key: 'member', sortable: false, width: '23%' },
   {
     title: 'Actions',
     key: 'actions',
     sortable: false,
     align: 'end',
-    width: '15%',
+    width: '7%',
   },
 ];
 
@@ -222,7 +248,8 @@ const editedItem = ref<ScheduleItem>({
   id: '',
   startDate: '',
   endDate: '',
-  type: 'WM',
+  detail: '',
+  type: 'WS',
   member: [],
 });
 const isNew = ref(true);
@@ -267,11 +294,9 @@ const timeOptions = computed(() => {
 });
 const snackbar = ref(false);
 const snackbarMessage = ref('');
-const snackbarColor = ref('success');
+const snackbarColor = ref('');
 
-const formTitle = computed(() =>
-  isNew.value ? 'New Schedule' : 'Edit Schedule',
-);
+const formTitle = computed(() => (isNew.value ? 'New' : 'Edit'));
 
 const db = computed(() => (store.isDev ? rtdbDev : rtdb));
 
@@ -316,10 +341,11 @@ const openDialog = (item: ScheduleItem | null) => {
     inputDate.value = dateString;
     inputTime.value = '20:30';
     editedItem.value = {
-      id: `wm_${Date.now()}`,
+      id: `ws_${Date.now()}`,
       startDate: `${dateString}T20:30`,
       endDate: '',
-      type: 'WM',
+      detail: '',
+      type: 'WS',
       member: [],
     };
   }
@@ -348,12 +374,13 @@ const saveItem = async () => {
     startDate: editedItem.value.startDate,
     endDate: editedItem.value.endDate || '',
     type: editedItem.value.type,
+    detail: editedItem.value.detail,
     member: editedItem.value.member || [],
   };
 
   try {
     await set(
-      dbRef(db.value, `${RTDB_PATH.STREAM}/${editedItem.value.id}`),
+      dbRef(rtdbDev, `${RTDB_PATH.STREAM}/${editedItem.value.id}`),
       itemToSave,
     );
     showSnackbar('Uploaded Success!', 'success');
@@ -365,6 +392,36 @@ const saveItem = async () => {
   }
 };
 
+/**
+ * 既存の全データに 'detail' 項目を追加して再アップロードします。
+ */
+const migrateStreamDetails = async () => {
+  if (
+    !confirm('全ての配信データに detail 項目を追加して再アップロードしますか？')
+  )
+    return;
+
+  loading.value = true;
+  try {
+    for (const item of schedules.value) {
+      const itemToSave = {
+        startDate: item.startDate,
+        endDate: item.endDate || '',
+        type: item.type,
+        detail: item.detail || '',
+        member: item.member || [],
+      };
+      await set(dbRef(db.value, `${RTDB_PATH.STREAM}/${item.id}`), itemToSave);
+    }
+    showSnackbar('Migration Success!', 'success');
+  } catch (err: unknown) {
+    console.error('Error during migration:', err);
+    showSnackbar(`Migration Failed: ${getErrorMessage(err)}`, 'error');
+  } finally {
+    loading.value = false;
+  }
+};
+
 const deleteItem = async (item: ScheduleItem) => {
   if (
     confirm(
@@ -372,12 +429,12 @@ const deleteItem = async (item: ScheduleItem) => {
     )
   ) {
     try {
-      await remove(dbRef(db.value, `${RTDB_PATH.STREAM}/${item.id}`));
-      showSnackbar('削除しました', 'success');
+      await remove(dbRef(rtdbDev, `${RTDB_PATH.STREAM}/${item.id}`));
+      showSnackbar(MESSAGES.M008, 'success');
     } catch (error) {
       console.error('Error deleting schedule:', error);
       const errorMessage = getErrorMessage(error);
-      showSnackbar(`削除に失敗しました: ${errorMessage}`, 'error');
+      showSnackbar(`${MESSAGES.E014}: ${errorMessage}`, 'error');
     }
   }
 };
@@ -402,7 +459,7 @@ watch(
 
     const endDate = new Date(startDate.getTime());
 
-    if (newType === 'WM') {
+    if (/WM|WS/.test(newType)) {
       endDate.setMinutes(endDate.getMinutes() + 30);
     } else {
       endDate.setHours(endDate.getHours() + 1);

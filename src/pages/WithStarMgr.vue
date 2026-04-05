@@ -124,7 +124,6 @@
                 <div class="text-center">
                   <p>獲得予定のWith Star</p>
                   <v-rating
-                    active-color="pink"
                     color="orange-lighten-1"
                     density="compact"
                     size="large"
@@ -204,7 +203,6 @@
                   <p>獲得予定のWith Star</p>
                   <v-rating
                     v-model="sendGiftPtList[i - 1].sendGiftPt"
-                    active-color="pink"
                     color="orange-lighten-1"
                     density="compact"
                     size="large"

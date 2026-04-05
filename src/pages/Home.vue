@@ -73,7 +73,7 @@
 
     <div class="mb-5">
       <div class="d-flex align-center">
-        <h2>With×MEETS 予定表</h2>
+        <h2>With×STATION 予定表</h2>
 
         <div v-if="streamInfoData.length > (display.smAndDown.value ? 1 : 3)">
           <v-btn
@@ -91,6 +91,15 @@
             @click="updateCarousel(1)"
           />
         </div>
+
+        <v-spacer />
+
+        <v-btn
+          v-if="false"
+          icon="mdi-calendar-month"
+          density="comfortable"
+          @click="store.showModalEvent('streamingSchedule')"
+        />
       </div>
 
       <p v-if="streamInfoData.length === 0" class="text-center text-grey py-4">

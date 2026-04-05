@@ -33,5 +33,5 @@ import-firestore.js
 /src/data/music/musicList.json
 /src/constants/musicList.ts
 
-# Event List
-# eventList.ts
+# local LLM Setting file
+/.continue/agents/new-config.yaml

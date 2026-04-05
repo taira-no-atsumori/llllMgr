@@ -4,7 +4,8 @@ import { ref, computed } from 'vue';
 
 import { FirebaseService } from '@/services/FirebaseService';
 
-import { STYLE_TYPE, MOOD, type Rare, RARE } from '@/constants/cards';
+import { STYLE_TYPE, MOOD, RARE, type Rare } from '@/constants/cards';
+import { cacheManager } from '@/utils/cacheManager';
 import {
   MEMBER_KEYS,
   MEMBER_IDS,
@@ -85,6 +86,7 @@ export const useCardStore = defineStore('cardList', () => {
         };
 
         // データ拡張処理（以前は stateStore.ts の initializeData で行っていた処理）
+        const syncPromises: Promise<void>[] = [];
         for (const memberName in mergedData) {
           for (const rare in mergedData[memberName]) {
             for (const cardId in mergedData[memberName][rare]) {
@@ -110,9 +112,30 @@ export const useCardStore = defineStore('cardList', () => {
                 limited: mergedData[memberName][rare][cardId].gacha
                   .period as string,
               } as CardDataType;
+
+              // IndexedDBのキャッシュURLと同期（フィールドが存在する場合）
+              const cardData = mergedData[memberName][rare][cardId];
+              if (cardData.imageURLBefore) {
+                syncPromises.push(
+                  cacheManager.updateImageUrlIfDifferent(
+                    `${cardId}_before`,
+                    cardData.imageURLBefore,
+                  ),
+                );
+              }
+              if (cardData.imageURLAfter) {
+                syncPromises.push(
+                  cacheManager.updateImageUrlIfDifferent(
+                    `${cardId}_after`,
+                    cardData.imageURLAfter,
+                  ),
+                );
+              }
             }
           }
         }
+
+        await Promise.all(syncPromises);
 
         card.value = mergedData;
         currentEnv.value = targetEnv;

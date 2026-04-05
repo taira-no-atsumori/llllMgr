@@ -6,27 +6,30 @@
     :offset-x="isLive(item) ? '56' : '33'"
     offset-y="-2"
     bordered
-    class="pt-3 d-block"
+    class="py-3 d-block"
   >
     <v-card
-      :color="`${item.type === 'FES' ? 'pink' : item.type === 'YT' ? 'red' : 'blue'}-lighten-3`"
+      :color="`${item.type === 'FES' ? 'pink' : item.type === 'YT' ? 'red' : item.type === 'WS' ? 'light-green' : 'blue'}-lighten-3`"
+      elevation="3"
       class="w-100"
     >
-      <v-card-title class="d-flex align-center">
+      <v-card-title class="d-flex align-center pb-1">
         <v-chip
           :color="
             item.type === 'FES'
               ? 'pink'
               : item.type === 'YT'
                 ? 'red-accent-4'
-                : 'blue'
+                : item.type === 'WS'
+                  ? 'light-green'
+                  : 'blue'
           "
           :prepend-icon="`mdi-${
-            item.type === 'WM'
-              ? 'access-point'
+            item.type === 'FES'
+              ? 'music'
               : item.type === 'YT'
                 ? 'play-circle'
-                : 'music'
+                : 'access-point'
           }`"
           variant="flat"
           :text="STREAM_LABEL_CONST[item.type]"
@@ -37,7 +40,12 @@
           {{ store.formatDate(item.startDate, 'ja') }}
         </p>
       </v-card-title>
-      <v-card-text>
+
+      <v-card-subtitle class="font-weight-bold opacity-100">
+        {{ item.detail }}
+      </v-card-subtitle>
+
+      <v-card-text class="pt-1">
         <v-avatar
           v-for="m in item.member"
           :key="m"

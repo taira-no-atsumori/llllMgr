@@ -242,8 +242,18 @@ export const MAX_CARD_LEVEL = {
 /** レア度ごとの最大レベルの型 */
 export type MaxCardLevel = (typeof MAX_CARD_LEVEL)[keyof typeof MAX_CARD_LEVEL];
 
-/** 特別カードIDリスト */
-export const SPECIAL_CARD_IDS = ['sc_001', 'is_001', 'ktm_001'] as const;
+/**
+ * 特別カードIDリスト
+ *
+ * @description
+ * カードフィルターの特殊に分類されるカードIDをここに記述する。
+ */
+export const SPECIAL_CARD_IDS = [
+  'sc_001',
+  'is_001',
+  'ktm_001',
+  'ksr_001',
+] as const;
 
 /** 特殊レベルカード */
 export const SPECIAL_CARD_LEVEL_IDS = [

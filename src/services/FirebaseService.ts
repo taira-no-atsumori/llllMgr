@@ -39,9 +39,8 @@ export const FirebaseService = {
    * @param isDev 開発環境かどうか
    */
   async getMusicData(isDev: boolean): Promise<Record<string, MusicItemData>> {
-    const db = isDev ? rtdbDev : rtdb;
+    const snapshot = await get(dbRef(isDev ? rtdbDev : rtdb, RTDB_PATH.MUSIC));
 
-    const snapshot = await get(dbRef(db, RTDB_PATH.MUSIC));
     return snapshot.val();
   },
 
@@ -52,9 +51,8 @@ export const FirebaseService = {
    * @returns カードデータ
    */
   async getCardData(isDev: boolean): Promise<CardDataByMember> {
-    const db = isDev ? rtdbDev : rtdb;
+    const snapshot = await get(dbRef(isDev ? rtdbDev : rtdb, RTDB_PATH.CARDS));
 
-    const snapshot = await get(dbRef(db, RTDB_PATH.CARDS));
     return snapshot.val();
   },
 
@@ -71,9 +69,7 @@ export const FirebaseService = {
     callback: (data: CardDataByMember | Record<string, MusicItemData>) => void,
     isDev: boolean,
   ): Unsubscribe {
-    const db = isDev ? rtdbDev : rtdb;
-
-    return onValue(dbRef(db, path), (snapshot) => {
+    return onValue(dbRef(isDev ? rtdbDev : rtdb, path), (snapshot) => {
       callback(snapshot.val());
     });
   },
@@ -90,9 +86,7 @@ export const FirebaseService = {
     data: CardDataByMember | Record<string, MusicItemData>,
     isDev: boolean,
   ) {
-    const db = isDev ? rtdbDev : rtdb;
-
-    await set(dbRef(db, path), data);
+    await set(dbRef(isDev ? rtdbDev : rtdb, path), data);
   },
 
   /**
@@ -107,8 +101,6 @@ export const FirebaseService = {
     data: CardDataByMember | Record<string, MusicItemData>,
     isDev: boolean,
   ) {
-    const db = isDev ? rtdbDev : rtdb;
-
-    await update(dbRef(db, path), data);
+    await update(dbRef(isDev ? rtdbDev : rtdb, path), data);
   },
 };
