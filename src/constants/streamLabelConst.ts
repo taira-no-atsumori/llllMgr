@@ -1,5 +1,6 @@
 export const STREAM_LABEL_CONST = {
   WM: 'With×MEETS',
+  WS: 'With×STATION',
   FES: 'Fes×LIVE',
   YT: 'YouTube',
   LIVE: 'Live Now!!',

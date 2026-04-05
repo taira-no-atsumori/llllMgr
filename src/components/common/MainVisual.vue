@@ -2,7 +2,7 @@
   <v-carousel
     :model-value="props.modelValue"
     hide-delimiters
-    :show-arrows="display.smAndDown.value ? 'hover' : false"
+    :show-arrows="false"
     style="max-width: 800px; height: auto"
     cycle
     @update:model-value="emit('update:modelValue', $event)"
@@ -76,9 +76,6 @@
 
 <script setup lang="ts">
 import type { EventItem } from '@/types/event';
-import { useDisplay } from 'vuetify';
-
-const display = useDisplay();
 
 const props = defineProps<{
   outputEventList: EventItem[];

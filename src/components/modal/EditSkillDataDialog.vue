@@ -5,8 +5,8 @@
     @update:model-value="closeDialog"
   >
     <v-card>
-      <v-card-title>
-        <span class="text-h5">{{ `${isNew ? 'New' : 'Edit'} Skill` }}</span>
+      <v-card-title class="text-h5">
+        {{ `${isNew ? 'New' : 'Edit'} Skill` }}
       </v-card-title>
 
       <v-card-text>
@@ -58,6 +58,68 @@
                       variant="outlined"
                       density="compact"
                       hide-details
+                    />
+                    <v-btn
+                      icon="mdi-delete"
+                      variant="text"
+                      density="compact"
+                      color="error"
+                      class="ml-3"
+                      :disabled="editedItem.text.length === 1"
+                      @click="editedItem.text.splice(index, 1)"
+                    />
+                  </div>
+                </template>
+                <v-btn
+                  prepend-icon="mdi-plus"
+                  text="Add Text"
+                  variant="outlined"
+                  block
+                  @click="editedItem.text.push('')"
+                />
+              </v-card-text>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12">
+            <v-btn
+              v-if="!isExText"
+              text="Add EX Text"
+              prepend-icon="mdi-plus"
+              block
+              @click="isExText = true"
+            />
+
+            <v-card v-else>
+              <v-card-title class="d-flex">
+                EX Text
+                <v-spacer />
+                <v-btn
+                  icon="mdi-close"
+                  variant="text"
+                  density="compact"
+                  color="error"
+                  @click="isExText = false"
+                />
+              </v-card-title>
+
+              <v-card-text>
+                <template v-for="(_, index) in editedItem.text" :key="index">
+                  <div class="d-flex align-center mb-4">
+                    <v-text-field
+                      v-model="editedItem.text[index]"
+                      :label="`Text${index + 1}`"
+                      variant="outlined"
+                      density="compact"
+                      hide-details
+                    />
+                    <v-btn
+                      icon="mdi-content-paste"
+                      variant="text"
+                      density="compact"
+                      class="ml-3"
+                      :disabled="editedItem.text.length === 1"
+                      @click="editedItem.text.splice(index, 1)"
                     />
                     <v-btn
                       icon="mdi-delete"
@@ -190,9 +252,8 @@
 import { ref, watch } from 'vue';
 
 import { ref as dbRef, update } from 'firebase/database';
-import { rtdb, rtdbDev } from '@/firebase';
+import { rtdbDev } from '@/firebase';
 
-import { useStateStore } from '@/stores/stateStore';
 import { useSkillStore } from '@/stores/skillStore';
 
 import { RTDB_PATH } from '@/constants/envConst';
@@ -236,7 +297,6 @@ const emit = defineEmits<{
   save: [item: SkillEditType & { error?: string }];
 }>();
 
-const store = useStateStore();
 const skillStore = useSkillStore();
 
 const editedItem = ref<SkillEditType>({ ...props.item });
@@ -244,6 +304,8 @@ const editedItem = ref<SkillEditType>({ ...props.item });
 const isAddTypeDialog = ref(false);
 const editingTypeIndex = ref<number | null>(null);
 const isSaving = ref(false);
+
+const isExText = ref(false);
 
 const isDuplicate = (a: 'ID' | 'name') => {
   const value = editedItem.value[a];
@@ -359,8 +421,6 @@ const onSelectSkillDetail = (detailId: string) => {
 };
 
 const saveItem = async () => {
-  const db = store.isDev ? rtdbDev : rtdb;
-
   if (!editedItem.value.name || !editedItem.value.ID) {
     emit('save', {
       ...editedItem.value,
@@ -388,7 +448,7 @@ const saveItem = async () => {
   updates[`${RTDB_PATH.SKILL}/${ID}`] = skillData;
 
   try {
-    await update(dbRef(db), updates);
+    await update(dbRef(rtdbDev), updates);
     emit('save', editedItem.value);
     closeDialog(false);
   } catch (error) {

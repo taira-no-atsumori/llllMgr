@@ -1,97 +1,93 @@
 <template>
   <h1>SITE SETTINGS</h1>
 
-  <v-tabs
-    v-model="pageName"
-    :items="tabs"
-    slider-color="pink"
-    density="compact"
-    grow
-    class="mb-2"
-  >
-    <template #tab="{ item }">
-      <v-tab
-        :value="item.value"
-        :text="item.text"
-        :class="`${item.value === 'music' ? 'd-none d-sm-block' : ''}`"
-      />
-    </template>
-  </v-tabs>
+  <div class="mb-3">
+    <div class="d-flex align-center">
+      <v-divider />
+      <h3 class="text-no-wrap mx-3">ALL</h3>
+      <v-divider />
+    </div>
 
-  <v-tabs-window v-model="pageName">
-    <v-tabs-window-item value="all">
-      <v-switch
-        v-model="settingsStore.siteSettings.all.headerTracking"
-        color="pink"
-        density="comfortable"
-        false-value="hide"
-        true-value=""
-        label="ヘッダー追従"
-        class="pl-2"
-        hide-details
-        @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
-      />
-      <v-switch
-        v-model="settingsStore.siteSettings.all.darkMode"
-        color="pink"
-        density="comfortable"
-        false-value="light"
-        true-value="dark"
-        label="ダークモード"
-        class="pl-2"
-        hide-details
-        @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
-      />
-    </v-tabs-window-item>
+    <v-row>
+      <v-col cols="6">
+        <v-switch
+          v-model="settingsStore.siteSettings.all.headerTracking"
+          color="pink"
+          density="comfortable"
+          false-value="hide"
+          true-value=""
+          label="ヘッダー追従"
+          hide-details
+          @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
+        />
+      </v-col>
+      <v-col cols="6">
+        <v-switch
+          v-model="settingsStore.siteSettings.all.darkMode"
+          color="pink"
+          density="comfortable"
+          false-value="light"
+          true-value="dark"
+          label="ダークモード"
+          hide-details
+          @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
+        />
+      </v-col>
+    </v-row>
+  </div>
 
-    <v-tabs-window-item value="card">
-      <div class="mb-3">
-        <p class="font-weight-bold">ドット表示</p>
-        <v-row no-gutters>
-          <v-col cols="12" sm="4">
-            <v-switch
-              v-model="settingsStore.siteSettings.cardList.dot_cardLevel"
-              color="pink"
-              density="comfortable"
-              false-value="false"
-              true-value="true"
-              label="🔴カードレベル"
-              class="pl-2"
-              hide-details
-              @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
-            />
-          </v-col>
-          <v-col cols="12" sm="4">
-            <v-switch
-              v-model="settingsStore.siteSettings.cardList.dot_releaseLevel"
-              color="pink"
-              density="comfortable"
-              false-value="false"
-              true-value="true"
-              label="🟢特訓"
-              class="pl-2"
-              hide-details
-              @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
-            />
-          </v-col>
-          <v-col cols="12" sm="4">
-            <v-switch
-              v-model="settingsStore.siteSettings.cardList.dot_releasePoint"
-              color="pink"
-              density="comfortable"
-              false-value="false"
-              true-value="true"
-              label="🔵解放Pt."
-              class="pl-2"
-              hide-details
-              @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
-            />
-          </v-col>
-        </v-row>
-      </div>
+  <div class="mb-3">
+    <div class="d-flex align-center mb-2">
+      <v-divider />
+      <h3 class="text-no-wrap mx-3">CARD LIST</h3>
+      <v-divider />
+    </div>
 
-      <div>
-        <p class="font-weight-bold">その他</p>
+    <h4>ドット表示</h4>
+
+    <v-row no-gutters class="mb-3">
+      <v-col cols="7" sm="4">
+        <v-switch
+          v-model="settingsStore.siteSettings.cardList.dot_cardLevel"
+          color="pink"
+          density="comfortable"
+          false-value="false"
+          true-value="true"
+          label="🔴カードレベル"
+          hide-details
+          @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
+        />
+      </v-col>
+      <v-col cols="5" sm="4">
+        <v-switch
+          v-model="settingsStore.siteSettings.cardList.dot_releaseLevel"
+          color="pink"
+          density="comfortable"
+          false-value="false"
+          true-value="true"
+          label="🟢特訓"
+          hide-details
+          @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
+        />
+      </v-col>
+      <v-col cols="12" sm="4">
+        <v-switch
+          v-model="settingsStore.siteSettings.cardList.dot_releasePoint"
+          color="pink"
+          density="comfortable"
+          false-value="false"
+          true-value="true"
+          label="🔵解放Pt."
+          hide-details
+          @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
+        />
+      </v-col>
+    </v-row>
+
+    <h4>その他</h4>
+
+    <v-row>
+      <v-col cols="6">
         <v-switch
           v-model="settingsStore.siteSettings.cardList.isShowDetail"
           color="pink"
@@ -99,10 +95,11 @@
           false-value="false"
           true-value="true"
           label="詳細表示"
-          class="pl-2"
           hide-details
           @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
         />
+      </v-col>
+      <v-col cols="6">
         <v-switch
           v-model="settingsStore.siteSettings.cardList.hover"
           color="pink"
@@ -110,43 +107,40 @@
           false-value="false"
           true-value="true"
           label="ホバー表示"
-          class="pl-2 d-none d-sm-block"
+          class="d-none d-sm-block"
           hide-details
           @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
         />
-      </div>
-    </v-tabs-window-item>
+      </v-col>
+    </v-row>
+  </div>
 
-    <v-tabs-window-item value="music">
-      <v-switch
-        v-model="settingsStore.siteSettings.musicList.hover"
-        color="pink"
-        density="comfortable"
-        false-value="false"
-        true-value="true"
-        label="ホバー表示"
-        class="pl-2 d-none d-sm-block"
-        hide-details
-        @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
-      />
-    </v-tabs-window-item>
-  </v-tabs-window>
+  <div class="d-none d-sm-block">
+    <div class="d-flex align-center">
+      <v-divider />
+      <h3 class="text-no-wrap mx-3">MUSIC LIST</h3>
+      <v-divider />
+    </div>
+
+    <v-switch
+      v-model="settingsStore.siteSettings.musicList.hover"
+      color="pink"
+      density="comfortable"
+      false-value="false"
+      true-value="true"
+      label="ホバー表示"
+      class=""
+      hide-details
+      @change="store.changeSettings(LDB_KEY_NAMES.SITE_SETTINGS)"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
 import { useStateStore } from '@/stores/stateStore';
 import { useSettingsStore } from '@/stores/settingsStore';
 import { LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES } from '@/constants/localDBKeyNames';
 
 const store = useStateStore();
 const settingsStore = useSettingsStore();
-
-const pageName = ref('all');
-const tabs = [
-  { text: 'ALL', value: 'all' },
-  { text: 'CARD LIST', value: 'card' },
-  { text: 'MUSIC LIST', value: 'music' },
-];
 </script>

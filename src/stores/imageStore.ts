@@ -51,8 +51,10 @@ export const useImageStore = defineStore('image', () => {
         if (typeof paths === 'string') {
           // まずCacheManagerから取得を試みる
           let url = await cacheManager.getImageUrl(id);
+
           if (!url) {
             url = await FirebaseService.getImageUrl(paths);
+
             if (url) {
               await cacheManager.setImageUrl(id, url);
             }

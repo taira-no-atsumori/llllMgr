@@ -68,6 +68,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
+
 import { ref as dbRef, update, get, remove } from 'firebase/database';
 import {
   getStorage,
@@ -76,8 +77,13 @@ import {
   getDownloadURL,
 } from 'firebase/storage';
 import { rtdb, rtdbDev } from '@/firebase';
+
 import { useStateStore } from '@/stores/stateStore';
+
+import { RTDB_PATH } from '@/constants/envConst';
+
 import type { EventItem } from '@/types/event';
+
 import EditEventDataDialog from '@/components/modal/EditEventDataDialog.vue';
 
 const store = useStateStore();
@@ -99,8 +105,12 @@ const headers = [
 ];
 
 const formatDateArray = (dateArr: number[] | undefined) => {
-  if (!dateArr || !Array.isArray(dateArr)) return '';
+  if (!dateArr || !Array.isArray(dateArr)) {
+    return '';
+  }
+
   const [year, month, day, hour, minute] = dateArr;
+
   return `${year}/${String(month).padStart(2, '0')}/${String(day).padStart(
     2,
     '0',
@@ -111,12 +121,8 @@ const events = ref<Record<string, EventItem>>({});
 
 const fetchEvents = async () => {
   const db = store.isDev ? rtdbDev : rtdb;
-  const snapshot = await get(dbRef(db, 'eventInformation'));
-  if (snapshot.exists()) {
-    events.value = snapshot.val();
-  } else {
-    events.value = {};
-  }
+  const snapshot = await get(dbRef(db, RTDB_PATH.EVENT));
+  events.value = snapshot.exists() ? snapshot.val() : {};
 };
 
 onMounted(fetchEvents);
@@ -168,7 +174,7 @@ const deleteEvent = async (item: EventItem) => {
   const db = store.isDev ? rtdbDev : rtdb;
 
   try {
-    await remove(dbRef(db, `eventInformation/${item.id}`));
+    await remove(dbRef(db, `${RTDB_PATH.EVENT}/${item.id}`));
     snackbarMessage.value = 'Deleted successfully';
     snackbarColor.value = 'success';
     snackbar.value = true;
@@ -199,13 +205,13 @@ const saveEvent = async ({
 
     if (file) {
       const storage = getStorage(rtdb.app);
-      const fileRef = storageRef(storage, `eventInformation/${file.name}`);
+      const fileRef = storageRef(storage, `${RTDB_PATH.EVENT}/${file.name}`);
       const snapshot = await uploadBytes(fileRef, file);
       const url = await getDownloadURL(snapshot.ref);
       rest.imageUrl = url;
     }
 
-    await update(dbRef(db, `eventInformation/${id}`), rest);
+    await update(dbRef(db, `${RTDB_PATH.EVENT}/${id}`), rest);
     snackbarMessage.value = 'Saved successfully';
     snackbarColor.value = 'success';
     snackbarTimeout.value = 5000;

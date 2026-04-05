@@ -75,9 +75,13 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
+
 import { ref as dbRef, update } from 'firebase/database';
 import { rtdbDev } from '@/firebase';
+
 import { SKILL_TYPE_KEY } from '@/constants/skillDetailType';
+import { RTDB_PATH } from '@/constants/envConst';
+
 import type { SkillDetailType, SkillType } from '@/types/skill';
 
 const props = defineProps<{
@@ -175,7 +179,7 @@ const saveItem = async () => {
 
   const { ID, ...data } = editedItem.value;
 
-  updates[`skills/skillDetail/${ID}`] = data;
+  updates[`${RTDB_PATH.SKILL_DETAIL}/${ID}`] = data;
 
   try {
     await update(dbRef(rtdbDev), updates);

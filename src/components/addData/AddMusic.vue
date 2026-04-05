@@ -1,52 +1,84 @@
 <template>
   <v-container fluid class="pa-0">
     <v-row>
+      <v-col cols="1">
+        <v-select
+          v-model="selectedKanaRow"
+          label="五十音"
+          :items="kanaOptions"
+          item-title="title"
+          item-value="value"
+          clearable
+          density="compact"
+          variant="outlined"
+          hide-details
+        />
+      </v-col>
+      <v-col cols="6">
+        <v-select
+          v-model="selectedPreset"
+          label="Preset"
+          :items="presetItems"
+          item-title="title"
+          item-value="value"
+          density="compact"
+          variant="outlined"
+          hide-details
+        />
+      </v-col>
+      <v-col cols="5" class="d-flex">
+        <v-btn
+          color="primary"
+          text="Set"
+          :disabled="!selectedPreset"
+          @click="applyPreset"
+        />
+        <v-btn color="warning" text="Reset" class="mx-2" @click="resetForm" />
+        <v-spacer />
+        <v-btn
+          color="primary"
+          prepend-icon="mdi-content-copy"
+          text="Copy"
+          class="mr-5"
+          @click="navigator.clipboard.writeText(jsonOutput.value)"
+        />
+        <v-btn
+          color="green"
+          prepend-icon="mdi-cloud-upload"
+          text="Dev Upload"
+          :disabled="!isValidInput || isUploading"
+          :loading="isUploading"
+          @click="addToStore"
+        />
+      </v-col>
+
+      <v-col cols="12" class="d-flex">
+        <v-file-input
+          v-model="batchFiles"
+          multiple
+          label="Batch Jackets"
+          density="compact"
+          variant="outlined"
+          hide-details
+          class="mr-2"
+          accept="image/*"
+        />
+        <v-btn
+          color="secondary"
+          text="Batch Upload"
+          :disabled="batchFiles.length === 0 || isUploading"
+          :loading="isUploading"
+          class="mr-2"
+          @click="uploadBatchJackets"
+        />
+      </v-col>
+
+      <v-col cols="12">
+        <v-divider />
+      </v-col>
+
       <v-col cols="8">
         <v-row>
-          <v-col cols="2">
-            <v-select
-              v-model="selectedKanaRow"
-              label="五十音"
-              :items="kanaOptions"
-              item-title="title"
-              item-value="value"
-              clearable
-              density="compact"
-              variant="outlined"
-              hide-details
-            />
-          </v-col>
-          <v-col cols="7">
-            <v-select
-              v-model="selectedPreset"
-              label="Preset"
-              :items="presetItems"
-              item-title="title"
-              item-value="value"
-              density="compact"
-              variant="outlined"
-              hide-details
-            />
-          </v-col>
-          <v-col cols="3">
-            <v-btn
-              color="primary"
-              text="Set"
-              :disabled="!selectedPreset"
-              @click="applyPreset"
-            />
-            <v-btn
-              color="warning"
-              text="Reset"
-              class="mx-2"
-              @click="resetForm"
-            />
-          </v-col>
-
-          <v-col cols="12">
-            <v-divider />
-          </v-col>
-
           <!-- Music IDは自動生成されるため、表示のみ -->
           <v-col cols="2">
             <v-text-field
@@ -198,7 +230,7 @@
           <v-col cols="2">
             <v-text-field
               v-model.number="music.musicData.time.minuts"
-              label="Time (minuts)"
+              label="Time (minutes)"
               type="number"
               max="9"
               min="0"
@@ -224,7 +256,7 @@
           <v-col cols="2">
             <v-text-field
               v-model.number="music.musicData.time.miliSeconds"
-              label="Time (miliSeconds)"
+              label="Time (milliSeconds)"
               type="number"
               step="0.1"
               max="99.9"
@@ -306,7 +338,7 @@
               v-model="music.center"
               label="Center"
               :items="soloSingerList"
-              item-text="label"
+              item-title="title"
               item-value="value"
               required
               density="compact"
@@ -398,23 +430,6 @@
 
       <v-col cols="4">
         <v-row>
-          <v-col cols="12">
-            <v-btn
-              color="primary"
-              prepend-icon="mdi-content-copy"
-              text="Copy"
-              class="mr-5"
-              @click="navigator.clipboard.writeText(jsonOutput.value)"
-            />
-            <v-btn
-              color="green"
-              prepend-icon="mdi-cloud-upload"
-              text="Dev Upload"
-              :disabled="!isValidInput"
-              @click="addToStore"
-            />
-          </v-col>
-
           <v-col cols="12" align="center">
             <div style="max-width: 300px">
               <v-img :src="previewImageUrl || music.imageURL || noImage" />
@@ -505,6 +520,8 @@ import {
 import { rtdb, rtdbDev } from '@/firebase';
 
 import { useUploadDataStore } from '@/stores/uploadDataStore';
+import { useImageStore } from '@/stores/imageStore';
+import { useMusicStore } from '@/stores/musicStore';
 
 import { getRow } from '@/utils/stringUtil';
 
@@ -519,19 +536,23 @@ import {
 import { ATTRIBUTE } from '@/constants/music';
 import { BONUS_SKILL_NAMES } from '@/constants/bonusSkills';
 import { KANA_OPTIONS } from '@/constants/kana';
-import { LOCAL_DB_KEY_NAMES } from '@/constants/localDBKeyNames';
+import { LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES } from '@/constants/localDBKeyNames';
 import { MESSAGES } from '@/constants/messageConst';
+import { RTDB_PATH, STRG_PATH } from '@/constants/envConst';
 
 import type { MusicItemData } from '@/types/musicList';
 
 import noImage from '@/assets/images/NO IMAGE_music.webp';
 
 const uploadStore = useUploadDataStore();
+const imageStore = useImageStore();
+const musicStore = useMusicStore();
 
 const isIdOverride = ref(false);
 const singerTab = ref('group');
 const isUploading = ref(false);
 const fileInputRef = ref<File[] | null>(null);
+const batchFiles = ref<File[]>([]);
 const fileInputModel = ref<File[]>([]);
 const selectedFile = ref<File | null>(null);
 const previewImageUrl = ref<string | null>(null);
@@ -547,7 +568,8 @@ const kanaOptions = [...KANA_OPTIONS];
 const dbMusicList = ref<Record<string, MusicItemData>>({});
 
 onMounted(() => {
-  const musicRef = dbRef(rtdbDev, 'music');
+  const musicRef = dbRef(rtdbDev, RTDB_PATH.MUSIC);
+
   onValue(musicRef, (snapshot) => {
     const data = snapshot.val();
 
@@ -666,12 +688,16 @@ const kanaRules = [
 const releaseDateInput = computed({
   get: () => {
     const d = music.value.musicData.releaseDate;
+
     return `${d.year}-${String(d.month).padStart(2, '0')}-${String(
       d.date,
     ).padStart(2, '0')}`;
   },
   set: (val: string) => {
-    if (!val) return;
+    if (!val) {
+      return;
+    }
+
     const [year, month, date] = val.split('-').map(Number);
     music.value.musicData.releaseDate.year = year;
     music.value.musicData.releaseDate.month = month;
@@ -698,11 +724,27 @@ const isValidInput = computed(() => {
 });
 
 const soloSingerList = computed(() => {
-  if (singerTab.value === 'group') {
-    const groupKey = music.value.musicData.singer_group;
-    return GROUP_MEMBER[groupKey].MEMBERS;
-  } else {
-    return music.value.musicData.singer_solo;
+  const members =
+    singerTab.value === 'group'
+      ? GROUP_MEMBER[music.value.musicData.singer_group].MEMBERS
+      : music.value.musicData.singer_solo;
+
+  return members.map((memberKey) => ({
+    title: memberKey,
+    value: memberKey,
+  }));
+});
+
+// soloSingerListの内容が変わった際、現在のcenterがリスト内に存在しない場合は自動で更新する
+watch(soloSingerList, (newList) => {
+  if (newList.length > 0) {
+    const isCenterInList = newList.some(
+      (item) => item.value === music.value.center,
+    );
+
+    if (!isCenterInList) {
+      music.value.center = newList[0].value as MemberKeys;
+    }
   }
 });
 
@@ -819,7 +861,7 @@ const addToStore = async () => {
       const storage = getStorage(rtdb.app);
       const fileRef = storageRef(
         storage,
-        `cdJacket/${selectedFile.value.name}`,
+        `${STRG_PATH.MUSIC}/${selectedFile.value.name}`,
       );
 
       try {
@@ -840,15 +882,15 @@ const addToStore = async () => {
       const url = await getDownloadURL(snapshot.ref);
       data[id].imageURL = url;
 
-      if (!imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
-        imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
+      if (!imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
+        imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
       }
 
-      imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC][id] = url;
+      imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC][id] = url;
     }
 
     const updates: Record<string, MusicItemData> = {};
-    updates[`music/${id}`] = data[id];
+    updates[`${RTDB_PATH.MUSIC}/${id}`] = data[id];
     await update(dbRef(rtdbDev), updates);
 
     snackbarMessage.value = MESSAGES.M007;
@@ -867,21 +909,25 @@ const addToStore = async () => {
 
 // const uploadImage = async () => {
 //   const targetFile = selectedFile.value;
-//   if (!targetFile) return;
+
+//   if (!targetFile) {
+//     return;
+//   }
 
 //   isUploading.value = true;
 //   const storage = getStorage(rtdbDev.app);
-//   const fileRef = storageRef(storage, `cdJacket/${targetFile.name}`);
+//   const fileRef = storageRef(storage, `${STRG_PATH.MUSIC}/${targetFile.name}`);
 
 //   try {
 //     const snapshot = await uploadBytes(fileRef, targetFile);
 //     const url = await getDownloadURL(snapshot.ref);
 //     music.value.imageURL = url;
 
-//     if (!imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
-//       imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
+//     if (!imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
+//       imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
 //     }
-//     imageStore.imageCache[LOCAL_DB_KEY_NAMES.CACHE_IMAGE_MUSIC][music.value.ID] = url;
+
+//     imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC][music.value.ID] = url;
 
 //     cancelUpload();
 //   } catch (e) {
@@ -929,9 +975,71 @@ const onNativeFileChange = (event: Event) => {
   }
 };
 
+/** 画像名から楽曲IDを取得し、一括アップロードする処理 */
+const uploadBatchJackets = async () => {
+  if (batchFiles.value.length === 0) {
+    return;
+  }
+
+  isUploading.value = true;
+  const storage = getStorage(rtdb.app);
+  let successCount = 0;
+  let failCount = 0;
+
+  try {
+    for (const file of batchFiles.value) {
+      // 拡張子を除いたファイル名をタイトルとして取得
+      const title =
+        file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
+      const musicId = musicStore.getMusicIdByTitle(title);
+
+      if (!musicId) {
+        console.error(`ID not found for title: ${title}`);
+        failCount++;
+        continue;
+      }
+
+      // 元の拡張子を維持してIDをファイル名にする
+      const extension = file.name.split('.').pop();
+      const fileName = `${musicId}.${extension}`;
+      const fileRef = storageRef(storage, `${STRG_PATH.MUSIC}/${fileName}`);
+
+      // アップロード実行
+      const snapshot = await uploadBytes(fileRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+
+      // Realtime DB の該当楽曲の imageURL を更新
+      const updates: Record<string, string> = {};
+      updates[`${RTDB_PATH.MUSIC}/${musicId}/imageURL`] = url;
+      await update(dbRef(rtdbDev), updates);
+
+      // imageStoreのキャッシュも更新
+      if (!imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC]) {
+        imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC] = {};
+      }
+
+      imageStore.imageCache[LDB_KEY_NAMES.CACHE_IMAGE_MUSIC][musicId] = url;
+
+      successCount++;
+    }
+
+    snackbarMessage.value = `一括アップロード完了 (成功: ${successCount}, 失敗: ${failCount})`;
+    snackbarColor.value = failCount === 0 ? 'success' : 'warning';
+    snackbar.value = true;
+    batchFiles.value = [];
+  } catch (error) {
+    console.error('Batch upload failed:', error);
+    snackbarMessage.value = 'アップロード中にエラーが発生しました';
+    snackbarColor.value = 'error';
+    snackbar.value = true;
+  } finally {
+    isUploading.value = false;
+  }
+};
+
 /** リアルタイムにJSONを生成 */
 const jsonOutput = computed(() => {
-  // minutes, seconds, miliSecondsを秒単位に変換
+  // minutes, seconds, milliSecondsを秒単位に変換
   const timeInSeconds =
     (music.value.musicData.time.minuts || 0) * 60 +
     (music.value.musicData.time.seconds || 0) +

@@ -366,6 +366,7 @@ import { RARE } from '@/constants/cards';
 import { FORMATION_MEMBER } from '@/constants/memberNames';
 import { GRANDPRIX_BONUS } from '@/constants/grandprixBonus';
 import { STYLE_HEADLINE } from '@/constants/styleHeadline';
+import { STRG_PATH } from '@/constants/envConst';
 
 import type { CardDataType } from '@/types/cardList';
 
@@ -418,10 +419,17 @@ watch(
     }
 
     if (FORMATION_MEMBER[104].some((name) => name === newMemberName)) {
-      if (cardStore.card.kozutsuzumegu?.UR)
+      if (cardStore.card.kozutsuzumegu?.UR) {
         cards.push(...Object.values(cardStore.card.kozutsuzumegu.UR));
-      if (cardStore.card.selaIzu?.SR)
+      }
+
+      if (cardStore.card.kahoSayaRuri?.UR) {
+        cards.push(...Object.values(cardStore.card.kahoSayaRuri.UR));
+      }
+
+      if (cardStore.card.selaIzu?.SR) {
         cards.push(...Object.values(cardStore.card.selaIzu.SR));
+      }
     }
     if (FORMATION_MEMBER[103].some((name) => name === newMemberName)) {
       if (cardStore.card.sachi?.UR)
@@ -433,8 +441,8 @@ watch(
       cards,
       (card) => card.ID,
       (card) => ({
-        before: `cardIllust/${store.makeCardIllustName(card.ID, false)}.webp`,
-        after: `cardIllust/${store.makeCardIllustName(card.ID, true)}.webp`,
+        before: `${STRG_PATH.CARDS}/${store.makeCardIllustName(card.ID, false)}.webp`,
+        after: `${STRG_PATH.CARDS}/${store.makeCardIllustName(card.ID, true)}.webp`,
       }),
     );
   },
@@ -666,6 +674,7 @@ export default {
           result = result.concat(
             [],
             Object.values(cardStore.card.kozutsuzumegu.UR),
+            Object.values(cardStore.card.kahoSayaRuri.UR),
             Object.values(cardStore.card.selaIzu.SR),
           );
         }

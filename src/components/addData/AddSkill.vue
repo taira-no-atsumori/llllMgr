@@ -7,6 +7,7 @@
         prepend-inner-icon="mdi-magnify"
         variant="outlined"
         hide-details
+        clearable
         class="ma-2"
       >
         <template #append>
@@ -27,6 +28,12 @@
         hover
       >
         <template #[`item.edit`]="{ item }">
+          <v-icon
+            icon="mdi-content-copy"
+            size="small"
+            class="mr-2"
+            @click="openCopyDialog(item)"
+          />
           <v-icon
             icon="mdi-pencil"
             size="small"
@@ -54,9 +61,11 @@
 import { ref, computed, onMounted, watch } from 'vue';
 
 import { ref as dbRef, onValue } from 'firebase/database';
-import { rtdb } from '@/firebase';
+import { rtdb, rtdbDev } from '@/firebase';
 
 import { useStateStore } from '@/stores/stateStore';
+
+import { RTDB_PATH } from '@/constants/envConst';
 
 import type { SkillType } from '@/types/skill';
 
@@ -68,7 +77,7 @@ const skillList = ref<Record<string, SkillType>>({});
 const search = ref('');
 
 const fetchSkillList = () => {
-  const skillRef = dbRef(rtdb, 'skills/skill');
+  const skillRef = dbRef(store.isDev ? rtdbDev : rtdb, RTDB_PATH.SKILL);
 
   onValue(skillRef, (snapshot) => {
     const data: Record<string, SkillType> = snapshot.val();
@@ -127,6 +136,16 @@ const openCreateDialog = () => {
   dialog.value = true;
 };
 
+/**
+ * 指定したアイテムのデータをコピーして新規作成ダイアログを開く
+ */
+const openCopyDialog = (item: SkillEditType) => {
+  editedItem.value = JSON.parse(JSON.stringify(item));
+  editedItem.value.ID = ''; // 重複を防ぐためIDを空にして、ユーザーに新しいIDの入力を促します
+  isNew.value = true;
+  dialog.value = true;
+};
+
 const openEditDialog = (item: SkillEditType) => {
   editedItem.value = JSON.parse(JSON.stringify(item));
   isNew.value = false;
@@ -138,7 +157,7 @@ const handleSave = (item: SkillEditType & { error?: string }) => {
     snackbarMessage.value = item.error;
     snackbarColor.value = 'error';
   } else {
-    snackbarMessage.value = `Saved to ${store.isDev ? 'Dev' : 'Prod'}`;
+    snackbarMessage.value = `Saved to Dev`;
     snackbarColor.value = 'success';
   }
 

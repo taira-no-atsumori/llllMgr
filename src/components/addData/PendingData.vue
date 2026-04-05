@@ -35,7 +35,7 @@
             <v-list-item
               :class="`bg-${item.status === 'new' ? 'blue' : 'yellow'}-lighten-4`"
               :active="selectedItemKey === item.key"
-              active-color="primary"
+              color="primary"
               @click="showDiff(item)"
             >
               <template #prepend>

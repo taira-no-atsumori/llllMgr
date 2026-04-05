@@ -2,6 +2,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 import { FirebaseService } from '@/services/FirebaseService';
+import { cacheManager } from '@/utils/cacheManager';
 
 import type { MusicItemData } from '@/types/musicList';
 
@@ -35,11 +36,17 @@ export const useMusicStore = defineStore('music', () => {
 
         // データからimageURLを抽出してキャッシュ用URLリストを更新
         const images: Record<string, string> = {};
-        Object.entries(data).forEach(([key, val]: [string, MusicItemData]) => {
-          if (val.imageURL) {
-            images[key] = val.imageURL;
-          }
-        });
+        await Promise.all(
+          Object.entries(data).map(
+            async ([key, val]: [string, MusicItemData]) => {
+              if (val.imageURL) {
+                images[key] = val.imageURL;
+                // IndexedDBのURLと比較し、一致しなければ更新
+                await cacheManager.updateImageUrlIfDifferent(key, val.imageURL);
+              }
+            },
+          ),
+        );
         dbImageUrls.value = images;
 
         currentEnv.value = targetEnv;

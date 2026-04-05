@@ -11,6 +11,7 @@ export const MESSAGES = {
   M005: 'Reverted successfully!',
   M006: 'Upload to Prod Env!',
   M007: 'Upload to Dev Env!',
+  M008: 'Deleted!',
 
   E001: 'Kana is required.',
   E002: 'Only Hiragana and Numbers are allowed.',
@@ -25,4 +26,5 @@ export const MESSAGES = {
   E011: 'Your password or ID is incorrect.',
   E012: 'Sync Failed…',
   E013: 'Upload Failed…',
+  E014: 'Delete Failed…',
 } as const;

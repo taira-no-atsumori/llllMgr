@@ -598,6 +598,7 @@ import {
 } from '@/constants/music';
 import { bonusSkillNames } from '@/constants/bonusSkills';
 import { LOCAL_DB_KEY_NAMES as LDB_KEY_NAMES } from '@/constants/localDBKeyNames';
+import { STRG_PATH } from '@/constants/envConst';
 
 import type { MusicItemData } from '@/types/musicList';
 
@@ -822,7 +823,7 @@ watch(
       LDB_KEY_NAMES.CACHE_IMAGE_MUSIC,
       items,
       (item) => item.ID,
-      (item) => `cdJacket/${conversion(item.title)}.webp`,
+      (item) => `${STRG_PATH.MUSIC}/${conversion(item.title)}.webp`,
     );
   },
   { immediate: true },

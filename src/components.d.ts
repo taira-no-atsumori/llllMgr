@@ -22,6 +22,7 @@ declare module 'vue' {
     Card: typeof import('./components/common/card/Card.vue')['default']
     CardFilterSliderComponent: typeof import('./components/CardFilterSliderComponent.vue')['default']
     CardItem: typeof import('./components/common/card/CardItem.vue')['default']
+    CardListArea: typeof import('./components/CardListArea.vue')['default']
     CardListFilter: typeof import('./components/modal/CardListFilter.vue')['default']
     ChangeDataList: typeof import('./components/addData/ChangeDataList.vue')['default']
     CharacteristicAreaComponent: typeof import('./components/CharacteristicAreaComponent.vue')['default']
@@ -58,5 +59,6 @@ declare module 'vue' {
     SkillAreaComponent: typeof import('./components/SkillAreaComponent.vue')['default']
     SkillFormComponent: typeof import('./components/SkillFormComponent.vue')['default']
     StreamCard: typeof import('./components/common/StreamCard.vue')['default']
+    StreamingScheduleDialog: typeof import('./components/modal/StreamingScheduleDialog.vue')['default']
   }
 }

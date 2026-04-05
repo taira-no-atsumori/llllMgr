@@ -245,6 +245,7 @@ export interface CardDataByMember {
   [MEMBER_KEYS.SACHI]: CardsByRarity;
   [MEMBER_KEYS.SELAIZU]: CardsByRarity;
   [MEMBER_KEYS.KOZUTSUZUMEGU]: CardsByRarity;
+  [MEMBER_KEYS.KAHOSAYARURI]: CardsByRarity;
 }
 
 /**

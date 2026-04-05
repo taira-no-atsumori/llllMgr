@@ -47,18 +47,30 @@ export class CacheManager {
 
     if (data && data.expires > Date.now()) {
       return data.url;
-    } else {
+    } else if (data) {
       // 期限切れなら削除
-      if (data) {
-        await db.images.delete(id);
-      }
-
-      return null;
+      await db.images.delete(id);
     }
+
+    return null;
   }
 
   async clearExpired(): Promise<void> {
     await db.images.where('expires').belowOrEqual(Date.now()).delete();
+  }
+
+  /**
+   * 指定したIDのキャッシュURLを比較し、異なれば更新する
+   *
+   * @param id 画像ID
+   * @param url Firebaseから取得した最新のimageURL
+   */
+  async updateImageUrlIfDifferent(id: string, url: string): Promise<void> {
+    const cached = await db.images.get(id);
+
+    if (!cached || cached.url !== url) {
+      await this.setImageUrl(id, url);
+    }
   }
 }
 

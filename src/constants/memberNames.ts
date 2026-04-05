@@ -13,9 +13,13 @@ export const MEMBER_KEYS = {
   HIME: 'hime',
   SERAS: 'seras',
   IZUMI: 'izumi',
+  MAIKA: 'maika',
+  AOI: 'aoi',
+  MION: 'mion',
   SACHI: 'sachi',
   SELAIZU: 'selaIzu',
   KOZUTSUZUMEGU: 'kozutsuzumegu',
+  KAHOSAYARURI: 'kahoSayaRuri',
 } as const;
 /** メンバーキーのキーの型 */
 export type MemberKeyKeys = keyof typeof MEMBER_KEYS;
@@ -70,9 +74,13 @@ export const MEMBER_IDS = {
   [MEMBER_KEYS.HIME]: 'hm',
   [MEMBER_KEYS.SERAS]: 'sr',
   [MEMBER_KEYS.IZUMI]: 'iz',
+  [MEMBER_KEYS.MAIKA]: 'my',
+  [MEMBER_KEYS.AOI]: 'ao',
+  [MEMBER_KEYS.MION]: 'mo',
   [MEMBER_KEYS.SACHI]: 'sc',
   [MEMBER_KEYS.SELAIZU]: 'is',
   [MEMBER_KEYS.KOZUTSUZUMEGU]: 'ktm',
+  [MEMBER_KEYS.KAHOSAYARURI]: 'ksr',
 } as const;
 export type MemberIds = (typeof MEMBER_IDS)[keyof typeof MEMBER_IDS];
 
@@ -140,6 +148,18 @@ export const MEMBER_NAMES = {
     first: '徒町',
     last: '小鈴',
   },
+  [MEMBER_KEYS.MAIKA]: {
+    first: '錦上',
+    last: 'マイカ',
+  },
+  [MEMBER_KEYS.AOI]: {
+    first: '令沢',
+    last: '葵',
+  },
+  [MEMBER_KEYS.MION]: {
+    first: '紫輪',
+    last: 'みおん',
+  },
   [MEMBER_KEYS.HIME]: {
     first: '安養寺',
     last: '姫芽',
@@ -164,6 +184,10 @@ export const MEMBER_NAMES = {
     first: '乙宗梢＆夕霧綴理＆',
     last: '藤島慈',
   },
+  [MEMBER_KEYS.KAHOSAYARURI]: {
+    first: '日野下花帆＆村野さやか＆',
+    last: '大沢瑠璃乃',
+  },
 } as const;
 /** メンバーフルネームの型 */
 export type MemberNames = (typeof MEMBER_NAMES)[keyof typeof MEMBER_NAMES];
@@ -187,7 +211,7 @@ export const makeMemberFullName = (key: MemberKeyValues, isSpace = true) => {
   const memberData = MEMBER_NAMES[key];
 
   return `${memberData.first}${
-    /kozutsuzumegu|selaIzu/.test(key) || isSpace ? ' ' : ''
+    /kozutsuzumegu|kahoSayaRuri|selaIzu/.test(key) || isSpace ? ' ' : ''
   }${memberData.last}`;
 };
 
@@ -204,11 +228,15 @@ export const conversionCardIdToMemberName = (id: string): string => {
     case MEMBER_IDS.kozutsuzumegu: {
       return `${MEMBER_NAMES.kozutsuzumegu.first}${MEMBER_NAMES.kozutsuzumegu.last}`;
     }
+    case MEMBER_IDS.kahoSayaRuri: {
+      return `${MEMBER_NAMES.kahoSayaRuri.first}${MEMBER_NAMES.kahoSayaRuri.last}`;
+    }
     case MEMBER_IDS.selaIzu: {
       return makeMemberFullName(MEMBER_KEYS.SELAIZU);
     }
     default: {
       const memberKey = conversionIdToKey(id);
+
       return MEMBER_NAMES[memberKey][
         `${memberKey === MEMBER_KEYS.SERAS ? 'fir' : 'la'}st`
       ];
@@ -219,118 +247,148 @@ export const conversionCardIdToMemberName = (id: string): string => {
 /** メンバーデータ */
 export const MEMBER_DATA = {
   KAHO: {
-    id: 'kh',
-    key: 'kaho',
+    id: MEMBER_IDS[MEMBER_KEYS.KAHO],
+    key: MEMBER_KEYS.KAHO,
     period: 103,
     color: {
-      code: '#F8B500',
+      code: MEMBER_COLOR[MEMBER_KEYS.KAHO],
       name: 'おひさま色',
       kana: 'おひさまいろ',
     },
   },
   SAYAKA: {
-    id: 'sy',
-    key: 'sayaka',
+    id: MEMBER_IDS[MEMBER_KEYS.SAYAKA],
+    key: MEMBER_KEYS.SAYAKA,
     period: 103,
     color: {
-      code: '#5383C3',
+      code: MEMBER_COLOR[MEMBER_KEYS.SAYAKA],
       name: '氷青色',
       kana: 'ひょうじょういろ',
     },
   },
   RURINO: {
-    id: 'rr',
-    key: 'rurino',
+    id: MEMBER_IDS[MEMBER_KEYS.RURINO],
+    key: MEMBER_KEYS.RURINO,
     period: 103,
     color: {
-      code: '#E7609E',
+      code: MEMBER_COLOR[MEMBER_KEYS.RURINO],
       name: '瑠璃ピンク',
       kana: 'るりぴんく',
     },
   },
   KOZUE: {
-    id: 'kz',
-    key: 'kozue',
+    id: MEMBER_IDS[MEMBER_KEYS.KOZUE],
+    key: MEMBER_KEYS.KOZUE,
     period: 102,
     color: {
-      code: '#68BE8D',
+      code: MEMBER_COLOR[MEMBER_KEYS.KOZUE],
       name: 'マーメイドグリーン',
       kana: 'まーめいどぐりーん',
     },
   },
   TSUZURI: {
-    id: 'tz',
-    key: 'tsuzuri',
+    id: MEMBER_IDS[MEMBER_KEYS.TSUZURI],
+    key: MEMBER_KEYS.TSUZURI,
     period: 102,
     color: {
-      code: '#BA2636',
+      code: MEMBER_COLOR[MEMBER_KEYS.TSUZURI],
       name: 'ボクの赤',
       kana: 'ぼくのあか',
     },
   },
   MEGUMI: {
-    id: 'mg',
-    key: 'megumi',
+    id: MEMBER_IDS[MEMBER_KEYS.MEGUMI],
+    key: MEMBER_KEYS.MEGUMI,
     period: 102,
     color: {
-      code: '#C8C2C6',
+      code: MEMBER_COLOR[MEMBER_KEYS.MEGUMI],
       name: 'エンジェルホワイト',
       kana: 'えんじぇるほわいと',
     },
   },
   GINKO: {
-    id: 'gn',
-    key: 'ginko',
+    id: MEMBER_IDS[MEMBER_KEYS.GINKO],
+    key: MEMBER_KEYS.GINKO,
     period: 104,
     color: {
-      code: '#A2D7DD',
+      code: MEMBER_COLOR[MEMBER_KEYS.GINKO],
       name: '天の原色',
       kana: 'あまのはらいろ',
     },
   },
   KOSUZU: {
-    id: 'sz',
-    key: 'kosuzu',
+    id: MEMBER_IDS[MEMBER_KEYS.KOSUZU],
+    key: MEMBER_KEYS.KOSUZU,
     period: 104,
     color: {
-      code: '#FAD764',
+      code: MEMBER_COLOR[MEMBER_KEYS.KOSUZU],
       name: 'いちばん星色',
       kana: 'いちばんぼしいろ',
     },
   },
   HIME: {
-    id: 'hm',
-    key: 'hime',
+    id: MEMBER_IDS[MEMBER_KEYS.HIME],
+    key: MEMBER_KEYS.HIME,
     period: 104,
     color: {
-      code: '#9D8DE2',
+      code: MEMBER_COLOR[MEMBER_KEYS.HIME],
       name: 'シュガーパープル',
       kana: 'しゅがーぱーぷる',
     },
   },
   SERAS: {
-    id: 'sr',
-    key: 'seras',
+    id: MEMBER_IDS[MEMBER_KEYS.SERAS],
+    key: MEMBER_KEYS.SERAS,
     period: 105,
     color: {
-      code: '#f56455',
+      code: MEMBER_COLOR[MEMBER_KEYS.SERAS],
       name: 'ライズスカーレット',
       kana: 'らいずすかーれっと',
     },
   },
   IZUMI: {
-    id: 'iz',
-    key: '泉',
+    id: MEMBER_IDS[MEMBER_KEYS.IZUMI],
+    key: MEMBER_KEYS.IZUMI,
     period: 105,
     color: {
-      code: '#1ebecd',
+      code: MEMBER_COLOR[MEMBER_KEYS.IZUMI],
       name: 'シュヴァリエグリーン',
       kana: 'しゅゔぁりえぐりーん',
     },
   },
+  MAIKA: {
+    id: MEMBER_IDS[MEMBER_KEYS.MAIKA],
+    key: MEMBER_KEYS.MAIKA,
+    period: 106,
+    color: {
+      code: null,
+      name: null,
+      kana: null,
+    },
+  },
+  AOI: {
+    id: MEMBER_IDS[MEMBER_KEYS.AOI],
+    key: MEMBER_KEYS.AOI,
+    period: 106,
+    color: {
+      code: null,
+      name: null,
+      kana: null,
+    },
+  },
+  MION: {
+    id: MEMBER_IDS[MEMBER_KEYS.MION],
+    key: MEMBER_KEYS.MION,
+    period: 106,
+    color: {
+      code: null,
+      name: null,
+      kana: null,
+    },
+  },
   SACHI: {
-    id: 'sc',
-    key: 'sachi',
+    id: MEMBER_IDS[MEMBER_KEYS.SACHI],
+    key: MEMBER_KEYS.SACHI,
     period: 101,
     color: {
       code: null,
@@ -339,8 +397,8 @@ export const MEMBER_DATA = {
     },
   },
   SELAIZU: {
-    id: 'is',
-    key: 'selaIzu',
+    id: MEMBER_IDS[MEMBER_KEYS.SELAIZU],
+    key: MEMBER_KEYS.SELAIZU,
     period: null,
     color: {
       code: null,
@@ -349,8 +407,18 @@ export const MEMBER_DATA = {
     },
   },
   KOZUTSUZUMEGU: {
-    id: 'ktm',
-    key: 'kozutsuzumegu',
+    id: MEMBER_IDS[MEMBER_KEYS.KOZUTSUZUMEGU],
+    key: MEMBER_KEYS.KOZUTSUZUMEGU,
+    period: null,
+    color: {
+      code: null,
+      name: null,
+      kana: null,
+    },
+  },
+  KAHOSAYARURI: {
+    id: MEMBER_IDS[MEMBER_KEYS.KAHOSAYARURI],
+    key: MEMBER_KEYS.KAHOSAYARURI,
     period: null,
     color: {
       code: null,
@@ -404,6 +472,7 @@ export const getGenerationMembers = (generation: number): MemberData[] => {
 export const memberNameList = () => {
   const memberNames = Object.keys(MEMBER_COLOR);
   memberNames.push('special');
+
   return memberNames;
 };
 
@@ -416,6 +485,7 @@ export const GENERATION_LIST = {
   103: [102, 103],
   104: [102, 103, 104],
   105: [103, 104, 105],
+  106: [104, 105, 106],
 } as const;
 export type GenerationList =
   (typeof GENERATION_LIST)[keyof typeof GENERATION_LIST];
@@ -425,6 +495,7 @@ export const EXCLUSION_MEMBER = [
   MEMBER_KEYS.SACHI,
   MEMBER_KEYS.SELAIZU,
   MEMBER_KEYS.KOZUTSUZUMEGU,
+  MEMBER_KEYS.KAHOSAYARURI,
 ] as const;
 
 /** グループ名の定数 */
@@ -439,6 +510,10 @@ export const GROUP_NAME = {
   EDEL_NOTE: 'Edel Note',
   RITORURITO: 'Ruri&To',
   PRINCESS: 'PRINCEε>ε>',
+  // DAISANKAKU: '蓮ノ大三角',
+  // SANRENKA: '蓮ノ三連華',
+  // SYOUSANKAKU: '蓮ノ小三角',
+  // SYOUSIHEN: '蓮ノ小四辺形',
 } as const;
 export type GroupName = (typeof GROUP_NAME)[keyof typeof GROUP_NAME];
 
@@ -509,6 +584,37 @@ export const GROUP_MEMBER = {
       MEMBER_KEYS.HIME,
       MEMBER_KEYS.SERAS,
       MEMBER_KEYS.IZUMI,
+    ],
+  },
+  HASUNOSORA_BGP: {
+    KEY: 'HASUNOSORA',
+    NAME: `${GROUP_NAME.HASUNOSORA}(BGP)`,
+    MEMBERS: [
+      MEMBER_KEYS.KAHO,
+      MEMBER_KEYS.SAYAKA,
+      MEMBER_KEYS.KOZUE,
+      MEMBER_KEYS.TSUZURI,
+      MEMBER_KEYS.RURINO,
+      MEMBER_KEYS.MEGUMI,
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.SERAS,
+      MEMBER_KEYS.IZUMI,
+    ],
+  },
+  HASUNOSORA_106: {
+    KEY: 'HASUNOSORA',
+    NAME: `${GROUP_NAME.HASUNOSORA}(106期)`,
+    MEMBERS: [
+      MEMBER_KEYS.GINKO,
+      MEMBER_KEYS.KOSUZU,
+      MEMBER_KEYS.HIME,
+      MEMBER_KEYS.SERAS,
+      MEMBER_KEYS.IZUMI,
+      MEMBER_KEYS.MAIKA,
+      MEMBER_KEYS.AOI,
+      MEMBER_KEYS.MION,
     ],
   },
   CERISE_BOUQUET_103: {
@@ -596,6 +702,43 @@ export const GROUP_MEMBER = {
       MEMBER_KEYS.IZUMI,
     ],
   },
+  // DAISANKAKU: {
+  //   KEY: 'DAISANKAKU',
+  //   NAME: GROUP_NAME.DAISANKAKU,
+  //   MEMBERS: [
+  //     MEMBER_KEYS.KOZUE,
+  //     MEMBER_KEYS.TSUZURI,
+  //     MEMBER_KEYS.MEGUMI,
+  //   ],
+  // },
+  // SANRENKA: {
+  //   KEY: 'SANRENKA',
+  //   NAME: GROUP_NAME.SANRENKA,
+  //   MEMBERS: [
+  //     MEMBER_KEYS.KAHO,
+  //     MEMBER_KEYS.SAYAKA,
+  //     MEMBER_KEYS.RURINO,
+  //   ],
+  // },
+  // SYOUSANKAKU: {
+  //   KEY: 'SYOUSANKAKU',
+  //   NAME: GROUP_NAME.SYOUSANKAKU,
+  //   MEMBERS: [
+  //     MEMBER_KEYS.GINKO,
+  //     MEMBER_KEYS.KOSUZU,
+  //     MEMBER_KEYS.HIME,
+  //   ],
+  // },
+  // SYOUSIHEN: {
+  //   KEY: 'SYOUSIHEN',
+  //   NAME: GROUP_NAME.SYOUSIHEN,
+  //   MEMBERS: [
+  //     MEMBER_KEYS.GINKO,
+  //     MEMBER_KEYS.KOSUZU,
+  //     MEMBER_KEYS.HIME,
+  //     MEMBER_KEYS.IZUMI,
+  //   ],
+  // },
 } as const;
 export type GroupMember = (typeof GROUP_MEMBER)[keyof typeof GROUP_MEMBER];
 
@@ -663,5 +806,18 @@ export const FORMATION_MEMBER = {
   //   MEMBER_KEYS.KAHO,
   //   MEMBER_KEYS.SAYAKA,
   //   MEMBER_KEYS.RURINO
+  // ],
+  // '105_bgp': [
+  //   MEMBER_KEYS.SERAS,
+  //   MEMBER_KEYS.IZUMI,
+  //   MEMBER_KEYS.GINKO,
+  //   MEMBER_KEYS.KOSUZU,
+  //   MEMBER_KEYS.HIME,
+  //   MEMBER_KEYS.KAHO,
+  //   MEMBER_KEYS.SAYAKA,
+  //   MEMBER_KEYS.RURINO
+  //   MEMBER_KEYS.KOZUE,
+  //   MEMBER_KEYS.TSUZURI,
+  //   MEMBER_KEYS.MEGUMI,
   // ],
 };
